@@ -37,7 +37,7 @@ class OrganizationsRepository {
 
   /// Fetches all organizations.
   Future<List<Organization>> getOrganizations() async {
-    final response = await _dio.get('/organizations');
+    final response = await _dio.get('/api/organizations');
     final data = response.data;
     if (data is List) {
       return data
@@ -54,7 +54,7 @@ class OrganizationsRepository {
 
   /// Fetches members for an organization.
   Future<List<OrgMember>> getMembers(String orgId) async {
-    final response = await _dio.get('/organizations/$orgId/members');
+    final response = await _dio.get('/api/organizations/$orgId/members');
     final data = response.data;
     if (data is List) {
       return data

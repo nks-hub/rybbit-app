@@ -12,7 +12,7 @@ class SitesRepository {
   /// Fetches all organizations with their sites for the current user.
   /// GET /organizations returns a list of orgs, each containing a sites array.
   Future<List<Map<String, dynamic>>> getOrganizations() async {
-    final response = await _dio.get('/organizations');
+    final response = await _dio.get('/api/organizations');
     final data = response.data;
     if (data is List) {
       return data.cast<Map<String, dynamic>>();
@@ -23,7 +23,7 @@ class SitesRepository {
   /// Fetches sites for a specific organization.
   /// GET /organizations/:orgId/sites returns { organization, sites, subscription }
   Future<Map<String, dynamic>> getOrgSites(String orgId) async {
-    final response = await _dio.get('/organizations/$orgId/sites');
+    final response = await _dio.get('/api/organizations/$orgId/sites');
     return response.data as Map<String, dynamic>;
   }
 

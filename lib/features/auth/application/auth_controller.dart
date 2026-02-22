@@ -61,8 +61,8 @@ class AuthController extends Notifier<AuthState> {
       await StorageService.saveSecure('server_url', serverUrl);
       await StorageService.deleteSecure('api_key');
 
-      final session = result['session'] as Map<String, dynamic>?;
-      final user = session?['user'] as Map<String, dynamic>?;
+      // sign-in/email returns { user: {...}, token, redirect }
+      final user = result['user'] as Map<String, dynamic>?;
 
       state = AuthState(
         status: AuthStatus.authenticated,
@@ -98,9 +98,9 @@ class AuthController extends Notifier<AuthState> {
       await Future<void>.delayed(const Duration(milliseconds: 100));
 
       final repo = ref.read(authRepositoryProvider);
-      final session = await repo.getSession();
+      final user = await repo.verifyApiKey();
 
-      if (session == null) {
+      if (user == null) {
         state = state.copyWith(
           status: AuthStatus.unauthenticated,
           isLoading: false,
@@ -112,11 +112,9 @@ class AuthController extends Notifier<AuthState> {
       await StorageService.saveSecure('server_url', serverUrl);
       await StorageService.saveSecure('api_key', apiKey);
 
-      final user = session['user'] as Map<String, dynamic>?;
-
       state = AuthState(
         status: AuthStatus.authenticated,
-        user: user ?? session,
+        user: user,
       );
     } on DioException catch (e) {
       final message = e.response?.data?['message']?.toString() ??
@@ -153,16 +151,30 @@ class AuthController extends Notifier<AuthState> {
 
     try {
       final repo = ref.read(authRepositoryProvider);
-      final session = await repo.getSession();
 
-      if (session != null) {
-        final user = session['user'] as Map<String, dynamic>?;
-        state = AuthState(
-          status: AuthStatus.authenticated,
-          user: user ?? session,
-        );
+      if (apiKey != null && apiKey.isNotEmpty) {
+        // API key auth: verify by calling a protected endpoint
+        final user = await repo.verifyApiKey();
+        if (user != null) {
+          state = AuthState(
+            status: AuthStatus.authenticated,
+            user: user,
+          );
+        } else {
+          state = const AuthState(status: AuthStatus.unauthenticated);
+        }
       } else {
-        state = const AuthState(status: AuthStatus.unauthenticated);
+        // Session cookie auth: verify via get-session
+        final session = await repo.getSession();
+        if (session != null) {
+          final user = session['user'] as Map<String, dynamic>?;
+          state = AuthState(
+            status: AuthStatus.authenticated,
+            user: user ?? session,
+          );
+        } else {
+          state = const AuthState(status: AuthStatus.unauthenticated);
+        }
       }
     } catch (_) {
       state = const AuthState(status: AuthStatus.unauthenticated);
