@@ -4,3 +4,6 @@ import 'package:riverpod/riverpod.dart';
 /// Set when user taps a site on the dashboard.
 /// Used by analytics/sessions tabs to know which site to show.
 final currentSiteIdProvider = StateProvider<String?>((ref) => null);
+
+/// Holds the currently selected site domain name for display purposes.
+final currentSiteDomainProvider = StateProvider<String?>((ref) => null);

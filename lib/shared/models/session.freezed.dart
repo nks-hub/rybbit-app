@@ -21,33 +21,41 @@ AnalyticsSession _$AnalyticsSessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AnalyticsSession {
-  @JsonKey(name: 'session_id')
+  @JsonKey(name: 'session_id', fromJson: _toStringRequired)
   String get sessionId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _toStringOrNull)
   String? get userId => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _toStringOrNull)
   String? get country => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _toStringOrNull)
   String? get region => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _toStringOrNull)
   String? get city => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _toStringOrNull)
   String? get language => throw _privateConstructorUsedError;
-  @JsonKey(name: 'device_type')
+  @JsonKey(name: 'device_type', fromJson: _toStringOrNull)
   String? get deviceType => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _toStringOrNull)
   String? get browser => throw _privateConstructorUsedError;
-  @JsonKey(name: 'browser_version')
+  @JsonKey(name: 'browser_version', fromJson: _toStringOrNull)
   String? get browserVersion => throw _privateConstructorUsedError;
-  @JsonKey(name: 'operating_system')
+  @JsonKey(name: 'operating_system', fromJson: _toStringOrNull)
   String? get operatingSystem => throw _privateConstructorUsedError;
-  @JsonKey(name: 'operating_system_version')
+  @JsonKey(name: 'operating_system_version', fromJson: _toStringOrNull)
   String? get osVersion => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _toStringOrNull)
   String? get referrer => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _toStringOrNull)
   String? get channel => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _toStringOrNull)
   String? get hostname => throw _privateConstructorUsedError;
-  @JsonKey(name: 'entry_page')
+  @JsonKey(name: 'entry_page', fromJson: _toStringOrNull)
   String? get entryPage => throw _privateConstructorUsedError;
-  @JsonKey(name: 'exit_page')
+  @JsonKey(name: 'exit_page', fromJson: _toStringOrNull)
   String? get exitPage => throw _privateConstructorUsedError;
-  @JsonKey(name: 'session_start')
+  @JsonKey(name: 'session_start', fromJson: _toStringOrNull)
   String? get sessionStart => throw _privateConstructorUsedError;
-  @JsonKey(name: 'session_end')
+  @JsonKey(name: 'session_end', fromJson: _toStringOrNull)
   String? get sessionEnd => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_duration')
   num get sessionDuration => throw _privateConstructorUsedError;
@@ -56,11 +64,11 @@ mixin _$AnalyticsSession {
   int get errors => throw _privateConstructorUsedError;
   @JsonKey(name: 'has_replay')
   int get hasReplay => throw _privateConstructorUsedError;
-  @JsonKey(name: 'utm_source')
+  @JsonKey(name: 'utm_source', fromJson: _toStringOrNull)
   String? get utmSource => throw _privateConstructorUsedError;
-  @JsonKey(name: 'utm_medium')
+  @JsonKey(name: 'utm_medium', fromJson: _toStringOrNull)
   String? get utmMedium => throw _privateConstructorUsedError;
-  @JsonKey(name: 'utm_campaign')
+  @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull)
   String? get utmCampaign => throw _privateConstructorUsedError;
 
   /// Serializes this AnalyticsSession to a JSON map.
@@ -81,32 +89,37 @@ abstract class $AnalyticsSessionCopyWith<$Res> {
   ) = _$AnalyticsSessionCopyWithImpl<$Res, AnalyticsSession>;
   @useResult
   $Res call({
-    @JsonKey(name: 'session_id') String sessionId,
-    @JsonKey(name: 'user_id') String? userId,
-    String? country,
-    String? region,
-    String? city,
-    String? language,
-    @JsonKey(name: 'device_type') String? deviceType,
-    String? browser,
-    @JsonKey(name: 'browser_version') String? browserVersion,
-    @JsonKey(name: 'operating_system') String? operatingSystem,
-    @JsonKey(name: 'operating_system_version') String? osVersion,
-    String? referrer,
-    String? channel,
-    String? hostname,
-    @JsonKey(name: 'entry_page') String? entryPage,
-    @JsonKey(name: 'exit_page') String? exitPage,
-    @JsonKey(name: 'session_start') String? sessionStart,
-    @JsonKey(name: 'session_end') String? sessionEnd,
+    @JsonKey(name: 'session_id', fromJson: _toStringRequired) String sessionId,
+    @JsonKey(name: 'user_id', fromJson: _toStringOrNull) String? userId,
+    @JsonKey(fromJson: _toStringOrNull) String? country,
+    @JsonKey(fromJson: _toStringOrNull) String? region,
+    @JsonKey(fromJson: _toStringOrNull) String? city,
+    @JsonKey(fromJson: _toStringOrNull) String? language,
+    @JsonKey(name: 'device_type', fromJson: _toStringOrNull) String? deviceType,
+    @JsonKey(fromJson: _toStringOrNull) String? browser,
+    @JsonKey(name: 'browser_version', fromJson: _toStringOrNull)
+    String? browserVersion,
+    @JsonKey(name: 'operating_system', fromJson: _toStringOrNull)
+    String? operatingSystem,
+    @JsonKey(name: 'operating_system_version', fromJson: _toStringOrNull)
+    String? osVersion,
+    @JsonKey(fromJson: _toStringOrNull) String? referrer,
+    @JsonKey(fromJson: _toStringOrNull) String? channel,
+    @JsonKey(fromJson: _toStringOrNull) String? hostname,
+    @JsonKey(name: 'entry_page', fromJson: _toStringOrNull) String? entryPage,
+    @JsonKey(name: 'exit_page', fromJson: _toStringOrNull) String? exitPage,
+    @JsonKey(name: 'session_start', fromJson: _toStringOrNull)
+    String? sessionStart,
+    @JsonKey(name: 'session_end', fromJson: _toStringOrNull) String? sessionEnd,
     @JsonKey(name: 'session_duration') num sessionDuration,
     int pageviews,
     int events,
     int errors,
     @JsonKey(name: 'has_replay') int hasReplay,
-    @JsonKey(name: 'utm_source') String? utmSource,
-    @JsonKey(name: 'utm_medium') String? utmMedium,
-    @JsonKey(name: 'utm_campaign') String? utmCampaign,
+    @JsonKey(name: 'utm_source', fromJson: _toStringOrNull) String? utmSource,
+    @JsonKey(name: 'utm_medium', fromJson: _toStringOrNull) String? utmMedium,
+    @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull)
+    String? utmCampaign,
   });
 }
 
@@ -274,32 +287,37 @@ abstract class _$$AnalyticsSessionImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: 'session_id') String sessionId,
-    @JsonKey(name: 'user_id') String? userId,
-    String? country,
-    String? region,
-    String? city,
-    String? language,
-    @JsonKey(name: 'device_type') String? deviceType,
-    String? browser,
-    @JsonKey(name: 'browser_version') String? browserVersion,
-    @JsonKey(name: 'operating_system') String? operatingSystem,
-    @JsonKey(name: 'operating_system_version') String? osVersion,
-    String? referrer,
-    String? channel,
-    String? hostname,
-    @JsonKey(name: 'entry_page') String? entryPage,
-    @JsonKey(name: 'exit_page') String? exitPage,
-    @JsonKey(name: 'session_start') String? sessionStart,
-    @JsonKey(name: 'session_end') String? sessionEnd,
+    @JsonKey(name: 'session_id', fromJson: _toStringRequired) String sessionId,
+    @JsonKey(name: 'user_id', fromJson: _toStringOrNull) String? userId,
+    @JsonKey(fromJson: _toStringOrNull) String? country,
+    @JsonKey(fromJson: _toStringOrNull) String? region,
+    @JsonKey(fromJson: _toStringOrNull) String? city,
+    @JsonKey(fromJson: _toStringOrNull) String? language,
+    @JsonKey(name: 'device_type', fromJson: _toStringOrNull) String? deviceType,
+    @JsonKey(fromJson: _toStringOrNull) String? browser,
+    @JsonKey(name: 'browser_version', fromJson: _toStringOrNull)
+    String? browserVersion,
+    @JsonKey(name: 'operating_system', fromJson: _toStringOrNull)
+    String? operatingSystem,
+    @JsonKey(name: 'operating_system_version', fromJson: _toStringOrNull)
+    String? osVersion,
+    @JsonKey(fromJson: _toStringOrNull) String? referrer,
+    @JsonKey(fromJson: _toStringOrNull) String? channel,
+    @JsonKey(fromJson: _toStringOrNull) String? hostname,
+    @JsonKey(name: 'entry_page', fromJson: _toStringOrNull) String? entryPage,
+    @JsonKey(name: 'exit_page', fromJson: _toStringOrNull) String? exitPage,
+    @JsonKey(name: 'session_start', fromJson: _toStringOrNull)
+    String? sessionStart,
+    @JsonKey(name: 'session_end', fromJson: _toStringOrNull) String? sessionEnd,
     @JsonKey(name: 'session_duration') num sessionDuration,
     int pageviews,
     int events,
     int errors,
     @JsonKey(name: 'has_replay') int hasReplay,
-    @JsonKey(name: 'utm_source') String? utmSource,
-    @JsonKey(name: 'utm_medium') String? utmMedium,
-    @JsonKey(name: 'utm_campaign') String? utmCampaign,
+    @JsonKey(name: 'utm_source', fromJson: _toStringOrNull) String? utmSource,
+    @JsonKey(name: 'utm_medium', fromJson: _toStringOrNull) String? utmMedium,
+    @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull)
+    String? utmCampaign,
   });
 }
 
@@ -459,82 +477,95 @@ class __$$AnalyticsSessionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AnalyticsSessionImpl implements _AnalyticsSession {
   const _$AnalyticsSessionImpl({
-    @JsonKey(name: 'session_id') required this.sessionId,
-    @JsonKey(name: 'user_id') this.userId,
-    this.country,
-    this.region,
-    this.city,
-    this.language,
-    @JsonKey(name: 'device_type') this.deviceType,
-    this.browser,
-    @JsonKey(name: 'browser_version') this.browserVersion,
-    @JsonKey(name: 'operating_system') this.operatingSystem,
-    @JsonKey(name: 'operating_system_version') this.osVersion,
-    this.referrer,
-    this.channel,
-    this.hostname,
-    @JsonKey(name: 'entry_page') this.entryPage,
-    @JsonKey(name: 'exit_page') this.exitPage,
-    @JsonKey(name: 'session_start') this.sessionStart,
-    @JsonKey(name: 'session_end') this.sessionEnd,
+    @JsonKey(name: 'session_id', fromJson: _toStringRequired)
+    required this.sessionId,
+    @JsonKey(name: 'user_id', fromJson: _toStringOrNull) this.userId,
+    @JsonKey(fromJson: _toStringOrNull) this.country,
+    @JsonKey(fromJson: _toStringOrNull) this.region,
+    @JsonKey(fromJson: _toStringOrNull) this.city,
+    @JsonKey(fromJson: _toStringOrNull) this.language,
+    @JsonKey(name: 'device_type', fromJson: _toStringOrNull) this.deviceType,
+    @JsonKey(fromJson: _toStringOrNull) this.browser,
+    @JsonKey(name: 'browser_version', fromJson: _toStringOrNull)
+    this.browserVersion,
+    @JsonKey(name: 'operating_system', fromJson: _toStringOrNull)
+    this.operatingSystem,
+    @JsonKey(name: 'operating_system_version', fromJson: _toStringOrNull)
+    this.osVersion,
+    @JsonKey(fromJson: _toStringOrNull) this.referrer,
+    @JsonKey(fromJson: _toStringOrNull) this.channel,
+    @JsonKey(fromJson: _toStringOrNull) this.hostname,
+    @JsonKey(name: 'entry_page', fromJson: _toStringOrNull) this.entryPage,
+    @JsonKey(name: 'exit_page', fromJson: _toStringOrNull) this.exitPage,
+    @JsonKey(name: 'session_start', fromJson: _toStringOrNull)
+    this.sessionStart,
+    @JsonKey(name: 'session_end', fromJson: _toStringOrNull) this.sessionEnd,
     @JsonKey(name: 'session_duration') this.sessionDuration = 0,
     this.pageviews = 0,
     this.events = 0,
     this.errors = 0,
     @JsonKey(name: 'has_replay') this.hasReplay = 0,
-    @JsonKey(name: 'utm_source') this.utmSource,
-    @JsonKey(name: 'utm_medium') this.utmMedium,
-    @JsonKey(name: 'utm_campaign') this.utmCampaign,
+    @JsonKey(name: 'utm_source', fromJson: _toStringOrNull) this.utmSource,
+    @JsonKey(name: 'utm_medium', fromJson: _toStringOrNull) this.utmMedium,
+    @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull) this.utmCampaign,
   });
 
   factory _$AnalyticsSessionImpl.fromJson(Map<String, dynamic> json) =>
       _$$AnalyticsSessionImplFromJson(json);
 
   @override
-  @JsonKey(name: 'session_id')
+  @JsonKey(name: 'session_id', fromJson: _toStringRequired)
   final String sessionId;
   @override
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _toStringOrNull)
   final String? userId;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   final String? country;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   final String? region;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   final String? city;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   final String? language;
   @override
-  @JsonKey(name: 'device_type')
+  @JsonKey(name: 'device_type', fromJson: _toStringOrNull)
   final String? deviceType;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   final String? browser;
   @override
-  @JsonKey(name: 'browser_version')
+  @JsonKey(name: 'browser_version', fromJson: _toStringOrNull)
   final String? browserVersion;
   @override
-  @JsonKey(name: 'operating_system')
+  @JsonKey(name: 'operating_system', fromJson: _toStringOrNull)
   final String? operatingSystem;
   @override
-  @JsonKey(name: 'operating_system_version')
+  @JsonKey(name: 'operating_system_version', fromJson: _toStringOrNull)
   final String? osVersion;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   final String? referrer;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   final String? channel;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   final String? hostname;
   @override
-  @JsonKey(name: 'entry_page')
+  @JsonKey(name: 'entry_page', fromJson: _toStringOrNull)
   final String? entryPage;
   @override
-  @JsonKey(name: 'exit_page')
+  @JsonKey(name: 'exit_page', fromJson: _toStringOrNull)
   final String? exitPage;
   @override
-  @JsonKey(name: 'session_start')
+  @JsonKey(name: 'session_start', fromJson: _toStringOrNull)
   final String? sessionStart;
   @override
-  @JsonKey(name: 'session_end')
+  @JsonKey(name: 'session_end', fromJson: _toStringOrNull)
   final String? sessionEnd;
   @override
   @JsonKey(name: 'session_duration')
@@ -552,13 +583,13 @@ class _$AnalyticsSessionImpl implements _AnalyticsSession {
   @JsonKey(name: 'has_replay')
   final int hasReplay;
   @override
-  @JsonKey(name: 'utm_source')
+  @JsonKey(name: 'utm_source', fromJson: _toStringOrNull)
   final String? utmSource;
   @override
-  @JsonKey(name: 'utm_medium')
+  @JsonKey(name: 'utm_medium', fromJson: _toStringOrNull)
   final String? utmMedium;
   @override
-  @JsonKey(name: 'utm_campaign')
+  @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull)
   final String? utmCampaign;
 
   @override
@@ -668,82 +699,102 @@ class _$AnalyticsSessionImpl implements _AnalyticsSession {
 
 abstract class _AnalyticsSession implements AnalyticsSession {
   const factory _AnalyticsSession({
-    @JsonKey(name: 'session_id') required final String sessionId,
-    @JsonKey(name: 'user_id') final String? userId,
-    final String? country,
-    final String? region,
-    final String? city,
-    final String? language,
-    @JsonKey(name: 'device_type') final String? deviceType,
-    final String? browser,
-    @JsonKey(name: 'browser_version') final String? browserVersion,
-    @JsonKey(name: 'operating_system') final String? operatingSystem,
-    @JsonKey(name: 'operating_system_version') final String? osVersion,
-    final String? referrer,
-    final String? channel,
-    final String? hostname,
-    @JsonKey(name: 'entry_page') final String? entryPage,
-    @JsonKey(name: 'exit_page') final String? exitPage,
-    @JsonKey(name: 'session_start') final String? sessionStart,
-    @JsonKey(name: 'session_end') final String? sessionEnd,
+    @JsonKey(name: 'session_id', fromJson: _toStringRequired)
+    required final String sessionId,
+    @JsonKey(name: 'user_id', fromJson: _toStringOrNull) final String? userId,
+    @JsonKey(fromJson: _toStringOrNull) final String? country,
+    @JsonKey(fromJson: _toStringOrNull) final String? region,
+    @JsonKey(fromJson: _toStringOrNull) final String? city,
+    @JsonKey(fromJson: _toStringOrNull) final String? language,
+    @JsonKey(name: 'device_type', fromJson: _toStringOrNull)
+    final String? deviceType,
+    @JsonKey(fromJson: _toStringOrNull) final String? browser,
+    @JsonKey(name: 'browser_version', fromJson: _toStringOrNull)
+    final String? browserVersion,
+    @JsonKey(name: 'operating_system', fromJson: _toStringOrNull)
+    final String? operatingSystem,
+    @JsonKey(name: 'operating_system_version', fromJson: _toStringOrNull)
+    final String? osVersion,
+    @JsonKey(fromJson: _toStringOrNull) final String? referrer,
+    @JsonKey(fromJson: _toStringOrNull) final String? channel,
+    @JsonKey(fromJson: _toStringOrNull) final String? hostname,
+    @JsonKey(name: 'entry_page', fromJson: _toStringOrNull)
+    final String? entryPage,
+    @JsonKey(name: 'exit_page', fromJson: _toStringOrNull)
+    final String? exitPage,
+    @JsonKey(name: 'session_start', fromJson: _toStringOrNull)
+    final String? sessionStart,
+    @JsonKey(name: 'session_end', fromJson: _toStringOrNull)
+    final String? sessionEnd,
     @JsonKey(name: 'session_duration') final num sessionDuration,
     final int pageviews,
     final int events,
     final int errors,
     @JsonKey(name: 'has_replay') final int hasReplay,
-    @JsonKey(name: 'utm_source') final String? utmSource,
-    @JsonKey(name: 'utm_medium') final String? utmMedium,
-    @JsonKey(name: 'utm_campaign') final String? utmCampaign,
+    @JsonKey(name: 'utm_source', fromJson: _toStringOrNull)
+    final String? utmSource,
+    @JsonKey(name: 'utm_medium', fromJson: _toStringOrNull)
+    final String? utmMedium,
+    @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull)
+    final String? utmCampaign,
   }) = _$AnalyticsSessionImpl;
 
   factory _AnalyticsSession.fromJson(Map<String, dynamic> json) =
       _$AnalyticsSessionImpl.fromJson;
 
   @override
-  @JsonKey(name: 'session_id')
+  @JsonKey(name: 'session_id', fromJson: _toStringRequired)
   String get sessionId;
   @override
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _toStringOrNull)
   String? get userId;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   String? get country;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   String? get region;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   String? get city;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   String? get language;
   @override
-  @JsonKey(name: 'device_type')
+  @JsonKey(name: 'device_type', fromJson: _toStringOrNull)
   String? get deviceType;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   String? get browser;
   @override
-  @JsonKey(name: 'browser_version')
+  @JsonKey(name: 'browser_version', fromJson: _toStringOrNull)
   String? get browserVersion;
   @override
-  @JsonKey(name: 'operating_system')
+  @JsonKey(name: 'operating_system', fromJson: _toStringOrNull)
   String? get operatingSystem;
   @override
-  @JsonKey(name: 'operating_system_version')
+  @JsonKey(name: 'operating_system_version', fromJson: _toStringOrNull)
   String? get osVersion;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   String? get referrer;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   String? get channel;
   @override
+  @JsonKey(fromJson: _toStringOrNull)
   String? get hostname;
   @override
-  @JsonKey(name: 'entry_page')
+  @JsonKey(name: 'entry_page', fromJson: _toStringOrNull)
   String? get entryPage;
   @override
-  @JsonKey(name: 'exit_page')
+  @JsonKey(name: 'exit_page', fromJson: _toStringOrNull)
   String? get exitPage;
   @override
-  @JsonKey(name: 'session_start')
+  @JsonKey(name: 'session_start', fromJson: _toStringOrNull)
   String? get sessionStart;
   @override
-  @JsonKey(name: 'session_end')
+  @JsonKey(name: 'session_end', fromJson: _toStringOrNull)
   String? get sessionEnd;
   @override
   @JsonKey(name: 'session_duration')
@@ -758,13 +809,13 @@ abstract class _AnalyticsSession implements AnalyticsSession {
   @JsonKey(name: 'has_replay')
   int get hasReplay;
   @override
-  @JsonKey(name: 'utm_source')
+  @JsonKey(name: 'utm_source', fromJson: _toStringOrNull)
   String? get utmSource;
   @override
-  @JsonKey(name: 'utm_medium')
+  @JsonKey(name: 'utm_medium', fromJson: _toStringOrNull)
   String? get utmMedium;
   @override
-  @JsonKey(name: 'utm_campaign')
+  @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull)
   String? get utmCampaign;
 
   /// Create a copy of AnalyticsSession

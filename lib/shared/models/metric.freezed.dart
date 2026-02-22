@@ -373,7 +373,7 @@ MetricResponse _$MetricResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MetricResponse {
   List<MetricItem> get data => throw _privateConstructorUsedError;
-  @JsonKey(name: 'total_count')
+  @JsonKey(name: 'totalCount')
   int get totalCount => throw _privateConstructorUsedError;
 
   /// Serializes this MetricResponse to a JSON map.
@@ -395,7 +395,7 @@ abstract class $MetricResponseCopyWith<$Res> {
   @useResult
   $Res call({
     List<MetricItem> data,
-    @JsonKey(name: 'total_count') int totalCount,
+    @JsonKey(name: 'totalCount') int totalCount,
   });
 }
 
@@ -441,7 +441,7 @@ abstract class _$$MetricResponseImplCopyWith<$Res>
   @useResult
   $Res call({
     List<MetricItem> data,
-    @JsonKey(name: 'total_count') int totalCount,
+    @JsonKey(name: 'totalCount') int totalCount,
   });
 }
 
@@ -479,7 +479,7 @@ class __$$MetricResponseImplCopyWithImpl<$Res>
 class _$MetricResponseImpl implements _MetricResponse {
   const _$MetricResponseImpl({
     required final List<MetricItem> data,
-    @JsonKey(name: 'total_count') required this.totalCount,
+    @JsonKey(name: 'totalCount') this.totalCount = 0,
   }) : _data = data;
 
   factory _$MetricResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -494,7 +494,7 @@ class _$MetricResponseImpl implements _MetricResponse {
   }
 
   @override
-  @JsonKey(name: 'total_count')
+  @JsonKey(name: 'totalCount')
   final int totalCount;
 
   @override
@@ -540,7 +540,7 @@ class _$MetricResponseImpl implements _MetricResponse {
 abstract class _MetricResponse implements MetricResponse {
   const factory _MetricResponse({
     required final List<MetricItem> data,
-    @JsonKey(name: 'total_count') required final int totalCount,
+    @JsonKey(name: 'totalCount') final int totalCount,
   }) = _$MetricResponseImpl;
 
   factory _MetricResponse.fromJson(Map<String, dynamic> json) =
@@ -549,7 +549,7 @@ abstract class _MetricResponse implements MetricResponse {
   @override
   List<MetricItem> get data;
   @override
-  @JsonKey(name: 'total_count')
+  @JsonKey(name: 'totalCount')
   int get totalCount;
 
   /// Create a copy of MetricResponse

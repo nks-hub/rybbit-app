@@ -25,7 +25,7 @@ class MetricItem with _$MetricItem {
 class MetricResponse with _$MetricResponse {
   const factory MetricResponse({
     required List<MetricItem> data,
-    @JsonKey(name: 'total_count') required int totalCount,
+    @JsonKey(name: 'totalCount') @Default(0) int totalCount,
   }) = _MetricResponse;
 
   factory MetricResponse.fromJson(Map<String, dynamic> json) =>

@@ -8,7 +8,7 @@ part of 'event.dart';
 
 _$EventNameImpl _$$EventNameImplFromJson(Map<String, dynamic> json) =>
     _$EventNameImpl(
-      eventName: json['event_name'] as String,
+      eventName: json['event_name'] as String? ?? '',
       count: (json['count'] as num?)?.toInt() ?? 0,
     );
 

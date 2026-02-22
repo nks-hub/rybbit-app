@@ -28,7 +28,7 @@ Map<String, dynamic> _$$OverviewImplToJson(_$OverviewImpl instance) =>
 
 _$OverviewBucketImpl _$$OverviewBucketImplFromJson(Map<String, dynamic> json) =>
     _$OverviewBucketImpl(
-      time: json['time'] as String,
+      time: json['time'] as String? ?? '',
       pageviews: (json['pageviews'] as num?)?.toInt() ?? 0,
       sessions: (json['sessions'] as num?)?.toInt() ?? 0,
       users: (json['users'] as num?)?.toInt() ?? 0,

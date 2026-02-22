@@ -37,12 +37,12 @@ _$MetricResponseImpl _$$MetricResponseImplFromJson(Map<String, dynamic> json) =>
       data: (json['data'] as List<dynamic>)
           .map((e) => MetricItem.fromJson(e as Map<String, dynamic>))
           .toList(),
-      totalCount: (json['total_count'] as num).toInt(),
+      totalCount: (json['totalCount'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$MetricResponseImplToJson(
   _$MetricResponseImpl instance,
 ) => <String, dynamic>{
   'data': instance.data,
-  'total_count': instance.totalCount,
+  'totalCount': instance.totalCount,
 };

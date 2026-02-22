@@ -165,6 +165,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   onTap: () {
                     ref.read(currentSiteIdProvider.notifier).state =
                         site.siteId.toString();
+                    ref.read(currentSiteDomainProvider.notifier).state =
+                        site.domain;
                     context.go(
                         '/analytics/${site.siteId}');
                   },

@@ -21,7 +21,7 @@ class Overview with _$Overview {
 @freezed
 class OverviewBucket with _$OverviewBucket {
   const factory OverviewBucket({
-    required String time,
+    @Default('') String time,
     @Default(0) int pageviews,
     @Default(0) int sessions,
     @Default(0) int users,

@@ -119,7 +119,7 @@ class __$$EventNameImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EventNameImpl implements _EventName {
   const _$EventNameImpl({
-    @JsonKey(name: 'event_name') required this.eventName,
+    @JsonKey(name: 'event_name') this.eventName = '',
     this.count = 0,
   });
 
@@ -168,7 +168,7 @@ class _$EventNameImpl implements _EventName {
 
 abstract class _EventName implements EventName {
   const factory _EventName({
-    @JsonKey(name: 'event_name') required final String eventName,
+    @JsonKey(name: 'event_name') final String eventName,
     final int count,
   }) = _$EventNameImpl;
 

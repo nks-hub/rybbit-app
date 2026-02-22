@@ -486,7 +486,7 @@ class __$$OverviewBucketImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OverviewBucketImpl implements _OverviewBucket {
   const _$OverviewBucketImpl({
-    required this.time,
+    this.time = '',
     this.pageviews = 0,
     this.sessions = 0,
     this.users = 0,
@@ -499,6 +499,7 @@ class _$OverviewBucketImpl implements _OverviewBucket {
       _$$OverviewBucketImplFromJson(json);
 
   @override
+  @JsonKey()
   final String time;
   @override
   @JsonKey()
@@ -575,7 +576,7 @@ class _$OverviewBucketImpl implements _OverviewBucket {
 
 abstract class _OverviewBucket implements OverviewBucket {
   const factory _OverviewBucket({
-    required final String time,
+    final String time,
     final int pageviews,
     final int sessions,
     final int users,

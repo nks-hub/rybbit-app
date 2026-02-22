@@ -8,6 +8,7 @@ import '../../../shared/widgets/filter_bar.dart';
 import '../../../shared/widgets/stat_card.dart';
 import '../../../shared/widgets/time_range_picker.dart';
 import '../../../shared/widgets/time_series_chart.dart';
+import '../../../core/state/current_site_provider.dart';
 import '../application/analytics_controller.dart';
 import '../application/filter_controller.dart';
 import '../application/time_range_controller.dart';
@@ -43,7 +44,7 @@ class AnalyticsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Site $siteId',
+          ref.watch(currentSiteDomainProvider) ?? 'Site $siteId',
           style: const TextStyle(fontSize: 18),
         ),
         actions: [

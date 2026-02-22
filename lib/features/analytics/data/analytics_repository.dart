@@ -17,7 +17,9 @@ class AnalyticsRepository {
       '/api/sites/$siteId/overview',
       queryParameters: params,
     );
-    return Overview.fromJson(response.data as Map<String, dynamic>);
+    final envelope = response.data as Map<String, dynamic>;
+    final data = envelope['data'] as Map<String, dynamic>? ?? envelope;
+    return Overview.fromJson(data);
   }
 
   /// Fetches bucketed overview data for charting.
@@ -27,7 +29,9 @@ class AnalyticsRepository {
       '/api/sites/$siteId/overview-bucketed',
       queryParameters: params,
     );
-    final data = response.data;
+    final raw = response.data;
+    // API returns { data: [...] } envelope
+    final data = raw is Map<String, dynamic> ? (raw['data'] ?? raw) : raw;
     if (data is List) {
       return data
           .map((e) => OverviewBucket.fromJson(e as Map<String, dynamic>))
@@ -45,7 +49,9 @@ class AnalyticsRepository {
       '/api/sites/$siteId/metric',
       queryParameters: queryParams,
     );
-    return MetricResponse.fromJson(response.data as Map<String, dynamic>);
+    final envelope = response.data as Map<String, dynamic>;
+    final data = envelope['data'] as Map<String, dynamic>? ?? envelope;
+    return MetricResponse.fromJson(data);
   }
 
   /// Fetches live user count for a site.

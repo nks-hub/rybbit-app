@@ -6,7 +6,7 @@ part 'event.g.dart';
 @freezed
 class EventName with _$EventName {
   const factory EventName({
-    @JsonKey(name: 'event_name') required String eventName,
+    @JsonKey(name: 'event_name') @Default('') String eventName,
     @Default(0) int count,
   }) = _EventName;
 
