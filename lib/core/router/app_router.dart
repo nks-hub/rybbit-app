@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod/riverpod.dart';
 
+import '../../features/analytics/presentation/analytics_screen.dart';
 import '../../features/auth/application/auth_controller.dart';
 import '../../features/auth/presentation/login_screen.dart';
+import '../../features/dashboard/presentation/dashboard_screen.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authControllerProvider);
@@ -28,22 +29,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/',
-        builder: (context, state) => const _DashboardPlaceholder(),
+        builder: (context, state) => const DashboardScreen(),
+      ),
+      GoRoute(
+        path: '/sites/:siteId',
+        builder: (context, state) {
+          final siteId = state.pathParameters['siteId']!;
+          return AnalyticsScreen(siteId: siteId);
+        },
       ),
     ],
   );
 });
-
-class _DashboardPlaceholder extends StatelessWidget {
-  const _DashboardPlaceholder();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Dashboard')),
-      body: const Center(
-        child: Text('Dashboard'),
-      ),
-    );
-  }
-}
