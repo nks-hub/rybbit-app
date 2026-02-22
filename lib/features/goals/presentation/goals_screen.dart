@@ -1,0 +1,369 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../shared/models/goal.dart';
+import '../data/goals_repository.dart';
+
+/// Provider for goals list.
+final _goalsProvider =
+    FutureProvider.family<List<Goal>, String>((ref, siteId) async {
+  final repo = ref.read(goalsRepositoryProvider);
+  return repo.getGoals(siteId);
+});
+
+class GoalsScreen extends ConsumerWidget {
+  final String siteId;
+
+  const GoalsScreen({super.key, required this.siteId});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final goalsAsync = ref.watch(_goalsProvider(siteId));
+    final theme = Theme.of(context);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Goals', style: TextStyle(fontSize: 18)),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.pop(),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _showGoalForm(context, ref, null),
+        child: const Icon(Icons.add),
+      ),
+      body: goalsAsync.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, _) => Center(
+          child: Padding(
+            padding: const EdgeInsets.all(32),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.error_outline,
+                    size: 48, color: theme.colorScheme.error),
+                const SizedBox(height: 16),
+                Text('Failed to load goals',
+                    style: theme.textTheme.bodyLarge),
+                const SizedBox(height: 8),
+                Text(error.toString(),
+                    style: theme.textTheme.bodySmall,
+                    textAlign: TextAlign.center),
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  onPressed: () => ref.invalidate(_goalsProvider(siteId)),
+                  child: const Text('Retry'),
+                ),
+              ],
+            ),
+          ),
+        ),
+        data: (goals) {
+          if (goals.isEmpty) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.flag_outlined,
+                      size: 64, color: theme.textTheme.bodySmall?.color),
+                  const SizedBox(height: 16),
+                  Text('No goals configured',
+                      style: theme.textTheme.bodyLarge),
+                  const SizedBox(height: 8),
+                  Text('Tap + to create a new goal',
+                      style: theme.textTheme.bodySmall),
+                ],
+              ),
+            );
+          }
+
+          return RefreshIndicator(
+            onRefresh: () async {
+              ref.invalidate(_goalsProvider(siteId));
+            },
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              itemCount: goals.length,
+              itemBuilder: (context, index) {
+                final goal = goals[index];
+                return _GoalCard(
+                  goal: goal,
+                  onEdit: () => _showGoalForm(context, ref, goal),
+                  onDelete: () => _deleteGoal(context, ref, goal),
+                );
+              },
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Future<void> _showGoalForm(
+    BuildContext context,
+    WidgetRef ref,
+    Goal? existingGoal,
+  ) async {
+    final result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (ctx) => _GoalFormDialog(goal: existingGoal),
+    );
+
+    if (result == null) return;
+
+    try {
+      final repo = ref.read(goalsRepositoryProvider);
+      if (existingGoal != null) {
+        await repo.updateGoal(siteId, existingGoal.goalId, result);
+      } else {
+        await repo.createGoal(siteId, result);
+      }
+      ref.invalidate(_goalsProvider(siteId));
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e')),
+        );
+      }
+    }
+  }
+
+  Future<void> _deleteGoal(
+    BuildContext context,
+    WidgetRef ref,
+    Goal goal,
+  ) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Delete Goal'),
+        content: Text('Delete "${goal.name}"?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Delete', style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+
+    try {
+      final repo = ref.read(goalsRepositoryProvider);
+      await repo.deleteGoal(siteId, goal.goalId);
+      ref.invalidate(_goalsProvider(siteId));
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to delete goal: $e')),
+        );
+      }
+    }
+  }
+}
+
+class _GoalCard extends StatelessWidget {
+  final Goal goal;
+  final VoidCallback onEdit;
+  final VoidCallback onDelete;
+
+  const _GoalCard({
+    required this.goal,
+    required this.onEdit,
+    required this.onDelete,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final typeColor = goal.goalType == 'path'
+        ? const Color(0xFF3B82F6)
+        : const Color(0xFF22C55E);
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: 8),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          goal.name,
+                          style: theme.textTheme.bodyLarge?.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: typeColor.withValues(alpha: 0.15),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          goal.goalType,
+                          style: TextStyle(
+                            color: typeColor,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    _goalDetail,
+                    style: theme.textTheme.bodySmall,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.edit_outlined, size: 20),
+              onPressed: onEdit,
+            ),
+            IconButton(
+              icon: Icon(Icons.delete_outline,
+                  size: 20, color: theme.colorScheme.error),
+              onPressed: onDelete,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String get _goalDetail {
+    if (goal.pathPattern != null && goal.pathPattern!.isNotEmpty) {
+      return 'Path: ${goal.pathPattern}';
+    }
+    if (goal.eventName != null && goal.eventName!.isNotEmpty) {
+      return 'Event: ${goal.eventName}';
+    }
+    return goal.goalType;
+  }
+}
+
+class _GoalFormDialog extends StatefulWidget {
+  final Goal? goal;
+
+  const _GoalFormDialog({this.goal});
+
+  @override
+  State<_GoalFormDialog> createState() => _GoalFormDialogState();
+}
+
+class _GoalFormDialogState extends State<_GoalFormDialog> {
+  final _nameController = TextEditingController();
+  final _pathController = TextEditingController();
+  final _eventNameController = TextEditingController();
+  String _goalType = 'path';
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.goal != null) {
+      _nameController.text = widget.goal!.name;
+      _goalType = widget.goal!.goalType;
+      _pathController.text = widget.goal!.pathPattern ?? '';
+      _eventNameController.text = widget.goal!.eventName ?? '';
+    }
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _pathController.dispose();
+    _eventNameController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isEditing = widget.goal != null;
+
+    return AlertDialog(
+      title: Text(isEditing ? 'Edit Goal' : 'Create Goal'),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: _nameController,
+              decoration: const InputDecoration(labelText: 'Name'),
+            ),
+            const SizedBox(height: 16),
+            DropdownButtonFormField<String>(
+              initialValue: _goalType,
+              decoration: const InputDecoration(labelText: 'Type'),
+              items: const [
+                DropdownMenuItem(value: 'path', child: Text('Path')),
+                DropdownMenuItem(value: 'event', child: Text('Event')),
+              ],
+              onChanged: (v) {
+                if (v != null) setState(() => _goalType = v);
+              },
+            ),
+            const SizedBox(height: 16),
+            if (_goalType == 'path')
+              TextField(
+                controller: _pathController,
+                decoration:
+                    const InputDecoration(labelText: 'Path Pattern'),
+              )
+            else
+              TextField(
+                controller: _eventNameController,
+                decoration:
+                    const InputDecoration(labelText: 'Event Name'),
+              ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            final name = _nameController.text.trim();
+            if (name.isEmpty) return;
+
+            final body = <String, dynamic>{
+              'name': name,
+              'goalType': _goalType,
+            };
+
+            if (_goalType == 'path') {
+              body['pathPattern'] = _pathController.text.trim();
+            } else {
+              body['eventName'] = _eventNameController.text.trim();
+            }
+
+            Navigator.pop(context, body);
+          },
+          child: Text(isEditing ? 'Update' : 'Create'),
+        ),
+      ],
+    );
+  }
+}
