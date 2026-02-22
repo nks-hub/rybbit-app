@@ -131,7 +131,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                 return _SessionCard(
                   session: session,
                   onTap: () => context.push(
-                    '/sites/${widget.siteId}/sessions/${session.sessionId}',
+                    '/sessions/${widget.siteId}/${session.sessionId}',
                   ),
                 );
               },

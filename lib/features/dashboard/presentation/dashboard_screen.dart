@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../../auth/application/auth_controller.dart';
 import '../application/sites_controller.dart';
 import 'widgets/site_card.dart';
@@ -49,16 +50,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.settings_outlined),
-            onPressed: () => context.push('/settings'),
-          ),
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
             onSelected: (value) {
               switch (value) {
                 case 'organizations':
-                  context.push('/organizations');
+                  context.go('/organizations');
                 case 'logout':
                   ref.read(authControllerProvider.notifier).logout();
               }
@@ -165,8 +162,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 return SiteCard(
                   site: site,
                   liveCount: liveCount,
-                  onTap: () =>
-                      context.push('/sites/${site.siteId}'),
+                  onTap: () {
+                    ref.read(currentSiteIdProvider.notifier).state =
+                        site.siteId.toString();
+                    context.go(
+                        '/analytics/${site.siteId}');
+                  },
                 );
               },
             ),

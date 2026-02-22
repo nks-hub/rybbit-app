@@ -313,17 +313,18 @@ class AnalyticsScreen extends ConsumerWidget {
     ];
 
     final featureLinks = [
-      ('Sessions', Icons.people_outline, '/sites/$siteId/sessions'),
-      ('Events', Icons.bolt, '/sites/$siteId/events'),
-      ('Errors', Icons.error_outline, '/sites/$siteId/errors'),
+      ('Sessions', Icons.people_outline, '/sessions/$siteId'),
+      ('Events', Icons.bolt, '/analytics/$siteId/events'),
+      ('Errors', Icons.error_outline, '/analytics/$siteId/errors'),
     ];
 
     final moreLinks = [
-      ('Performance', Icons.speed, '/sites/$siteId/performance'),
-      ('Goals', Icons.flag_outlined, '/sites/$siteId/goals'),
-      ('Funnels', Icons.filter_alt_outlined, '/sites/$siteId/funnels'),
-      ('Users', Icons.person_outline, '/sites/$siteId/users'),
-      ('Config', Icons.settings_outlined, '/sites/$siteId/config'),
+      ('Performance', Icons.speed, '/analytics/$siteId/performance'),
+      ('Goals', Icons.flag_outlined, '/analytics/$siteId/goals'),
+      ('Funnels', Icons.filter_alt_outlined, '/analytics/$siteId/funnels'),
+      ('Users', Icons.person_outline, '/analytics/$siteId/users'),
+      ('Replay', Icons.videocam_outlined, '/analytics/$siteId/replay'),
+      ('Config', Icons.settings_outlined, '/analytics/$siteId/config'),
     ];
 
     return Padding(
@@ -342,7 +343,7 @@ class AnalyticsScreen extends ConsumerWidget {
                   (link) => Card(
                     child: InkWell(
                       onTap: () => context.push(
-                        '/sites/$siteId/metrics/${link.$3}',
+                        '/analytics/$siteId/metrics/${link.$3}',
                       ),
                       borderRadius: BorderRadius.circular(12),
                       child: Padding(
