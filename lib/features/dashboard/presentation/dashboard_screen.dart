@@ -49,14 +49,31 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () => context.push('/settings'),
+          ),
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
             onSelected: (value) {
-              if (value == 'logout') {
-                ref.read(authControllerProvider.notifier).logout();
+              switch (value) {
+                case 'organizations':
+                  context.push('/organizations');
+                case 'logout':
+                  ref.read(authControllerProvider.notifier).logout();
               }
             },
             itemBuilder: (context) => [
+              const PopupMenuItem(
+                value: 'organizations',
+                child: Row(
+                  children: [
+                    Icon(Icons.business_outlined, size: 20),
+                    SizedBox(width: 8),
+                    Text('Organizations'),
+                  ],
+                ),
+              ),
               const PopupMenuItem(
                 value: 'logout',
                 child: Row(

@@ -318,6 +318,14 @@ class AnalyticsScreen extends ConsumerWidget {
       ('Errors', Icons.error_outline, '/sites/$siteId/errors'),
     ];
 
+    final moreLinks = [
+      ('Performance', Icons.speed, '/sites/$siteId/performance'),
+      ('Goals', Icons.flag_outlined, '/sites/$siteId/goals'),
+      ('Funnels', Icons.filter_alt_outlined, '/sites/$siteId/funnels'),
+      ('Users', Icons.person_outline, '/sites/$siteId/users'),
+      ('Config', Icons.settings_outlined, '/sites/$siteId/config'),
+    ];
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
@@ -368,6 +376,47 @@ class AnalyticsScreen extends ConsumerWidget {
             crossAxisSpacing: 8,
             childAspectRatio: 2.0,
             children: featureLinks
+                .map(
+                  (link) => Card(
+                    child: InkWell(
+                      onTap: () => context.push(link.$3),
+                      borderRadius: BorderRadius.circular(12),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(link.$2,
+                                size: 18,
+                                color: theme.textTheme.bodySmall?.color),
+                            const SizedBox(width: 6),
+                            Flexible(
+                              child: Text(
+                                link.$1,
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 13,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+          const SizedBox(height: 8),
+          GridView.count(
+            crossAxisCount: 3,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 8,
+            childAspectRatio: 2.0,
+            children: moreLinks
                 .map(
                   (link) => Card(
                     child: InkWell(
