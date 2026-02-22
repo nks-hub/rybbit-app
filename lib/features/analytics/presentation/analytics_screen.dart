@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../shared/models/overview.dart';
 import '../../../shared/utils/formatters.dart';
@@ -303,51 +304,103 @@ class AnalyticsScreen extends ConsumerWidget {
 
   Widget _buildQuickLinks(BuildContext context) {
     final theme = Theme.of(context);
-    final links = [
-      ('Pages', Icons.article_outlined),
-      ('Referrers', Icons.link),
-      ('Countries', Icons.public),
-      ('Devices', Icons.devices),
+    // (label, icon, route parameter)
+    final metricLinks = [
+      ('Pages', Icons.article_outlined, 'pathname'),
+      ('Referrers', Icons.link, 'referrer'),
+      ('Countries', Icons.public, 'country'),
+      ('Devices', Icons.devices, 'device_type'),
+    ];
+
+    final featureLinks = [
+      ('Sessions', Icons.people_outline, '/sites/$siteId/sessions'),
+      ('Events', Icons.bolt, '/sites/$siteId/events'),
+      ('Errors', Icons.error_outline, '/sites/$siteId/errors'),
     ];
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: GridView.count(
-        crossAxisCount: 2,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        childAspectRatio: 2.8,
-        children: links
-            .map(
-              (link) => Card(
-                child: InkWell(
-                  onTap: () {
-                    // TODO: Navigate to metric detail
-                  },
-                  borderRadius: BorderRadius.circular(12),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
-                      children: [
-                        Icon(link.$2,
-                            size: 20,
-                            color: theme.textTheme.bodySmall?.color),
-                        const SizedBox(width: 10),
-                        Text(
-                          link.$1,
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w500,
-                          ),
+      child: Column(
+        children: [
+          GridView.count(
+            crossAxisCount: 2,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 8,
+            childAspectRatio: 2.8,
+            children: metricLinks
+                .map(
+                  (link) => Card(
+                    child: InkWell(
+                      onTap: () => context.push(
+                        '/sites/$siteId/metrics/${link.$3}',
+                      ),
+                      borderRadius: BorderRadius.circular(12),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Row(
+                          children: [
+                            Icon(link.$2,
+                                size: 20,
+                                color: theme.textTheme.bodySmall?.color),
+                            const SizedBox(width: 10),
+                            Text(
+                              link.$1,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-            )
-            .toList(),
+                )
+                .toList(),
+          ),
+          const SizedBox(height: 8),
+          GridView.count(
+            crossAxisCount: 3,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 8,
+            childAspectRatio: 2.0,
+            children: featureLinks
+                .map(
+                  (link) => Card(
+                    child: InkWell(
+                      onTap: () => context.push(link.$3),
+                      borderRadius: BorderRadius.circular(12),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(link.$2,
+                                size: 18,
+                                color: theme.textTheme.bodySmall?.color),
+                            const SizedBox(width: 6),
+                            Flexible(
+                              child: Text(
+                                link.$1,
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 13,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+        ],
       ),
     );
   }
