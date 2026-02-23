@@ -78,6 +78,17 @@ class AppLocalizationsEs extends AppLocalizations {
   String get connect => 'Conectar';
 
   @override
+  String get connectionFailed =>
+      'Error de conexión. Verifique la URL del servidor.';
+
+  @override
+  String get invalidApiKey => 'Clave API no válida';
+
+  @override
+  String get connectionFailedApiKey =>
+      'Error de conexión. Verifique la URL del servidor y la clave API.';
+
+  @override
   String get organizations => 'Organizaciones';
 
   @override

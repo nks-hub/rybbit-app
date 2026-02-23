@@ -254,6 +254,24 @@ abstract class AppLocalizations {
   /// **'Connect'**
   String get connect;
 
+  /// No description provided for @connectionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection failed. Check server URL.'**
+  String get connectionFailed;
+
+  /// No description provided for @invalidApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid API key'**
+  String get invalidApiKey;
+
+  /// No description provided for @connectionFailedApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection failed. Check server URL and API key.'**
+  String get connectionFailedApiKey;
+
   /// No description provided for @organizations.
   ///
   /// In en, this message translates to:

@@ -26,6 +26,9 @@
   "apiKey": "API Key",
   "password": "Password",
   "connect": "Connect",
+  "connectionFailed": "Connection failed. Check server URL.",
+  "invalidApiKey": "Invalid API key",
+  "connectionFailedApiKey": "Connection failed. Check server URL and API key.",
 
   "organizations": "Organizations",
   "noSitesFound": "No sites found",

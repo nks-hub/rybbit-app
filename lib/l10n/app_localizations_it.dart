@@ -78,6 +78,17 @@ class AppLocalizationsIt extends AppLocalizations {
   String get connect => 'Connetti';
 
   @override
+  String get connectionFailed =>
+      'Connessione fallita. Controlla l\'URL del server.';
+
+  @override
+  String get invalidApiKey => 'Chiave API non valida';
+
+  @override
+  String get connectionFailedApiKey =>
+      'Connessione fallita. Controlla l\'URL del server e la chiave API.';
+
+  @override
   String get organizations => 'Organizzazioni';
 
   @override

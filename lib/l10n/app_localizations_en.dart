@@ -78,6 +78,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get connect => 'Connect';
 
   @override
+  String get connectionFailed => 'Connection failed. Check server URL.';
+
+  @override
+  String get invalidApiKey => 'Invalid API key';
+
+  @override
+  String get connectionFailedApiKey =>
+      'Connection failed. Check server URL and API key.';
+
+  @override
   String get organizations => 'Organizations';
 
   @override

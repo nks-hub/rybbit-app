@@ -78,6 +78,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get connect => 'ì°ê²°';
 
   @override
+  String get connectionFailed => '연결에 실패했습니다. 서버 URL을 확인하세요.';
+
+  @override
+  String get invalidApiKey => '유효하지 않은 API 키';
+
+  @override
+  String get connectionFailedApiKey => '연결에 실패했습니다. 서버 URL과 API 키를 확인하세요.';
+
+  @override
   String get organizations => 'ì¡°ì§';
 
   @override

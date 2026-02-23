@@ -78,6 +78,16 @@ class AppLocalizationsCs extends AppLocalizations {
   String get connect => 'Připojit';
 
   @override
+  String get connectionFailed => 'Připojení selhalo. Zkontrolujte URL serveru.';
+
+  @override
+  String get invalidApiKey => 'Neplatný API klíč';
+
+  @override
+  String get connectionFailedApiKey =>
+      'Připojení selhalo. Zkontrolujte URL serveru a API klíč.';
+
+  @override
   String get organizations => 'Organizace';
 
   @override

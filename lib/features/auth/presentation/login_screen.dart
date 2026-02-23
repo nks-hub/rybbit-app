@@ -227,7 +227,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             ),
                           ),
                           child: Text(
-                            authState.error!,
+                            _localizeError(authState.error!, l10n),
                             style: TextStyle(
                               color: theme.colorScheme.error,
                               fontSize: 13,
@@ -268,5 +268,18 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         ),
       ),
     );
+  }
+
+  String _localizeError(String error, AppLocalizations l10n) {
+    switch (error) {
+      case AuthController.connectionFailedError:
+        return l10n.connectionFailed;
+      case AuthController.invalidApiKeyError:
+        return l10n.invalidApiKey;
+      case AuthController.connectionFailedApiKeyError:
+        return l10n.connectionFailedApiKey;
+      default:
+        return error;
+    }
   }
 }

@@ -78,6 +78,17 @@ class AppLocalizationsPl extends AppLocalizations {
   String get connect => 'Połącz';
 
   @override
+  String get connectionFailed =>
+      'Połączenie nie powiodło się. Sprawdź adres URL serwera.';
+
+  @override
+  String get invalidApiKey => 'Nieprawidłowy klucz API';
+
+  @override
+  String get connectionFailedApiKey =>
+      'Połączenie nie powiodło się. Sprawdź adres URL serwera i klucz API.';
+
+  @override
   String get organizations => 'Organizacje';
 
   @override

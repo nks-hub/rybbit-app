@@ -78,6 +78,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get connect => 'æ¥ç¶';
 
   @override
+  String get connectionFailed => '接続に失敗しました。サーバーURLを確認してください。';
+
+  @override
+  String get invalidApiKey => '無効なAPIキー';
+
+  @override
+  String get connectionFailedApiKey => '接続に失敗しました。サーバーURLとAPIキーを確認してください。';
+
+  @override
   String get organizations => 'çµç¹';
 
   @override

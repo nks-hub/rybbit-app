@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../app.dart';
 import '../../../core/config/app_config.dart';
@@ -163,7 +164,13 @@ class SettingsScreen extends ConsumerWidget {
                 ListTile(
                   leading: const Icon(Icons.info_outline),
                   title: Text(l10n.appVersion),
-                  subtitle: const Text('0.1.0'),
+                  subtitle: FutureBuilder<PackageInfo>(
+                    future: PackageInfo.fromPlatform(),
+                    builder: (context, snapshot) {
+                      final version = snapshot.data?.version ?? '...';
+                      return Text(version);
+                    },
+                  ),
                 ),
                 const Divider(height: 1),
                 ListTile(

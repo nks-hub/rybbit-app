@@ -78,6 +78,17 @@ class AppLocalizationsDe extends AppLocalizations {
   String get connect => 'Verbinden';
 
   @override
+  String get connectionFailed =>
+      'Verbindung fehlgeschlagen. Überprüfen Sie die Server-URL.';
+
+  @override
+  String get invalidApiKey => 'Ungültiger API-Schlüssel';
+
+  @override
+  String get connectionFailedApiKey =>
+      'Verbindung fehlgeschlagen. Überprüfen Sie Server-URL und API-Schlüssel.';
+
+  @override
   String get organizations => 'Organisationen';
 
   @override

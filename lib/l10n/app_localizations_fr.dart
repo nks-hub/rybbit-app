@@ -78,6 +78,17 @@ class AppLocalizationsFr extends AppLocalizations {
   String get connect => 'Se connecter';
 
   @override
+  String get connectionFailed =>
+      'Échec de connexion. Vérifiez l\'URL du serveur.';
+
+  @override
+  String get invalidApiKey => 'Clé API invalide';
+
+  @override
+  String get connectionFailedApiKey =>
+      'Échec de connexion. Vérifiez l\'URL du serveur et la clé API.';
+
+  @override
   String get organizations => 'Organisations';
 
   @override

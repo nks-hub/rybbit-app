@@ -36,6 +36,10 @@ class AuthState {
 }
 
 class AuthController extends Notifier<AuthState> {
+  static const connectionFailedError = 'err:connection_failed';
+  static const invalidApiKeyError = 'err:invalid_api_key';
+  static const connectionFailedApiKeyError = 'err:connection_failed_api_key';
+
   @override
   AuthState build() {
     return const AuthState();
@@ -72,7 +76,7 @@ class AuthController extends Notifier<AuthState> {
     } on DioException catch (e) {
       final message = e.response?.data?['message']?.toString() ??
           e.response?.data?['error']?.toString() ??
-          'Connection failed. Check server URL.';
+          connectionFailedError;
       state = state.copyWith(
         status: AuthStatus.unauthenticated,
         isLoading: false,
@@ -105,7 +109,7 @@ class AuthController extends Notifier<AuthState> {
         state = state.copyWith(
           status: AuthStatus.unauthenticated,
           isLoading: false,
-          error: 'Invalid API key',
+          error: invalidApiKeyError,
         );
         return;
       }
@@ -119,7 +123,7 @@ class AuthController extends Notifier<AuthState> {
       );
     } on DioException catch (e) {
       final message = e.response?.data?['message']?.toString() ??
-          'Connection failed. Check server URL and API key.';
+          connectionFailedApiKeyError;
       state = state.copyWith(
         status: AuthStatus.unauthenticated,
         isLoading: false,
