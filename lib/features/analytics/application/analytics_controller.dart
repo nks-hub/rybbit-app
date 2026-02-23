@@ -9,12 +9,14 @@ class AnalyticsState {
   final Overview? overview;
   final Overview? previousOverview;
   final List<OverviewBucket> buckets;
+  final List<OverviewBucket> previousBuckets;
   final int liveUserCount;
 
   const AnalyticsState({
     this.overview,
     this.previousOverview,
     this.buckets = const [],
+    this.previousBuckets = const [],
     this.liveUserCount = 0,
   });
 
@@ -22,12 +24,14 @@ class AnalyticsState {
     Overview? overview,
     Overview? previousOverview,
     List<OverviewBucket>? buckets,
+    List<OverviewBucket>? previousBuckets,
     int? liveUserCount,
   }) {
     return AnalyticsState(
       overview: overview ?? this.overview,
       previousOverview: previousOverview ?? this.previousOverview,
       buckets: buckets ?? this.buckets,
+      previousBuckets: previousBuckets ?? this.previousBuckets,
       liveUserCount: liveUserCount ?? this.liveUserCount,
     );
   }
@@ -66,6 +70,10 @@ class AnalyticsController
       endDate: prevEnd,
     );
     final prevParams = {...prevTimeRange.toQueryParams(), ...filterParams};
+    final prevBucketedParams = {
+      ...prevTimeRange.toBucketedQueryParams(),
+      ...filterParams,
+    };
 
     // Load data in parallel
     final results = await Future.wait([
@@ -73,12 +81,14 @@ class AnalyticsController
       repo.getOverviewBucketed(siteId, bucketedParams),
       repo.getLiveUserCount(siteId),
       repo.getOverview(siteId, prevParams),
+      repo.getOverviewBucketed(siteId, prevBucketedParams),
     ]);
 
     return AnalyticsState(
       overview: results[0] as Overview,
       previousOverview: results[3] as Overview,
       buckets: results[1] as List<OverviewBucket>,
+      previousBuckets: results[4] as List<OverviewBucket>,
       liveUserCount: results[2] as int,
     );
   }

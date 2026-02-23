@@ -191,6 +191,12 @@ class AnalyticsScreen extends ConsumerWidget {
                           labels: analyticsState.buckets
                               .map((b) => b.time)
                               .toList(),
+                          previousValues:
+                              analyticsState.previousBuckets.isNotEmpty
+                                  ? _extractBucketValues(
+                                      analyticsState.previousBuckets,
+                                      selectedStat)
+                                  : null,
                           lineColor: theme.colorScheme.primary,
                           tooltipFormatter: (v) =>
                               _formatStatValue(v, selectedStat),
