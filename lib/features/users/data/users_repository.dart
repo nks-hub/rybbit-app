@@ -57,21 +57,35 @@ class UserDetail {
   }
 }
 
+class UsersPageResponse {
+  final List<UserListItem> users;
+  final int totalCount;
+  final int page;
+  final int pageSize;
+
+  const UsersPageResponse({
+    this.users = const [],
+    this.totalCount = 0,
+    this.page = 1,
+    this.pageSize = 20,
+  });
+}
+
 class UsersRepository {
   final Dio _dio;
 
   UsersRepository(this._dio);
 
-  /// Fetches paginated user list.
-  Future<List<UserListItem>> getUsers(
+  /// Fetches paginated user list with total count.
+  Future<UsersPageResponse> getUsers(
     String siteId, {
     int page = 1,
-    int limit = 20,
+    int pageSize = 20,
     Map<String, String>? params,
   }) async {
     final queryParams = <String, String>{
       'page': page.toString(),
-      'limit': limit.toString(),
+      'page_size': pageSize.toString(),
       ...?params,
     };
 
@@ -80,18 +94,27 @@ class UsersRepository {
       queryParameters: queryParams,
     );
 
-    final data = response.data;
-    if (data is List) {
-      return data
-          .map((e) => UserListItem.fromJson(e as Map<String, dynamic>))
-          .toList();
+    final raw = response.data;
+    if (raw is Map<String, dynamic>) {
+      final dataList = raw['data'];
+      final users = dataList is List
+          ? dataList
+              .map((e) => UserListItem.fromJson(e as Map<String, dynamic>))
+              .toList()
+          : <UserListItem>[];
+      return UsersPageResponse(
+        users: users,
+        totalCount: (raw['totalCount'] as num?)?.toInt() ?? users.length,
+        page: (raw['page'] as num?)?.toInt() ?? page,
+        pageSize: (raw['pageSize'] as num?)?.toInt() ?? pageSize,
+      );
     }
-    if (data is Map<String, dynamic> && data['data'] is List) {
-      return (data['data'] as List)
-          .map((e) => UserListItem.fromJson(e as Map<String, dynamic>))
-          .toList();
+    if (raw is List) {
+      final users =
+          raw.map((e) => UserListItem.fromJson(e as Map<String, dynamic>)).toList();
+      return UsersPageResponse(users: users, totalCount: users.length);
     }
-    return [];
+    return const UsersPageResponse();
   }
 
   /// Fetches user detail with traits.

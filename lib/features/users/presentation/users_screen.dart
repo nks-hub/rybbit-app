@@ -1,38 +1,65 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../features/analytics/application/filter_controller.dart';
-import '../../../features/analytics/application/time_range_controller.dart';
 import '../../../shared/utils/formatters.dart';
+import '../application/users_controller.dart';
 import '../data/users_repository.dart';
 
-/// Provider for paginated user list.
-final _usersProvider =
-    FutureProvider.family<List<UserListItem>, String>((ref, siteId) async {
-  ref.watch(timeRangeControllerProvider);
-  ref.watch(filterControllerProvider);
-
-  final repo = ref.read(usersRepositoryProvider);
-  final timeRange = ref.read(timeRangeControllerProvider);
-  final filterCtrl = ref.read(filterControllerProvider.notifier);
-
-  final params = {
-    ...timeRange.toQueryParams(),
-    ...filterCtrl.toQueryParams(),
-  };
-
-  return repo.getUsers(siteId, params: params);
-});
-
-class UsersScreen extends ConsumerWidget {
+class UsersScreen extends ConsumerStatefulWidget {
   final String siteId;
 
   const UsersScreen({super.key, required this.siteId});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final usersAsync = ref.watch(_usersProvider(siteId));
+  ConsumerState<UsersScreen> createState() => _UsersScreenState();
+}
+
+class _UsersScreenState extends ConsumerState<UsersScreen> {
+  final ScrollController _scrollController = ScrollController();
+  final TextEditingController _searchController = TextEditingController();
+  Timer? _debounce;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+    final params = ref.read(userSearchParamsProvider);
+    _searchController.text = params.query;
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    _searchController.dispose();
+    _debounce?.cancel();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 200) {
+      ref
+          .read(usersControllerProvider(widget.siteId).notifier)
+          .loadMore();
+    }
+  }
+
+  void _onSearchChanged(String value) {
+    _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 400), () {
+      ref.read(userSearchParamsProvider.notifier).state =
+          ref.read(userSearchParamsProvider).copyWith(query: value.trim());
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final usersAsync = ref.watch(usersControllerProvider(widget.siteId));
+    final searchParams = ref.watch(userSearchParamsProvider);
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -43,72 +70,212 @@ class UsersScreen extends ConsumerWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
-      ),
-      body: usersAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.error_outline,
-                    size: 48, color: theme.colorScheme.error),
-                const SizedBox(height: 16),
-                Text('Failed to load users',
-                    style: theme.textTheme.bodyLarge),
-                const SizedBox(height: 8),
-                Text(formatError(error),
-                    style: theme.textTheme.bodySmall,
-                    textAlign: TextAlign.center),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () => ref.invalidate(_usersProvider(siteId)),
-                  child: const Text('Retry'),
+        actions: [
+          // Sort button
+          PopupMenuButton<UserSortBy>(
+            tooltip: 'Sort users',
+            icon: const Icon(Icons.sort),
+            onSelected: (sortBy) {
+              final current = ref.read(userSearchParamsProvider);
+              if (current.sortBy == sortBy) {
+                ref.read(userSearchParamsProvider.notifier).state =
+                    current.copyWith(sortAsc: !current.sortAsc);
+              } else {
+                ref.read(userSearchParamsProvider.notifier).state =
+                    current.copyWith(sortBy: sortBy, sortAsc: false);
+              }
+            },
+            itemBuilder: (_) => UserSortBy.values.map((s) {
+              final isSelected = searchParams.sortBy == s;
+              return PopupMenuItem(
+                value: s,
+                child: Row(
+                  children: [
+                    Expanded(child: Text(s.label)),
+                    if (isSelected)
+                      Icon(
+                        searchParams.sortAsc
+                            ? Icons.arrow_upward
+                            : Icons.arrow_downward,
+                        size: 16,
+                        color: theme.colorScheme.primary,
+                      ),
+                  ],
                 ),
-              ],
+              );
+            }).toList(),
+          ),
+          // Identified only toggle
+          IconButton(
+            tooltip: searchParams.identifiedOnly
+                ? 'Show all users'
+                : 'Show identified only',
+            icon: Icon(
+              searchParams.identifiedOnly
+                  ? Icons.person
+                  : Icons.person_outline,
+              color: searchParams.identifiedOnly
+                  ? theme.colorScheme.primary
+                  : null,
+            ),
+            onPressed: () {
+              ref.read(userSearchParamsProvider.notifier).state =
+                  searchParams.copyWith(
+                      identifiedOnly: !searchParams.identifiedOnly);
+            },
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          // Search bar
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+            child: TextField(
+              controller: _searchController,
+              onChanged: _onSearchChanged,
+              decoration: InputDecoration(
+                hintText: 'Search users...',
+                prefixIcon: const Icon(Icons.search, size: 20),
+                suffixIcon: _searchController.text.isNotEmpty
+                    ? IconButton(
+                        tooltip: 'Clear search',
+                        icon: const Icon(Icons.clear, size: 18),
+                        onPressed: () {
+                          _searchController.clear();
+                          _onSearchChanged('');
+                        },
+                      )
+                    : null,
+                isDense: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
             ),
           ),
-        ),
-        data: (users) {
-          if (users.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.people_outline,
-                      size: 64, color: theme.textTheme.bodySmall?.color),
-                  const SizedBox(height: 16),
-                  Text('No identified users',
-                      style: theme.textTheme.bodyLarge),
-                  const SizedBox(height: 8),
-                  Text('Users will appear once they are identified',
-                      style: theme.textTheme.bodySmall),
-                ],
-              ),
-            );
-          }
 
-          return RefreshIndicator(
-            onRefresh: () async {
-              ref.invalidate(_usersProvider(siteId));
-            },
-            child: ListView.builder(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              itemCount: users.length,
-              itemBuilder: (context, index) {
-                final user = users[index];
-                return _UserCard(
-                  user: user,
-                  onTap: () => context.push(
-                    '/sites/$siteId/users/${Uri.encodeComponent(user.userId)}',
+          // Content
+          Expanded(
+            child: usersAsync.when(
+              loading: () =>
+                  const Center(child: CircularProgressIndicator()),
+              error: (error, _) => Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.error_outline,
+                          size: 48, color: theme.colorScheme.error),
+                      const SizedBox(height: 16),
+                      Text('Failed to load users',
+                          style: theme.textTheme.bodyLarge),
+                      const SizedBox(height: 8),
+                      Text(formatError(error),
+                          style: theme.textTheme.bodySmall,
+                          textAlign: TextAlign.center),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () => ref
+                            .read(usersControllerProvider(widget.siteId)
+                                .notifier)
+                            .refresh(),
+                        child: const Text('Retry'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              data: (usersState) {
+                if (usersState.users.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.people_outline,
+                            size: 64,
+                            color: theme.textTheme.bodySmall?.color),
+                        const SizedBox(height: 16),
+                        Text(
+                          searchParams.query.isNotEmpty
+                              ? 'No users found'
+                              : 'No identified users',
+                          style: theme.textTheme.bodyLarge,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          searchParams.query.isNotEmpty
+                              ? 'Try a different search term'
+                              : 'Users will appear once they are identified',
+                          style: theme.textTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                  );
+                }
+
+                return RefreshIndicator(
+                  onRefresh: () => ref
+                      .read(
+                          usersControllerProvider(widget.siteId).notifier)
+                      .refresh(),
+                  child: Column(
+                    children: [
+                      // Total count header
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 4),
+                        child: Row(
+                          children: [
+                            Text(
+                              '${formatNumber(usersState.totalCount)} users',
+                              style: theme.textTheme.bodySmall,
+                            ),
+                            const Spacer(),
+                            Text(
+                              'Sorted by ${searchParams.sortBy.label}',
+                              style: theme.textTheme.bodySmall
+                                  ?.copyWith(fontSize: 11),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                          controller: _scrollController,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 4, horizontal: 12),
+                          itemCount: usersState.users.length +
+                              (usersState.isLoadingMore ? 1 : 0),
+                          itemBuilder: (context, index) {
+                            if (index >= usersState.users.length) {
+                              return const Padding(
+                                padding: EdgeInsets.all(16),
+                                child: Center(
+                                    child: CircularProgressIndicator(
+                                        strokeWidth: 2)),
+                              );
+                            }
+                            final user = usersState.users[index];
+                            return _UserCard(
+                              user: user,
+                              onTap: () => context.push(
+                                '/sites/${widget.siteId}/users/${Uri.encodeComponent(user.userId)}',
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
