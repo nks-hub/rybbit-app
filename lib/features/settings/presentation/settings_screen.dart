@@ -197,62 +197,79 @@ class SettingsScreen extends ConsumerWidget {
 
     final selected = await showModalBottomSheet<String?>(
       context: context,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (ctx) {
         final theme = Theme.of(ctx);
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  l10n.selectLanguage,
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
+        return DraggableScrollableSheet(
+          initialChildSize: 0.7,
+          minChildSize: 0.4,
+          maxChildSize: 0.9,
+          expand: false,
+          builder: (ctx, scrollController) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      l10n.selectLanguage,
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 12),
-              ListTile(
-                title: Text(l10n.auto),
-                leading: Icon(
-                  currentLocale == null
-                      ? Icons.radio_button_checked
-                      : Icons.radio_button_off,
-                  color: currentLocale == null
-                      ? theme.colorScheme.primary
-                      : theme.textTheme.bodySmall?.color,
-                ),
-                selected: currentLocale == null,
-                selectedColor: theme.colorScheme.primary,
-                onTap: () => Navigator.pop(ctx, '__auto__'),
-              ),
-              ...supportedLocaleCodes.map((code) {
-                final isSelected = currentLocale?.languageCode == code;
-                return ListTile(
-                  title: Text(localeDisplayNames[code] ?? code),
-                  leading: Icon(
-                    isSelected
-                        ? Icons.radio_button_checked
-                        : Icons.radio_button_off,
-                    color: isSelected
-                        ? theme.colorScheme.primary
-                        : theme.textTheme.bodySmall?.color,
+                  const SizedBox(height: 12),
+                  Expanded(
+                    child: ListView(
+                      controller: scrollController,
+                      children: [
+                        ListTile(
+                          title: Text(l10n.auto),
+                          leading: Icon(
+                            currentLocale == null
+                                ? Icons.radio_button_checked
+                                : Icons.radio_button_off,
+                            color: currentLocale == null
+                                ? theme.colorScheme.primary
+                                : theme.textTheme.bodySmall?.color,
+                          ),
+                          selected: currentLocale == null,
+                          selectedColor: theme.colorScheme.primary,
+                          onTap: () => Navigator.pop(ctx, '__auto__'),
+                        ),
+                        ...supportedLocaleCodes.map((code) {
+                          final isSelected =
+                              currentLocale?.languageCode == code;
+                          return ListTile(
+                            title: Text(localeDisplayNames[code] ?? code),
+                            leading: Icon(
+                              isSelected
+                                  ? Icons.radio_button_checked
+                                  : Icons.radio_button_off,
+                              color: isSelected
+                                  ? theme.colorScheme.primary
+                                  : theme.textTheme.bodySmall?.color,
+                            ),
+                            selected: isSelected,
+                            selectedColor: theme.colorScheme.primary,
+                            onTap: () => Navigator.pop(ctx, code),
+                          );
+                        }),
+                        const SizedBox(height: 8),
+                      ],
+                    ),
                   ),
-                  selected: isSelected,
-                  selectedColor: theme.colorScheme.primary,
-                  onTap: () => Navigator.pop(ctx, code),
-                );
-              }),
-              const SizedBox(height: 8),
-            ],
-          ),
+                ],
+              ),
+            );
+          },
         );
       },
     );

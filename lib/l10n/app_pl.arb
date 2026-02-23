@@ -3,29 +3,29 @@
   "appName": "Rybbit",
   "appSubtitle": "Nieoficjalna",
   "cancel": "Anuluj",
-  "delete": "UsuÅ",
+  "delete": "Usuń",
   "save": "Zapisz",
   "update": "Aktualizuj",
-  "create": "UtwÃ³rz",
-  "retry": "PonÃ³w",
+  "create": "Utwórz",
+  "retry": "Ponów",
   "add": "Dodaj",
   "edit": "Edytuj",
-  "clear": "WyczyÅÄ",
+  "clear": "Wyczyść",
   "apply": "Zastosuj",
-  "goBack": "WrÃ³Ä",
+  "goBack": "Wróć",
   "noData": "Brak danych",
-  "loading": "Åadowanie",
+  "loading": "Ładowanie",
   "logout": "Wyloguj",
   "close": "Zamknij",
   "serverUrl": "URL serwera",
   "serverUrlHint": "https://twoja-instancja-rybbit.com",
   "email": "E-mail",
   "apiKey": "Klucz API",
-  "password": "HasÅo",
-  "connect": "PoÅÄcz",
+  "password": "Hasło",
+  "connect": "Połącz",
   "organizations": "Organizacje",
   "noSitesFound": "Nie znaleziono witryn",
-  "noSitesHint": "Dodaj witrynÄ w panelu internetowym, aby rozpoczÄÄ.",
+  "noSitesHint": "Dodaj witrynę w panelu internetowym, aby rozpocząć.",
   "siteCount": "{count, plural, one{1 witryna} other{{count} witryn}}",
   "@siteCount": {
     "placeholders": {
@@ -34,7 +34,7 @@
       }
     }
   },
-  "members": "CzÅonkowie ({count})",
+  "members": "Członkowie ({count})",
   "@members": {
     "placeholders": {
       "count": {
@@ -42,30 +42,30 @@
       }
     }
   },
-  "failedToLoadOrganizations": "Nie udaÅo siÄ zaÅadowaÄ organizacji",
+  "failedToLoadOrganizations": "Nie udało się załadować organizacji",
   "noOrganizations": "Brak organizacji",
-  "noOrganizationsHint": "Organizacje moÅ¼na tworzyÄ w panelu internetowym",
-  "failedToLoadMembers": "Nie udaÅo siÄ zaÅadowaÄ czÅonkÃ³w",
-  "failedToLoadSites": "Nie udaÅo siÄ zaÅadowaÄ stron",
-  "failedToLoadAnalytics": "Nie udaÅo siÄ zaÅadowaÄ analityki",
-  "noDataAvailable": "Brak dostÄpnych danych",
-  "users": "UÅ¼ytkownicy",
+  "noOrganizationsHint": "Organizacje można tworzyć w panelu internetowym",
+  "failedToLoadMembers": "Nie udało się załadować członków",
+  "failedToLoadSites": "Nie udało się załadować stron",
+  "failedToLoadAnalytics": "Nie udało się załadować analityki",
+  "noDataAvailable": "Brak dostępnych danych",
+  "users": "Użytkownicy",
   "sessions": "Sesje",
-  "pageviews": "OdsÅony",
+  "pageviews": "Odsłony",
   "pagesPerSession": "Strony/Sesja",
-  "bounceRate": "WspÃ³Åczynnik odrzuceÅ",
+  "bounceRate": "Współczynnik odrzuceń",
   "duration": "Czas trwania",
   "metrics": "Metryki",
   "pages": "Strony",
-  "referrers": "Strony odsyÅajÄce",
+  "referrers": "Strony odsyłające",
   "countries": "Kraje",
-  "devices": "UrzÄdzenia",
-  "performance": "WydajnoÅÄ",
+  "devices": "Urządzenia",
+  "performance": "Wydajność",
   "goals": "Cele",
   "funnels": "Lejki",
   "replay": "Odtwarzanie",
   "config": "Konfiguracja",
-  "usersOnline": "{count} uÅ¼ytkownikÃ³w online",
+  "usersOnline": "{count} użytkowników online",
   "@usersOnline": {
     "placeholders": {
       "count": {
@@ -75,20 +75,20 @@
   },
   "events": "Zdarzenia",
   "eventsOverTime": "Zdarzenia w czasie",
-  "eventNames": "Nazwy zdarzeÅ",
-  "noCustomEventsTracked": "Nie Åledzono niestandardowych zdarzeÅ",
-  "failedToLoadProperties": "Nie udaÅo siÄ zaÅadowaÄ wÅaÅciwoÅci",
-  "noProperties": "Brak wÅaÅciwoÅci",
-  "outboundLinks": "Linki wychodzÄce",
-  "noOutboundLinksTracked": "Nie Åledzono linkÃ³w wychodzÄcych",
-  "failedToLoadChart": "Nie udaÅo siÄ zaÅadowaÄ wykresu",
-  "errors": "BÅÄdy",
-  "failedToLoadErrors": "Nie udaÅo siÄ zaÅadowaÄ bÅÄdÃ³w",
-  "noErrorsFound": "Nie znaleziono bÅÄdÃ³w",
-  "everythingLooksGood": "Wszystko wyglÄda dobrze!",
-  "occurrences": "wystÄpienia",
-  "sessionsAffected": "dotkniÄte sesje",
-  "failedToLoadEventsWithError": "Nie udaÅo siÄ zaÅadowaÄ zdarzeÅ: {error}",
+  "eventNames": "Nazwy zdarzeń",
+  "noCustomEventsTracked": "Nie śledzono niestandardowych zdarzeń",
+  "failedToLoadProperties": "Nie udało się załadować właściwości",
+  "noProperties": "Brak właściwości",
+  "outboundLinks": "Linki wychodzące",
+  "noOutboundLinksTracked": "Nie śledzono linków wychodzących",
+  "failedToLoadChart": "Nie udało się załadować wykresu",
+  "errors": "Błędy",
+  "failedToLoadErrors": "Nie udało się załadować błędów",
+  "noErrorsFound": "Nie znaleziono błędów",
+  "everythingLooksGood": "Wszystko wygląda dobrze!",
+  "occurrences": "wystąpienia",
+  "sessionsAffected": "dotknięte sesje",
+  "failedToLoadEventsWithError": "Nie udało się załadować zdarzeń: {error}",
   "@failedToLoadEventsWithError": {
     "placeholders": {
       "error": {
@@ -96,12 +96,12 @@
       }
     }
   },
-  "noEventsFound": "Nie znaleziono zdarzeÅ",
-  "failedToLoadFunnels": "Nie udaÅo siÄ zaÅadowaÄ lejkÃ³w",
-  "noFunnelsSaved": "Brak zapisanych lejkÃ³w",
-  "createFunnelsHint": "UtwÃ³rz lejki w panelu internetowym",
-  "deleteFunnel": "UsuÅ lejek",
-  "deleteFunnelConfirm": "UsunÄÄ \"{name}\"?",
+  "noEventsFound": "Nie znaleziono zdarzeń",
+  "failedToLoadFunnels": "Nie udało się załadować lejków",
+  "noFunnelsSaved": "Brak zapisanych lejków",
+  "createFunnelsHint": "Utwórz lejki w panelu internetowym",
+  "deleteFunnel": "Usuń lejek",
+  "deleteFunnelConfirm": "Usunąć \"{name}\"?",
   "@deleteFunnelConfirm": {
     "placeholders": {
       "name": {
@@ -109,7 +109,7 @@
       }
     }
   },
-  "failedToDeleteFunnel": "Nie udaÅo siÄ usunÄÄ lejka: {error}",
+  "failedToDeleteFunnel": "Nie udało się usunąć lejka: {error}",
   "@failedToDeleteFunnel": {
     "placeholders": {
       "error": {
@@ -117,8 +117,8 @@
       }
     }
   },
-  "noStepsDefined": "Nie zdefiniowano krokÃ³w dla tego lejka",
-  "failedToAnalyze": "Nie udaÅo siÄ przeanalizowaÄ: {error}",
+  "noStepsDefined": "Nie zdefiniowano kroków dla tego lejka",
+  "failedToAnalyze": "Nie udało się przeanalizować: {error}",
   "@failedToAnalyze": {
     "placeholders": {
       "error": {
@@ -126,8 +126,8 @@
       }
     }
   },
-  "overallConversion": "OgÃ³lna konwersja",
-  "dropoff": "OdpadniÄcie: {value}",
+  "overallConversion": "Ogólna konwersja",
+  "dropoff": "Odpadnięcie: {value}",
   "@dropoff": {
     "placeholders": {
       "value": {
@@ -135,22 +135,22 @@
       }
     }
   },
-  "createGoal": "UtwÃ³rz cel",
-  "failedToLoadGoals": "Nie udaÅo siÄ zaÅadowaÄ celÃ³w",
-  "noGoalsConfigured": "Brak skonfigurowanych celÃ³w",
-  "noGoalsHint": "NaciÅnij +, aby utworzyÄ nowy cel",
+  "createGoal": "Utwórz cel",
+  "failedToLoadGoals": "Nie udało się załadować celów",
+  "noGoalsConfigured": "Brak skonfigurowanych celów",
+  "noGoalsHint": "Naciśnij +, aby utworzyć nowy cel",
   "conversions": "Konwersje",
-  "rate": "WspÃ³Åczynnik",
+  "rate": "Współczynnik",
   "editGoal": "Edytuj cel",
-  "createGoalTitle": "UtwÃ³rz cel",
+  "createGoalTitle": "Utwórz cel",
   "name": "Nazwa",
   "type": "Typ",
-  "path": "ÅcieÅ¼ka",
+  "path": "Ścieżka",
   "event": "Zdarzenie",
-  "pathPattern": "Wzorzec ÅcieÅ¼ki",
+  "pathPattern": "Wzorzec ścieżki",
   "eventName": "Nazwa zdarzenia",
-  "deleteGoal": "UsuÅ cel",
-  "deleteGoalConfirm": "UsunÄÄ \"{name}\"?",
+  "deleteGoal": "Usuń cel",
+  "deleteGoalConfirm": "Usunąć \"{name}\"?",
   "@deleteGoalConfirm": {
     "placeholders": {
       "name": {
@@ -158,7 +158,7 @@
       }
     }
   },
-  "failedToDeleteGoal": "Nie udaÅo siÄ usunÄÄ celu: {error}",
+  "failedToDeleteGoal": "Nie udało się usunąć celu: {error}",
   "@failedToDeleteGoal": {
     "placeholders": {
       "error": {
@@ -166,7 +166,7 @@
       }
     }
   },
-  "failedToLoadPerformanceData": "Nie udaÅo siÄ zaÅadowaÄ danych wydajnoÅci",
+  "failedToLoadPerformanceData": "Nie udało się załadować danych wydajności",
   "metricOverTime": "{metric} w czasie",
   "@metricOverTime": {
     "placeholders": {
@@ -175,11 +175,11 @@
       }
     }
   },
-  "byDimension": "WedÅug wymiaru",
-  "failedToLoadDimensionData": "Nie udaÅo siÄ zaÅadowaÄ danych wymiaru",
+  "byDimension": "Według wymiaru",
+  "failedToLoadDimensionData": "Nie udało się załadować danych wymiaru",
   "good": "Dobrze",
   "needsImprovement": "Wymaga poprawy",
-  "poor": "SÅabo",
+  "poor": "Słabo",
   "largestContentfulPaint": "Largest Contentful Paint",
   "cumulativeLayoutShift": "Cumulative Layout Shift",
   "firstContentfulPaint": "First Contentful Paint",
@@ -187,18 +187,18 @@
   "interactionToNextPaint": "Interaction to Next Paint",
   "dimPages": "Strony",
   "dimCountries": "Kraje",
-  "dimDevices": "UrzÄdzenia",
-  "dimBrowsers": "PrzeglÄdarki",
+  "dimDevices": "Urządzenia",
+  "dimBrowsers": "Przeglądarki",
   "dimOS": "System operacyjny",
   "sessionFilters": "Filtry sesji",
-  "minPageviews": "Min. odsÅony",
+  "minPageviews": "Min. odsłony",
   "minEvents": "Min. zdarzenia",
   "minDurationSeconds": "Min. czas trwania (sekundy)",
-  "failedToLoadSessions": "Nie udaÅo siÄ zaÅadowaÄ sesji",
+  "failedToLoadSessions": "Nie udało się załadować sesji",
   "noSessionsFound": "Nie znaleziono sesji",
   "filterSessions": "Filtruj sesje",
-  "loadingMoreSessions": "Åadowanie kolejnych sesji",
-  "entryPage": "Strona wejÅciowa: {page}",
+  "loadingMoreSessions": "Ładowanie kolejnych sesji",
+  "entryPage": "Strona wejściowa: {page}",
   "@entryPage": {
     "placeholders": {
       "page": {
@@ -215,11 +215,11 @@
     }
   },
   "sessionReplays": "Odtwarzanie sesji",
-  "failedToLoadReplays": "Nie udaÅo siÄ zaÅadowaÄ odtworzeÅ",
-  "noReplaysFound": "Nie znaleziono odtworzeÅ",
-  "noReplaysHint": "Odtwarzanie sesji pojawi siÄ tutaj, gdy zostanie wÅÄczone.",
+  "failedToLoadReplays": "Nie udało się załadować odtworzeń",
+  "noReplaysFound": "Nie znaleziono odtworzeń",
+  "noReplaysHint": "Odtwarzanie sesji pojawi się tutaj, gdy zostanie włączone.",
   "previousPage": "Poprzednia strona",
-  "nextPage": "NastÄpna strona",
+  "nextPage": "Następna strona",
   "pageNumber": "Strona {number}",
   "@pageNumber": {
     "placeholders": {
@@ -228,25 +228,25 @@
       }
     }
   },
-  "unknownBrowser": "Nieznana przeglÄdarka",
+  "unknownBrowser": "Nieznana przeglądarka",
   "unknownCountry": "Nieznany kraj",
-  "sortUsers": "Sortuj uÅ¼ytkownikÃ³w",
-  "showAllUsers": "PokaÅ¼ wszystkich uÅ¼ytkownikÃ³w",
-  "showIdentifiedOnly": "PokaÅ¼ tylko zidentyfikowanych",
-  "searchUsers": "Szukaj uÅ¼ytkownikÃ³w",
-  "searchUsersHint": "Szukaj uÅ¼ytkownikÃ³w...",
-  "clearSearch": "WyczyÅÄ wyszukiwanie",
-  "failedToLoadUsers": "Nie udaÅo siÄ zaÅadowaÄ uÅ¼ytkownikÃ³w",
-  "noUsersFound": "Nie znaleziono uÅ¼ytkownikÃ³w",
-  "noIdentifiedUsers": "Brak zidentyfikowanych uÅ¼ytkownikÃ³w",
-  "usersWillAppear": "UÅ¼ytkownicy pojawiÄ siÄ po ich zidentyfikowaniu",
-  "tryDifferentSearch": "SprÃ³buj innego zapytania",
-  "sortedBy": "Sortowane wedÅug",
-  "loadingMoreUsers": "Åadowanie kolejnych uÅ¼ytkownikÃ³w",
+  "sortUsers": "Sortuj użytkowników",
+  "showAllUsers": "Pokaż wszystkich użytkowników",
+  "showIdentifiedOnly": "Pokaż tylko zidentyfikowanych",
+  "searchUsers": "Szukaj użytkowników",
+  "searchUsersHint": "Szukaj użytkowników...",
+  "clearSearch": "Wyczyść wyszukiwanie",
+  "failedToLoadUsers": "Nie udało się załadować użytkowników",
+  "noUsersFound": "Nie znaleziono użytkowników",
+  "noIdentifiedUsers": "Brak zidentyfikowanych użytkowników",
+  "usersWillAppear": "Użytkownicy pojawią się po ich zidentyfikowaniu",
+  "tryDifferentSearch": "Spróbuj innego zapytania",
+  "sortedBy": "Sortowane według",
+  "loadingMoreUsers": "Ładowanie kolejnych użytkowników",
   "lastSeen": "Ostatnio widziany",
   "firstSeen": "Pierwszy raz widziany",
-  "failedToLoadMetrics": "Nie udaÅo siÄ zaÅadowaÄ metryk",
-  "loadingMoreMetrics": "Åadowanie kolejnych metryk",
+  "failedToLoadMetrics": "Nie udało się załadować metryk",
+  "loadingMoreMetrics": "Ładowanie kolejnych metryk",
   "noMetricData": "Brak danych dla {metric}",
   "@noMetricData": {
     "placeholders": {
@@ -256,13 +256,13 @@
     }
   },
   "settings": "Ustawienia",
-  "connection": "PoÅÄczenie",
+  "connection": "Połączenie",
   "notConfigured": "Nie skonfigurowano",
   "authMethod": "Metoda uwierzytelniania",
   "sessionCookie": "Ciasteczko sesji",
   "loggedInAs": "Zalogowano jako",
   "unknown": "Nieznane",
-  "appearance": "WyglÄd",
+  "appearance": "Wygląd",
   "theme": "Motyw",
   "dark": "Ciemny",
   "light": "Jasny",
@@ -270,27 +270,27 @@
   "about": "Informacje",
   "appVersion": "Wersja aplikacji",
   "openSourceAnalytics": "Analityka internetowa open source",
-  "logoutConfirm": "Czy na pewno chcesz siÄ wylogowaÄ?",
+  "logoutConfirm": "Czy na pewno chcesz się wylogować?",
   "siteSettings": "Ustawienia witryny",
   "siteInformation": "Informacje o witrynie",
   "domain": "Domena",
   "siteId": "ID witryny",
   "created": "Utworzono",
-  "trackingSettings": "Ustawienia Åledzenia",
+  "trackingSettings": "Ustawienia śledzenia",
   "publicDashboard": "Publiczny panel",
-  "publicDashboardDesc": "ZezwÃ³l na publiczny dostÄp do analityki",
+  "publicDashboardDesc": "Zezwól na publiczny dostęp do analityki",
   "sessionReplay": "Odtwarzanie sesji",
-  "sessionReplayDesc": "Nagrywaj sesje uÅ¼ytkownikÃ³w",
+  "sessionReplayDesc": "Nagrywaj sesje użytkowników",
   "webVitals": "Web Vitals",
-  "webVitalsDesc": "ÅledÅº Core Web Vitals",
-  "trackErrors": "Åledzenie bÅÄdÃ³w",
-  "trackErrorsDesc": "Przechwytuj bÅÄdy JavaScript",
-  "outboundLinksTracking": "Linki wychodzÄce",
-  "outboundLinksDesc": "ÅledÅº klikniÄcia w linki wychodzÄce",
+  "webVitalsDesc": "Śledź Core Web Vitals",
+  "trackErrors": "Śledzenie błędów",
+  "trackErrorsDesc": "Przechwytuj błędy JavaScript",
+  "outboundLinksTracking": "Linki wychodzące",
+  "outboundLinksDesc": "Śledź kliknięcia w linki wychodzące",
   "excludedIps": "Wykluczone adresy IP",
   "excludedCountries": "Wykluczone kraje",
   "settingsSaved": "Ustawienia zapisane",
-  "failedToSave": "Nie udaÅo siÄ zapisaÄ: {error}",
+  "failedToSave": "Nie udało się zapisać: {error}",
   "@failedToSave": {
     "placeholders": {
       "error": {
@@ -303,22 +303,22 @@
   "yesterday": "Wczoraj",
   "last7Days": "Ostatnie 7 dni",
   "last30Days": "Ostatnie 30 dni",
-  "thisWeek": "Ten tydzieÅ",
-  "thisMonth": "Ten miesiÄc",
+  "thisWeek": "Ten tydzień",
+  "thisMonth": "Ten miesiąc",
   "thisYear": "Ten rok",
   "customRange": "Zakres niestandardowy",
   "filter": "Filtr",
   "addFilter": "Dodaj filtr",
   "parameter": "Parametr",
-  "value": "WartoÅÄ",
-  "enterFilterValue": "WprowadÅº wartoÅÄ filtra",
-  "requestTimedOut": "UpÅynÄÅ limit czasu Å¼Ädania. SprÃ³buj ponownie.",
-  "networkError": "BÅÄd sieci. SprawdÅº poÅÄczenie.",
-  "sessionExpired": "Sesja wygasÅa. Zaloguj siÄ ponownie.",
-  "accessDenied": "Odmowa dostÄpu.",
+  "value": "Wartość",
+  "enterFilterValue": "Wprowadź wartość filtra",
+  "requestTimedOut": "Upłynął limit czasu żądania. Spróbuj ponownie.",
+  "networkError": "Błąd sieci. Sprawdź połączenie.",
+  "sessionExpired": "Sesja wygasła. Zaloguj się ponownie.",
+  "accessDenied": "Odmowa dostępu.",
   "dataNotFound": "Nie znaleziono danych.",
-  "serverError": "BÅÄd serwera. SprÃ³buj ponownie pÃ³Åºniej.",
-  "failedToLoadGeneric": "Nie udaÅo siÄ zaÅadowaÄ danych. SprÃ³buj ponownie.",
+  "serverError": "Błąd serwera. Spróbuj ponownie później.",
+  "failedToLoadGeneric": "Nie udało się załadować danych. Spróbuj ponownie.",
   "chartDataPoints": "Wykres z {count} punktami danych",
   "@chartDataPoints": {
     "placeholders": {
@@ -335,7 +335,7 @@
       }
     }
   },
-  "performanceRatingLabel": "Ocena wydajnoÅci: {rating}",
+  "performanceRatingLabel": "Ocena wydajności: {rating}",
   "@performanceRatingLabel": {
     "placeholders": {
       "rating": {
@@ -343,10 +343,10 @@
       }
     }
   },
-  "loadingContent": "Åadowanie zawartoÅci",
-  "language": "JÄzyk",
-  "selectLanguage": "Wybierz jÄzyk",
-  "nUsers": "{count} uÅ¼ytkownikÃ³w",
+  "loadingContent": "Ładowanie zawartości",
+  "language": "Język",
+  "selectLanguage": "Wybierz język",
+  "nUsers": "{count} użytkowników",
   "@nUsers": {
     "placeholders": {
       "count": {
@@ -370,8 +370,8 @@
       }
     }
   },
-  "failedToLoadSiteConfig": "Nie udaÅo siÄ zaÅadowaÄ konfiguracji strony",
-  "failedToLoadUserDetails": "Nie udaÅo siÄ zaÅadowaÄ szczegÃ³ÅÃ³w uÅ¼ytkownika",
+  "failedToLoadSiteConfig": "Nie udało się załadować konfiguracji strony",
+  "failedToLoadUserDetails": "Nie udało się załadować szczegółów użytkownika",
   "lastSeenPrefix": "Ostatnio widziany: {value}",
   "@lastSeenPrefix": {
     "placeholders": {
@@ -381,18 +381,18 @@
     }
   },
   "traits": "Cechy",
-  "noTraits": "Brak cech dla tego uÅ¼ytkownika",
-  "sessionDetail": "SzczegÃ³Åy sesji",
-  "failedToLoadSession": "Nie udaÅo siÄ zaÅadowaÄ sesji",
-  "entryPageLabel": "Strona wejÅcia",
-  "exitPage": "Strona wyjÅcia",
-  "browserAndDevice": "PrzeglÄdarka i urzÄdzenie",
-  "browser": "PrzeglÄdarka",
+  "noTraits": "Brak cech dla tego użytkownika",
+  "sessionDetail": "Szczegóły sesji",
+  "failedToLoadSession": "Nie udało się załadować sesji",
+  "entryPageLabel": "Strona wejścia",
+  "exitPage": "Strona wyjścia",
+  "browserAndDevice": "Przeglądarka i urządzenie",
+  "browser": "Przeglądarka",
   "os": "System",
-  "device": "UrzÄdzenie",
-  "sourceLabel": "Å¹rÃ³dÅo",
-  "referrer": "OdnoÅnik",
-  "eventTimelineCount": "OÅ czasu ({count})",
+  "device": "Urządzenie",
+  "sourceLabel": "Źródło",
+  "referrer": "Odnośnik",
+  "eventTimelineCount": "Oś czasu ({count})",
   "@eventTimelineCount": {
     "placeholders": {
       "count": {
@@ -400,13 +400,13 @@
       }
     }
   },
-  "noEvents": "Brak wydarzeÅ",
-  "replayEventsTitle": "Zdarzenia powtÃ³rki",
-  "failedToLoadReplay": "Nie udaÅo siÄ zaÅadowaÄ powtÃ³rki",
-  "noReplayEvents": "Brak zdarzeÅ powtÃ³rki",
-  "totalEvents": "ÅÄcznie wydarzeÅ",
-  "userActionsLabel": "Akcje uÅ¼ytkownika",
-  "eventTimelineActions": "OÅ czasu ({count} akcji)",
+  "noEvents": "Brak wydarzeń",
+  "replayEventsTitle": "Zdarzenia powtórki",
+  "failedToLoadReplay": "Nie udało się załadować powtórki",
+  "noReplayEvents": "Brak zdarzeń powtórki",
+  "totalEvents": "Łącznie wydarzeń",
+  "userActionsLabel": "Akcje użytkownika",
+  "eventTimelineActions": "Oś czasu ({count} akcji)",
   "@eventTimelineActions": {
     "placeholders": {
       "count": {
@@ -414,37 +414,37 @@
       }
     }
   },
-  "eventLog": "Dziennik zdarzeÅ",
-  "viewEventLog": "Zobacz dziennik zdarzeÅ",
-  "failedToLoadEventLog": "Nie udaÅo siÄ zaÅadowaÄ dziennika zdarzeÅ",
+  "eventLog": "Dziennik zdarzeń",
+  "viewEventLog": "Zobacz dziennik zdarzeń",
+  "failedToLoadEventLog": "Nie udało się załadować dziennika zdarzeń",
   "activityHeatmap": "Mapa cieplna",
   "heatmapLast4Weeks": "Ostatnie 4 tygodnie",
   "less": "Mniej",
-  "more": "WiÄcej",
-  "peakActivity": "Szczytowa aktywnoÅÄ",
+  "more": "Więcej",
+  "peakActivity": "Szczytowa aktywność",
   "peakHour": "{day} o {time}",
   "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
-  "busiestDay": "Najbardziej aktywny dzieÅ: {day}",
+  "busiestDay": "Najbardziej aktywny dzień: {day}",
   "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
   "dayMon": "Pon",
   "dayTue": "Wt",
-  "dayWed": "År",
+  "dayWed": "Śr",
   "dayThu": "Czw",
   "dayFri": "Pt",
   "daySat": "Sob",
   "daySun": "Ndz",
-  "searchEvents": "Szukaj zdarzeÅ...",
+  "searchEvents": "Szukaj zdarzeń...",
   "allTypes": "Wszystkie",
-  "noMatchingEvents": "Brak pasujÄcych zdarzeÅ",
-  "liveView": "Na Å¼ywo",
-  "autoRefresh": "Automatyczne odÅwieÅ¼anie",
-  "usersOnlineNow": "UÅ¼ytkownicy online",
+  "noMatchingEvents": "Brak pasujących zdarzeń",
+  "liveView": "Na żywo",
+  "autoRefresh": "Automatyczne odświeżanie",
+  "usersOnlineNow": "Użytkownicy online",
   "lastUpdatedAt": "Zaktualizowano o {time}",
   "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
   "last30Minutes": "Ostatnie 30 minut",
   "last5Minutes": "Ostatnie 5 min",
   "recentEvents": "Ostatnie zdarzenia",
-  "noRecentEvents": "Brak ostatnich zdarzeÅ",
+  "noRecentEvents": "Brak ostatnich zdarzeń",
 
   "retention": "Retencja",
   "weekly": "Tygodniowo",
@@ -452,33 +452,33 @@
   "retentionRange": "Zakres",
   "retentionDays": "{count} dni",
   "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
-  "failedToLoadRetention": "Nie udaÅo siÄ zaÅadowaÄ danych retencji",
+  "failedToLoadRetention": "Nie udało się załadować danych retencji",
   "noRetentionData": "Brak danych retencji",
   "cohort": "Kohorta",
   "retentionWeekPrefix": "T",
   "retentionDayPrefix": "D",
 
-  "journeys": "ÅcieÅ¼ki uÅ¼ytkownikÃ³w",
+  "journeys": "Ścieżki użytkowników",
   "journeySteps": "Kroki",
-  "failedToLoadJourneys": "Nie udaÅo siÄ zaÅadowaÄ ÅcieÅ¼ek",
-  "noJourneysFound": "Nie znaleziono ÅcieÅ¼ek",
+  "failedToLoadJourneys": "Nie udało się załadować ścieżek",
+  "noJourneysFound": "Nie znaleziono ścieżek",
   "journeySessions": "{count} sesji",
   "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
 
   "locations": "Lokalizacje",
   "locationCities": "Miasta",
-  "failedToLoadLocations": "Nie udaÅo siÄ zaÅadowaÄ lokalizacji",
+  "failedToLoadLocations": "Nie udało się załadować lokalizacji",
   "noLocationsFound": "Nie znaleziono lokalizacji",
 
-  "coreFeatures": "GÅÃ³wne",
-  "insights": "WglÄd",
-  "tools": "NarzÄdzia",
+  "coreFeatures": "Główne",
+  "insights": "Wgląd",
+  "tools": "Narzędzia",
 
   "userTraits": "Cechy",
-  "failedToLoadUserTraits": "Nie udaÅo siÄ zaÅadowaÄ cech uÅ¼ytkownikÃ³w",
+  "failedToLoadUserTraits": "Nie udało się załadować cech użytkowników",
   "noUserTraits": "Nie znaleziono cech",
-  "noUserTraitsHint": "Cechy pojawiÄ siÄ po zidentyfikowaniu uÅ¼ytkownikÃ³w z niestandardowymi wÅaÅciwoÅciami",
-  "traitUsersCount": "{count} uÅ¼ytkownikÃ³w",
+  "noUserTraitsHint": "Cechy pojawią się po zidentyfikowaniu użytkowników z niestandardowymi właściwościami",
+  "traitUsersCount": "{count} użytkowników",
   "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
 
   "entryPages": "Strony wejścia",
