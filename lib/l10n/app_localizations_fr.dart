@@ -791,4 +791,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String eventTimelineActions(int count) {
     return 'Chronologie ($count actions)';
   }
+
+  @override
+  String get eventLog => 'Journal des événements';
+
+  @override
+  String get viewEventLog => 'Voir le journal des événements';
+
+  @override
+  String get failedToLoadEventLog =>
+      'Impossible de charger le journal des événements';
 }

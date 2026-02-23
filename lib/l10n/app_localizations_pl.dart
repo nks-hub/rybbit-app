@@ -790,4 +790,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String eventTimelineActions(int count) {
     return 'Oś czasu ($count akcji)';
   }
+
+  @override
+  String get eventLog => 'Dziennik zdarzeń';
+
+  @override
+  String get viewEventLog => 'Zobacz dziennik zdarzeń';
+
+  @override
+  String get failedToLoadEventLog =>
+      'Nie udało się załadować dziennika zdarzeń';
 }

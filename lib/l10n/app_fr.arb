@@ -413,5 +413,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "eventLog": "Journal des événements",
+  "viewEventLog": "Voir le journal des événements",
+  "failedToLoadEventLog": "Impossible de charger le journal des événements"
 }

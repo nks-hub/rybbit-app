@@ -413,5 +413,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "eventLog": "Registro eventi",
+  "viewEventLog": "Visualizza registro eventi",
+  "failedToLoadEventLog": "Impossibile caricare il registro eventi"
 }

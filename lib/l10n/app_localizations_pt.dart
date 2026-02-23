@@ -790,4 +790,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String eventTimelineActions(int count) {
     return 'Linha do tempo ($count ações)';
   }
+
+  @override
+  String get eventLog => 'Registro de eventos';
+
+  @override
+  String get viewEventLog => 'Ver registro de eventos';
+
+  @override
+  String get failedToLoadEventLog => 'Falha ao carregar o registro de eventos';
 }

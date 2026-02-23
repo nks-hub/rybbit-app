@@ -797,4 +797,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String eventTimelineActions(int count) {
     return 'Ereignis-Zeitleiste ($count Aktionen)';
   }
+
+  @override
+  String get eventLog => 'Ereignisprotokoll';
+
+  @override
+  String get viewEventLog => 'Ereignisprotokoll anzeigen';
+
+  @override
+  String get failedToLoadEventLog =>
+      'Ereignisprotokoll konnte nicht geladen werden';
 }

@@ -287,5 +287,9 @@
   "totalEvents": "Total Events",
   "userActionsLabel": "User Actions",
   "eventTimelineActions": "Event Timeline ({count} actions)",
-  "@eventTimelineActions": { "placeholders": { "count": { "type": "int" } } }
+  "@eventTimelineActions": { "placeholders": { "count": { "type": "int" } } },
+
+  "eventLog": "Event Log",
+  "viewEventLog": "View Event Log",
+  "failedToLoadEventLog": "Failed to load event log"
 }

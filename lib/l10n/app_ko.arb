@@ -413,5 +413,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "eventLog": "이벤트 로그",
+  "viewEventLog": "이벤트 로그 보기",
+  "failedToLoadEventLog": "이벤트 로그를 불러오지 못했습니다"
 }

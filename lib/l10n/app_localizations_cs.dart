@@ -796,4 +796,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String eventTimelineActions(int count) {
     return 'Časová osa událostí ($count akcí)';
   }
+
+  @override
+  String get eventLog => 'Protokol událostí';
+
+  @override
+  String get viewEventLog => 'Zobrazit protokol událostí';
+
+  @override
+  String get failedToLoadEventLog => 'Nepodařilo se načíst protokol událostí';
 }

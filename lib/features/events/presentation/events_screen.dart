@@ -341,6 +341,19 @@ class EventsScreen extends ConsumerWidget {
                 },
               ),
 
+              // View Event Log button
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: OutlinedButton.icon(
+                  onPressed: () => context.push('/analytics/$siteId/event-log'),
+                  icon: const Icon(Icons.list_alt, size: 18),
+                  label: Text(l10n.viewEventLog),
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 40),
+                  ),
+                ),
+              ),
+
               // Outbound links section
               const Divider(height: 1),
               Padding(

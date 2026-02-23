@@ -779,4 +779,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String eventTimelineActions(int count) {
     return 'イベントタイムライン ($countアクション)';
   }
+
+  @override
+  String get eventLog => 'イベントログ';
+
+  @override
+  String get viewEventLog => 'イベントログを表示';
+
+  @override
+  String get failedToLoadEventLog => 'イベントログの読み込みに失敗しました';
 }

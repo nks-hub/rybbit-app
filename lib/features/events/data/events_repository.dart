@@ -69,6 +69,23 @@ class EventsRepository {
     return [];
   }
 
+  /// Fetches raw individual events with cursor-based pagination.
+  Future<RawEventsResponse> getRawEvents(
+    String siteId,
+    Map<String, String> params,
+  ) async {
+    final response = await _dio.get(
+      '/api/sites/$siteId/events',
+      queryParameters: params,
+    );
+
+    final data = response.data;
+    if (data is Map<String, dynamic>) {
+      return RawEventsResponse.fromJson(data);
+    }
+    return const RawEventsResponse(data: []);
+  }
+
   /// Fetches bucketed event data for charting.
   Future<List<EventBucketItem>> getEventsBucketed(
     String siteId,

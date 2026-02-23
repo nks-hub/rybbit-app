@@ -413,5 +413,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "eventLog": "Ereignisprotokoll",
+  "viewEventLog": "Ereignisprotokoll anzeigen",
+  "failedToLoadEventLog": "Ereignisprotokoll konnte nicht geladen werden"
 }

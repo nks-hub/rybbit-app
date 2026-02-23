@@ -413,5 +413,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "eventLog": "事件日志",
+  "viewEventLog": "查看事件日志",
+  "failedToLoadEventLog": "无法加载事件日志"
 }

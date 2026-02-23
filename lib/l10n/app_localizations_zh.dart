@@ -779,4 +779,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String eventTimelineActions(int count) {
     return '事件时间线（$count 个操作）';
   }
+
+  @override
+  String get eventLog => '事件日志';
+
+  @override
+  String get viewEventLog => '查看事件日志';
+
+  @override
+  String get failedToLoadEventLog => '无法加载事件日志';
 }

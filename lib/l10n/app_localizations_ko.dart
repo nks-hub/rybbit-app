@@ -779,4 +779,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String eventTimelineActions(int count) {
     return '이벤트 타임라인 ($count개 동작)';
   }
+
+  @override
+  String get eventLog => '이벤트 로그';
+
+  @override
+  String get viewEventLog => '이벤트 로그 보기';
+
+  @override
+  String get failedToLoadEventLog => '이벤트 로그를 불러오지 못했습니다';
 }

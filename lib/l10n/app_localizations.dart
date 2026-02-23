@@ -1549,6 +1549,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Event Timeline ({count} actions)'**
   String eventTimelineActions(int count);
+
+  /// No description provided for @eventLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Log'**
+  String get eventLog;
+
+  /// No description provided for @viewEventLog.
+  ///
+  /// In en, this message translates to:
+  /// **'View Event Log'**
+  String get viewEventLog;
+
+  /// No description provided for @failedToLoadEventLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load event log'**
+  String get failedToLoadEventLog;
 }
 
 class _AppLocalizationsDelegate

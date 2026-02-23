@@ -7,6 +7,7 @@ import '../../features/auth/application/auth_controller.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/dashboard/presentation/dashboard_screen.dart';
 import '../../features/errors/presentation/errors_screen.dart';
+import '../../features/events/presentation/event_log_screen.dart';
 import '../../features/events/presentation/events_screen.dart';
 import '../../features/funnels/presentation/funnels_screen.dart';
 import '../../features/goals/presentation/goals_screen.dart';
@@ -114,6 +115,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                         builder: (context, state) {
                           final siteId = state.pathParameters['siteId']!;
                           return EventsScreen(siteId: siteId);
+                        },
+                      ),
+                      GoRoute(
+                        path: 'event-log',
+                        builder: (context, state) {
+                          final siteId = state.pathParameters['siteId']!;
+                          return EventLogScreen(siteId: siteId);
                         },
                       ),
                       GoRoute(

@@ -781,4 +781,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String eventTimelineActions(int count) {
     return 'Event Timeline ($count actions)';
   }
+
+  @override
+  String get eventLog => 'Event Log';
+
+  @override
+  String get viewEventLog => 'View Event Log';
+
+  @override
+  String get failedToLoadEventLog => 'Failed to load event log';
 }

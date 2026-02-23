@@ -413,5 +413,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "eventLog": "イベントログ",
+  "viewEventLog": "イベントログを表示",
+  "failedToLoadEventLog": "イベントログの読み込みに失敗しました"
 }
