@@ -73,7 +73,14 @@ class _ShellScreenState extends ConsumerState<ShellScreen> {
       );
     }
 
-    return Scaffold(
+    return PopScope(
+      canPop: widget.navigationShell.currentIndex == 0,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) {
+          widget.navigationShell.goBranch(0);
+        }
+      },
+      child: Scaffold(
       body: widget.navigationShell,
       bottomNavigationBar: NavigationBar(
         selectedIndex: widget.navigationShell.currentIndex,
@@ -103,6 +110,7 @@ class _ShellScreenState extends ConsumerState<ShellScreen> {
           ),
         ],
       ),
+    ),
     );
   }
 }

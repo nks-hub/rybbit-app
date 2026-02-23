@@ -332,6 +332,30 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Row 0: User ID
+                    if (session.userId != null &&
+                        session.userId!.isNotEmpty) ...[
+                      Row(
+                        children: [
+                          Icon(Icons.person_outline,
+                              size: 14,
+                              color: theme.colorScheme.primary),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              session.userId!,
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: theme.colorScheme.primary,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                    ],
                     // Row 1: Flag + Browser/OS + Time
                     Row(
                       children: [
