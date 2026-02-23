@@ -16,15 +16,12 @@ import '../application/filter_controller.dart';
 import '../application/time_range_controller.dart';
 
 enum SelectedStat {
-  users('Users'),
-  sessions('Sessions'),
-  pageviews('Pageviews'),
-  pagesPerSession('Pages/Session'),
-  bounceRate('Bounce Rate'),
-  duration('Duration');
-
-  const SelectedStat(this.label);
-  final String label;
+  users,
+  sessions,
+  pageviews,
+  pagesPerSession,
+  bounceRate,
+  duration;
 }
 
 final selectedStatProvider = StateProvider<SelectedStat>((ref) => SelectedStat.users);
@@ -64,7 +61,7 @@ class AnalyticsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          ref.watch(currentSiteDomainProvider) ?? 'Site $siteId',
+          ref.watch(currentSiteDomainProvider) ?? l10n.siteLabel(siteId),
           style: const TextStyle(fontSize: 18),
         ),
         actions: [

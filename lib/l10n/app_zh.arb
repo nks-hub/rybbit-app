@@ -275,6 +275,7 @@
   "siteInformation": "ç«ç¹ä¿¡æ¯",
   "domain": "åå",
   "siteId": "ç«ç¹ ID",
+  "siteLabel": "站点 {id}",
   "created": "åå»ºæ¶é´",
   "trackingSettings": "è·è¸ªè®¾ç½®",
   "publicDashboard": "å¬å¼ä»ªè¡¨æ¿",

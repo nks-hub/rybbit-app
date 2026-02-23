@@ -587,6 +587,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get siteId => 'ID webu';
 
   @override
+  String siteLabel(String id) {
+    return 'Web $id';
+  }
+
+  @override
   String get created => 'Vytvořeno';
 
   @override

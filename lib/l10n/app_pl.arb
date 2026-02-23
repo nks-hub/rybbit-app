@@ -275,6 +275,7 @@
   "siteInformation": "Informacje o witrynie",
   "domain": "Domena",
   "siteId": "ID witryny",
+  "siteLabel": "Witryna {id}",
   "created": "Utworzono",
   "trackingSettings": "Ustawienia śledzenia",
   "publicDashboard": "Publiczny panel",

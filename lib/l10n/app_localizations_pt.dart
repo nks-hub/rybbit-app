@@ -578,6 +578,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get siteId => 'ID do site';
 
   @override
+  String siteLabel(String id) {
+    return 'Site $id';
+  }
+
+  @override
   String get created => 'Criado';
 
   @override

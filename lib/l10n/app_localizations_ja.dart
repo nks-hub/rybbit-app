@@ -596,7 +596,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get domain => 'ãã¡ã¤ã³';
 
   @override
-  String get siteId => 'ãµã¤ãID';
+  String get siteId => 'Ã£ÂÂµÃ£ÂÂ¤Ã£ÂÂID';
+
+  @override
+  String siteLabel(String id) {
+    return 'サイト $id';
+  }
 
   @override
   String get created => 'ä½ææ¥';

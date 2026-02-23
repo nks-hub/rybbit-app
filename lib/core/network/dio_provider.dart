@@ -39,7 +39,7 @@ final dioProvider = Provider<Dio>((ref) {
     authInterceptor,
   ]);
 
-  dio.addSentry();
+  dio.addSentry(captureFailedRequests: false);
 
   return dio;
 });

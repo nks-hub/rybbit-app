@@ -274,7 +274,8 @@
   "siteSettings": "ãµã¤ãè¨­å®",
   "siteInformation": "ãµã¤ãæå ±",
   "domain": "ãã¡ã¤ã³",
-  "siteId": "ãµã¤ãID",
+  "siteId": "Ã£ÂÂµÃ£ÂÂ¤Ã£ÂÂID",
+  "siteLabel": "サイト {id}",
   "created": "ä½ææ¥",
   "trackingSettings": "ãã©ãã­ã³ã°è¨­å®",
   "publicDashboard": "å¬éããã·ã¥ãã¼ã",

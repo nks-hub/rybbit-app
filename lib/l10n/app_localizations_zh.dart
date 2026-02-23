@@ -573,6 +573,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get siteId => 'ç«ç¹ ID';
 
   @override
+  String siteLabel(String id) {
+    return '站点 $id';
+  }
+
+  @override
   String get created => 'åå»ºæ¶é´';
 
   @override

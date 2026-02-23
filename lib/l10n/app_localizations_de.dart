@@ -584,6 +584,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get siteId => 'Website-ID';
 
   @override
+  String siteLabel(String id) {
+    return 'Website $id';
+  }
+
+  @override
   String get created => 'Erstellt';
 
   @override

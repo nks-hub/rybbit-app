@@ -1160,6 +1160,12 @@ abstract class AppLocalizations {
   /// **'Site ID'**
   String get siteId;
 
+  /// No description provided for @siteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Site {id}'**
+  String siteLabel(String id);
+
   /// No description provided for @created.
   ///
   /// In en, this message translates to:

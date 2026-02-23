@@ -10,7 +10,7 @@ class EmptyState extends StatelessWidget {
   const EmptyState({
     super.key,
     this.icon = Icons.inbox_outlined,
-    this.title = 'No data',
+    required this.title,
     this.subtitle,
     this.action,
   });

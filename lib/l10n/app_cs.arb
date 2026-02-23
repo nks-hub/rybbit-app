@@ -300,6 +300,7 @@
   "siteInformation": "Informace o webu",
   "domain": "Doména",
   "siteId": "ID webu",
+  "siteLabel": "Web {id}",
   "created": "Vytvořeno",
   "trackingSettings": "Nastavení sledování",
   "publicDashboard": "Veřejný dashboard",

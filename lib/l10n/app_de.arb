@@ -275,6 +275,7 @@
   "siteInformation": "Website-Informationen",
   "domain": "Domain",
   "siteId": "Website-ID",
+  "siteLabel": "Website {id}",
   "created": "Erstellt",
   "trackingSettings": "Tracking-Einstellungen",
   "publicDashboard": "Öffentliches Dashboard",

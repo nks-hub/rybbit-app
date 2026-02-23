@@ -208,6 +208,14 @@
   "siteInformation": "Site Information",
   "domain": "Domain",
   "siteId": "Site ID",
+  "siteLabel": "Site {id}",
+  "@siteLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "created": "Created",
   "trackingSettings": "Tracking Settings",
   "publicDashboard": "Public Dashboard",

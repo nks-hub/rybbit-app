@@ -582,7 +582,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get domain => 'ëë©ì¸';
 
   @override
-  String get siteId => 'ì¬ì´í¸ ID';
+  String get siteId => 'Ã¬ÂÂ¬Ã¬ÂÂ´Ã­ÂÂ¸ ID';
+
+  @override
+  String siteLabel(String id) {
+    return '사이트 $id';
+  }
 
   @override
   String get created => 'ìì±ì¼';

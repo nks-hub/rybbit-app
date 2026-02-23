@@ -580,6 +580,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get siteId => 'ID witryny';
 
   @override
+  String siteLabel(String id) {
+    return 'Witryna $id';
+  }
+
+  @override
   String get created => 'Utworzono';
 
   @override
