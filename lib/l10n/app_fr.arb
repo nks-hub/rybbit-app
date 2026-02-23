@@ -1,0 +1,417 @@
+{
+  "@@locale": "fr",
+  "appName": "Rybbit",
+  "appSubtitle": "Non officiel",
+  "cancel": "Annuler",
+  "delete": "Supprimer",
+  "save": "Enregistrer",
+  "update": "Mettre à jour",
+  "create": "Créer",
+  "retry": "Réessayer",
+  "add": "Ajouter",
+  "edit": "Modifier",
+  "clear": "Effacer",
+  "apply": "Appliquer",
+  "goBack": "Retour",
+  "noData": "Aucune donnée",
+  "loading": "Chargement",
+  "logout": "Déconnexion",
+  "close": "Fermer",
+  "serverUrl": "URL du serveur",
+  "serverUrlHint": "https://votre-instance-rybbit.com",
+  "email": "E-mail",
+  "apiKey": "Clé API",
+  "password": "Mot de passe",
+  "connect": "Se connecter",
+  "organizations": "Organisations",
+  "noSitesFound": "Aucun site trouvé",
+  "noSitesHint": "Ajoutez un site dans le tableau de bord web pour commencer.",
+  "siteCount": "{count, plural, one{1 site} other{{count} sites}}",
+  "@siteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "members": "Membres ({count})",
+  "@members": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "failedToLoadOrganizations": "Échec du chargement des organisations",
+  "noOrganizations": "Aucune organisation",
+  "noOrganizationsHint": "Les organisations peuvent être créées dans le tableau de bord web",
+  "failedToLoadMembers": "Échec du chargement des membres",
+  "failedToLoadSites": "Échec du chargement des sites",
+  "failedToLoadAnalytics": "Échec du chargement des analyses",
+  "noDataAvailable": "Aucune donnée disponible",
+  "users": "Utilisateurs",
+  "sessions": "Sessions",
+  "pageviews": "Pages vues",
+  "pagesPerSession": "Pages/Session",
+  "bounceRate": "Taux de rebond",
+  "duration": "Durée",
+  "metrics": "Métriques",
+  "pages": "Pages",
+  "referrers": "Référents",
+  "countries": "Pays",
+  "devices": "Appareils",
+  "performance": "Performance",
+  "goals": "Objectifs",
+  "funnels": "Entonnoirs",
+  "replay": "Replay",
+  "config": "Configuration",
+  "usersOnline": "{count} utilisateurs en ligne",
+  "@usersOnline": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "events": "Événements",
+  "eventsOverTime": "Événements au fil du temps",
+  "eventNames": "Noms des événements",
+  "noCustomEventsTracked": "Aucun événement personnalisé suivi",
+  "failedToLoadProperties": "Échec du chargement des propriétés",
+  "noProperties": "Aucune propriété",
+  "outboundLinks": "Liens sortants",
+  "noOutboundLinksTracked": "Aucun lien sortant suivi",
+  "failedToLoadChart": "Échec du chargement du graphique",
+  "errors": "Erreurs",
+  "failedToLoadErrors": "Échec du chargement des erreurs",
+  "noErrorsFound": "Aucune erreur trouvée",
+  "everythingLooksGood": "Tout semble en ordre !",
+  "occurrences": "occurrences",
+  "sessionsAffected": "sessions affectées",
+  "failedToLoadEventsWithError": "Échec du chargement des événements : {error}",
+  "@failedToLoadEventsWithError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noEventsFound": "Aucun événement trouvé",
+  "failedToLoadFunnels": "Échec du chargement des entonnoirs",
+  "noFunnelsSaved": "Aucun entonnoir enregistré",
+  "createFunnelsHint": "Créez des entonnoirs dans le tableau de bord web",
+  "deleteFunnel": "Supprimer l'entonnoir",
+  "deleteFunnelConfirm": "Supprimer \"{name}\" ?",
+  "@deleteFunnelConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToDeleteFunnel": "Échec de la suppression de l'entonnoir : {error}",
+  "@failedToDeleteFunnel": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noStepsDefined": "Aucune étape définie pour cet entonnoir",
+  "failedToAnalyze": "Échec de l'analyse : {error}",
+  "@failedToAnalyze": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "overallConversion": "Conversion globale",
+  "dropoff": "Abandon : {value}",
+  "@dropoff": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "createGoal": "Créer un objectif",
+  "failedToLoadGoals": "Échec du chargement des objectifs",
+  "noGoalsConfigured": "Aucun objectif configuré",
+  "noGoalsHint": "Appuyez sur + pour créer un nouvel objectif",
+  "conversions": "Conversions",
+  "rate": "Taux",
+  "editGoal": "Modifier l'objectif",
+  "createGoalTitle": "Créer un objectif",
+  "name": "Nom",
+  "type": "Type",
+  "path": "Chemin",
+  "event": "Événement",
+  "pathPattern": "Modèle de chemin",
+  "eventName": "Nom de l'événement",
+  "deleteGoal": "Supprimer l'objectif",
+  "deleteGoalConfirm": "Supprimer \"{name}\" ?",
+  "@deleteGoalConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToDeleteGoal": "Échec de la suppression de l'objectif : {error}",
+  "@failedToDeleteGoal": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToLoadPerformanceData": "Échec du chargement des données de performance",
+  "metricOverTime": "{metric} au fil du temps",
+  "@metricOverTime": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "byDimension": "Par dimension",
+  "failedToLoadDimensionData": "Échec du chargement des données de dimension",
+  "good": "Bon",
+  "needsImprovement": "À améliorer",
+  "poor": "Mauvais",
+  "largestContentfulPaint": "Largest Contentful Paint",
+  "cumulativeLayoutShift": "Cumulative Layout Shift",
+  "firstContentfulPaint": "First Contentful Paint",
+  "timeToFirstByte": "Time to First Byte",
+  "interactionToNextPaint": "Interaction to Next Paint",
+  "dimPages": "Pages",
+  "dimCountries": "Pays",
+  "dimDevices": "Appareils",
+  "dimBrowsers": "Navigateurs",
+  "dimOS": "OS",
+  "sessionFilters": "Filtres de session",
+  "minPageviews": "Pages vues min.",
+  "minEvents": "Événements min.",
+  "minDurationSeconds": "Durée min. (secondes)",
+  "failedToLoadSessions": "Échec du chargement des sessions",
+  "noSessionsFound": "Aucune session trouvée",
+  "filterSessions": "Filtrer les sessions",
+  "loadingMoreSessions": "Chargement de sessions supplémentaires",
+  "entryPage": "Page d'entrée : {page}",
+  "@entryPage": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "nPages": "{count} pages",
+  "@nPages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sessionReplays": "Replays de session",
+  "failedToLoadReplays": "Échec du chargement des replays",
+  "noReplaysFound": "Aucun replay trouvé",
+  "noReplaysHint": "Les replays de session apparaîtront ici lorsqu'ils seront activés.",
+  "previousPage": "Page précédente",
+  "nextPage": "Page suivante",
+  "pageNumber": "Page {number}",
+  "@pageNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "unknownBrowser": "Navigateur inconnu",
+  "unknownCountry": "Pays inconnu",
+  "sortUsers": "Trier les utilisateurs",
+  "showAllUsers": "Afficher tous les utilisateurs",
+  "showIdentifiedOnly": "Afficher uniquement les identifiés",
+  "searchUsers": "Rechercher des utilisateurs",
+  "searchUsersHint": "Rechercher des utilisateurs...",
+  "clearSearch": "Effacer la recherche",
+  "failedToLoadUsers": "Échec du chargement des utilisateurs",
+  "noUsersFound": "Aucun utilisateur trouvé",
+  "noIdentifiedUsers": "Aucun utilisateur identifié",
+  "usersWillAppear": "Les utilisateurs apparaîtront une fois identifiés",
+  "tryDifferentSearch": "Essayez un autre terme de recherche",
+  "sortedBy": "Trié par",
+  "loadingMoreUsers": "Chargement d'utilisateurs supplémentaires",
+  "lastSeen": "Dernière visite",
+  "firstSeen": "Première visite",
+  "failedToLoadMetrics": "Échec du chargement des métriques",
+  "loadingMoreMetrics": "Chargement de métriques supplémentaires",
+  "noMetricData": "Aucune donnée pour {metric}",
+  "@noMetricData": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "settings": "Paramètres",
+  "connection": "Connexion",
+  "notConfigured": "Non configuré",
+  "authMethod": "Méthode d'authentification",
+  "sessionCookie": "Cookie de session",
+  "loggedInAs": "Connecté en tant que",
+  "unknown": "Inconnu",
+  "appearance": "Apparence",
+  "theme": "Thème",
+  "dark": "Sombre",
+  "light": "Clair",
+  "auto": "Automatique",
+  "about": "À propos",
+  "appVersion": "Version de l'application",
+  "openSourceAnalytics": "Analyse web open source",
+  "logoutConfirm": "Êtes-vous sûr de vouloir vous déconnecter ?",
+  "siteSettings": "Paramètres du site",
+  "siteInformation": "Informations du site",
+  "domain": "Domaine",
+  "siteId": "ID du site",
+  "created": "Créé",
+  "trackingSettings": "Paramètres de suivi",
+  "publicDashboard": "Tableau de bord public",
+  "publicDashboardDesc": "Autoriser l'accès public aux analyses",
+  "sessionReplay": "Replay de session",
+  "sessionReplayDesc": "Enregistrer les sessions des utilisateurs",
+  "webVitals": "Web Vitals",
+  "webVitalsDesc": "Suivre les Core Web Vitals",
+  "trackErrors": "Suivi des erreurs",
+  "trackErrorsDesc": "Capturer les erreurs JavaScript",
+  "outboundLinksTracking": "Liens sortants",
+  "outboundLinksDesc": "Suivre les clics sur les liens sortants",
+  "excludedIps": "IP exclues",
+  "excludedCountries": "Pays exclus",
+  "settingsSaved": "Paramètres enregistrés",
+  "failedToSave": "Échec de l'enregistrement : {error}",
+  "@failedToSave": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "timeRange": "Période",
+  "today": "Aujourd'hui",
+  "yesterday": "Hier",
+  "last7Days": "7 derniers jours",
+  "last30Days": "30 derniers jours",
+  "thisWeek": "Cette semaine",
+  "thisMonth": "Ce mois-ci",
+  "thisYear": "Cette année",
+  "customRange": "Période personnalisée",
+  "filter": "Filtre",
+  "addFilter": "Ajouter un filtre",
+  "parameter": "Paramètre",
+  "value": "Valeur",
+  "enterFilterValue": "Saisir une valeur de filtre",
+  "requestTimedOut": "La requête a expiré. Veuillez réessayer.",
+  "networkError": "Erreur réseau. Vérifiez votre connexion.",
+  "sessionExpired": "Session expirée. Veuillez vous reconnecter.",
+  "accessDenied": "Accès refusé.",
+  "dataNotFound": "Données introuvables.",
+  "serverError": "Erreur serveur. Veuillez réessayer plus tard.",
+  "failedToLoadGeneric": "Échec du chargement des données. Veuillez réessayer.",
+  "chartDataPoints": "Graphique avec {count} points de données",
+  "@chartDataPoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "previousPrefix": "Préc. : {value}",
+  "@previousPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "performanceRatingLabel": "Évaluation de la performance : {rating}",
+  "@performanceRatingLabel": {
+    "placeholders": {
+      "rating": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingContent": "Chargement du contenu",
+  "language": "Langue",
+  "selectLanguage": "Sélectionner la langue",
+  "nUsers": "{count} utilisateurs",
+  "@nUsers": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "nSessions": "{count} sessions",
+  "@nSessions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lastPrefix": "Dernier : {value}",
+  "@lastPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToLoadSiteConfig": "Échec du chargement de la configuration du site",
+  "failedToLoadUserDetails": "Impossible de charger les détails de l'utilisateur",
+  "lastSeenPrefix": "Vu pour la dernière fois : {value}",
+  "@lastSeenPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "traits": "Attributs",
+  "noTraits": "Aucun attribut pour cet utilisateur",
+  "sessionDetail": "Détail de la session",
+  "failedToLoadSession": "Impossible de charger la session",
+  "entryPageLabel": "Page d'entrée",
+  "exitPage": "Page de sortie",
+  "browserAndDevice": "Navigateur et appareil",
+  "browser": "Navigateur",
+  "os": "OS",
+  "device": "Appareil",
+  "sourceLabel": "Source",
+  "referrer": "Référent",
+  "eventTimelineCount": "Chronologie ({count})",
+  "@eventTimelineCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noEvents": "Aucun événement",
+  "replayEventsTitle": "Événements de replay",
+  "failedToLoadReplay": "Impossible de charger le replay",
+  "noReplayEvents": "Aucun événement de replay",
+  "totalEvents": "Total des événements",
+  "userActionsLabel": "Actions utilisateur",
+  "eventTimelineActions": "Chronologie ({count} actions)",
+  "@eventTimelineActions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

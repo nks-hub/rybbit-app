@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/goal.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/goals_repository.dart';
@@ -26,18 +27,19 @@ class GoalsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final goalsAsync = ref.watch(_goalsProvider(siteId));
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Goals', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.goals, style: const TextStyle(fontSize: 18)),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        tooltip: 'Create goal',
+        tooltip: l10n.createGoal,
         onPressed: () => _showGoalForm(context, ref, null),
         child: const Icon(Icons.add),
       ),
@@ -52,7 +54,7 @@ class GoalsScreen extends ConsumerWidget {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load goals',
+                Text(l10n.failedToLoadGoals,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -61,7 +63,7 @@ class GoalsScreen extends ConsumerWidget {
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () => ref.invalidate(_goalsProvider(siteId)),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -76,10 +78,10 @@ class GoalsScreen extends ConsumerWidget {
                   Icon(Icons.flag_outlined,
                       size: 64, color: theme.textTheme.bodySmall?.color, semanticLabel: ''),
                   const SizedBox(height: 16),
-                  Text('No goals configured',
+                  Text(l10n.noGoalsConfigured,
                       style: theme.textTheme.bodyLarge),
                   const SizedBox(height: 8),
-                  Text('Tap + to create a new goal',
+                  Text(l10n.noGoalsHint,
                       style: theme.textTheme.bodySmall),
                 ],
               ),
@@ -142,22 +144,26 @@ class GoalsScreen extends ConsumerWidget {
     WidgetRef ref,
     Goal goal,
   ) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Delete Goal'),
-        content: Text('Delete "${goal.name}"?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Delete', style: TextStyle(color: Colors.red)),
-          ),
-        ],
-      ),
+      builder: (ctx) {
+        final l10nDialog = AppLocalizations.of(ctx)!;
+        return AlertDialog(
+          title: Text(l10nDialog.deleteGoal),
+          content: Text(l10nDialog.deleteGoalConfirm(goal.name)),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text(l10nDialog.cancel),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text(l10nDialog.delete, style: const TextStyle(color: Colors.red)),
+            ),
+          ],
+        );
+      },
     );
 
     if (confirmed != true) return;
@@ -169,7 +175,7 @@ class GoalsScreen extends ConsumerWidget {
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to delete goal: $e')),
+          SnackBar(content: Text(l10n.failedToDeleteGoal(e.toString()))),
         );
       }
     }
@@ -190,6 +196,7 @@ class _GoalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final typeColor = goal.goalType == 'path'
         ? const Color(0xFF3B82F6)
         : const Color(0xFF22C55E);
@@ -240,7 +247,7 @@ class _GoalCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        _goalDetail,
+                        _goalDetail(l10n),
                         style: theme.textTheme.bodySmall,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -248,12 +255,12 @@ class _GoalCard extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  tooltip: 'Edit',
+                  tooltip: l10n.edit,
                   icon: const Icon(Icons.edit_outlined, size: 20),
                   onPressed: onEdit,
                 ),
                 IconButton(
-                  tooltip: 'Delete',
+                  tooltip: l10n.delete,
                   icon: Icon(Icons.delete_outline,
                       size: 20, color: theme.colorScheme.error),
                   onPressed: onDelete,
@@ -266,12 +273,12 @@ class _GoalCard extends StatelessWidget {
               Row(
                 children: [
                   _StatChip(
-                    label: 'Conversions',
+                    label: l10n.conversions,
                     value: formatNumber(goal.totalConversions),
                   ),
                   const SizedBox(width: 12),
                   _StatChip(
-                    label: 'Rate',
+                    label: l10n.rate,
                     value: '${ratePercent.toStringAsFixed(1)}%',
                   ),
                   const SizedBox(width: 12),
@@ -297,12 +304,12 @@ class _GoalCard extends StatelessWidget {
     );
   }
 
-  String get _goalDetail {
+  String _goalDetail(AppLocalizations l10n) {
     if (goal.pathPattern != null && goal.pathPattern!.isNotEmpty) {
-      return 'Path: ${goal.pathPattern}';
+      return '${l10n.path}: ${goal.pathPattern}';
     }
     if (goal.eventName != null && goal.eventName!.isNotEmpty) {
-      return 'Event: ${goal.eventName}';
+      return '${l10n.event}: ${goal.eventName}';
     }
     return goal.goalType;
   }
@@ -345,24 +352,25 @@ class _GoalFormDialogState extends State<_GoalFormDialog> {
   @override
   Widget build(BuildContext context) {
     final isEditing = widget.goal != null;
+    final l10n = AppLocalizations.of(context)!;
 
     return AlertDialog(
-      title: Text(isEditing ? 'Edit Goal' : 'Create Goal'),
+      title: Text(isEditing ? l10n.editGoal : l10n.createGoalTitle),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: _nameController,
-              decoration: const InputDecoration(labelText: 'Name'),
+              decoration: InputDecoration(labelText: l10n.name),
             ),
             const SizedBox(height: 16),
             DropdownButtonFormField<String>(
               initialValue: _goalType,
-              decoration: const InputDecoration(labelText: 'Type'),
-              items: const [
-                DropdownMenuItem(value: 'path', child: Text('Path')),
-                DropdownMenuItem(value: 'event', child: Text('Event')),
+              decoration: InputDecoration(labelText: l10n.type),
+              items: [
+                DropdownMenuItem(value: 'path', child: Text(l10n.path)),
+                DropdownMenuItem(value: 'event', child: Text(l10n.event)),
               ],
               onChanged: (v) {
                 if (v != null) setState(() => _goalType = v);
@@ -373,13 +381,13 @@ class _GoalFormDialogState extends State<_GoalFormDialog> {
               TextField(
                 controller: _pathController,
                 decoration:
-                    const InputDecoration(labelText: 'Path Pattern'),
+                    InputDecoration(labelText: l10n.pathPattern),
               )
             else
               TextField(
                 controller: _eventNameController,
                 decoration:
-                    const InputDecoration(labelText: 'Event Name'),
+                    InputDecoration(labelText: l10n.eventName),
               ),
           ],
         ),
@@ -387,7 +395,7 @@ class _GoalFormDialogState extends State<_GoalFormDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(l10n.cancel),
         ),
         ElevatedButton(
           onPressed: () {
@@ -413,7 +421,7 @@ class _GoalFormDialogState extends State<_GoalFormDialog> {
 
             Navigator.pop(context, body);
           },
-          child: Text(isEditing ? 'Update' : 'Create'),
+          child: Text(isEditing ? l10n.update : l10n.create),
         ),
       ],
     );

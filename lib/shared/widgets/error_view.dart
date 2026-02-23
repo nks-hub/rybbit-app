@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../utils/formatters.dart';
 
-/// Generic error widget for displaying error states consistently.
-/// Suitable for use within AsyncValue.error handlers.
 class ErrorView extends StatelessWidget {
-  final String message;
+  final String? message;
   final String? detail;
   final VoidCallback? onRetry;
 
   const ErrorView({
     super.key,
-    this.message = 'Something went wrong',
+    this.message,
     this.detail,
     this.onRetry,
   });
 
-  /// Convenience constructor from an error object.
   factory ErrorView.fromError(Object error, {VoidCallback? onRetry}) {
     return ErrorView(
-      message: 'An error occurred',
       detail: formatError(error),
       onRetry: onRetry,
     );
@@ -28,6 +25,8 @@ class ErrorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+    final displayMessage = message ?? l10n.failedToLoadGeneric;
 
     return Center(
       child: Padding(
@@ -42,7 +41,7 @@ class ErrorView extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              message,
+              displayMessage,
               style: theme.textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
@@ -60,7 +59,7 @@ class ErrorView extends StatelessWidget {
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: onRetry,
-                child: const Text('Retry'),
+                child: Text(l10n.retry),
               ),
             ],
           ],

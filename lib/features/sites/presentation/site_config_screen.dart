@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/site_config_repository.dart';
 
@@ -33,14 +34,15 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final configAsync = ref.watch(_siteConfigProvider(widget.siteId));
     final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Site Settings', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.siteSettings, style: const TextStyle(fontSize: 18)),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -54,7 +56,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                       height: 16,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : const Text('Save'),
+                  : Text(l10n.save),
             ),
         ],
       ),
@@ -69,7 +71,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load site config',
+                Text(l10n.failedToLoadSiteConfig,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -79,7 +81,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                 ElevatedButton(
                   onPressed: () =>
                       ref.invalidate(_siteConfigProvider(widget.siteId)),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -105,17 +107,17 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Site Information',
+                        Text(l10n.siteInformation,
                             style: theme.textTheme.bodyLarge?.copyWith(
                               fontWeight: FontWeight.bold,
                             )),
                         const SizedBox(height: 12),
-                        _InfoRow(label: 'Name', value: site.name),
-                        _InfoRow(label: 'Domain', value: site.domain),
+                        _InfoRow(label: l10n.name, value: site.name),
+                        _InfoRow(label: l10n.domain, value: site.domain),
                         _InfoRow(
-                            label: 'Site ID',
+                            label: l10n.siteId,
                             value: site.siteId.toString()),
-                        _InfoRow(label: 'Created', value: site.createdAt),
+                        _InfoRow(label: l10n.created, value: site.createdAt),
                       ],
                     ),
                   ),
@@ -130,47 +132,44 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                        child: Text('Tracking Settings',
+                        child: Text(l10n.trackingSettings,
                             style: theme.textTheme.bodyLarge?.copyWith(
                               fontWeight: FontWeight.bold,
                             )),
                       ),
                       SwitchListTile(
-                        title: const Text('Public Dashboard'),
-                        subtitle:
-                            const Text('Allow public access to analytics'),
+                        title: Text(l10n.publicDashboard),
+                        subtitle: Text(l10n.publicDashboardDesc),
                         value: isPublic,
                         onChanged: (v) => setState(() => _public = v),
                       ),
                       const Divider(height: 1),
                       SwitchListTile(
-                        title: const Text('Session Replay'),
-                        subtitle: const Text('Record user sessions'),
+                        title: Text(l10n.sessionReplay),
+                        subtitle: Text(l10n.sessionReplayDesc),
                         value: replay,
                         onChanged: (v) =>
                             setState(() => _sessionReplay = v),
                       ),
                       const Divider(height: 1),
                       SwitchListTile(
-                        title: const Text('Web Vitals'),
-                        subtitle: const Text('Track Core Web Vitals'),
+                        title: Text(l10n.webVitals),
+                        subtitle: Text(l10n.webVitalsDesc),
                         value: vitals,
                         onChanged: (v) => setState(() => _webVitals = v),
                       ),
                       const Divider(height: 1),
                       SwitchListTile(
-                        title: const Text('Track Errors'),
-                        subtitle:
-                            const Text('Capture JavaScript errors'),
+                        title: Text(l10n.trackErrors),
+                        subtitle: Text(l10n.trackErrorsDesc),
                         value: errors,
                         onChanged: (v) =>
                             setState(() => _trackErrors = v),
                       ),
                       const Divider(height: 1),
                       SwitchListTile(
-                        title: const Text('Outbound Links'),
-                        subtitle:
-                            const Text('Track outbound link clicks'),
+                        title: Text(l10n.outboundLinksTracking),
+                        subtitle: Text(l10n.outboundLinksDesc),
                         value: outbound,
                         onChanged: (v) =>
                             setState(() => _trackOutbound = v),
@@ -189,7 +188,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Excluded IPs',
+                          Text(l10n.excludedIps,
                               style: theme.textTheme.bodyLarge?.copyWith(
                                 fontWeight: FontWeight.bold,
                               )),
@@ -221,7 +220,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Excluded Countries',
+                          Text(l10n.excludedCountries,
                               style: theme.textTheme.bodyLarge?.copyWith(
                                 fontWeight: FontWeight.bold,
                               )),
@@ -251,6 +250,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
   }
 
   Future<void> _save() async {
+    final l10n = AppLocalizations.of(context)!;
     setState(() => _saving = true);
 
     try {
@@ -269,14 +269,14 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
 
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Settings saved')),
+            SnackBar(content: Text(l10n.settingsSaved)),
           );
         }
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to save: $e')),
+          SnackBar(content: Text(l10n.failedToSave(e.toString()))),
         );
       }
     } finally {

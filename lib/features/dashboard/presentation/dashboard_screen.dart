@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/site.dart';
 import '../../../shared/utils/formatters.dart';
 import '../../auth/application/auth_controller.dart';
@@ -93,7 +94,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    '${org.sites.length} ${org.sites.length == 1 ? 'site' : 'sites'}',
+                    AppLocalizations.of(context)!.siteCount(org.sites.length),
                     style: theme.textTheme.bodySmall,
                   ),
                 ],
@@ -130,12 +131,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   Widget build(BuildContext context) {
     final sitesAsync = ref.watch(sitesControllerProvider);
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Rybbit',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          l10n.appName,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
           PopupMenuButton<String>(
@@ -149,23 +151,23 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               }
             },
             itemBuilder: (context) => [
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: 'organizations',
                 child: Row(
                   children: [
-                    Icon(Icons.business_outlined, size: 20),
-                    SizedBox(width: 8),
-                    Text('Organizations'),
+                    const Icon(Icons.business_outlined, size: 20),
+                    const SizedBox(width: 8),
+                    Text(l10n.organizations),
                   ],
                 ),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: 'logout',
                 child: Row(
                   children: [
-                    Icon(Icons.logout, size: 20),
-                    SizedBox(width: 8),
-                    Text('Logout'),
+                    const Icon(Icons.logout, size: 20),
+                    const SizedBox(width: 8),
+                    Text(l10n.logout),
                   ],
                 ),
               ),
@@ -188,7 +190,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Failed to load sites',
+                  l10n.failedToLoadSites,
                   style: theme.textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 8),
@@ -201,7 +203,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ElevatedButton(
                   onPressed: () =>
                       ref.read(sitesControllerProvider.notifier).refresh(),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -220,12 +222,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'No sites found',
+                    l10n.noSitesFound,
                     style: theme.textTheme.bodyLarge,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Add a site in the web dashboard to get started.',
+                    l10n.noSitesHint,
                     style: theme.textTheme.bodySmall,
                   ),
                 ],

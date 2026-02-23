@@ -1,0 +1,417 @@
+{
+  "@@locale": "cs",
+  "appName": "Rybbit",
+  "appSubtitle": "Neoficiální",
+  "cancel": "Zrušit",
+  "delete": "Smazat",
+  "save": "Uložit",
+  "update": "Aktualizovat",
+  "create": "Vytvořit",
+  "retry": "Zkusit znovu",
+  "add": "Přidat",
+  "edit": "Upravit",
+  "clear": "Vymazat",
+  "apply": "Použít",
+  "goBack": "Zpět",
+  "noData": "Žádná data",
+  "loading": "Načítání",
+  "logout": "Odhlásit se",
+  "close": "Zavřít",
+  "serverUrl": "URL serveru",
+  "serverUrlHint": "https://vase-rybbit-instance.com",
+  "email": "E-mail",
+  "apiKey": "API klíč",
+  "password": "Heslo",
+  "connect": "Připojit",
+  "organizations": "Organizace",
+  "noSitesFound": "Žádné weby nenalezeny",
+  "noSitesHint": "Pro začátek přidejte web ve webovém rozhraní.",
+  "siteCount": "{count, plural, one{1 web} few{{count} weby} other{{count} webů}}",
+  "@siteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "members": "Členové ({count})",
+  "@members": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "failedToLoadOrganizations": "Nepodařilo se načíst organizace",
+  "noOrganizations": "Žádné organizace",
+  "noOrganizationsHint": "Organizace lze vytvořit ve webovém rozhraní",
+  "failedToLoadMembers": "Nepodařilo se načíst členy",
+  "failedToLoadSites": "Nepodařilo se načíst weby",
+  "failedToLoadAnalytics": "Nepodařilo se načíst analytiku",
+  "noDataAvailable": "Žádná data k dispozici",
+  "users": "Uživatelé",
+  "sessions": "Relace",
+  "pageviews": "Zobrazení stránek",
+  "pagesPerSession": "Stránky/relace",
+  "bounceRate": "Míra okamžitého opuštění",
+  "duration": "Doba trvání",
+  "metrics": "Metriky",
+  "pages": "Stránky",
+  "referrers": "Odkazující",
+  "countries": "Země",
+  "devices": "Zařízení",
+  "performance": "Výkon",
+  "goals": "Cíle",
+  "funnels": "Trychtýře",
+  "replay": "Přehrávání",
+  "config": "Nastavení",
+  "usersOnline": "{count} uživatelů online",
+  "@usersOnline": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "events": "Události",
+  "eventsOverTime": "Události v čase",
+  "eventNames": "Názvy událostí",
+  "noCustomEventsTracked": "Žádné vlastní události nebyly zaznamenány",
+  "failedToLoadProperties": "Nepodařilo se načíst vlastnosti",
+  "noProperties": "Žádné vlastnosti",
+  "outboundLinks": "Odchozí odkazy",
+  "noOutboundLinksTracked": "Žádné odchozí odkazy nebyly zaznamenány",
+  "failedToLoadChart": "Nepodařilo se načíst graf",
+  "errors": "Chyby",
+  "failedToLoadErrors": "Nepodařilo se načíst chyby",
+  "noErrorsFound": "Žádné chyby nenalezeny",
+  "everythingLooksGood": "Vše vypadá v pořádku!",
+  "occurrences": "výskytů",
+  "sessionsAffected": "dotčených relací",
+  "failedToLoadEventsWithError": "Nepodařilo se načíst události: {error}",
+  "@failedToLoadEventsWithError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noEventsFound": "Žádné události nenalezeny",
+  "failedToLoadFunnels": "Nepodařilo se načíst trychtýře",
+  "noFunnelsSaved": "Žádné uložené trychtýře",
+  "createFunnelsHint": "Trychtýře lze vytvořit ve webovém rozhraní",
+  "deleteFunnel": "Smazat trychtýř",
+  "deleteFunnelConfirm": "Smazat \"{name}\"?",
+  "@deleteFunnelConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToDeleteFunnel": "Nepodařilo se smazat trychtýř: {error}",
+  "@failedToDeleteFunnel": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noStepsDefined": "Pro tento trychtýř nejsou definovány žádné kroky",
+  "failedToAnalyze": "Analýza se nezdařila: {error}",
+  "@failedToAnalyze": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "overallConversion": "Celková konverze",
+  "dropoff": "Odpad: {value}",
+  "@dropoff": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "createGoal": "Vytvořit cíl",
+  "failedToLoadGoals": "Nepodařilo se načíst cíle",
+  "noGoalsConfigured": "Žádné cíle nejsou nastaveny",
+  "noGoalsHint": "Klepněte na + pro vytvoření nového cíle",
+  "conversions": "Konverze",
+  "rate": "Míra",
+  "editGoal": "Upravit cíl",
+  "createGoalTitle": "Vytvořit cíl",
+  "name": "Název",
+  "type": "Typ",
+  "path": "Cesta",
+  "event": "Událost",
+  "pathPattern": "Vzor cesty",
+  "eventName": "Název události",
+  "deleteGoal": "Smazat cíl",
+  "deleteGoalConfirm": "Smazat \"{name}\"?",
+  "@deleteGoalConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToDeleteGoal": "Nepodařilo se smazat cíl: {error}",
+  "@failedToDeleteGoal": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToLoadPerformanceData": "Nepodařilo se načíst data o výkonu",
+  "metricOverTime": "{metric} v čase",
+  "@metricOverTime": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "byDimension": "Podle dimenze",
+  "failedToLoadDimensionData": "Nepodařilo se načíst data dimenze",
+  "good": "Dobré",
+  "needsImprovement": "Vyžaduje zlepšení",
+  "poor": "Špatné",
+  "largestContentfulPaint": "Largest Contentful Paint",
+  "cumulativeLayoutShift": "Cumulative Layout Shift",
+  "firstContentfulPaint": "First Contentful Paint",
+  "timeToFirstByte": "Time to First Byte",
+  "interactionToNextPaint": "Interaction to Next Paint",
+  "dimPages": "Stránky",
+  "dimCountries": "Země",
+  "dimDevices": "Zařízení",
+  "dimBrowsers": "Prohlížeče",
+  "dimOS": "OS",
+  "sessionFilters": "Filtry relací",
+  "minPageviews": "Min. zobrazení stránek",
+  "minEvents": "Min. událostí",
+  "minDurationSeconds": "Min. doba trvání (sekundy)",
+  "failedToLoadSessions": "Nepodařilo se načíst relace",
+  "noSessionsFound": "Žádné relace nenalezeny",
+  "filterSessions": "Filtrovat relace",
+  "loadingMoreSessions": "Načítání dalších relací",
+  "entryPage": "Vstupní stránka: {page}",
+  "@entryPage": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "nPages": "{count} stránek",
+  "@nPages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sessionReplays": "Přehrávání relací",
+  "failedToLoadReplays": "Nepodařilo se načíst přehrávání",
+  "noReplaysFound": "Žádná přehrávání nenalezena",
+  "noReplaysHint": "Přehrávání relací se zde zobrazí, jakmile budou povolena.",
+  "previousPage": "Předchozí stránka",
+  "nextPage": "Další stránka",
+  "pageNumber": "Stránka {number}",
+  "@pageNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "unknownBrowser": "Neznámý prohlížeč",
+  "unknownCountry": "Neznámá země",
+  "sortUsers": "Řadit uživatele",
+  "showAllUsers": "Zobrazit všechny uživatele",
+  "showIdentifiedOnly": "Zobrazit pouze identifikované",
+  "searchUsers": "Hledat uživatele",
+  "searchUsersHint": "Hledat uživatele...",
+  "clearSearch": "Vymazat hledání",
+  "failedToLoadUsers": "Nepodařilo se načíst uživatele",
+  "noUsersFound": "Žádní uživatelé nenalezeni",
+  "noIdentifiedUsers": "Žádní identifikovaní uživatelé",
+  "usersWillAppear": "Uživatelé se zobrazí po jejich identifikaci",
+  "tryDifferentSearch": "Zkuste jiný vyhledávací výraz",
+  "sortedBy": "Řazeno podle",
+  "loadingMoreUsers": "Načítání dalších uživatelů",
+  "lastSeen": "Naposledy viděn",
+  "firstSeen": "Poprvé viděn",
+  "nUsers": "{count} uživatelů",
+  "@nUsers": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "nSessions": "{count, plural, one{1 relace} few{{count} relace} other{{count} relací}}",
+  "@nSessions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lastPrefix": "Posl.: {value}",
+  "@lastPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToLoadSiteConfig": "Nepodařilo se načíst nastavení webu",
+  "failedToLoadMetrics": "Nepodařilo se načíst metriky",
+  "loadingMoreMetrics": "Načítání dalších metrik",
+  "noMetricData": "Žádná data pro {metric}",
+  "@noMetricData": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "settings": "Nastavení",
+  "connection": "Připojení",
+  "notConfigured": "Nenastaveno",
+  "authMethod": "Metoda ověření",
+  "sessionCookie": "Cookie relace",
+  "loggedInAs": "Přihlášen jako",
+  "unknown": "Neznámé",
+  "appearance": "Vzhled",
+  "theme": "Motiv",
+  "dark": "Tmavý",
+  "light": "Světlý",
+  "auto": "Automatický",
+  "about": "O aplikaci",
+  "appVersion": "Verze aplikace",
+  "openSourceAnalytics": "Open source webová analytika",
+  "logoutConfirm": "Opravdu se chcete odhlásit?",
+  "siteSettings": "Nastavení webu",
+  "siteInformation": "Informace o webu",
+  "domain": "Doména",
+  "siteId": "ID webu",
+  "created": "Vytvořeno",
+  "trackingSettings": "Nastavení sledování",
+  "publicDashboard": "Veřejný dashboard",
+  "publicDashboardDesc": "Povolit veřejný přístup k analytice",
+  "sessionReplay": "Přehrávání relací",
+  "sessionReplayDesc": "Zaznamenávat uživatelské relace",
+  "webVitals": "Web Vitals",
+  "webVitalsDesc": "Sledovat Core Web Vitals",
+  "trackErrors": "Sledování chyb",
+  "trackErrorsDesc": "Zachytávat JavaScript chyby",
+  "outboundLinksTracking": "Odchozí odkazy",
+  "outboundLinksDesc": "Sledovat kliknutí na odchozí odkazy",
+  "excludedIps": "Vyloučené IP adresy",
+  "excludedCountries": "Vyloučené země",
+  "settingsSaved": "Nastavení uloženo",
+  "failedToSave": "Nepodařilo se uložit: {error}",
+  "@failedToSave": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "timeRange": "Časové období",
+  "today": "Dnes",
+  "yesterday": "Včera",
+  "last7Days": "Posledních 7 dní",
+  "last30Days": "Posledních 30 dní",
+  "thisWeek": "Tento týden",
+  "thisMonth": "Tento měsíc",
+  "thisYear": "Tento rok",
+  "customRange": "Vlastní období",
+  "filter": "Filtr",
+  "addFilter": "Přidat filtr",
+  "parameter": "Parametr",
+  "value": "Hodnota",
+  "enterFilterValue": "Zadejte hodnotu filtru",
+  "requestTimedOut": "Požadavek vypršel. Zkuste to prosím znovu.",
+  "networkError": "Chyba sítě. Zkontrolujte připojení.",
+  "sessionExpired": "Relace vypršela. Přihlaste se prosím znovu.",
+  "accessDenied": "Přístup odepřen.",
+  "dataNotFound": "Data nenalezena.",
+  "serverError": "Chyba serveru. Zkuste to prosím později.",
+  "failedToLoadGeneric": "Nepodařilo se načíst data. Zkuste to prosím znovu.",
+  "chartDataPoints": "Graf s {count} datovými body",
+  "@chartDataPoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "previousPrefix": "Předchozí: {value}",
+  "@previousPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "performanceRatingLabel": "Hodnocení výkonu: {rating}",
+  "@performanceRatingLabel": {
+    "placeholders": {
+      "rating": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingContent": "Načítání obsahu",
+  "language": "Jazyk",
+  "selectLanguage": "Vyberte jazyk",
+  "failedToLoadUserDetails": "Nepodařilo se načíst detaily uživatele",
+  "lastSeenPrefix": "Naposledy viděn: {value}",
+  "@lastSeenPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "traits": "Vlastnosti",
+  "noTraits": "Žádné vlastnosti pro tohoto uživatele",
+  "sessionDetail": "Detail relace",
+  "failedToLoadSession": "Nepodařilo se načíst relaci",
+  "entryPageLabel": "Vstupní stránka",
+  "exitPage": "Výstupní stránka",
+  "browserAndDevice": "Prohlížeč a zařízení",
+  "browser": "Prohlížeč",
+  "os": "OS",
+  "device": "Zařízení",
+  "sourceLabel": "Zdroj",
+  "referrer": "Odkazující stránka",
+  "eventTimelineCount": "Časová osa událostí ({count})",
+  "@eventTimelineCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noEvents": "Žádné události",
+  "replayEventsTitle": "Události záznamu",
+  "failedToLoadReplay": "Nepodařilo se načíst záznam",
+  "noReplayEvents": "Žádné události záznamu",
+  "totalEvents": "Celkem událostí",
+  "userActionsLabel": "Akce uživatele",
+  "eventTimelineActions": "Časová osa událostí ({count} akcí)",
+  "@eventTimelineActions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

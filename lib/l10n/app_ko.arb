@@ -1,0 +1,417 @@
+{
+  "@@locale": "ko",
+  "appName": "Rybbit",
+  "appSubtitle": "비공식",
+  "cancel": "취소",
+  "delete": "삭제",
+  "save": "저장",
+  "update": "업데이트",
+  "create": "생성",
+  "retry": "다시 시도",
+  "add": "추가",
+  "edit": "편집",
+  "clear": "지우기",
+  "apply": "적용",
+  "goBack": "뒤로 가기",
+  "noData": "데이터 없음",
+  "loading": "로딩 중",
+  "logout": "로그아웃",
+  "close": "닫기",
+  "serverUrl": "서버 URL",
+  "serverUrlHint": "https://your-rybbit-instance.com",
+  "email": "이메일",
+  "apiKey": "API 키",
+  "password": "비밀번호",
+  "connect": "연결",
+  "organizations": "조직",
+  "noSitesFound": "사이트를 찾을 수 없습니다",
+  "noSitesHint": "시작하려면 웹 대시보드에서 사이트를 추가하세요.",
+  "siteCount": "{count, plural, other{{count}개 사이트}}",
+  "@siteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "members": "멤버 ({count})",
+  "@members": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "failedToLoadOrganizations": "조직을 불러오지 못했습니다",
+  "noOrganizations": "조직 없음",
+  "noOrganizationsHint": "웹 대시보드에서 조직을 생성할 수 있습니다",
+  "failedToLoadMembers": "멤버를 불러오지 못했습니다",
+  "failedToLoadSites": "사이트를 불러오지 못했습니다",
+  "failedToLoadAnalytics": "분석 데이터를 불러오지 못했습니다",
+  "noDataAvailable": "사용 가능한 데이터가 없습니다",
+  "users": "사용자",
+  "sessions": "세션",
+  "pageviews": "페이지뷰",
+  "pagesPerSession": "페이지/세션",
+  "bounceRate": "이탈률",
+  "duration": "체류 시간",
+  "metrics": "지표",
+  "pages": "페이지",
+  "referrers": "유입 경로",
+  "countries": "국가",
+  "devices": "기기",
+  "performance": "성능",
+  "goals": "목표",
+  "funnels": "퍼널",
+  "replay": "리플레이",
+  "config": "설정",
+  "usersOnline": "{count}명 온라인",
+  "@usersOnline": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "events": "이벤트",
+  "eventsOverTime": "시간별 이벤트",
+  "eventNames": "이벤트 이름",
+  "noCustomEventsTracked": "추적된 커스텀 이벤트가 없습니다",
+  "failedToLoadProperties": "속성을 불러오지 못했습니다",
+  "noProperties": "속성 없음",
+  "outboundLinks": "외부 링크",
+  "noOutboundLinksTracked": "추적된 외부 링크가 없습니다",
+  "failedToLoadChart": "차트를 불러오지 못했습니다",
+  "errors": "오류",
+  "failedToLoadErrors": "오류를 불러오지 못했습니다",
+  "noErrorsFound": "오류를 찾을 수 없습니다",
+  "everythingLooksGood": "모든 것이 정상입니다!",
+  "occurrences": "발생 횟수",
+  "sessionsAffected": "영향받은 세션",
+  "failedToLoadEventsWithError": "이벤트를 불러오지 못했습니다: {error}",
+  "@failedToLoadEventsWithError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noEventsFound": "이벤트를 찾을 수 없습니다",
+  "failedToLoadFunnels": "퍼널을 불러오지 못했습니다",
+  "noFunnelsSaved": "저장된 퍼널이 없습니다",
+  "createFunnelsHint": "웹 대시보드에서 퍼널을 생성하세요",
+  "deleteFunnel": "퍼널 삭제",
+  "deleteFunnelConfirm": "\"{name}\"을(를) 삭제하시겠습니까?",
+  "@deleteFunnelConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToDeleteFunnel": "퍼널 삭제 실패: {error}",
+  "@failedToDeleteFunnel": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noStepsDefined": "이 퍼널에 정의된 단계가 없습니다",
+  "failedToAnalyze": "분석 실패: {error}",
+  "@failedToAnalyze": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "overallConversion": "전체 전환율",
+  "dropoff": "이탈: {value}",
+  "@dropoff": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "createGoal": "목표 생성",
+  "failedToLoadGoals": "목표를 불러오지 못했습니다",
+  "noGoalsConfigured": "설정된 목표가 없습니다",
+  "noGoalsHint": "+ 버튼을 눌러 새 목표를 생성하세요",
+  "conversions": "전환",
+  "rate": "비율",
+  "editGoal": "목표 편집",
+  "createGoalTitle": "목표 생성",
+  "name": "이름",
+  "type": "유형",
+  "path": "경로",
+  "event": "이벤트",
+  "pathPattern": "경로 패턴",
+  "eventName": "이벤트 이름",
+  "deleteGoal": "목표 삭제",
+  "deleteGoalConfirm": "\"{name}\"을(를) 삭제하시겠습니까?",
+  "@deleteGoalConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToDeleteGoal": "목표 삭제 실패: {error}",
+  "@failedToDeleteGoal": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToLoadPerformanceData": "성능 데이터를 불러오지 못했습니다",
+  "metricOverTime": "시간별 {metric}",
+  "@metricOverTime": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "byDimension": "차원별",
+  "failedToLoadDimensionData": "차원 데이터를 불러오지 못했습니다",
+  "good": "양호",
+  "needsImprovement": "개선 필요",
+  "poor": "나쁨",
+  "largestContentfulPaint": "Largest Contentful Paint",
+  "cumulativeLayoutShift": "Cumulative Layout Shift",
+  "firstContentfulPaint": "First Contentful Paint",
+  "timeToFirstByte": "Time to First Byte",
+  "interactionToNextPaint": "Interaction to Next Paint",
+  "dimPages": "페이지",
+  "dimCountries": "국가",
+  "dimDevices": "기기",
+  "dimBrowsers": "브라우저",
+  "dimOS": "OS",
+  "sessionFilters": "세션 필터",
+  "minPageviews": "최소 페이지뷰",
+  "minEvents": "최소 이벤트",
+  "minDurationSeconds": "최소 체류 시간 (초)",
+  "failedToLoadSessions": "세션을 불러오지 못했습니다",
+  "noSessionsFound": "세션을 찾을 수 없습니다",
+  "filterSessions": "세션 필터링",
+  "loadingMoreSessions": "더 많은 세션 로딩 중",
+  "entryPage": "진입 페이지: {page}",
+  "@entryPage": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "nPages": "{count}개 페이지",
+  "@nPages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sessionReplays": "세션 리플레이",
+  "failedToLoadReplays": "리플레이를 불러오지 못했습니다",
+  "noReplaysFound": "리플레이를 찾을 수 없습니다",
+  "noReplaysHint": "세션 리플레이가 활성화되면 여기에 표시됩니다.",
+  "previousPage": "이전 페이지",
+  "nextPage": "다음 페이지",
+  "pageNumber": "{number} 페이지",
+  "@pageNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "unknownBrowser": "알 수 없는 브라우저",
+  "unknownCountry": "알 수 없는 국가",
+  "sortUsers": "사용자 정렬",
+  "showAllUsers": "모든 사용자 표시",
+  "showIdentifiedOnly": "식별된 사용자만 표시",
+  "searchUsers": "사용자 검색",
+  "searchUsersHint": "사용자 검색...",
+  "clearSearch": "검색 지우기",
+  "failedToLoadUsers": "사용자를 불러오지 못했습니다",
+  "noUsersFound": "사용자를 찾을 수 없습니다",
+  "noIdentifiedUsers": "식별된 사용자가 없습니다",
+  "usersWillAppear": "사용자가 식별되면 여기에 표시됩니다",
+  "tryDifferentSearch": "다른 검색어를 시도해 보세요",
+  "sortedBy": "정렬 기준",
+  "loadingMoreUsers": "더 많은 사용자 로딩 중",
+  "lastSeen": "마지막 방문",
+  "firstSeen": "첫 방문",
+  "failedToLoadMetrics": "지표를 불러오지 못했습니다",
+  "loadingMoreMetrics": "더 많은 지표 로딩 중",
+  "noMetricData": "{metric} 데이터 없음",
+  "@noMetricData": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "settings": "설정",
+  "connection": "연결",
+  "notConfigured": "설정되지 않음",
+  "authMethod": "인증 방식",
+  "sessionCookie": "세션 쿠키",
+  "loggedInAs": "로그인 계정",
+  "unknown": "알 수 없음",
+  "appearance": "외관",
+  "theme": "테마",
+  "dark": "다크",
+  "light": "라이트",
+  "auto": "자동",
+  "about": "정보",
+  "appVersion": "앱 버전",
+  "openSourceAnalytics": "오픈 소스 웹 분석 도구",
+  "logoutConfirm": "정말 로그아웃하시겠습니까?",
+  "siteSettings": "사이트 설정",
+  "siteInformation": "사이트 정보",
+  "domain": "도메인",
+  "siteId": "사이트 ID",
+  "created": "생성일",
+  "trackingSettings": "추적 설정",
+  "publicDashboard": "공개 대시보드",
+  "publicDashboardDesc": "분석 데이터에 공개 접근 허용",
+  "sessionReplay": "세션 리플레이",
+  "sessionReplayDesc": "사용자 세션 기록",
+  "webVitals": "Web Vitals",
+  "webVitalsDesc": "Core Web Vitals 추적",
+  "trackErrors": "오류 추적",
+  "trackErrorsDesc": "JavaScript 오류 캡처",
+  "outboundLinksTracking": "외부 링크",
+  "outboundLinksDesc": "외부 링크 클릭 추적",
+  "excludedIps": "제외된 IP",
+  "excludedCountries": "제외된 국가",
+  "settingsSaved": "설정이 저장되었습니다",
+  "failedToSave": "저장 실패: {error}",
+  "@failedToSave": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "timeRange": "기간",
+  "today": "오늘",
+  "yesterday": "어제",
+  "last7Days": "최근 7일",
+  "last30Days": "최근 30일",
+  "thisWeek": "이번 주",
+  "thisMonth": "이번 달",
+  "thisYear": "올해",
+  "customRange": "사용자 지정 기간",
+  "filter": "필터",
+  "addFilter": "필터 추가",
+  "parameter": "매개변수",
+  "value": "값",
+  "enterFilterValue": "필터 값을 입력하세요",
+  "requestTimedOut": "요청 시간이 초과되었습니다. 다시 시도해 주세요.",
+  "networkError": "네트워크 오류입니다. 연결을 확인해 주세요.",
+  "sessionExpired": "세션이 만료되었습니다. 다시 로그인해 주세요.",
+  "accessDenied": "접근이 거부되었습니다.",
+  "dataNotFound": "데이터를 찾을 수 없습니다.",
+  "serverError": "서버 오류입니다. 나중에 다시 시도해 주세요.",
+  "failedToLoadGeneric": "데이터를 불러오지 못했습니다. 다시 시도해 주세요.",
+  "chartDataPoints": "{count}개의 데이터 포인트가 있는 차트",
+  "@chartDataPoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "previousPrefix": "이전: {value}",
+  "@previousPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "performanceRatingLabel": "성능 등급: {rating}",
+  "@performanceRatingLabel": {
+    "placeholders": {
+      "rating": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingContent": "콘텐츠 로딩 중",
+  "language": "언어",
+  "selectLanguage": "언어 선택",
+  "nUsers": "{count}명의 사용자",
+  "@nUsers": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "nSessions": "{count}개 세션",
+  "@nSessions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lastPrefix": "이전: {value}",
+  "@lastPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToLoadSiteConfig": "사이트 설정을 불러오지 못했습니다",
+  "failedToLoadUserDetails": "사용자 세부 정보를 불러오지 못했습니다",
+  "lastSeenPrefix": "마지막 접속: {value}",
+  "@lastSeenPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "traits": "속성",
+  "noTraits": "이 사용자의 속성이 없습니다",
+  "sessionDetail": "세션 상세",
+  "failedToLoadSession": "세션을 불러오지 못했습니다",
+  "entryPageLabel": "진입 페이지",
+  "exitPage": "이탈 페이지",
+  "browserAndDevice": "브라우저 및 기기",
+  "browser": "브라우저",
+  "os": "OS",
+  "device": "기기",
+  "sourceLabel": "소스",
+  "referrer": "리퍼러",
+  "eventTimelineCount": "이벤트 타임라인 ({count})",
+  "@eventTimelineCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noEvents": "이벤트 없음",
+  "replayEventsTitle": "리플레이 이벤트",
+  "failedToLoadReplay": "리플레이를 불러오지 못했습니다",
+  "noReplayEvents": "리플레이 이벤트 없음",
+  "totalEvents": "전체 이벤트",
+  "userActionsLabel": "사용자 동작",
+  "eventTimelineActions": "이벤트 타임라인 ({count}개 동작)",
+  "@eventTimelineActions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

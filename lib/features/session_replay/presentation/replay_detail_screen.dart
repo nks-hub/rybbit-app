@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/replay_repository.dart';
 
@@ -27,10 +28,11 @@ class ReplayDetailScreen extends ConsumerWidget {
       replayEventsProvider((siteId: siteId, sessionId: sessionId)),
     );
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Replay Events', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.replayEventsTitle, style: const TextStyle(fontSize: 18)),
       ),
       body: eventsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -43,7 +45,7 @@ class ReplayDetailScreen extends ConsumerWidget {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load replay',
+                Text(l10n.failedToLoadReplay,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -55,7 +57,7 @@ class ReplayDetailScreen extends ConsumerWidget {
                     replayEventsProvider(
                         (siteId: siteId, sessionId: sessionId)),
                   ),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -68,6 +70,7 @@ class ReplayDetailScreen extends ConsumerWidget {
 
   Widget _buildContent(BuildContext context, List<ReplayEvent> events) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     if (events.isEmpty) {
       return Center(
@@ -77,7 +80,7 @@ class ReplayDetailScreen extends ConsumerWidget {
             Icon(Icons.videocam_off_outlined,
                 size: 48, color: theme.textTheme.bodySmall?.color),
             const SizedBox(height: 16),
-            Text('No replay events', style: theme.textTheme.bodyLarge),
+            Text(l10n.noReplayEvents, style: theme.textTheme.bodyLarge),
           ],
         ),
       );
@@ -108,7 +111,7 @@ class ReplayDetailScreen extends ConsumerWidget {
                           size: 20, color: theme.colorScheme.primary),
                       const SizedBox(width: 8),
                       Text(
-                        'Session Replay',
+                        l10n.sessionReplay,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -117,11 +120,11 @@ class ReplayDetailScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 8),
                   _InfoChip(
-                    label: 'Total Events',
+                    label: l10n.totalEvents,
                     value: events.length.toString(),
                   ),
                   _InfoChip(
-                    label: 'User Actions',
+                    label: l10n.userActionsLabel,
                     value: meaningfulEvents.length.toString(),
                   ),
                   if (metaEvent?.detailLabel != null)
@@ -131,7 +134,7 @@ class ReplayDetailScreen extends ConsumerWidget {
                     ),
                   if (events.length >= 2)
                     _InfoChip(
-                      label: 'Duration',
+                      label: l10n.duration,
                       value: _formatReplayDuration(
                         events.first.timestamp,
                         events.last.timestamp,
@@ -147,7 +150,7 @@ class ReplayDetailScreen extends ConsumerWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            'Event Timeline (${meaningfulEvents.length} actions)',
+            l10n.eventTimelineActions(meaningfulEvents.length),
             style: theme.textTheme.bodyLarge?.copyWith(
               fontWeight: FontWeight.bold,
             ),

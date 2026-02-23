@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../application/auth_controller.dart';
 
 enum LoginMode { email, apiKey }
@@ -50,6 +51,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   Widget build(BuildContext context) {
     final authState = ref.watch(authControllerProvider);
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: SafeArea(
@@ -61,7 +63,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Rybbit',
+                  l10n.appName,
                   style: theme.textTheme.headlineLarge?.copyWith(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
@@ -70,7 +72,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Unofficial',
+                  l10n.appSubtitle,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.primary,
                     fontSize: 14,
@@ -81,26 +83,26 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 TextField(
                   controller: _serverUrlController,
                   autofocus: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Server URL',
-                    hintText: 'https://your-rybbit-instance.com',
-                    prefixIcon: Icon(Icons.dns_outlined),
+                  decoration: InputDecoration(
+                    labelText: l10n.serverUrl,
+                    hintText: l10n.serverUrlHint,
+                    prefixIcon: const Icon(Icons.dns_outlined),
                   ),
                   keyboardType: TextInputType.url,
                   textInputAction: TextInputAction.next,
                 ),
                 const SizedBox(height: 24),
                 SegmentedButton<LoginMode>(
-                  segments: const [
+                  segments: [
                     ButtonSegment(
                       value: LoginMode.email,
-                      label: Text('Email'),
-                      icon: Icon(Icons.email_outlined),
+                      label: Text(l10n.email),
+                      icon: const Icon(Icons.email_outlined),
                     ),
                     ButtonSegment(
                       value: LoginMode.apiKey,
-                      label: Text('API Key'),
-                      icon: Icon(Icons.key_outlined),
+                      label: Text(l10n.apiKey),
+                      icon: const Icon(Icons.key_outlined),
                     ),
                   ],
                   selected: {_loginMode},
@@ -114,9 +116,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 if (_loginMode == LoginMode.email) ...[
                   TextField(
                     controller: _emailController,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      prefixIcon: Icon(Icons.person_outlined),
+                    decoration: InputDecoration(
+                      labelText: l10n.email,
+                      prefixIcon: const Icon(Icons.person_outlined),
                     ),
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
@@ -124,9 +126,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   const SizedBox(height: 16),
                   TextField(
                     controller: _passwordController,
-                    decoration: const InputDecoration(
-                      labelText: 'Password',
-                      prefixIcon: Icon(Icons.lock_outlined),
+                    decoration: InputDecoration(
+                      labelText: l10n.password,
+                      prefixIcon: const Icon(Icons.lock_outlined),
                     ),
                     obscureText: true,
                     textInputAction: TextInputAction.done,
@@ -135,9 +137,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ] else ...[
                   TextField(
                     controller: _apiKeyController,
-                    decoration: const InputDecoration(
-                      labelText: 'API Key',
-                      prefixIcon: Icon(Icons.vpn_key_outlined),
+                    decoration: InputDecoration(
+                      labelText: l10n.apiKey,
+                      prefixIcon: const Icon(Icons.vpn_key_outlined),
                     ),
                     textInputAction: TextInputAction.done,
                     onSubmitted: (_) => _connect(),
@@ -182,9 +184,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : const Text(
-                            'Connect',
-                            style: TextStyle(
+                        : Text(
+                            l10n.connect,
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),

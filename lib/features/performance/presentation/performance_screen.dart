@@ -4,26 +4,41 @@ import 'package:go_router/go_router.dart';
 
 import '../../../features/analytics/application/filter_controller.dart';
 import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/performance_data.dart';
 import '../../../shared/widgets/time_series_chart.dart';
 import '../data/performance_repository.dart';
 
 /// Web Vital metric definitions with thresholds.
 enum WebVital {
-  lcp('LCP', 'Largest Contentful Paint', 'ms', 2500, 4000),
-  cls('CLS', 'Cumulative Layout Shift', '', 0.1, 0.25),
-  fcp('FCP', 'First Contentful Paint', 'ms', 1800, 3000),
-  ttfb('TTFB', 'Time to First Byte', 'ms', 800, 1800),
-  inp('INP', 'Interaction to Next Paint', 'ms', 200, 500);
+  lcp('LCP', 'ms', 2500, 4000),
+  cls('CLS', '', 0.1, 0.25),
+  fcp('FCP', 'ms', 1800, 3000),
+  ttfb('TTFB', 'ms', 800, 1800),
+  inp('INP', 'ms', 200, 500);
 
   const WebVital(
-      this.shortName, this.fullName, this.unit, this.goodMax, this.poorMin);
+      this.shortName, this.unit, this.goodMax, this.poorMin);
 
   final String shortName;
-  final String fullName;
   final String unit;
   final double goodMax;
   final double poorMin;
+
+  String fullName(AppLocalizations l10n) {
+    switch (this) {
+      case WebVital.lcp:
+        return l10n.largestContentfulPaint;
+      case WebVital.cls:
+        return l10n.cumulativeLayoutShift;
+      case WebVital.fcp:
+        return l10n.firstContentfulPaint;
+      case WebVital.ttfb:
+        return l10n.timeToFirstByte;
+      case WebVital.inp:
+        return l10n.interactionToNextPaint;
+    }
+  }
 
   Color ratingColor(double value) {
     if (value <= goodMax) return const Color(0xFF22C55E);
@@ -31,10 +46,10 @@ enum WebVital {
     return const Color(0xFFEF4444);
   }
 
-  String ratingLabel(double value) {
-    if (value <= goodMax) return 'Good';
-    if (value < poorMin) return 'Needs Improvement';
-    return 'Poor';
+  String ratingLabel(double value, AppLocalizations l10n) {
+    if (value <= goodMax) return l10n.good;
+    if (value < poorMin) return l10n.needsImprovement;
+    return l10n.poor;
   }
 
   String formatValue(double value) {
@@ -72,15 +87,29 @@ final _selectedMetricProvider =
 
 /// Dimension options for breakdown.
 enum PerfDimension {
-  pathname('Pages', 'pathname'),
-  country('Countries', 'country'),
-  deviceType('Devices', 'device_type'),
-  browser('Browsers', 'browser'),
-  operatingSystem('OS', 'operating_system');
+  pathname('pathname'),
+  country('country'),
+  deviceType('device_type'),
+  browser('browser'),
+  operatingSystem('operating_system');
 
-  const PerfDimension(this.label, this.value);
-  final String label;
+  const PerfDimension(this.value);
   final String value;
+
+  String label(AppLocalizations l10n) {
+    switch (this) {
+      case PerfDimension.pathname:
+        return l10n.dimPages;
+      case PerfDimension.country:
+        return l10n.dimCountries;
+      case PerfDimension.deviceType:
+        return l10n.dimDevices;
+      case PerfDimension.browser:
+        return l10n.dimBrowsers;
+      case PerfDimension.operatingSystem:
+        return l10n.dimOS;
+    }
+  }
 }
 
 final _selectedDimensionProvider =
@@ -137,12 +166,13 @@ class PerformanceScreen extends ConsumerWidget {
     final selectedMetric = ref.watch(_selectedMetricProvider);
     final selectedDimension = ref.watch(_selectedDimensionProvider);
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Performance', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.performance, style: const TextStyle(fontSize: 18)),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -176,7 +206,7 @@ class PerformanceScreen extends ConsumerWidget {
                           Icon(Icons.error_outline,
                               size: 48, color: theme.colorScheme.error),
                           const SizedBox(height: 8),
-                          Text('Failed to load performance data',
+                          Text(l10n.failedToLoadPerformanceData,
                               style: theme.textTheme.bodySmall),
                         ],
                       ),
@@ -200,7 +230,7 @@ class PerformanceScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${selectedMetric.fullName} Over Time',
+                      l10n.metricOverTime(selectedMetric.fullName(l10n)),
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -214,15 +244,15 @@ class PerformanceScreen extends ConsumerWidget {
                       error: (err, _) => SizedBox(
                         height: 200,
                         child: Center(
-                          child: Text('Failed to load chart',
+                          child: Text(l10n.failedToLoadChart,
                               style: theme.textTheme.bodySmall),
                         ),
                       ),
                       data: (series) {
                         if (series.isEmpty) {
-                          return const SizedBox(
+                          return SizedBox(
                             height: 200,
-                            child: Center(child: Text('No data')),
+                            child: Center(child: Text(l10n.noData)),
                           );
                         }
 
@@ -248,7 +278,7 @@ class PerformanceScreen extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                 child: Text(
-                  'By Dimension',
+                  l10n.byDimension,
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -266,7 +296,7 @@ class PerformanceScreen extends ConsumerWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 4),
                       child: FilterChip(
                         label: Text(
-                          d.label,
+                          d.label(l10n),
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: isSelected
@@ -303,7 +333,7 @@ class PerformanceScreen extends ConsumerWidget {
                 error: (err, _) => Padding(
                   padding: const EdgeInsets.all(32),
                   child: Center(
-                    child: Text('Failed to load dimension data',
+                    child: Text(l10n.failedToLoadDimensionData,
                         style: theme.textTheme.bodySmall),
                   ),
                 ),
@@ -312,7 +342,7 @@ class PerformanceScreen extends ConsumerWidget {
                     return Padding(
                       padding: const EdgeInsets.all(24),
                       child: Center(
-                        child: Text('No data',
+                        child: Text(l10n.noData,
                             style: theme.textTheme.bodySmall),
                       ),
                     );
@@ -446,8 +476,9 @@ class _VitalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final ratingColor = vital.ratingColor(value);
-    final ratingLabel = vital.ratingLabel(value);
+    final ratingLabel = vital.ratingLabel(value, l10n);
 
     return Card(
       shape: RoundedRectangleBorder(
@@ -479,7 +510,7 @@ class _VitalCard extends StatelessWidget {
                   ),
                   const SizedBox(width: 6),
                   Semantics(
-                    label: 'Performance rating: $ratingLabel',
+                    label: l10n.performanceRatingLabel(ratingLabel),
                     child: Container(
                       padding:
                           const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
@@ -510,7 +541,7 @@ class _VitalCard extends StatelessWidget {
               ),
               const SizedBox(height: 2),
               Text(
-                vital.fullName,
+                vital.fullName(l10n),
                 style: theme.textTheme.bodySmall?.copyWith(fontSize: 10),
                 overflow: TextOverflow.ellipsis,
               ),

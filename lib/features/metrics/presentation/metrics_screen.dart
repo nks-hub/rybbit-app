@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../application/metrics_controller.dart';
 import 'widgets/metric_list_item.dart';
@@ -94,6 +95,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
     );
     final metricsAsync = ref.watch(metricsControllerProvider(key));
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     final domain = ref.watch(currentSiteDomainProvider);
 
@@ -117,7 +119,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
           ],
         ),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -181,7 +183,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                       Icon(Icons.error_outline,
                           size: 48, color: theme.colorScheme.error),
                       const SizedBox(height: 16),
-                      Text('Failed to load metrics',
+                      Text(l10n.failedToLoadMetrics,
                           style: theme.textTheme.bodyLarge),
                       const SizedBox(height: 8),
                       Text(formatError(error),
@@ -192,7 +194,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                         onPressed: () => ref
                             .read(metricsControllerProvider(key).notifier)
                             .refresh(),
-                        child: const Text('Retry'),
+                        child: Text(l10n.retry),
                       ),
                     ],
                   ),
@@ -211,7 +213,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          'No ${_selectedType.label.toLowerCase()} data',
+                          l10n.noMetricData(_selectedType.label.toLowerCase()),
                           style: theme.textTheme.bodyLarge,
                         ),
                       ],
@@ -223,7 +225,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                   onRefresh: () => ref
                       .read(metricsControllerProvider(key).notifier)
                       .refresh(),
-                  child: _buildMetricList(metricsState, theme),
+                  child: _buildMetricList(metricsState, theme, l10n),
                 );
               },
             ),
@@ -233,7 +235,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
     );
   }
 
-  Widget _buildMetricList(MetricsState metricsState, ThemeData theme) {
+  Widget _buildMetricList(MetricsState metricsState, ThemeData theme, AppLocalizations l10n) {
     return ListView.separated(
       controller: _scrollController,
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -248,7 +250,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
       itemBuilder: (context, index) {
         if (index >= metricsState.items.length) {
           return Semantics(
-            label: 'Loading more metrics',
+            label: l10n.loadingMoreMetrics,
             child: const Padding(
               padding: EdgeInsets.all(16),
               child: Center(child: CircularProgressIndicator(strokeWidth: 2)),

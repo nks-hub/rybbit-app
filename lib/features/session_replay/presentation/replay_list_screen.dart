@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../../sessions/presentation/sessions_list_screen.dart';
 import '../data/replay_repository.dart';
@@ -30,6 +31,7 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final replayAsync = ref.watch(
       replayListProvider((siteId: widget.siteId, page: _currentPage)),
     );
@@ -37,7 +39,7 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Session Replays', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.sessionReplays, style: const TextStyle(fontSize: 18)),
       ),
       body: replayAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -50,7 +52,7 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load replays',
+                Text(l10n.failedToLoadReplays,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -62,7 +64,7 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
                     replayListProvider(
                         (siteId: widget.siteId, page: _currentPage)),
                   ),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -77,10 +79,10 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
                   Icon(Icons.videocam_off_outlined,
                       size: 48, color: theme.textTheme.bodySmall?.color),
                   const SizedBox(height: 16),
-                  Text('No replays found', style: theme.textTheme.bodyLarge),
+                  Text(l10n.noReplaysFound, style: theme.textTheme.bodyLarge),
                   const SizedBox(height: 8),
                   Text(
-                    'Session replays will appear here when enabled.',
+                    l10n.noReplaysHint,
                     style: theme.textTheme.bodySmall,
                   ),
                 ],
@@ -120,18 +122,18 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        tooltip: 'Previous page',
+                        tooltip: l10n.previousPage,
                         icon: const Icon(Icons.chevron_left),
                         onPressed: _currentPage > 1
                             ? () => setState(() => _currentPage--)
                             : null,
                       ),
                       Text(
-                        'Page $_currentPage',
+                        l10n.pageNumber(_currentPage),
                         style: theme.textTheme.bodyMedium,
                       ),
                       IconButton(
-                        tooltip: 'Next page',
+                        tooltip: l10n.nextPage,
                         icon: const Icon(Icons.chevron_right),
                         onPressed: result.hasMore
                             ? () => setState(() => _currentPage++)
@@ -156,13 +158,14 @@ class _ReplaySessionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final flag = countryToFlag(session.country);
     final duration = formatDuration(session.sessionDuration);
 
     final dt = DateTime.tryParse(session.sessionStart ?? '');
     final dateStr =
-        dt != null ? DateFormat('MMM d, HH:mm').format(dt) : 'Unknown';
+        dt != null ? DateFormat('MMM d, HH:mm').format(dt) : l10n.unknown;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -198,12 +201,12 @@ class _ReplaySessionCard extends StatelessWidget {
                           if (flag.isNotEmpty) ...[
                             Text(flag,
                                 style: const TextStyle(fontSize: 14),
-                                semanticsLabel: session.country ?? 'Unknown country'),
+                                semanticsLabel: session.country ?? l10n.unknownCountry),
                             const SizedBox(width: 6),
                           ],
                           Expanded(
                             child: Text(
-                              session.browser ?? 'Unknown browser',
+                              session.browser ?? l10n.unknownBrowser,
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 fontWeight: FontWeight.w600,
                               ),
@@ -250,7 +253,7 @@ class _ReplaySessionCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${session.pageviews} pages',
+                      l10n.nPages(session.pageviews),
                       style:
                           theme.textTheme.bodySmall?.copyWith(fontSize: 11),
                     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/users_repository.dart';
 
@@ -30,6 +31,7 @@ class UserDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final detailAsync = ref.watch(_userDetailProvider('$siteId:$userId'));
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
@@ -40,7 +42,7 @@ class UserDetailScreen extends ConsumerWidget {
           style: const TextStyle(fontSize: 18),
         ),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -56,7 +58,7 @@ class UserDetailScreen extends ConsumerWidget {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load user details',
+                Text(l10n.failedToLoadUserDetails,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -66,7 +68,7 @@ class UserDetailScreen extends ConsumerWidget {
                 ElevatedButton(
                   onPressed: () =>
                       ref.invalidate(_userDetailProvider('$siteId:$userId')),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -82,7 +84,6 @@ class UserDetailScreen extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // User info card
                 Card(
                   child: Padding(
                     padding: const EdgeInsets.all(16),
@@ -115,7 +116,7 @@ class UserDetailScreen extends ConsumerWidget {
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
-                                    '${detail.sessionCount} sessions',
+                                    l10n.nSessions(detail.sessionCount),
                                     style: theme.textTheme.bodySmall,
                                   ),
                                 ],
@@ -132,7 +133,7 @@ class UserDetailScreen extends ConsumerWidget {
                                   color: theme.textTheme.bodySmall?.color),
                               const SizedBox(width: 6),
                               Text(
-                                'Last seen: ${detail.lastSeen}',
+                                l10n.lastSeenPrefix(detail.lastSeen!),
                                 style: theme.textTheme.bodySmall,
                               ),
                             ],
@@ -145,9 +146,8 @@ class UserDetailScreen extends ConsumerWidget {
 
                 const SizedBox(height: 16),
 
-                // User traits
                 Text(
-                  'Traits',
+                  l10n.traits,
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -160,7 +160,7 @@ class UserDetailScreen extends ConsumerWidget {
                       padding: const EdgeInsets.all(24),
                       child: Center(
                         child: Text(
-                          'No traits set for this user',
+                          l10n.noTraits,
                           style: theme.textTheme.bodySmall,
                         ),
                       ),

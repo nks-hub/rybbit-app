@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/state/current_site_provider.dart';
 import '../../../features/analytics/application/filter_controller.dart';
 import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/event.dart';
 import '../../../shared/utils/formatters.dart';
 import '../../../shared/widgets/time_series_chart.dart';
@@ -99,6 +100,7 @@ class EventsScreen extends ConsumerWidget {
               future: propertiesFuture,
               builder: (context, snapshot) {
                 final theme = Theme.of(context);
+                final l10n = AppLocalizations.of(context)!;
                 return Column(
                   children: [
                     Padding(
@@ -128,7 +130,7 @@ class EventsScreen extends ConsumerWidget {
                       Expanded(
                         child: Center(
                           child: Text(
-                            'Failed to load properties',
+                            l10n.failedToLoadProperties,
                             style: theme.textTheme.bodySmall,
                           ),
                         ),
@@ -143,7 +145,7 @@ class EventsScreen extends ConsumerWidget {
                                   size: 40,
                                   color: theme.textTheme.bodySmall?.color),
                               const SizedBox(height: 12),
-                              Text('No properties',
+                              Text(l10n.noProperties,
                                   style: theme.textTheme.bodyMedium),
                             ],
                           ),
@@ -173,13 +175,14 @@ class EventsScreen extends ConsumerWidget {
     final outboundAsync = ref.watch(_outboundLinksProvider(siteId));
     final domain = ref.watch(currentSiteDomainProvider);
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Events', style: TextStyle(fontSize: 18)),
+            Text(l10n.events, style: const TextStyle(fontSize: 18)),
             if (domain != null)
               Text(
                 domain,
@@ -191,7 +194,7 @@ class EventsScreen extends ConsumerWidget {
           ],
         ),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -215,7 +218,7 @@ class EventsScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Events Over Time',
+                      l10n.eventsOverTime,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -229,15 +232,15 @@ class EventsScreen extends ConsumerWidget {
                       error: (err, stack) => SizedBox(
                         height: 200,
                         child: Center(
-                          child: Text('Failed to load chart',
+                          child: Text(l10n.failedToLoadChart,
                               style: theme.textTheme.bodySmall),
                         ),
                       ),
                       data: (buckets) {
                         if (buckets.isEmpty) {
-                          return const SizedBox(
+                          return SizedBox(
                             height: 200,
-                            child: Center(child: Text('No data')),
+                            child: Center(child: Text(l10n.noData)),
                           );
                         }
 
@@ -276,7 +279,7 @@ class EventsScreen extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                 child: Text(
-                  'Event Names',
+                  l10n.eventNames,
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -305,7 +308,7 @@ class EventsScreen extends ConsumerWidget {
                                 size: 48,
                                 color: theme.textTheme.bodySmall?.color),
                             const SizedBox(height: 16),
-                            Text('No custom events tracked',
+                            Text(l10n.noCustomEventsTracked,
                                 style: theme.textTheme.bodyLarge),
                           ],
                         ),
@@ -343,7 +346,7 @@ class EventsScreen extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                 child: Text(
-                  'Outbound Links',
+                  l10n.outboundLinks,
                   style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -366,7 +369,7 @@ class EventsScreen extends ConsumerWidget {
                     return Padding(
                       padding: const EdgeInsets.all(24),
                       child: Center(
-                        child: Text('No outbound links tracked',
+                        child: Text(l10n.noOutboundLinksTracked,
                             style: theme.textTheme.bodySmall),
                       ),
                     );

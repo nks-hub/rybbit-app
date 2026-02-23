@@ -4,9 +4,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../application/users_controller.dart';
 import '../data/users_repository.dart';
+
+String _localizedSortLabel(AppLocalizations l10n, UserSortBy sortBy) {
+  switch (sortBy) {
+    case UserSortBy.lastSeen:
+      return l10n.lastSeen;
+    case UserSortBy.firstSeen:
+      return l10n.firstSeen;
+    case UserSortBy.pageviews:
+      return l10n.pageviews;
+    case UserSortBy.sessions:
+      return l10n.sessions;
+    case UserSortBy.events:
+      return l10n.events;
+  }
+}
 
 class UsersScreen extends ConsumerStatefulWidget {
   final String siteId;
@@ -58,22 +74,23 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final usersAsync = ref.watch(usersControllerProvider(widget.siteId));
     final searchParams = ref.watch(userSearchParamsProvider);
     final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Users', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.users, style: const TextStyle(fontSize: 18)),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
         actions: [
           // Sort button
           PopupMenuButton<UserSortBy>(
-            tooltip: 'Sort users',
+            tooltip: l10n.sortUsers,
             icon: const Icon(Icons.sort),
             onSelected: (sortBy) {
               final current = ref.read(userSearchParamsProvider);
@@ -91,7 +108,7 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                 value: s,
                 child: Row(
                   children: [
-                    Expanded(child: Text(s.label)),
+                    Expanded(child: Text(_localizedSortLabel(l10n, s))),
                     if (isSelected)
                       Icon(
                         searchParams.sortAsc
@@ -108,8 +125,8 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
           // Identified only toggle
           IconButton(
             tooltip: searchParams.identifiedOnly
-                ? 'Show all users'
-                : 'Show identified only',
+                ? l10n.showAllUsers
+                : l10n.showIdentifiedOnly,
             icon: Icon(
               searchParams.identifiedOnly
                   ? Icons.person
@@ -135,13 +152,13 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
               controller: _searchController,
               onChanged: _onSearchChanged,
               decoration: InputDecoration(
-                hintText: 'Search users...',
-                labelText: 'Search users',
+                hintText: l10n.searchUsersHint,
+                labelText: l10n.searchUsers,
                 floatingLabelBehavior: FloatingLabelBehavior.never,
                 prefixIcon: const Icon(Icons.search, size: 20),
                 suffixIcon: _searchController.text.isNotEmpty
                     ? IconButton(
-                        tooltip: 'Clear search',
+                        tooltip: l10n.clearSearch,
                         icon: const Icon(Icons.clear, size: 18),
                         onPressed: () {
                           _searchController.clear();
@@ -173,7 +190,7 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                       Icon(Icons.error_outline,
                           size: 48, color: theme.colorScheme.error),
                       const SizedBox(height: 16),
-                      Text('Failed to load users',
+                      Text(l10n.failedToLoadUsers,
                           style: theme.textTheme.bodyLarge),
                       const SizedBox(height: 8),
                       Text(formatError(error),
@@ -185,7 +202,7 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                             .read(usersControllerProvider(widget.siteId)
                                 .notifier)
                             .refresh(),
-                        child: const Text('Retry'),
+                        child: Text(l10n.retry),
                       ),
                     ],
                   ),
@@ -203,15 +220,15 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                         const SizedBox(height: 16),
                         Text(
                           searchParams.query.isNotEmpty
-                              ? 'No users found'
-                              : 'No identified users',
+                              ? l10n.noUsersFound
+                              : l10n.noIdentifiedUsers,
                           style: theme.textTheme.bodyLarge,
                         ),
                         const SizedBox(height: 8),
                         Text(
                           searchParams.query.isNotEmpty
-                              ? 'Try a different search term'
-                              : 'Users will appear once they are identified',
+                              ? l10n.tryDifferentSearch
+                              : l10n.usersWillAppear,
                           style: theme.textTheme.bodySmall,
                         ),
                       ],
@@ -233,12 +250,12 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                         child: Row(
                           children: [
                             Text(
-                              '${formatNumber(usersState.totalCount)} users',
+                              l10n.nUsers(formatNumber(usersState.totalCount)),
                               style: theme.textTheme.bodySmall,
                             ),
                             const Spacer(),
                             Text(
-                              'Sorted by ${searchParams.sortBy.label}',
+                              '${l10n.sortedBy} ${_localizedSortLabel(l10n, searchParams.sortBy)}',
                               style: theme.textTheme.bodySmall
                                   ?.copyWith(fontSize: 11),
                             ),
@@ -255,7 +272,7 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                           itemBuilder: (context, index) {
                             if (index >= usersState.users.length) {
                               return Semantics(
-                                label: 'Loading more users',
+                                label: l10n.loadingMoreUsers,
                                 child: const Padding(
                                   padding: EdgeInsets.all(16),
                                   child: Center(
@@ -294,6 +311,7 @@ class _UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final displayId = user.userId.length > 24
         ? '${user.userId.substring(0, 24)}...'
@@ -331,13 +349,13 @@ class _UserCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          '${user.sessionCount} sessions',
+                          l10n.nSessions(user.sessionCount),
                           style: theme.textTheme.bodySmall,
                         ),
                         if (user.lastSeen != null) ...[
                           const SizedBox(width: 8),
                           Text(
-                            'Last: ${_formatLastSeen(user.lastSeen!)}',
+                            l10n.lastPrefix(_formatLastSeen(user.lastSeen!)),
                             style: theme.textTheme.bodySmall,
                           ),
                         ],

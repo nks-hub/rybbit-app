@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
 
-enum TimeRangePreset {
-  today('Today'),
-  yesterday('Yesterday'),
-  last7Days('Last 7 Days'),
-  last30Days('Last 30 Days'),
-  thisWeek('This Week'),
-  thisMonth('This Month'),
-  thisYear('This Year'),
-  custom('Custom Range');
+import '../../l10n/app_localizations.dart';
 
-  const TimeRangePreset(this.label);
-  final String label;
+enum TimeRangePreset {
+  today,
+  yesterday,
+  last7Days,
+  last30Days,
+  thisWeek,
+  thisMonth,
+  thisYear,
+  custom;
+
+  String label(AppLocalizations l10n) {
+    return switch (this) {
+      TimeRangePreset.today => l10n.today,
+      TimeRangePreset.yesterday => l10n.yesterday,
+      TimeRangePreset.last7Days => l10n.last7Days,
+      TimeRangePreset.last30Days => l10n.last30Days,
+      TimeRangePreset.thisWeek => l10n.thisWeek,
+      TimeRangePreset.thisMonth => l10n.thisMonth,
+      TimeRangePreset.thisYear => l10n.thisYear,
+      TimeRangePreset.custom => l10n.customRange,
+    };
+  }
 }
 
 class TimeRangePicker extends StatelessWidget {
@@ -43,6 +55,7 @@ class TimeRangePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -55,7 +68,7 @@ class TimeRangePicker extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                'Time Range',
+                l10n.timeRange,
                 style: theme.textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -68,7 +81,7 @@ class TimeRangePicker extends StatelessWidget {
             final isSelected = preset == selectedPreset;
             final isCustom = preset == TimeRangePreset.custom;
             return ListTile(
-              title: Text(preset.label),
+              title: Text(preset.label(l10n)),
               leading: Icon(
                 isSelected
                     ? Icons.radio_button_checked

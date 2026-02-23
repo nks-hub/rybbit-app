@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import '../../../core/state/current_site_provider.dart';
 import '../../../features/analytics/application/filter_controller.dart';
 import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/errors_repository.dart';
 
@@ -42,6 +43,7 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
   Widget build(BuildContext context) {
     final errorNamesAsync = ref.watch(_errorNamesProvider(widget.siteId));
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     final domain = ref.watch(currentSiteDomainProvider);
 
@@ -50,7 +52,7 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Errors', style: TextStyle(fontSize: 18)),
+            Text(l10n.errors, style: const TextStyle(fontSize: 18)),
             if (domain != null)
               Text(
                 domain,
@@ -62,7 +64,7 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
           ],
         ),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -83,7 +85,7 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
                   Icon(Icons.error_outline,
                       size: 48, color: theme.colorScheme.error),
                   const SizedBox(height: 16),
-                  Text('Failed to load errors',
+                  Text(l10n.failedToLoadErrors,
                       style: theme.textTheme.bodyLarge),
                   const SizedBox(height: 8),
                   Text(formatError(error),
@@ -93,7 +95,7 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
                   ElevatedButton(
                     onPressed: () =>
                         ref.invalidate(_errorNamesProvider(widget.siteId)),
-                    child: const Text('Retry'),
+                    child: Text(l10n.retry),
                   ),
                 ],
               ),
@@ -108,9 +110,9 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
                     Icon(Icons.check_circle_outline,
                         size: 48, color: const Color(0xFF22C55E)),
                     const SizedBox(height: 16),
-                    Text('No errors found', style: theme.textTheme.bodyLarge),
+                    Text(l10n.noErrorsFound, style: theme.textTheme.bodyLarge),
                     const SizedBox(height: 8),
-                    Text('Everything looks good!',
+                    Text(l10n.everythingLooksGood,
                         style: theme.textTheme.bodySmall),
                   ],
                 ),
@@ -160,6 +162,7 @@ class _ErrorNameCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final errorColor = const Color(0xFFEF4444);
 
     return Padding(
@@ -199,7 +202,7 @@ class _ErrorNameCard extends ConsumerWidget {
                         ),
                         const Spacer(),
                         Text(
-                          '${formatNumber(error.count)} occurrences',
+                          '${formatNumber(error.count)} ${l10n.occurrences}',
                           style:
                               theme.textTheme.bodySmall?.copyWith(fontSize: 11),
                         ),
@@ -222,7 +225,7 @@ class _ErrorNameCard extends ConsumerWidget {
                             color: theme.textTheme.bodySmall?.color),
                         const SizedBox(width: 4),
                         Text(
-                          '${error.sessionCount} sessions affected',
+                          '${error.sessionCount} ${l10n.sessionsAffected}',
                           style:
                               theme.textTheme.bodySmall?.copyWith(fontSize: 11),
                         ),
@@ -291,6 +294,7 @@ class _ErrorEventsSection extends ConsumerWidget {
       _errorEventsProvider((siteId: siteId, errorMessage: errorMessage)),
     );
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return eventsAsync.when(
       loading: () => const Padding(
@@ -299,14 +303,14 @@ class _ErrorEventsSection extends ConsumerWidget {
       ),
       error: (error, _) => Padding(
         padding: const EdgeInsets.all(16),
-        child: Text('Failed to load events: $error',
+        child: Text(l10n.failedToLoadEventsWithError(error.toString()),
             style: theme.textTheme.bodySmall),
       ),
       data: (events) {
         if (events.isEmpty) {
           return Padding(
             padding: const EdgeInsets.all(16),
-            child: Text('No events found', style: theme.textTheme.bodySmall),
+            child: Text(l10n.noEventsFound, style: theme.textTheme.bodySmall),
           );
         }
 

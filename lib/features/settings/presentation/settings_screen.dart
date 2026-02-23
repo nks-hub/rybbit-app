@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app.dart';
 import '../../../core/config/app_config.dart';
 import '../../../core/storage/storage_service.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../auth/application/auth_controller.dart';
 
 /// Theme mode provider persisted to Hive.
@@ -21,39 +23,40 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final config = ref.watch(appConfigNotifierProvider);
     final authState = ref.watch(authControllerProvider);
     final themeMode = ref.watch(themeModeProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.settings, style: const TextStyle(fontSize: 18)),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: [
           // Server section
-          _SectionHeader(title: 'Connection'),
+          _SectionHeader(title: l10n.connection),
           Card(
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Column(
               children: [
                 ListTile(
                   leading: const Icon(Icons.dns_outlined),
-                  title: const Text('Server URL'),
+                  title: Text(l10n.serverUrl),
                   subtitle: Text(
                     config.serverUrl.isNotEmpty
                         ? config.serverUrl
-                        : 'Not configured',
+                        : l10n.notConfigured,
                     style: theme.textTheme.bodySmall,
                   ),
                 ),
                 const Divider(height: 1),
                 ListTile(
                   leading: const Icon(Icons.vpn_key_outlined),
-                  title: const Text('Auth Method'),
+                  title: Text(l10n.authMethod),
                   subtitle: Text(
-                    config.hasApiKey ? 'API Key' : 'Session Cookie',
+                    config.hasApiKey ? l10n.apiKey : l10n.sessionCookie,
                     style: theme.textTheme.bodySmall,
                   ),
                 ),
@@ -61,11 +64,11 @@ class SettingsScreen extends ConsumerWidget {
                   const Divider(height: 1),
                   ListTile(
                     leading: const Icon(Icons.person_outline),
-                    title: const Text('Logged in as'),
+                    title: Text(l10n.loggedInAs),
                     subtitle: Text(
                       authState.user?['email'] as String? ??
                           authState.user?['name'] as String? ??
-                          'Unknown',
+                          l10n.unknown,
                       style: theme.textTheme.bodySmall,
                     ),
                   ),
@@ -77,27 +80,27 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 16),
 
           // Appearance section
-          _SectionHeader(title: 'Appearance'),
+          _SectionHeader(title: l10n.appearance),
           Card(
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Column(
               children: [
                 ListTile(
                   leading: const Icon(Icons.dark_mode_outlined),
-                  title: const Text('Theme'),
+                  title: Text(l10n.theme),
                   trailing: SegmentedButton<ThemeMode>(
-                    segments: const [
+                    segments: [
                       ButtonSegment(
                         value: ThemeMode.dark,
-                        label: Text('Dark', style: TextStyle(fontSize: 12)),
+                        label: Text(l10n.dark, style: const TextStyle(fontSize: 12)),
                       ),
                       ButtonSegment(
                         value: ThemeMode.light,
-                        label: Text('Light', style: TextStyle(fontSize: 12)),
+                        label: Text(l10n.light, style: const TextStyle(fontSize: 12)),
                       ),
                       ButtonSegment(
                         value: ThemeMode.system,
-                        label: Text('Auto', style: TextStyle(fontSize: 12)),
+                        label: Text(l10n.auto, style: const TextStyle(fontSize: 12)),
                       ),
                     ],
                     selected: {themeMode},
@@ -117,6 +120,16 @@ class SettingsScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
+                const Divider(height: 1),
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: Text(l10n.language),
+                  subtitle: Text(
+                    _currentLanguageName(ref),
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  onTap: () => _showLanguagePicker(context, ref),
+                ),
               ],
             ),
           ),
@@ -124,22 +137,22 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 16),
 
           // About section
-          _SectionHeader(title: 'About'),
+          _SectionHeader(title: l10n.about),
           Card(
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Column(
               children: [
-                const ListTile(
-                  leading: Icon(Icons.info_outline),
-                  title: Text('App Version'),
-                  subtitle: Text('0.1.0'),
+                ListTile(
+                  leading: const Icon(Icons.info_outline),
+                  title: Text(l10n.appVersion),
+                  subtitle: const Text('0.1.0'),
                 ),
                 const Divider(height: 1),
                 ListTile(
                   leading: const Icon(Icons.code),
-                  title: const Text('Rybbit'),
+                  title: Text(l10n.appName),
                   subtitle: Text(
-                    'Open source web analytics',
+                    l10n.openSourceAnalytics,
                     style: theme.textTheme.bodySmall,
                   ),
                 ),
@@ -156,7 +169,7 @@ class SettingsScreen extends ConsumerWidget {
               onPressed: () => _confirmLogout(context, ref),
               icon: Icon(Icons.logout, color: theme.colorScheme.error),
               label: Text(
-                'Logout',
+                l10n.logout,
                 style: TextStyle(color: theme.colorScheme.error),
               ),
               style: OutlinedButton.styleFrom(
@@ -172,21 +185,105 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
+  String _currentLanguageName(WidgetRef ref) {
+    final locale = ref.watch(localeProvider);
+    if (locale == null) return 'Auto';
+    return localeDisplayNames[locale.languageCode] ?? locale.languageCode;
+  }
+
+  Future<void> _showLanguagePicker(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context)!;
+    final currentLocale = ref.read(localeProvider);
+
+    final selected = await showModalBottomSheet<String?>(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (ctx) {
+        final theme = Theme.of(ctx);
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  l10n.selectLanguage,
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              ListTile(
+                title: Text(l10n.auto),
+                leading: Icon(
+                  currentLocale == null
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_off,
+                  color: currentLocale == null
+                      ? theme.colorScheme.primary
+                      : theme.textTheme.bodySmall?.color,
+                ),
+                selected: currentLocale == null,
+                selectedColor: theme.colorScheme.primary,
+                onTap: () => Navigator.pop(ctx, '__auto__'),
+              ),
+              ...supportedLocaleCodes.map((code) {
+                final isSelected = currentLocale?.languageCode == code;
+                return ListTile(
+                  title: Text(localeDisplayNames[code] ?? code),
+                  leading: Icon(
+                    isSelected
+                        ? Icons.radio_button_checked
+                        : Icons.radio_button_off,
+                    color: isSelected
+                        ? theme.colorScheme.primary
+                        : theme.textTheme.bodySmall?.color,
+                  ),
+                  selected: isSelected,
+                  selectedColor: theme.colorScheme.primary,
+                  onTap: () => Navigator.pop(ctx, code),
+                );
+              }),
+              const SizedBox(height: 8),
+            ],
+          ),
+        );
+      },
+    );
+
+    if (selected == null) return;
+
+    if (selected == '__auto__') {
+      ref.read(localeProvider.notifier).state = null;
+      StorageService.deleteSetting('locale');
+    } else {
+      ref.read(localeProvider.notifier).state = Locale(selected);
+      StorageService.saveSetting('locale', selected);
+    }
+  }
+
   Future<void> _confirmLogout(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Logout'),
-        content: const Text('Are you sure you want to logout?'),
+        title: Text(l10n.logout),
+        content: Text(l10n.logoutConfirm),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Cancel'),
+            child: Text(l10n.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Logout',
-                style: TextStyle(color: Colors.red)),
+            child: Text(l10n.logout,
+                style: const TextStyle(color: Colors.red)),
           ),
         ],
       ),

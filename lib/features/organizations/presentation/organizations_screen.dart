@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/organization.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/organizations_repository.dart';
@@ -20,13 +21,13 @@ class OrganizationsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final orgsAsync = ref.watch(_organizationsProvider);
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title:
-            const Text('Organizations', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.organizations, style: const TextStyle(fontSize: 18)),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -42,7 +43,7 @@ class OrganizationsScreen extends ConsumerWidget {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load organizations',
+                Text(l10n.failedToLoadOrganizations,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -52,7 +53,7 @@ class OrganizationsScreen extends ConsumerWidget {
                 ElevatedButton(
                   onPressed: () =>
                       ref.invalidate(_organizationsProvider),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -68,10 +69,10 @@ class OrganizationsScreen extends ConsumerWidget {
                       size: 64,
                       color: theme.textTheme.bodySmall?.color),
                   const SizedBox(height: 16),
-                  Text('No organizations',
+                  Text(l10n.noOrganizations,
                       style: theme.textTheme.bodyLarge),
                   const SizedBox(height: 8),
-                  Text('Organizations can be created in the web dashboard',
+                  Text(l10n.noOrganizationsHint,
                       style: theme.textTheme.bodySmall),
                 ],
               ),
@@ -116,6 +117,7 @@ class _OrgCardState extends ConsumerState<_OrgCard> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
@@ -179,7 +181,7 @@ class _OrgCardState extends ConsumerState<_OrgCard> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
                 child: Text(
-                  'Members (${_members!.length})',
+                  l10n.members(_members!.length),
                   style: theme.textTheme.bodySmall?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -249,7 +251,7 @@ class _OrgCardState extends ConsumerState<_OrgCard> {
       } catch (e) {
         setState(() {
           _loading = false;
-          _error = 'Failed to load members: $e';
+          _error = '${AppLocalizations.of(context)?.failedToLoadMembers ?? "Failed to load members"}: $e';
         });
       }
     }

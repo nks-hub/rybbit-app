@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../models/filter.dart';
 
 class FilterBar extends StatelessWidget {
@@ -17,6 +18,7 @@ class FilterBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return SizedBox(
       height: 40,
@@ -46,12 +48,12 @@ class FilterBar extends StatelessWidget {
             );
           }),
           ActionChip(
-            label: const Row(
+            label: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.add, size: 16),
-                SizedBox(width: 4),
-                Text('Filter', style: TextStyle(fontSize: 12)),
+                const Icon(Icons.add, size: 16),
+                const SizedBox(width: 4),
+                Text(l10n.filter, style: const TextStyle(fontSize: 12)),
               ],
             ),
             onPressed: onAddFilter,
@@ -63,7 +65,6 @@ class FilterBar extends StatelessWidget {
   }
 }
 
-/// Simple dialog for adding a filter.
 class AddFilterDialog extends StatefulWidget {
   const AddFilterDialog({super.key});
 
@@ -90,14 +91,16 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return AlertDialog(
-      title: const Text('Add Filter'),
+      title: Text(l10n.addFilter),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           DropdownButtonFormField<FilterParameter>(
             initialValue: _parameter,
-            decoration: const InputDecoration(labelText: 'Parameter'),
+            decoration: InputDecoration(labelText: l10n.parameter),
             items: FilterParameter.values
                 .map((p) => DropdownMenuItem(
                       value: p,
@@ -111,9 +114,9 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
           const SizedBox(height: 16),
           TextField(
             controller: _valueController,
-            decoration: const InputDecoration(
-              labelText: 'Value',
-              hintText: 'Enter filter value',
+            decoration: InputDecoration(
+              labelText: l10n.value,
+              hintText: l10n.enterFilterValue,
             ),
           ),
         ],
@@ -121,7 +124,7 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(l10n.cancel),
         ),
         ElevatedButton(
           onPressed: () {
@@ -133,7 +136,7 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
               value: [value],
             ));
           },
-          child: const Text('Add'),
+          child: Text(l10n.add),
         ),
       ],
     );

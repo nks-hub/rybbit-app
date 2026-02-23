@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/sessions_repository.dart';
 import 'sessions_list_screen.dart';
@@ -29,12 +30,13 @@ class SessionDetailScreen extends ConsumerWidget {
       sessionDetailProvider((siteId: siteId, sessionId: sessionId)),
     );
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Session Detail', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.sessionDetail, style: const TextStyle(fontSize: 18)),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -50,7 +52,7 @@ class SessionDetailScreen extends ConsumerWidget {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load session',
+                Text(l10n.failedToLoadSession,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -62,7 +64,7 @@ class SessionDetailScreen extends ConsumerWidget {
                     sessionDetailProvider(
                         (siteId: siteId, sessionId: sessionId)),
                   ),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -76,6 +78,7 @@ class SessionDetailScreen extends ConsumerWidget {
   Widget _buildContent(BuildContext context, SessionDetail detail) {
     final session = detail.session;
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final flag = countryToFlag(session.country);
 
     return SingleChildScrollView(
@@ -97,7 +100,7 @@ class SessionDetailScreen extends ConsumerWidget {
                         if (flag.isNotEmpty) ...[
                           Text(flag,
                               style: const TextStyle(fontSize: 24),
-                              semanticsLabel: session.country ?? 'Unknown country'),
+                              semanticsLabel: session.country ?? l10n.unknownCountry),
                           const SizedBox(width: 12),
                         ],
                         Expanded(
@@ -105,7 +108,7 @@ class SessionDetailScreen extends ConsumerWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${session.country ?? "Unknown"}'
+                                '${session.country ?? l10n.unknown}'
                                 '${session.city != null && session.city!.isNotEmpty ? ", ${session.city}" : ""}',
                                 style: theme.textTheme.bodyLarge?.copyWith(
                                   fontWeight: FontWeight.bold,
@@ -125,22 +128,22 @@ class SessionDetailScreen extends ConsumerWidget {
                     const Divider(height: 24),
                     _InfoRow(
                       icon: Icons.timer,
-                      label: 'Duration',
+                      label: l10n.duration,
                       value: formatDuration(session.sessionDuration),
                     ),
                     _InfoRow(
                       icon: Icons.pageview,
-                      label: 'Pageviews',
+                      label: l10n.pageviews,
                       value: session.pageviews.toString(),
                     ),
                     _InfoRow(
                       icon: Icons.login,
-                      label: 'Entry Page',
+                      label: l10n.entryPageLabel,
                       value: session.entryPage ?? '-',
                     ),
                     _InfoRow(
                       icon: Icons.logout,
-                      label: 'Exit Page',
+                      label: l10n.exitPage,
                       value: session.exitPage ?? '-',
                     ),
                   ],
@@ -159,7 +162,7 @@ class SessionDetailScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Browser & Device',
+                      l10n.browserAndDevice,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -167,24 +170,24 @@ class SessionDetailScreen extends ConsumerWidget {
                     const SizedBox(height: 8),
                     _InfoRow(
                       icon: Icons.web,
-                      label: 'Browser',
+                      label: l10n.browser,
                       value:
                           '${session.browser ?? "-"} ${session.browserVersion ?? ""}',
                     ),
                     _InfoRow(
                       icon: Icons.computer,
-                      label: 'OS',
+                      label: l10n.os,
                       value:
                           '${session.operatingSystem ?? "-"} ${session.osVersion ?? ""}',
                     ),
                     _InfoRow(
                       icon: Icons.devices,
-                      label: 'Device',
+                      label: l10n.device,
                       value: session.deviceType ?? '-',
                     ),
                     _InfoRow(
                       icon: Icons.translate,
-                      label: 'Language',
+                      label: l10n.language,
                       value: session.language ?? '-',
                     ),
                   ],
@@ -206,7 +209,7 @@ class SessionDetailScreen extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Source',
+                        l10n.sourceLabel,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -216,7 +219,7 @@ class SessionDetailScreen extends ConsumerWidget {
                           session.referrer!.isNotEmpty)
                         _InfoRow(
                           icon: Icons.link,
-                          label: 'Referrer',
+                          label: l10n.referrer,
                           value: session.referrer!,
                         ),
                       if (session.utmSource != null &&
@@ -252,7 +255,7 @@ class SessionDetailScreen extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              'Event Timeline (${detail.events.length})',
+              l10n.eventTimelineCount(detail.events.length),
               style: theme.textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -264,7 +267,7 @@ class SessionDetailScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(32),
               child: Center(
-                child: Text('No events', style: theme.textTheme.bodySmall),
+                child: Text(l10n.noEvents, style: theme.textTheme.bodySmall),
               ),
             )
           else

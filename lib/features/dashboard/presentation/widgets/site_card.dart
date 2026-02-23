@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/models/site.dart';
 
 class SiteCard extends StatelessWidget {
@@ -17,6 +18,7 @@ class SiteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
@@ -50,7 +52,7 @@ class SiteCard extends StatelessWidget {
               ),
               if (liveCount > 0) ...[
                 Semantics(
-                  label: '$liveCount users live',
+                  label: l10n.usersOnline(liveCount),
                   excludeSemantics: true,
                   child: Container(
                     padding:

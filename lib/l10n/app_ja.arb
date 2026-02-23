@@ -1,0 +1,417 @@
+{
+  "@@locale": "ja",
+  "appName": "Rybbit",
+  "appSubtitle": "非公式",
+  "cancel": "キャンセル",
+  "delete": "削除",
+  "save": "保存",
+  "update": "更新",
+  "create": "作成",
+  "retry": "再試行",
+  "add": "追加",
+  "edit": "編集",
+  "clear": "クリア",
+  "apply": "適用",
+  "goBack": "戻る",
+  "noData": "データなし",
+  "loading": "読み込み中",
+  "logout": "ログアウト",
+  "close": "閉じる",
+  "serverUrl": "サーバーURL",
+  "serverUrlHint": "https://your-rybbit-instance.com",
+  "email": "メールアドレス",
+  "apiKey": "APIキー",
+  "password": "パスワード",
+  "connect": "接続",
+  "organizations": "組織",
+  "noSitesFound": "サイトが見つかりません",
+  "noSitesHint": "Webダッシュボードでサイトを追加して始めましょう。",
+  "siteCount": "{count, plural, other{{count}サイト}}",
+  "@siteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "members": "メンバー ({count})",
+  "@members": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "failedToLoadOrganizations": "組織の読み込みに失敗しました",
+  "noOrganizations": "組織がありません",
+  "noOrganizationsHint": "組織はWebダッシュボードで作成できます",
+  "failedToLoadMembers": "メンバーの読み込みに失敗しました",
+  "failedToLoadSites": "サイトの読み込みに失敗しました",
+  "failedToLoadAnalytics": "アナリティクスの読み込みに失敗しました",
+  "noDataAvailable": "利用可能なデータがありません",
+  "users": "ユーザー",
+  "sessions": "セッション",
+  "pageviews": "ページビュー",
+  "pagesPerSession": "ページ/セッション",
+  "bounceRate": "直帰率",
+  "duration": "滞在時間",
+  "metrics": "指標",
+  "pages": "ページ",
+  "referrers": "リファラー",
+  "countries": "国",
+  "devices": "デバイス",
+  "performance": "パフォーマンス",
+  "goals": "目標",
+  "funnels": "ファネル",
+  "replay": "リプレイ",
+  "config": "設定",
+  "usersOnline": "{count}人のユーザーがオンライン",
+  "@usersOnline": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "events": "イベント",
+  "eventsOverTime": "イベントの推移",
+  "eventNames": "イベント名",
+  "noCustomEventsTracked": "カスタムイベントは記録されていません",
+  "failedToLoadProperties": "プロパティの読み込みに失敗しました",
+  "noProperties": "プロパティがありません",
+  "outboundLinks": "外部リンク",
+  "noOutboundLinksTracked": "外部リンクは記録されていません",
+  "failedToLoadChart": "チャートの読み込みに失敗しました",
+  "errors": "エラー",
+  "failedToLoadErrors": "エラーの読み込みに失敗しました",
+  "noErrorsFound": "エラーは見つかりませんでした",
+  "everythingLooksGood": "すべて正常です！",
+  "occurrences": "発生回数",
+  "sessionsAffected": "影響を受けたセッション",
+  "failedToLoadEventsWithError": "イベントの読み込みに失敗しました: {error}",
+  "@failedToLoadEventsWithError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noEventsFound": "イベントが見つかりません",
+  "failedToLoadFunnels": "ファネルの読み込みに失敗しました",
+  "noFunnelsSaved": "保存されたファネルはありません",
+  "createFunnelsHint": "Webダッシュボードでファネルを作成してください",
+  "deleteFunnel": "ファネルを削除",
+  "deleteFunnelConfirm": "「{name}」を削除しますか？",
+  "@deleteFunnelConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToDeleteFunnel": "ファネルの削除に失敗しました: {error}",
+  "@failedToDeleteFunnel": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noStepsDefined": "このファネルにはステップが定義されていません",
+  "failedToAnalyze": "分析に失敗しました: {error}",
+  "@failedToAnalyze": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "overallConversion": "全体のコンバージョン",
+  "dropoff": "離脱: {value}",
+  "@dropoff": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "createGoal": "目標を作成",
+  "failedToLoadGoals": "目標の読み込みに失敗しました",
+  "noGoalsConfigured": "目標が設定されていません",
+  "noGoalsHint": "＋をタップして新しい目標を作成してください",
+  "conversions": "コンバージョン",
+  "rate": "率",
+  "editGoal": "目標を編集",
+  "createGoalTitle": "目標を作成",
+  "name": "名前",
+  "type": "タイプ",
+  "path": "パス",
+  "event": "イベント",
+  "pathPattern": "パスパターン",
+  "eventName": "イベント名",
+  "deleteGoal": "目標を削除",
+  "deleteGoalConfirm": "「{name}」を削除しますか？",
+  "@deleteGoalConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToDeleteGoal": "目標の削除に失敗しました: {error}",
+  "@failedToDeleteGoal": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToLoadPerformanceData": "パフォーマンスデータの読み込みに失敗しました",
+  "metricOverTime": "{metric}の推移",
+  "@metricOverTime": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "byDimension": "ディメンション別",
+  "failedToLoadDimensionData": "ディメンションデータの読み込みに失敗しました",
+  "good": "良好",
+  "needsImprovement": "改善が必要",
+  "poor": "不良",
+  "largestContentfulPaint": "Largest Contentful Paint",
+  "cumulativeLayoutShift": "Cumulative Layout Shift",
+  "firstContentfulPaint": "First Contentful Paint",
+  "timeToFirstByte": "Time to First Byte",
+  "interactionToNextPaint": "Interaction to Next Paint",
+  "dimPages": "ページ",
+  "dimCountries": "国",
+  "dimDevices": "デバイス",
+  "dimBrowsers": "ブラウザ",
+  "dimOS": "OS",
+  "sessionFilters": "セッションフィルター",
+  "minPageviews": "最小ページビュー数",
+  "minEvents": "最小イベント数",
+  "minDurationSeconds": "最小滞在時間（秒）",
+  "failedToLoadSessions": "セッションの読み込みに失敗しました",
+  "noSessionsFound": "セッションが見つかりません",
+  "filterSessions": "セッションをフィルター",
+  "loadingMoreSessions": "セッションを追加読み込み中",
+  "entryPage": "入口ページ: {page}",
+  "@entryPage": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "nPages": "{count}ページ",
+  "@nPages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sessionReplays": "セッションリプレイ",
+  "failedToLoadReplays": "リプレイの読み込みに失敗しました",
+  "noReplaysFound": "リプレイが見つかりません",
+  "noReplaysHint": "セッションリプレイが有効になると、ここに表示されます。",
+  "previousPage": "前のページ",
+  "nextPage": "次のページ",
+  "pageNumber": "{number}ページ",
+  "@pageNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "unknownBrowser": "不明なブラウザ",
+  "unknownCountry": "不明な国",
+  "sortUsers": "ユーザーを並び替え",
+  "showAllUsers": "すべてのユーザーを表示",
+  "showIdentifiedOnly": "識別済みのみ表示",
+  "searchUsers": "ユーザーを検索",
+  "searchUsersHint": "ユーザーを検索...",
+  "clearSearch": "検索をクリア",
+  "failedToLoadUsers": "ユーザーの読み込みに失敗しました",
+  "noUsersFound": "ユーザーが見つかりません",
+  "noIdentifiedUsers": "識別済みユーザーがいません",
+  "usersWillAppear": "ユーザーが識別されると、ここに表示されます",
+  "tryDifferentSearch": "別の検索キーワードをお試しください",
+  "sortedBy": "並び順",
+  "loadingMoreUsers": "ユーザーを追加読み込み中",
+  "lastSeen": "最終確認",
+  "firstSeen": "初回確認",
+  "failedToLoadMetrics": "指標の読み込みに失敗しました",
+  "loadingMoreMetrics": "指標を追加読み込み中",
+  "noMetricData": "{metric}のデータがありません",
+  "@noMetricData": {
+    "placeholders": {
+      "metric": {
+        "type": "String"
+      }
+    }
+  },
+  "settings": "設定",
+  "connection": "接続",
+  "notConfigured": "未設定",
+  "authMethod": "認証方式",
+  "sessionCookie": "セッションCookie",
+  "loggedInAs": "ログイン中",
+  "unknown": "不明",
+  "appearance": "外観",
+  "theme": "テーマ",
+  "dark": "ダーク",
+  "light": "ライト",
+  "auto": "自動",
+  "about": "情報",
+  "appVersion": "アプリバージョン",
+  "openSourceAnalytics": "オープンソースのウェブアナリティクス",
+  "logoutConfirm": "ログアウトしてもよろしいですか？",
+  "siteSettings": "サイト設定",
+  "siteInformation": "サイト情報",
+  "domain": "ドメイン",
+  "siteId": "サイトID",
+  "created": "作成日",
+  "trackingSettings": "トラッキング設定",
+  "publicDashboard": "公開ダッシュボード",
+  "publicDashboardDesc": "アナリティクスへの公開アクセスを許可します",
+  "sessionReplay": "セッションリプレイ",
+  "sessionReplayDesc": "ユーザーセッションを記録します",
+  "webVitals": "Web Vitals",
+  "webVitalsDesc": "Core Web Vitalsを計測します",
+  "trackErrors": "エラー追跡",
+  "trackErrorsDesc": "JavaScriptエラーをキャプチャします",
+  "outboundLinksTracking": "外部リンク",
+  "outboundLinksDesc": "外部リンクのクリックを追跡します",
+  "excludedIps": "除外IP",
+  "excludedCountries": "除外する国",
+  "settingsSaved": "設定を保存しました",
+  "failedToSave": "保存に失敗しました: {error}",
+  "@failedToSave": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "timeRange": "期間",
+  "today": "今日",
+  "yesterday": "昨日",
+  "last7Days": "過去7日間",
+  "last30Days": "過去30日間",
+  "thisWeek": "今週",
+  "thisMonth": "今月",
+  "thisYear": "今年",
+  "customRange": "カスタム期間",
+  "filter": "フィルター",
+  "addFilter": "フィルターを追加",
+  "parameter": "パラメーター",
+  "value": "値",
+  "enterFilterValue": "フィルターの値を入力してください",
+  "requestTimedOut": "リクエストがタイムアウトしました。再度お試しください。",
+  "networkError": "ネットワークエラーです。接続を確認してください。",
+  "sessionExpired": "セッションの有効期限が切れました。再度ログインしてください。",
+  "accessDenied": "アクセスが拒否されました。",
+  "dataNotFound": "データが見つかりません。",
+  "serverError": "サーバーエラーです。しばらくしてから再度お試しください。",
+  "failedToLoadGeneric": "データの読み込みに失敗しました。再度お試しください。",
+  "chartDataPoints": "{count}データポイントのチャート",
+  "@chartDataPoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "previousPrefix": "前回: {value}",
+  "@previousPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "performanceRatingLabel": "パフォーマンス評価: {rating}",
+  "@performanceRatingLabel": {
+    "placeholders": {
+      "rating": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingContent": "コンテンツを読み込み中",
+  "language": "言語",
+  "selectLanguage": "言語を選択",
+  "nUsers": "{count}人のユーザー",
+  "@nUsers": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "nSessions": "{count}セッション",
+  "@nSessions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lastPrefix": "前回: {value}",
+  "@lastPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "failedToLoadSiteConfig": "サイト設定の読み込みに失敗しました",
+  "failedToLoadUserDetails": "ユーザー詳細の読み込みに失敗しました",
+  "lastSeenPrefix": "最終閲覧: {value}",
+  "@lastSeenPrefix": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "traits": "属性",
+  "noTraits": "このユーザーの属性はありません",
+  "sessionDetail": "セッション詳細",
+  "failedToLoadSession": "セッションの読み込みに失敗しました",
+  "entryPageLabel": "入口ページ",
+  "exitPage": "出口ページ",
+  "browserAndDevice": "ブラウザとデバイス",
+  "browser": "ブラウザ",
+  "os": "OS",
+  "device": "デバイス",
+  "sourceLabel": "ソース",
+  "referrer": "リファラー",
+  "eventTimelineCount": "イベントタイムライン ({count})",
+  "@eventTimelineCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noEvents": "イベントなし",
+  "replayEventsTitle": "リプレイイベント",
+  "failedToLoadReplay": "リプレイの読み込みに失敗しました",
+  "noReplayEvents": "リプレイイベントなし",
+  "totalEvents": "イベント合計",
+  "userActionsLabel": "ユーザーアクション",
+  "eventTimelineActions": "イベントタイムライン ({count}アクション)",
+  "@eventTimelineActions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
 import '../application/sessions_controller.dart';
@@ -47,28 +48,29 @@ class _SessionFilterDialogState extends State<_SessionFilterDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return AlertDialog(
-      title: const Text('Session Filters'),
+      title: Text(l10n.sessionFilters),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: _pageviewsCtrl,
-              decoration: const InputDecoration(labelText: 'Min Pageviews'),
+              decoration: InputDecoration(labelText: l10n.minPageviews),
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 12),
             TextField(
               controller: _eventsCtrl,
-              decoration: const InputDecoration(labelText: 'Min Events'),
+              decoration: InputDecoration(labelText: l10n.minEvents),
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 12),
             TextField(
               controller: _durationCtrl,
               decoration:
-                  const InputDecoration(labelText: 'Min Duration (seconds)'),
+                  InputDecoration(labelText: l10n.minDurationSeconds),
               keyboardType: TextInputType.number,
             ),
           ],
@@ -78,11 +80,11 @@ class _SessionFilterDialogState extends State<_SessionFilterDialog> {
         TextButton(
           onPressed: () => Navigator.pop(context,
               const SessionFilterParams()),
-          child: const Text('Clear'),
+          child: Text(l10n.clear),
         ),
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(l10n.cancel),
         ),
         ElevatedButton(
           onPressed: () {
@@ -95,7 +97,7 @@ class _SessionFilterDialogState extends State<_SessionFilterDialog> {
               ),
             );
           },
-          child: const Text('Apply'),
+          child: Text(l10n.apply),
         ),
       ],
     );
@@ -149,6 +151,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final sessionsAsync =
         ref.watch(sessionsControllerProvider(widget.siteId));
     final theme = Theme.of(context);
@@ -162,7 +165,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Sessions', style: TextStyle(fontSize: 18)),
+            Text(l10n.sessions, style: const TextStyle(fontSize: 18)),
             if (domain != null)
               Text(
                 domain,
@@ -174,13 +177,13 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
           ],
         ),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
         actions: [
           IconButton(
-            tooltip: 'Filter sessions',
+            tooltip: l10n.filterSessions,
             icon: Badge(
               isLabelVisible: sessionFilter.hasFilters,
               smallSize: 8,
@@ -210,7 +213,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load sessions',
+                Text(l10n.failedToLoadSessions,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -222,7 +225,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                       .read(
                           sessionsControllerProvider(widget.siteId).notifier)
                       .refresh(),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -237,7 +240,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                   Icon(Icons.people_outline,
                       size: 48, color: theme.textTheme.bodySmall?.color),
                   const SizedBox(height: 16),
-                  Text('No sessions found',
+                  Text(l10n.noSessionsFound,
                       style: theme.textTheme.bodyLarge),
                 ],
               ),
@@ -256,7 +259,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
               itemBuilder: (context, index) {
                 if (index >= sessionsState.sessions.length) {
                   return Semantics(
-                    label: 'Loading more sessions',
+                    label: l10n.loadingMoreSessions,
                     child: const Padding(
                       padding: EdgeInsets.all(16),
                       child: Center(
@@ -289,6 +292,7 @@ class _SessionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final flag = countryToFlag(session.country);
     final duration = formatDuration(session.sessionDuration);
@@ -310,7 +314,7 @@ class _SessionCard extends StatelessWidget {
                     if (flag.isNotEmpty) ...[
                       Text(flag,
                           style: const TextStyle(fontSize: 18),
-                          semanticsLabel: session.country ?? 'Unknown country'),
+                          semanticsLabel: session.country ?? l10n.unknownCountry),
                       const SizedBox(width: 8),
                     ],
                     Expanded(
@@ -374,7 +378,7 @@ class _SessionCard extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${session.pageviews} pages',
+                          l10n.nPages(session.pageviews),
                           style:
                               theme.textTheme.bodySmall?.copyWith(fontSize: 11),
                         ),
@@ -389,7 +393,7 @@ class _SessionCard extends StatelessWidget {
                 if (session.entryPage != null &&
                     session.entryPage!.isNotEmpty) ...[
                   Semantics(
-                    label: 'Entry page: ${session.entryPage}',
+                    label: l10n.entryPage(session.entryPage!),
                     excludeSemantics: true,
                     child: Row(
                       children: [

@@ -1,0 +1,782 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Japanese (`ja`).
+class AppLocalizationsJa extends AppLocalizations {
+  AppLocalizationsJa([String locale = 'ja']) : super(locale);
+
+  @override
+  String get appName => 'Rybbit';
+
+  @override
+  String get appSubtitle => '非公式';
+
+  @override
+  String get cancel => 'キャンセル';
+
+  @override
+  String get delete => '削除';
+
+  @override
+  String get save => '保存';
+
+  @override
+  String get update => '更新';
+
+  @override
+  String get create => '作成';
+
+  @override
+  String get retry => '再試行';
+
+  @override
+  String get add => '追加';
+
+  @override
+  String get edit => '編集';
+
+  @override
+  String get clear => 'クリア';
+
+  @override
+  String get apply => '適用';
+
+  @override
+  String get goBack => '戻る';
+
+  @override
+  String get noData => 'データなし';
+
+  @override
+  String get loading => '読み込み中';
+
+  @override
+  String get logout => 'ログアウト';
+
+  @override
+  String get close => '閉じる';
+
+  @override
+  String get serverUrl => 'サーバーURL';
+
+  @override
+  String get serverUrlHint => 'https://your-rybbit-instance.com';
+
+  @override
+  String get email => 'メールアドレス';
+
+  @override
+  String get apiKey => 'APIキー';
+
+  @override
+  String get password => 'パスワード';
+
+  @override
+  String get connect => '接続';
+
+  @override
+  String get organizations => '組織';
+
+  @override
+  String get noSitesFound => 'サイトが見つかりません';
+
+  @override
+  String get noSitesHint => 'Webダッシュボードでサイトを追加して始めましょう。';
+
+  @override
+  String siteCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countサイト',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String members(int count) {
+    return 'メンバー ($count)';
+  }
+
+  @override
+  String get failedToLoadOrganizations => '組織の読み込みに失敗しました';
+
+  @override
+  String get noOrganizations => '組織がありません';
+
+  @override
+  String get noOrganizationsHint => '組織はWebダッシュボードで作成できます';
+
+  @override
+  String get failedToLoadMembers => 'メンバーの読み込みに失敗しました';
+
+  @override
+  String get failedToLoadSites => 'サイトの読み込みに失敗しました';
+
+  @override
+  String get failedToLoadAnalytics => 'アナリティクスの読み込みに失敗しました';
+
+  @override
+  String get noDataAvailable => '利用可能なデータがありません';
+
+  @override
+  String get users => 'ユーザー';
+
+  @override
+  String get sessions => 'セッション';
+
+  @override
+  String get pageviews => 'ページビュー';
+
+  @override
+  String get pagesPerSession => 'ページ/セッション';
+
+  @override
+  String get bounceRate => '直帰率';
+
+  @override
+  String get duration => '滞在時間';
+
+  @override
+  String get metrics => '指標';
+
+  @override
+  String get pages => 'ページ';
+
+  @override
+  String get referrers => 'リファラー';
+
+  @override
+  String get countries => '国';
+
+  @override
+  String get devices => 'デバイス';
+
+  @override
+  String get performance => 'パフォーマンス';
+
+  @override
+  String get goals => '目標';
+
+  @override
+  String get funnels => 'ファネル';
+
+  @override
+  String get replay => 'リプレイ';
+
+  @override
+  String get config => '設定';
+
+  @override
+  String usersOnline(int count) {
+    return '$count人のユーザーがオンライン';
+  }
+
+  @override
+  String get events => 'イベント';
+
+  @override
+  String get eventsOverTime => 'イベントの推移';
+
+  @override
+  String get eventNames => 'イベント名';
+
+  @override
+  String get noCustomEventsTracked => 'カスタムイベントは記録されていません';
+
+  @override
+  String get failedToLoadProperties => 'プロパティの読み込みに失敗しました';
+
+  @override
+  String get noProperties => 'プロパティがありません';
+
+  @override
+  String get outboundLinks => '外部リンク';
+
+  @override
+  String get noOutboundLinksTracked => '外部リンクは記録されていません';
+
+  @override
+  String get failedToLoadChart => 'チャートの読み込みに失敗しました';
+
+  @override
+  String get errors => 'エラー';
+
+  @override
+  String get failedToLoadErrors => 'エラーの読み込みに失敗しました';
+
+  @override
+  String get noErrorsFound => 'エラーは見つかりませんでした';
+
+  @override
+  String get everythingLooksGood => 'すべて正常です！';
+
+  @override
+  String get occurrences => '発生回数';
+
+  @override
+  String get sessionsAffected => '影響を受けたセッション';
+
+  @override
+  String failedToLoadEventsWithError(String error) {
+    return 'イベントの読み込みに失敗しました: $error';
+  }
+
+  @override
+  String get noEventsFound => 'イベントが見つかりません';
+
+  @override
+  String get failedToLoadFunnels => 'ファネルの読み込みに失敗しました';
+
+  @override
+  String get noFunnelsSaved => '保存されたファネルはありません';
+
+  @override
+  String get createFunnelsHint => 'Webダッシュボードでファネルを作成してください';
+
+  @override
+  String get deleteFunnel => 'ファネルを削除';
+
+  @override
+  String deleteFunnelConfirm(String name) {
+    return '「$name」を削除しますか？';
+  }
+
+  @override
+  String failedToDeleteFunnel(String error) {
+    return 'ファネルの削除に失敗しました: $error';
+  }
+
+  @override
+  String get noStepsDefined => 'このファネルにはステップが定義されていません';
+
+  @override
+  String failedToAnalyze(String error) {
+    return '分析に失敗しました: $error';
+  }
+
+  @override
+  String get overallConversion => '全体のコンバージョン';
+
+  @override
+  String dropoff(String value) {
+    return '離脱: $value';
+  }
+
+  @override
+  String get createGoal => '目標を作成';
+
+  @override
+  String get failedToLoadGoals => '目標の読み込みに失敗しました';
+
+  @override
+  String get noGoalsConfigured => '目標が設定されていません';
+
+  @override
+  String get noGoalsHint => '＋をタップして新しい目標を作成してください';
+
+  @override
+  String get conversions => 'コンバージョン';
+
+  @override
+  String get rate => '率';
+
+  @override
+  String get editGoal => '目標を編集';
+
+  @override
+  String get createGoalTitle => '目標を作成';
+
+  @override
+  String get name => '名前';
+
+  @override
+  String get type => 'タイプ';
+
+  @override
+  String get path => 'パス';
+
+  @override
+  String get event => 'イベント';
+
+  @override
+  String get pathPattern => 'パスパターン';
+
+  @override
+  String get eventName => 'イベント名';
+
+  @override
+  String get deleteGoal => '目標を削除';
+
+  @override
+  String deleteGoalConfirm(String name) {
+    return '「$name」を削除しますか？';
+  }
+
+  @override
+  String failedToDeleteGoal(String error) {
+    return '目標の削除に失敗しました: $error';
+  }
+
+  @override
+  String get failedToLoadPerformanceData => 'パフォーマンスデータの読み込みに失敗しました';
+
+  @override
+  String metricOverTime(String metric) {
+    return '$metricの推移';
+  }
+
+  @override
+  String get byDimension => 'ディメンション別';
+
+  @override
+  String get failedToLoadDimensionData => 'ディメンションデータの読み込みに失敗しました';
+
+  @override
+  String get good => '良好';
+
+  @override
+  String get needsImprovement => '改善が必要';
+
+  @override
+  String get poor => '不良';
+
+  @override
+  String get largestContentfulPaint => 'Largest Contentful Paint';
+
+  @override
+  String get cumulativeLayoutShift => 'Cumulative Layout Shift';
+
+  @override
+  String get firstContentfulPaint => 'First Contentful Paint';
+
+  @override
+  String get timeToFirstByte => 'Time to First Byte';
+
+  @override
+  String get interactionToNextPaint => 'Interaction to Next Paint';
+
+  @override
+  String get dimPages => 'ページ';
+
+  @override
+  String get dimCountries => '国';
+
+  @override
+  String get dimDevices => 'デバイス';
+
+  @override
+  String get dimBrowsers => 'ブラウザ';
+
+  @override
+  String get dimOS => 'OS';
+
+  @override
+  String get sessionFilters => 'セッションフィルター';
+
+  @override
+  String get minPageviews => '最小ページビュー数';
+
+  @override
+  String get minEvents => '最小イベント数';
+
+  @override
+  String get minDurationSeconds => '最小滞在時間（秒）';
+
+  @override
+  String get failedToLoadSessions => 'セッションの読み込みに失敗しました';
+
+  @override
+  String get noSessionsFound => 'セッションが見つかりません';
+
+  @override
+  String get filterSessions => 'セッションをフィルター';
+
+  @override
+  String get loadingMoreSessions => 'セッションを追加読み込み中';
+
+  @override
+  String entryPage(String page) {
+    return '入口ページ: $page';
+  }
+
+  @override
+  String nPages(int count) {
+    return '$countページ';
+  }
+
+  @override
+  String get sessionReplays => 'セッションリプレイ';
+
+  @override
+  String get failedToLoadReplays => 'リプレイの読み込みに失敗しました';
+
+  @override
+  String get noReplaysFound => 'リプレイが見つかりません';
+
+  @override
+  String get noReplaysHint => 'セッションリプレイが有効になると、ここに表示されます。';
+
+  @override
+  String get previousPage => '前のページ';
+
+  @override
+  String get nextPage => '次のページ';
+
+  @override
+  String pageNumber(int number) {
+    return '$numberページ';
+  }
+
+  @override
+  String get unknownBrowser => '不明なブラウザ';
+
+  @override
+  String get unknownCountry => '不明な国';
+
+  @override
+  String get sortUsers => 'ユーザーを並び替え';
+
+  @override
+  String get showAllUsers => 'すべてのユーザーを表示';
+
+  @override
+  String get showIdentifiedOnly => '識別済みのみ表示';
+
+  @override
+  String get searchUsers => 'ユーザーを検索';
+
+  @override
+  String get searchUsersHint => 'ユーザーを検索...';
+
+  @override
+  String get clearSearch => '検索をクリア';
+
+  @override
+  String get failedToLoadUsers => 'ユーザーの読み込みに失敗しました';
+
+  @override
+  String get noUsersFound => 'ユーザーが見つかりません';
+
+  @override
+  String get noIdentifiedUsers => '識別済みユーザーがいません';
+
+  @override
+  String get usersWillAppear => 'ユーザーが識別されると、ここに表示されます';
+
+  @override
+  String get tryDifferentSearch => '別の検索キーワードをお試しください';
+
+  @override
+  String get sortedBy => '並び順';
+
+  @override
+  String get loadingMoreUsers => 'ユーザーを追加読み込み中';
+
+  @override
+  String get lastSeen => '最終確認';
+
+  @override
+  String get firstSeen => '初回確認';
+
+  @override
+  String nUsers(String count) {
+    return '$count人のユーザー';
+  }
+
+  @override
+  String nSessions(int count) {
+    return '$countセッション';
+  }
+
+  @override
+  String lastPrefix(String value) {
+    return '前回: $value';
+  }
+
+  @override
+  String get failedToLoadSiteConfig => 'サイト設定の読み込みに失敗しました';
+
+  @override
+  String get failedToLoadMetrics => '指標の読み込みに失敗しました';
+
+  @override
+  String get loadingMoreMetrics => '指標を追加読み込み中';
+
+  @override
+  String noMetricData(String metric) {
+    return '$metricのデータがありません';
+  }
+
+  @override
+  String get settings => '設定';
+
+  @override
+  String get connection => '接続';
+
+  @override
+  String get notConfigured => '未設定';
+
+  @override
+  String get authMethod => '認証方式';
+
+  @override
+  String get sessionCookie => 'セッションCookie';
+
+  @override
+  String get loggedInAs => 'ログイン中';
+
+  @override
+  String get unknown => '不明';
+
+  @override
+  String get appearance => '外観';
+
+  @override
+  String get theme => 'テーマ';
+
+  @override
+  String get dark => 'ダーク';
+
+  @override
+  String get light => 'ライト';
+
+  @override
+  String get auto => '自動';
+
+  @override
+  String get about => '情報';
+
+  @override
+  String get appVersion => 'アプリバージョン';
+
+  @override
+  String get openSourceAnalytics => 'オープンソースのウェブアナリティクス';
+
+  @override
+  String get logoutConfirm => 'ログアウトしてもよろしいですか？';
+
+  @override
+  String get siteSettings => 'サイト設定';
+
+  @override
+  String get siteInformation => 'サイト情報';
+
+  @override
+  String get domain => 'ドメイン';
+
+  @override
+  String get siteId => 'サイトID';
+
+  @override
+  String get created => '作成日';
+
+  @override
+  String get trackingSettings => 'トラッキング設定';
+
+  @override
+  String get publicDashboard => '公開ダッシュボード';
+
+  @override
+  String get publicDashboardDesc => 'アナリティクスへの公開アクセスを許可します';
+
+  @override
+  String get sessionReplay => 'セッションリプレイ';
+
+  @override
+  String get sessionReplayDesc => 'ユーザーセッションを記録します';
+
+  @override
+  String get webVitals => 'Web Vitals';
+
+  @override
+  String get webVitalsDesc => 'Core Web Vitalsを計測します';
+
+  @override
+  String get trackErrors => 'エラー追跡';
+
+  @override
+  String get trackErrorsDesc => 'JavaScriptエラーをキャプチャします';
+
+  @override
+  String get outboundLinksTracking => '外部リンク';
+
+  @override
+  String get outboundLinksDesc => '外部リンクのクリックを追跡します';
+
+  @override
+  String get excludedIps => '除外IP';
+
+  @override
+  String get excludedCountries => '除外する国';
+
+  @override
+  String get settingsSaved => '設定を保存しました';
+
+  @override
+  String failedToSave(String error) {
+    return '保存に失敗しました: $error';
+  }
+
+  @override
+  String get timeRange => '期間';
+
+  @override
+  String get today => '今日';
+
+  @override
+  String get yesterday => '昨日';
+
+  @override
+  String get last7Days => '過去7日間';
+
+  @override
+  String get last30Days => '過去30日間';
+
+  @override
+  String get thisWeek => '今週';
+
+  @override
+  String get thisMonth => '今月';
+
+  @override
+  String get thisYear => '今年';
+
+  @override
+  String get customRange => 'カスタム期間';
+
+  @override
+  String get filter => 'フィルター';
+
+  @override
+  String get addFilter => 'フィルターを追加';
+
+  @override
+  String get parameter => 'パラメーター';
+
+  @override
+  String get value => '値';
+
+  @override
+  String get enterFilterValue => 'フィルターの値を入力してください';
+
+  @override
+  String get requestTimedOut => 'リクエストがタイムアウトしました。再度お試しください。';
+
+  @override
+  String get networkError => 'ネットワークエラーです。接続を確認してください。';
+
+  @override
+  String get sessionExpired => 'セッションの有効期限が切れました。再度ログインしてください。';
+
+  @override
+  String get accessDenied => 'アクセスが拒否されました。';
+
+  @override
+  String get dataNotFound => 'データが見つかりません。';
+
+  @override
+  String get serverError => 'サーバーエラーです。しばらくしてから再度お試しください。';
+
+  @override
+  String get failedToLoadGeneric => 'データの読み込みに失敗しました。再度お試しください。';
+
+  @override
+  String chartDataPoints(int count) {
+    return '$countデータポイントのチャート';
+  }
+
+  @override
+  String previousPrefix(String value) {
+    return '前回: $value';
+  }
+
+  @override
+  String performanceRatingLabel(String rating) {
+    return 'パフォーマンス評価: $rating';
+  }
+
+  @override
+  String get loadingContent => 'コンテンツを読み込み中';
+
+  @override
+  String get language => '言語';
+
+  @override
+  String get selectLanguage => '言語を選択';
+
+  @override
+  String get failedToLoadUserDetails => 'ユーザー詳細の読み込みに失敗しました';
+
+  @override
+  String lastSeenPrefix(String value) {
+    return '最終閲覧: $value';
+  }
+
+  @override
+  String get traits => '属性';
+
+  @override
+  String get noTraits => 'このユーザーの属性はありません';
+
+  @override
+  String get sessionDetail => 'セッション詳細';
+
+  @override
+  String get failedToLoadSession => 'セッションの読み込みに失敗しました';
+
+  @override
+  String get entryPageLabel => '入口ページ';
+
+  @override
+  String get exitPage => '出口ページ';
+
+  @override
+  String get browserAndDevice => 'ブラウザとデバイス';
+
+  @override
+  String get browser => 'ブラウザ';
+
+  @override
+  String get os => 'OS';
+
+  @override
+  String get device => 'デバイス';
+
+  @override
+  String get sourceLabel => 'ソース';
+
+  @override
+  String get referrer => 'リファラー';
+
+  @override
+  String eventTimelineCount(int count) {
+    return 'イベントタイムライン ($count)';
+  }
+
+  @override
+  String get noEvents => 'イベントなし';
+
+  @override
+  String get replayEventsTitle => 'リプレイイベント';
+
+  @override
+  String get failedToLoadReplay => 'リプレイの読み込みに失敗しました';
+
+  @override
+  String get noReplayEvents => 'リプレイイベントなし';
+
+  @override
+  String get totalEvents => 'イベント合計';
+
+  @override
+  String get userActionsLabel => 'ユーザーアクション';
+
+  @override
+  String eventTimelineActions(int count) {
+    return 'イベントタイムライン ($countアクション)';
+  }
+}

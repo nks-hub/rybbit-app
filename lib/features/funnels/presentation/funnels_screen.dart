@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/funnel.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/funnels_repository.dart';
@@ -22,12 +23,13 @@ class FunnelsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final funnelsAsync = ref.watch(_funnelsProvider(siteId));
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Funnels', style: TextStyle(fontSize: 18)),
+        title: Text(l10n.funnels, style: const TextStyle(fontSize: 18)),
         leading: IconButton(
-          tooltip: 'Go back',
+          tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -43,7 +45,7 @@ class FunnelsScreen extends ConsumerWidget {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load funnels',
+                Text(l10n.failedToLoadFunnels,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -52,7 +54,7 @@ class FunnelsScreen extends ConsumerWidget {
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () => ref.invalidate(_funnelsProvider(siteId)),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -67,10 +69,10 @@ class FunnelsScreen extends ConsumerWidget {
                   Icon(Icons.filter_alt_outlined,
                       size: 64, color: theme.textTheme.bodySmall?.color),
                   const SizedBox(height: 16),
-                  Text('No funnels saved',
+                  Text(l10n.noFunnelsSaved,
                       style: theme.textTheme.bodyLarge),
                   const SizedBox(height: 8),
-                  Text('Create funnels in the web dashboard',
+                  Text(l10n.createFunnelsHint,
                       style: theme.textTheme.bodySmall),
                 ],
               ),
@@ -104,22 +106,26 @@ class FunnelsScreen extends ConsumerWidget {
     WidgetRef ref,
     Funnel funnel,
   ) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Delete Funnel'),
-        content: Text('Delete "${funnel.name}"?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Delete', style: TextStyle(color: Colors.red)),
-          ),
-        ],
-      ),
+      builder: (ctx) {
+        final dialogL10n = AppLocalizations.of(ctx)!;
+        return AlertDialog(
+          title: Text(dialogL10n.deleteFunnel),
+          content: Text(dialogL10n.deleteFunnelConfirm(funnel.name)),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text(dialogL10n.cancel),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text(dialogL10n.delete, style: const TextStyle(color: Colors.red)),
+            ),
+          ],
+        );
+      },
     );
 
     if (confirmed != true) return;
@@ -131,7 +137,7 @@ class FunnelsScreen extends ConsumerWidget {
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to delete funnel: $e')),
+          SnackBar(content: Text(l10n.failedToDeleteFunnel(e.toString()))),
         );
       }
     }
@@ -162,6 +168,7 @@ class _FunnelCardState extends ConsumerState<_FunnelCard> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
@@ -186,7 +193,7 @@ class _FunnelCardState extends ConsumerState<_FunnelCard> {
                     ),
                   ),
                   IconButton(
-                    tooltip: 'Delete',
+                    tooltip: l10n.delete,
                     icon: Icon(Icons.delete_outline,
                         size: 20, color: theme.colorScheme.error),
                     onPressed: widget.onDelete,
@@ -232,11 +239,12 @@ class _FunnelCardState extends ConsumerState<_FunnelCard> {
 
       try {
         final steps = widget.funnel.steps;
+        final l10n = AppLocalizations.of(context)!;
 
         if (steps.isEmpty) {
           setState(() {
             _loading = false;
-            _error = 'No steps defined for this funnel';
+            _error = l10n.noStepsDefined;
           });
           return;
         }
@@ -249,9 +257,10 @@ class _FunnelCardState extends ConsumerState<_FunnelCard> {
           _loading = false;
         });
       } catch (e) {
+        final l10n = AppLocalizations.of(context)!;
         setState(() {
           _loading = false;
-          _error = 'Failed to analyze: $e';
+          _error = l10n.failedToAnalyze(e.toString());
         });
       }
     }
@@ -266,12 +275,13 @@ class _FunnelVisualization extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final steps = analysis.steps;
 
     if (steps.isEmpty) {
       return Padding(
         padding: const EdgeInsets.all(16),
-        child: Text('No data', style: theme.textTheme.bodySmall),
+        child: Text(l10n.noData, style: theme.textTheme.bodySmall),
       );
     }
 
@@ -292,7 +302,7 @@ class _FunnelVisualization extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Overall Conversion',
+                Text(l10n.overallConversion,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     )),
@@ -376,7 +386,7 @@ class _FunnelVisualization extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 28, top: 2),
                       child: Text(
-                        'Dropoff: ${formatPercentage(step.dropoff)}',
+                        l10n.dropoff(formatPercentage(step.dropoff)),
                         style: TextStyle(
                           color: theme.colorScheme.error,
                           fontSize: 11,

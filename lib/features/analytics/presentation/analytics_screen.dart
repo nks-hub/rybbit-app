@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/overview.dart';
 import '../../../shared/models/time_range.dart';
 import '../../../shared/utils/formatters.dart';
@@ -33,6 +34,23 @@ class AnalyticsScreen extends ConsumerWidget {
 
   const AnalyticsScreen({super.key, required this.siteId});
 
+  String _localizedStatLabel(AppLocalizations l10n, SelectedStat stat) {
+    switch (stat) {
+      case SelectedStat.users:
+        return l10n.users;
+      case SelectedStat.sessions:
+        return l10n.sessions;
+      case SelectedStat.pageviews:
+        return l10n.pageviews;
+      case SelectedStat.pagesPerSession:
+        return l10n.pagesPerSession;
+      case SelectedStat.bounceRate:
+        return l10n.bounceRate;
+      case SelectedStat.duration:
+        return l10n.duration;
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final analyticsAsync = ref.watch(analyticsControllerProvider(siteId));
@@ -41,6 +59,7 @@ class AnalyticsScreen extends ConsumerWidget {
     final filters = ref.watch(filterControllerProvider);
     final selectedStat = ref.watch(selectedStatProvider);
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +73,7 @@ class AnalyticsScreen extends ConsumerWidget {
             data: (state) {
               if (state.liveUserCount <= 0) return const SizedBox.shrink();
               return Semantics(
-                label: '${state.liveUserCount} users online',
+                label: l10n.usersOnline(state.liveUserCount),
                 excludeSemantics: true,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 8),
@@ -118,7 +137,7 @@ class AnalyticsScreen extends ConsumerWidget {
                 Icon(Icons.error_outline,
                     size: 48, color: theme.colorScheme.error),
                 const SizedBox(height: 16),
-                Text('Failed to load analytics',
+                Text(l10n.failedToLoadAnalytics,
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
                 Text(formatError(error),
@@ -129,7 +148,7 @@ class AnalyticsScreen extends ConsumerWidget {
                   onPressed: () => ref
                       .read(analyticsControllerProvider(siteId).notifier)
                       .refresh(),
-                  child: const Text('Retry'),
+                  child: Text(l10n.retry),
                 ),
               ],
             ),
@@ -138,7 +157,7 @@ class AnalyticsScreen extends ConsumerWidget {
         data: (analyticsState) {
           final overview = analyticsState.overview;
           if (overview == null) {
-            return const Center(child: Text('No data available'));
+            return Center(child: Text(l10n.noDataAvailable));
           }
 
           return RefreshIndicator(
@@ -180,7 +199,7 @@ class AnalyticsScreen extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          selectedStat.label,
+                          _localizedStatLabel(l10n, selectedStat),
                           style: theme.textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.w600,
                           ),
@@ -212,7 +231,7 @@ class AnalyticsScreen extends ConsumerWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      'Metrics',
+                      l10n.metrics,
                       style: theme.textTheme.bodyLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -236,6 +255,7 @@ class AnalyticsScreen extends ConsumerWidget {
     AnalyticsState analyticsState,
     SelectedStat selectedStat,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     final prev = analyticsState.previousOverview;
 
     double? change(double current, double previous) {
@@ -245,7 +265,7 @@ class AnalyticsScreen extends ConsumerWidget {
 
     final stats = [
       (
-        title: 'Users',
+        title: l10n.users,
         value: formatNumber(overview.users),
         change: prev != null
             ? change(overview.users.toDouble(), prev.users.toDouble())
@@ -253,7 +273,7 @@ class AnalyticsScreen extends ConsumerWidget {
         stat: SelectedStat.users,
       ),
       (
-        title: 'Sessions',
+        title: l10n.sessions,
         value: formatNumber(overview.sessions),
         change: prev != null
             ? change(overview.sessions.toDouble(), prev.sessions.toDouble())
@@ -261,7 +281,7 @@ class AnalyticsScreen extends ConsumerWidget {
         stat: SelectedStat.sessions,
       ),
       (
-        title: 'Pageviews',
+        title: l10n.pageviews,
         value: formatNumber(overview.pageviews),
         change: prev != null
             ? change(overview.pageviews.toDouble(), prev.pageviews.toDouble())
@@ -269,7 +289,7 @@ class AnalyticsScreen extends ConsumerWidget {
         stat: SelectedStat.pageviews,
       ),
       (
-        title: 'Pages/Session',
+        title: l10n.pagesPerSession,
         value: overview.pagesPerSession.toStringAsFixed(1),
         change: prev != null
             ? change(overview.pagesPerSession, prev.pagesPerSession)
@@ -277,7 +297,7 @@ class AnalyticsScreen extends ConsumerWidget {
         stat: SelectedStat.pagesPerSession,
       ),
       (
-        title: 'Bounce Rate',
+        title: l10n.bounceRate,
         value: formatPercentage(overview.bounceRate),
         change: prev != null
             ? change(overview.bounceRate, prev.bounceRate)
@@ -285,7 +305,7 @@ class AnalyticsScreen extends ConsumerWidget {
         stat: SelectedStat.bounceRate,
       ),
       (
-        title: 'Duration',
+        title: l10n.duration,
         value: formatDuration(overview.sessionDuration),
         change: prev != null
             ? change(overview.sessionDuration, prev.sessionDuration)
@@ -316,27 +336,28 @@ class AnalyticsScreen extends ConsumerWidget {
 
   Widget _buildQuickLinks(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     // (label, icon, route parameter)
     final metricLinks = [
-      ('Pages', Icons.article_outlined, 'pathname'),
-      ('Referrers', Icons.link, 'referrer'),
-      ('Countries', Icons.public, 'country'),
-      ('Devices', Icons.devices, 'device_type'),
+      (l10n.pages, Icons.article_outlined, 'pathname'),
+      (l10n.referrers, Icons.link, 'referrer'),
+      (l10n.countries, Icons.public, 'country'),
+      (l10n.devices, Icons.devices, 'device_type'),
     ];
 
     final featureLinks = [
-      ('Sessions', Icons.people_outline, '/sessions/$siteId'),
-      ('Events', Icons.bolt, '/analytics/$siteId/events'),
-      ('Errors', Icons.error_outline, '/analytics/$siteId/errors'),
+      (l10n.sessions, Icons.people_outline, '/sessions/$siteId'),
+      (l10n.events, Icons.bolt, '/analytics/$siteId/events'),
+      (l10n.errors, Icons.error_outline, '/analytics/$siteId/errors'),
     ];
 
     final moreLinks = [
-      ('Performance', Icons.speed, '/analytics/$siteId/performance'),
-      ('Goals', Icons.flag_outlined, '/analytics/$siteId/goals'),
-      ('Funnels', Icons.filter_alt_outlined, '/analytics/$siteId/funnels'),
-      ('Users', Icons.person_outline, '/analytics/$siteId/users'),
-      ('Replay', Icons.videocam_outlined, '/analytics/$siteId/replay'),
-      ('Config', Icons.settings_outlined, '/analytics/$siteId/config'),
+      (l10n.performance, Icons.speed, '/analytics/$siteId/performance'),
+      (l10n.goals, Icons.flag_outlined, '/analytics/$siteId/goals'),
+      (l10n.funnels, Icons.filter_alt_outlined, '/analytics/$siteId/funnels'),
+      (l10n.users, Icons.person_outline, '/analytics/$siteId/users'),
+      (l10n.replay, Icons.videocam_outlined, '/analytics/$siteId/replay'),
+      (l10n.config, Icons.settings_outlined, '/analytics/$siteId/config'),
     ];
 
     return Padding(
