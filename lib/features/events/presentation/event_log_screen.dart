@@ -171,7 +171,6 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
                     onSelected: (_) =>
                         setState(() => _selectedTypes.clear()),
                     visualDensity: VisualDensity.compact,
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                 ),
                 for (final type in _eventTypes)
@@ -191,7 +190,6 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
                         });
                       },
                       visualDensity: VisualDensity.compact,
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                   ),
               ],

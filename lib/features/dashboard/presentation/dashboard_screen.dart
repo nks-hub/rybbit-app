@@ -258,6 +258,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           ),
           // Overflow menu
           PopupMenuButton<String>(
+            tooltip: l10n.more,
             icon: const Icon(Icons.more_vert),
             onSelected: (value) {
               switch (value) {
