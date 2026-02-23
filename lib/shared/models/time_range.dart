@@ -67,16 +67,16 @@ class TimeRange with _$TimeRange {
   Map<String, String> toQueryParams() {
     if (mode == TimeMode.pastMinutes) {
       return {
-        'startDate': 'past_${pastMinutesStart}_minutes',
-        'endDate': 'past_${pastMinutesEnd ?? 0}_minutes',
-        'timezone': timeZone,
+        'past_minutes_start': '${pastMinutesStart ?? 0}',
+        'past_minutes_end': '${pastMinutesEnd ?? 0}',
+        'time_zone': timeZone,
       };
     }
 
     return {
-      'startDate': _dateFormat.format(startDate),
-      'endDate': _dateFormat.format(endDate),
-      'timezone': timeZone,
+      'start_date': _dateFormat.format(startDate),
+      'end_date': _dateFormat.format(endDate),
+      'time_zone': timeZone,
     };
   }
 

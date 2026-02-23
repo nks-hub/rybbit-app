@@ -200,13 +200,13 @@ class ReplayRepository {
   /// Fetches paginated list of sessions with replays.
   Future<ReplayListResult> getReplayList(
     String siteId, {
-    int page = 1,
+    int offset = 0,
     int limit = 20,
   }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/session-replay/list',
       queryParameters: {
-        'page': page.toString(),
+        'offset': offset.toString(),
         'limit': limit.toString(),
       },
     );
@@ -214,13 +214,13 @@ class ReplayRepository {
     final data = response.data;
     if (data is Map<String, dynamic>) {
       final items = data['data'] as List? ?? [];
-      final pagination = data['pagination'] as Map<String, dynamic>? ?? {};
+      final sessions = items
+          .map((e) => ReplaySession.fromJson(e as Map<String, dynamic>))
+          .toList();
       return ReplayListResult(
-        sessions: items
-            .map((e) => ReplaySession.fromJson(e as Map<String, dynamic>))
-            .toList(),
-        total: (pagination['total'] as num?)?.toInt() ?? items.length,
-        hasMore: pagination['hasMore'] as bool? ?? false,
+        sessions: sessions,
+        total: sessions.length,
+        hasMore: sessions.length >= limit,
       );
     }
 

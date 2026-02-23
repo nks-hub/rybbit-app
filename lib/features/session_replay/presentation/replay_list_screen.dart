@@ -11,7 +11,9 @@ import '../data/replay_repository.dart';
 final replayListProvider = FutureProvider.family<ReplayListResult,
     ({String siteId, int page})>((ref, args) async {
   final repo = ref.read(replayRepositoryProvider);
-  return repo.getReplayList(args.siteId, page: args.page);
+  const limit = 20;
+  final offset = (args.page - 1) * limit;
+  return repo.getReplayList(args.siteId, offset: offset, limit: limit);
 });
 
 class ReplayListScreen extends ConsumerStatefulWidget {
@@ -110,7 +112,7 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
                 ),
               ),
               // Pagination controls
-              if (result.total > 20)
+              if (_currentPage > 1 || result.hasMore)
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

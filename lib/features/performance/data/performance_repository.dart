@@ -13,10 +13,11 @@ class PerformanceTimeSeries {
     required this.value,
   });
 
-  factory PerformanceTimeSeries.fromJson(Map<String, dynamic> json) {
+  factory PerformanceTimeSeries.fromJson(
+      Map<String, dynamic> json, String metricKey) {
     return PerformanceTimeSeries(
       time: json['time'] as String? ?? '',
-      value: (json['value'] as num?)?.toDouble() ?? 0.0,
+      value: (json[metricKey] as num?)?.toDouble() ?? 0.0,
     );
   }
 }
@@ -47,6 +48,7 @@ class PerformanceRepository {
   }
 
   /// Fetches time-series data for a specific metric.
+  /// [metric] is the short name like 'lcp', 'cls', etc.
   Future<List<PerformanceTimeSeries>> getTimeSeries(
     String siteId,
     String metric,
@@ -54,22 +56,22 @@ class PerformanceRepository {
   ) async {
     final response = await _dio.get(
       '/api/sites/$siteId/performance/time-series',
-      queryParameters: {
-        ...params,
-        'metric': metric,
-      },
+      queryParameters: params,
     );
+    // Backend returns all metrics in each row. Extract the p75 value
+    // for the selected metric (e.g., 'lcp' -> 'lcp_p75').
+    final metricKey = '${metric}_p75';
     final data = response.data;
     if (data is List) {
       return data
-          .map((e) =>
-              PerformanceTimeSeries.fromJson(e as Map<String, dynamic>))
+          .map((e) => PerformanceTimeSeries.fromJson(
+              e as Map<String, dynamic>, metricKey))
           .toList();
     }
     if (data is Map<String, dynamic> && data['data'] is List) {
       return (data['data'] as List)
-          .map((e) =>
-              PerformanceTimeSeries.fromJson(e as Map<String, dynamic>))
+          .map((e) => PerformanceTimeSeries.fromJson(
+              e as Map<String, dynamic>, metricKey))
           .toList();
     }
     return [];

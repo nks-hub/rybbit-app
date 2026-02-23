@@ -11,7 +11,6 @@ import '../data/performance_repository.dart';
 /// Web Vital metric definitions with thresholds.
 enum WebVital {
   lcp('LCP', 'Largest Contentful Paint', 'ms', 2500, 4000),
-  fid('FID', 'First Input Delay', 'ms', 100, 300),
   cls('CLS', 'Cumulative Layout Shift', '', 0.1, 0.25),
   fcp('FCP', 'First Contentful Paint', 'ms', 1800, 3000),
   ttfb('TTFB', 'Time to First Byte', 'ms', 800, 1800),
@@ -218,7 +217,6 @@ class PerformanceScreen extends ConsumerWidget {
   ) {
     final vitals = [
       (WebVital.lcp, overview.lcp),
-      (WebVital.fid, overview.fid),
       (WebVital.cls, overview.cls),
       (WebVital.fcp, overview.fcp),
       (WebVital.ttfb, overview.ttfb),

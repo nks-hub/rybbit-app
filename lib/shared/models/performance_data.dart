@@ -1,19 +1,25 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+class PerformanceOverview {
+  final double lcp;
+  final double cls;
+  final double fcp;
+  final double ttfb;
+  final double inp;
 
-part 'performance_data.freezed.dart';
-part 'performance_data.g.dart';
+  const PerformanceOverview({
+    this.lcp = 0,
+    this.cls = 0,
+    this.fcp = 0,
+    this.ttfb = 0,
+    this.inp = 0,
+  });
 
-@freezed
-class PerformanceOverview with _$PerformanceOverview {
-  const factory PerformanceOverview({
-    @Default(0) double lcp,
-    @Default(0) double fid,
-    @Default(0) double cls,
-    @Default(0) double fcp,
-    @Default(0) double ttfb,
-    @Default(0) double inp,
-  }) = _PerformanceOverview;
-
-  factory PerformanceOverview.fromJson(Map<String, dynamic> json) =>
-      _$PerformanceOverviewFromJson(json);
+  factory PerformanceOverview.fromJson(Map<String, dynamic> json) {
+    return PerformanceOverview(
+      lcp: (json['lcp_p75'] as num?)?.toDouble() ?? 0,
+      cls: (json['cls_p75'] as num?)?.toDouble() ?? 0,
+      fcp: (json['fcp_p75'] as num?)?.toDouble() ?? 0,
+      ttfb: (json['ttfb_p75'] as num?)?.toDouble() ?? 0,
+      inp: (json['inp_p75'] as num?)?.toDouble() ?? 0,
+    );
+  }
 }
