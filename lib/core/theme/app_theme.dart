@@ -105,6 +105,30 @@ class AppTheme {
         backgroundColor: _cardDark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: _scaffoldDark,
+        indicatorColor: _primaryColor.withValues(alpha: 0.15),
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const IconThemeData(color: Colors.white);
+          }
+          return const IconThemeData(color: Color(0xFFA3A3A3));
+        }),
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600);
+          }
+          return const TextStyle(color: Color(0xFFA3A3A3), fontSize: 12);
+        }),
+      ),
+      navigationRailTheme: NavigationRailThemeData(
+        backgroundColor: _scaffoldDark,
+        indicatorColor: _primaryColor.withValues(alpha: 0.15),
+        unselectedIconTheme: const IconThemeData(color: Color(0xFFA3A3A3)),
+        selectedIconTheme: const IconThemeData(color: Colors.white),
+        unselectedLabelTextStyle: const TextStyle(color: Color(0xFFA3A3A3), fontSize: 11),
+        selectedLabelTextStyle: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600),
+      ),
       dividerTheme: const DividerThemeData(color: _borderDark),
       textTheme: const TextTheme(
         headlineLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
