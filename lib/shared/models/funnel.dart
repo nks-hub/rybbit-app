@@ -1,16 +1,33 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+class Funnel {
+  final int funnelId;
+  final String name;
+  final List<Map<String, dynamic>> steps;
 
-part 'funnel.freezed.dart';
-part 'funnel.g.dart';
+  const Funnel({
+    required this.funnelId,
+    required this.name,
+    this.steps = const [],
+  });
 
-@freezed
-class Funnel with _$Funnel {
-  const factory Funnel({
-    @JsonKey(name: 'funnel_id') required int funnelId,
-    required String name,
-    dynamic data,
-  }) = _Funnel;
+  factory Funnel.fromJson(Map<String, dynamic> json) {
+    // Backend returns steps as a list, or data as legacy field
+    List<Map<String, dynamic>> steps = [];
+    final stepsRaw = json['steps'] ?? json['data'];
+    if (stepsRaw is List) {
+      steps = stepsRaw
+          .map((e) => e is Map<String, dynamic>
+              ? e
+              : <String, dynamic>{'value': e.toString()})
+          .toList();
+    }
 
-  factory Funnel.fromJson(Map<String, dynamic> json) =>
-      _$FunnelFromJson(json);
+    return Funnel(
+      funnelId: (json['id'] as num?)?.toInt() ??
+          (json['funnelId'] as num?)?.toInt() ??
+          (json['funnel_id'] as num?)?.toInt() ??
+          0,
+      name: json['name'] as String? ?? '',
+      steps: steps,
+    );
+  }
 }

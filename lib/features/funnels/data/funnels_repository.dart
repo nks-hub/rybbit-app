@@ -17,11 +17,15 @@ class FunnelStep {
 
   factory FunnelStep.fromJson(Map<String, dynamic> json) {
     return FunnelStep(
-      name: json['name'] as String? ?? json['step'] as String? ?? '',
+      name: json['step_name'] as String? ??
+          json['name'] as String? ??
+          json['step'] as String? ??
+          '',
       visitors: (json['visitors'] as num?)?.toInt() ??
           (json['count'] as num?)?.toInt() ??
           0,
-      dropoff: (json['dropoff'] as num?)?.toDouble() ??
+      dropoff: (json['dropoff_rate'] as num?)?.toDouble() ??
+          (json['dropoff'] as num?)?.toDouble() ??
           (json['dropoffRate'] as num?)?.toDouble() ??
           0.0,
     );
@@ -40,16 +44,33 @@ class FunnelAnalysis {
   });
 
   factory FunnelAnalysis.fromJson(Map<String, dynamic> json) {
-    final stepsData = json['steps'] as List? ?? [];
+    final stepsData = json['steps'] as List? ?? json['data'] as List? ?? [];
     final steps = stepsData
         .map((e) => FunnelStep.fromJson(e as Map<String, dynamic>))
         .toList();
 
+    // Compute overall conversion if not provided
+    final totalVisitors = (json['totalVisitors'] as num?)?.toInt() ??
+        (json['total_visitors'] as num?)?.toInt() ??
+        (steps.isNotEmpty ? steps.first.visitors : 0);
+
+    double overallConversion =
+        (json['overallConversion'] as num?)?.toDouble() ??
+            (json['overall_conversion'] as num?)?.toDouble() ??
+            0.0;
+
+    if (overallConversion == 0.0 && steps.length >= 2) {
+      final first = steps.first.visitors;
+      final last = steps.last.visitors;
+      if (first > 0) {
+        overallConversion = (last / first) * 100;
+      }
+    }
+
     return FunnelAnalysis(
       steps: steps,
-      totalVisitors: (json['totalVisitors'] as num?)?.toInt() ?? 0,
-      overallConversion:
-          (json['overallConversion'] as num?)?.toDouble() ?? 0.0,
+      totalVisitors: totalVisitors,
+      overallConversion: overallConversion,
     );
   }
 }
@@ -82,15 +103,50 @@ class FunnelsRepository {
     List<Map<String, dynamic>> steps,
     Map<String, String>? params,
   ) async {
+    // Ensure each step has a type field (required by backend)
+    final normalizedSteps = steps.map((step) {
+      final s = Map<String, dynamic>.from(step);
+      if (!s.containsKey('type') || s['type'] == null) {
+        s['type'] = 'page';
+      }
+      // Ensure value field exists
+      if (!s.containsKey('value') || s['value'] == null) {
+        s['value'] = s['name'] ?? s['step_name'] ?? '';
+      }
+      return s;
+    }).toList();
+
     final response = await _dio.post(
       '/api/sites/$siteId/funnels/analyze',
-      data: {'steps': steps},
+      data: {'steps': normalizedSteps},
       queryParameters: params,
     );
     final data = response.data;
+    // Backend may return array directly or wrapped in object
+    if (data is List) {
+      final funnelSteps = data
+          .map((e) => FunnelStep.fromJson(e as Map<String, dynamic>))
+          .toList();
+      return FunnelAnalysis(
+        steps: funnelSteps,
+        totalVisitors: funnelSteps.isNotEmpty ? funnelSteps.first.visitors : 0,
+        overallConversion: funnelSteps.length >= 2 && funnelSteps.first.visitors > 0
+            ? (funnelSteps.last.visitors / funnelSteps.first.visitors) * 100
+            : 0.0,
+      );
+    }
     if (data is Map<String, dynamic>) {
-      if (data.containsKey('data') && data['data'] is Map<String, dynamic>) {
-        return FunnelAnalysis.fromJson(data['data'] as Map<String, dynamic>);
+      if (data.containsKey('data') && data['data'] is List) {
+        final funnelSteps = (data['data'] as List)
+            .map((e) => FunnelStep.fromJson(e as Map<String, dynamic>))
+            .toList();
+        return FunnelAnalysis(
+          steps: funnelSteps,
+          totalVisitors: funnelSteps.isNotEmpty ? funnelSteps.first.visitors : 0,
+          overallConversion: funnelSteps.length >= 2 && funnelSteps.first.visitors > 0
+              ? (funnelSteps.last.visitors / funnelSteps.first.visitors) * 100
+              : 0.0,
+        );
       }
       return FunnelAnalysis.fromJson(data);
     }

@@ -1,15 +1,18 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+class EventName {
+  final String eventName;
+  final int count;
 
-part 'event.freezed.dart';
-part 'event.g.dart';
+  const EventName({
+    this.eventName = '',
+    this.count = 0,
+  });
 
-@freezed
-class EventName with _$EventName {
-  const factory EventName({
-    @JsonKey(name: 'event_name') @Default('') String eventName,
-    @Default(0) int count,
-  }) = _EventName;
-
-  factory EventName.fromJson(Map<String, dynamic> json) =>
-      _$EventNameFromJson(json);
+  factory EventName.fromJson(Map<String, dynamic> json) {
+    return EventName(
+      eventName: json['eventName'] as String? ??
+          json['event_name'] as String? ??
+          '',
+      count: (json['count'] as num?)?.toInt() ?? 0,
+    );
+  }
 }

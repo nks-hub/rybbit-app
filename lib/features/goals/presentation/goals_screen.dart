@@ -348,16 +348,18 @@ class _GoalFormDialogState extends State<_GoalFormDialog> {
             final name = _nameController.text.trim();
             if (name.isEmpty) return;
 
+            final config = <String, dynamic>{};
+            if (_goalType == 'path') {
+              config['pathPattern'] = _pathController.text.trim();
+            } else {
+              config['eventName'] = _eventNameController.text.trim();
+            }
+
             final body = <String, dynamic>{
               'name': name,
               'goalType': _goalType,
+              'config': config,
             };
-
-            if (_goalType == 'path') {
-              body['pathPattern'] = _pathController.text.trim();
-            } else {
-              body['eventName'] = _eventNameController.text.trim();
-            }
 
             Navigator.pop(context, body);
           },

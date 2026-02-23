@@ -62,8 +62,12 @@ class EventBucketItem {
   factory EventBucketItem.fromJson(Map<String, dynamic> json) {
     return EventBucketItem(
       time: json['time'] as String? ?? '',
-      eventName: json['event_name'] as String? ?? '',
-      eventCount: (json['event_count'] as num?)?.toInt() ?? 0,
+      eventName: json['eventName'] as String? ??
+          json['event_name'] as String? ??
+          '',
+      eventCount: (json['eventCount'] as num?)?.toInt() ??
+          (json['event_count'] as num?)?.toInt() ??
+          0,
     );
   }
 }

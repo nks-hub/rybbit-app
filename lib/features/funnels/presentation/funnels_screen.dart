@@ -229,25 +229,7 @@ class _FunnelCardState extends ConsumerState<_FunnelCard> {
       });
 
       try {
-        final funnelData = widget.funnel.data;
-        List<Map<String, dynamic>> steps;
-
-        if (funnelData is List) {
-          steps = funnelData
-              .map((e) => e is Map<String, dynamic>
-                  ? e
-                  : <String, dynamic>{'value': e.toString()})
-              .toList();
-        } else if (funnelData is Map<String, dynamic> &&
-            funnelData['steps'] is List) {
-          steps = (funnelData['steps'] as List)
-              .map((e) => e is Map<String, dynamic>
-                  ? e
-                  : <String, dynamic>{'value': e.toString()})
-              .toList();
-        } else {
-          steps = [];
-        }
+        final steps = widget.funnel.steps;
 
         if (steps.isEmpty) {
           setState(() {
