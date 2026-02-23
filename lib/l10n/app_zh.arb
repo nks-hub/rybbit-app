@@ -468,5 +468,9 @@
   "locations": "位置",
   "locationCities": "城市",
   "failedToLoadLocations": "加载位置数据失败",
-  "noLocationsFound": "未找到位置数据"
+  "noLocationsFound": "未找到位置数据",
+
+  "coreFeatures": "核心",
+  "insights": "洞察",
+  "tools": "工具"
 }

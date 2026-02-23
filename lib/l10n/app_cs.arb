@@ -468,5 +468,9 @@
   "locations": "Lokace",
   "locationCities": "Města",
   "failedToLoadLocations": "Nepodařilo se načíst lokace",
-  "noLocationsFound": "Žádné lokace nenalezeny"
+  "noLocationsFound": "Žádné lokace nenalezeny",
+
+  "coreFeatures": "Hlavní",
+  "insights": "Přehledy",
+  "tools": "Nástroje"
 }

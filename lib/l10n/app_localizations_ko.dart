@@ -930,4 +930,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noLocationsFound => '위치가 없습니다';
+
+  @override
+  String get coreFeatures => '핵심';
+
+  @override
+  String get insights => '인사이트';
+
+  @override
+  String get tools => '도구';
 }

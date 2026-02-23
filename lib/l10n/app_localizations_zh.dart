@@ -930,4 +930,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noLocationsFound => '未找到位置数据';
+
+  @override
+  String get coreFeatures => '核心';
+
+  @override
+  String get insights => '洞察';
+
+  @override
+  String get tools => '工具';
 }

@@ -468,5 +468,9 @@
   "locations": "위치",
   "locationCities": "도시",
   "failedToLoadLocations": "위치를 불러오지 못했습니다",
-  "noLocationsFound": "위치가 없습니다"
+  "noLocationsFound": "위치가 없습니다",
+
+  "coreFeatures": "핵심",
+  "insights": "인사이트",
+  "tools": "도구"
 }

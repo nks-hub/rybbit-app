@@ -942,4 +942,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get noLocationsFound => 'Nie znaleziono lokalizacji';
+
+  @override
+  String get coreFeatures => 'Główne';
+
+  @override
+  String get insights => 'Wgląd';
+
+  @override
+  String get tools => 'Narzędzia';
 }

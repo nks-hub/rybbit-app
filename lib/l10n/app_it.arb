@@ -468,5 +468,9 @@
   "locations": "Posizioni",
   "locationCities": "Città",
   "failedToLoadLocations": "Impossibile caricare le posizioni",
-  "noLocationsFound": "Nessuna posizione trovata"
+  "noLocationsFound": "Nessuna posizione trovata",
+
+  "coreFeatures": "Principale",
+  "insights": "Approfondimenti",
+  "tools": "Strumenti"
 }

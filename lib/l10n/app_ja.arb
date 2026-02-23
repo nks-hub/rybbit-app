@@ -468,5 +468,9 @@
   "locations": "ロケーション",
   "locationCities": "都市",
   "failedToLoadLocations": "ロケーションの読み込みに失敗しました",
-  "noLocationsFound": "ロケーションが見つかりません"
+  "noLocationsFound": "ロケーションが見つかりません",
+
+  "coreFeatures": "コア",
+  "insights": "インサイト",
+  "tools": "ツール"
 }

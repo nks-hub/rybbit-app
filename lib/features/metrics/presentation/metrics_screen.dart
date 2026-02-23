@@ -10,6 +10,7 @@ import 'widgets/metric_list_item.dart';
 
 enum MetricType {
   pathname('Pages', 'pathname', Icons.article_outlined),
+  pageTitle('Page Titles', 'page_title', Icons.title),
   referrer('Referrers', 'referrer', Icons.link),
   country('Countries', 'country', Icons.public),
   city('Cities', 'city', Icons.location_city),

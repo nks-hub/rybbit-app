@@ -337,156 +337,129 @@ class AnalyticsScreen extends ConsumerWidget {
   Widget _buildQuickLinks(BuildContext context) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
-    // (label, icon, route parameter)
-    final metricLinks = [
-      (l10n.pages, Icons.article_outlined, 'pathname'),
-      (l10n.referrers, Icons.link, 'referrer'),
-      (l10n.countries, Icons.public, 'country'),
-      (l10n.devices, Icons.devices, 'device_type'),
-    ];
 
-    final featureLinks = [
-      (l10n.liveView, Icons.sensors, '/analytics/$siteId/live'),
-      (l10n.sessions, Icons.people_outline, '/sessions/$siteId'),
-      (l10n.events, Icons.bolt, '/analytics/$siteId/events'),
-      (l10n.errors, Icons.error_outline, '/analytics/$siteId/errors'),
-    ];
+    Widget sectionTitle(String title) => Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 6, top: 12),
+          child: Text(
+            title,
+            style: theme.textTheme.bodySmall?.copyWith(
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.5,
+              color: theme.textTheme.bodySmall?.color,
+            ),
+          ),
+        );
 
-    final moreLinks = [
-      (l10n.performance, Icons.speed, '/analytics/$siteId/performance'),
-      (l10n.goals, Icons.flag_outlined, '/analytics/$siteId/goals'),
-      (l10n.funnels, Icons.filter_alt_outlined, '/analytics/$siteId/funnels'),
-      (l10n.retention, Icons.group, '/analytics/$siteId/retention'),
-      (l10n.journeys, Icons.route, '/analytics/$siteId/journeys'),
-      (l10n.locations, Icons.place, '/analytics/$siteId/locations'),
-      (l10n.users, Icons.person_outline, '/analytics/$siteId/users'),
-      (l10n.replay, Icons.videocam_outlined, '/analytics/$siteId/replay'),
-      (l10n.activityHeatmap, Icons.grid_view, '/analytics/$siteId/heatmap'),
-      (l10n.config, Icons.settings_outlined, '/analytics/$siteId/config'),
-    ];
+    Widget linkCard(String label, IconData icon, VoidCallback onTap) => Card(
+          child: InkWell(
+            onTap: onTap,
+            borderRadius: BorderRadius.circular(12),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(icon,
+                      size: 16,
+                      color: theme.textTheme.bodyMedium?.color),
+                  const SizedBox(width: 6),
+                  Flexible(
+                    child: Text(
+                      label,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+
+    Widget grid(List<Widget> children) => GridView.count(
+          crossAxisCount: 4,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          mainAxisSpacing: 6,
+          crossAxisSpacing: 6,
+          childAspectRatio: 1.7,
+          children: children,
+        );
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Metrics row
+          sectionTitle(l10n.metrics.toUpperCase()),
+          grid([
+            linkCard(l10n.pages, Icons.article_outlined,
+                () => context.push('/analytics/$siteId/metrics/pathname')),
+            linkCard(l10n.referrers, Icons.link,
+                () => context.push('/analytics/$siteId/metrics/referrer')),
+            linkCard(l10n.countries, Icons.public,
+                () => context.push('/analytics/$siteId/metrics/country')),
+            linkCard(l10n.devices, Icons.devices,
+                () => context.push('/analytics/$siteId/metrics/device_type')),
+          ]),
+
+          // Core features
+          sectionTitle(l10n.coreFeatures.toUpperCase()),
+          grid([
+            linkCard(l10n.liveView, Icons.sensors,
+                () => context.push('/analytics/$siteId/live')),
+            linkCard(l10n.sessions, Icons.people_outline,
+                () => context.push('/sessions/$siteId')),
+            linkCard(l10n.events, Icons.bolt,
+                () => context.push('/analytics/$siteId/events')),
+            linkCard(l10n.errors, Icons.error_outline,
+                () => context.push('/analytics/$siteId/errors')),
+          ]),
+
+          // Insights
+          sectionTitle(l10n.insights.toUpperCase()),
+          grid([
+            linkCard(l10n.retention, Icons.group,
+                () => context.push('/analytics/$siteId/retention')),
+            linkCard(l10n.journeys, Icons.route,
+                () => context.push('/analytics/$siteId/journeys')),
+            linkCard(l10n.locations, Icons.place,
+                () => context.push('/analytics/$siteId/locations')),
+            linkCard(l10n.activityHeatmap, Icons.grid_view,
+                () => context.push('/analytics/$siteId/heatmap')),
+          ]),
+
+          // Tools
+          sectionTitle(l10n.tools.toUpperCase()),
+          grid([
+            linkCard(l10n.performance, Icons.speed,
+                () => context.push('/analytics/$siteId/performance')),
+            linkCard(l10n.goals, Icons.flag_outlined,
+                () => context.push('/analytics/$siteId/goals')),
+            linkCard(l10n.funnels, Icons.filter_alt_outlined,
+                () => context.push('/analytics/$siteId/funnels')),
+            linkCard(l10n.users, Icons.person_outline,
+                () => context.push('/analytics/$siteId/users')),
+          ]),
+
+          // More
           GridView.count(
-            crossAxisCount: 2,
+            crossAxisCount: 4,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 8,
-            childAspectRatio: 2.8,
-            children: metricLinks
-                .map(
-                  (link) => Card(
-                    child: InkWell(
-                      onTap: () => context.push(
-                        '/analytics/$siteId/metrics/${link.$3}',
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          children: [
-                            Icon(link.$2,
-                                size: 20,
-                                color: theme.textTheme.bodyMedium?.color),
-                            const SizedBox(width: 10),
-                            Text(
-                              link.$1,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
-          const SizedBox(height: 8),
-          GridView.count(
-            crossAxisCount: 3,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 8,
-            childAspectRatio: 2.0,
-            children: featureLinks
-                .map(
-                  (link) => Card(
-                    child: InkWell(
-                      onTap: () => context.push(link.$3),
-                      borderRadius: BorderRadius.circular(12),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(link.$2,
-                                size: 18,
-                                color: theme.textTheme.bodyMedium?.color),
-                            const SizedBox(width: 6),
-                            Flexible(
-                              child: Text(
-                                link.$1,
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 13,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
-          const SizedBox(height: 8),
-          GridView.count(
-            crossAxisCount: 3,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 8,
-            childAspectRatio: 2.0,
-            children: moreLinks
-                .map(
-                  (link) => Card(
-                    child: InkWell(
-                      onTap: () => context.push(link.$3),
-                      borderRadius: BorderRadius.circular(12),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(link.$2,
-                                size: 18,
-                                color: theme.textTheme.bodyMedium?.color),
-                            const SizedBox(width: 6),
-                            Flexible(
-                              child: Text(
-                                link.$1,
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 13,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-                .toList(),
+            mainAxisSpacing: 6,
+            crossAxisSpacing: 6,
+            childAspectRatio: 1.7,
+            children: [
+              linkCard(l10n.replay, Icons.videocam_outlined,
+                  () => context.push('/analytics/$siteId/replay')),
+              linkCard(l10n.config, Icons.settings_outlined,
+                  () => context.push('/analytics/$siteId/config')),
+            ],
           ),
         ],
       ),

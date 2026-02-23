@@ -1831,6 +1831,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No locations found'**
   String get noLocationsFound;
+
+  /// No description provided for @coreFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Core'**
+  String get coreFeatures;
+
+  /// No description provided for @insights.
+  ///
+  /// In en, this message translates to:
+  /// **'Insights'**
+  String get insights;
+
+  /// No description provided for @tools.
+  ///
+  /// In en, this message translates to:
+  /// **'Tools'**
+  String get tools;
 }
 
 class _AppLocalizationsDelegate

@@ -468,5 +468,9 @@
   "locations": "Standorte",
   "locationCities": "Städte",
   "failedToLoadLocations": "Standorte konnten nicht geladen werden",
-  "noLocationsFound": "Keine Standorte gefunden"
+  "noLocationsFound": "Keine Standorte gefunden",
+
+  "coreFeatures": "Kern",
+  "insights": "Einblicke",
+  "tools": "Werkzeuge"
 }

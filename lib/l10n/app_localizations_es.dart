@@ -941,4 +941,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get noLocationsFound => 'No se encontraron ubicaciones';
+
+  @override
+  String get coreFeatures => 'Principal';
+
+  @override
+  String get insights => 'Análisis';
+
+  @override
+  String get tools => 'Herramientas';
 }

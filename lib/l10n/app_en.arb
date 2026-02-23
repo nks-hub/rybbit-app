@@ -346,5 +346,9 @@
   "locations": "Locations",
   "locationCities": "Cities",
   "failedToLoadLocations": "Failed to load locations",
-  "noLocationsFound": "No locations found"
+  "noLocationsFound": "No locations found",
+
+  "coreFeatures": "Core",
+  "insights": "Insights",
+  "tools": "Tools"
 }

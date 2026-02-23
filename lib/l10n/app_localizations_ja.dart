@@ -930,4 +930,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noLocationsFound => 'ロケーションが見つかりません';
+
+  @override
+  String get coreFeatures => 'コア';
+
+  @override
+  String get insights => 'インサイト';
+
+  @override
+  String get tools => 'ツール';
 }

@@ -947,4 +947,13 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get noLocationsFound => 'Žádné lokace nenalezeny';
+
+  @override
+  String get coreFeatures => 'Hlavní';
+
+  @override
+  String get insights => 'Přehledy';
+
+  @override
+  String get tools => 'Nástroje';
 }
