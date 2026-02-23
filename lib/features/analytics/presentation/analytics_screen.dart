@@ -353,7 +353,7 @@ class AnalyticsScreen extends ConsumerWidget {
                           children: [
                             Icon(link.$2,
                                 size: 20,
-                                color: theme.textTheme.bodySmall?.color),
+                                color: theme.textTheme.bodyMedium?.color),
                             const SizedBox(width: 10),
                             Text(
                               link.$1,
@@ -390,7 +390,7 @@ class AnalyticsScreen extends ConsumerWidget {
                           children: [
                             Icon(link.$2,
                                 size: 18,
-                                color: theme.textTheme.bodySmall?.color),
+                                color: theme.textTheme.bodyMedium?.color),
                             const SizedBox(width: 6),
                             Flexible(
                               child: Text(
@@ -431,7 +431,7 @@ class AnalyticsScreen extends ConsumerWidget {
                           children: [
                             Icon(link.$2,
                                 size: 18,
-                                color: theme.textTheme.bodySmall?.color),
+                                color: theme.textTheme.bodyMedium?.color),
                             const SizedBox(width: 6),
                             Flexible(
                               child: Text(

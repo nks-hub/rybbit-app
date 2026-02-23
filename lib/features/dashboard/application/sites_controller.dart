@@ -5,22 +5,38 @@ import 'package:riverpod/riverpod.dart';
 import '../../../shared/models/site.dart';
 import '../data/sites_repository.dart';
 
+class OrganizationGroup {
+  final String id;
+  final String name;
+  final List<Site> sites;
+
+  const OrganizationGroup({
+    required this.id,
+    required this.name,
+    required this.sites,
+  });
+}
+
 class SitesState {
   final List<Site> sites;
   final Map<String, int> liveCounts;
+  final List<OrganizationGroup> organizations;
 
   const SitesState({
     this.sites = const [],
     this.liveCounts = const {},
+    this.organizations = const [],
   });
 
   SitesState copyWith({
     List<Site>? sites,
     Map<String, int>? liveCounts,
+    List<OrganizationGroup>? organizations,
   }) {
     return SitesState(
       sites: sites ?? this.sites,
       liveCounts: liveCounts ?? this.liveCounts,
+      organizations: organizations ?? this.organizations,
     );
   }
 }
@@ -35,7 +51,24 @@ class SitesController extends AsyncNotifier<SitesState> {
     final repo = ref.read(sitesRepositoryProvider);
     final organizations = await repo.getOrganizations();
     final sites = repo.parseSitesFromOrganizations(organizations);
-    return SitesState(sites: sites);
+    final orgNames = repo.parseOrgNames(organizations);
+
+    // Build organization groups
+    final orgGroups = <OrganizationGroup>[];
+    final grouped = <String, List<Site>>{};
+    for (final site in sites) {
+      final orgId = site.organizationId ?? '';
+      grouped.putIfAbsent(orgId, () => []).add(site);
+    }
+    for (final entry in grouped.entries) {
+      orgGroups.add(OrganizationGroup(
+        id: entry.key,
+        name: orgNames[entry.key] ?? 'Default',
+        sites: entry.value,
+      ));
+    }
+
+    return SitesState(sites: sites, organizations: orgGroups);
   }
 
   Future<void> refresh() async {

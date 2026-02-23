@@ -66,6 +66,19 @@ class SitesRepository {
     }
     return sites;
   }
+
+  /// Extracts organization names from the organizations response.
+  Map<String, String> parseOrgNames(List<Map<String, dynamic>> organizations) {
+    final names = <String, String>{};
+    for (final org in organizations) {
+      final id = org['id']?.toString() ?? '';
+      final name = org['name']?.toString() ?? '';
+      if (id.isNotEmpty) {
+        names[id] = name;
+      }
+    }
+    return names;
+  }
 }
 
 final sitesRepositoryProvider = Provider<SitesRepository>((ref) {

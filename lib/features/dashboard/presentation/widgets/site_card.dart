@@ -83,7 +83,7 @@ class SiteCard extends StatelessWidget {
               const SizedBox(width: 8),
               Icon(
                 Icons.chevron_right,
-                color: theme.textTheme.bodySmall?.color,
+                color: theme.textTheme.bodyMedium?.color,
               ),
             ],
           ),

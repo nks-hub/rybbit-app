@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../shared/models/site.dart';
 import '../../auth/application/auth_controller.dart';
 import '../application/sites_controller.dart';
 import 'widgets/site_card.dart';
@@ -36,6 +37,92 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   void dispose() {
     _liveCountTimer?.cancel();
     super.dispose();
+  }
+
+  Widget _buildSitesList(
+    BuildContext context,
+    WidgetRef ref,
+    SitesState sitesState,
+    ThemeData theme,
+  ) {
+    final orgs = sitesState.organizations;
+
+    // If only one organization, show flat list without headers
+    if (orgs.length <= 1) {
+      return ListView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        itemCount: sitesState.sites.length,
+        itemBuilder: (context, index) {
+          final site = sitesState.sites[index];
+          final liveCount =
+              sitesState.liveCounts[site.siteId.toString()] ?? 0;
+          return SiteCard(
+            site: site,
+            liveCount: liveCount,
+            onTap: () => _onSiteTap(context, ref, site),
+          );
+        },
+      );
+    }
+
+    // Multiple organizations: group with headers
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      itemCount: orgs.fold<int>(
+          0, (sum, org) => sum + 1 + org.sites.length),
+      itemBuilder: (context, index) {
+        // Find which org and site this index corresponds to
+        int cursor = 0;
+        for (final org in orgs) {
+          if (index == cursor) {
+            // Organization header
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+              child: Row(
+                children: [
+                  Icon(Icons.business_outlined,
+                      size: 16, color: theme.colorScheme.primary),
+                  const SizedBox(width: 8),
+                  Text(
+                    org.name,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    '${org.sites.length} ${org.sites.length == 1 ? 'site' : 'sites'}',
+                    style: theme.textTheme.bodySmall,
+                  ),
+                ],
+              ),
+            );
+          }
+          cursor++; // header
+
+          final siteIndex = index - cursor;
+          if (siteIndex >= 0 && siteIndex < org.sites.length) {
+            final site = org.sites[siteIndex];
+            final liveCount =
+                sitesState.liveCounts[site.siteId.toString()] ?? 0;
+            return SiteCard(
+              site: site,
+              liveCount: liveCount,
+              onTap: () => _onSiteTap(context, ref, site),
+            );
+          }
+          cursor += org.sites.length;
+        }
+        return const SizedBox.shrink();
+      },
+    );
+  }
+
+  void _onSiteTap(BuildContext context, WidgetRef ref, Site site) {
+    ref.read(currentSiteIdProvider.notifier).state = site.siteId.toString();
+    ref.read(currentSiteDomainProvider.notifier).state = site.domain;
+    context.go('/analytics/${site.siteId}');
   }
 
   @override
@@ -152,27 +239,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   .read(sitesControllerProvider.notifier)
                   .refreshLiveCounts();
             },
-            child: ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              itemCount: sitesState.sites.length,
-              itemBuilder: (context, index) {
-                final site = sitesState.sites[index];
-                final liveCount =
-                    sitesState.liveCounts[site.siteId.toString()] ?? 0;
-                return SiteCard(
-                  site: site,
-                  liveCount: liveCount,
-                  onTap: () {
-                    ref.read(currentSiteIdProvider.notifier).state =
-                        site.siteId.toString();
-                    ref.read(currentSiteDomainProvider.notifier).state =
-                        site.domain;
-                    context.go(
-                        '/analytics/${site.siteId}');
-                  },
-                );
-              },
-            ),
+            child: _buildSitesList(
+                context, ref, sitesState, theme),
           );
         },
       ),
