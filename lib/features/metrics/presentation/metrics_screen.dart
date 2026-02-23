@@ -21,6 +21,7 @@ enum MetricType {
   entryPage('Entry Pages', 'entry_page', Icons.login),
   exitPage('Exit Pages', 'exit_page', Icons.logout),
   utmSource('UTM Source', 'utm_source', Icons.campaign),
+  channel('Channel', 'channel', Icons.trending_up),
   hostname('Hostnames', 'hostname', Icons.dns),
   vpn('VPN', 'vpn', Icons.vpn_key),
   crawler('Crawlers', 'crawler', Icons.bug_report),
