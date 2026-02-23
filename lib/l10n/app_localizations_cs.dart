@@ -12,28 +12,28 @@ class AppLocalizationsCs extends AppLocalizations {
   String get appName => 'Rybbit';
 
   @override
-  String get appSubtitle => 'NeoficiÃ¡lnÃ­';
+  String get appSubtitle => 'Neoficiální';
 
   @override
-  String get cancel => 'ZruÅ¡it';
+  String get cancel => 'Zrušit';
 
   @override
   String get delete => 'Smazat';
 
   @override
-  String get save => 'UloÅ¾it';
+  String get save => 'Uložit';
 
   @override
   String get update => 'Aktualizovat';
 
   @override
-  String get create => 'VytvoÅit';
+  String get create => 'Vytvořit';
 
   @override
   String get retry => 'Zkusit znovu';
 
   @override
-  String get add => 'PÅidat';
+  String get add => 'Přidat';
 
   @override
   String get edit => 'Upravit';
@@ -42,22 +42,22 @@ class AppLocalizationsCs extends AppLocalizations {
   String get clear => 'Vymazat';
 
   @override
-  String get apply => 'PouÅ¾Ã­t';
+  String get apply => 'Použít';
 
   @override
-  String get goBack => 'ZpÄt';
+  String get goBack => 'Zpět';
 
   @override
-  String get noData => 'Å½Ã¡dnÃ¡ data';
+  String get noData => 'Žádná data';
 
   @override
-  String get loading => 'NaÄÃ­tÃ¡nÃ­';
+  String get loading => 'Načítání';
 
   @override
-  String get logout => 'OdhlÃ¡sit se';
+  String get logout => 'Odhlásit se';
 
   @override
-  String get close => 'ZavÅÃ­t';
+  String get close => 'Zavřít';
 
   @override
   String get serverUrl => 'URL serveru';
@@ -69,30 +69,29 @@ class AppLocalizationsCs extends AppLocalizations {
   String get email => 'E-mail';
 
   @override
-  String get apiKey => 'API klÃ­Ä';
+  String get apiKey => 'API klíč';
 
   @override
   String get password => 'Heslo';
 
   @override
-  String get connect => 'PÅipojit';
+  String get connect => 'Připojit';
 
   @override
   String get organizations => 'Organizace';
 
   @override
-  String get noSitesFound => 'Å½Ã¡dnÃ© weby nenalezeny';
+  String get noSitesFound => 'Žádné weby nenalezeny';
 
   @override
-  String get noSitesHint =>
-      'Pro zaÄÃ¡tek pÅidejte web ve webovÃ©m rozhranÃ­.';
+  String get noSitesHint => 'Pro začátek přidejte web ve webovém rozhraní.';
 
   @override
   String siteCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count webÅ¯',
+      other: '$count webů',
       few: '$count weby',
       one: '1 web',
     );
@@ -101,151 +100,150 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String members(int count) {
-    return 'ÄlenovÃ© ($count)';
+    return 'Členové ($count)';
   }
 
   @override
-  String get failedToLoadOrganizations => 'NepodaÅilo se naÄÃ­st organizace';
+  String get failedToLoadOrganizations => 'Nepodařilo se načíst organizace';
 
   @override
-  String get noOrganizations => 'Å½Ã¡dnÃ© organizace';
+  String get noOrganizations => 'Žádné organizace';
 
   @override
   String get noOrganizationsHint =>
-      'Organizace lze vytvoÅit ve webovÃ©m rozhranÃ­';
+      'Organizace lze vytvořit ve webovém rozhraní';
 
   @override
-  String get failedToLoadMembers => 'NepodaÅilo se naÄÃ­st Äleny';
+  String get failedToLoadMembers => 'Nepodařilo se načíst členy';
 
   @override
-  String get failedToLoadSites => 'NepodaÅilo se naÄÃ­st weby';
+  String get failedToLoadSites => 'Nepodařilo se načíst weby';
 
   @override
-  String get failedToLoadAnalytics => 'NepodaÅilo se naÄÃ­st analytiku';
+  String get failedToLoadAnalytics => 'Nepodařilo se načíst analytiku';
 
   @override
-  String get noDataAvailable => 'Å½Ã¡dnÃ¡ data k dispozici';
+  String get noDataAvailable => 'Žádná data k dispozici';
 
   @override
-  String get users => 'UÅ¾ivatelÃ©';
+  String get users => 'Uživatelé';
 
   @override
   String get sessions => 'Relace';
 
   @override
-  String get pageviews => 'ZobrazenÃ­ strÃ¡nek';
+  String get pageviews => 'Zobrazení stránek';
 
   @override
-  String get pagesPerSession => 'StrÃ¡nky/relace';
+  String get pagesPerSession => 'Stránky/relace';
 
   @override
-  String get bounceRate => 'MÃ­ra okamÅ¾itÃ©ho opuÅ¡tÄnÃ­';
+  String get bounceRate => 'Míra okamžitého opuštění';
 
   @override
-  String get duration => 'Doba trvÃ¡nÃ­';
+  String get duration => 'Doba trvání';
 
   @override
   String get metrics => 'Metriky';
 
   @override
-  String get pages => 'StrÃ¡nky';
+  String get pages => 'Stránky';
 
   @override
-  String get referrers => 'OdkazujÃ­cÃ­';
+  String get referrers => 'Odkazující';
 
   @override
-  String get countries => 'ZemÄ';
+  String get countries => 'Země';
 
   @override
-  String get devices => 'ZaÅÃ­zenÃ­';
+  String get devices => 'Zařízení';
 
   @override
-  String get performance => 'VÃ½kon';
+  String get performance => 'Výkon';
 
   @override
-  String get goals => 'CÃ­le';
+  String get goals => 'Cíle';
 
   @override
-  String get funnels => 'TrychtÃ½Åe';
+  String get funnels => 'Trychtýře';
 
   @override
-  String get replay => 'PÅehrÃ¡vÃ¡nÃ­';
+  String get replay => 'Přehrávání';
 
   @override
-  String get config => 'NastavenÃ­';
+  String get config => 'Nastavení';
 
   @override
   String usersOnline(int count) {
-    return '$count uÅ¾ivatelÅ¯ online';
+    return '$count uživatelů online';
   }
 
   @override
-  String get events => 'UdÃ¡losti';
+  String get events => 'Události';
 
   @override
-  String get eventsOverTime => 'UdÃ¡losti v Äase';
+  String get eventsOverTime => 'Události v čase';
 
   @override
-  String get eventNames => 'NÃ¡zvy udÃ¡lostÃ­';
+  String get eventNames => 'Názvy událostí';
 
   @override
   String get noCustomEventsTracked =>
-      'Å½Ã¡dnÃ© vlastnÃ­ udÃ¡losti nebyly zaznamenÃ¡ny';
+      'Žádné vlastní události nebyly zaznamenány';
 
   @override
-  String get failedToLoadProperties => 'NepodaÅilo se naÄÃ­st vlastnosti';
+  String get failedToLoadProperties => 'Nepodařilo se načíst vlastnosti';
 
   @override
-  String get noProperties => 'Å½Ã¡dnÃ© vlastnosti';
+  String get noProperties => 'Žádné vlastnosti';
 
   @override
-  String get outboundLinks => 'OdchozÃ­ odkazy';
+  String get outboundLinks => 'Odchozí odkazy';
 
   @override
   String get noOutboundLinksTracked =>
-      'Å½Ã¡dnÃ© odchozÃ­ odkazy nebyly zaznamenÃ¡ny';
+      'Žádné odchozí odkazy nebyly zaznamenány';
 
   @override
-  String get failedToLoadChart => 'NepodaÅilo se naÄÃ­st graf';
+  String get failedToLoadChart => 'Nepodařilo se načíst graf';
 
   @override
   String get errors => 'Chyby';
 
   @override
-  String get failedToLoadErrors => 'NepodaÅilo se naÄÃ­st chyby';
+  String get failedToLoadErrors => 'Nepodařilo se načíst chyby';
 
   @override
-  String get noErrorsFound => 'Å½Ã¡dnÃ© chyby nenalezeny';
+  String get noErrorsFound => 'Žádné chyby nenalezeny';
 
   @override
-  String get everythingLooksGood => 'VÅ¡e vypadÃ¡ v poÅÃ¡dku!';
+  String get everythingLooksGood => 'Vše vypadá v pořádku!';
 
   @override
-  String get occurrences => 'vÃ½skytÅ¯';
+  String get occurrences => 'výskytů';
 
   @override
-  String get sessionsAffected => 'dotÄenÃ½ch relacÃ­';
+  String get sessionsAffected => 'dotčených relací';
 
   @override
   String failedToLoadEventsWithError(String error) {
-    return 'NepodaÅilo se naÄÃ­st udÃ¡losti: $error';
+    return 'Nepodařilo se načíst události: $error';
   }
 
   @override
-  String get noEventsFound => 'Å½Ã¡dnÃ© udÃ¡losti nenalezeny';
+  String get noEventsFound => 'Žádné události nenalezeny';
 
   @override
-  String get failedToLoadFunnels => 'NepodaÅilo se naÄÃ­st trychtÃ½Åe';
+  String get failedToLoadFunnels => 'Nepodařilo se načíst trychtýře';
 
   @override
-  String get noFunnelsSaved => 'Å½Ã¡dnÃ© uloÅ¾enÃ© trychtÃ½Åe';
+  String get noFunnelsSaved => 'Žádné uložené trychtýře';
 
   @override
-  String get createFunnelsHint =>
-      'TrychtÃ½Åe lze vytvoÅit ve webovÃ©m rozhranÃ­';
+  String get createFunnelsHint => 'Trychtýře lze vytvořit ve webovém rozhraní';
 
   @override
-  String get deleteFunnel => 'Smazat trychtÃ½Å';
+  String get deleteFunnel => 'Smazat trychtýř';
 
   @override
   String deleteFunnelConfirm(String name) {
@@ -254,20 +252,20 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String failedToDeleteFunnel(String error) {
-    return 'NepodaÅilo se smazat trychtÃ½Å: $error';
+    return 'Nepodařilo se smazat trychtýř: $error';
   }
 
   @override
   String get noStepsDefined =>
-      'Pro tento trychtÃ½Å nejsou definovÃ¡ny Å¾Ã¡dnÃ© kroky';
+      'Pro tento trychtýř nejsou definovány žádné kroky';
 
   @override
   String failedToAnalyze(String error) {
-    return 'AnalÃ½za se nezdaÅila: $error';
+    return 'Analýza se nezdařila: $error';
   }
 
   @override
-  String get overallConversion => 'CelkovÃ¡ konverze';
+  String get overallConversion => 'Celková konverze';
 
   @override
   String dropoff(String value) {
@@ -275,31 +273,31 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get createGoal => 'VytvoÅit cÃ­l';
+  String get createGoal => 'Vytvořit cíl';
 
   @override
-  String get failedToLoadGoals => 'NepodaÅilo se naÄÃ­st cÃ­le';
+  String get failedToLoadGoals => 'Nepodařilo se načíst cíle';
 
   @override
-  String get noGoalsConfigured => 'Å½Ã¡dnÃ© cÃ­le nejsou nastaveny';
+  String get noGoalsConfigured => 'Žádné cíle nejsou nastaveny';
 
   @override
-  String get noGoalsHint => 'KlepnÄte na + pro vytvoÅenÃ­ novÃ©ho cÃ­le';
+  String get noGoalsHint => 'Klepněte na + pro vytvoření nového cíle';
 
   @override
   String get conversions => 'Konverze';
 
   @override
-  String get rate => 'MÃ­ra';
+  String get rate => 'Míra';
 
   @override
-  String get editGoal => 'Upravit cÃ­l';
+  String get editGoal => 'Upravit cíl';
 
   @override
-  String get createGoalTitle => 'VytvoÅit cÃ­l';
+  String get createGoalTitle => 'Vytvořit cíl';
 
   @override
-  String get name => 'NÃ¡zev';
+  String get name => 'Název';
 
   @override
   String get type => 'Typ';
@@ -308,16 +306,16 @@ class AppLocalizationsCs extends AppLocalizations {
   String get path => 'Cesta';
 
   @override
-  String get event => 'UdÃ¡lost';
+  String get event => 'Událost';
 
   @override
   String get pathPattern => 'Vzor cesty';
 
   @override
-  String get eventName => 'NÃ¡zev udÃ¡losti';
+  String get eventName => 'Název události';
 
   @override
-  String get deleteGoal => 'Smazat cÃ­l';
+  String get deleteGoal => 'Smazat cíl';
 
   @override
   String deleteGoalConfirm(String name) {
@@ -326,33 +324,32 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String failedToDeleteGoal(String error) {
-    return 'NepodaÅilo se smazat cÃ­l: $error';
+    return 'Nepodařilo se smazat cíl: $error';
   }
 
   @override
   String get failedToLoadPerformanceData =>
-      'NepodaÅilo se naÄÃ­st data o vÃ½konu';
+      'Nepodařilo se načíst data o výkonu';
 
   @override
   String metricOverTime(String metric) {
-    return '$metric v Äase';
+    return '$metric v čase';
   }
 
   @override
   String get byDimension => 'Podle dimenze';
 
   @override
-  String get failedToLoadDimensionData =>
-      'NepodaÅilo se naÄÃ­st data dimenze';
+  String get failedToLoadDimensionData => 'Nepodařilo se načíst data dimenze';
 
   @override
-  String get good => 'DobrÃ©';
+  String get good => 'Dobré';
 
   @override
-  String get needsImprovement => 'VyÅ¾aduje zlepÅ¡enÃ­';
+  String get needsImprovement => 'Vyžaduje zlepšení';
 
   @override
-  String get poor => 'Å patnÃ©';
+  String get poor => 'Špatné';
 
   @override
   String get largestContentfulPaint => 'Largest Contentful Paint';
@@ -370,133 +367,132 @@ class AppLocalizationsCs extends AppLocalizations {
   String get interactionToNextPaint => 'Interaction to Next Paint';
 
   @override
-  String get dimPages => 'StrÃ¡nky';
+  String get dimPages => 'Stránky';
 
   @override
-  String get dimCountries => 'ZemÄ';
+  String get dimCountries => 'Země';
 
   @override
-  String get dimDevices => 'ZaÅÃ­zenÃ­';
+  String get dimDevices => 'Zařízení';
 
   @override
-  String get dimBrowsers => 'ProhlÃ­Å¾eÄe';
+  String get dimBrowsers => 'Prohlížeče';
 
   @override
   String get dimOS => 'OS';
 
   @override
-  String get sessionFilters => 'Filtry relacÃ­';
+  String get sessionFilters => 'Filtry relací';
 
   @override
-  String get minPageviews => 'Min. zobrazenÃ­ strÃ¡nek';
+  String get minPageviews => 'Min. zobrazení stránek';
 
   @override
-  String get minEvents => 'Min. udÃ¡lostÃ­';
+  String get minEvents => 'Min. událostí';
 
   @override
-  String get minDurationSeconds => 'Min. doba trvÃ¡nÃ­ (sekundy)';
+  String get minDurationSeconds => 'Min. doba trvání (sekundy)';
 
   @override
-  String get failedToLoadSessions => 'NepodaÅilo se naÄÃ­st relace';
+  String get failedToLoadSessions => 'Nepodařilo se načíst relace';
 
   @override
-  String get noSessionsFound => 'Å½Ã¡dnÃ© relace nenalezeny';
+  String get noSessionsFound => 'Žádné relace nenalezeny';
 
   @override
   String get filterSessions => 'Filtrovat relace';
 
   @override
-  String get loadingMoreSessions => 'NaÄÃ­tÃ¡nÃ­ dalÅ¡Ã­ch relacÃ­';
+  String get loadingMoreSessions => 'Načítání dalších relací';
 
   @override
   String entryPage(String page) {
-    return 'VstupnÃ­ strÃ¡nka: $page';
+    return 'Vstupní stránka: $page';
   }
 
   @override
   String nPages(int count) {
-    return '$count strÃ¡nek';
+    return '$count stránek';
   }
 
   @override
-  String get sessionReplays => 'PÅehrÃ¡vÃ¡nÃ­ relacÃ­';
+  String get sessionReplays => 'Přehrávání relací';
 
   @override
-  String get failedToLoadReplays => 'NepodaÅilo se naÄÃ­st pÅehrÃ¡vÃ¡nÃ­';
+  String get failedToLoadReplays => 'Nepodařilo se načíst přehrávání';
 
   @override
-  String get noReplaysFound => 'Å½Ã¡dnÃ¡ pÅehrÃ¡vÃ¡nÃ­ nenalezena';
+  String get noReplaysFound => 'Žádná přehrávání nenalezena';
 
   @override
   String get noReplaysHint =>
-      'PÅehrÃ¡vÃ¡nÃ­ relacÃ­ se zde zobrazÃ­, jakmile budou povolena.';
+      'Přehrávání relací se zde zobrazí, jakmile budou povolena.';
 
   @override
-  String get previousPage => 'PÅedchozÃ­ strÃ¡nka';
+  String get previousPage => 'Předchozí stránka';
 
   @override
-  String get nextPage => 'DalÅ¡Ã­ strÃ¡nka';
+  String get nextPage => 'Další stránka';
 
   @override
   String pageNumber(int number) {
-    return 'StrÃ¡nka $number';
+    return 'Stránka $number';
   }
 
   @override
-  String get unknownBrowser => 'NeznÃ¡mÃ½ prohlÃ­Å¾eÄ';
+  String get unknownBrowser => 'Neznámý prohlížeč';
 
   @override
-  String get unknownCountry => 'NeznÃ¡mÃ¡ zemÄ';
+  String get unknownCountry => 'Neznámá země';
 
   @override
-  String get sortUsers => 'Åadit uÅ¾ivatele';
+  String get sortUsers => 'Řadit uživatele';
 
   @override
-  String get showAllUsers => 'Zobrazit vÅ¡echny uÅ¾ivatele';
+  String get showAllUsers => 'Zobrazit všechny uživatele';
 
   @override
-  String get showIdentifiedOnly => 'Zobrazit pouze identifikovanÃ©';
+  String get showIdentifiedOnly => 'Zobrazit pouze identifikované';
 
   @override
-  String get searchUsers => 'Hledat uÅ¾ivatele';
+  String get searchUsers => 'Hledat uživatele';
 
   @override
-  String get searchUsersHint => 'Hledat uÅ¾ivatele...';
+  String get searchUsersHint => 'Hledat uživatele...';
 
   @override
-  String get clearSearch => 'Vymazat hledÃ¡nÃ­';
+  String get clearSearch => 'Vymazat hledání';
 
   @override
-  String get failedToLoadUsers => 'NepodaÅilo se naÄÃ­st uÅ¾ivatele';
+  String get failedToLoadUsers => 'Nepodařilo se načíst uživatele';
 
   @override
-  String get noUsersFound => 'Å½Ã¡dnÃ­ uÅ¾ivatelÃ© nenalezeni';
+  String get noUsersFound => 'Žádní uživatelé nenalezeni';
 
   @override
-  String get noIdentifiedUsers => 'Å½Ã¡dnÃ­ identifikovanÃ­ uÅ¾ivatelÃ©';
+  String get noIdentifiedUsers => 'Žádní identifikovaní uživatelé';
 
   @override
-  String get usersWillAppear =>
-      'UÅ¾ivatelÃ© se zobrazÃ­ po jejich identifikaci';
+  String get usersWillAppear => 'Uživatelé se zobrazí po jejich identifikaci';
 
   @override
-  String get tryDifferentSearch => 'Zkuste jinÃ½ vyhledÃ¡vacÃ­ vÃ½raz';
+  String get tryDifferentSearch => 'Zkuste jiný vyhledávací výraz';
 
   @override
-  String get sortedBy => 'Åazeno podle';
+  String get sortedBy => 'Řazeno podle';
 
   @override
-  String get loadingMoreUsers => 'NaÄÃ­tÃ¡nÃ­ dalÅ¡Ã­ch uÅ¾ivatelÅ¯';
+  String get loadingMoreUsers => 'Načítání dalších uživatelů';
 
   @override
-  String get lastSeen => 'Naposledy vidÄn';
+  String get lastSeen => 'Naposledy viděn';
 
   @override
-  String get firstSeen => 'PoprvÃ© vidÄn';
+  String get firstSeen => 'Poprvé viděn';
 
   @override
   String nUsers(String count) {
-    return '$count uÅ¾ivatelÅ¯';
+    return '$count uživatelů';
   }
 
   @override
@@ -504,7 +500,7 @@ class AppLocalizationsCs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count relacÃ­',
+      other: '$count relací',
       few: '$count relace',
       one: '1 relace',
     );
@@ -517,40 +513,39 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get failedToLoadSiteConfig =>
-      'NepodaÅilo se naÄÃ­st nastavenÃ­ webu';
+  String get failedToLoadSiteConfig => 'Nepodařilo se načíst nastavení webu';
 
   @override
-  String get failedToLoadMetrics => 'NepodaÅilo se naÄÃ­st metriky';
+  String get failedToLoadMetrics => 'Nepodařilo se načíst metriky';
 
   @override
-  String get loadingMoreMetrics => 'NaÄÃ­tÃ¡nÃ­ dalÅ¡Ã­ch metrik';
+  String get loadingMoreMetrics => 'Načítání dalších metrik';
 
   @override
   String noMetricData(String metric) {
-    return 'Å½Ã¡dnÃ¡ data pro $metric';
+    return 'Žádná data pro $metric';
   }
 
   @override
-  String get settings => 'NastavenÃ­';
+  String get settings => 'Nastavení';
 
   @override
-  String get connection => 'PÅipojenÃ­';
+  String get connection => 'Připojení';
 
   @override
   String get notConfigured => 'Nenastaveno';
 
   @override
-  String get authMethod => 'Metoda ovÄÅenÃ­';
+  String get authMethod => 'Metoda ověření';
 
   @override
   String get sessionCookie => 'Cookie relace';
 
   @override
-  String get loggedInAs => 'PÅihlÃ¡Å¡en jako';
+  String get loggedInAs => 'Přihlášen jako';
 
   @override
-  String get unknown => 'NeznÃ¡mÃ©';
+  String get unknown => 'Neznámé';
 
   @override
   String get appearance => 'Vzhled';
@@ -559,13 +554,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get theme => 'Motiv';
 
   @override
-  String get dark => 'TmavÃ½';
+  String get dark => 'Tmavý';
 
   @override
-  String get light => 'SvÄtlÃ½';
+  String get light => 'Světlý';
 
   @override
-  String get auto => 'AutomatickÃ½';
+  String get auto => 'Auto';
 
   @override
   String get about => 'O aplikaci';
@@ -574,40 +569,40 @@ class AppLocalizationsCs extends AppLocalizations {
   String get appVersion => 'Verze aplikace';
 
   @override
-  String get openSourceAnalytics => 'Open source webovÃ¡ analytika';
+  String get openSourceAnalytics => 'Open source webová analytika';
 
   @override
-  String get logoutConfirm => 'Opravdu se chcete odhlÃ¡sit?';
+  String get logoutConfirm => 'Opravdu se chcete odhlásit?';
 
   @override
-  String get siteSettings => 'NastavenÃ­ webu';
+  String get siteSettings => 'Nastavení webu';
 
   @override
   String get siteInformation => 'Informace o webu';
 
   @override
-  String get domain => 'DomÃ©na';
+  String get domain => 'Doména';
 
   @override
   String get siteId => 'ID webu';
 
   @override
-  String get created => 'VytvoÅeno';
+  String get created => 'Vytvořeno';
 
   @override
-  String get trackingSettings => 'NastavenÃ­ sledovÃ¡nÃ­';
+  String get trackingSettings => 'Nastavení sledování';
 
   @override
-  String get publicDashboard => 'VeÅejnÃ½ dashboard';
+  String get publicDashboard => 'Veřejný dashboard';
 
   @override
-  String get publicDashboardDesc => 'Povolit veÅejnÃ½ pÅÃ­stup k analytice';
+  String get publicDashboardDesc => 'Povolit veřejný přístup k analytice';
 
   @override
-  String get sessionReplay => 'PÅehrÃ¡vÃ¡nÃ­ relacÃ­';
+  String get sessionReplay => 'Přehrávání relací';
 
   @override
-  String get sessionReplayDesc => 'ZaznamenÃ¡vat uÅ¾ivatelskÃ© relace';
+  String get sessionReplayDesc => 'Zaznamenávat uživatelské relace';
 
   @override
   String get webVitals => 'Web Vitals';
@@ -616,63 +611,63 @@ class AppLocalizationsCs extends AppLocalizations {
   String get webVitalsDesc => 'Sledovat Core Web Vitals';
 
   @override
-  String get trackErrors => 'SledovÃ¡nÃ­ chyb';
+  String get trackErrors => 'Sledování chyb';
 
   @override
-  String get trackErrorsDesc => 'ZachytÃ¡vat JavaScript chyby';
+  String get trackErrorsDesc => 'Zachytávat JavaScript chyby';
 
   @override
-  String get outboundLinksTracking => 'OdchozÃ­ odkazy';
+  String get outboundLinksTracking => 'Odchozí odkazy';
 
   @override
-  String get outboundLinksDesc => 'Sledovat kliknutÃ­ na odchozÃ­ odkazy';
+  String get outboundLinksDesc => 'Sledovat kliknutí na odchozí odkazy';
 
   @override
-  String get excludedIps => 'VylouÄenÃ© IP adresy';
+  String get excludedIps => 'Vyloučené IP adresy';
 
   @override
-  String get excludedCountries => 'VylouÄenÃ© zemÄ';
+  String get excludedCountries => 'Vyloučené země';
 
   @override
-  String get settingsSaved => 'NastavenÃ­ uloÅ¾eno';
+  String get settingsSaved => 'Nastavení uloženo';
 
   @override
   String failedToSave(String error) {
-    return 'NepodaÅilo se uloÅ¾it: $error';
+    return 'Nepodařilo se uložit: $error';
   }
 
   @override
-  String get timeRange => 'ÄasovÃ© obdobÃ­';
+  String get timeRange => 'Časové období';
 
   @override
   String get today => 'Dnes';
 
   @override
-  String get yesterday => 'VÄera';
+  String get yesterday => 'Včera';
 
   @override
-  String get last7Days => 'PoslednÃ­ch 7 dnÃ­';
+  String get last7Days => 'Posledních 7 dní';
 
   @override
-  String get last30Days => 'PoslednÃ­ch 30 dnÃ­';
+  String get last30Days => 'Posledních 30 dní';
 
   @override
-  String get thisWeek => 'Tento tÃ½den';
+  String get thisWeek => 'Tento týden';
 
   @override
-  String get thisMonth => 'Tento mÄsÃ­c';
+  String get thisMonth => 'Tento měsíc';
 
   @override
   String get thisYear => 'Tento rok';
 
   @override
-  String get customRange => 'VlastnÃ­ obdobÃ­';
+  String get customRange => 'Vlastní období';
 
   @override
   String get filter => 'Filtr';
 
   @override
-  String get addFilter => 'PÅidat filtr';
+  String get addFilter => 'Přidat filtr';
 
   @override
   String get parameter => 'Parametr';
@@ -684,44 +679,44 @@ class AppLocalizationsCs extends AppLocalizations {
   String get enterFilterValue => 'Zadejte hodnotu filtru';
 
   @override
-  String get requestTimedOut => 'PoÅ¾adavek vyprÅ¡el. Zkuste to prosÃ­m znovu.';
+  String get requestTimedOut => 'Požadavek vypršel. Zkuste to prosím znovu.';
 
   @override
-  String get networkError => 'Chyba sÃ­tÄ. Zkontrolujte pÅipojenÃ­.';
+  String get networkError => 'Chyba sítě. Zkontrolujte připojení.';
 
   @override
-  String get sessionExpired => 'Relace vyprÅ¡ela. PÅihlaste se prosÃ­m znovu.';
+  String get sessionExpired => 'Relace vypršela. Přihlaste se prosím znovu.';
 
   @override
-  String get accessDenied => 'PÅÃ­stup odepÅen.';
+  String get accessDenied => 'Přístup odepřen.';
 
   @override
   String get dataNotFound => 'Data nenalezena.';
 
   @override
-  String get serverError => 'Chyba serveru. Zkuste to prosÃ­m pozdÄji.';
+  String get serverError => 'Chyba serveru. Zkuste to prosím později.';
 
   @override
   String get failedToLoadGeneric =>
-      'NepodaÅilo se naÄÃ­st data. Zkuste to prosÃ­m znovu.';
+      'Nepodařilo se načíst data. Zkuste to prosím znovu.';
 
   @override
   String chartDataPoints(int count) {
-    return 'Graf s $count datovÃ½mi body';
+    return 'Graf s $count datovými body';
   }
 
   @override
   String previousPrefix(String value) {
-    return 'PÅedchozÃ­: $value';
+    return 'Předchozí: $value';
   }
 
   @override
   String performanceRatingLabel(String rating) {
-    return 'HodnocenÃ­ vÃ½konu: $rating';
+    return 'Hodnocení výkonu: $rating';
   }
 
   @override
-  String get loadingContent => 'NaÄÃ­tÃ¡nÃ­ obsahu';
+  String get loadingContent => 'Načítání obsahu';
 
   @override
   String get language => 'Jazyk';
@@ -731,101 +726,100 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get failedToLoadUserDetails =>
-      'NepodaÅilo se naÄÃ­st detaily uÅ¾ivatele';
+      'Nepodařilo se načíst detaily uživatele';
 
   @override
   String lastSeenPrefix(String value) {
-    return 'Naposledy vidÄn: $value';
+    return 'Naposledy viděn: $value';
   }
 
   @override
   String get traits => 'Vlastnosti';
 
   @override
-  String get noTraits => 'Å½Ã¡dnÃ© vlastnosti pro tohoto uÅ¾ivatele';
+  String get noTraits => 'Žádné vlastnosti pro tohoto uživatele';
 
   @override
   String get sessionDetail => 'Detail relace';
 
   @override
-  String get failedToLoadSession => 'NepodaÅilo se naÄÃ­st relaci';
+  String get failedToLoadSession => 'Nepodařilo se načíst relaci';
 
   @override
-  String get entryPageLabel => 'VstupnÃ­ strÃ¡nka';
+  String get entryPageLabel => 'Vstupní stránka';
 
   @override
-  String get exitPage => 'VÃ½stupnÃ­ strÃ¡nka';
+  String get exitPage => 'Výstupní stránka';
 
   @override
-  String get browserAndDevice => 'ProhlÃ­Å¾eÄ a zaÅÃ­zenÃ­';
+  String get browserAndDevice => 'Prohlížeč a zařízení';
 
   @override
-  String get browser => 'ProhlÃ­Å¾eÄ';
+  String get browser => 'Prohlížeč';
 
   @override
   String get os => 'OS';
 
   @override
-  String get device => 'ZaÅÃ­zenÃ­';
+  String get device => 'Zařízení';
 
   @override
   String get sourceLabel => 'Zdroj';
 
   @override
-  String get referrer => 'OdkazujÃ­cÃ­ strÃ¡nka';
+  String get referrer => 'Odkazující stránka';
 
   @override
   String eventTimelineCount(int count) {
-    return 'ÄasovÃ¡ osa udÃ¡lostÃ­ ($count)';
+    return 'Časová osa událostí ($count)';
   }
 
   @override
-  String get noEvents => 'Å½Ã¡dnÃ© udÃ¡losti';
+  String get noEvents => 'Žádné události';
 
   @override
-  String get replayEventsTitle => 'UdÃ¡losti zÃ¡znamu';
+  String get replayEventsTitle => 'Události záznamu';
 
   @override
-  String get failedToLoadReplay => 'NepodaÅilo se naÄÃ­st zÃ¡znam';
+  String get failedToLoadReplay => 'Nepodařilo se načíst záznam';
 
   @override
-  String get noReplayEvents => 'Å½Ã¡dnÃ© udÃ¡losti zÃ¡znamu';
+  String get noReplayEvents => 'Žádné události záznamu';
 
   @override
-  String get totalEvents => 'Celkem udÃ¡lostÃ­';
+  String get totalEvents => 'Celkem událostí';
 
   @override
-  String get userActionsLabel => 'Akce uÅ¾ivatele';
+  String get userActionsLabel => 'Akce uživatele';
 
   @override
   String eventTimelineActions(int count) {
-    return 'ÄasovÃ¡ osa udÃ¡lostÃ­ ($count akcÃ­)';
+    return 'Časová osa událostí ($count akcí)';
   }
 
   @override
-  String get eventLog => 'Protokol udÃ¡lostÃ­';
+  String get eventLog => 'Protokol událostí';
 
   @override
-  String get viewEventLog => 'Zobrazit protokol udÃ¡lostÃ­';
+  String get viewEventLog => 'Zobrazit protokol událostí';
 
   @override
-  String get failedToLoadEventLog =>
-      'NepodaÅilo se naÄÃ­st protokol udÃ¡lostÃ­';
+  String get failedToLoadEventLog => 'Nepodařilo se načíst protokol událostí';
 
   @override
-  String get activityHeatmap => 'TeplotnÃ­ mapa';
+  String get activityHeatmap => 'Teplotní mapa';
 
   @override
-  String get heatmapLast4Weeks => 'PoslednÃ­ch 4 tÃ½dnÅ¯';
+  String get heatmapLast4Weeks => 'Posledních 4 týdnů';
 
   @override
-  String get less => 'MÃ©nÄ';
+  String get less => 'Méně';
 
   @override
-  String get more => 'VÃ­ce';
+  String get more => 'Více';
 
   @override
-  String get peakActivity => 'Å piÄkovÃ¡ aktivita';
+  String get peakActivity => 'Špičková aktivita';
 
   @override
   String peakHour(String day, String time) {
@@ -834,23 +828,23 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String busiestDay(String day) {
-    return 'NejvytÃ­Å¾enÄjÅ¡Ã­ den: $day';
+    return 'Nejvytíženější den: $day';
   }
 
   @override
   String get dayMon => 'Po';
 
   @override
-  String get dayTue => 'Ãt';
+  String get dayTue => 'Út';
 
   @override
   String get dayWed => 'St';
 
   @override
-  String get dayThu => 'Ät';
+  String get dayThu => 'Čt';
 
   @override
-  String get dayFri => 'PÃ¡';
+  String get dayFri => 'Pá';
 
   @override
   String get daySat => 'So';
@@ -859,62 +853,62 @@ class AppLocalizationsCs extends AppLocalizations {
   String get daySun => 'Ne';
 
   @override
-  String get searchEvents => 'Hledat udÃ¡losti...';
+  String get searchEvents => 'Hledat události...';
 
   @override
-  String get allTypes => 'VÅ¡e';
+  String get allTypes => 'Vše';
 
   @override
-  String get noMatchingEvents => 'Å½Ã¡dnÃ© odpovÃ­dajÃ­cÃ­ udÃ¡losti';
+  String get noMatchingEvents => 'Žádné odpovídající události';
 
   @override
-  String get liveView => 'Å½ivÄ';
+  String get liveView => 'Živě';
 
   @override
-  String get autoRefresh => 'AutomatickÃ¡ aktualizace';
+  String get autoRefresh => 'Automatická aktualizace';
 
   @override
-  String get usersOnlineNow => 'UÅ¾ivatelÃ© online';
+  String get usersOnlineNow => 'Uživatelé online';
 
   @override
   String lastUpdatedAt(String time) {
-    return 'AktualizovÃ¡no v $time';
+    return 'Aktualizováno v $time';
   }
 
   @override
-  String get last30Minutes => 'PoslednÃ­ch 30 minut';
+  String get last30Minutes => 'Posledních 30 minut';
 
   @override
-  String get last5Minutes => 'PoslednÃ­ch 5 min';
+  String get last5Minutes => 'Posledních 5 min';
 
   @override
-  String get recentEvents => 'NedÃ¡vnÃ© udÃ¡losti';
+  String get recentEvents => 'Nedávné události';
 
   @override
-  String get noRecentEvents => 'Å½Ã¡dnÃ© nedÃ¡vnÃ© udÃ¡losti';
+  String get noRecentEvents => 'Žádné nedávné události';
 
   @override
   String get retention => 'Retence';
 
   @override
-  String get weekly => 'TÃ½dnÄ';
+  String get weekly => 'Týdně';
 
   @override
-  String get daily => 'DennÄ';
+  String get daily => 'Denně';
 
   @override
   String get retentionRange => 'Rozsah';
 
   @override
   String retentionDays(int count) {
-    return '$count dnÃ­';
+    return '$count dní';
   }
 
   @override
-  String get failedToLoadRetention => 'NepodaÅilo se naÄÃ­st data retence';
+  String get failedToLoadRetention => 'Nepodařilo se načíst data retence';
 
   @override
-  String get noRetentionData => 'Å½Ã¡dnÃ¡ data retence';
+  String get noRetentionData => 'Žádná data retence';
 
   @override
   String get cohort => 'Kohorta';
@@ -926,60 +920,82 @@ class AppLocalizationsCs extends AppLocalizations {
   String get retentionDayPrefix => 'D';
 
   @override
-  String get journeys => 'Cesty uÅ¾ivatelÅ¯';
+  String get journeys => 'Cesty uživatelů';
 
   @override
   String get journeySteps => 'Kroky';
 
   @override
-  String get failedToLoadJourneys => 'NepodaÅilo se naÄÃ­st cesty';
+  String get failedToLoadJourneys => 'Nepodařilo se načíst cesty';
 
   @override
-  String get noJourneysFound => 'Å½Ã¡dnÃ© cesty nenalezeny';
+  String get noJourneysFound => 'Žádné cesty nenalezeny';
 
   @override
   String journeySessions(String count) {
-    return '$count relacÃ­';
+    return '$count relací';
   }
 
   @override
   String get locations => 'Lokace';
 
   @override
-  String get locationCities => 'MÄsta';
+  String get locationCities => 'Města';
 
   @override
-  String get failedToLoadLocations => 'NepodaÅilo se naÄÃ­st lokace';
+  String get failedToLoadLocations => 'Nepodařilo se načíst lokace';
 
   @override
-  String get noLocationsFound => 'Å½Ã¡dnÃ© lokace nenalezeny';
+  String get noLocationsFound => 'Žádné lokace nenalezeny';
 
   @override
-  String get coreFeatures => 'HlavnÃ­';
+  String get coreFeatures => 'Hlavní';
 
   @override
-  String get insights => 'PÅehledy';
+  String get insights => 'Přehledy';
 
   @override
-  String get tools => 'NÃ¡stroje';
+  String get tools => 'Nástroje';
 
   @override
   String get userTraits => 'Vlastnosti';
 
   @override
   String get failedToLoadUserTraits =>
-      'NepodaÅilo se naÄÃ­st vlastnosti uÅ¾ivatelÅ¯';
+      'Nepodařilo se načíst vlastnosti uživatelů';
 
   @override
-  String get noUserTraits => 'Å½Ã¡dnÃ© vlastnosti nenalezeny';
+  String get noUserTraits => 'Žádné vlastnosti nenalezeny';
 
   @override
   String get noUserTraitsHint =>
-      'Vlastnosti se zobrazÃ­ po identifikaci uÅ¾ivatelÅ¯ s vlastnÃ­mi atributy';
+      'Vlastnosti se zobrazí po identifikaci uživatelů s vlastními atributy';
 
   @override
   String traitUsersCount(String count) {
-    return '$count uÅ¾ivatelÅ¯';
+    return '$count uživatelů';
+  }
+
+  @override
+  String get dashboard => 'Přehled';
+
+  @override
+  String get analytics => 'Analytika';
+
+  @override
+  String get noSiteSelected => 'Žádný web nevybrán';
+
+  @override
+  String selectSiteFromDashboard(String tabName) {
+    return 'Pro zobrazení $tabName vyberte web na kartě Přehled.';
+  }
+
+  @override
+  String get goToDashboard => 'Přejít na přehled';
+
+  @override
+  String todayVisitors(int count) {
+    return '$count dnes';
   }
 
   @override
@@ -1005,4 +1021,91 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get sources => 'Zdroje';
+
+  @override
+  String get cities => 'Města';
+
+  @override
+  String get languages => 'Jazyky';
+
+  @override
+  String get hostnames => 'Hostitelé';
+
+  @override
+  String get vpn => 'VPN';
+
+  @override
+  String get crawlers => 'Roboti';
+
+  @override
+  String get datacenters => 'Datová centra';
+
+  @override
+  String get companies => 'Společnosti';
+
+  @override
+  String get companyType => 'Typ společnosti';
+
+  @override
+  String get companyDomain => 'Doména společnosti';
+
+  @override
+  String get asnOrg => 'ASN organizace';
+
+  @override
+  String get asnType => 'ASN typ';
+
+  @override
+  String get asnDomain => 'ASN doména';
+
+  @override
+  String get utmMedium => 'UTM Médium';
+
+  @override
+  String get utmCampaign => 'UTM Kampaň';
+
+  @override
+  String nMoreItems(int count) {
+    return '+$count dalších';
+  }
+
+  @override
+  String sessionsWithPercentage(String count, String percentage) {
+    return '$count relací ($percentage %)';
+  }
+
+  @override
+  String errorGeneric(String error) {
+    return 'Chyba: $error';
+  }
+
+  @override
+  String get replayPageSnapshot => 'Snímek stránky';
+
+  @override
+  String get replayPageLoad => 'Načtení stránky';
+
+  @override
+  String get replayCustomEvent => 'Vlastní událost';
+
+  @override
+  String get replayPluginEvent => 'Událost pluginu';
+
+  @override
+  String get replayInteraction => 'Interakce';
+
+  @override
+  String get replayScroll => 'Posouvání';
+
+  @override
+  String get replayResize => 'Změna velikosti';
+
+  @override
+  String get replayInput => 'Vstup';
+
+  @override
+  String get replayUpdate => 'Aktualizace';
+
+  @override
+  String get url => 'URL';
 }

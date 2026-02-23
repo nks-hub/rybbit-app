@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../state/current_site_provider.dart';
 
 /// Shell widget that wraps main routes with a BottomNavigationBar.
@@ -20,13 +21,13 @@ class _ShellScreenState extends ConsumerState<ShellScreen> {
   Widget build(BuildContext context) {
     final currentSiteId = ref.watch(currentSiteIdProvider);
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: widget.navigationShell,
       bottomNavigationBar: NavigationBar(
         selectedIndex: widget.navigationShell.currentIndex,
         onDestinationSelected: (index) {
-          // For Analytics and Sessions tabs, navigate to current site if set
           if (index == 1 && currentSiteId != null) {
             widget.navigationShell.goBranch(
               index,
@@ -46,26 +47,26 @@ class _ShellScreenState extends ConsumerState<ShellScreen> {
         },
         backgroundColor: theme.scaffoldBackgroundColor,
         indicatorColor: theme.colorScheme.primary.withValues(alpha: 0.15),
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined, semanticLabel: ''),
-            selectedIcon: Icon(Icons.home, semanticLabel: ''),
-            label: 'Dashboard',
+            icon: const Icon(Icons.home_outlined, semanticLabel: ''),
+            selectedIcon: const Icon(Icons.home, semanticLabel: ''),
+            label: l10n.dashboard,
           ),
           NavigationDestination(
-            icon: Icon(Icons.bar_chart_outlined, semanticLabel: ''),
-            selectedIcon: Icon(Icons.bar_chart, semanticLabel: ''),
-            label: 'Analytics',
+            icon: const Icon(Icons.bar_chart_outlined, semanticLabel: ''),
+            selectedIcon: const Icon(Icons.bar_chart, semanticLabel: ''),
+            label: l10n.analytics,
           ),
           NavigationDestination(
-            icon: Icon(Icons.people_outlined, semanticLabel: ''),
-            selectedIcon: Icon(Icons.people, semanticLabel: ''),
-            label: 'Sessions',
+            icon: const Icon(Icons.people_outlined, semanticLabel: ''),
+            selectedIcon: const Icon(Icons.people, semanticLabel: ''),
+            label: l10n.sessions,
           ),
           NavigationDestination(
-            icon: Icon(Icons.settings_outlined, semanticLabel: ''),
-            selectedIcon: Icon(Icons.settings, semanticLabel: ''),
-            label: 'Settings',
+            icon: const Icon(Icons.settings_outlined, semanticLabel: ''),
+            selectedIcon: const Icon(Icons.settings, semanticLabel: ''),
+            label: l10n.settings,
           ),
         ],
       ),
@@ -82,6 +83,7 @@ class SiteSelectorPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
@@ -100,19 +102,19 @@ class SiteSelectorPlaceholder extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                'No site selected',
+                l10n.noSiteSelected,
                 style: theme.textTheme.bodyLarge,
               ),
               const SizedBox(height: 8),
               Text(
-                'Select a site from the Dashboard tab to view $tabName.',
+                l10n.selectSiteFromDashboard(tabName),
                 style: theme.textTheme.bodySmall,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () => context.go('/'),
-                child: const Text('Go to Dashboard'),
+                child: Text(l10n.goToDashboard),
               ),
             ],
           ),

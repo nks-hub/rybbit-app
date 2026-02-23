@@ -355,23 +355,28 @@ class AnalyticsScreen extends ConsumerWidget {
             onTap: onTap,
             borderRadius: BorderRadius.circular(12),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(icon,
-                      size: 16,
-                      color: theme.textTheme.bodyMedium?.color),
-                  const SizedBox(width: 6),
-                  Flexible(
+                      size: 18,
+                      color: theme.colorScheme.primary),
+                  const SizedBox(width: 10),
+                  Expanded(
                     child: Text(
                       label,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w500,
-                        fontSize: 12,
+                        fontSize: 13,
                       ),
                       overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
+                  ),
+                  Icon(
+                    Icons.chevron_right,
+                    size: 16,
+                    color: theme.textTheme.bodySmall?.color,
                   ),
                 ],
               ),
@@ -380,12 +385,12 @@ class AnalyticsScreen extends ConsumerWidget {
         );
 
     Widget grid(List<Widget> children) => GridView.count(
-          crossAxisCount: 4,
+          crossAxisCount: 2,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           mainAxisSpacing: 6,
           crossAxisSpacing: 6,
-          childAspectRatio: 1.7,
+          childAspectRatio: 3.2,
           children: children,
         );
 
@@ -472,22 +477,14 @@ class AnalyticsScreen extends ConsumerWidget {
           ]),
 
           // More
-          GridView.count(
-            crossAxisCount: 4,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 6,
-            crossAxisSpacing: 6,
-            childAspectRatio: 1.7,
-            children: [
-              linkCard(l10n.userTraits, Icons.label_outlined,
-                  () => context.push('/analytics/$siteId/user-traits')),
-              linkCard(l10n.replay, Icons.videocam_outlined,
-                  () => context.push('/analytics/$siteId/replay')),
-              linkCard(l10n.config, Icons.settings_outlined,
-                  () => context.push('/analytics/$siteId/config')),
-            ],
-          ),
+          grid([
+            linkCard(l10n.userTraits, Icons.label_outlined,
+                () => context.push('/analytics/$siteId/user-traits')),
+            linkCard(l10n.replay, Icons.videocam_outlined,
+                () => context.push('/analytics/$siteId/replay')),
+            linkCard(l10n.config, Icons.settings_outlined,
+                () => context.push('/analytics/$siteId/config')),
+          ]),
         ],
       ),
     );

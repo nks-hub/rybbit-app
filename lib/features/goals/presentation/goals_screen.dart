@@ -132,8 +132,9 @@ class GoalsScreen extends ConsumerWidget {
       ref.invalidate(_goalsProvider(siteId));
     } catch (e) {
       if (context.mounted) {
+        final l10nCtx = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $e')),
+          SnackBar(content: Text(l10nCtx.errorGeneric(e.toString()))),
         );
       }
     }

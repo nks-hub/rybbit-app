@@ -85,39 +85,55 @@ class SettingsScreen extends ConsumerWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Column(
               children: [
-                ListTile(
-                  leading: const Icon(Icons.dark_mode_outlined),
-                  title: Text(l10n.theme),
-                  trailing: SegmentedButton<ThemeMode>(
-                    segments: [
-                      ButtonSegment(
-                        value: ThemeMode.dark,
-                        label: Text(l10n.dark, style: const TextStyle(fontSize: 12)),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(Icons.dark_mode_outlined, size: 24),
+                          const SizedBox(width: 16),
+                          Text(l10n.theme, style: theme.textTheme.bodyLarge),
+                        ],
                       ),
-                      ButtonSegment(
-                        value: ThemeMode.light,
-                        label: Text(l10n.light, style: const TextStyle(fontSize: 12)),
-                      ),
-                      ButtonSegment(
-                        value: ThemeMode.system,
-                        label: Text(l10n.auto, style: const TextStyle(fontSize: 12)),
+                      const SizedBox(height: 10),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: SegmentedButton<ThemeMode>(
+                          expandedInsets: EdgeInsets.zero,
+                          segments: [
+                            ButtonSegment(
+                              value: ThemeMode.dark,
+                              label: Text(l10n.dark),
+                            ),
+                            ButtonSegment(
+                              value: ThemeMode.light,
+                              label: Text(l10n.light),
+                            ),
+                            ButtonSegment(
+                              value: ThemeMode.system,
+                              label: Text(l10n.auto),
+                            ),
+                          ],
+                          selected: {themeMode},
+                          onSelectionChanged: (selected) {
+                            final mode = selected.first;
+                            ref.read(themeModeProvider.notifier).state = mode;
+                            final modeStr = switch (mode) {
+                              ThemeMode.light => 'light',
+                              ThemeMode.system => 'system',
+                              _ => 'dark',
+                            };
+                            StorageService.saveSetting('theme_mode', modeStr);
+                          },
+                          style: const ButtonStyle(
+                            visualDensity: VisualDensity.compact,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                        ),
                       ),
                     ],
-                    selected: {themeMode},
-                    onSelectionChanged: (selected) {
-                      final mode = selected.first;
-                      ref.read(themeModeProvider.notifier).state = mode;
-                      final modeStr = switch (mode) {
-                        ThemeMode.light => 'light',
-                        ThemeMode.system => 'system',
-                        _ => 'dark',
-                      };
-                      StorageService.saveSetting('theme_mode', modeStr);
-                    },
-                    style: const ButtonStyle(
-                      visualDensity: VisualDensity.compact,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
                   ),
                 ),
                 const Divider(height: 1),

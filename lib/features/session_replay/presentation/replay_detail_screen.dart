@@ -129,7 +129,7 @@ class ReplayDetailScreen extends ConsumerWidget {
                   ),
                   if (metaEvent?.detailLabel != null)
                     _InfoChip(
-                      label: 'URL',
+                      label: l10n.url,
                       value: metaEvent!.detailLabel!,
                     ),
                   if (events.length >= 2)
@@ -252,13 +252,14 @@ class _ReplayEventTimelineItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     // Time offset from start
     final offsetMs = (event.timestamp - baseTimestamp).round();
     final offsetSec = (offsetMs / 1000).toStringAsFixed(1);
 
     // Determine color and icon based on event type/source
-    final (Color color, IconData icon, String label) = _getEventStyle();
+    final (Color color, IconData icon, String label) = _getEventStyle(l10n);
 
     return IntrinsicHeight(
       child: Row(
@@ -347,37 +348,37 @@ class _ReplayEventTimelineItem extends StatelessWidget {
     );
   }
 
-  (Color, IconData, String) _getEventStyle() {
+  (Color, IconData, String) _getEventStyle(AppLocalizations l10n) {
     switch (event.type) {
       case 2: // Full snapshot
         return (
           const Color(0xFF6366F1),
           Icons.photo_camera,
-          'Page Snapshot'
+          l10n.replayPageSnapshot,
         );
       case 4: // Meta
         return (
           const Color(0xFF3B82F6),
           Icons.language,
-          'Page Load'
+          l10n.replayPageLoad,
         );
       case 5: // Custom event
         return (
           const Color(0xFF22C55E),
           Icons.bolt,
-          event.detailLabel ?? 'Custom Event'
+          event.detailLabel ?? l10n.replayCustomEvent,
         );
       case 6: // Plugin
         return (
           const Color(0xFF8B5CF6),
           Icons.extension,
-          'Plugin Event'
+          l10n.replayPluginEvent,
         );
       case 3: // Incremental snapshot
         final source = event.data?['source'] as int?;
         switch (source) {
           case 2: // Mouse interaction
-            final mouseLabel = event.mouseInteractionLabel ?? 'Interaction';
+            final mouseLabel = event.mouseInteractionLabel ?? l10n.replayInteraction;
             return (
               const Color(0xFFF59E0B),
               Icons.mouse,
@@ -387,25 +388,25 @@ class _ReplayEventTimelineItem extends StatelessWidget {
             return (
               const Color(0xFF64748B),
               Icons.swap_vert,
-              'Scroll',
+              l10n.replayScroll,
             );
           case 4: // Viewport resize
             return (
               const Color(0xFF06B6D4),
               Icons.aspect_ratio,
-              'Resize',
+              l10n.replayResize,
             );
           case 5: // Input
             return (
               const Color(0xFFEC4899),
               Icons.keyboard,
-              'Input',
+              l10n.replayInput,
             );
           default:
             return (
               Colors.grey,
               Icons.circle,
-              event.detailLabel ?? 'Update',
+              event.detailLabel ?? l10n.replayUpdate,
             );
         }
       default:

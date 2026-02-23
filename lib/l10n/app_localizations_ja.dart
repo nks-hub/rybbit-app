@@ -1004,6 +1004,28 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get dashboard => 'Dashboard';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get noSiteSelected => 'No site selected';
+
+  @override
+  String selectSiteFromDashboard(String tabName) {
+    return 'Select a site from the Dashboard tab to view $tabName.';
+  }
+
+  @override
+  String get goToDashboard => 'Go to Dashboard';
+
+  @override
+  String todayVisitors(int count) {
+    return '$count today';
+  }
+
+  @override
   String get entryPages => '入口ページ';
 
   @override
@@ -1026,4 +1048,91 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sources => 'ソース';
+
+  @override
+  String get cities => 'Cities';
+
+  @override
+  String get languages => 'Languages';
+
+  @override
+  String get hostnames => 'Hostnames';
+
+  @override
+  String get vpn => 'VPN';
+
+  @override
+  String get crawlers => 'Crawlers';
+
+  @override
+  String get datacenters => 'Datacenters';
+
+  @override
+  String get companies => 'Companies';
+
+  @override
+  String get companyType => 'Company Type';
+
+  @override
+  String get companyDomain => 'Company Domain';
+
+  @override
+  String get asnOrg => 'ASN Org';
+
+  @override
+  String get asnType => 'ASN Type';
+
+  @override
+  String get asnDomain => 'ASN Domain';
+
+  @override
+  String get utmMedium => 'UTM Medium';
+
+  @override
+  String get utmCampaign => 'UTM Campaign';
+
+  @override
+  String nMoreItems(int count) {
+    return '+$count more';
+  }
+
+  @override
+  String sessionsWithPercentage(String count, String percentage) {
+    return '$count sessions ($percentage%)';
+  }
+
+  @override
+  String errorGeneric(String error) {
+    return 'Error: $error';
+  }
+
+  @override
+  String get replayPageSnapshot => 'Page Snapshot';
+
+  @override
+  String get replayPageLoad => 'Page Load';
+
+  @override
+  String get replayCustomEvent => 'Custom Event';
+
+  @override
+  String get replayPluginEvent => 'Plugin Event';
+
+  @override
+  String get replayInteraction => 'Interaction';
+
+  @override
+  String get replayScroll => 'Scroll';
+
+  @override
+  String get replayResize => 'Resize';
+
+  @override
+  String get replayInput => 'Input';
+
+  @override
+  String get replayUpdate => 'Update';
+
+  @override
+  String get url => 'URL';
 }

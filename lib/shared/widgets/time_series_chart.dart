@@ -2,6 +2,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class TimeSeriesChart extends StatelessWidget {
   final List<double> values;
   final List<String> labels;
@@ -20,10 +22,12 @@ class TimeSeriesChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     if (values.isEmpty) {
-      return const SizedBox(
+      return SizedBox(
         height: 200,
-        child: Center(child: Text('No data')),
+        child: Center(child: Text(l10n.noData)),
       );
     }
 
@@ -32,7 +36,7 @@ class TimeSeriesChart extends StatelessWidget {
     final maxY = _computeMaxY();
 
     return Semantics(
-      label: 'Chart with ${values.length} data points',
+      label: l10n.chartDataPoints(values.length),
       child: SizedBox(
       height: 200,
       child: LineChart(
@@ -106,7 +110,7 @@ class TimeSeriesChart extends StatelessWidget {
                   final formatter = tooltipFormatter ?? _formatAxisValue;
                   final isPrevious = spot.barIndex == 1;
                   final label = isPrevious
-                      ? 'Prev: ${formatter(spot.y)}'
+                      ? l10n.previousPrefix(formatter(spot.y))
                       : formatter(spot.y);
                   return LineTooltipItem(
                     label,
@@ -203,11 +207,9 @@ class TimeSeriesChart extends StatelessWidget {
   String _formatLabel(String label) {
     final dt = DateTime.tryParse(label);
     if (dt == null) return label;
-    // Daily/weekly/monthly buckets: time part is midnight → show date
     if (dt.hour == 0 && dt.minute == 0 && dt.second == 0) {
       return DateFormat('MMM d').format(dt);
     }
-    // Hourly or sub-hourly buckets: show time
     return DateFormat('HH:mm').format(dt);
   }
 }

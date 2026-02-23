@@ -107,7 +107,7 @@ class LocationsScreen extends ConsumerWidget {
           // Group by country
           final byCountry = <String, List<SessionLocation>>{};
           for (final loc in locations) {
-            final key = loc.country.isNotEmpty ? loc.country : 'Unknown';
+            final key = loc.country.isNotEmpty ? loc.country : l10n.unknown;
             byCountry.putIfAbsent(key, () => []).add(loc);
           }
           // Sort countries by total sessions
@@ -228,6 +228,8 @@ class _CountrySection extends StatelessWidget {
     final sortedCities = List.of(locations)
       ..sort((a, b) => b.count.compareTo(a.count));
 
+    final l10n = AppLocalizations.of(context)!;
+
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       child: ExpansionTile(
@@ -239,7 +241,10 @@ class _CountrySection extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          '${formatNumber(countrySessions)} sessions (${percentage.toStringAsFixed(1)}%)',
+          l10n.sessionsWithPercentage(
+            formatNumber(countrySessions),
+            percentage.toStringAsFixed(1),
+          ),
           style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
         ),
         children: [
@@ -250,7 +255,7 @@ class _CountrySection extends StatelessWidget {
               leading: Icon(Icons.location_on,
                   size: 16, color: theme.textTheme.bodySmall?.color),
               title: Text(
-                loc.city.isNotEmpty ? loc.city : 'Unknown',
+                loc.city.isNotEmpty ? loc.city : l10n.unknown,
                 style: theme.textTheme.bodyMedium?.copyWith(fontSize: 13),
               ),
               trailing: Text(
@@ -265,7 +270,7 @@ class _CountrySection extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
-                '+${sortedCities.length - 20} more',
+                l10n.nMoreItems(sortedCities.length - 20),
                 style: theme.textTheme.bodySmall,
                 textAlign: TextAlign.center,
               ),

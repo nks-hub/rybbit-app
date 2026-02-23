@@ -9,34 +9,84 @@ import '../application/metrics_controller.dart';
 import 'widgets/metric_list_item.dart';
 
 enum MetricType {
-  pathname('Pages', 'pathname', Icons.article_outlined),
-  pageTitle('Page Titles', 'page_title', Icons.title),
-  referrer('Referrers', 'referrer', Icons.link),
-  country('Countries', 'country', Icons.public),
-  city('Cities', 'city', Icons.location_city),
-  browser('Browsers', 'browser', Icons.web),
-  operatingSystem('OS', 'operating_system', Icons.computer),
-  deviceType('Devices', 'device_type', Icons.devices),
-  language('Languages', 'language', Icons.translate),
-  entryPage('Entry Pages', 'entry_page', Icons.login),
-  exitPage('Exit Pages', 'exit_page', Icons.logout),
-  utmSource('UTM Source', 'utm_source', Icons.campaign),
-  channel('Channel', 'channel', Icons.trending_up),
-  hostname('Hostnames', 'hostname', Icons.dns),
-  vpn('VPN', 'vpn', Icons.vpn_key),
-  crawler('Crawlers', 'crawler', Icons.bug_report),
-  datacenter('Datacenters', 'datacenter', Icons.cloud),
-  company('Companies', 'company', Icons.business),
-  companyType('Company Type', 'company_type', Icons.category),
-  companyDomain('Company Domain', 'company_domain', Icons.domain),
-  asnOrg('ASN Org', 'asn_org', Icons.hub),
-  asnType('ASN Type', 'asn_type', Icons.router),
-  asnDomain('ASN Domain', 'asn_domain', Icons.language);
+  pathname('pathname', Icons.article_outlined),
+  pageTitle('page_title', Icons.title),
+  referrer('referrer', Icons.link),
+  country('country', Icons.public),
+  city('city', Icons.location_city),
+  browser('browser', Icons.web),
+  operatingSystem('operating_system', Icons.computer),
+  deviceType('device_type', Icons.devices),
+  language('language', Icons.translate),
+  entryPage('entry_page', Icons.login),
+  exitPage('exit_page', Icons.logout),
+  utmSource('utm_source', Icons.campaign),
+  channel('channel', Icons.trending_up),
+  hostname('hostname', Icons.dns),
+  vpn('vpn', Icons.vpn_key),
+  crawler('crawler', Icons.bug_report),
+  datacenter('datacenter', Icons.cloud),
+  company('company', Icons.business),
+  companyType('company_type', Icons.category),
+  companyDomain('company_domain', Icons.domain),
+  asnOrg('asn_org', Icons.hub),
+  asnType('asn_type', Icons.router),
+  asnDomain('asn_domain', Icons.language);
 
-  const MetricType(this.label, this.parameter, this.icon);
-  final String label;
+  const MetricType(this.parameter, this.icon);
   final String parameter;
   final IconData icon;
+
+  String localizedLabel(AppLocalizations l10n) {
+    switch (this) {
+      case MetricType.pathname:
+        return l10n.pages;
+      case MetricType.pageTitle:
+        return l10n.pageTitles;
+      case MetricType.referrer:
+        return l10n.referrers;
+      case MetricType.country:
+        return l10n.countries;
+      case MetricType.city:
+        return l10n.cities;
+      case MetricType.browser:
+        return l10n.browsers;
+      case MetricType.operatingSystem:
+        return l10n.operatingSystems;
+      case MetricType.deviceType:
+        return l10n.devices;
+      case MetricType.language:
+        return l10n.languages;
+      case MetricType.entryPage:
+        return l10n.entryPages;
+      case MetricType.exitPage:
+        return l10n.exitPages;
+      case MetricType.utmSource:
+        return l10n.utmSource;
+      case MetricType.channel:
+        return l10n.channel;
+      case MetricType.hostname:
+        return l10n.hostnames;
+      case MetricType.vpn:
+        return l10n.vpn;
+      case MetricType.crawler:
+        return l10n.crawlers;
+      case MetricType.datacenter:
+        return l10n.datacenters;
+      case MetricType.company:
+        return l10n.companies;
+      case MetricType.companyType:
+        return l10n.companyType;
+      case MetricType.companyDomain:
+        return l10n.companyDomain;
+      case MetricType.asnOrg:
+        return l10n.asnOrg;
+      case MetricType.asnType:
+        return l10n.asnType;
+      case MetricType.asnDomain:
+        return l10n.asnDomain;
+    }
+  }
 
   static MetricType fromParameter(String parameter) {
     return MetricType.values.firstWhere(
@@ -107,7 +157,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              _selectedType.label,
+              _selectedType.localizedLabel(l10n),
               style: const TextStyle(fontSize: 18),
             ),
             if (domain != null)
@@ -142,7 +192,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
                   child: FilterChip(
                     label: Text(
-                      type.label,
+                      type.localizedLabel(l10n),
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight:
@@ -215,7 +265,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          l10n.noMetricData(_selectedType.label.toLowerCase()),
+                          l10n.noMetricData(_selectedType.localizedLabel(l10n).toLowerCase()),
                           style: theme.textTheme.bodyLarge,
                         ),
                       ],

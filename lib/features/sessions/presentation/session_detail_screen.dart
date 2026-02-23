@@ -226,21 +226,21 @@ class SessionDetailScreen extends ConsumerWidget {
                           session.utmSource!.isNotEmpty)
                         _InfoRow(
                           icon: Icons.campaign,
-                          label: 'UTM Source',
+                          label: l10n.utmSource,
                           value: session.utmSource!,
                         ),
                       if (session.utmMedium != null &&
                           session.utmMedium!.isNotEmpty)
                         _InfoRow(
                           icon: Icons.mediation,
-                          label: 'UTM Medium',
+                          label: l10n.utmMedium,
                           value: session.utmMedium!,
                         ),
                       if (session.utmCampaign != null &&
                           session.utmCampaign!.isNotEmpty)
                         _InfoRow(
                           icon: Icons.flag,
-                          label: 'UTM Campaign',
+                          label: l10n.utmCampaign,
                           value: session.utmCampaign!,
                         ),
                     ],

@@ -362,8 +362,7 @@ class _SessionCard extends StatelessWidget {
                               session.operatingSystem!.isNotEmpty)
                             Text(
                               session.operatingSystem!,
-                              style: theme.textTheme.bodySmall
-                                  ?.copyWith(fontSize: 11),
+                              style: theme.textTheme.bodySmall,
                             ),
                         ],
                       ),
@@ -379,8 +378,7 @@ class _SessionCard extends StatelessWidget {
                         ),
                         Text(
                           l10n.nPages(session.pageviews),
-                          style:
-                              theme.textTheme.bodySmall?.copyWith(fontSize: 11),
+                          style: theme.textTheme.bodySmall,
                         ),
                       ],
                     ),
@@ -404,8 +402,7 @@ class _SessionCard extends StatelessWidget {
                         Expanded(
                           child: Text(
                             session.entryPage!,
-                            style:
-                                theme.textTheme.bodySmall?.copyWith(fontSize: 12),
+                            style: theme.textTheme.bodySmall,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),

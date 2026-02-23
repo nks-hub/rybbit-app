@@ -18,7 +18,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get cancel => 'Anuluj';
 
   @override
-  String get delete => 'UsuÅ';
+  String get delete => 'Usuń';
 
   @override
   String get save => 'Zapisz';
@@ -27,10 +27,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get update => 'Aktualizuj';
 
   @override
-  String get create => 'UtwÃ³rz';
+  String get create => 'Utwórz';
 
   @override
-  String get retry => 'PonÃ³w';
+  String get retry => 'Ponów';
 
   @override
   String get add => 'Dodaj';
@@ -39,19 +39,19 @@ class AppLocalizationsPl extends AppLocalizations {
   String get edit => 'Edytuj';
 
   @override
-  String get clear => 'WyczyÅÄ';
+  String get clear => 'Wyczyść';
 
   @override
   String get apply => 'Zastosuj';
 
   @override
-  String get goBack => 'WrÃ³Ä';
+  String get goBack => 'Wróć';
 
   @override
   String get noData => 'Brak danych';
 
   @override
-  String get loading => 'Åadowanie';
+  String get loading => 'Ładowanie';
 
   @override
   String get logout => 'Wyloguj';
@@ -72,10 +72,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get apiKey => 'Klucz API';
 
   @override
-  String get password => 'HasÅo';
+  String get password => 'Hasło';
 
   @override
-  String get connect => 'PoÅÄcz';
+  String get connect => 'Połącz';
 
   @override
   String get organizations => 'Organizacje';
@@ -85,7 +85,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get noSitesHint =>
-      'Dodaj witrynÄ w panelu internetowym, aby rozpoczÄÄ.';
+      'Dodaj witrynę w panelu internetowym, aby rozpocząć.';
 
   @override
   String siteCount(int count) {
@@ -100,46 +100,45 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String members(int count) {
-    return 'CzÅonkowie ($count)';
+    return 'Członkowie ($count)';
   }
 
   @override
-  String get failedToLoadOrganizations =>
-      'Nie udaÅo siÄ zaÅadowaÄ organizacji';
+  String get failedToLoadOrganizations => 'Nie udało się załadować organizacji';
 
   @override
   String get noOrganizations => 'Brak organizacji';
 
   @override
   String get noOrganizationsHint =>
-      'Organizacje moÅ¼na tworzyÄ w panelu internetowym';
+      'Organizacje można tworzyć w panelu internetowym';
 
   @override
-  String get failedToLoadMembers => 'Nie udaÅo siÄ zaÅadowaÄ czÅonkÃ³w';
+  String get failedToLoadMembers => 'Nie udało się załadować członków';
 
   @override
-  String get failedToLoadSites => 'Nie udaÅo siÄ zaÅadowaÄ stron';
+  String get failedToLoadSites => 'Nie udało się załadować stron';
 
   @override
-  String get failedToLoadAnalytics => 'Nie udaÅo siÄ zaÅadowaÄ analityki';
+  String get failedToLoadAnalytics => 'Nie udało się załadować analityki';
 
   @override
-  String get noDataAvailable => 'Brak dostÄpnych danych';
+  String get noDataAvailable => 'Brak dostępnych danych';
 
   @override
-  String get users => 'UÅ¼ytkownicy';
+  String get users => 'Użytkownicy';
 
   @override
   String get sessions => 'Sesje';
 
   @override
-  String get pageviews => 'OdsÅony';
+  String get pageviews => 'Odsłony';
 
   @override
   String get pagesPerSession => 'Strony/Sesja';
 
   @override
-  String get bounceRate => 'WspÃ³Åczynnik odrzuceÅ';
+  String get bounceRate => 'Współczynnik odrzuceń';
 
   @override
   String get duration => 'Czas trwania';
@@ -151,16 +150,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get pages => 'Strony';
 
   @override
-  String get referrers => 'Strony odsyÅajÄce';
+  String get referrers => 'Strony odsyłające';
 
   @override
   String get countries => 'Kraje';
 
   @override
-  String get devices => 'UrzÄdzenia';
+  String get devices => 'Urządzenia';
 
   @override
-  String get performance => 'WydajnoÅÄ';
+  String get performance => 'Wydajność';
 
   @override
   String get goals => 'Cele';
@@ -176,7 +175,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String usersOnline(int count) {
-    return '$count uÅ¼ytkownikÃ³w online';
+    return '$count użytkowników online';
   }
 
   @override
@@ -186,114 +185,113 @@ class AppLocalizationsPl extends AppLocalizations {
   String get eventsOverTime => 'Zdarzenia w czasie';
 
   @override
-  String get eventNames => 'Nazwy zdarzeÅ';
+  String get eventNames => 'Nazwy zdarzeń';
 
   @override
-  String get noCustomEventsTracked => 'Nie Åledzono niestandardowych zdarzeÅ';
+  String get noCustomEventsTracked => 'Nie śledzono niestandardowych zdarzeń';
 
   @override
-  String get failedToLoadProperties =>
-      'Nie udaÅo siÄ zaÅadowaÄ wÅaÅciwoÅci';
+  String get failedToLoadProperties => 'Nie udało się załadować właściwości';
 
   @override
-  String get noProperties => 'Brak wÅaÅciwoÅci';
+  String get noProperties => 'Brak właściwości';
 
   @override
-  String get outboundLinks => 'Linki wychodzÄce';
+  String get outboundLinks => 'Linki wychodzące';
 
   @override
-  String get noOutboundLinksTracked => 'Nie Åledzono linkÃ³w wychodzÄcych';
+  String get noOutboundLinksTracked => 'Nie śledzono linków wychodzących';
 
   @override
-  String get failedToLoadChart => 'Nie udaÅo siÄ zaÅadowaÄ wykresu';
+  String get failedToLoadChart => 'Nie udało się załadować wykresu';
 
   @override
-  String get errors => 'BÅÄdy';
+  String get errors => 'Błędy';
 
   @override
-  String get failedToLoadErrors => 'Nie udaÅo siÄ zaÅadowaÄ bÅÄdÃ³w';
+  String get failedToLoadErrors => 'Nie udało się załadować błędów';
 
   @override
-  String get noErrorsFound => 'Nie znaleziono bÅÄdÃ³w';
+  String get noErrorsFound => 'Nie znaleziono błędów';
 
   @override
-  String get everythingLooksGood => 'Wszystko wyglÄda dobrze!';
+  String get everythingLooksGood => 'Wszystko wygląda dobrze!';
 
   @override
-  String get occurrences => 'wystÄpienia';
+  String get occurrences => 'wystąpienia';
 
   @override
-  String get sessionsAffected => 'dotkniÄte sesje';
+  String get sessionsAffected => 'dotknięte sesje';
 
   @override
   String failedToLoadEventsWithError(String error) {
-    return 'Nie udaÅo siÄ zaÅadowaÄ zdarzeÅ: $error';
+    return 'Nie udało się załadować zdarzeń: $error';
   }
 
   @override
-  String get noEventsFound => 'Nie znaleziono zdarzeÅ';
+  String get noEventsFound => 'Nie znaleziono zdarzeń';
 
   @override
-  String get failedToLoadFunnels => 'Nie udaÅo siÄ zaÅadowaÄ lejkÃ³w';
+  String get failedToLoadFunnels => 'Nie udało się załadować lejków';
 
   @override
-  String get noFunnelsSaved => 'Brak zapisanych lejkÃ³w';
+  String get noFunnelsSaved => 'Brak zapisanych lejków';
 
   @override
-  String get createFunnelsHint => 'UtwÃ³rz lejki w panelu internetowym';
+  String get createFunnelsHint => 'Utwórz lejki w panelu internetowym';
 
   @override
-  String get deleteFunnel => 'UsuÅ lejek';
+  String get deleteFunnel => 'Usuń lejek';
 
   @override
   String deleteFunnelConfirm(String name) {
-    return 'UsunÄÄ \"$name\"?';
+    return 'Usunąć \"$name\"?';
   }
 
   @override
   String failedToDeleteFunnel(String error) {
-    return 'Nie udaÅo siÄ usunÄÄ lejka: $error';
+    return 'Nie udało się usunąć lejka: $error';
   }
 
   @override
-  String get noStepsDefined => 'Nie zdefiniowano krokÃ³w dla tego lejka';
+  String get noStepsDefined => 'Nie zdefiniowano kroków dla tego lejka';
 
   @override
   String failedToAnalyze(String error) {
-    return 'Nie udaÅo siÄ przeanalizowaÄ: $error';
+    return 'Nie udało się przeanalizować: $error';
   }
 
   @override
-  String get overallConversion => 'OgÃ³lna konwersja';
+  String get overallConversion => 'Ogólna konwersja';
 
   @override
   String dropoff(String value) {
-    return 'OdpadniÄcie: $value';
+    return 'Odpadnięcie: $value';
   }
 
   @override
-  String get createGoal => 'UtwÃ³rz cel';
+  String get createGoal => 'Utwórz cel';
 
   @override
-  String get failedToLoadGoals => 'Nie udaÅo siÄ zaÅadowaÄ celÃ³w';
+  String get failedToLoadGoals => 'Nie udało się załadować celów';
 
   @override
-  String get noGoalsConfigured => 'Brak skonfigurowanych celÃ³w';
+  String get noGoalsConfigured => 'Brak skonfigurowanych celów';
 
   @override
-  String get noGoalsHint => 'NaciÅnij +, aby utworzyÄ nowy cel';
+  String get noGoalsHint => 'Naciśnij +, aby utworzyć nowy cel';
 
   @override
   String get conversions => 'Konwersje';
 
   @override
-  String get rate => 'WspÃ³Åczynnik';
+  String get rate => 'Współczynnik';
 
   @override
   String get editGoal => 'Edytuj cel';
 
   @override
-  String get createGoalTitle => 'UtwÃ³rz cel';
+  String get createGoalTitle => 'Utwórz cel';
 
   @override
   String get name => 'Nazwa';
@@ -302,33 +300,33 @@ class AppLocalizationsPl extends AppLocalizations {
   String get type => 'Typ';
 
   @override
-  String get path => 'ÅcieÅ¼ka';
+  String get path => 'Ścieżka';
 
   @override
   String get event => 'Zdarzenie';
 
   @override
-  String get pathPattern => 'Wzorzec ÅcieÅ¼ki';
+  String get pathPattern => 'Wzorzec ścieżki';
 
   @override
   String get eventName => 'Nazwa zdarzenia';
 
   @override
-  String get deleteGoal => 'UsuÅ cel';
+  String get deleteGoal => 'Usuń cel';
 
   @override
   String deleteGoalConfirm(String name) {
-    return 'UsunÄÄ \"$name\"?';
+    return 'Usunąć \"$name\"?';
   }
 
   @override
   String failedToDeleteGoal(String error) {
-    return 'Nie udaÅo siÄ usunÄÄ celu: $error';
+    return 'Nie udało się usunąć celu: $error';
   }
 
   @override
   String get failedToLoadPerformanceData =>
-      'Nie udaÅo siÄ zaÅadowaÄ danych wydajnoÅci';
+      'Nie udało się załadować danych wydajności';
 
   @override
   String metricOverTime(String metric) {
@@ -336,11 +334,11 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get byDimension => 'WedÅug wymiaru';
+  String get byDimension => 'Według wymiaru';
 
   @override
   String get failedToLoadDimensionData =>
-      'Nie udaÅo siÄ zaÅadowaÄ danych wymiaru';
+      'Nie udało się załadować danych wymiaru';
 
   @override
   String get good => 'Dobrze';
@@ -349,7 +347,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get needsImprovement => 'Wymaga poprawy';
 
   @override
-  String get poor => 'SÅabo';
+  String get poor => 'Słabo';
 
   @override
   String get largestContentfulPaint => 'Largest Contentful Paint';
@@ -373,10 +371,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get dimCountries => 'Kraje';
 
   @override
-  String get dimDevices => 'UrzÄdzenia';
+  String get dimDevices => 'Urządzenia';
 
   @override
-  String get dimBrowsers => 'PrzeglÄdarki';
+  String get dimBrowsers => 'Przeglądarki';
 
   @override
   String get dimOS => 'System operacyjny';
@@ -385,7 +383,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get sessionFilters => 'Filtry sesji';
 
   @override
-  String get minPageviews => 'Min. odsÅony';
+  String get minPageviews => 'Min. odsłony';
 
   @override
   String get minEvents => 'Min. zdarzenia';
@@ -394,7 +392,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get minDurationSeconds => 'Min. czas trwania (sekundy)';
 
   @override
-  String get failedToLoadSessions => 'Nie udaÅo siÄ zaÅadowaÄ sesji';
+  String get failedToLoadSessions => 'Nie udało się załadować sesji';
 
   @override
   String get noSessionsFound => 'Nie znaleziono sesji';
@@ -403,11 +401,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get filterSessions => 'Filtruj sesje';
 
   @override
-  String get loadingMoreSessions => 'Åadowanie kolejnych sesji';
+  String get loadingMoreSessions => 'Ładowanie kolejnych sesji';
 
   @override
   String entryPage(String page) {
-    return 'Strona wejÅciowa: $page';
+    return 'Strona wejściowa: $page';
   }
 
   @override
@@ -419,20 +417,20 @@ class AppLocalizationsPl extends AppLocalizations {
   String get sessionReplays => 'Odtwarzanie sesji';
 
   @override
-  String get failedToLoadReplays => 'Nie udaÅo siÄ zaÅadowaÄ odtworzeÅ';
+  String get failedToLoadReplays => 'Nie udało się załadować odtworzeń';
 
   @override
-  String get noReplaysFound => 'Nie znaleziono odtworzeÅ';
+  String get noReplaysFound => 'Nie znaleziono odtworzeń';
 
   @override
   String get noReplaysHint =>
-      'Odtwarzanie sesji pojawi siÄ tutaj, gdy zostanie wÅÄczone.';
+      'Odtwarzanie sesji pojawi się tutaj, gdy zostanie włączone.';
 
   @override
   String get previousPage => 'Poprzednia strona';
 
   @override
-  String get nextPage => 'NastÄpna strona';
+  String get nextPage => 'Następna strona';
 
   @override
   String pageNumber(int number) {
@@ -440,50 +438,50 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get unknownBrowser => 'Nieznana przeglÄdarka';
+  String get unknownBrowser => 'Nieznana przeglądarka';
 
   @override
   String get unknownCountry => 'Nieznany kraj';
 
   @override
-  String get sortUsers => 'Sortuj uÅ¼ytkownikÃ³w';
+  String get sortUsers => 'Sortuj użytkowników';
 
   @override
-  String get showAllUsers => 'PokaÅ¼ wszystkich uÅ¼ytkownikÃ³w';
+  String get showAllUsers => 'Pokaż wszystkich użytkowników';
 
   @override
-  String get showIdentifiedOnly => 'PokaÅ¼ tylko zidentyfikowanych';
+  String get showIdentifiedOnly => 'Pokaż tylko zidentyfikowanych';
 
   @override
-  String get searchUsers => 'Szukaj uÅ¼ytkownikÃ³w';
+  String get searchUsers => 'Szukaj użytkowników';
 
   @override
-  String get searchUsersHint => 'Szukaj uÅ¼ytkownikÃ³w...';
+  String get searchUsersHint => 'Szukaj użytkowników...';
 
   @override
-  String get clearSearch => 'WyczyÅÄ wyszukiwanie';
+  String get clearSearch => 'Wyczyść wyszukiwanie';
 
   @override
-  String get failedToLoadUsers => 'Nie udaÅo siÄ zaÅadowaÄ uÅ¼ytkownikÃ³w';
+  String get failedToLoadUsers => 'Nie udało się załadować użytkowników';
 
   @override
-  String get noUsersFound => 'Nie znaleziono uÅ¼ytkownikÃ³w';
+  String get noUsersFound => 'Nie znaleziono użytkowników';
 
   @override
-  String get noIdentifiedUsers => 'Brak zidentyfikowanych uÅ¼ytkownikÃ³w';
+  String get noIdentifiedUsers => 'Brak zidentyfikowanych użytkowników';
 
   @override
   String get usersWillAppear =>
-      'UÅ¼ytkownicy pojawiÄ siÄ po ich zidentyfikowaniu';
+      'Użytkownicy pojawią się po ich zidentyfikowaniu';
 
   @override
-  String get tryDifferentSearch => 'SprÃ³buj innego zapytania';
+  String get tryDifferentSearch => 'Spróbuj innego zapytania';
 
   @override
-  String get sortedBy => 'Sortowane wedÅug';
+  String get sortedBy => 'Sortowane według';
 
   @override
-  String get loadingMoreUsers => 'Åadowanie kolejnych uÅ¼ytkownikÃ³w';
+  String get loadingMoreUsers => 'Ładowanie kolejnych użytkowników';
 
   @override
   String get lastSeen => 'Ostatnio widziany';
@@ -493,7 +491,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String nUsers(String count) {
-    return '$count uÅ¼ytkownikÃ³w';
+    return '$count użytkowników';
   }
 
   @override
@@ -508,13 +506,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get failedToLoadSiteConfig =>
-      'Nie udaÅo siÄ zaÅadowaÄ konfiguracji strony';
+      'Nie udało się załadować konfiguracji strony';
 
   @override
-  String get failedToLoadMetrics => 'Nie udaÅo siÄ zaÅadowaÄ metryk';
+  String get failedToLoadMetrics => 'Nie udało się załadować metryk';
 
   @override
-  String get loadingMoreMetrics => 'Åadowanie kolejnych metryk';
+  String get loadingMoreMetrics => 'Ładowanie kolejnych metryk';
 
   @override
   String noMetricData(String metric) {
@@ -525,7 +523,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get settings => 'Ustawienia';
 
   @override
-  String get connection => 'PoÅÄczenie';
+  String get connection => 'Połączenie';
 
   @override
   String get notConfigured => 'Nie skonfigurowano';
@@ -543,7 +541,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get unknown => 'Nieznane';
 
   @override
-  String get appearance => 'WyglÄd';
+  String get appearance => 'Wygląd';
 
   @override
   String get theme => 'Motyw';
@@ -567,7 +565,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get openSourceAnalytics => 'Analityka internetowa open source';
 
   @override
-  String get logoutConfirm => 'Czy na pewno chcesz siÄ wylogowaÄ?';
+  String get logoutConfirm => 'Czy na pewno chcesz się wylogować?';
 
   @override
   String get siteSettings => 'Ustawienia witryny';
@@ -585,37 +583,37 @@ class AppLocalizationsPl extends AppLocalizations {
   String get created => 'Utworzono';
 
   @override
-  String get trackingSettings => 'Ustawienia Åledzenia';
+  String get trackingSettings => 'Ustawienia śledzenia';
 
   @override
   String get publicDashboard => 'Publiczny panel';
 
   @override
-  String get publicDashboardDesc => 'ZezwÃ³l na publiczny dostÄp do analityki';
+  String get publicDashboardDesc => 'Zezwól na publiczny dostęp do analityki';
 
   @override
   String get sessionReplay => 'Odtwarzanie sesji';
 
   @override
-  String get sessionReplayDesc => 'Nagrywaj sesje uÅ¼ytkownikÃ³w';
+  String get sessionReplayDesc => 'Nagrywaj sesje użytkowników';
 
   @override
   String get webVitals => 'Web Vitals';
 
   @override
-  String get webVitalsDesc => 'ÅledÅº Core Web Vitals';
+  String get webVitalsDesc => 'Śledź Core Web Vitals';
 
   @override
-  String get trackErrors => 'Åledzenie bÅÄdÃ³w';
+  String get trackErrors => 'Śledzenie błędów';
 
   @override
-  String get trackErrorsDesc => 'Przechwytuj bÅÄdy JavaScript';
+  String get trackErrorsDesc => 'Przechwytuj błędy JavaScript';
 
   @override
-  String get outboundLinksTracking => 'Linki wychodzÄce';
+  String get outboundLinksTracking => 'Linki wychodzące';
 
   @override
-  String get outboundLinksDesc => 'ÅledÅº klikniÄcia w linki wychodzÄce';
+  String get outboundLinksDesc => 'Śledź kliknięcia w linki wychodzące';
 
   @override
   String get excludedIps => 'Wykluczone adresy IP';
@@ -628,7 +626,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String failedToSave(String error) {
-    return 'Nie udaÅo siÄ zapisaÄ: $error';
+    return 'Nie udało się zapisać: $error';
   }
 
   @override
@@ -647,10 +645,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get last30Days => 'Ostatnie 30 dni';
 
   @override
-  String get thisWeek => 'Ten tydzieÅ';
+  String get thisWeek => 'Ten tydzień';
 
   @override
-  String get thisMonth => 'Ten miesiÄc';
+  String get thisMonth => 'Ten miesiąc';
 
   @override
   String get thisYear => 'Ten rok';
@@ -668,33 +666,33 @@ class AppLocalizationsPl extends AppLocalizations {
   String get parameter => 'Parametr';
 
   @override
-  String get value => 'WartoÅÄ';
+  String get value => 'Wartość';
 
   @override
-  String get enterFilterValue => 'WprowadÅº wartoÅÄ filtra';
+  String get enterFilterValue => 'Wprowadź wartość filtra';
 
   @override
   String get requestTimedOut =>
-      'UpÅynÄÅ limit czasu Å¼Ädania. SprÃ³buj ponownie.';
+      'Upłynął limit czasu żądania. Spróbuj ponownie.';
 
   @override
-  String get networkError => 'BÅÄd sieci. SprawdÅº poÅÄczenie.';
+  String get networkError => 'Błąd sieci. Sprawdź połączenie.';
 
   @override
-  String get sessionExpired => 'Sesja wygasÅa. Zaloguj siÄ ponownie.';
+  String get sessionExpired => 'Sesja wygasła. Zaloguj się ponownie.';
 
   @override
-  String get accessDenied => 'Odmowa dostÄpu.';
+  String get accessDenied => 'Odmowa dostępu.';
 
   @override
   String get dataNotFound => 'Nie znaleziono danych.';
 
   @override
-  String get serverError => 'BÅÄd serwera. SprÃ³buj ponownie pÃ³Åºniej.';
+  String get serverError => 'Błąd serwera. Spróbuj ponownie później.';
 
   @override
   String get failedToLoadGeneric =>
-      'Nie udaÅo siÄ zaÅadowaÄ danych. SprÃ³buj ponownie.';
+      'Nie udało się załadować danych. Spróbuj ponownie.';
 
   @override
   String chartDataPoints(int count) {
@@ -708,21 +706,21 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String performanceRatingLabel(String rating) {
-    return 'Ocena wydajnoÅci: $rating';
+    return 'Ocena wydajności: $rating';
   }
 
   @override
-  String get loadingContent => 'Åadowanie zawartoÅci';
+  String get loadingContent => 'Ładowanie zawartości';
 
   @override
-  String get language => 'JÄzyk';
+  String get language => 'Język';
 
   @override
-  String get selectLanguage => 'Wybierz jÄzyk';
+  String get selectLanguage => 'Wybierz język';
 
   @override
   String get failedToLoadUserDetails =>
-      'Nie udaÅo siÄ zaÅadowaÄ szczegÃ³ÅÃ³w uÅ¼ytkownika';
+      'Nie udało się załadować szczegółów użytkownika';
 
   @override
   String lastSeenPrefix(String value) {
@@ -733,75 +731,75 @@ class AppLocalizationsPl extends AppLocalizations {
   String get traits => 'Cechy';
 
   @override
-  String get noTraits => 'Brak cech dla tego uÅ¼ytkownika';
+  String get noTraits => 'Brak cech dla tego użytkownika';
 
   @override
-  String get sessionDetail => 'SzczegÃ³Åy sesji';
+  String get sessionDetail => 'Szczegóły sesji';
 
   @override
-  String get failedToLoadSession => 'Nie udaÅo siÄ zaÅadowaÄ sesji';
+  String get failedToLoadSession => 'Nie udało się załadować sesji';
 
   @override
-  String get entryPageLabel => 'Strona wejÅcia';
+  String get entryPageLabel => 'Strona wejścia';
 
   @override
-  String get exitPage => 'Strona wyjÅcia';
+  String get exitPage => 'Strona wyjścia';
 
   @override
-  String get browserAndDevice => 'PrzeglÄdarka i urzÄdzenie';
+  String get browserAndDevice => 'Przeglądarka i urządzenie';
 
   @override
-  String get browser => 'PrzeglÄdarka';
+  String get browser => 'Przeglądarka';
 
   @override
   String get os => 'System';
 
   @override
-  String get device => 'UrzÄdzenie';
+  String get device => 'Urządzenie';
 
   @override
-  String get sourceLabel => 'Å¹rÃ³dÅo';
+  String get sourceLabel => 'Źródło';
 
   @override
-  String get referrer => 'OdnoÅnik';
+  String get referrer => 'Odnośnik';
 
   @override
   String eventTimelineCount(int count) {
-    return 'OÅ czasu ($count)';
+    return 'Oś czasu ($count)';
   }
 
   @override
-  String get noEvents => 'Brak wydarzeÅ';
+  String get noEvents => 'Brak wydarzeń';
 
   @override
-  String get replayEventsTitle => 'Zdarzenia powtÃ³rki';
+  String get replayEventsTitle => 'Zdarzenia powtórki';
 
   @override
-  String get failedToLoadReplay => 'Nie udaÅo siÄ zaÅadowaÄ powtÃ³rki';
+  String get failedToLoadReplay => 'Nie udało się załadować powtórki';
 
   @override
-  String get noReplayEvents => 'Brak zdarzeÅ powtÃ³rki';
+  String get noReplayEvents => 'Brak zdarzeń powtórki';
 
   @override
-  String get totalEvents => 'ÅÄcznie wydarzeÅ';
+  String get totalEvents => 'Łącznie wydarzeń';
 
   @override
-  String get userActionsLabel => 'Akcje uÅ¼ytkownika';
+  String get userActionsLabel => 'Akcje użytkownika';
 
   @override
   String eventTimelineActions(int count) {
-    return 'OÅ czasu ($count akcji)';
+    return 'Oś czasu ($count akcji)';
   }
 
   @override
-  String get eventLog => 'Dziennik zdarzeÅ';
+  String get eventLog => 'Dziennik zdarzeń';
 
   @override
-  String get viewEventLog => 'Zobacz dziennik zdarzeÅ';
+  String get viewEventLog => 'Zobacz dziennik zdarzeń';
 
   @override
   String get failedToLoadEventLog =>
-      'Nie udaÅo siÄ zaÅadowaÄ dziennika zdarzeÅ';
+      'Nie udało się załadować dziennika zdarzeń';
 
   @override
   String get activityHeatmap => 'Mapa cieplna';
@@ -813,10 +811,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get less => 'Mniej';
 
   @override
-  String get more => 'WiÄcej';
+  String get more => 'Więcej';
 
   @override
-  String get peakActivity => 'Szczytowa aktywnoÅÄ';
+  String get peakActivity => 'Szczytowa aktywność';
 
   @override
   String peakHour(String day, String time) {
@@ -825,7 +823,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String busiestDay(String day) {
-    return 'Najbardziej aktywny dzieÅ: $day';
+    return 'Najbardziej aktywny dzień: $day';
   }
 
   @override
@@ -835,7 +833,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get dayTue => 'Wt';
 
   @override
-  String get dayWed => 'År';
+  String get dayWed => 'Śr';
 
   @override
   String get dayThu => 'Czw';
@@ -850,22 +848,22 @@ class AppLocalizationsPl extends AppLocalizations {
   String get daySun => 'Ndz';
 
   @override
-  String get searchEvents => 'Szukaj zdarzeÅ...';
+  String get searchEvents => 'Szukaj zdarzeń...';
 
   @override
   String get allTypes => 'Wszystkie';
 
   @override
-  String get noMatchingEvents => 'Brak pasujÄcych zdarzeÅ';
+  String get noMatchingEvents => 'Brak pasujących zdarzeń';
 
   @override
-  String get liveView => 'Na Å¼ywo';
+  String get liveView => 'Na żywo';
 
   @override
-  String get autoRefresh => 'Automatyczne odÅwieÅ¼anie';
+  String get autoRefresh => 'Automatyczne odświeżanie';
 
   @override
-  String get usersOnlineNow => 'UÅ¼ytkownicy online';
+  String get usersOnlineNow => 'Użytkownicy online';
 
   @override
   String lastUpdatedAt(String time) {
@@ -882,7 +880,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get recentEvents => 'Ostatnie zdarzenia';
 
   @override
-  String get noRecentEvents => 'Brak ostatnich zdarzeÅ';
+  String get noRecentEvents => 'Brak ostatnich zdarzeń';
 
   @override
   String get retention => 'Retencja';
@@ -902,8 +900,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get failedToLoadRetention =>
-      'Nie udaÅo siÄ zaÅadowaÄ danych retencji';
+  String get failedToLoadRetention => 'Nie udało się załadować danych retencji';
 
   @override
   String get noRetentionData => 'Brak danych retencji';
@@ -918,16 +915,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get retentionDayPrefix => 'D';
 
   @override
-  String get journeys => 'ÅcieÅ¼ki uÅ¼ytkownikÃ³w';
+  String get journeys => 'Ścieżki użytkowników';
 
   @override
   String get journeySteps => 'Kroki';
 
   @override
-  String get failedToLoadJourneys => 'Nie udaÅo siÄ zaÅadowaÄ ÅcieÅ¼ek';
+  String get failedToLoadJourneys => 'Nie udało się załadować ścieżek';
 
   @override
-  String get noJourneysFound => 'Nie znaleziono ÅcieÅ¼ek';
+  String get noJourneysFound => 'Nie znaleziono ścieżek';
 
   @override
   String journeySessions(String count) {
@@ -941,37 +938,59 @@ class AppLocalizationsPl extends AppLocalizations {
   String get locationCities => 'Miasta';
 
   @override
-  String get failedToLoadLocations => 'Nie udaÅo siÄ zaÅadowaÄ lokalizacji';
+  String get failedToLoadLocations => 'Nie udało się załadować lokalizacji';
 
   @override
   String get noLocationsFound => 'Nie znaleziono lokalizacji';
 
   @override
-  String get coreFeatures => 'GÅÃ³wne';
+  String get coreFeatures => 'Główne';
 
   @override
-  String get insights => 'WglÄd';
+  String get insights => 'Wgląd';
 
   @override
-  String get tools => 'NarzÄdzia';
+  String get tools => 'Narzędzia';
 
   @override
   String get userTraits => 'Cechy';
 
   @override
   String get failedToLoadUserTraits =>
-      'Nie udaÅo siÄ zaÅadowaÄ cech uÅ¼ytkownikÃ³w';
+      'Nie udało się załadować cech użytkowników';
 
   @override
   String get noUserTraits => 'Nie znaleziono cech';
 
   @override
   String get noUserTraitsHint =>
-      'Cechy pojawiÄ siÄ po zidentyfikowaniu uÅ¼ytkownikÃ³w z niestandardowymi wÅaÅciwoÅciami';
+      'Cechy pojawią się po zidentyfikowaniu użytkowników z niestandardowymi właściwościami';
 
   @override
   String traitUsersCount(String count) {
-    return '$count uÅ¼ytkownikÃ³w';
+    return '$count użytkowników';
+  }
+
+  @override
+  String get dashboard => 'Dashboard';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get noSiteSelected => 'No site selected';
+
+  @override
+  String selectSiteFromDashboard(String tabName) {
+    return 'Select a site from the Dashboard tab to view $tabName.';
+  }
+
+  @override
+  String get goToDashboard => 'Go to Dashboard';
+
+  @override
+  String todayVisitors(int count) {
+    return '$count today';
   }
 
   @override
@@ -997,4 +1016,91 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get sources => 'Źródła';
+
+  @override
+  String get cities => 'Cities';
+
+  @override
+  String get languages => 'Languages';
+
+  @override
+  String get hostnames => 'Hostnames';
+
+  @override
+  String get vpn => 'VPN';
+
+  @override
+  String get crawlers => 'Crawlers';
+
+  @override
+  String get datacenters => 'Datacenters';
+
+  @override
+  String get companies => 'Companies';
+
+  @override
+  String get companyType => 'Company Type';
+
+  @override
+  String get companyDomain => 'Company Domain';
+
+  @override
+  String get asnOrg => 'ASN Org';
+
+  @override
+  String get asnType => 'ASN Type';
+
+  @override
+  String get asnDomain => 'ASN Domain';
+
+  @override
+  String get utmMedium => 'UTM Medium';
+
+  @override
+  String get utmCampaign => 'UTM Campaign';
+
+  @override
+  String nMoreItems(int count) {
+    return '+$count more';
+  }
+
+  @override
+  String sessionsWithPercentage(String count, String percentage) {
+    return '$count sessions ($percentage%)';
+  }
+
+  @override
+  String errorGeneric(String error) {
+    return 'Error: $error';
+  }
+
+  @override
+  String get replayPageSnapshot => 'Page Snapshot';
+
+  @override
+  String get replayPageLoad => 'Page Load';
+
+  @override
+  String get replayCustomEvent => 'Custom Event';
+
+  @override
+  String get replayPluginEvent => 'Plugin Event';
+
+  @override
+  String get replayInteraction => 'Interaction';
+
+  @override
+  String get replayScroll => 'Scroll';
+
+  @override
+  String get replayResize => 'Resize';
+
+  @override
+  String get replayInput => 'Input';
+
+  @override
+  String get replayUpdate => 'Update';
+
+  @override
+  String get url => 'URL';
 }

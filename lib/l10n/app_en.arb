@@ -359,6 +359,15 @@
   "traitUsersCount": "{count} users",
   "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
 
+  "dashboard": "Dashboard",
+  "analytics": "Analytics",
+  "noSiteSelected": "No site selected",
+  "selectSiteFromDashboard": "Select a site from the Dashboard tab to view {tabName}.",
+  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "goToDashboard": "Go to Dashboard",
+  "todayVisitors": "{count} today",
+  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
+
   "entryPages": "Entry Pages",
   "exitPages": "Exit Pages",
   "browsers": "Browsers",
@@ -366,5 +375,40 @@
   "utmSource": "UTM Source",
   "channel": "Channel",
   "pageTitles": "Page Titles",
-  "sources": "Sources"
+  "sources": "Sources",
+
+  "cities": "Cities",
+  "languages": "Languages",
+  "hostnames": "Hostnames",
+  "vpn": "VPN",
+  "crawlers": "Crawlers",
+  "datacenters": "Datacenters",
+  "companies": "Companies",
+  "companyType": "Company Type",
+  "companyDomain": "Company Domain",
+  "asnOrg": "ASN Org",
+  "asnType": "ASN Type",
+  "asnDomain": "ASN Domain",
+
+  "utmMedium": "UTM Medium",
+  "utmCampaign": "UTM Campaign",
+
+  "nMoreItems": "+{count} more",
+  "@nMoreItems": { "placeholders": { "count": { "type": "int" } } },
+  "sessionsWithPercentage": "{count} sessions ({percentage}%)",
+  "@sessionsWithPercentage": { "placeholders": { "count": { "type": "String" }, "percentage": { "type": "String" } } },
+
+  "errorGeneric": "Error: {error}",
+  "@errorGeneric": { "placeholders": { "error": { "type": "String" } } },
+
+  "replayPageSnapshot": "Page Snapshot",
+  "replayPageLoad": "Page Load",
+  "replayCustomEvent": "Custom Event",
+  "replayPluginEvent": "Plugin Event",
+  "replayInteraction": "Interaction",
+  "replayScroll": "Scroll",
+  "replayResize": "Resize",
+  "replayInput": "Input",
+  "replayUpdate": "Update",
+  "url": "URL"
 }

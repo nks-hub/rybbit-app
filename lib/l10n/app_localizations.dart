@@ -1880,6 +1880,42 @@ abstract class AppLocalizations {
   /// **'{count} users'**
   String traitUsersCount(String count);
 
+  /// No description provided for @dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get dashboard;
+
+  /// No description provided for @analytics.
+  ///
+  /// In en, this message translates to:
+  /// **'Analytics'**
+  String get analytics;
+
+  /// No description provided for @noSiteSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'No site selected'**
+  String get noSiteSelected;
+
+  /// No description provided for @selectSiteFromDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a site from the Dashboard tab to view {tabName}.'**
+  String selectSiteFromDashboard(String tabName);
+
+  /// No description provided for @goToDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Dashboard'**
+  String get goToDashboard;
+
+  /// No description provided for @todayVisitors.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} today'**
+  String todayVisitors(int count);
+
   /// No description provided for @entryPages.
   ///
   /// In en, this message translates to:
@@ -1927,6 +1963,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sources'**
   String get sources;
+
+  /// No description provided for @cities.
+  ///
+  /// In en, this message translates to:
+  /// **'Cities'**
+  String get cities;
+
+  /// No description provided for @languages.
+  ///
+  /// In en, this message translates to:
+  /// **'Languages'**
+  String get languages;
+
+  /// No description provided for @hostnames.
+  ///
+  /// In en, this message translates to:
+  /// **'Hostnames'**
+  String get hostnames;
+
+  /// No description provided for @vpn.
+  ///
+  /// In en, this message translates to:
+  /// **'VPN'**
+  String get vpn;
+
+  /// No description provided for @crawlers.
+  ///
+  /// In en, this message translates to:
+  /// **'Crawlers'**
+  String get crawlers;
+
+  /// No description provided for @datacenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Datacenters'**
+  String get datacenters;
+
+  /// No description provided for @companies.
+  ///
+  /// In en, this message translates to:
+  /// **'Companies'**
+  String get companies;
+
+  /// No description provided for @companyType.
+  ///
+  /// In en, this message translates to:
+  /// **'Company Type'**
+  String get companyType;
+
+  /// No description provided for @companyDomain.
+  ///
+  /// In en, this message translates to:
+  /// **'Company Domain'**
+  String get companyDomain;
+
+  /// No description provided for @asnOrg.
+  ///
+  /// In en, this message translates to:
+  /// **'ASN Org'**
+  String get asnOrg;
+
+  /// No description provided for @asnType.
+  ///
+  /// In en, this message translates to:
+  /// **'ASN Type'**
+  String get asnType;
+
+  /// No description provided for @asnDomain.
+  ///
+  /// In en, this message translates to:
+  /// **'ASN Domain'**
+  String get asnDomain;
+
+  /// No description provided for @utmMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Medium'**
+  String get utmMedium;
+
+  /// No description provided for @utmCampaign.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Campaign'**
+  String get utmCampaign;
+
+  /// No description provided for @nMoreItems.
+  ///
+  /// In en, this message translates to:
+  /// **'+{count} more'**
+  String nMoreItems(int count);
+
+  /// No description provided for @sessionsWithPercentage.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} sessions ({percentage}%)'**
+  String sessionsWithPercentage(String count, String percentage);
+
+  /// No description provided for @errorGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'Error: {error}'**
+  String errorGeneric(String error);
+
+  /// No description provided for @replayPageSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Page Snapshot'**
+  String get replayPageSnapshot;
+
+  /// No description provided for @replayPageLoad.
+  ///
+  /// In en, this message translates to:
+  /// **'Page Load'**
+  String get replayPageLoad;
+
+  /// No description provided for @replayCustomEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom Event'**
+  String get replayCustomEvent;
+
+  /// No description provided for @replayPluginEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin Event'**
+  String get replayPluginEvent;
+
+  /// No description provided for @replayInteraction.
+  ///
+  /// In en, this message translates to:
+  /// **'Interaction'**
+  String get replayInteraction;
+
+  /// No description provided for @replayScroll.
+  ///
+  /// In en, this message translates to:
+  /// **'Scroll'**
+  String get replayScroll;
+
+  /// No description provided for @replayResize.
+  ///
+  /// In en, this message translates to:
+  /// **'Resize'**
+  String get replayResize;
+
+  /// No description provided for @replayInput.
+  ///
+  /// In en, this message translates to:
+  /// **'Input'**
+  String get replayInput;
+
+  /// No description provided for @replayUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get replayUpdate;
+
+  /// No description provided for @url.
+  ///
+  /// In en, this message translates to:
+  /// **'URL'**
+  String get url;
 }
 
 class _AppLocalizationsDelegate

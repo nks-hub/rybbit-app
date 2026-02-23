@@ -291,7 +291,7 @@
   "theme": "Motiv",
   "dark": "Tmavý",
   "light": "Světlý",
-  "auto": "Automatický",
+  "auto": "Auto",
   "about": "O aplikaci",
   "appVersion": "Verze aplikace",
   "openSourceAnalytics": "Open source webová analytika",
@@ -481,6 +481,15 @@
   "traitUsersCount": "{count} uživatelů",
   "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
 
+  "dashboard": "Přehled",
+  "analytics": "Analytika",
+  "noSiteSelected": "Žádný web nevybrán",
+  "selectSiteFromDashboard": "Pro zobrazení {tabName} vyberte web na kartě Přehled.",
+  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "goToDashboard": "Přejít na přehled",
+  "todayVisitors": "{count} dnes",
+  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
+
   "entryPages": "Vstupní stránky",
   "exitPages": "Výstupní stránky",
   "browsers": "Prohlížeče",
@@ -488,5 +497,40 @@
   "utmSource": "UTM Zdroj",
   "channel": "Kanál",
   "pageTitles": "Názvy stránek",
-  "sources": "Zdroje"
+  "sources": "Zdroje",
+
+  "cities": "Města",
+  "languages": "Jazyky",
+  "hostnames": "Hostitelé",
+  "vpn": "VPN",
+  "crawlers": "Roboti",
+  "datacenters": "Datová centra",
+  "companies": "Společnosti",
+  "companyType": "Typ společnosti",
+  "companyDomain": "Doména společnosti",
+  "asnOrg": "ASN organizace",
+  "asnType": "ASN typ",
+  "asnDomain": "ASN doména",
+
+  "utmMedium": "UTM Médium",
+  "utmCampaign": "UTM Kampaň",
+
+  "nMoreItems": "+{count} dalších",
+  "@nMoreItems": { "placeholders": { "count": { "type": "int" } } },
+  "sessionsWithPercentage": "{count} relací ({percentage} %)",
+  "@sessionsWithPercentage": { "placeholders": { "count": { "type": "String" }, "percentage": { "type": "String" } } },
+
+  "errorGeneric": "Chyba: {error}",
+  "@errorGeneric": { "placeholders": { "error": { "type": "String" } } },
+
+  "replayPageSnapshot": "Snímek stránky",
+  "replayPageLoad": "Načtení stránky",
+  "replayCustomEvent": "Vlastní událost",
+  "replayPluginEvent": "Událost pluginu",
+  "replayInteraction": "Interakce",
+  "replayScroll": "Posouvání",
+  "replayResize": "Změna velikosti",
+  "replayInput": "Vstup",
+  "replayUpdate": "Aktualizace",
+  "url": "URL"
 }
