@@ -447,9 +447,13 @@ class _LiveEventTile extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 6),
                   child: Text(flag, style: const TextStyle(fontSize: 16)),
                 ),
-              Text(
-                timeStr,
-                style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
+              Flexible(
+                flex: 0,
+                child: Text(
+                  timeStr,
+                  style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),

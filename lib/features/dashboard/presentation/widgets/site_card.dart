@@ -50,6 +50,8 @@ class SiteCard extends ConsumerWidget {
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                           ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
                         if (site.name.isNotEmpty &&
                             site.name != site.domain) ...[

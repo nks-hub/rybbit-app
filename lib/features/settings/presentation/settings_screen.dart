@@ -94,7 +94,9 @@ class SettingsScreen extends ConsumerWidget {
                         children: [
                           const Icon(Icons.dark_mode_outlined, size: 24),
                           const SizedBox(width: 16),
-                          Text(l10n.theme, style: theme.textTheme.bodyLarge),
+                          Flexible(
+                            child: Text(l10n.theme, style: theme.textTheme.bodyLarge),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 10),

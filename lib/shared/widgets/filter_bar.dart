@@ -31,10 +31,13 @@ class FilterBar extends StatelessWidget {
             final filter = entry.value;
             return Padding(
               padding: const EdgeInsets.only(right: 8),
-              child: Chip(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 200),
+                child: Chip(
                 label: Text(
                   '${filter.parameter.value}: ${filter.value.join(", ")}',
                   style: const TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 deleteIcon: const Icon(Icons.close, size: 16),
                 onDeleted: () => onRemoveFilter(index),
@@ -44,6 +47,7 @@ class FilterBar extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 materialTapTargetSize: MaterialTapTargetSize.padded,
+              ),
               ),
             );
           }),

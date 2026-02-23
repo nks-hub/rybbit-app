@@ -147,10 +147,14 @@ class _OrgCardState extends ConsumerState<_OrgCard> {
                           style: theme.textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.w600,
                           ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
                         Text(
                           widget.org.slug,
                           style: theme.textTheme.bodySmall,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
                       ],
                     ),
