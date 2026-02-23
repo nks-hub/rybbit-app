@@ -847,4 +847,13 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get daySun => 'Dim';
+
+  @override
+  String get searchEvents => 'Rechercher des événements...';
+
+  @override
+  String get allTypes => 'Tous';
+
+  @override
+  String get noMatchingEvents => 'Aucun événement correspondant';
 }

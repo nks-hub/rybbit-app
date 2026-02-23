@@ -853,4 +853,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get daySun => 'So';
+
+  @override
+  String get searchEvents => 'Ereignisse suchen...';
+
+  @override
+  String get allTypes => 'Alle';
+
+  @override
+  String get noMatchingEvents => 'Keine passenden Ereignisse';
 }

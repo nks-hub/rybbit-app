@@ -308,5 +308,9 @@
   "dayThu": "Thu",
   "dayFri": "Fri",
   "daySat": "Sat",
-  "daySun": "Sun"
+  "daySun": "Sun",
+
+  "searchEvents": "Search events...",
+  "allTypes": "All",
+  "noMatchingEvents": "No matching events"
 }

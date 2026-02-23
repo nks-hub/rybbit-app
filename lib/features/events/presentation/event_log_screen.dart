@@ -9,6 +9,17 @@ import '../../../shared/utils/formatters.dart';
 import '../../sessions/presentation/sessions_list_screen.dart';
 import '../application/event_log_controller.dart';
 
+/// Known event types for filter chips.
+const _eventTypes = [
+  'pageview',
+  'custom_event',
+  'outbound',
+  'button_click',
+  'form_submit',
+  'input_change',
+  'copy',
+];
+
 class EventLogScreen extends ConsumerStatefulWidget {
   final String siteId;
 
@@ -20,6 +31,9 @@ class EventLogScreen extends ConsumerStatefulWidget {
 
 class _EventLogScreenState extends ConsumerState<EventLogScreen> {
   final ScrollController _scrollController = ScrollController();
+  final TextEditingController _searchController = TextEditingController();
+  final Set<String> _selectedTypes = {};
+  String _searchQuery = '';
 
   @override
   void initState() {
@@ -31,6 +45,7 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
   void dispose() {
     _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
+    _searchController.dispose();
     super.dispose();
   }
 
@@ -41,6 +56,42 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
           .read(eventLogControllerProvider(widget.siteId).notifier)
           .loadMore();
     }
+  }
+
+  List<RawEvent> _applyFilters(List<RawEvent> events) {
+    var filtered = events;
+
+    // Type filter
+    if (_selectedTypes.isNotEmpty) {
+      filtered = filtered.where((e) => _selectedTypes.contains(e.type)).toList();
+    }
+
+    // Search filter
+    if (_searchQuery.isNotEmpty) {
+      final q = _searchQuery.toLowerCase();
+      filtered = filtered.where((e) {
+        return (e.pathname?.toLowerCase().contains(q) ?? false) ||
+            (e.eventName.toLowerCase().contains(q)) ||
+            (e.pageTitle?.toLowerCase().contains(q) ?? false) ||
+            (e.hostname?.toLowerCase().contains(q) ?? false) ||
+            (e.referrer?.toLowerCase().contains(q) ?? false);
+      }).toList();
+    }
+
+    return filtered;
+  }
+
+  String _typeLabel(String type) {
+    return switch (type) {
+      'pageview' => 'Pageview',
+      'custom_event' => 'Custom',
+      'outbound' => 'Outbound',
+      'button_click' => 'Click',
+      'form_submit' => 'Form',
+      'input_change' => 'Input',
+      'copy' => 'Copy',
+      _ => type,
+    };
   }
 
   @override
@@ -72,76 +123,181 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
           onPressed: () => context.pop(),
         ),
       ),
-      body: logAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.error_outline,
-                    size: 48, color: theme.colorScheme.error),
-                const SizedBox(height: 16),
-                Text(l10n.failedToLoadEventLog,
-                    style: theme.textTheme.bodyLarge),
-                const SizedBox(height: 8),
-                Text(formatError(error),
-                    style: theme.textTheme.bodySmall,
-                    textAlign: TextAlign.center),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () => ref
-                      .read(eventLogControllerProvider(widget.siteId).notifier)
-                      .refresh(),
-                  child: Text(l10n.retry),
+      body: Column(
+        children: [
+          // Search bar
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: l10n.searchEvents,
+                prefixIcon: const Icon(Icons.search, size: 20),
+                suffixIcon: _searchQuery.isNotEmpty
+                    ? IconButton(
+                        icon: const Icon(Icons.clear, size: 18),
+                        onPressed: () {
+                          _searchController.clear();
+                          setState(() => _searchQuery = '');
+                        },
+                      )
+                    : null,
+                isDense: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
                 ),
+              ),
+              style: const TextStyle(fontSize: 14),
+              onChanged: (value) => setState(() => _searchQuery = value),
+            ),
+          ),
+
+          // Type filter chips
+          SizedBox(
+            height: 40,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              children: [
+                // "All" chip
+                Padding(
+                  padding: const EdgeInsets.only(right: 6),
+                  child: FilterChip(
+                    label: Text(l10n.allTypes,
+                        style: const TextStyle(fontSize: 12)),
+                    selected: _selectedTypes.isEmpty,
+                    onSelected: (_) =>
+                        setState(() => _selectedTypes.clear()),
+                    visualDensity: VisualDensity.compact,
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                ),
+                for (final type in _eventTypes)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 6),
+                    child: FilterChip(
+                      label: Text(_typeLabel(type),
+                          style: const TextStyle(fontSize: 12)),
+                      selected: _selectedTypes.contains(type),
+                      onSelected: (selected) {
+                        setState(() {
+                          if (selected) {
+                            _selectedTypes.add(type);
+                          } else {
+                            _selectedTypes.remove(type);
+                          }
+                        });
+                      },
+                      visualDensity: VisualDensity.compact,
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                  ),
               ],
             ),
           ),
-        ),
-        data: (logState) {
-          if (logState.events.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.list_alt,
-                      size: 48, color: theme.textTheme.bodySmall?.color),
-                  const SizedBox(height: 16),
-                  Text(l10n.noEventsFound, style: theme.textTheme.bodyLarge),
-                ],
-              ),
-            );
-          }
 
-          return RefreshIndicator(
-            onRefresh: () => ref
-                .read(eventLogControllerProvider(widget.siteId).notifier)
-                .refresh(),
-            child: ListView.builder(
-              controller: _scrollController,
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              itemCount: logState.events.length +
-                  (logState.isLoadingMore ? 1 : 0),
-              itemBuilder: (context, index) {
-                if (index >= logState.events.length) {
-                  return Semantics(
-                    label: l10n.loading,
-                    child: const Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Center(
-                          child: CircularProgressIndicator(strokeWidth: 2)),
+          const SizedBox(height: 4),
+
+          // Event list
+          Expanded(
+            child: logAsync.when(
+              loading: () =>
+                  const Center(child: CircularProgressIndicator()),
+              error: (error, _) => Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.error_outline,
+                          size: 48, color: theme.colorScheme.error),
+                      const SizedBox(height: 16),
+                      Text(l10n.failedToLoadEventLog,
+                          style: theme.textTheme.bodyLarge),
+                      const SizedBox(height: 8),
+                      Text(formatError(error),
+                          style: theme.textTheme.bodySmall,
+                          textAlign: TextAlign.center),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () => ref
+                            .read(eventLogControllerProvider(widget.siteId)
+                                .notifier)
+                            .refresh(),
+                        child: Text(l10n.retry),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              data: (logState) {
+                final filtered = _applyFilters(logState.events);
+
+                if (logState.events.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.list_alt,
+                            size: 48,
+                            color: theme.textTheme.bodySmall?.color),
+                        const SizedBox(height: 16),
+                        Text(l10n.noEventsFound,
+                            style: theme.textTheme.bodyLarge),
+                      ],
                     ),
                   );
                 }
 
-                final event = logState.events[index];
-                return _RawEventCard(event: event);
+                if (filtered.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.filter_list_off,
+                            size: 48,
+                            color: theme.textTheme.bodySmall?.color),
+                        const SizedBox(height: 16),
+                        Text(l10n.noMatchingEvents,
+                            style: theme.textTheme.bodyLarge),
+                      ],
+                    ),
+                  );
+                }
+
+                return RefreshIndicator(
+                  onRefresh: () => ref
+                      .read(eventLogControllerProvider(widget.siteId).notifier)
+                      .refresh(),
+                  child: ListView.builder(
+                    controller: _scrollController,
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    itemCount: filtered.length +
+                        (logState.isLoadingMore ? 1 : 0),
+                    itemBuilder: (context, index) {
+                      if (index >= filtered.length) {
+                        return Semantics(
+                          label: l10n.loading,
+                          child: const Padding(
+                            padding: EdgeInsets.all(16),
+                            child: Center(
+                                child: CircularProgressIndicator(
+                                    strokeWidth: 2)),
+                          ),
+                        );
+                      }
+
+                      final event = filtered[index];
+                      return _RawEventCard(event: event);
+                    },
+                  ),
+                );
               },
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }

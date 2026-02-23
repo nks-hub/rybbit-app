@@ -834,4 +834,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get daySun => '周日';
+
+  @override
+  String get searchEvents => '搜索事件...';
+
+  @override
+  String get allTypes => '全部';
+
+  @override
+  String get noMatchingEvents => '没有匹配的事件';
 }

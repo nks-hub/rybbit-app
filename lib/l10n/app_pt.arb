@@ -432,5 +432,8 @@
   "dayThu": "Qui",
   "dayFri": "Sex",
   "daySat": "Sáb",
-  "daySun": "Dom"
+  "daySun": "Dom",
+  "searchEvents": "Pesquisar eventos...",
+  "allTypes": "Todos",
+  "noMatchingEvents": "Nenhum evento correspondente"
 }

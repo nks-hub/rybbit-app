@@ -432,5 +432,8 @@
   "dayThu": "Čt",
   "dayFri": "Pá",
   "daySat": "So",
-  "daySun": "Ne"
+  "daySun": "Ne",
+  "searchEvents": "Hledat události...",
+  "allTypes": "Vše",
+  "noMatchingEvents": "Žádné odpovídající události"
 }

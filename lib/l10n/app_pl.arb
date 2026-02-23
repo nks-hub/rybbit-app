@@ -432,5 +432,8 @@
   "dayThu": "Czw",
   "dayFri": "Pt",
   "daySat": "Sob",
-  "daySun": "Ndz"
+  "daySun": "Ndz",
+  "searchEvents": "Szukaj zdarzeń...",
+  "allTypes": "Wszystkie",
+  "noMatchingEvents": "Brak pasujących zdarzeń"
 }

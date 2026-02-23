@@ -845,4 +845,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get daySun => 'Dom';
+
+  @override
+  String get searchEvents => 'Buscar eventos...';
+
+  @override
+  String get allTypes => 'Todos';
+
+  @override
+  String get noMatchingEvents => 'No hay eventos coincidentes';
 }

@@ -1651,6 +1651,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sun'**
   String get daySun;
+
+  /// No description provided for @searchEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'Search events...'**
+  String get searchEvents;
+
+  /// No description provided for @allTypes.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get allTypes;
+
+  /// No description provided for @noMatchingEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching events'**
+  String get noMatchingEvents;
 }
 
 class _AppLocalizationsDelegate

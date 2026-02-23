@@ -851,4 +851,13 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get daySun => 'Ne';
+
+  @override
+  String get searchEvents => 'Hledat události...';
+
+  @override
+  String get allTypes => 'Vše';
+
+  @override
+  String get noMatchingEvents => 'Žádné odpovídající události';
 }

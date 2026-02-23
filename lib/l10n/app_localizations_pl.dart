@@ -846,4 +846,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get daySun => 'Ndz';
+
+  @override
+  String get searchEvents => 'Szukaj zdarzeń...';
+
+  @override
+  String get allTypes => 'Wszystkie';
+
+  @override
+  String get noMatchingEvents => 'Brak pasujących zdarzeń';
 }

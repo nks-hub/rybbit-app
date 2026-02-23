@@ -836,4 +836,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get daySun => 'Sun';
+
+  @override
+  String get searchEvents => 'Search events...';
+
+  @override
+  String get allTypes => 'All';
+
+  @override
+  String get noMatchingEvents => 'No matching events';
 }

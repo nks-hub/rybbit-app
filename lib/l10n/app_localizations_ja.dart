@@ -834,4 +834,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get daySun => '日';
+
+  @override
+  String get searchEvents => 'イベントを検索...';
+
+  @override
+  String get allTypes => 'すべて';
+
+  @override
+  String get noMatchingEvents => '一致するイベントがありません';
 }

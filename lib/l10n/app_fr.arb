@@ -432,5 +432,8 @@
   "dayThu": "Jeu",
   "dayFri": "Ven",
   "daySat": "Sam",
-  "daySun": "Dim"
+  "daySun": "Dim",
+  "searchEvents": "Rechercher des événements...",
+  "allTypes": "Tous",
+  "noMatchingEvents": "Aucun événement correspondant"
 }

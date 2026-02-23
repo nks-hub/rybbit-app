@@ -432,5 +432,8 @@
   "dayThu": "木",
   "dayFri": "金",
   "daySat": "土",
-  "daySun": "日"
+  "daySun": "日",
+  "searchEvents": "イベントを検索...",
+  "allTypes": "すべて",
+  "noMatchingEvents": "一致するイベントがありません"
 }

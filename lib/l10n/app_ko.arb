@@ -432,5 +432,8 @@
   "dayThu": "목",
   "dayFri": "금",
   "daySat": "토",
-  "daySun": "일"
+  "daySun": "일",
+  "searchEvents": "이벤트 검색...",
+  "allTypes": "전체",
+  "noMatchingEvents": "일치하는 이벤트 없음"
 }

@@ -834,4 +834,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get daySun => '일';
+
+  @override
+  String get searchEvents => '이벤트 검색...';
+
+  @override
+  String get allTypes => '전체';
+
+  @override
+  String get noMatchingEvents => '일치하는 이벤트 없음';
 }
