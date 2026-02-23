@@ -62,6 +62,7 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
           ],
         ),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),

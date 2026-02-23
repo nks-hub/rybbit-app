@@ -107,6 +107,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
           ],
         ),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),

@@ -31,7 +31,9 @@ class TimeSeriesChart extends StatelessWidget {
     final color = lineColor ?? theme.colorScheme.primary;
     final maxY = _computeMaxY();
 
-    return SizedBox(
+    return Semantics(
+      label: 'Chart with ${values.length} data points',
+      child: SizedBox(
       height: 200,
       child: LineChart(
         LineChartData(
@@ -123,7 +125,7 @@ class TimeSeriesChart extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 
   LineChartBarData _buildCurrentLine(Color color) {

@@ -38,6 +38,7 @@ class UsersScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Users', style: TextStyle(fontSize: 18)),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),

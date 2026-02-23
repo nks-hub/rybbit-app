@@ -27,6 +27,7 @@ class FunnelsScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Funnels', style: TextStyle(fontSize: 18)),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -185,6 +186,7 @@ class _FunnelCardState extends ConsumerState<_FunnelCard> {
                     ),
                   ),
                   IconButton(
+                    tooltip: 'Delete',
                     icon: Icon(Icons.delete_outline,
                         size: 20, color: theme.colorScheme.error),
                     onPressed: widget.onDelete,

@@ -34,6 +34,7 @@ class SessionDetailScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Session Detail', style: TextStyle(fontSize: 18)),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -94,7 +95,9 @@ class SessionDetailScreen extends ConsumerWidget {
                     Row(
                       children: [
                         if (flag.isNotEmpty) ...[
-                          Text(flag, style: const TextStyle(fontSize: 24)),
+                          Text(flag,
+                              style: const TextStyle(fontSize: 24),
+                              semanticsLabel: session.country ?? 'Unknown country'),
                           const SizedBox(width: 12),
                         ],
                         Expanded(

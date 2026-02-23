@@ -25,6 +25,7 @@ class OrganizationsScreen extends ConsumerWidget {
         title:
             const Text('Organizations', style: TextStyle(fontSize: 18)),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),

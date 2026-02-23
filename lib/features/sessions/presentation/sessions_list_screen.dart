@@ -76,6 +76,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
           ],
         ),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
@@ -186,7 +187,9 @@ class _SessionCard extends StatelessWidget {
                 Row(
                   children: [
                     if (flag.isNotEmpty) ...[
-                      Text(flag, style: const TextStyle(fontSize: 18)),
+                      Text(flag,
+                          style: const TextStyle(fontSize: 18),
+                          semanticsLabel: session.country ?? 'Unknown country'),
                       const SizedBox(width: 8),
                     ],
                     Expanded(

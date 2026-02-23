@@ -26,11 +26,13 @@ class GoalsScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Goals', style: TextStyle(fontSize: 18)),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: 'Create goal',
         onPressed: () => _showGoalForm(context, ref, null),
         child: const Icon(Icons.add),
       ),
@@ -237,10 +239,12 @@ class _GoalCard extends StatelessWidget {
               ),
             ),
             IconButton(
+              tooltip: 'Edit',
               icon: const Icon(Icons.edit_outlined, size: 20),
               onPressed: onEdit,
             ),
             IconButton(
+              tooltip: 'Delete',
               icon: Icon(Icons.delete_outline,
                   size: 20, color: theme.colorScheme.error),
               onPressed: onDelete,

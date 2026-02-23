@@ -39,6 +39,7 @@ class UserDetailScreen extends ConsumerWidget {
           style: const TextStyle(fontSize: 18),
         ),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),

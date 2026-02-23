@@ -120,6 +120,7 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
+                        tooltip: 'Previous page',
                         icon: const Icon(Icons.chevron_left),
                         onPressed: _currentPage > 1
                             ? () => setState(() => _currentPage--)
@@ -130,6 +131,7 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
                         style: theme.textTheme.bodyMedium,
                       ),
                       IconButton(
+                        tooltip: 'Next page',
                         icon: const Icon(Icons.chevron_right),
                         onPressed: result.hasMore
                             ? () => setState(() => _currentPage++)
@@ -194,7 +196,9 @@ class _ReplaySessionCard extends StatelessWidget {
                       Row(
                         children: [
                           if (flag.isNotEmpty) ...[
-                            Text(flag, style: const TextStyle(fontSize: 14)),
+                            Text(flag,
+                                style: const TextStyle(fontSize: 14),
+                                semanticsLabel: session.country ?? 'Unknown country'),
                             const SizedBox(width: 6),
                           ],
                           Expanded(

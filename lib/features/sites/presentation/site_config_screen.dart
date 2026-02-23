@@ -39,6 +39,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
       appBar: AppBar(
         title: const Text('Site Settings', style: TextStyle(fontSize: 18)),
         leading: IconButton(
+          tooltip: 'Go back',
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
