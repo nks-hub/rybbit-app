@@ -59,6 +59,7 @@ class AuthController extends Notifier<AuthState> {
       final result = await repo.login(email, password);
 
       await StorageService.saveSecure('server_url', serverUrl);
+      await StorageService.saveSecure('last_email', email);
       await StorageService.deleteSecure('api_key');
 
       // sign-in/email returns { user: {...}, token, redirect }

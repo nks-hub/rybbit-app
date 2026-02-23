@@ -27,13 +27,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    _loadSavedServerUrl();
+    _loadSavedCredentials();
   }
 
-  Future<void> _loadSavedServerUrl() async {
+  Future<void> _loadSavedCredentials() async {
     final savedUrl = await StorageService.readSecure('server_url');
     if (savedUrl != null && savedUrl.isNotEmpty && mounted) {
       _serverUrlController.text = savedUrl;
+    }
+    final savedEmail = await StorageService.readSecure('last_email');
+    if (savedEmail != null && savedEmail.isNotEmpty && mounted) {
+      _emailController.text = savedEmail;
     }
   }
 
