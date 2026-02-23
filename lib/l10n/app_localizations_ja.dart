@@ -788,4 +788,50 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get failedToLoadEventLog => 'イベントログの読み込みに失敗しました';
+
+  @override
+  String get activityHeatmap => 'ヒートマップ';
+
+  @override
+  String get heatmapLast4Weeks => '過去4週間';
+
+  @override
+  String get less => '少ない';
+
+  @override
+  String get more => '多い';
+
+  @override
+  String get peakActivity => 'ピークアクティビティ';
+
+  @override
+  String peakHour(String day, String time) {
+    return '$day $time';
+  }
+
+  @override
+  String busiestDay(String day) {
+    return '最も忙しい日: $day';
+  }
+
+  @override
+  String get dayMon => '月';
+
+  @override
+  String get dayTue => '火';
+
+  @override
+  String get dayWed => '水';
+
+  @override
+  String get dayThu => '木';
+
+  @override
+  String get dayFri => '金';
+
+  @override
+  String get daySat => '土';
+
+  @override
+  String get daySun => '日';
 }

@@ -416,5 +416,21 @@
   },
   "eventLog": "Dziennik zdarzeń",
   "viewEventLog": "Zobacz dziennik zdarzeń",
-  "failedToLoadEventLog": "Nie udało się załadować dziennika zdarzeń"
+  "failedToLoadEventLog": "Nie udało się załadować dziennika zdarzeń",
+  "activityHeatmap": "Mapa cieplna",
+  "heatmapLast4Weeks": "Ostatnie 4 tygodnie",
+  "less": "Mniej",
+  "more": "Więcej",
+  "peakActivity": "Szczytowa aktywność",
+  "peakHour": "{day} o {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "Najbardziej aktywny dzień: {day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "Pon",
+  "dayTue": "Wt",
+  "dayWed": "Śr",
+  "dayThu": "Czw",
+  "dayFri": "Pt",
+  "daySat": "Sob",
+  "daySun": "Ndz"
 }

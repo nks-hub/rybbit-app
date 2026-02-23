@@ -357,6 +357,7 @@ class AnalyticsScreen extends ConsumerWidget {
       (l10n.funnels, Icons.filter_alt_outlined, '/analytics/$siteId/funnels'),
       (l10n.users, Icons.person_outline, '/analytics/$siteId/users'),
       (l10n.replay, Icons.videocam_outlined, '/analytics/$siteId/replay'),
+      (l10n.activityHeatmap, Icons.grid_view, '/analytics/$siteId/heatmap'),
       (l10n.config, Icons.settings_outlined, '/analytics/$siteId/config'),
     ];
 

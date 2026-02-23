@@ -790,4 +790,50 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get failedToLoadEventLog => 'Failed to load event log';
+
+  @override
+  String get activityHeatmap => 'Heatmap';
+
+  @override
+  String get heatmapLast4Weeks => 'Last 4 Weeks';
+
+  @override
+  String get less => 'Less';
+
+  @override
+  String get more => 'More';
+
+  @override
+  String get peakActivity => 'Peak Activity';
+
+  @override
+  String peakHour(String day, String time) {
+    return '$day at $time';
+  }
+
+  @override
+  String busiestDay(String day) {
+    return 'Busiest day: $day';
+  }
+
+  @override
+  String get dayMon => 'Mon';
+
+  @override
+  String get dayTue => 'Tue';
+
+  @override
+  String get dayWed => 'Wed';
+
+  @override
+  String get dayThu => 'Thu';
+
+  @override
+  String get dayFri => 'Fri';
+
+  @override
+  String get daySat => 'Sat';
+
+  @override
+  String get daySun => 'Sun';
 }

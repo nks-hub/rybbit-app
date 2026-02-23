@@ -416,5 +416,21 @@
   },
   "eventLog": "イベントログ",
   "viewEventLog": "イベントログを表示",
-  "failedToLoadEventLog": "イベントログの読み込みに失敗しました"
+  "failedToLoadEventLog": "イベントログの読み込みに失敗しました",
+  "activityHeatmap": "ヒートマップ",
+  "heatmapLast4Weeks": "過去4週間",
+  "less": "少ない",
+  "more": "多い",
+  "peakActivity": "ピークアクティビティ",
+  "peakHour": "{day} {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "最も忙しい日: {day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "月",
+  "dayTue": "火",
+  "dayWed": "水",
+  "dayThu": "木",
+  "dayFri": "金",
+  "daySat": "土",
+  "daySun": "日"
 }

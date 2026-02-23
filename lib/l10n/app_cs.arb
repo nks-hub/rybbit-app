@@ -416,5 +416,21 @@
   },
   "eventLog": "Protokol událostí",
   "viewEventLog": "Zobrazit protokol událostí",
-  "failedToLoadEventLog": "Nepodařilo se načíst protokol událostí"
+  "failedToLoadEventLog": "Nepodařilo se načíst protokol událostí",
+  "activityHeatmap": "Teplotní mapa",
+  "heatmapLast4Weeks": "Posledních 4 týdnů",
+  "less": "Méně",
+  "more": "Více",
+  "peakActivity": "Špičková aktivita",
+  "peakHour": "{day} v {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "Nejvytíženější den: {day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "Po",
+  "dayTue": "Út",
+  "dayWed": "St",
+  "dayThu": "Čt",
+  "dayFri": "Pá",
+  "daySat": "So",
+  "daySun": "Ne"
 }

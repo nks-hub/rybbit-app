@@ -416,5 +416,21 @@
   },
   "eventLog": "이벤트 로그",
   "viewEventLog": "이벤트 로그 보기",
-  "failedToLoadEventLog": "이벤트 로그를 불러오지 못했습니다"
+  "failedToLoadEventLog": "이벤트 로그를 불러오지 못했습니다",
+  "activityHeatmap": "히트맵",
+  "heatmapLast4Weeks": "최근 4주",
+  "less": "적음",
+  "more": "많음",
+  "peakActivity": "최고 활동",
+  "peakHour": "{day} {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "가장 바쁜 날: {day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "월",
+  "dayTue": "화",
+  "dayWed": "수",
+  "dayThu": "목",
+  "dayFri": "금",
+  "daySat": "토",
+  "daySun": "일"
 }

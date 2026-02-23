@@ -805,4 +805,50 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get failedToLoadEventLog => 'Nepodařilo se načíst protokol událostí';
+
+  @override
+  String get activityHeatmap => 'Teplotní mapa';
+
+  @override
+  String get heatmapLast4Weeks => 'Posledních 4 týdnů';
+
+  @override
+  String get less => 'Méně';
+
+  @override
+  String get more => 'Více';
+
+  @override
+  String get peakActivity => 'Špičková aktivita';
+
+  @override
+  String peakHour(String day, String time) {
+    return '$day v $time';
+  }
+
+  @override
+  String busiestDay(String day) {
+    return 'Nejvytíženější den: $day';
+  }
+
+  @override
+  String get dayMon => 'Po';
+
+  @override
+  String get dayTue => 'Út';
+
+  @override
+  String get dayWed => 'St';
+
+  @override
+  String get dayThu => 'Čt';
+
+  @override
+  String get dayFri => 'Pá';
+
+  @override
+  String get daySat => 'So';
+
+  @override
+  String get daySun => 'Ne';
 }

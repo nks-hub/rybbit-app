@@ -1567,6 +1567,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to load event log'**
   String get failedToLoadEventLog;
+
+  /// No description provided for @activityHeatmap.
+  ///
+  /// In en, this message translates to:
+  /// **'Heatmap'**
+  String get activityHeatmap;
+
+  /// No description provided for @heatmapLast4Weeks.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 4 Weeks'**
+  String get heatmapLast4Weeks;
+
+  /// No description provided for @less.
+  ///
+  /// In en, this message translates to:
+  /// **'Less'**
+  String get less;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
+
+  /// No description provided for @peakActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak Activity'**
+  String get peakActivity;
+
+  /// No description provided for @peakHour.
+  ///
+  /// In en, this message translates to:
+  /// **'{day} at {time}'**
+  String peakHour(String day, String time);
+
+  /// No description provided for @busiestDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Busiest day: {day}'**
+  String busiestDay(String day);
+
+  /// No description provided for @dayMon.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get dayMon;
+
+  /// No description provided for @dayTue.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get dayTue;
+
+  /// No description provided for @dayWed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get dayWed;
+
+  /// No description provided for @dayThu.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get dayThu;
+
+  /// No description provided for @dayFri.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get dayFri;
+
+  /// No description provided for @daySat.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get daySat;
+
+  /// No description provided for @daySun.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get daySun;
 }
 
 class _AppLocalizationsDelegate

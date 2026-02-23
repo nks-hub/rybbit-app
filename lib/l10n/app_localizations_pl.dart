@@ -800,4 +800,50 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get failedToLoadEventLog =>
       'Nie udało się załadować dziennika zdarzeń';
+
+  @override
+  String get activityHeatmap => 'Mapa cieplna';
+
+  @override
+  String get heatmapLast4Weeks => 'Ostatnie 4 tygodnie';
+
+  @override
+  String get less => 'Mniej';
+
+  @override
+  String get more => 'Więcej';
+
+  @override
+  String get peakActivity => 'Szczytowa aktywność';
+
+  @override
+  String peakHour(String day, String time) {
+    return '$day o $time';
+  }
+
+  @override
+  String busiestDay(String day) {
+    return 'Najbardziej aktywny dzień: $day';
+  }
+
+  @override
+  String get dayMon => 'Pon';
+
+  @override
+  String get dayTue => 'Wt';
+
+  @override
+  String get dayWed => 'Śr';
+
+  @override
+  String get dayThu => 'Czw';
+
+  @override
+  String get dayFri => 'Pt';
+
+  @override
+  String get daySat => 'Sob';
+
+  @override
+  String get daySun => 'Ndz';
 }

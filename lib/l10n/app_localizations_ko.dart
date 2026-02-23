@@ -788,4 +788,50 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get failedToLoadEventLog => '이벤트 로그를 불러오지 못했습니다';
+
+  @override
+  String get activityHeatmap => '히트맵';
+
+  @override
+  String get heatmapLast4Weeks => '최근 4주';
+
+  @override
+  String get less => '적음';
+
+  @override
+  String get more => '많음';
+
+  @override
+  String get peakActivity => '최고 활동';
+
+  @override
+  String peakHour(String day, String time) {
+    return '$day $time';
+  }
+
+  @override
+  String busiestDay(String day) {
+    return '가장 바쁜 날: $day';
+  }
+
+  @override
+  String get dayMon => '월';
+
+  @override
+  String get dayTue => '화';
+
+  @override
+  String get dayWed => '수';
+
+  @override
+  String get dayThu => '목';
+
+  @override
+  String get dayFri => '금';
+
+  @override
+  String get daySat => '토';
+
+  @override
+  String get daySun => '일';
 }

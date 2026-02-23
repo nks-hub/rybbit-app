@@ -291,5 +291,22 @@
 
   "eventLog": "Event Log",
   "viewEventLog": "View Event Log",
-  "failedToLoadEventLog": "Failed to load event log"
+  "failedToLoadEventLog": "Failed to load event log",
+
+  "activityHeatmap": "Heatmap",
+  "heatmapLast4Weeks": "Last 4 Weeks",
+  "less": "Less",
+  "more": "More",
+  "peakActivity": "Peak Activity",
+  "peakHour": "{day} at {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "Busiest day: {day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "Mon",
+  "dayTue": "Tue",
+  "dayWed": "Wed",
+  "dayThu": "Thu",
+  "dayFri": "Fri",
+  "daySat": "Sat",
+  "daySun": "Sun"
 }

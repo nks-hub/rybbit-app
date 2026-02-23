@@ -416,5 +416,21 @@
   },
   "eventLog": "Registro eventi",
   "viewEventLog": "Visualizza registro eventi",
-  "failedToLoadEventLog": "Impossibile caricare il registro eventi"
+  "failedToLoadEventLog": "Impossibile caricare il registro eventi",
+  "activityHeatmap": "Mappa di calore",
+  "heatmapLast4Weeks": "Ultime 4 settimane",
+  "less": "Meno",
+  "more": "Più",
+  "peakActivity": "Attività di picco",
+  "peakHour": "{day} alle {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "Giorno più attivo: {day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "Lun",
+  "dayTue": "Mar",
+  "dayWed": "Mer",
+  "dayThu": "Gio",
+  "dayFri": "Ven",
+  "daySat": "Sab",
+  "daySun": "Dom"
 }

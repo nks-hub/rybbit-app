@@ -788,4 +788,50 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get failedToLoadEventLog => '无法加载事件日志';
+
+  @override
+  String get activityHeatmap => '热力图';
+
+  @override
+  String get heatmapLast4Weeks => '最近4周';
+
+  @override
+  String get less => '较少';
+
+  @override
+  String get more => '较多';
+
+  @override
+  String get peakActivity => '峰值活动';
+
+  @override
+  String peakHour(String day, String time) {
+    return '$day $time';
+  }
+
+  @override
+  String busiestDay(String day) {
+    return '最繁忙的一天：$day';
+  }
+
+  @override
+  String get dayMon => '周一';
+
+  @override
+  String get dayTue => '周二';
+
+  @override
+  String get dayWed => '周三';
+
+  @override
+  String get dayThu => '周四';
+
+  @override
+  String get dayFri => '周五';
+
+  @override
+  String get daySat => '周六';
+
+  @override
+  String get daySun => '周日';
 }

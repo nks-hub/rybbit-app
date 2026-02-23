@@ -416,5 +416,21 @@
   },
   "eventLog": "Journal des événements",
   "viewEventLog": "Voir le journal des événements",
-  "failedToLoadEventLog": "Impossible de charger le journal des événements"
+  "failedToLoadEventLog": "Impossible de charger le journal des événements",
+  "activityHeatmap": "Carte thermique",
+  "heatmapLast4Weeks": "4 dernières semaines",
+  "less": "Moins",
+  "more": "Plus",
+  "peakActivity": "Activité maximale",
+  "peakHour": "{day} à {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "Jour le plus actif : {day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "Lun",
+  "dayTue": "Mar",
+  "dayWed": "Mer",
+  "dayThu": "Jeu",
+  "dayFri": "Ven",
+  "daySat": "Sam",
+  "daySun": "Dim"
 }

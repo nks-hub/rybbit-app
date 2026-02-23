@@ -416,5 +416,21 @@
   },
   "eventLog": "Ereignisprotokoll",
   "viewEventLog": "Ereignisprotokoll anzeigen",
-  "failedToLoadEventLog": "Ereignisprotokoll konnte nicht geladen werden"
+  "failedToLoadEventLog": "Ereignisprotokoll konnte nicht geladen werden",
+  "activityHeatmap": "Heatmap",
+  "heatmapLast4Weeks": "Letzte 4 Wochen",
+  "less": "Weniger",
+  "more": "Mehr",
+  "peakActivity": "Spitzenaktivität",
+  "peakHour": "{day} um {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "Aktivster Tag: {day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "Mo",
+  "dayTue": "Di",
+  "dayWed": "Mi",
+  "dayThu": "Do",
+  "dayFri": "Fr",
+  "daySat": "Sa",
+  "daySun": "So"
 }

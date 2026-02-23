@@ -807,4 +807,50 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get failedToLoadEventLog =>
       'Ereignisprotokoll konnte nicht geladen werden';
+
+  @override
+  String get activityHeatmap => 'Heatmap';
+
+  @override
+  String get heatmapLast4Weeks => 'Letzte 4 Wochen';
+
+  @override
+  String get less => 'Weniger';
+
+  @override
+  String get more => 'Mehr';
+
+  @override
+  String get peakActivity => 'Spitzenaktivität';
+
+  @override
+  String peakHour(String day, String time) {
+    return '$day um $time';
+  }
+
+  @override
+  String busiestDay(String day) {
+    return 'Aktivster Tag: $day';
+  }
+
+  @override
+  String get dayMon => 'Mo';
+
+  @override
+  String get dayTue => 'Di';
+
+  @override
+  String get dayWed => 'Mi';
+
+  @override
+  String get dayThu => 'Do';
+
+  @override
+  String get dayFri => 'Fr';
+
+  @override
+  String get daySat => 'Sa';
+
+  @override
+  String get daySun => 'So';
 }

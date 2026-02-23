@@ -416,5 +416,21 @@
   },
   "eventLog": "事件日志",
   "viewEventLog": "查看事件日志",
-  "failedToLoadEventLog": "无法加载事件日志"
+  "failedToLoadEventLog": "无法加载事件日志",
+  "activityHeatmap": "热力图",
+  "heatmapLast4Weeks": "最近4周",
+  "less": "较少",
+  "more": "较多",
+  "peakActivity": "峰值活动",
+  "peakHour": "{day} {time}",
+  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "busiestDay": "最繁忙的一天：{day}",
+  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "dayMon": "周一",
+  "dayTue": "周二",
+  "dayWed": "周三",
+  "dayThu": "周四",
+  "dayFri": "周五",
+  "daySat": "周六",
+  "daySun": "周日"
 }
