@@ -189,7 +189,6 @@ class AuthController extends Notifier<AuthState> {
       // Logout even if API call fails
     }
 
-    await StorageService.deleteSecure('server_url');
     await StorageService.deleteSecure('api_key');
     ref.read(appConfigNotifierProvider.notifier).clear();
 
