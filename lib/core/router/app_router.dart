@@ -28,6 +28,7 @@ import '../../features/sites/presentation/site_config_screen.dart';
 import '../../features/users/presentation/user_detail_screen.dart';
 import '../../features/users/presentation/user_traits_screen.dart';
 import '../../features/users/presentation/users_screen.dart';
+import '../../l10n/app_localizations.dart';
 import '../state/current_site_provider.dart';
 import 'shell_screen.dart';
 
@@ -93,8 +94,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   final container = ProviderScope.containerOf(context);
                   final siteId = container.read(currentSiteIdProvider);
                   if (siteId == null) {
-                    return const SiteSelectorPlaceholder(
-                        tabName: 'Analytics');
+                    return SiteSelectorPlaceholder(
+                        tabName: AppLocalizations.of(context)!.analytics);
                   }
                   return AnalyticsScreen(siteId: siteId);
                 },
@@ -260,8 +261,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   final container = ProviderScope.containerOf(context);
                   final siteId = container.read(currentSiteIdProvider);
                   if (siteId == null) {
-                    return const SiteSelectorPlaceholder(
-                        tabName: 'Sessions');
+                    return SiteSelectorPlaceholder(
+                        tabName: AppLocalizations.of(context)!.sessions);
                   }
                   return SessionsListScreen(siteId: siteId);
                 },
