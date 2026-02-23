@@ -6,6 +6,9 @@ class Goal {
   final String? eventName;
   final String? eventPropertyKey;
   final String? eventPropertyValue;
+  final int totalConversions;
+  final int totalSessions;
+  final double conversionRate;
 
   const Goal({
     required this.goalId,
@@ -15,10 +18,12 @@ class Goal {
     this.eventName,
     this.eventPropertyKey,
     this.eventPropertyValue,
+    this.totalConversions = 0,
+    this.totalSessions = 0,
+    this.conversionRate = 0,
   });
 
   factory Goal.fromJson(Map<String, dynamic> json) {
-    // Config can be nested or flat depending on endpoint
     final config = json['config'] as Map<String, dynamic>? ?? {};
 
     return Goal(
@@ -41,6 +46,18 @@ class Goal {
       eventPropertyValue: config['eventPropertyValue']?.toString() ??
           json['eventPropertyValue']?.toString() ??
           json['event_property_value']?.toString(),
+      totalConversions:
+          (json['total_conversions'] as num?)?.toInt() ??
+          (json['totalConversions'] as num?)?.toInt() ??
+          0,
+      totalSessions:
+          (json['total_sessions'] as num?)?.toInt() ??
+          (json['totalSessions'] as num?)?.toInt() ??
+          0,
+      conversionRate:
+          (json['conversion_rate'] as num?)?.toDouble() ??
+          (json['conversionRate'] as num?)?.toDouble() ??
+          0,
     );
   }
 }

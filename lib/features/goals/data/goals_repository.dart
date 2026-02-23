@@ -9,9 +9,13 @@ class GoalsRepository {
 
   GoalsRepository(this._dio);
 
-  /// Fetches all goals for a site.
-  Future<List<Goal>> getGoals(String siteId) async {
-    final response = await _dio.get('/api/sites/$siteId/goals');
+  /// Fetches all goals for a site, optionally with conversion stats.
+  Future<List<Goal>> getGoals(String siteId,
+      {Map<String, String>? params}) async {
+    final response = await _dio.get(
+      '/api/sites/$siteId/goals',
+      queryParameters: params,
+    );
     final data = response.data;
     if (data is List) {
       return data

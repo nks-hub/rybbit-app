@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../features/analytics/application/time_range_controller.dart';
 import '../../../shared/models/goal.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/goals_repository.dart';
 
-/// Provider for goals list.
+/// Provider for goals list with conversion stats.
 final _goalsProvider =
     FutureProvider.family<List<Goal>, String>((ref, siteId) async {
+  ref.watch(timeRangeControllerProvider);
   final repo = ref.read(goalsRepositoryProvider);
-  return repo.getGoals(siteId);
+  final timeRange = ref.read(timeRangeControllerProvider);
+  final params = timeRange.toQueryParams();
+  return repo.getGoals(siteId, params: params);
 });
 
 class GoalsScreen extends ConsumerWidget {
@@ -189,67 +193,104 @@ class _GoalCard extends StatelessWidget {
     final typeColor = goal.goalType == 'path'
         ? const Color(0xFF3B82F6)
         : const Color(0xFF22C55E);
+    final ratePercent = (goal.conversionRate * 100).clamp(0, 100).toDouble();
 
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Flexible(
-                        child: Text(
-                          goal.name,
-                          style: theme.textTheme.bodyLarge?.copyWith(
-                            fontWeight: FontWeight.w600,
+                      Row(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              goal.name,
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                          const SizedBox(width: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: typeColor.withValues(alpha: 0.15),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Text(
+                              goal.goalType,
+                              style: TextStyle(
+                                color: typeColor,
+                                fontSize: 11,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 8),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 2),
-                        decoration: BoxDecoration(
-                          color: typeColor.withValues(alpha: 0.15),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Text(
-                          goal.goalType,
-                          style: TextStyle(
-                            color: typeColor,
-                            fontSize: 11,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
+                      const SizedBox(height: 4),
+                      Text(
+                        _goalDetail,
+                        style: theme.textTheme.bodySmall,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    _goalDetail,
-                    style: theme.textTheme.bodySmall,
-                    overflow: TextOverflow.ellipsis,
+                ),
+                IconButton(
+                  tooltip: 'Edit',
+                  icon: const Icon(Icons.edit_outlined, size: 20),
+                  onPressed: onEdit,
+                ),
+                IconButton(
+                  tooltip: 'Delete',
+                  icon: Icon(Icons.delete_outline,
+                      size: 20, color: theme.colorScheme.error),
+                  onPressed: onDelete,
+                ),
+              ],
+            ),
+            // Conversion stats
+            if (goal.totalSessions > 0) ...[
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  _StatChip(
+                    label: 'Conversions',
+                    value: formatNumber(goal.totalConversions),
+                  ),
+                  const SizedBox(width: 12),
+                  _StatChip(
+                    label: 'Rate',
+                    value: '${ratePercent.toStringAsFixed(1)}%',
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(4),
+                      child: LinearProgressIndicator(
+                        value: ratePercent / 100,
+                        minHeight: 6,
+                        backgroundColor: theme.colorScheme.primary
+                            .withValues(alpha: 0.1),
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(typeColor),
+                      ),
+                    ),
                   ),
                 ],
               ),
-            ),
-            IconButton(
-              tooltip: 'Edit',
-              icon: const Icon(Icons.edit_outlined, size: 20),
-              onPressed: onEdit,
-            ),
-            IconButton(
-              tooltip: 'Delete',
-              icon: Icon(Icons.delete_outline,
-                  size: 20, color: theme.colorScheme.error),
-              onPressed: onDelete,
-            ),
+            ],
           ],
         ),
       ),
@@ -369,6 +410,33 @@ class _GoalFormDialogState extends State<_GoalFormDialog> {
             Navigator.pop(context, body);
           },
           child: Text(isEditing ? 'Update' : 'Create'),
+        ),
+      ],
+    );
+  }
+}
+
+class _StatChip extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const _StatChip({required this.label, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          value,
+          style: theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        Text(
+          label,
+          style: theme.textTheme.bodySmall?.copyWith(fontSize: 10),
         ),
       ],
     );
