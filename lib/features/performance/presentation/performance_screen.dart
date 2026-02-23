@@ -70,6 +70,41 @@ final _perfOverviewProvider =
 final _selectedMetricProvider =
     StateProvider<WebVital>((ref) => WebVital.lcp);
 
+/// Dimension options for breakdown.
+enum PerfDimension {
+  pathname('Pages', 'pathname'),
+  country('Countries', 'country'),
+  deviceType('Devices', 'device_type'),
+  browser('Browsers', 'browser'),
+  operatingSystem('OS', 'operating_system');
+
+  const PerfDimension(this.label, this.value);
+  final String label;
+  final String value;
+}
+
+final _selectedDimensionProvider =
+    StateProvider<PerfDimension>((ref) => PerfDimension.pathname);
+
+/// Provider for performance by dimension breakdown.
+final _perfByDimensionProvider = FutureProvider.family<
+    List<PerformanceDimensionItem>, String>((ref, siteId) async {
+  ref.watch(timeRangeControllerProvider);
+  ref.watch(filterControllerProvider);
+  final dimension = ref.watch(_selectedDimensionProvider);
+
+  final repo = ref.read(performanceRepositoryProvider);
+  final timeRange = ref.read(timeRangeControllerProvider);
+  final filterCtrl = ref.read(filterControllerProvider.notifier);
+
+  final params = {
+    ...timeRange.toQueryParams(),
+    ...filterCtrl.toQueryParams(),
+  };
+
+  return repo.getByDimension(siteId, dimension.value, params);
+});
+
 /// Provider for time series of selected metric.
 final _perfTimeSeriesProvider = FutureProvider.family<
     List<PerformanceTimeSeries>, String>((ref, siteId) async {
@@ -98,7 +133,9 @@ class PerformanceScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final overviewAsync = ref.watch(_perfOverviewProvider(siteId));
     final timeSeriesAsync = ref.watch(_perfTimeSeriesProvider(siteId));
+    final dimensionAsync = ref.watch(_perfByDimensionProvider(siteId));
     final selectedMetric = ref.watch(_selectedMetricProvider);
+    final selectedDimension = ref.watch(_selectedDimensionProvider);
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -114,6 +151,7 @@ class PerformanceScreen extends ConsumerWidget {
         onRefresh: () async {
           ref.invalidate(_perfOverviewProvider(siteId));
           ref.invalidate(_perfTimeSeriesProvider(siteId));
+          ref.invalidate(_perfByDimensionProvider(siteId));
         },
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
@@ -202,6 +240,145 @@ class PerformanceScreen extends ConsumerWidget {
                     ),
                   ],
                 ),
+              ),
+
+              const Divider(height: 1),
+
+              // Dimension breakdown
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                child: Text(
+                  'By Dimension',
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              // Dimension selector chips
+              SizedBox(
+                height: 40,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  children: PerfDimension.values.map((d) {
+                    final isSelected = d == selectedDimension;
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: FilterChip(
+                        label: Text(
+                          d.label,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: isSelected
+                                ? FontWeight.w600
+                                : FontWeight.normal,
+                          ),
+                        ),
+                        selected: isSelected,
+                        onSelected: (_) => ref
+                            .read(_selectedDimensionProvider.notifier)
+                            .state = d,
+                        showCheckmark: false,
+                        selectedColor:
+                            theme.colorScheme.primary.withValues(alpha: 0.2),
+                        side: BorderSide(
+                          color: isSelected
+                              ? theme.colorScheme.primary
+                              : theme.dividerTheme.color ??
+                                  const Color(0xFF262626),
+                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+              const SizedBox(height: 8),
+              // Dimension items
+              dimensionAsync.when(
+                loading: () => const Padding(
+                  padding: EdgeInsets.all(32),
+                  child: Center(child: CircularProgressIndicator()),
+                ),
+                error: (err, _) => Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Center(
+                    child: Text('Failed to load dimension data',
+                        style: theme.textTheme.bodySmall),
+                  ),
+                ),
+                data: (items) {
+                  if (items.isEmpty) {
+                    return Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Center(
+                        child: Text('No data',
+                            style: theme.textTheme.bodySmall),
+                      ),
+                    );
+                  }
+
+                  final metricKey =
+                      selectedMetric.shortName.toLowerCase();
+
+                  return ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: items.length,
+                    separatorBuilder: (_, __) => Divider(
+                      height: 1,
+                      color: theme.dividerTheme.color
+                          ?.withValues(alpha: 0.3),
+                    ),
+                    itemBuilder: (context, index) {
+                      final item = items[index];
+                      final p75 = item.getVitalP75(metricKey);
+                      final color = selectedMetric.ratingColor(p75);
+
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                item.dimensionValue,
+                                style: theme.textTheme.bodyMedium,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              '${item.eventCount}',
+                              style: theme.textTheme.bodySmall,
+                            ),
+                            const SizedBox(width: 16),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 2),
+                              decoration: BoxDecoration(
+                                color:
+                                    color.withValues(alpha: 0.15),
+                                borderRadius:
+                                    BorderRadius.circular(4),
+                              ),
+                              child: Text(
+                                selectedMetric.formatValue(p75),
+                                style: TextStyle(
+                                  color: color,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),
