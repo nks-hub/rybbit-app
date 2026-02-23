@@ -37,6 +37,7 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: _cardDark,
+        hintStyle: const TextStyle(color: Color(0xFF8A8A8A)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: _borderDark),
@@ -48,6 +49,14 @@ class AppTheme {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: _primaryColor),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Color(0xFFEF4444)),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Color(0xFFEF4444)),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
@@ -73,7 +82,7 @@ class AppTheme {
             if (states.contains(WidgetState.selected)) {
               return Colors.white;
             }
-            return Colors.grey;
+            return const Color(0xFFA3A3A3);
           }),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
@@ -84,6 +93,17 @@ class AppTheme {
             const BorderSide(color: _borderDark),
           ),
         ),
+      ),
+      chipTheme: ChipThemeData(
+        backgroundColor: _cardDark,
+        selectedColor: _primaryColor.withValues(alpha: 0.2),
+        labelStyle: const TextStyle(color: Color(0xFFA3A3A3), fontSize: 12),
+        side: const BorderSide(color: _borderDark),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: _cardDark,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
       dividerTheme: const DividerThemeData(color: _borderDark),
       textTheme: const TextTheme(
@@ -126,6 +146,7 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: Colors.white,
+        hintStyle: const TextStyle(color: Color(0xFF9CA3AF)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: Color(0xFFE5E5E5)),
@@ -137,6 +158,14 @@ class AppTheme {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: _primaryColor),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Color(0xFFEF4444)),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Color(0xFFEF4444)),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
@@ -150,6 +179,42 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
         ),
       ),
+      segmentedButtonTheme: SegmentedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
+              return _primaryColor;
+            }
+            return Colors.white;
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
+              return Colors.white;
+            }
+            return const Color(0xFF6B7280);
+          }),
+          shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          side: WidgetStateProperty.all(
+            const BorderSide(color: Color(0xFFE5E5E5)),
+          ),
+        ),
+      ),
+      chipTheme: ChipThemeData(
+        backgroundColor: Colors.white,
+        selectedColor: _primaryColor.withValues(alpha: 0.1),
+        labelStyle: const TextStyle(color: Color(0xFF6B7280), fontSize: 12),
+        side: const BorderSide(color: Color(0xFFE5E5E5)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+      dividerTheme: const DividerThemeData(color: Color(0xFFE5E5E5)),
     );
   }
 }

@@ -7,6 +7,7 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/utils/user_display_name.dart';
 import '../application/sessions_controller.dart';
 import '../data/sessions_repository.dart';
 
@@ -332,30 +333,55 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Row 0: User ID
-                    if (session.userId != null &&
-                        session.userId!.isNotEmpty) ...[
-                      Row(
-                        children: [
-                          Icon(Icons.person_outline,
-                              size: 14,
-                              color: theme.colorScheme.primary),
-                          const SizedBox(width: 4),
-                          Expanded(
-                            child: Text(
-                              session.userId!,
+                    // Row 0: User display name
+                    Row(
+                      children: [
+                        Icon(
+                          isIdentified(session)
+                              ? Icons.person
+                              : Icons.person_outline,
+                          size: 14,
+                          color: isIdentified(session)
+                              ? const Color(0xFF22C55E)
+                              : theme.colorScheme.primary,
+                        ),
+                        const SizedBox(width: 4),
+                        Flexible(
+                          child: Text(
+                            getUserDisplayName(session),
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: isIdentified(session)
+                                  ? const Color(0xFF22C55E)
+                                  : theme.colorScheme.primary,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        if (isIdentified(session)) ...[
+                          const SizedBox(width: 6),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 1),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF22C55E)
+                                  .withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: const Text(
+                              'ID',
                               style: TextStyle(
-                                fontSize: 11,
-                                color: theme.colorScheme.primary,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 9,
+                                color: Color(0xFF22C55E),
+                                fontWeight: FontWeight.w700,
                               ),
-                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ],
-                      ),
-                      const SizedBox(height: 4),
-                    ],
+                      ],
+                    ),
+                    const SizedBox(height: 4),
                     // Row 1: Flag + Browser/OS + Time
                     Row(
                       children: [
@@ -823,7 +849,7 @@ class _MiniTimelineEvent extends StatelessWidget {
         dotColor = const Color(0xFFEF4444);
         dotIcon = Icons.error_outline;
       case IconType.other:
-        dotColor = Colors.grey;
+        dotColor = theme.disabledColor;
         dotIcon = Icons.circle;
     }
 
@@ -869,7 +895,7 @@ class _StatBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c =
-        color ?? theme.textTheme.bodySmall?.color ?? Colors.grey;
+        color ?? theme.textTheme.bodySmall?.color ?? theme.disabledColor;
     return Container(
       padding:
           const EdgeInsets.symmetric(horizontal: 6, vertical: 2),

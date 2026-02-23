@@ -259,7 +259,7 @@ class _ReplayEventTimelineItem extends StatelessWidget {
     final offsetSec = (offsetMs / 1000).toStringAsFixed(1);
 
     // Determine color and icon based on event type/source
-    final (Color color, IconData icon, String label) = _getEventStyle(l10n);
+    final (Color color, IconData icon, String label) = _getEventStyle(l10n, theme);
 
     return IntrinsicHeight(
       child: Row(
@@ -317,7 +317,7 @@ class _ReplayEventTimelineItem extends StatelessWidget {
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
                             color: theme.dividerTheme.color ??
-                                Colors.grey.shade800,
+                                theme.disabledColor,
                           ),
                         ),
                         child: Text(
@@ -348,7 +348,7 @@ class _ReplayEventTimelineItem extends StatelessWidget {
     );
   }
 
-  (Color, IconData, String) _getEventStyle(AppLocalizations l10n) {
+  (Color, IconData, String) _getEventStyle(AppLocalizations l10n, ThemeData theme) {
     switch (event.type) {
       case 2: // Full snapshot
         return (
@@ -404,7 +404,7 @@ class _ReplayEventTimelineItem extends StatelessWidget {
             );
           default:
             return (
-              Colors.grey,
+              theme.disabledColor,
               Icons.circle,
               event.detailLabel ?? l10n.replayUpdate,
             );

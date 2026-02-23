@@ -6,6 +6,12 @@ part 'session.g.dart';
 String? _toStringOrNull(dynamic value) => value?.toString();
 String _toStringRequired(dynamic value) => value?.toString() ?? '';
 
+Map<String, dynamic>? _traitsFromJson(dynamic value) {
+  if (value == null) return null;
+  if (value is Map) return Map<String, dynamic>.from(value);
+  return null;
+}
+
 @freezed
 class AnalyticsSession with _$AnalyticsSession {
   const factory AnalyticsSession({
@@ -35,6 +41,8 @@ class AnalyticsSession with _$AnalyticsSession {
     @JsonKey(name: 'utm_source', fromJson: _toStringOrNull) String? utmSource,
     @JsonKey(name: 'utm_medium', fromJson: _toStringOrNull) String? utmMedium,
     @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull) String? utmCampaign,
+    @JsonKey(name: 'identified_user_id', fromJson: _toStringOrNull) String? identifiedUserId,
+    @JsonKey(fromJson: _traitsFromJson) Map<String, dynamic>? traits,
   }) = _AnalyticsSession;
 
   factory AnalyticsSession.fromJson(Map<String, dynamic> json) =>

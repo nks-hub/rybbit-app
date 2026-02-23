@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/utils/user_display_name.dart';
 import '../application/sessions_controller.dart';
 import '../data/sessions_repository.dart';
 
@@ -80,6 +82,84 @@ class SessionDetailScreen extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // User info card
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          isIdentified(session)
+                              ? Icons.person
+                              : Icons.person_outline,
+                          size: 20,
+                          color: isIdentified(session)
+                              ? const Color(0xFF22C55E)
+                              : theme.colorScheme.primary,
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            getUserDisplayName(session),
+                            style: theme.textTheme.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        if (isIdentified(session))
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF22C55E)
+                                  .withValues(alpha: 0.15),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Text(
+                              'Identified',
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: Color(0xFF22C55E),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                    if (session.identifiedUserId != null &&
+                        session.identifiedUserId!.isNotEmpty) ...[
+                      const SizedBox(height: 4),
+                      _InfoRow(
+                        icon: Icons.badge_outlined,
+                        label: 'User ID',
+                        value: session.identifiedUserId!,
+                      ),
+                    ],
+                    if (session.traits != null &&
+                        session.traits!.isNotEmpty) ...[
+                      const Divider(height: 16),
+                      ...session.traits!.entries
+                          .where((e) =>
+                              e.value != null &&
+                              e.value.toString().isNotEmpty)
+                          .map((e) => _InfoRow(
+                                icon: Icons.label_outline,
+                                label: e.key,
+                                value: e.value.toString(),
+                              )),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ),
+
           // Session overview card
           Padding(
             padding: const EdgeInsets.all(16),
@@ -355,7 +435,7 @@ class _EventTimelineItem extends StatelessWidget {
         dotColor = const Color(0xFFEF4444);
         dotIcon = Icons.error_outline;
       case IconType.other:
-        dotColor = Colors.grey;
+        dotColor = theme.disabledColor;
         dotIcon = Icons.circle;
     }
 

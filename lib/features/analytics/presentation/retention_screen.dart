@@ -310,7 +310,7 @@ class _RetentionTable extends StatelessWidget {
         style: TextStyle(
           fontSize: 10,
           fontWeight: FontWeight.w500,
-          color: value > 40 ? Colors.white : (isDark ? Colors.white70 : Colors.black87),
+          color: value > 40 ? Colors.white : theme.textTheme.bodyMedium!.color!,
         ),
       ),
     );

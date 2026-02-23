@@ -121,7 +121,7 @@ class FunnelsScreen extends ConsumerWidget {
             ),
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: Text(dialogL10n.delete, style: const TextStyle(color: Colors.red)),
+              child: Text(dialogL10n.delete, style: TextStyle(color: Theme.of(ctx).colorScheme.error)),
             ),
           ],
         );

@@ -35,6 +35,8 @@ _$AnalyticsSessionImpl _$$AnalyticsSessionImplFromJson(
   utmSource: _toStringOrNull(json['utm_source']),
   utmMedium: _toStringOrNull(json['utm_medium']),
   utmCampaign: _toStringOrNull(json['utm_campaign']),
+  identifiedUserId: _toStringOrNull(json['identified_user_id']),
+  traits: _traitsFromJson(json['traits']),
 );
 
 Map<String, dynamic> _$$AnalyticsSessionImplToJson(
@@ -66,4 +68,6 @@ Map<String, dynamic> _$$AnalyticsSessionImplToJson(
   'utm_source': instance.utmSource,
   'utm_medium': instance.utmMedium,
   'utm_campaign': instance.utmCampaign,
+  'identified_user_id': instance.identifiedUserId,
+  'traits': instance.traits,
 };

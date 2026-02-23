@@ -47,7 +47,7 @@ class TimeSeriesChart extends StatelessWidget {
             horizontalInterval: maxY > 0 ? maxY / 4 : 1,
             getDrawingHorizontalLine: (value) => FlLine(
               color: theme.dividerTheme.color?.withValues(alpha: 0.3) ??
-                  Colors.grey.withValues(alpha: 0.2),
+                  theme.disabledColor.withValues(alpha: 0.2),
               strokeWidth: 1,
             ),
           ),
@@ -169,7 +169,7 @@ class TimeSeriesChart extends StatelessWidget {
       ),
       isCurved: true,
       curveSmoothness: 0.25,
-      color: Colors.grey.withValues(alpha: 0.6),
+      color: (theme.dividerTheme.color ?? theme.disabledColor).withValues(alpha: 0.6),
       barWidth: 1.5,
       isStrokeCapRound: true,
       dotData: const FlDotData(show: false),

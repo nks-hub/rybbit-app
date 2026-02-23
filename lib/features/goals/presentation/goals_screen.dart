@@ -160,7 +160,7 @@ class GoalsScreen extends ConsumerWidget {
             ),
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: Text(l10nDialog.delete, style: const TextStyle(color: Colors.red)),
+              child: Text(l10nDialog.delete, style: TextStyle(color: Theme.of(ctx).colorScheme.error)),
             ),
           ],
         );
