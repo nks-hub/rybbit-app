@@ -455,6 +455,8 @@ class AnalyticsScreen extends ConsumerWidget {
             crossAxisSpacing: 6,
             childAspectRatio: 1.7,
             children: [
+              linkCard(l10n.userTraits, Icons.label_outlined,
+                  () => context.push('/analytics/$siteId/user-traits')),
               linkCard(l10n.replay, Icons.videocam_outlined,
                   () => context.push('/analytics/$siteId/replay')),
               linkCard(l10n.config, Icons.settings_outlined,

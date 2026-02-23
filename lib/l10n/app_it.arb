@@ -472,5 +472,12 @@
 
   "coreFeatures": "Principale",
   "insights": "Approfondimenti",
-  "tools": "Strumenti"
+  "tools": "Strumenti",
+
+  "userTraits": "Attributi",
+  "failedToLoadUserTraits": "Impossibile caricare gli attributi utente",
+  "noUserTraits": "Nessun attributo trovato",
+  "noUserTraitsHint": "Gli attributi appariranno quando gli utenti verranno identificati con proprietà personalizzate",
+  "traitUsersCount": "{count} utenti",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
 }

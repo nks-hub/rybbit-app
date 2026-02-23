@@ -472,5 +472,12 @@
 
   "coreFeatures": "核心",
   "insights": "洞察",
-  "tools": "工具"
+  "tools": "工具",
+
+  "userTraits": "用户特征",
+  "failedToLoadUserTraits": "加载用户特征失败",
+  "noUserTraits": "未找到用户特征",
+  "noUserTraitsHint": "当用户使用自定义属性标识时将显示特征",
+  "traitUsersCount": "{count}个用户",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
 }

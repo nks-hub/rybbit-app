@@ -472,5 +472,12 @@
 
   "coreFeatures": "Kern",
   "insights": "Einblicke",
-  "tools": "Werkzeuge"
+  "tools": "Werkzeuge",
+
+  "userTraits": "Merkmale",
+  "failedToLoadUserTraits": "Benutzermerkmale konnten nicht geladen werden",
+  "noUserTraits": "Keine Benutzermerkmale gefunden",
+  "noUserTraitsHint": "Merkmale erscheinen, wenn Benutzer mit benutzerdefinierten Eigenschaften identifiziert werden",
+  "traitUsersCount": "{count} Benutzer",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
 }

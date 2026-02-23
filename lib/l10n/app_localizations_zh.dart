@@ -939,4 +939,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get tools => '工具';
+
+  @override
+  String get userTraits => '用户特征';
+
+  @override
+  String get failedToLoadUserTraits => '加载用户特征失败';
+
+  @override
+  String get noUserTraits => '未找到用户特征';
+
+  @override
+  String get noUserTraitsHint => '当用户使用自定义属性标识时将显示特征';
+
+  @override
+  String traitUsersCount(String count) {
+    return '$count个用户';
+  }
 }

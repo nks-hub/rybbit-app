@@ -472,5 +472,12 @@
 
   "coreFeatures": "Główne",
   "insights": "Wgląd",
-  "tools": "Narzędzia"
+  "tools": "Narzędzia",
+
+  "userTraits": "Cechy",
+  "failedToLoadUserTraits": "Nie udało się załadować cech użytkowników",
+  "noUserTraits": "Nie znaleziono cech",
+  "noUserTraitsHint": "Cechy pojawią się po zidentyfikowaniu użytkowników z niestandardowymi właściwościami",
+  "traitUsersCount": "{count} użytkowników",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
 }

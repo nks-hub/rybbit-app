@@ -26,6 +26,7 @@ import '../../features/sessions/presentation/sessions_list_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
 import '../../features/sites/presentation/site_config_screen.dart';
 import '../../features/users/presentation/user_detail_screen.dart';
+import '../../features/users/presentation/user_traits_screen.dart';
 import '../../features/users/presentation/users_screen.dart';
 import '../state/current_site_provider.dart';
 import 'shell_screen.dart';
@@ -197,6 +198,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                         builder: (context, state) {
                           final siteId = state.pathParameters['siteId']!;
                           return UsersScreen(siteId: siteId);
+                        },
+                      ),
+                      GoRoute(
+                        path: 'user-traits',
+                        builder: (context, state) {
+                          final siteId = state.pathParameters['siteId']!;
+                          return UserTraitsScreen(siteId: siteId);
                         },
                       ),
                       GoRoute(

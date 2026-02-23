@@ -956,4 +956,23 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get tools => 'Nástroje';
+
+  @override
+  String get userTraits => 'Vlastnosti';
+
+  @override
+  String get failedToLoadUserTraits =>
+      'Nepodařilo se načíst vlastnosti uživatelů';
+
+  @override
+  String get noUserTraits => 'Žádné vlastnosti nenalezeny';
+
+  @override
+  String get noUserTraitsHint =>
+      'Vlastnosti se zobrazí po identifikaci uživatelů s vlastními atributy';
+
+  @override
+  String traitUsersCount(String count) {
+    return '$count uživatelů';
+  }
 }

@@ -959,4 +959,23 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get tools => 'Werkzeuge';
+
+  @override
+  String get userTraits => 'Merkmale';
+
+  @override
+  String get failedToLoadUserTraits =>
+      'Benutzermerkmale konnten nicht geladen werden';
+
+  @override
+  String get noUserTraits => 'Keine Benutzermerkmale gefunden';
+
+  @override
+  String get noUserTraitsHint =>
+      'Merkmale erscheinen, wenn Benutzer mit benutzerdefinierten Eigenschaften identifiziert werden';
+
+  @override
+  String traitUsersCount(String count) {
+    return '$count Benutzer';
+  }
 }

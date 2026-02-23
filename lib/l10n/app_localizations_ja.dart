@@ -939,4 +939,21 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get tools => 'ツール';
+
+  @override
+  String get userTraits => 'トレイト';
+
+  @override
+  String get failedToLoadUserTraits => 'ユーザートレイトの読み込みに失敗しました';
+
+  @override
+  String get noUserTraits => 'トレイトが見つかりません';
+
+  @override
+  String get noUserTraitsHint => 'カスタムプロパティでユーザーが識別されると表示されます';
+
+  @override
+  String traitUsersCount(String count) {
+    return '$countユーザー';
+  }
 }

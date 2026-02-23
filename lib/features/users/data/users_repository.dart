@@ -117,6 +117,27 @@ class UsersRepository {
     return const UsersPageResponse();
   }
 
+  /// Fetches available user trait keys for a site.
+  Future<List<TraitKey>> getTraitKeys(String siteId) async {
+    final response = await _dio.get('/api/sites/$siteId/user-traits/keys');
+    final data = response.data as Map<String, dynamic>;
+    final list = data['keys'] as List? ?? [];
+    return list
+        .map((e) => TraitKey.fromJson(e as Map<String, dynamic>))
+        .toList();
+  }
+
+  /// Fetches values for a specific trait key.
+  Future<TraitValuesResponse> getTraitValues(
+      String siteId, String key) async {
+    final response = await _dio.get(
+      '/api/sites/$siteId/user-traits/values',
+      queryParameters: {'key': key, 'limit': '100'},
+    );
+    final data = response.data as Map<String, dynamic>;
+    return TraitValuesResponse.fromJson(data);
+  }
+
   /// Fetches user detail with traits.
   Future<UserDetail> getUserDetail(String siteId, String userId) async {
     final response = await _dio.get('/api/sites/$siteId/users/$userId');
@@ -128,6 +149,57 @@ class UsersRepository {
       return UserDetail.fromJson(data);
     }
     throw Exception('Invalid user detail response');
+  }
+}
+
+class TraitKey {
+  final String key;
+  final int userCount;
+
+  const TraitKey({required this.key, required this.userCount});
+
+  factory TraitKey.fromJson(Map<String, dynamic> json) {
+    return TraitKey(
+      key: json['key'] as String? ?? '',
+      userCount: (json['userCount'] as num?)?.toInt() ?? 0,
+    );
+  }
+}
+
+class TraitValue {
+  final String value;
+  final int userCount;
+
+  const TraitValue({required this.value, required this.userCount});
+
+  factory TraitValue.fromJson(Map<String, dynamic> json) {
+    return TraitValue(
+      value: json['value'] as String? ?? '',
+      userCount: (json['userCount'] as num?)?.toInt() ?? 0,
+    );
+  }
+}
+
+class TraitValuesResponse {
+  final List<TraitValue> values;
+  final int total;
+  final bool hasMore;
+
+  const TraitValuesResponse({
+    this.values = const [],
+    this.total = 0,
+    this.hasMore = false,
+  });
+
+  factory TraitValuesResponse.fromJson(Map<String, dynamic> json) {
+    final list = json['values'] as List? ?? [];
+    return TraitValuesResponse(
+      values: list
+          .map((e) => TraitValue.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      total: (json['total'] as num?)?.toInt() ?? 0,
+      hasMore: json['hasMore'] as bool? ?? false,
+    );
   }
 }
 

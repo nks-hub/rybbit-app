@@ -350,5 +350,12 @@
 
   "coreFeatures": "Core",
   "insights": "Insights",
-  "tools": "Tools"
+  "tools": "Tools",
+
+  "userTraits": "Traits",
+  "failedToLoadUserTraits": "Failed to load user traits",
+  "noUserTraits": "No user traits found",
+  "noUserTraitsHint": "User traits will appear when users are identified with custom properties",
+  "traitUsersCount": "{count} users",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
 }

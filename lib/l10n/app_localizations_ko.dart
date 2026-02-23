@@ -939,4 +939,21 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get tools => '도구';
+
+  @override
+  String get userTraits => '특성';
+
+  @override
+  String get failedToLoadUserTraits => '사용자 특성을 불러오지 못했습니다';
+
+  @override
+  String get noUserTraits => '특성이 없습니다';
+
+  @override
+  String get noUserTraitsHint => '사용자가 사용자 정의 속성으로 식별되면 표시됩니다';
+
+  @override
+  String traitUsersCount(String count) {
+    return '$count명 사용자';
+  }
 }

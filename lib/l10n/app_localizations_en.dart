@@ -941,4 +941,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tools => 'Tools';
+
+  @override
+  String get userTraits => 'Traits';
+
+  @override
+  String get failedToLoadUserTraits => 'Failed to load user traits';
+
+  @override
+  String get noUserTraits => 'No user traits found';
+
+  @override
+  String get noUserTraitsHint =>
+      'User traits will appear when users are identified with custom properties';
+
+  @override
+  String traitUsersCount(String count) {
+    return '$count users';
+  }
 }

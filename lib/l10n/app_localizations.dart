@@ -1849,6 +1849,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tools'**
   String get tools;
+
+  /// No description provided for @userTraits.
+  ///
+  /// In en, this message translates to:
+  /// **'Traits'**
+  String get userTraits;
+
+  /// No description provided for @failedToLoadUserTraits.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load user traits'**
+  String get failedToLoadUserTraits;
+
+  /// No description provided for @noUserTraits.
+  ///
+  /// In en, this message translates to:
+  /// **'No user traits found'**
+  String get noUserTraits;
+
+  /// No description provided for @noUserTraitsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'User traits will appear when users are identified with custom properties'**
+  String get noUserTraitsHint;
+
+  /// No description provided for @traitUsersCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} users'**
+  String traitUsersCount(String count);
 }
 
 class _AppLocalizationsDelegate

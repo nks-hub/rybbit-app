@@ -472,5 +472,12 @@
 
   "coreFeatures": "핵심",
   "insights": "인사이트",
-  "tools": "도구"
+  "tools": "도구",
+
+  "userTraits": "특성",
+  "failedToLoadUserTraits": "사용자 특성을 불러오지 못했습니다",
+  "noUserTraits": "특성이 없습니다",
+  "noUserTraitsHint": "사용자가 사용자 정의 속성으로 식별되면 표시됩니다",
+  "traitUsersCount": "{count}명 사용자",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
 }

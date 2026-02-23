@@ -472,5 +472,12 @@
 
   "coreFeatures": "コア",
   "insights": "インサイト",
-  "tools": "ツール"
+  "tools": "ツール",
+
+  "userTraits": "トレイト",
+  "failedToLoadUserTraits": "ユーザートレイトの読み込みに失敗しました",
+  "noUserTraits": "トレイトが見つかりません",
+  "noUserTraitsHint": "カスタムプロパティでユーザーが識別されると表示されます",
+  "traitUsersCount": "{count}ユーザー",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
 }

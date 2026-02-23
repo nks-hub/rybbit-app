@@ -950,4 +950,23 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get tools => 'Ferramentas';
+
+  @override
+  String get userTraits => 'Atributos';
+
+  @override
+  String get failedToLoadUserTraits =>
+      'Falha ao carregar atributos dos usuários';
+
+  @override
+  String get noUserTraits => 'Nenhum atributo encontrado';
+
+  @override
+  String get noUserTraitsHint =>
+      'Os atributos aparecerão quando os usuários forem identificados com propriedades personalizadas';
+
+  @override
+  String traitUsersCount(String count) {
+    return '$count usuários';
+  }
 }

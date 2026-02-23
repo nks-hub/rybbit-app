@@ -472,5 +472,12 @@
 
   "coreFeatures": "Hlavní",
   "insights": "Přehledy",
-  "tools": "Nástroje"
+  "tools": "Nástroje",
+
+  "userTraits": "Vlastnosti",
+  "failedToLoadUserTraits": "Nepodařilo se načíst vlastnosti uživatelů",
+  "noUserTraits": "Žádné vlastnosti nenalezeny",
+  "noUserTraitsHint": "Vlastnosti se zobrazí po identifikaci uživatelů s vlastními atributy",
+  "traitUsersCount": "{count} uživatelů",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
 }

@@ -951,4 +951,23 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get tools => 'Narzędzia';
+
+  @override
+  String get userTraits => 'Cechy';
+
+  @override
+  String get failedToLoadUserTraits =>
+      'Nie udało się załadować cech użytkowników';
+
+  @override
+  String get noUserTraits => 'Nie znaleziono cech';
+
+  @override
+  String get noUserTraitsHint =>
+      'Cechy pojawią się po zidentyfikowaniu użytkowników z niestandardowymi właściwościami';
+
+  @override
+  String traitUsersCount(String count) {
+    return '$count użytkowników';
+  }
 }
