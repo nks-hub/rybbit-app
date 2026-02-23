@@ -138,13 +138,13 @@ class SiteCard extends ConsumerWidget {
                   ),
                   const Spacer(),
                   sparklineAsync.when(
-                    loading: () => const SizedBox(width: 80, height: 36),
-                    error: (_, __) => const SizedBox(width: 80, height: 36),
+                    loading: () => const SizedBox(width: 120, height: 44),
+                    error: (_, __) => const SizedBox(width: 120, height: 44),
                     data: (values) => values.isNotEmpty
                         ? RepaintBoundary(
                             child: _Sparkline(values: values, theme: theme),
                           )
-                        : const SizedBox(width: 80, height: 36),
+                        : const SizedBox(width: 120, height: 44),
                   ),
                 ],
               ),
@@ -173,8 +173,8 @@ class _Sparkline extends StatelessWidget {
         : theme.colorScheme.error;
 
     return SizedBox(
-      width: 80,
-      height: 36,
+      width: 120,
+      height: 44,
       child: LineChart(
         LineChartData(
           gridData: const FlGridData(show: false),
@@ -194,7 +194,7 @@ class _Sparkline extends StatelessWidget {
               isCurved: true,
               curveSmoothness: 0.3,
               color: color,
-              barWidth: 1.5,
+              barWidth: 2.0,
               isStrokeCapRound: true,
               dotData: const FlDotData(show: false),
               belowBarData: BarAreaData(
@@ -203,8 +203,8 @@ class _Sparkline extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    color.withValues(alpha: 0.2),
-                    color.withValues(alpha: 0.0),
+                    color.withValues(alpha: 0.3),
+                    color.withValues(alpha: 0.02),
                   ],
                 ),
               ),
