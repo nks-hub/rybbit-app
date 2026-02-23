@@ -24,6 +24,8 @@ class SiteCard extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
     final sparklineAsync =
         ref.watch(sparklineProvider(site.siteId.toString()));
+    final todayAsync =
+        ref.watch(todayUsersProvider(site.siteId.toString()));
 
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
@@ -32,77 +34,119 @@ class SiteCard extends ConsumerWidget {
         borderRadius: BorderRadius.circular(12),
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      site.domain,
-                      style: theme.textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                      ),
-                    ),
-                    if (site.name.isNotEmpty && site.name != site.domain) ...[
-                      const SizedBox(height: 2),
-                      Text(
-                        site.name,
-                        style: theme.textTheme.bodySmall,
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-              sparklineAsync.when(
-                loading: () => const SizedBox(width: 64, height: 28),
-                error: (_, __) => const SizedBox(width: 64, height: 28),
-                data: (values) => values.length >= 2
-                    ? _Sparkline(values: values, theme: theme)
-                    : const SizedBox(width: 64, height: 28),
-              ),
-              if (liveCount > 0) ...[
-                const SizedBox(width: 8),
-                Semantics(
-                  label: l10n.usersOnline(liveCount),
-                  excludeSemantics: true,
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF22C55E).withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
+              // Top row: domain + live badge + chevron
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          width: 8,
-                          height: 8,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF22C55E),
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 6),
                         Text(
-                          '$liveCount',
-                          style: const TextStyle(
-                            color: Color(0xFF22C55E),
+                          site.domain,
+                          style: theme.textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.w600,
-                            fontSize: 13,
+                            fontSize: 16,
                           ),
                         ),
+                        if (site.name.isNotEmpty &&
+                            site.name != site.domain) ...[
+                          const SizedBox(height: 2),
+                          Text(
+                            site.name,
+                            style: theme.textTheme.bodySmall,
+                          ),
+                        ],
                       ],
                     ),
                   ),
-                ),
-              ],
-              const SizedBox(width: 8),
-              Icon(
-                Icons.chevron_right,
-                color: theme.textTheme.bodyMedium?.color,
+                  if (liveCount > 0) ...[
+                    const SizedBox(width: 8),
+                    Semantics(
+                      label: l10n.usersOnline(liveCount),
+                      excludeSemantics: true,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(
+                          color:
+                              const Color(0xFF22C55E).withValues(alpha: 0.15),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFF22C55E),
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            const SizedBox(width: 6),
+                            Text(
+                              '$liveCount',
+                              style: const TextStyle(
+                                color: Color(0xFF22C55E),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                  const SizedBox(width: 8),
+                  Icon(
+                    Icons.chevron_right,
+                    color: theme.textTheme.bodyMedium?.color,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              // Bottom row: today's visitors + sparkline
+              Row(
+                children: [
+                  todayAsync.when(
+                    loading: () => const SizedBox.shrink(),
+                    error: (_, __) => const SizedBox.shrink(),
+                    data: (users) => users > 0
+                        ? Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.person_outline,
+                                size: 14,
+                                color: theme.colorScheme.primary,
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                l10n.todayVisitors(users),
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: theme.colorScheme.primary,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          )
+                        : const SizedBox.shrink(),
+                  ),
+                  const Spacer(),
+                  sparklineAsync.when(
+                    loading: () => const SizedBox(width: 80, height: 36),
+                    error: (_, __) => const SizedBox(width: 80, height: 36),
+                    data: (values) => values.isNotEmpty
+                        ? RepaintBoundary(
+                            child: _Sparkline(values: values, theme: theme),
+                          )
+                        : const SizedBox(width: 80, height: 36),
+                  ),
+                ],
               ),
             ],
           ),
@@ -129,8 +173,8 @@ class _Sparkline extends StatelessWidget {
         : theme.colorScheme.error;
 
     return SizedBox(
-      width: 64,
-      height: 28,
+      width: 80,
+      height: 36,
       child: LineChart(
         LineChartData(
           gridData: const FlGridData(show: false),
@@ -138,7 +182,9 @@ class _Sparkline extends StatelessWidget {
           borderData: FlBorderData(show: false),
           lineTouchData: const LineTouchData(enabled: false),
           minY: range > 0 ? minVal - range * 0.1 : 0,
-          maxY: range > 0 ? maxVal + range * 0.1 : maxVal + 1,
+          maxY: range > 0
+              ? maxVal + range * 0.1
+              : (maxVal > 0 ? maxVal * 1.2 : 1),
           lineBarsData: [
             LineChartBarData(
               spots: List.generate(
