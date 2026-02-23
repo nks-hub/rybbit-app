@@ -75,6 +75,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get password => 'å¯ç ';
 
   @override
+  String get showPassword => 'æ¾ç¤ºå¯ç ';
+
+  @override
+  String get hidePassword => 'éèå¯ç ';
+
+  @override
   String get connect => 'è¿æ¥';
 
   @override

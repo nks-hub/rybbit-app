@@ -22,6 +22,8 @@
   "email": "ã¡ã¼ã«ã¢ãã¬ã¹",
   "apiKey": "APIã­ã¼",
   "password": "ãã¹ã¯ã¼ã",
+  "showPassword": "ãã¹ã¯ã¼ããè¡¨ç¤º",
+  "hidePassword": "ãã¹ã¯ã¼ããéè¡¨ç¤º",
   "connect": "æ¥ç¶",
   "connectionFailed": "接続に失敗しました。サーバーURLを確認してください。",
   "invalidApiKey": "無効なAPIキー",

@@ -36,7 +36,7 @@ class FunnelsScreen extends ConsumerWidget {
       ),
       body: funnelsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(
+        error: (error, _) => Semantics(liveRegion: true, child: Center(
           child: Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
@@ -59,7 +59,7 @@ class FunnelsScreen extends ConsumerWidget {
               ],
             ),
           ),
-        ),
+        )),
         data: (funnels) {
           if (funnels.isEmpty) {
             return Center(

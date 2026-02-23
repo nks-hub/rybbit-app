@@ -39,7 +39,7 @@ class SessionDetailScreen extends ConsumerWidget {
       ),
       body: detailAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(
+        error: (error, _) => Semantics(liveRegion: true, child: Center(
           child: Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
@@ -65,7 +65,7 @@ class SessionDetailScreen extends ConsumerWidget {
               ],
             ),
           ),
-        ),
+        )),
         data: (detail) => _buildContent(context, detail),
       ),
     );

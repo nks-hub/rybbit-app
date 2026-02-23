@@ -22,6 +22,8 @@
   "email": "E-mail",
   "apiKey": "API klíč",
   "password": "Heslo",
+  "showPassword": "Zobrazit heslo",
+  "hidePassword": "Skrýt heslo",
   "connect": "Připojit",
   "connectionFailed": "Připojení selhalo. Zkontrolujte URL serveru.",
   "invalidApiKey": "Neplatný API klíč",

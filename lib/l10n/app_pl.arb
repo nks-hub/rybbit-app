@@ -22,6 +22,8 @@
   "email": "E-mail",
   "apiKey": "Klucz API",
   "password": "Hasło",
+  "showPassword": "Pokaż hasło",
+  "hidePassword": "Ukryj hasło",
   "connect": "Połącz",
   "connectionFailed": "Połączenie nie powiodło się. Sprawdź adres URL serwera.",
   "invalidApiKey": "Nieprawidłowy klucz API",

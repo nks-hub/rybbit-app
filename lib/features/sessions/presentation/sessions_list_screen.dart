@@ -204,7 +204,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
       ),
       body: sessionsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(
+        error: (error, _) => Semantics(liveRegion: true, child: Center(
           child: Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
@@ -230,7 +230,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
               ],
             ),
           ),
-        ),
+        )),
         data: (sessionsState) {
           if (sessionsState.sessions.isEmpty) {
             return Center(
@@ -778,8 +778,7 @@ class _DetailContent extends StatelessWidget {
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 8, vertical: 4),
-                    minimumSize: Size.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    minimumSize: const Size(0, 48),
                   ),
                 ),
               ),

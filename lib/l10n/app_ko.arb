@@ -22,6 +22,8 @@
   "email": "ì´ë©ì¼",
   "apiKey": "API í¤",
   "password": "ë¹ë°ë²í¸",
+  "showPassword": "ë¹ë°ë²í¸ íì",
+  "hidePassword": "ë¹ë°ë²í¸ ì¨ê¸°ê¸°",
   "connect": "ì°ê²°",
   "connectionFailed": "연결에 실패했습니다. 서버 URL을 확인하세요.",
   "invalidApiKey": "유효하지 않은 API 키",

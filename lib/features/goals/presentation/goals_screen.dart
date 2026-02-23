@@ -45,7 +45,7 @@ class GoalsScreen extends ConsumerWidget {
       ),
       body: goalsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(
+        error: (error, _) => Semantics(liveRegion: true, child: Center(
           child: Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
@@ -68,7 +68,7 @@ class GoalsScreen extends ConsumerWidget {
               ],
             ),
           ),
-        ),
+        )),
         data: (goals) {
           if (goals.isEmpty) {
             return Center(

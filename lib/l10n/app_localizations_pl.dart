@@ -75,6 +75,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get password => 'Hasło';
 
   @override
+  String get showPassword => 'Pokaż hasło';
+
+  @override
+  String get hidePassword => 'Ukryj hasło';
+
+  @override
   String get connect => 'Połącz';
 
   @override

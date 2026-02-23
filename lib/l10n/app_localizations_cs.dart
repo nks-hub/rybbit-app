@@ -75,6 +75,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get password => 'Heslo';
 
   @override
+  String get showPassword => 'Zobrazit heslo';
+
+  @override
+  String get hidePassword => 'Skrýt heslo';
+
+  @override
   String get connect => 'Připojit';
 
   @override

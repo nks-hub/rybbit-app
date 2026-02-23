@@ -22,6 +22,8 @@
   "email": "Email",
   "apiKey": "API Key",
   "password": "Password",
+  "showPassword": "Mostra password",
+  "hidePassword": "Nascondi password",
   "connect": "Connetti",
   "connectionFailed": "Connessione fallita. Controlla l'URL del server.",
   "invalidApiKey": "Chiave API non valida",

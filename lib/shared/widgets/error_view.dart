@@ -28,16 +28,20 @@ class ErrorView extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final displayMessage = message ?? l10n.failedToLoadGeneric;
 
-    return Center(
+    return Semantics(
+      liveRegion: true,
+      child: Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.error_outline,
-              size: 48,
-              color: theme.colorScheme.error,
+            ExcludeSemantics(
+              child: Icon(
+                Icons.error_outline,
+                size: 48,
+                color: theme.colorScheme.error,
+              ),
             ),
             const SizedBox(height: 16),
             Text(
@@ -65,6 +69,7 @@ class ErrorView extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }

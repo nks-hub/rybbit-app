@@ -145,7 +145,7 @@ class AnalyticsScreen extends ConsumerWidget {
       ),
       body: analyticsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(
+        error: (error, stack) => Semantics(liveRegion: true, child: Center(
           child: Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
@@ -170,7 +170,7 @@ class AnalyticsScreen extends ConsumerWidget {
               ],
             ),
           ),
-        ),
+        )),
         data: (analyticsState) {
           final overview = analyticsState.overview;
           if (overview == null) {

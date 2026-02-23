@@ -22,6 +22,8 @@
   "email": "é®ç®±",
   "apiKey": "API å¯é¥",
   "password": "å¯ç ",
+  "showPassword": "æ¾ç¤ºå¯ç ",
+  "hidePassword": "éèå¯ç ",
   "connect": "è¿æ¥",
   "connectionFailed": "连接失败。请检查服务器 URL。",
   "invalidApiKey": "无效的 API 密钥",

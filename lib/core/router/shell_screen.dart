@@ -45,23 +45,23 @@ class _ShellScreenState extends ConsumerState<ShellScreen> {
               labelType: NavigationRailLabelType.all,
               destinations: [
                 NavigationRailDestination(
-                  icon: const Icon(Icons.home_outlined, size: 20),
-                  selectedIcon: const Icon(Icons.home, size: 20),
+                  icon: Icon(Icons.home_outlined, size: 20, semanticLabel: l10n.dashboard),
+                  selectedIcon: Icon(Icons.home, size: 20, semanticLabel: l10n.dashboard),
                   label: Text(l10n.dashboard, style: const TextStyle(fontSize: 11)),
                 ),
                 NavigationRailDestination(
-                  icon: const Icon(Icons.bar_chart_outlined, size: 20),
-                  selectedIcon: const Icon(Icons.bar_chart, size: 20),
+                  icon: Icon(Icons.bar_chart_outlined, size: 20, semanticLabel: l10n.analytics),
+                  selectedIcon: Icon(Icons.bar_chart, size: 20, semanticLabel: l10n.analytics),
                   label: Text(l10n.analytics, style: const TextStyle(fontSize: 11)),
                 ),
                 NavigationRailDestination(
-                  icon: const Icon(Icons.people_outlined, size: 20),
-                  selectedIcon: const Icon(Icons.people, size: 20),
+                  icon: Icon(Icons.people_outlined, size: 20, semanticLabel: l10n.sessions),
+                  selectedIcon: Icon(Icons.people, size: 20, semanticLabel: l10n.sessions),
                   label: Text(l10n.sessions, style: const TextStyle(fontSize: 11)),
                 ),
                 NavigationRailDestination(
-                  icon: const Icon(Icons.settings_outlined, size: 20),
-                  selectedIcon: const Icon(Icons.settings, size: 20),
+                  icon: Icon(Icons.settings_outlined, size: 20, semanticLabel: l10n.settings),
+                  selectedIcon: Icon(Icons.settings, size: 20, semanticLabel: l10n.settings),
                   label: Text(l10n.settings, style: const TextStyle(fontSize: 11)),
                 ),
               ],
@@ -89,23 +89,23 @@ class _ShellScreenState extends ConsumerState<ShellScreen> {
         indicatorColor: theme.colorScheme.primary.withValues(alpha: 0.15),
         destinations: [
           NavigationDestination(
-            icon: const Icon(Icons.home_outlined, semanticLabel: ''),
-            selectedIcon: const Icon(Icons.home, semanticLabel: ''),
+            icon: Icon(Icons.home_outlined, semanticLabel: l10n.dashboard),
+            selectedIcon: Icon(Icons.home, semanticLabel: l10n.dashboard),
             label: l10n.dashboard,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.bar_chart_outlined, semanticLabel: ''),
-            selectedIcon: const Icon(Icons.bar_chart, semanticLabel: ''),
+            icon: Icon(Icons.bar_chart_outlined, semanticLabel: l10n.analytics),
+            selectedIcon: Icon(Icons.bar_chart, semanticLabel: l10n.analytics),
             label: l10n.analytics,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.people_outlined, semanticLabel: ''),
-            selectedIcon: const Icon(Icons.people, semanticLabel: ''),
+            icon: Icon(Icons.people_outlined, semanticLabel: l10n.sessions),
+            selectedIcon: Icon(Icons.people, semanticLabel: l10n.sessions),
             label: l10n.sessions,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.settings_outlined, semanticLabel: ''),
-            selectedIcon: const Icon(Icons.settings, semanticLabel: ''),
+            icon: Icon(Icons.settings_outlined, semanticLabel: l10n.settings),
+            selectedIcon: Icon(Icons.settings, semanticLabel: l10n.settings),
             label: l10n.settings,
           ),
         ],

@@ -294,7 +294,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       ),
       body: sitesAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(
+        error: (error, stack) => Semantics(liveRegion: true, child: Center(
           child: Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
@@ -325,7 +325,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               ],
             ),
           ),
-        ),
+        )),
         data: (sitesState) {
           if (sitesState.sites.isEmpty) {
             return Center(

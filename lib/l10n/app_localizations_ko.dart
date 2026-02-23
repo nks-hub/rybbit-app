@@ -75,6 +75,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get password => 'ë¹ë°ë²í¸';
 
   @override
+  String get showPassword => 'ë¹ë°ë²í¸ íì';
+
+  @override
+  String get hidePassword => 'ë¹ë°ë²í¸ ì¨ê¸°ê¸°';
+
+  @override
   String get connect => 'ì°ê²°';
 
   @override

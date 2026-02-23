@@ -75,6 +75,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get password => 'ãã¹ã¯ã¼ã';
 
   @override
+  String get showPassword => 'ãã¹ã¯ã¼ããè¡¨ç¤º';
+
+  @override
+  String get hidePassword => 'ãã¹ã¯ã¼ããéè¡¨ç¤º';
+
+  @override
   String get connect => 'æ¥ç¶';
 
   @override

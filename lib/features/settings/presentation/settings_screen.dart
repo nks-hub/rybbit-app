@@ -132,7 +132,6 @@ class SettingsScreen extends ConsumerWidget {
                           },
                           style: const ButtonStyle(
                             visualDensity: VisualDensity.compact,
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
                         ),
                       ),

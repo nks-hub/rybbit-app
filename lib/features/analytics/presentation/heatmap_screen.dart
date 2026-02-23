@@ -207,9 +207,8 @@ class _HeatmapContentState extends State<_HeatmapContent> {
                 ],
                 selected: {_metric},
                 onSelectionChanged: (s) => setState(() => _metric = s.first),
-                style: ButtonStyle(
+                style: const ButtonStyle(
                   visualDensity: VisualDensity.compact,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
               ),
             ],
