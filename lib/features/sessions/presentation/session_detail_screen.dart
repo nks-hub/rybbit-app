@@ -307,7 +307,7 @@ class _InfoRow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
-          Icon(icon, size: 16, color: theme.textTheme.bodySmall?.color),
+          Icon(icon, size: 18, color: theme.textTheme.bodyMedium?.color),
           const SizedBox(width: 8),
           SizedBox(
             width: 90,
@@ -378,7 +378,7 @@ class _EventTimelineItem extends StatelessWidget {
                       color: dotColor.withValues(alpha: 0.15),
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(dotIcon, size: 14, color: dotColor),
+                    child: Icon(dotIcon, size: 16, color: dotColor),
                   ),
                   if (!isLast)
                     Expanded(

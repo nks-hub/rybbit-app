@@ -301,19 +301,22 @@ class _VitalCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 6),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-                    decoration: BoxDecoration(
-                      color: ratingColor.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Text(
-                      ratingLabel,
-                      style: TextStyle(
-                        color: ratingColor,
-                        fontSize: 9,
-                        fontWeight: FontWeight.w600,
+                  Semantics(
+                    label: 'Performance rating: $ratingLabel',
+                    child: Container(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                      decoration: BoxDecoration(
+                        color: ratingColor.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Text(
+                        ratingLabel,
+                        style: TextStyle(
+                          color: ratingColor,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),

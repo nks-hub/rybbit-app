@@ -346,7 +346,7 @@ class _ErrorEventTile extends StatelessWidget {
           Row(
             children: [
               Icon(Icons.schedule,
-                  size: 14, color: theme.textTheme.bodySmall?.color),
+                  size: 18, color: theme.textTheme.bodySmall?.color),
               const SizedBox(width: 4),
               Text(
                 timeStr,
@@ -365,7 +365,7 @@ class _ErrorEventTile extends StatelessWidget {
             Row(
               children: [
                 Icon(Icons.article_outlined,
-                    size: 14, color: theme.textTheme.bodySmall?.color),
+                    size: 18, color: theme.textTheme.bodySmall?.color),
                 const SizedBox(width: 4),
                 Expanded(
                   child: Text(

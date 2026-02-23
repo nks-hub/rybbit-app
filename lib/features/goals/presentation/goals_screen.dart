@@ -69,7 +69,7 @@ class GoalsScreen extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.flag_outlined,
-                      size: 64, color: theme.textTheme.bodySmall?.color),
+                      size: 64, color: theme.textTheme.bodySmall?.color, semanticLabel: ''),
                   const SizedBox(height: 16),
                   Text('No goals configured',
                       style: theme.textTheme.bodyLarge),

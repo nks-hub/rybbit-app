@@ -24,81 +24,84 @@ class StatCard extends StatelessWidget {
     final isPositive = changePercent != null && changePercent! > 0;
     final isNegative = changePercent != null && changePercent! < 0;
 
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(
-          color: selected
-              ? theme.colorScheme.primary
-              : theme.dividerTheme.color ?? const Color(0xFF262626),
-          width: selected ? 2 : 1,
+    return Semantics(
+      label: '$title: $value',
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(
+            color: selected
+                ? theme.colorScheme.primary
+                : theme.dividerTheme.color ?? const Color(0xFF262626),
+            width: selected ? 2 : 1,
+          ),
         ),
-      ),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  if (icon != null) ...[
-                    Icon(icon, size: 14, color: theme.textTheme.bodySmall?.color),
-                    const SizedBox(width: 4),
-                  ],
-                  Expanded(
-                    child: Text(
-                      title,
-                      style: theme.textTheme.bodySmall?.copyWith(fontSize: 12),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 6),
-              Text(
-                value,
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-              if (changePercent != null) ...[
-                const SizedBox(height: 4),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(12),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 Row(
                   children: [
-                    Icon(
-                      isPositive
-                          ? Icons.trending_up
-                          : isNegative
-                              ? Icons.trending_down
-                              : Icons.trending_flat,
-                      size: 14,
-                      color: isPositive
-                          ? const Color(0xFF22C55E)
-                          : isNegative
-                              ? const Color(0xFFEF4444)
-                              : theme.textTheme.bodySmall?.color,
+                    if (icon != null) ...[
+                      Icon(icon, size: 18, color: theme.textTheme.bodySmall?.color),
+                      const SizedBox(width: 4),
+                    ],
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: theme.textTheme.bodySmall?.copyWith(fontSize: 12),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '${changePercent!.abs().toStringAsFixed(1)}%',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  value,
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+                if (changePercent != null) ...[
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Icon(
+                        isPositive
+                            ? Icons.trending_up
+                            : isNegative
+                                ? Icons.trending_down
+                                : Icons.trending_flat,
+                        size: 14,
                         color: isPositive
                             ? const Color(0xFF22C55E)
                             : isNegative
                                 ? const Color(0xFFEF4444)
                                 : theme.textTheme.bodySmall?.color,
                       ),
-                    ),
-                  ],
-                ),
+                      const SizedBox(width: 4),
+                      Text(
+                        '${changePercent!.abs().toStringAsFixed(1)}%',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: isPositive
+                              ? const Color(0xFF22C55E)
+                              : isNegative
+                                  ? const Color(0xFFEF4444)
+                                  : theme.textTheme.bodySmall?.color,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),

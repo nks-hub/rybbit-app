@@ -272,7 +272,7 @@ class _ReplayEventTimelineItem extends StatelessWidget {
                     color: color.withValues(alpha: 0.15),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(icon, size: 14, color: color),
+                  child: Icon(icon, size: 16, color: color),
                 ),
                 if (!isLast)
                   Expanded(

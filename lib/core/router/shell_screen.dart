@@ -48,23 +48,23 @@ class _ShellScreenState extends ConsumerState<ShellScreen> {
         indicatorColor: theme.colorScheme.primary.withValues(alpha: 0.15),
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined, semanticLabel: ''),
+            selectedIcon: Icon(Icons.home, semanticLabel: ''),
             label: 'Dashboard',
           ),
           NavigationDestination(
-            icon: Icon(Icons.bar_chart_outlined),
-            selectedIcon: Icon(Icons.bar_chart),
+            icon: Icon(Icons.bar_chart_outlined, semanticLabel: ''),
+            selectedIcon: Icon(Icons.bar_chart, semanticLabel: ''),
             label: 'Analytics',
           ),
           NavigationDestination(
-            icon: Icon(Icons.people_outlined),
-            selectedIcon: Icon(Icons.people),
+            icon: Icon(Icons.people_outlined, semanticLabel: ''),
+            selectedIcon: Icon(Icons.people, semanticLabel: ''),
             label: 'Sessions',
           ),
           NavigationDestination(
-            icon: Icon(Icons.settings_outlined),
-            selectedIcon: Icon(Icons.settings),
+            icon: Icon(Icons.settings_outlined, semanticLabel: ''),
+            selectedIcon: Icon(Icons.settings, semanticLabel: ''),
             label: 'Settings',
           ),
         ],

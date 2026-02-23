@@ -41,7 +41,7 @@ class FilterBar extends StatelessWidget {
                   color: theme.colorScheme.primary.withValues(alpha: 0.3),
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 4),
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                materialTapTargetSize: MaterialTapTargetSize.padded,
               ),
             );
           }),
@@ -55,7 +55,7 @@ class FilterBar extends StatelessWidget {
               ],
             ),
             onPressed: onAddFilter,
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            materialTapTargetSize: MaterialTapTargetSize.padded,
           ),
         ],
       ),
