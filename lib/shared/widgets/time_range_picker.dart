@@ -7,7 +7,8 @@ enum TimeRangePreset {
   last30Days('Last 30 Days'),
   thisWeek('This Week'),
   thisMonth('This Month'),
-  thisYear('This Year');
+  thisYear('This Year'),
+  custom('Custom Range');
 
   const TimeRangePreset(this.label);
   final String label;
@@ -49,19 +50,23 @@ class TimeRangePicker extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              'Time Range',
-              style: theme.textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
+          Semantics(
+            header: true,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                'Time Range',
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
             ),
           ),
           const SizedBox(height: 12),
           ...TimeRangePreset.values.map((preset) {
             final isSelected = preset == selectedPreset;
+            final isCustom = preset == TimeRangePreset.custom;
             return ListTile(
               title: Text(preset.label),
               leading: Icon(
@@ -72,6 +77,10 @@ class TimeRangePicker extends StatelessWidget {
                     ? theme.colorScheme.primary
                     : theme.textTheme.bodySmall?.color,
               ),
+              trailing: isCustom
+                  ? Icon(Icons.calendar_month,
+                      size: 20, color: theme.textTheme.bodySmall?.color)
+                  : null,
               selected: isSelected,
               selectedColor: theme.colorScheme.primary,
               onTap: () => onPresetSelected(preset),

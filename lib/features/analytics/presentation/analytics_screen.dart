@@ -530,6 +530,21 @@ class AnalyticsScreen extends ConsumerWidget {
         controller.setThisMonth();
       case TimeRangePreset.thisYear:
         controller.setThisYear();
+      case TimeRangePreset.custom:
+        if (!context.mounted) return;
+        final now = DateTime.now();
+        final picked = await showDateRangePicker(
+          context: context,
+          firstDate: DateTime(2020),
+          lastDate: now,
+          initialDateRange: DateTimeRange(
+            start: now.subtract(const Duration(days: 7)),
+            end: now,
+          ),
+        );
+        if (picked != null) {
+          controller.setCustomRange(picked.start, picked.end);
+        }
     }
   }
 
