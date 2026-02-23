@@ -134,20 +134,26 @@ class LocationsScreen extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        _SummaryItem(
-                          label: l10n.countries,
-                          value: '${sortedCountries.length}',
-                          icon: Icons.public,
+                        Flexible(
+                          child: _SummaryItem(
+                            label: l10n.countries,
+                            value: '${sortedCountries.length}',
+                            icon: Icons.public,
+                          ),
                         ),
-                        _SummaryItem(
-                          label: l10n.locationCities,
-                          value: '${locations.length}',
-                          icon: Icons.location_city,
+                        Flexible(
+                          child: _SummaryItem(
+                            label: l10n.locationCities,
+                            value: '${locations.length}',
+                            icon: Icons.location_city,
+                          ),
                         ),
-                        _SummaryItem(
-                          label: l10n.sessions,
-                          value: formatNumber(totalSessions),
-                          icon: Icons.people,
+                        Flexible(
+                          child: _SummaryItem(
+                            label: l10n.sessions,
+                            value: formatNumber(totalSessions),
+                            icon: Icons.people,
+                          ),
                         ),
                       ],
                     ),

@@ -17,34 +17,67 @@ class ShellScreen extends ConsumerStatefulWidget {
 }
 
 class _ShellScreenState extends ConsumerState<ShellScreen> {
+  void _onDestinationSelected(int index) {
+    widget.navigationShell.goBranch(
+      index,
+      initialLocation: index == widget.navigationShell.currentIndex,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final currentSiteId = ref.watch(currentSiteIdProvider);
+    ref.watch(currentSiteIdProvider);
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
+    if (isLandscape) {
+      return Scaffold(
+        body: Row(
+          children: [
+            NavigationRail(
+              selectedIndex: widget.navigationShell.currentIndex,
+              onDestinationSelected: _onDestinationSelected,
+              backgroundColor: theme.scaffoldBackgroundColor,
+              indicatorColor:
+                  theme.colorScheme.primary.withValues(alpha: 0.15),
+              labelType: NavigationRailLabelType.all,
+              destinations: [
+                NavigationRailDestination(
+                  icon: const Icon(Icons.home_outlined, size: 20),
+                  selectedIcon: const Icon(Icons.home, size: 20),
+                  label: Text(l10n.dashboard, style: const TextStyle(fontSize: 11)),
+                ),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.bar_chart_outlined, size: 20),
+                  selectedIcon: const Icon(Icons.bar_chart, size: 20),
+                  label: Text(l10n.analytics, style: const TextStyle(fontSize: 11)),
+                ),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.people_outlined, size: 20),
+                  selectedIcon: const Icon(Icons.people, size: 20),
+                  label: Text(l10n.sessions, style: const TextStyle(fontSize: 11)),
+                ),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.settings_outlined, size: 20),
+                  selectedIcon: const Icon(Icons.settings, size: 20),
+                  label: Text(l10n.settings, style: const TextStyle(fontSize: 11)),
+                ),
+              ],
+            ),
+            const VerticalDivider(thickness: 1, width: 1),
+            Expanded(child: widget.navigationShell),
+          ],
+        ),
+      );
+    }
 
     return Scaffold(
       body: widget.navigationShell,
       bottomNavigationBar: NavigationBar(
         selectedIndex: widget.navigationShell.currentIndex,
-        onDestinationSelected: (index) {
-          if (index == 1 && currentSiteId != null) {
-            widget.navigationShell.goBranch(
-              index,
-              initialLocation: index == widget.navigationShell.currentIndex,
-            );
-          } else if (index == 2 && currentSiteId != null) {
-            widget.navigationShell.goBranch(
-              index,
-              initialLocation: index == widget.navigationShell.currentIndex,
-            );
-          } else {
-            widget.navigationShell.goBranch(
-              index,
-              initialLocation: index == widget.navigationShell.currentIndex,
-            );
-          }
-        },
+        onDestinationSelected: _onDestinationSelected,
         backgroundColor: theme.scaffoldBackgroundColor,
         indicatorColor: theme.colorScheme.primary.withValues(alpha: 0.15),
         destinations: [

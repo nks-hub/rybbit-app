@@ -224,13 +224,18 @@ class EventsScreen extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    bucketedAsync.when(
-                      loading: () => const SizedBox(
-                        height: 200,
-                        child: Center(child: CircularProgressIndicator()),
+                    Builder(builder: (context) {
+                      final chartHeight =
+                          MediaQuery.of(context).orientation == Orientation.landscape
+                              ? 140.0
+                              : 200.0;
+                      return bucketedAsync.when(
+                      loading: () => SizedBox(
+                        height: chartHeight,
+                        child: const Center(child: CircularProgressIndicator()),
                       ),
                       error: (err, stack) => SizedBox(
-                        height: 200,
+                        height: chartHeight,
                         child: Center(
                           child: Text(l10n.failedToLoadChart,
                               style: theme.textTheme.bodySmall),
@@ -239,7 +244,7 @@ class EventsScreen extends ConsumerWidget {
                       data: (buckets) {
                         if (buckets.isEmpty) {
                           return SizedBox(
-                            height: 200,
+                            height: chartHeight,
                             child: Center(child: Text(l10n.noData)),
                           );
                         }
@@ -268,7 +273,8 @@ class EventsScreen extends ConsumerWidget {
                           tooltipFormatter: (v) => formatNumber(v),
                         );
                       },
-                    ),
+                    );
+                    }),
                   ],
                 ),
               ),
