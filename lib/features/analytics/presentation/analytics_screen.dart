@@ -115,6 +115,16 @@ class AnalyticsScreen extends ConsumerWidget {
             loading: () => const SizedBox.shrink(),
             error: (_, _) => const SizedBox.shrink(),
           ),
+          // Filter button
+          IconButton(
+            tooltip: l10n.addFilter,
+            icon: Badge(
+              isLabelVisible: filters.isNotEmpty,
+              label: Text('${filters.length}'),
+              child: const Icon(Icons.filter_list, size: 20),
+            ),
+            onPressed: () => _showAddFilter(context, ref),
+          ),
           // Time range selector
           TextButton.icon(
             icon: const Icon(Icons.calendar_today, size: 16),
