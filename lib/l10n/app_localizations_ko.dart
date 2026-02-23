@@ -676,6 +676,44 @@ class AppLocalizationsKo extends AppLocalizations {
   String get customRange => 'ì¬ì©ì ì§ì  ê¸°ê°';
 
   @override
+  String get allTime => '전체 기간';
+
+  @override
+  String lastMinutes(int count) {
+    return '최근 $count분';
+  }
+
+  @override
+  String get notSet => '(설정되지 않음)';
+
+  @override
+  String get bouncePrefix => '이탈률';
+
+  @override
+  String get timePrefix => '시간';
+
+  @override
+  String get eventTypePageview => '페이지뷰';
+
+  @override
+  String get eventTypeCustom => '사용자 정의';
+
+  @override
+  String get eventTypeOutbound => '외부';
+
+  @override
+  String get eventTypeClick => '클릭';
+
+  @override
+  String get eventTypeForm => '양식';
+
+  @override
+  String get eventTypeInput => '입력';
+
+  @override
+  String get eventTypeCopy => '복사';
+
+  @override
   String get filter => 'íí°';
 
   @override

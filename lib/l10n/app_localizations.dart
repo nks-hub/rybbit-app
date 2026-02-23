@@ -1334,6 +1334,78 @@ abstract class AppLocalizations {
   /// **'Custom Range'**
   String get customRange;
 
+  /// No description provided for @allTime.
+  ///
+  /// In en, this message translates to:
+  /// **'All Time'**
+  String get allTime;
+
+  /// No description provided for @lastMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Last {count} min'**
+  String lastMinutes(int count);
+
+  /// No description provided for @notSet.
+  ///
+  /// In en, this message translates to:
+  /// **'(not set)'**
+  String get notSet;
+
+  /// No description provided for @bouncePrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Bounce'**
+  String get bouncePrefix;
+
+  /// No description provided for @timePrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get timePrefix;
+
+  /// No description provided for @eventTypePageview.
+  ///
+  /// In en, this message translates to:
+  /// **'Pageview'**
+  String get eventTypePageview;
+
+  /// No description provided for @eventTypeCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get eventTypeCustom;
+
+  /// No description provided for @eventTypeOutbound.
+  ///
+  /// In en, this message translates to:
+  /// **'Outbound'**
+  String get eventTypeOutbound;
+
+  /// No description provided for @eventTypeClick.
+  ///
+  /// In en, this message translates to:
+  /// **'Click'**
+  String get eventTypeClick;
+
+  /// No description provided for @eventTypeForm.
+  ///
+  /// In en, this message translates to:
+  /// **'Form'**
+  String get eventTypeForm;
+
+  /// No description provided for @eventTypeInput.
+  ///
+  /// In en, this message translates to:
+  /// **'Input'**
+  String get eventTypeInput;
+
+  /// No description provided for @eventTypeCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get eventTypeCopy;
+
   /// No description provided for @filter.
   ///
   /// In en, this message translates to:

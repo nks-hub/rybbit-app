@@ -80,15 +80,15 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
     return filtered;
   }
 
-  String _typeLabel(String type) {
+  String _typeLabel(String type, AppLocalizations l10n) {
     return switch (type) {
-      'pageview' => 'Pageview',
-      'custom_event' => 'Custom',
-      'outbound' => 'Outbound',
-      'button_click' => 'Click',
-      'form_submit' => 'Form',
-      'input_change' => 'Input',
-      'copy' => 'Copy',
+      'pageview' => l10n.eventTypePageview,
+      'custom_event' => l10n.eventTypeCustom,
+      'outbound' => l10n.eventTypeOutbound,
+      'button_click' => l10n.eventTypeClick,
+      'form_submit' => l10n.eventTypeForm,
+      'input_change' => l10n.eventTypeInput,
+      'copy' => l10n.eventTypeCopy,
       _ => type,
     };
   }
@@ -177,7 +177,7 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
                   Padding(
                     padding: const EdgeInsets.only(right: 6),
                     child: FilterChip(
-                      label: Text(_typeLabel(type),
+                      label: Text(_typeLabel(type, l10n),
                           style: const TextStyle(fontSize: 12)),
                       selected: _selectedTypes.contains(type),
                       onSelected: (selected) {

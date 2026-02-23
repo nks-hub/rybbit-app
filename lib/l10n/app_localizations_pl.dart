@@ -673,6 +673,44 @@ class AppLocalizationsPl extends AppLocalizations {
   String get customRange => 'Zakres niestandardowy';
 
   @override
+  String get allTime => 'Cały okres';
+
+  @override
+  String lastMinutes(int count) {
+    return 'Ostatnie $count min';
+  }
+
+  @override
+  String get notSet => '(nieustawione)';
+
+  @override
+  String get bouncePrefix => 'Odrzucenia';
+
+  @override
+  String get timePrefix => 'Czas';
+
+  @override
+  String get eventTypePageview => 'Wyświetlenie strony';
+
+  @override
+  String get eventTypeCustom => 'Własne';
+
+  @override
+  String get eventTypeOutbound => 'Wychodzące';
+
+  @override
+  String get eventTypeClick => 'Kliknięcie';
+
+  @override
+  String get eventTypeForm => 'Formularz';
+
+  @override
+  String get eventTypeInput => 'Wprowadzenie';
+
+  @override
+  String get eventTypeCopy => 'Kopiowanie';
+
+  @override
   String get filter => 'Filtr';
 
   @override

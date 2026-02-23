@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:riverpod/riverpod.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/time_range.dart';
 
 String _systemTimeZone() {
@@ -135,28 +136,28 @@ class TimeRangeController extends Notifier<TimeRange> {
   }
 
   /// Returns a human-readable label for the current time range.
-  String get label {
+  String localizedLabel(AppLocalizations l10n) {
     final df = DateFormat('MMM d');
     switch (state.mode) {
       case TimeMode.day:
         final now = DateTime.now();
         final today = DateTime(now.year, now.month, now.day);
-        if (state.startDate == today) return 'Today';
+        if (state.startDate == today) return l10n.today;
         final yesterday = today.subtract(const Duration(days: 1));
-        if (state.startDate == yesterday) return 'Yesterday';
+        if (state.startDate == yesterday) return l10n.yesterday;
         return df.format(state.startDate);
       case TimeMode.week:
-        return 'This Week';
+        return l10n.thisWeek;
       case TimeMode.month:
-        return 'This Month';
+        return l10n.thisMonth;
       case TimeMode.year:
-        return 'This Year';
+        return l10n.thisYear;
       case TimeMode.range:
-        return '${df.format(state.startDate)} - ${df.format(state.endDate)}';
+        return '${df.format(state.startDate)} – ${df.format(state.endDate)}';
       case TimeMode.pastMinutes:
-        return 'Last ${state.pastMinutesStart} min';
+        return l10n.lastMinutes(state.pastMinutesStart ?? 0);
       case TimeMode.allTime:
-        return 'All Time';
+        return l10n.allTime;
     }
   }
 }

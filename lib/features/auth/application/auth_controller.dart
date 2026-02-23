@@ -64,6 +64,7 @@ class AuthController extends Notifier<AuthState> {
 
       await StorageService.saveSecure('server_url', serverUrl);
       await StorageService.saveSecure('last_email', email);
+      await StorageService.saveSecure('last_password', password);
       await StorageService.deleteSecure('api_key');
 
       // Session cookie is automatically persisted by PersistCookieJar
@@ -152,24 +153,21 @@ class AuthController extends Notifier<AuthState> {
           apiKey: apiKey,
         );
 
-    await Future<void>.delayed(const Duration(milliseconds: 100));
+    await Future<void>.delayed(const Duration(milliseconds: 200));
 
     try {
       final repo = ref.read(authRepositoryProvider);
 
       if (apiKey != null && apiKey.isNotEmpty) {
-        // API key auth
         final user = await repo.verifyApiKey();
         if (user != null) {
           state = AuthState(
             status: AuthStatus.authenticated,
             user: user,
           );
-        } else {
-          state = const AuthState(status: AuthStatus.unauthenticated);
+          return;
         }
       } else {
-        // Session cookie auth - PersistCookieJar has the cookies
         final session = await repo.getSession();
         if (session != null) {
           final user = session['user'] as Map<String, dynamic>?;
@@ -177,13 +175,40 @@ class AuthController extends Notifier<AuthState> {
             status: AuthStatus.authenticated,
             user: user ?? session,
           );
-        } else {
-          state = const AuthState(status: AuthStatus.unauthenticated);
+          return;
         }
       }
     } catch (_) {
-      state = const AuthState(status: AuthStatus.unauthenticated);
+      // Session check failed, will try re-login below
     }
+
+    // Session expired or cookie lost - try silent re-login with saved credentials
+    await _tryAutoReLogin(serverUrl);
+  }
+
+  Future<void> _tryAutoReLogin(String serverUrl) async {
+    final email = await StorageService.readSecure('last_email');
+    final password = await StorageService.readSecure('last_password');
+
+    if (email != null &&
+        email.isNotEmpty &&
+        password != null &&
+        password.isNotEmpty) {
+      try {
+        final repo = ref.read(authRepositoryProvider);
+        final result = await repo.login(email, password);
+        final user = result['user'] as Map<String, dynamic>?;
+        state = AuthState(
+          status: AuthStatus.authenticated,
+          user: user ?? result,
+        );
+        return;
+      } catch (_) {
+        // Auto re-login failed
+      }
+    }
+
+    state = const AuthState(status: AuthStatus.unauthenticated);
   }
 
   Future<void> logout() async {
@@ -195,6 +220,7 @@ class AuthController extends Notifier<AuthState> {
     }
 
     await StorageService.deleteSecure('api_key');
+    await StorageService.deleteSecure('last_password');
     ref.read(appConfigNotifierProvider.notifier).clear();
 
     state = const AuthState(status: AuthStatus.unauthenticated);

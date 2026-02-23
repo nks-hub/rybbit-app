@@ -664,6 +664,44 @@ class AppLocalizationsZh extends AppLocalizations {
   String get customRange => 'èªå®ä¹èå´';
 
   @override
+  String get allTime => '所有时间';
+
+  @override
+  String lastMinutes(int count) {
+    return '最近$count分钟';
+  }
+
+  @override
+  String get notSet => '(未设置)';
+
+  @override
+  String get bouncePrefix => '跳出率';
+
+  @override
+  String get timePrefix => '时间';
+
+  @override
+  String get eventTypePageview => '页面浏览';
+
+  @override
+  String get eventTypeCustom => '自定义';
+
+  @override
+  String get eventTypeOutbound => '外部';
+
+  @override
+  String get eventTypeClick => '点击';
+
+  @override
+  String get eventTypeForm => '表单';
+
+  @override
+  String get eventTypeInput => '输入';
+
+  @override
+  String get eventTypeCopy => '复制';
+
+  @override
   String get filter => 'ç­é';
 
   @override

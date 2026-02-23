@@ -694,6 +694,44 @@ class AppLocalizationsJa extends AppLocalizations {
   String get customRange => 'ã«ã¹ã¿ã æé';
 
   @override
+  String get allTime => '全期間';
+
+  @override
+  String lastMinutes(int count) {
+    return '過去$count分';
+  }
+
+  @override
+  String get notSet => '(未設定)';
+
+  @override
+  String get bouncePrefix => '直帰率';
+
+  @override
+  String get timePrefix => '時間';
+
+  @override
+  String get eventTypePageview => 'ページビュー';
+
+  @override
+  String get eventTypeCustom => 'カスタム';
+
+  @override
+  String get eventTypeOutbound => 'アウトバウンド';
+
+  @override
+  String get eventTypeClick => 'クリック';
+
+  @override
+  String get eventTypeForm => 'フォーム';
+
+  @override
+  String get eventTypeInput => '入力';
+
+  @override
+  String get eventTypeCopy => 'コピー';
+
+  @override
   String get filter => 'ãã£ã«ã¿ã¼';
 
   @override

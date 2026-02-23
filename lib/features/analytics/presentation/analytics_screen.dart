@@ -51,12 +51,12 @@ class AnalyticsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final analyticsAsync = ref.watch(analyticsControllerProvider(siteId));
+    final l10n = AppLocalizations.of(context)!;
     final timeRangeLabel =
-        ref.read(timeRangeControllerProvider.notifier).label;
+        ref.read(timeRangeControllerProvider.notifier).localizedLabel(l10n);
     final filters = ref.watch(filterControllerProvider);
     final selectedStat = ref.watch(selectedStatProvider);
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(

@@ -666,6 +666,44 @@ class AppLocalizationsEn extends AppLocalizations {
   String get customRange => 'Custom Range';
 
   @override
+  String get allTime => 'All Time';
+
+  @override
+  String lastMinutes(int count) {
+    return 'Last $count min';
+  }
+
+  @override
+  String get notSet => '(not set)';
+
+  @override
+  String get bouncePrefix => 'Bounce';
+
+  @override
+  String get timePrefix => 'Time';
+
+  @override
+  String get eventTypePageview => 'Pageview';
+
+  @override
+  String get eventTypeCustom => 'Custom';
+
+  @override
+  String get eventTypeOutbound => 'Outbound';
+
+  @override
+  String get eventTypeClick => 'Click';
+
+  @override
+  String get eventTypeForm => 'Form';
+
+  @override
+  String get eventTypeInput => 'Input';
+
+  @override
+  String get eventTypeCopy => 'Copy';
+
+  @override
   String get filter => 'Filter';
 
   @override

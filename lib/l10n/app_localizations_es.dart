@@ -674,6 +674,44 @@ class AppLocalizationsEs extends AppLocalizations {
   String get customRange => 'Rango personalizado';
 
   @override
+  String get allTime => 'Todo el tiempo';
+
+  @override
+  String lastMinutes(int count) {
+    return 'Últimos $count min';
+  }
+
+  @override
+  String get notSet => '(no establecido)';
+
+  @override
+  String get bouncePrefix => 'Rebote';
+
+  @override
+  String get timePrefix => 'Tiempo';
+
+  @override
+  String get eventTypePageview => 'Vista de página';
+
+  @override
+  String get eventTypeCustom => 'Personalizado';
+
+  @override
+  String get eventTypeOutbound => 'Saliente';
+
+  @override
+  String get eventTypeClick => 'Clic';
+
+  @override
+  String get eventTypeForm => 'Formulario';
+
+  @override
+  String get eventTypeInput => 'Entrada';
+
+  @override
+  String get eventTypeCopy => 'Copiar';
+
+  @override
   String get filter => 'Filtro';
 
   @override

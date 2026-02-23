@@ -675,6 +675,44 @@ class AppLocalizationsFr extends AppLocalizations {
   String get customRange => 'Période personnalisée';
 
   @override
+  String get allTime => 'Toute la période';
+
+  @override
+  String lastMinutes(int count) {
+    return 'Dernières $count min';
+  }
+
+  @override
+  String get notSet => '(non défini)';
+
+  @override
+  String get bouncePrefix => 'Rebond';
+
+  @override
+  String get timePrefix => 'Temps';
+
+  @override
+  String get eventTypePageview => 'Vue de page';
+
+  @override
+  String get eventTypeCustom => 'Personnalisé';
+
+  @override
+  String get eventTypeOutbound => 'Sortant';
+
+  @override
+  String get eventTypeClick => 'Clic';
+
+  @override
+  String get eventTypeForm => 'Formulaire';
+
+  @override
+  String get eventTypeInput => 'Saisie';
+
+  @override
+  String get eventTypeCopy => 'Copier';
+
+  @override
   String get filter => 'Filtre';
 
   @override

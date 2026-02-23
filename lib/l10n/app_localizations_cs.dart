@@ -679,6 +679,44 @@ class AppLocalizationsCs extends AppLocalizations {
   String get customRange => 'Vlastní období';
 
   @override
+  String get allTime => 'Celé období';
+
+  @override
+  String lastMinutes(int count) {
+    return 'Posledních $count min';
+  }
+
+  @override
+  String get notSet => '(nenastaveno)';
+
+  @override
+  String get bouncePrefix => 'Mira odrazu';
+
+  @override
+  String get timePrefix => 'Čas';
+
+  @override
+  String get eventTypePageview => 'Zobrazení stránky';
+
+  @override
+  String get eventTypeCustom => 'Vlastní';
+
+  @override
+  String get eventTypeOutbound => 'Odchozí';
+
+  @override
+  String get eventTypeClick => 'Kliknutí';
+
+  @override
+  String get eventTypeForm => 'Formulář';
+
+  @override
+  String get eventTypeInput => 'Vstup';
+
+  @override
+  String get eventTypeCopy => 'Kopírování';
+
+  @override
   String get filter => 'Filtr';
 
   @override

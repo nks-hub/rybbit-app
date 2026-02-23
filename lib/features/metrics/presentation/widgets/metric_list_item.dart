@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/utils/formatters.dart';
 
 class MetricListItem extends StatelessWidget {
@@ -21,6 +22,7 @@ class MetricListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final barColor = theme.colorScheme.primary;
 
     return Padding(
@@ -32,7 +34,7 @@ class MetricListItem extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  value.isEmpty ? '(not set)' : value,
+                  value.isEmpty ? l10n.notSet : value,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                     color: theme.colorScheme.onSurface,
@@ -78,7 +80,7 @@ class MetricListItem extends StatelessWidget {
               children: [
                 if (bounceRate != null) ...[
                   Text(
-                    'Bounce: ${formatPercentage(bounceRate!)}',
+                    '${l10n.bouncePrefix}: ${formatPercentage(bounceRate!)}',
                     style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
                   ),
                 ],
@@ -86,7 +88,7 @@ class MetricListItem extends StatelessWidget {
                   const SizedBox(width: 12),
                 if (timeOnPageSeconds != null) ...[
                   Text(
-                    'Time: ${formatDuration(timeOnPageSeconds!)}',
+                    '${l10n.timePrefix}: ${formatDuration(timeOnPageSeconds!)}',
                     style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
                   ),
                 ],

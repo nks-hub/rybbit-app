@@ -246,6 +246,25 @@
   "thisMonth": "This Month",
   "thisYear": "This Year",
   "customRange": "Custom Range",
+  "allTime": "All Time",
+  "lastMinutes": "Last {count} min",
+  "@lastMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notSet": "(not set)",
+  "bouncePrefix": "Bounce",
+  "timePrefix": "Time",
+  "eventTypePageview": "Pageview",
+  "eventTypeCustom": "Custom",
+  "eventTypeOutbound": "Outbound",
+  "eventTypeClick": "Click",
+  "eventTypeForm": "Form",
+  "eventTypeInput": "Input",
+  "eventTypeCopy": "Copy",
 
   "filter": "Filter",
   "addFilter": "Add Filter",
