@@ -136,6 +136,8 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
               onChanged: _onSearchChanged,
               decoration: InputDecoration(
                 hintText: 'Search users...',
+                labelText: 'Search users',
+                floatingLabelBehavior: FloatingLabelBehavior.never,
                 prefixIcon: const Icon(Icons.search, size: 20),
                 suffixIcon: _searchController.text.isNotEmpty
                     ? IconButton(
@@ -252,11 +254,14 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                               (usersState.isLoadingMore ? 1 : 0),
                           itemBuilder: (context, index) {
                             if (index >= usersState.users.length) {
-                              return const Padding(
-                                padding: EdgeInsets.all(16),
-                                child: Center(
-                                    child: CircularProgressIndicator(
-                                        strokeWidth: 2)),
+                              return Semantics(
+                                label: 'Loading more users',
+                                child: const Padding(
+                                  padding: EdgeInsets.all(16),
+                                  child: Center(
+                                      child: CircularProgressIndicator(
+                                          strokeWidth: 2)),
+                                ),
                               );
                             }
                             final user = usersState.users[index];

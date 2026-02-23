@@ -163,7 +163,7 @@ class TimeSeriesChart extends StatelessWidget {
       ),
       isCurved: true,
       curveSmoothness: 0.25,
-      color: Colors.grey.withValues(alpha: 0.4),
+      color: Colors.grey.withValues(alpha: 0.6),
       barWidth: 1.5,
       isStrokeCapRound: true,
       dotData: const FlDotData(show: false),

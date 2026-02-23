@@ -254,10 +254,13 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                   (sessionsState.isLoadingMore ? 1 : 0),
               itemBuilder: (context, index) {
                 if (index >= sessionsState.sessions.length) {
-                  return const Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Center(
-                        child: CircularProgressIndicator(strokeWidth: 2)),
+                  return Semantics(
+                    label: 'Loading more sessions',
+                    child: const Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Center(
+                          child: CircularProgressIndicator(strokeWidth: 2)),
+                    ),
                   );
                 }
 
@@ -384,21 +387,25 @@ class _SessionCard extends StatelessWidget {
                 // Entry page
                 if (session.entryPage != null &&
                     session.entryPage!.isNotEmpty) ...[
-                  Row(
-                    children: [
-                      Icon(Icons.login,
-                          size: 14,
-                          color: theme.textTheme.bodySmall?.color),
-                      const SizedBox(width: 4),
-                      Expanded(
-                        child: Text(
-                          session.entryPage!,
-                          style:
-                              theme.textTheme.bodySmall?.copyWith(fontSize: 12),
-                          overflow: TextOverflow.ellipsis,
+                  Semantics(
+                    label: 'Entry page: ${session.entryPage}',
+                    excludeSemantics: true,
+                    child: Row(
+                      children: [
+                        Icon(Icons.login,
+                            size: 14,
+                            color: theme.textTheme.bodySmall?.color),
+                        const SizedBox(width: 4),
+                        Expanded(
+                          child: Text(
+                            session.entryPage!,
+                            style:
+                                theme.textTheme.bodySmall?.copyWith(fontSize: 12),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ],

@@ -158,7 +158,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                           : theme.dividerTheme.color ?? const Color(0xFF262626),
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 4),
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    materialTapTargetSize: MaterialTapTargetSize.padded,
                   ),
                 );
               },
@@ -247,9 +247,12 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
       ),
       itemBuilder: (context, index) {
         if (index >= metricsState.items.length) {
-          return const Padding(
-            padding: EdgeInsets.all(16),
-            child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+          return Semantics(
+            label: 'Loading more metrics',
+            child: const Padding(
+              padding: EdgeInsets.all(16),
+              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+            ),
           );
         }
 
