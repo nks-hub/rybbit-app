@@ -15,12 +15,19 @@ enum MetricType {
   country('country', Icons.public),
   city('city', Icons.location_city),
   browser('browser', Icons.web),
+  browserVersion('browser_version', Icons.web),
   operatingSystem('operating_system', Icons.computer),
+  osVersion('os_version', Icons.computer),
   deviceType('device_type', Icons.devices),
+  dimensions('dimensions', Icons.aspect_ratio),
   language('language', Icons.translate),
   entryPage('entry_page', Icons.login),
   exitPage('exit_page', Icons.logout),
   utmSource('utm_source', Icons.campaign),
+  utmMedium('utm_medium', Icons.campaign),
+  utmCampaign('utm_campaign', Icons.campaign),
+  utmTerm('utm_term', Icons.campaign),
+  utmContent('utm_content', Icons.campaign),
   channel('channel', Icons.trending_up),
   hostname('hostname', Icons.dns),
   vpn('vpn', Icons.vpn_key),
@@ -51,10 +58,16 @@ enum MetricType {
         return l10n.cities;
       case MetricType.browser:
         return l10n.browsers;
+      case MetricType.browserVersion:
+        return l10n.browserVersions;
       case MetricType.operatingSystem:
         return l10n.operatingSystems;
+      case MetricType.osVersion:
+        return l10n.osVersions;
       case MetricType.deviceType:
         return l10n.devices;
+      case MetricType.dimensions:
+        return l10n.screenDimensions;
       case MetricType.language:
         return l10n.languages;
       case MetricType.entryPage:
@@ -63,6 +76,14 @@ enum MetricType {
         return l10n.exitPages;
       case MetricType.utmSource:
         return l10n.utmSource;
+      case MetricType.utmMedium:
+        return l10n.utmMedium;
+      case MetricType.utmCampaign:
+        return l10n.utmCampaign;
+      case MetricType.utmTerm:
+        return l10n.utmTerm;
+      case MetricType.utmContent:
+        return l10n.utmContent;
       case MetricType.channel:
         return l10n.channel;
       case MetricType.hostname:
@@ -110,9 +131,12 @@ class MetricsScreen extends ConsumerStatefulWidget {
   ConsumerState<MetricsScreen> createState() => _MetricsScreenState();
 }
 
+enum _SortMode { count, alphabetical }
+
 class _MetricsScreenState extends ConsumerState<MetricsScreen> {
   late MetricType _selectedType;
   final ScrollController _scrollController = ScrollController();
+  _SortMode _sortMode = _SortMode.count;
 
   @override
   void initState() {
@@ -175,6 +199,26 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
+        actions: [
+          IconButton(
+            tooltip: _sortMode == _SortMode.count
+                ? l10n.sortAlphabetically
+                : l10n.sortByCount,
+            icon: Icon(
+              _sortMode == _SortMode.count
+                  ? Icons.sort_by_alpha
+                  : Icons.sort,
+              size: 20,
+            ),
+            onPressed: () {
+              setState(() {
+                _sortMode = _sortMode == _SortMode.count
+                    ? _SortMode.alphabetical
+                    : _SortMode.count;
+              });
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -288,11 +332,16 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
   }
 
   Widget _buildMetricList(MetricsState metricsState, ThemeData theme, AppLocalizations l10n) {
+    final items = _sortMode == _SortMode.alphabetical
+        ? (List.of(metricsState.items)
+          ..sort((a, b) => a.value.toLowerCase().compareTo(b.value.toLowerCase())))
+        : metricsState.items;
+
     return ListView.separated(
       controller: _scrollController,
       padding: const EdgeInsets.symmetric(vertical: 8),
       itemCount:
-          metricsState.items.length + (metricsState.isLoadingMore ? 1 : 0),
+          items.length + (metricsState.isLoadingMore ? 1 : 0),
       separatorBuilder: (context, index) => Divider(
         height: 1,
         indent: 16,
@@ -300,7 +349,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
         color: theme.dividerTheme.color?.withValues(alpha: 0.5),
       ),
       itemBuilder: (context, index) {
-        if (index >= metricsState.items.length) {
+        if (index >= items.length) {
           return Semantics(
             label: l10n.loadingMoreMetrics,
             child: const Padding(
@@ -310,7 +359,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
           );
         }
 
-        final item = metricsState.items[index];
+        final item = items[index];
         return MetricListItem(
           value: item.value,
           count: item.count,

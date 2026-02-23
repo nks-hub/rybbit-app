@@ -1116,6 +1116,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sortAlphabetically => 'Alphabétiquement';
 
   @override
+  String get sortByCount => 'Trier par nombre';
+
+  @override
   String get sortByVisitors => 'Par visiteurs aujourd\'hui';
 
   @override
@@ -1123,4 +1126,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get noMatchingSites => 'Aucun site correspondant';
+
+  @override
+  String get utmTerm => 'UTM Terme';
+
+  @override
+  String get utmContent => 'UTM Contenu';
+
+  @override
+  String get browserVersions => 'Versions du navigateur';
+
+  @override
+  String get osVersions => 'Versions de l\'OS';
+
+  @override
+  String get screenDimensions => 'Dimensions de l\'écran';
 }

@@ -522,7 +522,13 @@
   "searchSites": "Szukaj stron...",
   "sortSites": "Sortuj strony",
   "sortAlphabetically": "Alfabetycznie",
+  "sortByCount": "Sortuj wg ilości",
   "sortByVisitors": "Według odwiedzających dziś",
   "sortByLiveUsers": "Według użytkowników online",
-  "noMatchingSites": "Brak pasujących stron"
+  "noMatchingSites": "Brak pasujących stron",
+  "utmTerm": "UTM Termin",
+  "utmContent": "UTM Treść",
+  "browserVersions": "Wersje przeglądarek",
+  "osVersions": "Wersje systemów",
+  "screenDimensions": "Wymiary ekranu"
 }

@@ -522,7 +522,13 @@
   "searchSites": "搜索站点...",
   "sortSites": "排序站点",
   "sortAlphabetically": "按字母顺序",
+  "sortByCount": "按数量排序",
   "sortByVisitors": "按今日访客",
   "sortByLiveUsers": "按在线用户",
-  "noMatchingSites": "没有匹配的站点"
+  "noMatchingSites": "没有匹配的站点",
+  "utmTerm": "UTM术语",
+  "utmContent": "UTM内容",
+  "browserVersions": "浏览器版本",
+  "osVersions": "操作系统版本",
+  "screenDimensions": "屏幕尺寸"
 }

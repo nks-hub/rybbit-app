@@ -537,7 +537,13 @@
   "searchSites": "Hledat weby...",
   "sortSites": "Seřadit weby",
   "sortAlphabetically": "Abecedně",
+  "sortByCount": "Řadit podle počtu",
   "sortByVisitors": "Podle návštěvníků dnes",
   "sortByLiveUsers": "Podle online uživatelů",
-  "noMatchingSites": "Žádné odpovídající weby"
+  "noMatchingSites": "Žádné odpovídající weby",
+  "utmTerm": "UTM Termín",
+  "utmContent": "UTM Obsah",
+  "browserVersions": "Verze prohlížečů",
+  "osVersions": "Verze OS",
+  "screenDimensions": "Rozlišení obrazovky"
 }

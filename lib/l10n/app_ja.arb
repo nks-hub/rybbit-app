@@ -522,7 +522,13 @@
   "searchSites": "サイトを検索...",
   "sortSites": "サイトを並べ替え",
   "sortAlphabetically": "アルファベット順",
+  "sortByCount": "件数順",
   "sortByVisitors": "今日の訪問者数順",
   "sortByLiveUsers": "オンラインユーザー数順",
-  "noMatchingSites": "該当するサイトがありません"
+  "noMatchingSites": "該当するサイトがありません",
+  "utmTerm": "UTMターム",
+  "utmContent": "UTMコンテンツ",
+  "browserVersions": "ブラウザバージョン",
+  "osVersions": "OSバージョン",
+  "screenDimensions": "画面サイズ"
 }

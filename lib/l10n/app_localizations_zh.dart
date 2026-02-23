@@ -1102,6 +1102,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sortAlphabetically => '按字母顺序';
 
   @override
+  String get sortByCount => '按数量排序';
+
+  @override
   String get sortByVisitors => '按今日访客';
 
   @override
@@ -1109,4 +1112,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noMatchingSites => '没有匹配的站点';
+
+  @override
+  String get utmTerm => 'UTM术语';
+
+  @override
+  String get utmContent => 'UTM内容';
+
+  @override
+  String get browserVersions => '浏览器版本';
+
+  @override
+  String get osVersions => '操作系统版本';
+
+  @override
+  String get screenDimensions => '屏幕尺寸';
 }

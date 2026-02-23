@@ -522,7 +522,13 @@
   "searchSites": "사이트 검색...",
   "sortSites": "사이트 정렬",
   "sortAlphabetically": "알파벳순",
+  "sortByCount": "개수순 정렬",
   "sortByVisitors": "오늘 방문자순",
   "sortByLiveUsers": "온라인 사용자순",
-  "noMatchingSites": "일치하는 사이트 없음"
+  "noMatchingSites": "일치하는 사이트 없음",
+  "utmTerm": "UTM 용어",
+  "utmContent": "UTM 콘텐츠",
+  "browserVersions": "브라우저 버전",
+  "osVersions": "OS 버전",
+  "screenDimensions": "화면 크기"
 }

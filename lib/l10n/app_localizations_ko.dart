@@ -1125,6 +1125,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get sortAlphabetically => '알파벳순';
 
   @override
+  String get sortByCount => '개수순 정렬';
+
+  @override
   String get sortByVisitors => '오늘 방문자순';
 
   @override
@@ -1132,4 +1135,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noMatchingSites => '일치하는 사이트 없음';
+
+  @override
+  String get utmTerm => 'UTM 용어';
+
+  @override
+  String get utmContent => 'UTM 콘텐츠';
+
+  @override
+  String get browserVersions => '브라우저 버전';
+
+  @override
+  String get osVersions => 'OS 버전';
+
+  @override
+  String get screenDimensions => '화면 크기';
 }

@@ -2144,6 +2144,12 @@ abstract class AppLocalizations {
   /// **'Alphabetically'**
   String get sortAlphabetically;
 
+  /// No description provided for @sortByCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort by count'**
+  String get sortByCount;
+
   /// No description provided for @sortByVisitors.
   ///
   /// In en, this message translates to:
@@ -2161,6 +2167,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No matching sites'**
   String get noMatchingSites;
+
+  /// No description provided for @utmTerm.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Term'**
+  String get utmTerm;
+
+  /// No description provided for @utmContent.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Content'**
+  String get utmContent;
+
+  /// No description provided for @browserVersions.
+  ///
+  /// In en, this message translates to:
+  /// **'Browser Versions'**
+  String get browserVersions;
+
+  /// No description provided for @osVersions.
+  ///
+  /// In en, this message translates to:
+  /// **'OS Versions'**
+  String get osVersions;
+
+  /// No description provided for @screenDimensions.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen Dimensions'**
+  String get screenDimensions;
 }
 
 class _AppLocalizationsDelegate

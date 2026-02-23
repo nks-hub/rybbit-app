@@ -1119,6 +1119,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get sortAlphabetically => 'Abecedně';
 
   @override
+  String get sortByCount => 'Řadit podle počtu';
+
+  @override
   String get sortByVisitors => 'Podle návštěvníků dnes';
 
   @override
@@ -1126,4 +1129,19 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get noMatchingSites => 'Žádné odpovídající weby';
+
+  @override
+  String get utmTerm => 'UTM Termín';
+
+  @override
+  String get utmContent => 'UTM Obsah';
+
+  @override
+  String get browserVersions => 'Verze prohlížečů';
+
+  @override
+  String get osVersions => 'Verze OS';
+
+  @override
+  String get screenDimensions => 'Rozlišení obrazovky';
 }
