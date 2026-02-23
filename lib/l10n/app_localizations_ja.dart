@@ -748,6 +748,69 @@ class AppLocalizationsJa extends AppLocalizations {
       'ãã£ã«ã¿ã¼ã®å¤ãå¥åãã¦ãã ãã';
 
   @override
+  String get filterBrowser => 'ブラウザ';
+
+  @override
+  String get filterOs => 'OS';
+
+  @override
+  String get filterLanguage => '言語';
+
+  @override
+  String get filterCountry => '国';
+
+  @override
+  String get filterRegion => '地域';
+
+  @override
+  String get filterCity => '都市';
+
+  @override
+  String get filterDeviceType => 'デバイスタイプ';
+
+  @override
+  String get filterReferrer => 'リファラー';
+
+  @override
+  String get filterHostname => 'ホスト名';
+
+  @override
+  String get filterPathname => 'パス';
+
+  @override
+  String get filterPageTitle => 'ページタイトル';
+
+  @override
+  String get filterQuerystring => 'クエリ文字列';
+
+  @override
+  String get filterEventName => 'イベント名';
+
+  @override
+  String get filterChannel => 'チャネル';
+
+  @override
+  String get filterUtmSource => 'UTMソース';
+
+  @override
+  String get filterUtmMedium => 'UTMメディア';
+
+  @override
+  String get filterUtmCampaign => 'UTMキャンペーン';
+
+  @override
+  String get filterUtmTerm => 'UTM用語';
+
+  @override
+  String get filterUtmContent => 'UTMコンテンツ';
+
+  @override
+  String get filterEntryPage => 'エントリーページ';
+
+  @override
+  String get filterExitPage => '離脱ページ';
+
+  @override
   String get requestTimedOut =>
       'ãªã¯ã¨ã¹ããã¿ã¤ã ã¢ã¦ããã¾ãããååº¦ãè©¦ããã ããã';
 

@@ -717,6 +717,69 @@ class AppLocalizationsZh extends AppLocalizations {
   String get enterFilterValue => 'è¾å¥ç­éå¼';
 
   @override
+  String get filterBrowser => '浏览器';
+
+  @override
+  String get filterOs => '操作系统';
+
+  @override
+  String get filterLanguage => '语言';
+
+  @override
+  String get filterCountry => '国家';
+
+  @override
+  String get filterRegion => '地区';
+
+  @override
+  String get filterCity => '城市';
+
+  @override
+  String get filterDeviceType => '设备类型';
+
+  @override
+  String get filterReferrer => '来源页';
+
+  @override
+  String get filterHostname => '主机名';
+
+  @override
+  String get filterPathname => '路径';
+
+  @override
+  String get filterPageTitle => '页面标题';
+
+  @override
+  String get filterQuerystring => '查询字符串';
+
+  @override
+  String get filterEventName => '事件名称';
+
+  @override
+  String get filterChannel => '渠道';
+
+  @override
+  String get filterUtmSource => 'UTM来源';
+
+  @override
+  String get filterUtmMedium => 'UTM媒介';
+
+  @override
+  String get filterUtmCampaign => 'UTM活动';
+
+  @override
+  String get filterUtmTerm => 'UTM术语';
+
+  @override
+  String get filterUtmContent => 'UTM内容';
+
+  @override
+  String get filterEntryPage => '入口页';
+
+  @override
+  String get filterExitPage => '出口页';
+
+  @override
   String get requestTimedOut => 'è¯·æ±è¶æ¶ï¼è¯·éè¯ã';
 
   @override

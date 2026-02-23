@@ -1436,6 +1436,132 @@ abstract class AppLocalizations {
   /// **'Enter filter value'**
   String get enterFilterValue;
 
+  /// No description provided for @filterBrowser.
+  ///
+  /// In en, this message translates to:
+  /// **'Browser'**
+  String get filterBrowser;
+
+  /// No description provided for @filterOs.
+  ///
+  /// In en, this message translates to:
+  /// **'Operating System'**
+  String get filterOs;
+
+  /// No description provided for @filterLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get filterLanguage;
+
+  /// No description provided for @filterCountry.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get filterCountry;
+
+  /// No description provided for @filterRegion.
+  ///
+  /// In en, this message translates to:
+  /// **'Region'**
+  String get filterRegion;
+
+  /// No description provided for @filterCity.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get filterCity;
+
+  /// No description provided for @filterDeviceType.
+  ///
+  /// In en, this message translates to:
+  /// **'Device Type'**
+  String get filterDeviceType;
+
+  /// No description provided for @filterReferrer.
+  ///
+  /// In en, this message translates to:
+  /// **'Referrer'**
+  String get filterReferrer;
+
+  /// No description provided for @filterHostname.
+  ///
+  /// In en, this message translates to:
+  /// **'Hostname'**
+  String get filterHostname;
+
+  /// No description provided for @filterPathname.
+  ///
+  /// In en, this message translates to:
+  /// **'Pathname'**
+  String get filterPathname;
+
+  /// No description provided for @filterPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Page Title'**
+  String get filterPageTitle;
+
+  /// No description provided for @filterQuerystring.
+  ///
+  /// In en, this message translates to:
+  /// **'Querystring'**
+  String get filterQuerystring;
+
+  /// No description provided for @filterEventName.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Name'**
+  String get filterEventName;
+
+  /// No description provided for @filterChannel.
+  ///
+  /// In en, this message translates to:
+  /// **'Channel'**
+  String get filterChannel;
+
+  /// No description provided for @filterUtmSource.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Source'**
+  String get filterUtmSource;
+
+  /// No description provided for @filterUtmMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Medium'**
+  String get filterUtmMedium;
+
+  /// No description provided for @filterUtmCampaign.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Campaign'**
+  String get filterUtmCampaign;
+
+  /// No description provided for @filterUtmTerm.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Term'**
+  String get filterUtmTerm;
+
+  /// No description provided for @filterUtmContent.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Content'**
+  String get filterUtmContent;
+
+  /// No description provided for @filterEntryPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Page'**
+  String get filterEntryPage;
+
+  /// No description provided for @filterExitPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit Page'**
+  String get filterExitPage;
+
   /// No description provided for @requestTimedOut.
   ///
   /// In en, this message translates to:

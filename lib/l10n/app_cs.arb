@@ -439,9 +439,24 @@
   "more": "Více",
   "peakActivity": "Špičková aktivita",
   "peakHour": "{day} v {time}",
-  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "@peakHour": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "busiestDay": "Nejvytíženější den: {day}",
-  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "@busiestDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
   "dayMon": "Po",
   "dayTue": "Út",
   "dayWed": "St",
@@ -456,56 +471,85 @@
   "autoRefresh": "Automatická aktualizace",
   "usersOnlineNow": "Uživatelé online",
   "lastUpdatedAt": "Aktualizováno v {time}",
-  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "@lastUpdatedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "last30Minutes": "Posledních 30 minut",
   "last5Minutes": "Posledních 5 min",
   "recentEvents": "Nedávné události",
   "noRecentEvents": "Žádné nedávné události",
-
   "retention": "Retence",
   "weekly": "Týdně",
   "daily": "Denně",
   "retentionRange": "Rozsah",
   "retentionDays": "{count} dní",
-  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "@retentionDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "failedToLoadRetention": "Nepodařilo se načíst data retence",
   "noRetentionData": "Žádná data retence",
   "cohort": "Kohorta",
   "retentionWeekPrefix": "T",
   "retentionDayPrefix": "D",
-
   "journeys": "Cesty uživatelů",
   "journeySteps": "Kroky",
   "failedToLoadJourneys": "Nepodařilo se načíst cesty",
   "noJourneysFound": "Žádné cesty nenalezeny",
   "journeySessions": "{count} relací",
-  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
-
+  "@journeySessions": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "locations": "Lokace",
   "locationCities": "Města",
   "failedToLoadLocations": "Nepodařilo se načíst lokace",
   "noLocationsFound": "Žádné lokace nenalezeny",
-
   "coreFeatures": "Hlavní",
   "insights": "Přehledy",
   "tools": "Nástroje",
-
   "userTraits": "Vlastnosti",
   "failedToLoadUserTraits": "Nepodařilo se načíst vlastnosti uživatelů",
   "noUserTraits": "Žádné vlastnosti nenalezeny",
   "noUserTraitsHint": "Vlastnosti se zobrazí po identifikaci uživatelů s vlastními atributy",
   "traitUsersCount": "{count} uživatelů",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
-
+  "@traitUsersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "dashboard": "Přehled",
   "analytics": "Analytika",
   "noSiteSelected": "Žádný web nevybrán",
   "selectSiteFromDashboard": "Pro zobrazení {tabName} vyberte web na kartě Přehled.",
-  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "@selectSiteFromDashboard": {
+    "placeholders": {
+      "tabName": {
+        "type": "String"
+      }
+    }
+  },
   "goToDashboard": "Přejít na přehled",
   "todayVisitors": "{count} dnes",
-  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
-
+  "@todayVisitors": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "entryPages": "Vstupní stránky",
   "exitPages": "Výstupní stránky",
   "browsers": "Prohlížeče",
@@ -514,7 +558,6 @@
   "channel": "Kanál",
   "pageTitles": "Názvy stránek",
   "sources": "Zdroje",
-
   "cities": "Města",
   "languages": "Jazyky",
   "hostnames": "Hostitelé",
@@ -527,18 +570,35 @@
   "asnOrg": "ASN organizace",
   "asnType": "ASN typ",
   "asnDomain": "ASN doména",
-
   "utmMedium": "UTM Médium",
   "utmCampaign": "UTM Kampaň",
-
   "nMoreItems": "+{count} dalších",
-  "@nMoreItems": { "placeholders": { "count": { "type": "int" } } },
+  "@nMoreItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "sessionsWithPercentage": "{count} relací ({percentage} %)",
-  "@sessionsWithPercentage": { "placeholders": { "count": { "type": "String" }, "percentage": { "type": "String" } } },
-
+  "@sessionsWithPercentage": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
   "errorGeneric": "Chyba: {error}",
-  "@errorGeneric": { "placeholders": { "error": { "type": "String" } } },
-
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "replayPageSnapshot": "Snímek stránky",
   "replayPageLoad": "Načtení stránky",
   "replayCustomEvent": "Vlastní událost",
@@ -549,7 +609,6 @@
   "replayInput": "Vstup",
   "replayUpdate": "Aktualizace",
   "url": "URL",
-
   "searchSites": "Hledat weby...",
   "sortSites": "Seřadit weby",
   "sortAlphabetically": "Abecedně",
@@ -562,15 +621,59 @@
   "browserVersions": "Verze prohlížečů",
   "osVersions": "Verze OS",
   "screenDimensions": "Rozlišení obrazovky",
-
   "relativeNow": "teď",
   "relativeMinutes": "{count}m",
-  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeHours": "{count}h",
-  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeDays": "{count}d",
-  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeWeeks": "{count}t",
-  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
-  "emptyValue": "(prázdné)"
+  "@relativeWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyValue": "(prázdné)",
+  "filterBrowser": "Prohlížeč",
+  "filterOs": "Operační systém",
+  "filterLanguage": "Jazyk",
+  "filterCountry": "Země",
+  "filterRegion": "Region",
+  "filterCity": "Město",
+  "filterDeviceType": "Typ zařízení",
+  "filterReferrer": "Odkazující stránka",
+  "filterHostname": "Hostname",
+  "filterPathname": "Cesta",
+  "filterPageTitle": "Název stránky",
+  "filterQuerystring": "Querystring",
+  "filterEventName": "Název události",
+  "filterChannel": "Kanál",
+  "filterUtmSource": "UTM Zdroj",
+  "filterUtmMedium": "UTM Médium",
+  "filterUtmCampaign": "UTM Kampaň",
+  "filterUtmTerm": "UTM Výraz",
+  "filterUtmContent": "UTM Obsah",
+  "filterEntryPage": "Vstupní stránka",
+  "filterExitPage": "Výstupní stránka"
 }

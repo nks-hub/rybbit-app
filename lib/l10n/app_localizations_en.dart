@@ -719,6 +719,69 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterFilterValue => 'Enter filter value';
 
   @override
+  String get filterBrowser => 'Browser';
+
+  @override
+  String get filterOs => 'Operating System';
+
+  @override
+  String get filterLanguage => 'Language';
+
+  @override
+  String get filterCountry => 'Country';
+
+  @override
+  String get filterRegion => 'Region';
+
+  @override
+  String get filterCity => 'City';
+
+  @override
+  String get filterDeviceType => 'Device Type';
+
+  @override
+  String get filterReferrer => 'Referrer';
+
+  @override
+  String get filterHostname => 'Hostname';
+
+  @override
+  String get filterPathname => 'Pathname';
+
+  @override
+  String get filterPageTitle => 'Page Title';
+
+  @override
+  String get filterQuerystring => 'Querystring';
+
+  @override
+  String get filterEventName => 'Event Name';
+
+  @override
+  String get filterChannel => 'Channel';
+
+  @override
+  String get filterUtmSource => 'UTM Source';
+
+  @override
+  String get filterUtmMedium => 'UTM Medium';
+
+  @override
+  String get filterUtmCampaign => 'UTM Campaign';
+
+  @override
+  String get filterUtmTerm => 'UTM Term';
+
+  @override
+  String get filterUtmContent => 'UTM Content';
+
+  @override
+  String get filterEntryPage => 'Entry Page';
+
+  @override
+  String get filterExitPage => 'Exit Page';
+
+  @override
   String get requestTimedOut => 'Request timed out. Please try again.';
 
   @override

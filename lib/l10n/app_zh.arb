@@ -439,9 +439,24 @@
   "more": "è¾å¤",
   "peakActivity": "å³°å¼æ´»å¨",
   "peakHour": "{day} {time}",
-  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "@peakHour": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "busiestDay": "æç¹å¿çä¸å¤©ï¼{day}",
-  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "@busiestDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
   "dayMon": "å¨ä¸",
   "dayTue": "å¨äº",
   "dayWed": "å¨ä¸",
@@ -456,56 +471,85 @@
   "autoRefresh": "èªå¨å·æ°",
   "usersOnlineNow": "å½åå¨çº¿ç¨æ·",
   "lastUpdatedAt": "æ´æ°äº {time}",
-  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "@lastUpdatedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "last30Minutes": "æè¿30åé",
   "last5Minutes": "æè¿5åé",
   "recentEvents": "æè¿äºä»¶",
   "noRecentEvents": "æ²¡ææè¿çäºä»¶",
-
   "retention": "çå­ç",
   "weekly": "æå¨",
   "daily": "æå¤©",
   "retentionRange": "èå´",
   "retentionDays": "{count}å¤©",
-  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "@retentionDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "failedToLoadRetention": "å è½½çå­æ°æ®å¤±è´¥",
   "noRetentionData": "æ çå­æ°æ®",
   "cohort": "éå",
   "retentionWeekPrefix": "W",
   "retentionDayPrefix": "D",
-
   "journeys": "ç¨æ·è·¯å¾",
   "journeySteps": "æ­¥éª¤",
   "failedToLoadJourneys": "å è½½ç¨æ·è·¯å¾å¤±è´¥",
   "noJourneysFound": "æªæ¾å°ç¨æ·è·¯å¾",
   "journeySessions": "{count}ä¸ªä¼è¯",
-  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
-
+  "@journeySessions": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "locations": "ä½ç½®",
   "locationCities": "åå¸",
   "failedToLoadLocations": "å è½½ä½ç½®æ°æ®å¤±è´¥",
   "noLocationsFound": "æªæ¾å°ä½ç½®æ°æ®",
-
   "coreFeatures": "æ ¸å¿",
   "insights": "æ´å¯",
   "tools": "å·¥å·",
-
   "userTraits": "ç¨æ·ç¹å¾",
   "failedToLoadUserTraits": "å è½½ç¨æ·ç¹å¾å¤±è´¥",
   "noUserTraits": "æªæ¾å°ç¨æ·ç¹å¾",
   "noUserTraitsHint": "å½ç¨æ·ä½¿ç¨èªå®ä¹å±æ§æ è¯æ¶å°æ¾ç¤ºç¹å¾",
   "traitUsersCount": "{count}ä¸ªç¨æ·",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
-
+  "@traitUsersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "dashboard": "仪表板",
   "analytics": "分析",
   "noSiteSelected": "未选择站点",
   "selectSiteFromDashboard": "从仪表板选项卡中选择一个站点以查看{tabName}。",
-  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "@selectSiteFromDashboard": {
+    "placeholders": {
+      "tabName": {
+        "type": "String"
+      }
+    }
+  },
   "goToDashboard": "前往仪表板",
   "todayVisitors": "今天{count}人",
-  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
-
+  "@todayVisitors": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "entryPages": "入口页面",
   "exitPages": "出口页面",
   "browsers": "浏览器",
@@ -529,11 +573,32 @@
   "utmMedium": "UTM媒介",
   "utmCampaign": "UTM活动",
   "nMoreItems": "+{count}个更多",
-  "@nMoreItems": { "placeholders": { "count": { "type": "int" } } },
+  "@nMoreItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "sessionsWithPercentage": "{count}个会话 ({percentage}%)",
-  "@sessionsWithPercentage": { "placeholders": { "count": { "type": "String" }, "percentage": { "type": "String" } } },
+  "@sessionsWithPercentage": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
   "errorGeneric": "错误: {error}",
-  "@errorGeneric": { "placeholders": { "error": { "type": "String" } } },
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "replayPageSnapshot": "页面快照",
   "replayPageLoad": "页面加载",
   "replayCustomEvent": "自定义事件",
@@ -556,15 +621,59 @@
   "browserVersions": "浏览器版本",
   "osVersions": "操作系统版本",
   "screenDimensions": "屏幕尺寸",
-
   "relativeNow": "现在",
   "relativeMinutes": "{count}分钟",
-  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeHours": "{count}小时",
-  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeDays": "{count}天",
-  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeWeeks": "{count}周",
-  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
-  "emptyValue": "(空)"
+  "@relativeWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyValue": "(空)",
+  "filterBrowser": "浏览器",
+  "filterOs": "操作系统",
+  "filterLanguage": "语言",
+  "filterCountry": "国家",
+  "filterRegion": "地区",
+  "filterCity": "城市",
+  "filterDeviceType": "设备类型",
+  "filterReferrer": "来源页",
+  "filterHostname": "主机名",
+  "filterPathname": "路径",
+  "filterPageTitle": "页面标题",
+  "filterQuerystring": "查询字符串",
+  "filterEventName": "事件名称",
+  "filterChannel": "渠道",
+  "filterUtmSource": "UTM来源",
+  "filterUtmMedium": "UTM媒介",
+  "filterUtmCampaign": "UTM活动",
+  "filterUtmTerm": "UTM术语",
+  "filterUtmContent": "UTM内容",
+  "filterEntryPage": "入口页",
+  "filterExitPage": "出口页"
 }

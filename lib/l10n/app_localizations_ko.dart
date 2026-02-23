@@ -729,6 +729,69 @@ class AppLocalizationsKo extends AppLocalizations {
   String get enterFilterValue => 'íí° ê°ì ìë ¥íì¸ì';
 
   @override
+  String get filterBrowser => '브라우저';
+
+  @override
+  String get filterOs => '운영체제';
+
+  @override
+  String get filterLanguage => '언어';
+
+  @override
+  String get filterCountry => '국가';
+
+  @override
+  String get filterRegion => '지역';
+
+  @override
+  String get filterCity => '도시';
+
+  @override
+  String get filterDeviceType => '기기 유형';
+
+  @override
+  String get filterReferrer => '리퍼러';
+
+  @override
+  String get filterHostname => '호스트명';
+
+  @override
+  String get filterPathname => '경로';
+
+  @override
+  String get filterPageTitle => '페이지 제목';
+
+  @override
+  String get filterQuerystring => '쿼리스트링';
+
+  @override
+  String get filterEventName => '이벤트명';
+
+  @override
+  String get filterChannel => '채널';
+
+  @override
+  String get filterUtmSource => 'UTM 소스';
+
+  @override
+  String get filterUtmMedium => 'UTM 매체';
+
+  @override
+  String get filterUtmCampaign => 'UTM 캔페인';
+
+  @override
+  String get filterUtmTerm => 'UTM 용어';
+
+  @override
+  String get filterUtmContent => 'UTM 콘텐츠';
+
+  @override
+  String get filterEntryPage => '진입 페이지';
+
+  @override
+  String get filterExitPage => '이탈 페이지';
+
+  @override
   String get requestTimedOut =>
       'ìì²­ ìê°ì´ ì´ê³¼ëììµëë¤. ë¤ì ìëí´ ì£¼ì¸ì.';
 

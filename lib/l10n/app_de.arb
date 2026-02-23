@@ -439,9 +439,24 @@
   "more": "Mehr",
   "peakActivity": "Spitzenaktivität",
   "peakHour": "{day} um {time}",
-  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "@peakHour": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "busiestDay": "Aktivster Tag: {day}",
-  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "@busiestDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
   "dayMon": "Mo",
   "dayTue": "Di",
   "dayWed": "Mi",
@@ -456,56 +471,85 @@
   "autoRefresh": "Automatische Aktualisierung",
   "usersOnlineNow": "Benutzer gerade online",
   "lastUpdatedAt": "Aktualisiert um {time}",
-  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "@lastUpdatedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "last30Minutes": "Letzte 30 Minuten",
   "last5Minutes": "Letzte 5 Min",
   "recentEvents": "Aktuelle Ereignisse",
   "noRecentEvents": "Keine aktuellen Ereignisse",
-
   "retention": "Retention",
   "weekly": "Wöchentlich",
   "daily": "Täglich",
   "retentionRange": "Zeitraum",
   "retentionDays": "{count} Tage",
-  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "@retentionDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "failedToLoadRetention": "Retentionsdaten konnten nicht geladen werden",
   "noRetentionData": "Keine Retentionsdaten",
   "cohort": "Kohorte",
   "retentionWeekPrefix": "W",
   "retentionDayPrefix": "T",
-
   "journeys": "Nutzerpfade",
   "journeySteps": "Schritte",
   "failedToLoadJourneys": "Nutzerpfade konnten nicht geladen werden",
   "noJourneysFound": "Keine Nutzerpfade gefunden",
   "journeySessions": "{count} Sitzungen",
-  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
-
+  "@journeySessions": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "locations": "Standorte",
   "locationCities": "Städte",
   "failedToLoadLocations": "Standorte konnten nicht geladen werden",
   "noLocationsFound": "Keine Standorte gefunden",
-
   "coreFeatures": "Kern",
   "insights": "Einblicke",
   "tools": "Werkzeuge",
-
   "userTraits": "Merkmale",
   "failedToLoadUserTraits": "Benutzermerkmale konnten nicht geladen werden",
   "noUserTraits": "Keine Benutzermerkmale gefunden",
   "noUserTraitsHint": "Merkmale erscheinen, wenn Benutzer mit benutzerdefinierten Eigenschaften identifiziert werden",
   "traitUsersCount": "{count} Benutzer",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
-
+  "@traitUsersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "dashboard": "Dashboard",
   "analytics": "Analyse",
   "noSiteSelected": "Keine Website ausgewählt",
   "selectSiteFromDashboard": "Wählen Sie eine Website im Dashboard-Tab, um {tabName} anzuzeigen.",
-  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "@selectSiteFromDashboard": {
+    "placeholders": {
+      "tabName": {
+        "type": "String"
+      }
+    }
+  },
   "goToDashboard": "Zum Dashboard",
   "todayVisitors": "{count} heute",
-  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
-
+  "@todayVisitors": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "entryPages": "Einstiegsseiten",
   "exitPages": "Ausstiegsseiten",
   "browsers": "Browser",
@@ -529,11 +573,32 @@
   "utmMedium": "UTM-Medium",
   "utmCampaign": "UTM-Kampagne",
   "nMoreItems": "+{count} weitere",
-  "@nMoreItems": { "placeholders": { "count": { "type": "int" } } },
+  "@nMoreItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "sessionsWithPercentage": "{count} Sitzungen ({percentage}%)",
-  "@sessionsWithPercentage": { "placeholders": { "count": { "type": "String" }, "percentage": { "type": "String" } } },
+  "@sessionsWithPercentage": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
   "errorGeneric": "Fehler: {error}",
-  "@errorGeneric": { "placeholders": { "error": { "type": "String" } } },
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "replayPageSnapshot": "Seiten-Snapshot",
   "replayPageLoad": "Seitenladung",
   "replayCustomEvent": "Benutzerdefiniertes Ereignis",
@@ -556,15 +621,59 @@
   "browserVersions": "Browser-Versionen",
   "osVersions": "OS-Versionen",
   "screenDimensions": "Bildschirmauflösung",
-
   "relativeNow": "jetzt",
   "relativeMinutes": "{count}m",
-  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeHours": "{count}h",
-  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeDays": "{count}d",
-  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeWeeks": "{count}w",
-  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
-  "emptyValue": "(leer)"
+  "@relativeWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyValue": "(leer)",
+  "filterBrowser": "Browser",
+  "filterOs": "Betriebssystem",
+  "filterLanguage": "Sprache",
+  "filterCountry": "Land",
+  "filterRegion": "Region",
+  "filterCity": "Stadt",
+  "filterDeviceType": "Gerätetyp",
+  "filterReferrer": "Referrer",
+  "filterHostname": "Hostname",
+  "filterPathname": "Pfad",
+  "filterPageTitle": "Seitentitel",
+  "filterQuerystring": "Querystring",
+  "filterEventName": "Ereignisname",
+  "filterChannel": "Kanal",
+  "filterUtmSource": "UTM-Quelle",
+  "filterUtmMedium": "UTM-Medium",
+  "filterUtmCampaign": "UTM-Kampagne",
+  "filterUtmTerm": "UTM-Begriff",
+  "filterUtmContent": "UTM-Inhalt",
+  "filterEntryPage": "Einstiegsseite",
+  "filterExitPage": "Ausstiegsseite"
 }

@@ -3,6 +3,32 @@ import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import '../models/filter.dart';
 
+String _filterParamLabel(FilterParameter param, AppLocalizations l10n) {
+  return switch (param) {
+    FilterParameter.browser => l10n.filterBrowser,
+    FilterParameter.operatingSystem => l10n.filterOs,
+    FilterParameter.language => l10n.filterLanguage,
+    FilterParameter.country => l10n.filterCountry,
+    FilterParameter.region => l10n.filterRegion,
+    FilterParameter.city => l10n.filterCity,
+    FilterParameter.deviceType => l10n.filterDeviceType,
+    FilterParameter.referrer => l10n.filterReferrer,
+    FilterParameter.hostname => l10n.filterHostname,
+    FilterParameter.pathname => l10n.filterPathname,
+    FilterParameter.pageTitle => l10n.filterPageTitle,
+    FilterParameter.querystring => l10n.filterQuerystring,
+    FilterParameter.eventName => l10n.filterEventName,
+    FilterParameter.channel => l10n.filterChannel,
+    FilterParameter.utmSource => l10n.filterUtmSource,
+    FilterParameter.utmMedium => l10n.filterUtmMedium,
+    FilterParameter.utmCampaign => l10n.filterUtmCampaign,
+    FilterParameter.utmTerm => l10n.filterUtmTerm,
+    FilterParameter.utmContent => l10n.filterUtmContent,
+    FilterParameter.entryPage => l10n.filterEntryPage,
+    FilterParameter.exitPage => l10n.filterExitPage,
+  };
+}
+
 class FilterBar extends StatelessWidget {
   final List<Filter> filters;
   final ValueChanged<int> onRemoveFilter;
@@ -35,7 +61,7 @@ class FilterBar extends StatelessWidget {
                 constraints: const BoxConstraints(maxWidth: 200),
                 child: Chip(
                 label: Text(
-                  '${filter.parameter.value}: ${filter.value.join(", ")}',
+                  '${_filterParamLabel(filter.parameter, l10n)}: ${filter.value.join(", ")}',
                   style: const TextStyle(fontSize: 12),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -108,7 +134,7 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
             items: FilterParameter.values
                 .map((p) => DropdownMenuItem(
                       value: p,
-                      child: Text(p.value.replaceAll('_', ' ')),
+                      child: Text(_filterParamLabel(p, l10n)),
                     ))
                 .toList(),
             onChanged: (value) {

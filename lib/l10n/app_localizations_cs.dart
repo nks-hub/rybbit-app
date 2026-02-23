@@ -732,6 +732,69 @@ class AppLocalizationsCs extends AppLocalizations {
   String get enterFilterValue => 'Zadejte hodnotu filtru';
 
   @override
+  String get filterBrowser => 'Prohlížeč';
+
+  @override
+  String get filterOs => 'Operační systém';
+
+  @override
+  String get filterLanguage => 'Jazyk';
+
+  @override
+  String get filterCountry => 'Země';
+
+  @override
+  String get filterRegion => 'Region';
+
+  @override
+  String get filterCity => 'Město';
+
+  @override
+  String get filterDeviceType => 'Typ zařízení';
+
+  @override
+  String get filterReferrer => 'Odkazující stránka';
+
+  @override
+  String get filterHostname => 'Hostname';
+
+  @override
+  String get filterPathname => 'Cesta';
+
+  @override
+  String get filterPageTitle => 'Název stránky';
+
+  @override
+  String get filterQuerystring => 'Querystring';
+
+  @override
+  String get filterEventName => 'Název události';
+
+  @override
+  String get filterChannel => 'Kanál';
+
+  @override
+  String get filterUtmSource => 'UTM Zdroj';
+
+  @override
+  String get filterUtmMedium => 'UTM Médium';
+
+  @override
+  String get filterUtmCampaign => 'UTM Kampaň';
+
+  @override
+  String get filterUtmTerm => 'UTM Výraz';
+
+  @override
+  String get filterUtmContent => 'UTM Obsah';
+
+  @override
+  String get filterEntryPage => 'Vstupní stránka';
+
+  @override
+  String get filterExitPage => 'Výstupní stránka';
+
+  @override
   String get requestTimedOut => 'Požadavek vypršel. Zkuste to prosím znovu.';
 
   @override

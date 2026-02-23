@@ -439,9 +439,24 @@
   "more": "ë§ì",
   "peakActivity": "ìµê³  íë",
   "peakHour": "{day} {time}",
-  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "@peakHour": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "busiestDay": "ê°ì¥ ë°ì ë : {day}",
-  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "@busiestDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
   "dayMon": "ì",
   "dayTue": "í",
   "dayWed": "ì",
@@ -456,56 +471,85 @@
   "autoRefresh": "ìë ìë¡ê³ ì¹¨",
   "usersOnlineNow": "íì¬ ì¨ë¼ì¸ ì¬ì©ì",
   "lastUpdatedAt": "{time}ì ìë°ì´í¸ë¨",
-  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "@lastUpdatedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "last30Minutes": "ìµê·¼ 30ë¶",
   "last5Minutes": "ìµê·¼ 5ë¶",
   "recentEvents": "ìµê·¼ ì´ë²¤í¸",
   "noRecentEvents": "ìµê·¼ ì´ë²¤í¸ ìì",
-
   "retention": "ë¦¬íì",
   "weekly": "ì£¼ê°",
   "daily": "ì¼ê°",
   "retentionRange": "ë²ì",
   "retentionDays": "{count}ì¼",
-  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "@retentionDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "failedToLoadRetention": "ë¦¬íì ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
   "noRetentionData": "ë¦¬íì ë°ì´í° ìì",
   "cohort": "ì½í¸í¸",
   "retentionWeekPrefix": "W",
   "retentionDayPrefix": "D",
-
   "journeys": "ì¬ì©ì ê²½ë¡",
   "journeySteps": "ë¨ê³",
   "failedToLoadJourneys": "ì¬ì©ì ê²½ë¡ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
   "noJourneysFound": "ì¬ì©ì ê²½ë¡ê° ììµëë¤",
   "journeySessions": "{count} ì¸ì",
-  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
-
+  "@journeySessions": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "locations": "ìì¹",
   "locationCities": "ëì",
   "failedToLoadLocations": "ìì¹ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
   "noLocationsFound": "ìì¹ê° ììµëë¤",
-
   "coreFeatures": "íµì¬",
   "insights": "ì¸ì¬ì´í¸",
   "tools": "ëêµ¬",
-
   "userTraits": "í¹ì±",
   "failedToLoadUserTraits": "ì¬ì©ì í¹ì±ì ë¶ë¬ì¤ì§ ëª»íìµëë¤",
   "noUserTraits": "í¹ì±ì´ ììµëë¤",
   "noUserTraitsHint": "ì¬ì©ìê° ì¬ì©ì ì ì ìì±ì¼ë¡ ìë³ëë©´ íìë©ëë¤",
   "traitUsersCount": "{count}ëª ì¬ì©ì",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
-
+  "@traitUsersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "dashboard": "대시보드",
   "analytics": "분석",
   "noSiteSelected": "선택된 사이트 없음",
   "selectSiteFromDashboard": "{tabName}을(를) 보려면 대시보드 탭에서 사이트를 선택하세요.",
-  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "@selectSiteFromDashboard": {
+    "placeholders": {
+      "tabName": {
+        "type": "String"
+      }
+    }
+  },
   "goToDashboard": "대시보드로 이동",
   "todayVisitors": "오늘 {count}명",
-  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
-
+  "@todayVisitors": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "entryPages": "진입 페이지",
   "exitPages": "이탈 페이지",
   "browsers": "브라우저",
@@ -529,11 +573,32 @@
   "utmMedium": "UTM 매체",
   "utmCampaign": "UTM 캠페인",
   "nMoreItems": "+{count}개 더",
-  "@nMoreItems": { "placeholders": { "count": { "type": "int" } } },
+  "@nMoreItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "sessionsWithPercentage": "{count} 세션 ({percentage}%)",
-  "@sessionsWithPercentage": { "placeholders": { "count": { "type": "String" }, "percentage": { "type": "String" } } },
+  "@sessionsWithPercentage": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
   "errorGeneric": "오류: {error}",
-  "@errorGeneric": { "placeholders": { "error": { "type": "String" } } },
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "replayPageSnapshot": "페이지 스냅샷",
   "replayPageLoad": "페이지 로드",
   "replayCustomEvent": "커스텀 이벤트",
@@ -556,15 +621,59 @@
   "browserVersions": "브라우저 버전",
   "osVersions": "OS 버전",
   "screenDimensions": "화면 크기",
-
   "relativeNow": "지금",
   "relativeMinutes": "{count}분",
-  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeHours": "{count}시간",
-  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeDays": "{count}일",
-  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeWeeks": "{count}주",
-  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
-  "emptyValue": "(비어있음)"
+  "@relativeWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyValue": "(비어있음)",
+  "filterBrowser": "브라우저",
+  "filterOs": "운영체제",
+  "filterLanguage": "언어",
+  "filterCountry": "국가",
+  "filterRegion": "지역",
+  "filterCity": "도시",
+  "filterDeviceType": "기기 유형",
+  "filterReferrer": "리퍼러",
+  "filterHostname": "호스트명",
+  "filterPathname": "경로",
+  "filterPageTitle": "페이지 제목",
+  "filterQuerystring": "쿼리스트링",
+  "filterEventName": "이벤트명",
+  "filterChannel": "채널",
+  "filterUtmSource": "UTM 소스",
+  "filterUtmMedium": "UTM 매체",
+  "filterUtmCampaign": "UTM 캔페인",
+  "filterUtmTerm": "UTM 용어",
+  "filterUtmContent": "UTM 콘텐츠",
+  "filterEntryPage": "진입 페이지",
+  "filterExitPage": "이탈 페이지"
 }

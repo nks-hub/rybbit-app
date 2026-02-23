@@ -731,6 +731,69 @@ class AppLocalizationsDe extends AppLocalizations {
   String get enterFilterValue => 'Filterwert eingeben';
 
   @override
+  String get filterBrowser => 'Browser';
+
+  @override
+  String get filterOs => 'Betriebssystem';
+
+  @override
+  String get filterLanguage => 'Sprache';
+
+  @override
+  String get filterCountry => 'Land';
+
+  @override
+  String get filterRegion => 'Region';
+
+  @override
+  String get filterCity => 'Stadt';
+
+  @override
+  String get filterDeviceType => 'Gerätetyp';
+
+  @override
+  String get filterReferrer => 'Referrer';
+
+  @override
+  String get filterHostname => 'Hostname';
+
+  @override
+  String get filterPathname => 'Pfad';
+
+  @override
+  String get filterPageTitle => 'Seitentitel';
+
+  @override
+  String get filterQuerystring => 'Querystring';
+
+  @override
+  String get filterEventName => 'Ereignisname';
+
+  @override
+  String get filterChannel => 'Kanal';
+
+  @override
+  String get filterUtmSource => 'UTM-Quelle';
+
+  @override
+  String get filterUtmMedium => 'UTM-Medium';
+
+  @override
+  String get filterUtmCampaign => 'UTM-Kampagne';
+
+  @override
+  String get filterUtmTerm => 'UTM-Begriff';
+
+  @override
+  String get filterUtmContent => 'UTM-Inhalt';
+
+  @override
+  String get filterEntryPage => 'Einstiegsseite';
+
+  @override
+  String get filterExitPage => 'Ausstiegsseite';
+
+  @override
   String get requestTimedOut =>
       'Zeitüberschreitung bei der Anfrage. Bitte versuchen Sie es erneut.';
 

@@ -726,6 +726,69 @@ class AppLocalizationsPl extends AppLocalizations {
   String get enterFilterValue => 'Wprowadź wartość filtra';
 
   @override
+  String get filterBrowser => 'Przeglądarka';
+
+  @override
+  String get filterOs => 'System operacyjny';
+
+  @override
+  String get filterLanguage => 'Język';
+
+  @override
+  String get filterCountry => 'Kraj';
+
+  @override
+  String get filterRegion => 'Region';
+
+  @override
+  String get filterCity => 'Miasto';
+
+  @override
+  String get filterDeviceType => 'Typ urządzenia';
+
+  @override
+  String get filterReferrer => 'Strona odsyłająca';
+
+  @override
+  String get filterHostname => 'Hostname';
+
+  @override
+  String get filterPathname => 'Ścieżka';
+
+  @override
+  String get filterPageTitle => 'Tytuł strony';
+
+  @override
+  String get filterQuerystring => 'Querystring';
+
+  @override
+  String get filterEventName => 'Nazwa zdarzenia';
+
+  @override
+  String get filterChannel => 'Kanał';
+
+  @override
+  String get filterUtmSource => 'Źródło UTM';
+
+  @override
+  String get filterUtmMedium => 'Medium UTM';
+
+  @override
+  String get filterUtmCampaign => 'Kampania UTM';
+
+  @override
+  String get filterUtmTerm => 'Termin UTM';
+
+  @override
+  String get filterUtmContent => 'Treść UTM';
+
+  @override
+  String get filterEntryPage => 'Strona wejściowa';
+
+  @override
+  String get filterExitPage => 'Strona wyjściowa';
+
+  @override
   String get requestTimedOut =>
       'Upłynął limit czasu żądania. Spróbuj ponownie.';
 

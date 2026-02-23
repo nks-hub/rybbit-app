@@ -439,9 +439,24 @@
   "more": "å¤ã",
   "peakActivity": "ãã¼ã¯ã¢ã¯ãã£ããã£",
   "peakHour": "{day} {time}",
-  "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
+  "@peakHour": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "busiestDay": "æãå¿ããæ¥: {day}",
-  "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
+  "@busiestDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
   "dayMon": "æ",
   "dayTue": "ç«",
   "dayWed": "æ°´",
@@ -456,56 +471,85 @@
   "autoRefresh": "èªåæ´æ°",
   "usersOnlineNow": "ç¾å¨ãªã³ã©ã¤ã³ã®ã¦ã¼ã¶ã¼",
   "lastUpdatedAt": "{time} ã«æ´æ°",
-  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "@lastUpdatedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "last30Minutes": "éå»30å",
   "last5Minutes": "éå»5å",
   "recentEvents": "æè¿ã®ã¤ãã³ã",
   "noRecentEvents": "æè¿ã®ã¤ãã³ãã¯ããã¾ãã",
-
   "retention": "ãªãã³ã·ã§ã³",
   "weekly": "é±æ¬¡",
   "daily": "æ¥æ¬¡",
   "retentionRange": "ç¯å²",
   "retentionDays": "{count}æ¥é",
-  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "@retentionDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "failedToLoadRetention": "ãªãã³ã·ã§ã³ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
   "noRetentionData": "ãªãã³ã·ã§ã³ãã¼ã¿ãªã",
   "cohort": "ã³ãã¼ã",
   "retentionWeekPrefix": "W",
   "retentionDayPrefix": "D",
-
   "journeys": "ã¸ã£ã¼ãã¼",
   "journeySteps": "ã¹ããã",
   "failedToLoadJourneys": "ã¸ã£ã¼ãã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
   "noJourneysFound": "ã¸ã£ã¼ãã¼ãè¦ã¤ããã¾ãã",
   "journeySessions": "{count}ã»ãã·ã§ã³",
-  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
-
+  "@journeySessions": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "locations": "ã­ã±ã¼ã·ã§ã³",
   "locationCities": "é½å¸",
   "failedToLoadLocations": "ã­ã±ã¼ã·ã§ã³ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
   "noLocationsFound": "ã­ã±ã¼ã·ã§ã³ãè¦ã¤ããã¾ãã",
-
   "coreFeatures": "ã³ã¢",
   "insights": "ã¤ã³ãµã¤ã",
   "tools": "ãã¼ã«",
-
   "userTraits": "ãã¬ã¤ã",
   "failedToLoadUserTraits": "ã¦ã¼ã¶ã¼ãã¬ã¤ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
   "noUserTraits": "ãã¬ã¤ããè¦ã¤ããã¾ãã",
   "noUserTraitsHint": "ã«ã¹ã¿ã ãã­ããã£ã§ã¦ã¼ã¶ã¼ãè­å¥ãããã¨è¡¨ç¤ºããã¾ã",
   "traitUsersCount": "{count}ã¦ã¼ã¶ã¼",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
-
+  "@traitUsersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "dashboard": "ダッシュボード",
   "analytics": "アナリティクス",
   "noSiteSelected": "サイトが選択されていません",
   "selectSiteFromDashboard": "{tabName}を表示するにはダッシュボードタブからサイトを選択してください。",
-  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "@selectSiteFromDashboard": {
+    "placeholders": {
+      "tabName": {
+        "type": "String"
+      }
+    }
+  },
   "goToDashboard": "ダッシュボードへ",
   "todayVisitors": "今日{count}人",
-  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
-
+  "@todayVisitors": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "entryPages": "入口ページ",
   "exitPages": "出口ページ",
   "browsers": "ブラウザ",
@@ -529,11 +573,32 @@
   "utmMedium": "UTMメディア",
   "utmCampaign": "UTMキャンペーン",
   "nMoreItems": "+{count}件",
-  "@nMoreItems": { "placeholders": { "count": { "type": "int" } } },
+  "@nMoreItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "sessionsWithPercentage": "{count}セッション ({percentage}%)",
-  "@sessionsWithPercentage": { "placeholders": { "count": { "type": "String" }, "percentage": { "type": "String" } } },
+  "@sessionsWithPercentage": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
   "errorGeneric": "エラー: {error}",
-  "@errorGeneric": { "placeholders": { "error": { "type": "String" } } },
+  "@errorGeneric": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "replayPageSnapshot": "ページスナップショット",
   "replayPageLoad": "ページ読み込み",
   "replayCustomEvent": "カスタムイベント",
@@ -556,15 +621,59 @@
   "browserVersions": "ブラウザバージョン",
   "osVersions": "OSバージョン",
   "screenDimensions": "画面サイズ",
-
   "relativeNow": "今",
   "relativeMinutes": "{count}分",
-  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeHours": "{count}時間",
-  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeDays": "{count}日",
-  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "@relativeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "relativeWeeks": "{count}週",
-  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
-  "emptyValue": "(空)"
+  "@relativeWeeks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyValue": "(空)",
+  "filterBrowser": "ブラウザ",
+  "filterOs": "OS",
+  "filterLanguage": "言語",
+  "filterCountry": "国",
+  "filterRegion": "地域",
+  "filterCity": "都市",
+  "filterDeviceType": "デバイスタイプ",
+  "filterReferrer": "リファラー",
+  "filterHostname": "ホスト名",
+  "filterPathname": "パス",
+  "filterPageTitle": "ページタイトル",
+  "filterQuerystring": "クエリ文字列",
+  "filterEventName": "イベント名",
+  "filterChannel": "チャネル",
+  "filterUtmSource": "UTMソース",
+  "filterUtmMedium": "UTMメディア",
+  "filterUtmCampaign": "UTMキャンペーン",
+  "filterUtmTerm": "UTM用語",
+  "filterUtmContent": "UTMコンテンツ",
+  "filterEntryPage": "エントリーページ",
+  "filterExitPage": "離脱ページ"
 }
