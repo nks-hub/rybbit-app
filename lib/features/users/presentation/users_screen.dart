@@ -2,13 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../features/analytics/application/filter_controller.dart';
+import '../../../features/analytics/application/time_range_controller.dart';
 import '../data/users_repository.dart';
 
 /// Provider for paginated user list.
 final _usersProvider =
     FutureProvider.family<List<UserListItem>, String>((ref, siteId) async {
+  ref.watch(timeRangeControllerProvider);
+  ref.watch(filterControllerProvider);
+
   final repo = ref.read(usersRepositoryProvider);
-  return repo.getUsers(siteId);
+  final timeRange = ref.read(timeRangeControllerProvider);
+  final filterCtrl = ref.read(filterControllerProvider.notifier);
+
+  final params = {
+    ...timeRange.toQueryParams(),
+    ...filterCtrl.toQueryParams(),
+  };
+
+  return repo.getUsers(siteId, params: params);
 });
 
 class UsersScreen extends ConsumerWidget {
