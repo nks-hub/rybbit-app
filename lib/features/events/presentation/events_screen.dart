@@ -49,6 +49,103 @@ class EventsScreen extends ConsumerWidget {
 
   const EventsScreen({super.key, required this.siteId});
 
+  Future<void> _showEventProperties(
+    BuildContext context,
+    WidgetRef ref,
+    String eventName,
+  ) async {
+    final repo = ref.read(eventsRepositoryProvider);
+    final timeRange = ref.read(timeRangeControllerProvider);
+    final filterCtrl = ref.read(filterControllerProvider.notifier);
+    final params = {
+      ...timeRange.toQueryParams(),
+      ...filterCtrl.toQueryParams(),
+    };
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (ctx) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.5,
+          minChildSize: 0.3,
+          maxChildSize: 0.85,
+          expand: false,
+          builder: (ctx, scrollController) {
+            return FutureBuilder<List<EventProperty>>(
+              future: repo.getEventProperties(siteId, eventName, params),
+              builder: (context, snapshot) {
+                final theme = Theme.of(context);
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.bolt, size: 20, color: Color(0xFF22C55E)),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              eventName,
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Divider(height: 1),
+                    if (snapshot.connectionState == ConnectionState.waiting)
+                      const Expanded(
+                        child: Center(child: CircularProgressIndicator()),
+                      )
+                    else if (snapshot.hasError)
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            'Failed to load properties',
+                            style: theme.textTheme.bodySmall,
+                          ),
+                        ),
+                      )
+                    else if (!snapshot.hasData || snapshot.data!.isEmpty)
+                      Expanded(
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.data_object,
+                                  size: 40,
+                                  color: theme.textTheme.bodySmall?.color),
+                              const SizedBox(height: 12),
+                              Text('No properties',
+                                  style: theme.textTheme.bodyMedium),
+                            ],
+                          ),
+                        ),
+                      )
+                    else
+                      Expanded(
+                        child: _PropertyList(
+                          properties: snapshot.data!,
+                          scrollController: scrollController,
+                        ),
+                      ),
+                  ],
+                );
+              },
+            );
+          },
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final eventNamesAsync = ref.watch(_eventNamesProvider(siteId));
@@ -211,6 +308,8 @@ class EventsScreen extends ConsumerWidget {
                         eventName: event.eventName,
                         count: event.count,
                         percentage: pct,
+                        onTap: () => _showEventProperties(
+                            context, ref, event.eventName),
                       );
                     },
                   );
@@ -228,11 +327,13 @@ class _EventNameTile extends StatelessWidget {
   final String eventName;
   final int count;
   final double percentage;
+  final VoidCallback? onTap;
 
   const _EventNameTile({
     required this.eventName,
     required this.count,
     required this.percentage,
+    this.onTap,
   });
 
   @override
@@ -240,55 +341,152 @@ class _EventNameTile extends StatelessWidget {
     final theme = Theme.of(context);
     final barColor = const Color(0xFF22C55E);
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(Icons.bolt, size: 16, color: barColor),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  eventName,
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.bolt, size: 16, color: barColor),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    eventName,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                Text(
+                  formatNumber(count),
                   style: theme.textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
-                  overflow: TextOverflow.ellipsis,
                 ),
+                const SizedBox(width: 6),
+                SizedBox(
+                  width: 48,
+                  child: Text(
+                    formatPercentage(percentage),
+                    style: theme.textTheme.bodySmall,
+                    textAlign: TextAlign.right,
+                  ),
+                ),
+                if (onTap != null) ...[
+                  const SizedBox(width: 4),
+                  Icon(Icons.chevron_right,
+                      size: 16, color: theme.textTheme.bodySmall?.color),
+                ],
+              ],
+            ),
+            const SizedBox(height: 4),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(2),
+              child: LinearProgressIndicator(
+                value: (percentage / 100).clamp(0.0, 1.0),
+                backgroundColor: barColor.withValues(alpha: 0.1),
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  barColor.withValues(alpha: 0.6),
+                ),
+                minHeight: 4,
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PropertyList extends StatelessWidget {
+  final List<EventProperty> properties;
+  final ScrollController scrollController;
+
+  const _PropertyList({
+    required this.properties,
+    required this.scrollController,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    // Group properties by key
+    final grouped = <String, List<EventProperty>>{};
+    for (final p in properties) {
+      grouped.putIfAbsent(p.propertyKey, () => []).add(p);
+    }
+
+    final keys = grouped.keys.toList();
+
+    return ListView.builder(
+      controller: scrollController,
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      itemCount: keys.length,
+      itemBuilder: (context, index) {
+        final key = keys[index];
+        final values = grouped[key]!;
+        final totalForKey = values.fold<int>(0, (sum, p) => sum + p.count);
+
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               Text(
-                formatNumber(count),
+                key,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w600,
+                  color: theme.colorScheme.primary,
                 ),
               ),
-              const SizedBox(width: 6),
-              SizedBox(
-                width: 48,
-                child: Text(
-                  formatPercentage(percentage),
-                  style: theme.textTheme.bodySmall,
-                  textAlign: TextAlign.right,
+              const SizedBox(height: 6),
+              ...values.map((p) {
+                final pct =
+                    totalForKey > 0 ? (p.count / totalForKey * 100) : 0.0;
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          p.propertyValue.isEmpty ? '(empty)' : p.propertyValue,
+                          style: theme.textTheme.bodySmall,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Text(
+                        '${p.count}',
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      SizedBox(
+                        width: 42,
+                        child: Text(
+                          '${pct.toStringAsFixed(0)}%',
+                          style: theme.textTheme.bodySmall
+                              ?.copyWith(fontSize: 11),
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+              if (index < keys.length - 1)
+                Divider(
+                  color: theme.dividerTheme.color?.withValues(alpha: 0.3),
                 ),
-              ),
             ],
           ),
-          const SizedBox(height: 4),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(2),
-            child: LinearProgressIndicator(
-              value: (percentage / 100).clamp(0.0, 1.0),
-              backgroundColor: barColor.withValues(alpha: 0.1),
-              valueColor: AlwaysStoppedAnimation<Color>(
-                barColor.withValues(alpha: 0.6),
-              ),
-              minHeight: 4,
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
