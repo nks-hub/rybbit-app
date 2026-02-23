@@ -435,5 +435,14 @@
   "daySun": "Dom",
   "searchEvents": "Buscar eventos...",
   "allTypes": "Todos",
-  "noMatchingEvents": "No hay eventos coincidentes"
+  "noMatchingEvents": "No hay eventos coincidentes",
+  "liveView": "En vivo",
+  "autoRefresh": "Actualización automática",
+  "usersOnlineNow": "Usuarios en línea ahora",
+  "lastUpdatedAt": "Actualizado a las {time}",
+  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "last30Minutes": "Últimos 30 minutos",
+  "last5Minutes": "Últimos 5 min",
+  "recentEvents": "Eventos recientes",
+  "noRecentEvents": "No hay eventos recientes"
 }

@@ -843,4 +843,30 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noMatchingEvents => '一致するイベントがありません';
+
+  @override
+  String get liveView => 'ライブ';
+
+  @override
+  String get autoRefresh => '自動更新';
+
+  @override
+  String get usersOnlineNow => '現在オンラインのユーザー';
+
+  @override
+  String lastUpdatedAt(String time) {
+    return '$time に更新';
+  }
+
+  @override
+  String get last30Minutes => '過去30分';
+
+  @override
+  String get last5Minutes => '過去5分';
+
+  @override
+  String get recentEvents => '最近のイベント';
+
+  @override
+  String get noRecentEvents => '最近のイベントはありません';
 }

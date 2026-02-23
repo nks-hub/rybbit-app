@@ -1669,6 +1669,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No matching events'**
   String get noMatchingEvents;
+
+  /// No description provided for @liveView.
+  ///
+  /// In en, this message translates to:
+  /// **'Live'**
+  String get liveView;
+
+  /// No description provided for @autoRefresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-refresh'**
+  String get autoRefresh;
+
+  /// No description provided for @usersOnlineNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Users online now'**
+  String get usersOnlineNow;
+
+  /// No description provided for @lastUpdatedAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated at {time}'**
+  String lastUpdatedAt(String time);
+
+  /// No description provided for @last30Minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 30 Minutes'**
+  String get last30Minutes;
+
+  /// No description provided for @last5Minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 5 min'**
+  String get last5Minutes;
+
+  /// No description provided for @recentEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Events'**
+  String get recentEvents;
+
+  /// No description provided for @noRecentEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'No recent events'**
+  String get noRecentEvents;
 }
 
 class _AppLocalizationsDelegate

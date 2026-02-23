@@ -435,5 +435,14 @@
   "daySun": "Ndz",
   "searchEvents": "Szukaj zdarzeń...",
   "allTypes": "Wszystkie",
-  "noMatchingEvents": "Brak pasujących zdarzeń"
+  "noMatchingEvents": "Brak pasujących zdarzeń",
+  "liveView": "Na żywo",
+  "autoRefresh": "Automatyczne odświeżanie",
+  "usersOnlineNow": "Użytkownicy online",
+  "lastUpdatedAt": "Zaktualizowano o {time}",
+  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "last30Minutes": "Ostatnie 30 minut",
+  "last5Minutes": "Ostatnie 5 min",
+  "recentEvents": "Ostatnie zdarzenia",
+  "noRecentEvents": "Brak ostatnich zdarzeń"
 }

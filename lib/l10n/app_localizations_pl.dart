@@ -855,4 +855,30 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get noMatchingEvents => 'Brak pasujących zdarzeń';
+
+  @override
+  String get liveView => 'Na żywo';
+
+  @override
+  String get autoRefresh => 'Automatyczne odświeżanie';
+
+  @override
+  String get usersOnlineNow => 'Użytkownicy online';
+
+  @override
+  String lastUpdatedAt(String time) {
+    return 'Zaktualizowano o $time';
+  }
+
+  @override
+  String get last30Minutes => 'Ostatnie 30 minut';
+
+  @override
+  String get last5Minutes => 'Ostatnie 5 min';
+
+  @override
+  String get recentEvents => 'Ostatnie zdarzenia';
+
+  @override
+  String get noRecentEvents => 'Brak ostatnich zdarzeń';
 }

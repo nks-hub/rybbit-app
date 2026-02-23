@@ -860,4 +860,30 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get noMatchingEvents => 'Žádné odpovídající události';
+
+  @override
+  String get liveView => 'Živě';
+
+  @override
+  String get autoRefresh => 'Automatická aktualizace';
+
+  @override
+  String get usersOnlineNow => 'Uživatelé online';
+
+  @override
+  String lastUpdatedAt(String time) {
+    return 'Aktualizováno v $time';
+  }
+
+  @override
+  String get last30Minutes => 'Posledních 30 minut';
+
+  @override
+  String get last5Minutes => 'Posledních 5 min';
+
+  @override
+  String get recentEvents => 'Nedávné události';
+
+  @override
+  String get noRecentEvents => 'Žádné nedávné události';
 }

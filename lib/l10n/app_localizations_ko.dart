@@ -843,4 +843,30 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noMatchingEvents => '일치하는 이벤트 없음';
+
+  @override
+  String get liveView => '라이브';
+
+  @override
+  String get autoRefresh => '자동 새로고침';
+
+  @override
+  String get usersOnlineNow => '현재 온라인 사용자';
+
+  @override
+  String lastUpdatedAt(String time) {
+    return '$time에 업데이트됨';
+  }
+
+  @override
+  String get last30Minutes => '최근 30분';
+
+  @override
+  String get last5Minutes => '최근 5분';
+
+  @override
+  String get recentEvents => '최근 이벤트';
+
+  @override
+  String get noRecentEvents => '최근 이벤트 없음';
 }

@@ -435,5 +435,14 @@
   "daySun": "Ne",
   "searchEvents": "Hledat události...",
   "allTypes": "Vše",
-  "noMatchingEvents": "Žádné odpovídající události"
+  "noMatchingEvents": "Žádné odpovídající události",
+  "liveView": "Živě",
+  "autoRefresh": "Automatická aktualizace",
+  "usersOnlineNow": "Uživatelé online",
+  "lastUpdatedAt": "Aktualizováno v {time}",
+  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "last30Minutes": "Posledních 30 minut",
+  "last5Minutes": "Posledních 5 min",
+  "recentEvents": "Nedávné události",
+  "noRecentEvents": "Žádné nedávné události"
 }

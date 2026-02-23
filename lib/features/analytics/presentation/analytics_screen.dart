@@ -346,6 +346,7 @@ class AnalyticsScreen extends ConsumerWidget {
     ];
 
     final featureLinks = [
+      (l10n.liveView, Icons.sensors, '/analytics/$siteId/live'),
       (l10n.sessions, Icons.people_outline, '/sessions/$siteId'),
       (l10n.events, Icons.bolt, '/analytics/$siteId/events'),
       (l10n.errors, Icons.error_outline, '/analytics/$siteId/errors'),

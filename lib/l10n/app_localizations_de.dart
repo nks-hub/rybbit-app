@@ -862,4 +862,30 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noMatchingEvents => 'Keine passenden Ereignisse';
+
+  @override
+  String get liveView => 'Live';
+
+  @override
+  String get autoRefresh => 'Automatische Aktualisierung';
+
+  @override
+  String get usersOnlineNow => 'Benutzer gerade online';
+
+  @override
+  String lastUpdatedAt(String time) {
+    return 'Aktualisiert um $time';
+  }
+
+  @override
+  String get last30Minutes => 'Letzte 30 Minuten';
+
+  @override
+  String get last5Minutes => 'Letzte 5 Min';
+
+  @override
+  String get recentEvents => 'Aktuelle Ereignisse';
+
+  @override
+  String get noRecentEvents => 'Keine aktuellen Ereignisse';
 }

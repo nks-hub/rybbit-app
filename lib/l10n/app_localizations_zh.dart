@@ -843,4 +843,30 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noMatchingEvents => '没有匹配的事件';
+
+  @override
+  String get liveView => '实时';
+
+  @override
+  String get autoRefresh => '自动刷新';
+
+  @override
+  String get usersOnlineNow => '当前在线用户';
+
+  @override
+  String lastUpdatedAt(String time) {
+    return '更新于 $time';
+  }
+
+  @override
+  String get last30Minutes => '最近30分钟';
+
+  @override
+  String get last5Minutes => '最近5分钟';
+
+  @override
+  String get recentEvents => '最近事件';
+
+  @override
+  String get noRecentEvents => '没有最近的事件';
 }

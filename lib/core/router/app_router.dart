@@ -8,6 +8,7 @@ import '../../features/auth/presentation/login_screen.dart';
 import '../../features/dashboard/presentation/dashboard_screen.dart';
 import '../../features/errors/presentation/errors_screen.dart';
 import '../../features/analytics/presentation/heatmap_screen.dart';
+import '../../features/analytics/presentation/live_view_screen.dart';
 import '../../features/events/presentation/event_log_screen.dart';
 import '../../features/events/presentation/events_screen.dart';
 import '../../features/funnels/presentation/funnels_screen.dart';
@@ -130,6 +131,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                         builder: (context, state) {
                           final siteId = state.pathParameters['siteId']!;
                           return HeatmapScreen(siteId: siteId);
+                        },
+                      ),
+                      GoRoute(
+                        path: 'live',
+                        builder: (context, state) {
+                          final siteId = state.pathParameters['siteId']!;
+                          return LiveViewScreen(siteId: siteId);
                         },
                       ),
                       GoRoute(

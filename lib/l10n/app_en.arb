@@ -312,5 +312,15 @@
 
   "searchEvents": "Search events...",
   "allTypes": "All",
-  "noMatchingEvents": "No matching events"
+  "noMatchingEvents": "No matching events",
+
+  "liveView": "Live",
+  "autoRefresh": "Auto-refresh",
+  "usersOnlineNow": "Users online now",
+  "lastUpdatedAt": "Updated at {time}",
+  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "last30Minutes": "Last 30 Minutes",
+  "last5Minutes": "Last 5 min",
+  "recentEvents": "Recent Events",
+  "noRecentEvents": "No recent events"
 }

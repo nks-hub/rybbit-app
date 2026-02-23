@@ -435,5 +435,14 @@
   "daySun": "일",
   "searchEvents": "이벤트 검색...",
   "allTypes": "전체",
-  "noMatchingEvents": "일치하는 이벤트 없음"
+  "noMatchingEvents": "일치하는 이벤트 없음",
+  "liveView": "라이브",
+  "autoRefresh": "자동 새로고침",
+  "usersOnlineNow": "현재 온라인 사용자",
+  "lastUpdatedAt": "{time}에 업데이트됨",
+  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "last30Minutes": "최근 30분",
+  "last5Minutes": "최근 5분",
+  "recentEvents": "최근 이벤트",
+  "noRecentEvents": "최근 이벤트 없음"
 }

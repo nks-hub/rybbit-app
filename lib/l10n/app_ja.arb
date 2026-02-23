@@ -435,5 +435,14 @@
   "daySun": "日",
   "searchEvents": "イベントを検索...",
   "allTypes": "すべて",
-  "noMatchingEvents": "一致するイベントがありません"
+  "noMatchingEvents": "一致するイベントがありません",
+  "liveView": "ライブ",
+  "autoRefresh": "自動更新",
+  "usersOnlineNow": "現在オンラインのユーザー",
+  "lastUpdatedAt": "{time} に更新",
+  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "last30Minutes": "過去30分",
+  "last5Minutes": "過去5分",
+  "recentEvents": "最近のイベント",
+  "noRecentEvents": "最近のイベントはありません"
 }

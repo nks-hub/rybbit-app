@@ -435,5 +435,14 @@
   "daySun": "Dim",
   "searchEvents": "Rechercher des événements...",
   "allTypes": "Tous",
-  "noMatchingEvents": "Aucun événement correspondant"
+  "noMatchingEvents": "Aucun événement correspondant",
+  "liveView": "En direct",
+  "autoRefresh": "Actualisation automatique",
+  "usersOnlineNow": "Utilisateurs en ligne",
+  "lastUpdatedAt": "Mis à jour à {time}",
+  "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
+  "last30Minutes": "30 dernières minutes",
+  "last5Minutes": "5 dernières min",
+  "recentEvents": "Événements récents",
+  "noRecentEvents": "Aucun événement récent"
 }
