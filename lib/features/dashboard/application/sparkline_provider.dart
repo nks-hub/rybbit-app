@@ -8,15 +8,29 @@ final sparklineProvider =
     final repo = ref.watch(analyticsRepositoryProvider);
     final now = DateTime.now().toUtc();
     final start = now.subtract(const Duration(hours: 24));
-    final buckets = await repo.getOverviewBucketed(siteId, {
-      'start_date': '${start.year}-${start.month.toString().padLeft(2, '0')}-${start.day.toString().padLeft(2, '0')}',
-      'end_date': '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}',
-      'time_zone': 'UTC',
-      'bucket': 'hour',
-    });
-    if (buckets.isEmpty) return [];
+    final startDate =
+        '${start.year}-${start.month.toString().padLeft(2, '0')}-${start.day.toString().padLeft(2, '0')}';
+    final endDate =
+        '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}';
 
-    return buckets.map((b) => b.pageviews.toDouble()).toList();
+    // Retry once on failure (server may 500 under concurrent load)
+    for (var attempt = 0; attempt < 2; attempt++) {
+      try {
+        final buckets = await repo.getOverviewBucketed(siteId, {
+          'start_date': startDate,
+          'end_date': endDate,
+          'time_zone': 'UTC',
+          'bucket': 'hour',
+        });
+        if (buckets.isEmpty) return [];
+        return buckets.map((b) => b.pageviews.toDouble()).toList();
+      } catch (_) {
+        if (attempt == 0) {
+          await Future<void>.delayed(const Duration(milliseconds: 500));
+        }
+      }
+    }
+    return [];
   },
 );
 
