@@ -12,797 +12,798 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appName => 'Rybbit';
 
   @override
-  String get appSubtitle => '非官方';
+  String get appSubtitle => 'éå®æ¹';
 
   @override
-  String get cancel => '取消';
+  String get cancel => 'åæ¶';
 
   @override
-  String get delete => '删除';
+  String get delete => 'å é¤';
 
   @override
-  String get save => '保存';
+  String get save => 'ä¿å­';
 
   @override
-  String get update => '更新';
+  String get update => 'æ´æ°';
 
   @override
-  String get create => '创建';
+  String get create => 'åå»º';
 
   @override
-  String get retry => '重试';
+  String get retry => 'éè¯';
 
   @override
-  String get add => '添加';
+  String get add => 'æ·»å ';
 
   @override
-  String get edit => '编辑';
+  String get edit => 'ç¼è¾';
 
   @override
-  String get clear => '清除';
+  String get clear => 'æ¸é¤';
 
   @override
-  String get apply => '应用';
+  String get apply => 'åºç¨';
 
   @override
-  String get goBack => '返回';
+  String get goBack => 'è¿å';
 
   @override
-  String get noData => '暂无数据';
+  String get noData => 'ææ æ°æ®';
 
   @override
-  String get loading => '加载中';
+  String get loading => 'å è½½ä¸­';
 
   @override
-  String get logout => '退出登录';
+  String get logout => 'éåºç»å½';
 
   @override
-  String get close => '关闭';
+  String get close => 'å³é­';
 
   @override
-  String get serverUrl => '服务器 URL';
+  String get serverUrl => 'æå¡å¨ URL';
 
   @override
   String get serverUrlHint => 'https://your-rybbit-instance.com';
 
   @override
-  String get email => '邮箱';
+  String get email => 'é®ç®±';
 
   @override
-  String get apiKey => 'API 密钥';
+  String get apiKey => 'API å¯é¥';
 
   @override
-  String get password => '密码';
+  String get password => 'å¯ç ';
 
   @override
-  String get connect => '连接';
+  String get connect => 'è¿æ¥';
 
   @override
-  String get organizations => '组织';
+  String get organizations => 'ç»ç»';
 
   @override
-  String get noSitesFound => '未找到站点';
+  String get noSitesFound => 'æªæ¾å°ç«ç¹';
 
   @override
-  String get noSitesHint => '在 Web 仪表板中添加站点以开始使用。';
+  String get noSitesHint =>
+      'å¨ Web ä»ªè¡¨æ¿ä¸­æ·»å ç«ç¹ä»¥å¼å§ä½¿ç¨ã';
 
   @override
   String siteCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count 个站点',
+      other: '$count ä¸ªç«ç¹',
     );
     return '$_temp0';
   }
 
   @override
   String members(int count) {
-    return '成员 ($count)';
+    return 'æå ($count)';
   }
 
   @override
-  String get failedToLoadOrganizations => '加载组织失败';
+  String get failedToLoadOrganizations => 'å è½½ç»ç»å¤±è´¥';
 
   @override
-  String get noOrganizations => '暂无组织';
+  String get noOrganizations => 'ææ ç»ç»';
 
   @override
-  String get noOrganizationsHint => '可以在 Web 仪表板中创建组织';
+  String get noOrganizationsHint => 'å¯ä»¥å¨ Web ä»ªè¡¨æ¿ä¸­åå»ºç»ç»';
 
   @override
-  String get failedToLoadMembers => '加载成员失败';
+  String get failedToLoadMembers => 'å è½½æåå¤±è´¥';
 
   @override
-  String get failedToLoadSites => '加载站点失败';
+  String get failedToLoadSites => 'å è½½ç«ç¹å¤±è´¥';
 
   @override
-  String get failedToLoadAnalytics => '加载分析数据失败';
+  String get failedToLoadAnalytics => 'å è½½åææ°æ®å¤±è´¥';
 
   @override
-  String get noDataAvailable => '暂无可用数据';
+  String get noDataAvailable => 'ææ å¯ç¨æ°æ®';
 
   @override
-  String get users => '用户';
+  String get users => 'ç¨æ·';
 
   @override
-  String get sessions => '会话';
+  String get sessions => 'ä¼è¯';
 
   @override
-  String get pageviews => '页面浏览量';
+  String get pageviews => 'é¡µé¢æµè§é';
 
   @override
-  String get pagesPerSession => '页面/会话';
+  String get pagesPerSession => 'é¡µé¢/ä¼è¯';
 
   @override
-  String get bounceRate => '跳出率';
+  String get bounceRate => 'è·³åºç';
 
   @override
-  String get duration => '时长';
+  String get duration => 'æ¶é¿';
 
   @override
-  String get metrics => '指标';
+  String get metrics => 'ææ ';
 
   @override
-  String get pages => '页面';
+  String get pages => 'é¡µé¢';
 
   @override
-  String get referrers => '引荐来源';
+  String get referrers => 'å¼èæ¥æº';
 
   @override
-  String get countries => '国家/地区';
+  String get countries => 'å½å®¶/å°åº';
 
   @override
-  String get devices => '设备';
+  String get devices => 'è®¾å¤';
 
   @override
-  String get performance => '性能';
+  String get performance => 'æ§è½';
 
   @override
-  String get goals => '目标';
+  String get goals => 'ç®æ ';
 
   @override
-  String get funnels => '漏斗';
+  String get funnels => 'æ¼æ';
 
   @override
-  String get replay => '回放';
+  String get replay => 'åæ¾';
 
   @override
-  String get config => '配置';
+  String get config => 'éç½®';
 
   @override
   String usersOnline(int count) {
-    return '$count 位用户在线';
+    return '$count ä½ç¨æ·å¨çº¿';
   }
 
   @override
-  String get events => '事件';
+  String get events => 'äºä»¶';
 
   @override
-  String get eventsOverTime => '事件趋势';
+  String get eventsOverTime => 'äºä»¶è¶å¿';
 
   @override
-  String get eventNames => '事件名称';
+  String get eventNames => 'äºä»¶åç§°';
 
   @override
-  String get noCustomEventsTracked => '未跟踪自定义事件';
+  String get noCustomEventsTracked => 'æªè·è¸ªèªå®ä¹äºä»¶';
 
   @override
-  String get failedToLoadProperties => '加载属性失败';
+  String get failedToLoadProperties => 'å è½½å±æ§å¤±è´¥';
 
   @override
-  String get noProperties => '暂无属性';
+  String get noProperties => 'ææ å±æ§';
 
   @override
-  String get outboundLinks => '外部链接';
+  String get outboundLinks => 'å¤é¨é¾æ¥';
 
   @override
-  String get noOutboundLinksTracked => '未跟踪外部链接';
+  String get noOutboundLinksTracked => 'æªè·è¸ªå¤é¨é¾æ¥';
 
   @override
-  String get failedToLoadChart => '加载图表失败';
+  String get failedToLoadChart => 'å è½½å¾è¡¨å¤±è´¥';
 
   @override
-  String get errors => '错误';
+  String get errors => 'éè¯¯';
 
   @override
-  String get failedToLoadErrors => '加载错误失败';
+  String get failedToLoadErrors => 'å è½½éè¯¯å¤±è´¥';
 
   @override
-  String get noErrorsFound => '未发现错误';
+  String get noErrorsFound => 'æªåç°éè¯¯';
 
   @override
-  String get everythingLooksGood => '一切正常！';
+  String get everythingLooksGood => 'ä¸åæ­£å¸¸ï¼';
 
   @override
-  String get occurrences => '发生次数';
+  String get occurrences => 'åçæ¬¡æ°';
 
   @override
-  String get sessionsAffected => '受影响的会话';
+  String get sessionsAffected => 'åå½±åçä¼è¯';
 
   @override
   String failedToLoadEventsWithError(String error) {
-    return '加载事件失败：$error';
+    return 'å è½½äºä»¶å¤±è´¥ï¼$error';
   }
 
   @override
-  String get noEventsFound => '未找到事件';
+  String get noEventsFound => 'æªæ¾å°äºä»¶';
 
   @override
-  String get failedToLoadFunnels => '加载漏斗失败';
+  String get failedToLoadFunnels => 'å è½½æ¼æå¤±è´¥';
 
   @override
-  String get noFunnelsSaved => '暂无已保存的漏斗';
+  String get noFunnelsSaved => 'ææ å·²ä¿å­çæ¼æ';
 
   @override
-  String get createFunnelsHint => '在 Web 仪表板中创建漏斗';
+  String get createFunnelsHint => 'å¨ Web ä»ªè¡¨æ¿ä¸­åå»ºæ¼æ';
 
   @override
-  String get deleteFunnel => '删除漏斗';
+  String get deleteFunnel => 'å é¤æ¼æ';
 
   @override
   String deleteFunnelConfirm(String name) {
-    return '删除\"$name\"？';
+    return 'å é¤\"$name\"ï¼';
   }
 
   @override
   String failedToDeleteFunnel(String error) {
-    return '删除漏斗失败：$error';
+    return 'å é¤æ¼æå¤±è´¥ï¼$error';
   }
 
   @override
-  String get noStepsDefined => '此漏斗未定义步骤';
+  String get noStepsDefined => 'æ­¤æ¼ææªå®ä¹æ­¥éª¤';
 
   @override
   String failedToAnalyze(String error) {
-    return '分析失败：$error';
+    return 'åæå¤±è´¥ï¼$error';
   }
 
   @override
-  String get overallConversion => '整体转化率';
+  String get overallConversion => 'æ´ä½è½¬åç';
 
   @override
   String dropoff(String value) {
-    return '流失：$value';
+    return 'æµå¤±ï¼$value';
   }
 
   @override
-  String get createGoal => '创建目标';
+  String get createGoal => 'åå»ºç®æ ';
 
   @override
-  String get failedToLoadGoals => '加载目标失败';
+  String get failedToLoadGoals => 'å è½½ç®æ å¤±è´¥';
 
   @override
-  String get noGoalsConfigured => '暂无已配置的目标';
+  String get noGoalsConfigured => 'ææ å·²éç½®çç®æ ';
 
   @override
-  String get noGoalsHint => '点击 + 创建新目标';
+  String get noGoalsHint => 'ç¹å» + åå»ºæ°ç®æ ';
 
   @override
-  String get conversions => '转化';
+  String get conversions => 'è½¬å';
 
   @override
-  String get rate => '比率';
+  String get rate => 'æ¯ç';
 
   @override
-  String get editGoal => '编辑目标';
+  String get editGoal => 'ç¼è¾ç®æ ';
 
   @override
-  String get createGoalTitle => '创建目标';
+  String get createGoalTitle => 'åå»ºç®æ ';
 
   @override
-  String get name => '名称';
+  String get name => 'åç§°';
 
   @override
-  String get type => '类型';
+  String get type => 'ç±»å';
 
   @override
-  String get path => '路径';
+  String get path => 'è·¯å¾';
 
   @override
-  String get event => '事件';
+  String get event => 'äºä»¶';
 
   @override
-  String get pathPattern => '路径模式';
+  String get pathPattern => 'è·¯å¾æ¨¡å¼';
 
   @override
-  String get eventName => '事件名称';
+  String get eventName => 'äºä»¶åç§°';
 
   @override
-  String get deleteGoal => '删除目标';
+  String get deleteGoal => 'å é¤ç®æ ';
 
   @override
   String deleteGoalConfirm(String name) {
-    return '删除\"$name\"？';
+    return 'å é¤\"$name\"ï¼';
   }
 
   @override
   String failedToDeleteGoal(String error) {
-    return '删除目标失败：$error';
+    return 'å é¤ç®æ å¤±è´¥ï¼$error';
   }
 
   @override
-  String get failedToLoadPerformanceData => '加载性能数据失败';
+  String get failedToLoadPerformanceData => 'å è½½æ§è½æ°æ®å¤±è´¥';
 
   @override
   String metricOverTime(String metric) {
-    return '$metric趋势';
+    return '$metricè¶å¿';
   }
 
   @override
-  String get byDimension => '按维度';
+  String get byDimension => 'æç»´åº¦';
 
   @override
-  String get failedToLoadDimensionData => '加载维度数据失败';
+  String get failedToLoadDimensionData => 'å è½½ç»´åº¦æ°æ®å¤±è´¥';
 
   @override
-  String get good => '良好';
+  String get good => 'è¯å¥½';
 
   @override
-  String get needsImprovement => '需要改进';
+  String get needsImprovement => 'éè¦æ¹è¿';
 
   @override
-  String get poor => '较差';
+  String get poor => 'è¾å·®';
 
   @override
-  String get largestContentfulPaint => '最大内容绘制';
+  String get largestContentfulPaint => 'æå¤§åå®¹ç»å¶';
 
   @override
-  String get cumulativeLayoutShift => '累计布局偏移';
+  String get cumulativeLayoutShift => 'ç´¯è®¡å¸å±åç§»';
 
   @override
-  String get firstContentfulPaint => '首次内容绘制';
+  String get firstContentfulPaint => 'é¦æ¬¡åå®¹ç»å¶';
 
   @override
-  String get timeToFirstByte => '首字节时间';
+  String get timeToFirstByte => 'é¦å­èæ¶é´';
 
   @override
-  String get interactionToNextPaint => '交互到下一次绘制';
+  String get interactionToNextPaint => 'äº¤äºå°ä¸ä¸æ¬¡ç»å¶';
 
   @override
-  String get dimPages => '页面';
+  String get dimPages => 'é¡µé¢';
 
   @override
-  String get dimCountries => '国家/地区';
+  String get dimCountries => 'å½å®¶/å°åº';
 
   @override
-  String get dimDevices => '设备';
+  String get dimDevices => 'è®¾å¤';
 
   @override
-  String get dimBrowsers => '浏览器';
+  String get dimBrowsers => 'æµè§å¨';
 
   @override
-  String get dimOS => '操作系统';
+  String get dimOS => 'æä½ç³»ç»';
 
   @override
-  String get sessionFilters => '会话筛选';
+  String get sessionFilters => 'ä¼è¯ç­é';
 
   @override
-  String get minPageviews => '最少页面浏览量';
+  String get minPageviews => 'æå°é¡µé¢æµè§é';
 
   @override
-  String get minEvents => '最少事件数';
+  String get minEvents => 'æå°äºä»¶æ°';
 
   @override
-  String get minDurationSeconds => '最短时长（秒）';
+  String get minDurationSeconds => 'æç­æ¶é¿ï¼ç§ï¼';
 
   @override
-  String get failedToLoadSessions => '加载会话失败';
+  String get failedToLoadSessions => 'å è½½ä¼è¯å¤±è´¥';
 
   @override
-  String get noSessionsFound => '未找到会话';
+  String get noSessionsFound => 'æªæ¾å°ä¼è¯';
 
   @override
-  String get filterSessions => '筛选会话';
+  String get filterSessions => 'ç­éä¼è¯';
 
   @override
-  String get loadingMoreSessions => '正在加载更多会话';
+  String get loadingMoreSessions => 'æ­£å¨å è½½æ´å¤ä¼è¯';
 
   @override
   String entryPage(String page) {
-    return '入口页面：$page';
+    return 'å¥å£é¡µé¢ï¼$page';
   }
 
   @override
   String nPages(int count) {
-    return '$count 个页面';
+    return '$count ä¸ªé¡µé¢';
   }
 
   @override
-  String get sessionReplays => '会话回放';
+  String get sessionReplays => 'ä¼è¯åæ¾';
 
   @override
-  String get failedToLoadReplays => '加载回放失败';
+  String get failedToLoadReplays => 'å è½½åæ¾å¤±è´¥';
 
   @override
-  String get noReplaysFound => '未找到回放';
+  String get noReplaysFound => 'æªæ¾å°åæ¾';
 
   @override
-  String get noReplaysHint => '启用后，会话回放将显示在此处。';
+  String get noReplaysHint => 'å¯ç¨åï¼ä¼è¯åæ¾å°æ¾ç¤ºå¨æ­¤å¤ã';
 
   @override
-  String get previousPage => '上一页';
+  String get previousPage => 'ä¸ä¸é¡µ';
 
   @override
-  String get nextPage => '下一页';
+  String get nextPage => 'ä¸ä¸é¡µ';
 
   @override
   String pageNumber(int number) {
-    return '第 $number 页';
+    return 'ç¬¬ $number é¡µ';
   }
 
   @override
-  String get unknownBrowser => '未知浏览器';
+  String get unknownBrowser => 'æªç¥æµè§å¨';
 
   @override
-  String get unknownCountry => '未知国家/地区';
+  String get unknownCountry => 'æªç¥å½å®¶/å°åº';
 
   @override
-  String get sortUsers => '排序用户';
+  String get sortUsers => 'æåºç¨æ·';
 
   @override
-  String get showAllUsers => '显示所有用户';
+  String get showAllUsers => 'æ¾ç¤ºææç¨æ·';
 
   @override
-  String get showIdentifiedOnly => '仅显示已识别用户';
+  String get showIdentifiedOnly => 'ä»æ¾ç¤ºå·²è¯å«ç¨æ·';
 
   @override
-  String get searchUsers => '搜索用户';
+  String get searchUsers => 'æç´¢ç¨æ·';
 
   @override
-  String get searchUsersHint => '搜索用户…';
+  String get searchUsersHint => 'æç´¢ç¨æ·â¦';
 
   @override
-  String get clearSearch => '清除搜索';
+  String get clearSearch => 'æ¸é¤æç´¢';
 
   @override
-  String get failedToLoadUsers => '加载用户失败';
+  String get failedToLoadUsers => 'å è½½ç¨æ·å¤±è´¥';
 
   @override
-  String get noUsersFound => '未找到用户';
+  String get noUsersFound => 'æªæ¾å°ç¨æ·';
 
   @override
-  String get noIdentifiedUsers => '暂无已识别用户';
+  String get noIdentifiedUsers => 'ææ å·²è¯å«ç¨æ·';
 
   @override
-  String get usersWillAppear => '用户被识别后将显示在此处';
+  String get usersWillAppear => 'ç¨æ·è¢«è¯å«åå°æ¾ç¤ºå¨æ­¤å¤';
 
   @override
-  String get tryDifferentSearch => '尝试其他搜索词';
+  String get tryDifferentSearch => 'å°è¯å¶ä»æç´¢è¯';
 
   @override
-  String get sortedBy => '排序方式';
+  String get sortedBy => 'æåºæ¹å¼';
 
   @override
-  String get loadingMoreUsers => '正在加载更多用户';
+  String get loadingMoreUsers => 'æ­£å¨å è½½æ´å¤ç¨æ·';
 
   @override
-  String get lastSeen => '最后在线';
+  String get lastSeen => 'æåå¨çº¿';
 
   @override
-  String get firstSeen => '首次在线';
+  String get firstSeen => 'é¦æ¬¡å¨çº¿';
 
   @override
   String nUsers(String count) {
-    return '$count 位用户';
+    return '$count ä½ç¨æ·';
   }
 
   @override
   String nSessions(int count) {
-    return '$count 个会话';
+    return '$count ä¸ªä¼è¯';
   }
 
   @override
   String lastPrefix(String value) {
-    return '上次：$value';
+    return 'ä¸æ¬¡ï¼$value';
   }
 
   @override
-  String get failedToLoadSiteConfig => '加载站点配置失败';
+  String get failedToLoadSiteConfig => 'å è½½ç«ç¹éç½®å¤±è´¥';
 
   @override
-  String get failedToLoadMetrics => '加载指标失败';
+  String get failedToLoadMetrics => 'å è½½ææ å¤±è´¥';
 
   @override
-  String get loadingMoreMetrics => '正在加载更多指标';
+  String get loadingMoreMetrics => 'æ­£å¨å è½½æ´å¤ææ ';
 
   @override
   String noMetricData(String metric) {
-    return '暂无$metric数据';
+    return 'ææ $metricæ°æ®';
   }
 
   @override
-  String get settings => '设置';
+  String get settings => 'è®¾ç½®';
 
   @override
-  String get connection => '连接';
+  String get connection => 'è¿æ¥';
 
   @override
-  String get notConfigured => '未配置';
+  String get notConfigured => 'æªéç½®';
 
   @override
-  String get authMethod => '认证方式';
+  String get authMethod => 'è®¤è¯æ¹å¼';
 
   @override
-  String get sessionCookie => '会话 Cookie';
+  String get sessionCookie => 'ä¼è¯ Cookie';
 
   @override
-  String get loggedInAs => '登录身份';
+  String get loggedInAs => 'ç»å½èº«ä»½';
 
   @override
-  String get unknown => '未知';
+  String get unknown => 'æªç¥';
 
   @override
-  String get appearance => '外观';
+  String get appearance => 'å¤è§';
 
   @override
-  String get theme => '主题';
+  String get theme => 'ä¸»é¢';
 
   @override
-  String get dark => '深色';
+  String get dark => 'æ·±è²';
 
   @override
-  String get light => '浅色';
+  String get light => 'æµè²';
 
   @override
-  String get auto => '自动';
+  String get auto => 'èªå¨';
 
   @override
-  String get about => '关于';
+  String get about => 'å³äº';
 
   @override
-  String get appVersion => '应用版本';
+  String get appVersion => 'åºç¨çæ¬';
 
   @override
-  String get openSourceAnalytics => '开源 Web 分析工具';
+  String get openSourceAnalytics => 'å¼æº Web åæå·¥å·';
 
   @override
-  String get logoutConfirm => '确定要退出登录吗？';
+  String get logoutConfirm => 'ç¡®å®è¦éåºç»å½åï¼';
 
   @override
-  String get siteSettings => '站点设置';
+  String get siteSettings => 'ç«ç¹è®¾ç½®';
 
   @override
-  String get siteInformation => '站点信息';
+  String get siteInformation => 'ç«ç¹ä¿¡æ¯';
 
   @override
-  String get domain => '域名';
+  String get domain => 'åå';
 
   @override
-  String get siteId => '站点 ID';
+  String get siteId => 'ç«ç¹ ID';
 
   @override
-  String get created => '创建时间';
+  String get created => 'åå»ºæ¶é´';
 
   @override
-  String get trackingSettings => '跟踪设置';
+  String get trackingSettings => 'è·è¸ªè®¾ç½®';
 
   @override
-  String get publicDashboard => '公开仪表板';
+  String get publicDashboard => 'å¬å¼ä»ªè¡¨æ¿';
 
   @override
-  String get publicDashboardDesc => '允许公开访问分析数据';
+  String get publicDashboardDesc => 'åè®¸å¬å¼è®¿é®åææ°æ®';
 
   @override
-  String get sessionReplay => '会话回放';
+  String get sessionReplay => 'ä¼è¯åæ¾';
 
   @override
-  String get sessionReplayDesc => '录制用户会话';
+  String get sessionReplayDesc => 'å½å¶ç¨æ·ä¼è¯';
 
   @override
   String get webVitals => 'Web Vitals';
 
   @override
-  String get webVitalsDesc => '跟踪核心 Web 指标';
+  String get webVitalsDesc => 'è·è¸ªæ ¸å¿ Web ææ ';
 
   @override
-  String get trackErrors => '错误跟踪';
+  String get trackErrors => 'éè¯¯è·è¸ª';
 
   @override
-  String get trackErrorsDesc => '捕获 JavaScript 错误';
+  String get trackErrorsDesc => 'æè· JavaScript éè¯¯';
 
   @override
-  String get outboundLinksTracking => '外部链接';
+  String get outboundLinksTracking => 'å¤é¨é¾æ¥';
 
   @override
-  String get outboundLinksDesc => '跟踪外部链接点击';
+  String get outboundLinksDesc => 'è·è¸ªå¤é¨é¾æ¥ç¹å»';
 
   @override
-  String get excludedIps => '排除的 IP';
+  String get excludedIps => 'æé¤ç IP';
 
   @override
-  String get excludedCountries => '排除的国家/地区';
+  String get excludedCountries => 'æé¤çå½å®¶/å°åº';
 
   @override
-  String get settingsSaved => '设置已保存';
+  String get settingsSaved => 'è®¾ç½®å·²ä¿å­';
 
   @override
   String failedToSave(String error) {
-    return '保存失败：$error';
+    return 'ä¿å­å¤±è´¥ï¼$error';
   }
 
   @override
-  String get timeRange => '时间范围';
+  String get timeRange => 'æ¶é´èå´';
 
   @override
-  String get today => '今天';
+  String get today => 'ä»å¤©';
 
   @override
-  String get yesterday => '昨天';
+  String get yesterday => 'æ¨å¤©';
 
   @override
-  String get last7Days => '过去 7 天';
+  String get last7Days => 'è¿å» 7 å¤©';
 
   @override
-  String get last30Days => '过去 30 天';
+  String get last30Days => 'è¿å» 30 å¤©';
 
   @override
-  String get thisWeek => '本周';
+  String get thisWeek => 'æ¬å¨';
 
   @override
-  String get thisMonth => '本月';
+  String get thisMonth => 'æ¬æ';
 
   @override
-  String get thisYear => '今年';
+  String get thisYear => 'ä»å¹´';
 
   @override
-  String get customRange => '自定义范围';
+  String get customRange => 'èªå®ä¹èå´';
 
   @override
-  String get filter => '筛选';
+  String get filter => 'ç­é';
 
   @override
-  String get addFilter => '添加筛选';
+  String get addFilter => 'æ·»å ç­é';
 
   @override
-  String get parameter => '参数';
+  String get parameter => 'åæ°';
 
   @override
-  String get value => '值';
+  String get value => 'å¼';
 
   @override
-  String get enterFilterValue => '输入筛选值';
+  String get enterFilterValue => 'è¾å¥ç­éå¼';
 
   @override
-  String get requestTimedOut => '请求超时，请重试。';
+  String get requestTimedOut => 'è¯·æ±è¶æ¶ï¼è¯·éè¯ã';
 
   @override
-  String get networkError => '网络错误，请检查您的连接。';
+  String get networkError => 'ç½ç»éè¯¯ï¼è¯·æ£æ¥æ¨çè¿æ¥ã';
 
   @override
-  String get sessionExpired => '会话已过期，请重新登录。';
+  String get sessionExpired => 'ä¼è¯å·²è¿æï¼è¯·éæ°ç»å½ã';
 
   @override
-  String get accessDenied => '访问被拒绝。';
+  String get accessDenied => 'è®¿é®è¢«æç»ã';
 
   @override
-  String get dataNotFound => '未找到数据。';
+  String get dataNotFound => 'æªæ¾å°æ°æ®ã';
 
   @override
-  String get serverError => '服务器错误，请稍后重试。';
+  String get serverError => 'æå¡å¨éè¯¯ï¼è¯·ç¨åéè¯ã';
 
   @override
-  String get failedToLoadGeneric => '加载数据失败，请重试。';
+  String get failedToLoadGeneric => 'å è½½æ°æ®å¤±è´¥ï¼è¯·éè¯ã';
 
   @override
   String chartDataPoints(int count) {
-    return '图表包含 $count 个数据点';
+    return 'å¾è¡¨åå« $count ä¸ªæ°æ®ç¹';
   }
 
   @override
   String previousPrefix(String value) {
-    return '上期：$value';
+    return 'ä¸æï¼$value';
   }
 
   @override
   String performanceRatingLabel(String rating) {
-    return '性能评级：$rating';
+    return 'æ§è½è¯çº§ï¼$rating';
   }
 
   @override
-  String get loadingContent => '正在加载内容';
+  String get loadingContent => 'æ­£å¨å è½½åå®¹';
 
   @override
-  String get language => '语言';
+  String get language => 'è¯­è¨';
 
   @override
-  String get selectLanguage => '选择语言';
+  String get selectLanguage => 'éæ©è¯­è¨';
 
   @override
-  String get failedToLoadUserDetails => '加载用户详情失败';
+  String get failedToLoadUserDetails => 'å è½½ç¨æ·è¯¦æå¤±è´¥';
 
   @override
   String lastSeenPrefix(String value) {
-    return '最后在线：$value';
+    return 'æåå¨çº¿ï¼$value';
   }
 
   @override
-  String get traits => '用户属性';
+  String get traits => 'ç¨æ·å±æ§';
 
   @override
-  String get noTraits => '该用户没有设置属性';
+  String get noTraits => 'è¯¥ç¨æ·æ²¡æè®¾ç½®å±æ§';
 
   @override
-  String get sessionDetail => '会话详情';
+  String get sessionDetail => 'ä¼è¯è¯¦æ';
 
   @override
-  String get failedToLoadSession => '加载会话失败';
+  String get failedToLoadSession => 'å è½½ä¼è¯å¤±è´¥';
 
   @override
-  String get entryPageLabel => '入口页面';
+  String get entryPageLabel => 'å¥å£é¡µé¢';
 
   @override
-  String get exitPage => '出口页面';
+  String get exitPage => 'åºå£é¡µé¢';
 
   @override
-  String get browserAndDevice => '浏览器和设备';
+  String get browserAndDevice => 'æµè§å¨åè®¾å¤';
 
   @override
-  String get browser => '浏览器';
+  String get browser => 'æµè§å¨';
 
   @override
-  String get os => '操作系统';
+  String get os => 'æä½ç³»ç»';
 
   @override
-  String get device => '设备';
+  String get device => 'è®¾å¤';
 
   @override
-  String get sourceLabel => '来源';
+  String get sourceLabel => 'æ¥æº';
 
   @override
-  String get referrer => '引荐来源';
+  String get referrer => 'å¼èæ¥æº';
 
   @override
   String eventTimelineCount(int count) {
-    return '事件时间线 ($count)';
+    return 'äºä»¶æ¶é´çº¿ ($count)';
   }
 
   @override
-  String get noEvents => '暂无事件';
+  String get noEvents => 'ææ äºä»¶';
 
   @override
-  String get replayEventsTitle => '回放事件';
+  String get replayEventsTitle => 'åæ¾äºä»¶';
 
   @override
-  String get failedToLoadReplay => '加载回放失败';
+  String get failedToLoadReplay => 'å è½½åæ¾å¤±è´¥';
 
   @override
-  String get noReplayEvents => '暂无回放事件';
+  String get noReplayEvents => 'ææ åæ¾äºä»¶';
 
   @override
-  String get totalEvents => '事件总计';
+  String get totalEvents => 'äºä»¶æ»è®¡';
 
   @override
-  String get userActionsLabel => '用户操作';
+  String get userActionsLabel => 'ç¨æ·æä½';
 
   @override
   String eventTimelineActions(int count) {
-    return '事件时间线（$count 个操作）';
+    return 'äºä»¶æ¶é´çº¿ï¼$count ä¸ªæä½ï¼';
   }
 
   @override
-  String get eventLog => '事件日志';
+  String get eventLog => 'äºä»¶æ¥å¿';
 
   @override
-  String get viewEventLog => '查看事件日志';
+  String get viewEventLog => 'æ¥çäºä»¶æ¥å¿';
 
   @override
-  String get failedToLoadEventLog => '无法加载事件日志';
+  String get failedToLoadEventLog => 'æ æ³å è½½äºä»¶æ¥å¿';
 
   @override
-  String get activityHeatmap => '热力图';
+  String get activityHeatmap => 'ç­åå¾';
 
   @override
-  String get heatmapLast4Weeks => '最近4周';
+  String get heatmapLast4Weeks => 'æè¿4å¨';
 
   @override
-  String get less => '较少';
+  String get less => 'è¾å°';
 
   @override
-  String get more => '较多';
+  String get more => 'è¾å¤';
 
   @override
-  String get peakActivity => '峰值活动';
+  String get peakActivity => 'å³°å¼æ´»å¨';
 
   @override
   String peakHour(String day, String time) {
@@ -811,90 +812,90 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String busiestDay(String day) {
-    return '最繁忙的一天：$day';
+    return 'æç¹å¿çä¸å¤©ï¼$day';
   }
 
   @override
-  String get dayMon => '周一';
+  String get dayMon => 'å¨ä¸';
 
   @override
-  String get dayTue => '周二';
+  String get dayTue => 'å¨äº';
 
   @override
-  String get dayWed => '周三';
+  String get dayWed => 'å¨ä¸';
 
   @override
-  String get dayThu => '周四';
+  String get dayThu => 'å¨å';
 
   @override
-  String get dayFri => '周五';
+  String get dayFri => 'å¨äº';
 
   @override
-  String get daySat => '周六';
+  String get daySat => 'å¨å­';
 
   @override
-  String get daySun => '周日';
+  String get daySun => 'å¨æ¥';
 
   @override
-  String get searchEvents => '搜索事件...';
+  String get searchEvents => 'æç´¢äºä»¶...';
 
   @override
-  String get allTypes => '全部';
+  String get allTypes => 'å¨é¨';
 
   @override
-  String get noMatchingEvents => '没有匹配的事件';
+  String get noMatchingEvents => 'æ²¡æå¹éçäºä»¶';
 
   @override
-  String get liveView => '实时';
+  String get liveView => 'å®æ¶';
 
   @override
-  String get autoRefresh => '自动刷新';
+  String get autoRefresh => 'èªå¨å·æ°';
 
   @override
-  String get usersOnlineNow => '当前在线用户';
+  String get usersOnlineNow => 'å½åå¨çº¿ç¨æ·';
 
   @override
   String lastUpdatedAt(String time) {
-    return '更新于 $time';
+    return 'æ´æ°äº $time';
   }
 
   @override
-  String get last30Minutes => '最近30分钟';
+  String get last30Minutes => 'æè¿30åé';
 
   @override
-  String get last5Minutes => '最近5分钟';
+  String get last5Minutes => 'æè¿5åé';
 
   @override
-  String get recentEvents => '最近事件';
+  String get recentEvents => 'æè¿äºä»¶';
 
   @override
-  String get noRecentEvents => '没有最近的事件';
+  String get noRecentEvents => 'æ²¡ææè¿çäºä»¶';
 
   @override
-  String get retention => '留存率';
+  String get retention => 'çå­ç';
 
   @override
-  String get weekly => '按周';
+  String get weekly => 'æå¨';
 
   @override
-  String get daily => '按天';
+  String get daily => 'æå¤©';
 
   @override
-  String get retentionRange => '范围';
+  String get retentionRange => 'èå´';
 
   @override
   String retentionDays(int count) {
-    return '$count天';
+    return '$countå¤©';
   }
 
   @override
-  String get failedToLoadRetention => '加载留存数据失败';
+  String get failedToLoadRetention => 'å è½½çå­æ°æ®å¤±è´¥';
 
   @override
-  String get noRetentionData => '无留存数据';
+  String get noRetentionData => 'æ çå­æ°æ®';
 
   @override
-  String get cohort => '队列';
+  String get cohort => 'éå';
 
   @override
   String get retentionWeekPrefix => 'W';
@@ -903,57 +904,82 @@ class AppLocalizationsZh extends AppLocalizations {
   String get retentionDayPrefix => 'D';
 
   @override
-  String get journeys => '用户路径';
+  String get journeys => 'ç¨æ·è·¯å¾';
 
   @override
-  String get journeySteps => '步骤';
+  String get journeySteps => 'æ­¥éª¤';
 
   @override
-  String get failedToLoadJourneys => '加载用户路径失败';
+  String get failedToLoadJourneys => 'å è½½ç¨æ·è·¯å¾å¤±è´¥';
 
   @override
-  String get noJourneysFound => '未找到用户路径';
+  String get noJourneysFound => 'æªæ¾å°ç¨æ·è·¯å¾';
 
   @override
   String journeySessions(String count) {
-    return '$count个会话';
+    return '$countä¸ªä¼è¯';
   }
 
   @override
-  String get locations => '位置';
+  String get locations => 'ä½ç½®';
 
   @override
-  String get locationCities => '城市';
+  String get locationCities => 'åå¸';
 
   @override
-  String get failedToLoadLocations => '加载位置数据失败';
+  String get failedToLoadLocations => 'å è½½ä½ç½®æ°æ®å¤±è´¥';
 
   @override
-  String get noLocationsFound => '未找到位置数据';
+  String get noLocationsFound => 'æªæ¾å°ä½ç½®æ°æ®';
 
   @override
-  String get coreFeatures => '核心';
+  String get coreFeatures => 'æ ¸å¿';
 
   @override
-  String get insights => '洞察';
+  String get insights => 'æ´å¯';
 
   @override
-  String get tools => '工具';
+  String get tools => 'å·¥å·';
 
   @override
-  String get userTraits => '用户特征';
+  String get userTraits => 'ç¨æ·ç¹å¾';
 
   @override
-  String get failedToLoadUserTraits => '加载用户特征失败';
+  String get failedToLoadUserTraits => 'å è½½ç¨æ·ç¹å¾å¤±è´¥';
 
   @override
-  String get noUserTraits => '未找到用户特征';
+  String get noUserTraits => 'æªæ¾å°ç¨æ·ç¹å¾';
 
   @override
-  String get noUserTraitsHint => '当用户使用自定义属性标识时将显示特征';
+  String get noUserTraitsHint =>
+      'å½ç¨æ·ä½¿ç¨èªå®ä¹å±æ§æ è¯æ¶å°æ¾ç¤ºç¹å¾';
 
   @override
   String traitUsersCount(String count) {
-    return '$count个用户';
+    return '$countä¸ªç¨æ·';
   }
+
+  @override
+  String get entryPages => '入口页面';
+
+  @override
+  String get exitPages => '出口页面';
+
+  @override
+  String get browsers => '浏览器';
+
+  @override
+  String get operatingSystems => '操作系统';
+
+  @override
+  String get utmSource => 'UTM来源';
+
+  @override
+  String get channel => '渠道';
+
+  @override
+  String get pageTitles => '页面标题';
+
+  @override
+  String get sources => '来源';
 }

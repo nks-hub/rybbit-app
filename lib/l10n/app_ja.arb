@@ -1,32 +1,32 @@
 {
   "@@locale": "ja",
   "appName": "Rybbit",
-  "appSubtitle": "非公式",
-  "cancel": "キャンセル",
-  "delete": "削除",
-  "save": "保存",
-  "update": "更新",
-  "create": "作成",
-  "retry": "再試行",
-  "add": "追加",
-  "edit": "編集",
-  "clear": "クリア",
-  "apply": "適用",
-  "goBack": "戻る",
-  "noData": "データなし",
-  "loading": "読み込み中",
-  "logout": "ログアウト",
-  "close": "閉じる",
-  "serverUrl": "サーバーURL",
+  "appSubtitle": "éå¬å¼",
+  "cancel": "ã­ã£ã³ã»ã«",
+  "delete": "åé¤",
+  "save": "ä¿å­",
+  "update": "æ´æ°",
+  "create": "ä½æ",
+  "retry": "åè©¦è¡",
+  "add": "è¿½å ",
+  "edit": "ç·¨é",
+  "clear": "ã¯ãªã¢",
+  "apply": "é©ç¨",
+  "goBack": "æ»ã",
+  "noData": "ãã¼ã¿ãªã",
+  "loading": "èª­ã¿è¾¼ã¿ä¸­",
+  "logout": "ã­ã°ã¢ã¦ã",
+  "close": "éãã",
+  "serverUrl": "ãµã¼ãã¼URL",
   "serverUrlHint": "https://your-rybbit-instance.com",
-  "email": "メールアドレス",
-  "apiKey": "APIキー",
-  "password": "パスワード",
-  "connect": "接続",
-  "organizations": "組織",
-  "noSitesFound": "サイトが見つかりません",
-  "noSitesHint": "Webダッシュボードでサイトを追加して始めましょう。",
-  "siteCount": "{count, plural, other{{count}サイト}}",
+  "email": "ã¡ã¼ã«ã¢ãã¬ã¹",
+  "apiKey": "APIã­ã¼",
+  "password": "ãã¹ã¯ã¼ã",
+  "connect": "æ¥ç¶",
+  "organizations": "çµç¹",
+  "noSitesFound": "ãµã¤ããè¦ã¤ããã¾ãã",
+  "noSitesHint": "Webããã·ã¥ãã¼ãã§ãµã¤ããè¿½å ãã¦å§ãã¾ãããã",
+  "siteCount": "{count, plural, other{{count}ãµã¤ã}}",
   "@siteCount": {
     "placeholders": {
       "count": {
@@ -34,7 +34,7 @@
       }
     }
   },
-  "members": "メンバー ({count})",
+  "members": "ã¡ã³ãã¼ ({count})",
   "@members": {
     "placeholders": {
       "count": {
@@ -42,30 +42,30 @@
       }
     }
   },
-  "failedToLoadOrganizations": "組織の読み込みに失敗しました",
-  "noOrganizations": "組織がありません",
-  "noOrganizationsHint": "組織はWebダッシュボードで作成できます",
-  "failedToLoadMembers": "メンバーの読み込みに失敗しました",
-  "failedToLoadSites": "サイトの読み込みに失敗しました",
-  "failedToLoadAnalytics": "アナリティクスの読み込みに失敗しました",
-  "noDataAvailable": "利用可能なデータがありません",
-  "users": "ユーザー",
-  "sessions": "セッション",
-  "pageviews": "ページビュー",
-  "pagesPerSession": "ページ/セッション",
-  "bounceRate": "直帰率",
-  "duration": "滞在時間",
-  "metrics": "指標",
-  "pages": "ページ",
-  "referrers": "リファラー",
-  "countries": "国",
-  "devices": "デバイス",
-  "performance": "パフォーマンス",
-  "goals": "目標",
-  "funnels": "ファネル",
-  "replay": "リプレイ",
-  "config": "設定",
-  "usersOnline": "{count}人のユーザーがオンライン",
+  "failedToLoadOrganizations": "çµç¹ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noOrganizations": "çµç¹ãããã¾ãã",
+  "noOrganizationsHint": "çµç¹ã¯Webããã·ã¥ãã¼ãã§ä½æã§ãã¾ã",
+  "failedToLoadMembers": "ã¡ã³ãã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "failedToLoadSites": "ãµã¤ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "failedToLoadAnalytics": "ã¢ããªãã£ã¯ã¹ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noDataAvailable": "å©ç¨å¯è½ãªãã¼ã¿ãããã¾ãã",
+  "users": "ã¦ã¼ã¶ã¼",
+  "sessions": "ã»ãã·ã§ã³",
+  "pageviews": "ãã¼ã¸ãã¥ã¼",
+  "pagesPerSession": "ãã¼ã¸/ã»ãã·ã§ã³",
+  "bounceRate": "ç´å¸°ç",
+  "duration": "æ»å¨æé",
+  "metrics": "ææ¨",
+  "pages": "ãã¼ã¸",
+  "referrers": "ãªãã¡ã©ã¼",
+  "countries": "å½",
+  "devices": "ããã¤ã¹",
+  "performance": "ããã©ã¼ãã³ã¹",
+  "goals": "ç®æ¨",
+  "funnels": "ãã¡ãã«",
+  "replay": "ãªãã¬ã¤",
+  "config": "è¨­å®",
+  "usersOnline": "{count}äººã®ã¦ã¼ã¶ã¼ããªã³ã©ã¤ã³",
   "@usersOnline": {
     "placeholders": {
       "count": {
@@ -73,22 +73,22 @@
       }
     }
   },
-  "events": "イベント",
-  "eventsOverTime": "イベントの推移",
-  "eventNames": "イベント名",
-  "noCustomEventsTracked": "カスタムイベントは記録されていません",
-  "failedToLoadProperties": "プロパティの読み込みに失敗しました",
-  "noProperties": "プロパティがありません",
-  "outboundLinks": "外部リンク",
-  "noOutboundLinksTracked": "外部リンクは記録されていません",
-  "failedToLoadChart": "チャートの読み込みに失敗しました",
-  "errors": "エラー",
-  "failedToLoadErrors": "エラーの読み込みに失敗しました",
-  "noErrorsFound": "エラーは見つかりませんでした",
-  "everythingLooksGood": "すべて正常です！",
-  "occurrences": "発生回数",
-  "sessionsAffected": "影響を受けたセッション",
-  "failedToLoadEventsWithError": "イベントの読み込みに失敗しました: {error}",
+  "events": "ã¤ãã³ã",
+  "eventsOverTime": "ã¤ãã³ãã®æ¨ç§»",
+  "eventNames": "ã¤ãã³ãå",
+  "noCustomEventsTracked": "ã«ã¹ã¿ã ã¤ãã³ãã¯è¨é²ããã¦ãã¾ãã",
+  "failedToLoadProperties": "ãã­ããã£ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noProperties": "ãã­ããã£ãããã¾ãã",
+  "outboundLinks": "å¤é¨ãªã³ã¯",
+  "noOutboundLinksTracked": "å¤é¨ãªã³ã¯ã¯è¨é²ããã¦ãã¾ãã",
+  "failedToLoadChart": "ãã£ã¼ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "errors": "ã¨ã©ã¼",
+  "failedToLoadErrors": "ã¨ã©ã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noErrorsFound": "ã¨ã©ã¼ã¯è¦ã¤ããã¾ããã§ãã",
+  "everythingLooksGood": "ãã¹ã¦æ­£å¸¸ã§ãï¼",
+  "occurrences": "çºçåæ°",
+  "sessionsAffected": "å½±é¿ãåããã»ãã·ã§ã³",
+  "failedToLoadEventsWithError": "ã¤ãã³ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã: {error}",
   "@failedToLoadEventsWithError": {
     "placeholders": {
       "error": {
@@ -96,12 +96,12 @@
       }
     }
   },
-  "noEventsFound": "イベントが見つかりません",
-  "failedToLoadFunnels": "ファネルの読み込みに失敗しました",
-  "noFunnelsSaved": "保存されたファネルはありません",
-  "createFunnelsHint": "Webダッシュボードでファネルを作成してください",
-  "deleteFunnel": "ファネルを削除",
-  "deleteFunnelConfirm": "「{name}」を削除しますか？",
+  "noEventsFound": "ã¤ãã³ããè¦ã¤ããã¾ãã",
+  "failedToLoadFunnels": "ãã¡ãã«ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noFunnelsSaved": "ä¿å­ããããã¡ãã«ã¯ããã¾ãã",
+  "createFunnelsHint": "Webããã·ã¥ãã¼ãã§ãã¡ãã«ãä½æãã¦ãã ãã",
+  "deleteFunnel": "ãã¡ãã«ãåé¤",
+  "deleteFunnelConfirm": "ã{name}ããåé¤ãã¾ããï¼",
   "@deleteFunnelConfirm": {
     "placeholders": {
       "name": {
@@ -109,7 +109,7 @@
       }
     }
   },
-  "failedToDeleteFunnel": "ファネルの削除に失敗しました: {error}",
+  "failedToDeleteFunnel": "ãã¡ãã«ã®åé¤ã«å¤±æãã¾ãã: {error}",
   "@failedToDeleteFunnel": {
     "placeholders": {
       "error": {
@@ -117,8 +117,8 @@
       }
     }
   },
-  "noStepsDefined": "このファネルにはステップが定義されていません",
-  "failedToAnalyze": "分析に失敗しました: {error}",
+  "noStepsDefined": "ãã®ãã¡ãã«ã«ã¯ã¹ããããå®ç¾©ããã¦ãã¾ãã",
+  "failedToAnalyze": "åæã«å¤±æãã¾ãã: {error}",
   "@failedToAnalyze": {
     "placeholders": {
       "error": {
@@ -126,8 +126,8 @@
       }
     }
   },
-  "overallConversion": "全体のコンバージョン",
-  "dropoff": "離脱: {value}",
+  "overallConversion": "å¨ä½ã®ã³ã³ãã¼ã¸ã§ã³",
+  "dropoff": "é¢è±: {value}",
   "@dropoff": {
     "placeholders": {
       "value": {
@@ -135,22 +135,22 @@
       }
     }
   },
-  "createGoal": "目標を作成",
-  "failedToLoadGoals": "目標の読み込みに失敗しました",
-  "noGoalsConfigured": "目標が設定されていません",
-  "noGoalsHint": "＋をタップして新しい目標を作成してください",
-  "conversions": "コンバージョン",
-  "rate": "率",
-  "editGoal": "目標を編集",
-  "createGoalTitle": "目標を作成",
-  "name": "名前",
-  "type": "タイプ",
-  "path": "パス",
-  "event": "イベント",
-  "pathPattern": "パスパターン",
-  "eventName": "イベント名",
-  "deleteGoal": "目標を削除",
-  "deleteGoalConfirm": "「{name}」を削除しますか？",
+  "createGoal": "ç®æ¨ãä½æ",
+  "failedToLoadGoals": "ç®æ¨ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noGoalsConfigured": "ç®æ¨ãè¨­å®ããã¦ãã¾ãã",
+  "noGoalsHint": "ï¼ãã¿ãããã¦æ°ããç®æ¨ãä½æãã¦ãã ãã",
+  "conversions": "ã³ã³ãã¼ã¸ã§ã³",
+  "rate": "ç",
+  "editGoal": "ç®æ¨ãç·¨é",
+  "createGoalTitle": "ç®æ¨ãä½æ",
+  "name": "åå",
+  "type": "ã¿ã¤ã",
+  "path": "ãã¹",
+  "event": "ã¤ãã³ã",
+  "pathPattern": "ãã¹ãã¿ã¼ã³",
+  "eventName": "ã¤ãã³ãå",
+  "deleteGoal": "ç®æ¨ãåé¤",
+  "deleteGoalConfirm": "ã{name}ããåé¤ãã¾ããï¼",
   "@deleteGoalConfirm": {
     "placeholders": {
       "name": {
@@ -158,7 +158,7 @@
       }
     }
   },
-  "failedToDeleteGoal": "目標の削除に失敗しました: {error}",
+  "failedToDeleteGoal": "ç®æ¨ã®åé¤ã«å¤±æãã¾ãã: {error}",
   "@failedToDeleteGoal": {
     "placeholders": {
       "error": {
@@ -166,8 +166,8 @@
       }
     }
   },
-  "failedToLoadPerformanceData": "パフォーマンスデータの読み込みに失敗しました",
-  "metricOverTime": "{metric}の推移",
+  "failedToLoadPerformanceData": "ããã©ã¼ãã³ã¹ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "metricOverTime": "{metric}ã®æ¨ç§»",
   "@metricOverTime": {
     "placeholders": {
       "metric": {
@@ -175,30 +175,30 @@
       }
     }
   },
-  "byDimension": "ディメンション別",
-  "failedToLoadDimensionData": "ディメンションデータの読み込みに失敗しました",
-  "good": "良好",
-  "needsImprovement": "改善が必要",
-  "poor": "不良",
+  "byDimension": "ãã£ã¡ã³ã·ã§ã³å¥",
+  "failedToLoadDimensionData": "ãã£ã¡ã³ã·ã§ã³ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "good": "è¯å¥½",
+  "needsImprovement": "æ¹åãå¿è¦",
+  "poor": "ä¸è¯",
   "largestContentfulPaint": "Largest Contentful Paint",
   "cumulativeLayoutShift": "Cumulative Layout Shift",
   "firstContentfulPaint": "First Contentful Paint",
   "timeToFirstByte": "Time to First Byte",
   "interactionToNextPaint": "Interaction to Next Paint",
-  "dimPages": "ページ",
-  "dimCountries": "国",
-  "dimDevices": "デバイス",
-  "dimBrowsers": "ブラウザ",
+  "dimPages": "ãã¼ã¸",
+  "dimCountries": "å½",
+  "dimDevices": "ããã¤ã¹",
+  "dimBrowsers": "ãã©ã¦ã¶",
   "dimOS": "OS",
-  "sessionFilters": "セッションフィルター",
-  "minPageviews": "最小ページビュー数",
-  "minEvents": "最小イベント数",
-  "minDurationSeconds": "最小滞在時間（秒）",
-  "failedToLoadSessions": "セッションの読み込みに失敗しました",
-  "noSessionsFound": "セッションが見つかりません",
-  "filterSessions": "セッションをフィルター",
-  "loadingMoreSessions": "セッションを追加読み込み中",
-  "entryPage": "入口ページ: {page}",
+  "sessionFilters": "ã»ãã·ã§ã³ãã£ã«ã¿ã¼",
+  "minPageviews": "æå°ãã¼ã¸ãã¥ã¼æ°",
+  "minEvents": "æå°ã¤ãã³ãæ°",
+  "minDurationSeconds": "æå°æ»å¨æéï¼ç§ï¼",
+  "failedToLoadSessions": "ã»ãã·ã§ã³ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noSessionsFound": "ã»ãã·ã§ã³ãè¦ã¤ããã¾ãã",
+  "filterSessions": "ã»ãã·ã§ã³ããã£ã«ã¿ã¼",
+  "loadingMoreSessions": "ã»ãã·ã§ã³ãè¿½å èª­ã¿è¾¼ã¿ä¸­",
+  "entryPage": "å¥å£ãã¼ã¸: {page}",
   "@entryPage": {
     "placeholders": {
       "page": {
@@ -206,7 +206,7 @@
       }
     }
   },
-  "nPages": "{count}ページ",
+  "nPages": "{count}ãã¼ã¸",
   "@nPages": {
     "placeholders": {
       "count": {
@@ -214,13 +214,13 @@
       }
     }
   },
-  "sessionReplays": "セッションリプレイ",
-  "failedToLoadReplays": "リプレイの読み込みに失敗しました",
-  "noReplaysFound": "リプレイが見つかりません",
-  "noReplaysHint": "セッションリプレイが有効になると、ここに表示されます。",
-  "previousPage": "前のページ",
-  "nextPage": "次のページ",
-  "pageNumber": "{number}ページ",
+  "sessionReplays": "ã»ãã·ã§ã³ãªãã¬ã¤",
+  "failedToLoadReplays": "ãªãã¬ã¤ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noReplaysFound": "ãªãã¬ã¤ãè¦ã¤ããã¾ãã",
+  "noReplaysHint": "ã»ãã·ã§ã³ãªãã¬ã¤ãæå¹ã«ãªãã¨ãããã«è¡¨ç¤ºããã¾ãã",
+  "previousPage": "åã®ãã¼ã¸",
+  "nextPage": "æ¬¡ã®ãã¼ã¸",
+  "pageNumber": "{number}ãã¼ã¸",
   "@pageNumber": {
     "placeholders": {
       "number": {
@@ -228,26 +228,26 @@
       }
     }
   },
-  "unknownBrowser": "不明なブラウザ",
-  "unknownCountry": "不明な国",
-  "sortUsers": "ユーザーを並び替え",
-  "showAllUsers": "すべてのユーザーを表示",
-  "showIdentifiedOnly": "識別済みのみ表示",
-  "searchUsers": "ユーザーを検索",
-  "searchUsersHint": "ユーザーを検索...",
-  "clearSearch": "検索をクリア",
-  "failedToLoadUsers": "ユーザーの読み込みに失敗しました",
-  "noUsersFound": "ユーザーが見つかりません",
-  "noIdentifiedUsers": "識別済みユーザーがいません",
-  "usersWillAppear": "ユーザーが識別されると、ここに表示されます",
-  "tryDifferentSearch": "別の検索キーワードをお試しください",
-  "sortedBy": "並び順",
-  "loadingMoreUsers": "ユーザーを追加読み込み中",
-  "lastSeen": "最終確認",
-  "firstSeen": "初回確認",
-  "failedToLoadMetrics": "指標の読み込みに失敗しました",
-  "loadingMoreMetrics": "指標を追加読み込み中",
-  "noMetricData": "{metric}のデータがありません",
+  "unknownBrowser": "ä¸æãªãã©ã¦ã¶",
+  "unknownCountry": "ä¸æãªå½",
+  "sortUsers": "ã¦ã¼ã¶ã¼ãä¸¦ã³æ¿ã",
+  "showAllUsers": "ãã¹ã¦ã®ã¦ã¼ã¶ã¼ãè¡¨ç¤º",
+  "showIdentifiedOnly": "è­å¥æ¸ã¿ã®ã¿è¡¨ç¤º",
+  "searchUsers": "ã¦ã¼ã¶ã¼ãæ¤ç´¢",
+  "searchUsersHint": "ã¦ã¼ã¶ã¼ãæ¤ç´¢...",
+  "clearSearch": "æ¤ç´¢ãã¯ãªã¢",
+  "failedToLoadUsers": "ã¦ã¼ã¶ã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noUsersFound": "ã¦ã¼ã¶ã¼ãè¦ã¤ããã¾ãã",
+  "noIdentifiedUsers": "è­å¥æ¸ã¿ã¦ã¼ã¶ã¼ããã¾ãã",
+  "usersWillAppear": "ã¦ã¼ã¶ã¼ãè­å¥ãããã¨ãããã«è¡¨ç¤ºããã¾ã",
+  "tryDifferentSearch": "å¥ã®æ¤ç´¢ã­ã¼ã¯ã¼ãããè©¦ããã ãã",
+  "sortedBy": "ä¸¦ã³é ",
+  "loadingMoreUsers": "ã¦ã¼ã¶ã¼ãè¿½å èª­ã¿è¾¼ã¿ä¸­",
+  "lastSeen": "æçµç¢ºèª",
+  "firstSeen": "ååç¢ºèª",
+  "failedToLoadMetrics": "ææ¨ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "loadingMoreMetrics": "ææ¨ãè¿½å èª­ã¿è¾¼ã¿ä¸­",
+  "noMetricData": "{metric}ã®ãã¼ã¿ãããã¾ãã",
   "@noMetricData": {
     "placeholders": {
       "metric": {
@@ -255,42 +255,42 @@
       }
     }
   },
-  "settings": "設定",
-  "connection": "接続",
-  "notConfigured": "未設定",
-  "authMethod": "認証方式",
-  "sessionCookie": "セッションCookie",
-  "loggedInAs": "ログイン中",
-  "unknown": "不明",
-  "appearance": "外観",
-  "theme": "テーマ",
-  "dark": "ダーク",
-  "light": "ライト",
-  "auto": "自動",
-  "about": "情報",
-  "appVersion": "アプリバージョン",
-  "openSourceAnalytics": "オープンソースのウェブアナリティクス",
-  "logoutConfirm": "ログアウトしてもよろしいですか？",
-  "siteSettings": "サイト設定",
-  "siteInformation": "サイト情報",
-  "domain": "ドメイン",
-  "siteId": "サイトID",
-  "created": "作成日",
-  "trackingSettings": "トラッキング設定",
-  "publicDashboard": "公開ダッシュボード",
-  "publicDashboardDesc": "アナリティクスへの公開アクセスを許可します",
-  "sessionReplay": "セッションリプレイ",
-  "sessionReplayDesc": "ユーザーセッションを記録します",
+  "settings": "è¨­å®",
+  "connection": "æ¥ç¶",
+  "notConfigured": "æªè¨­å®",
+  "authMethod": "èªè¨¼æ¹å¼",
+  "sessionCookie": "ã»ãã·ã§ã³Cookie",
+  "loggedInAs": "ã­ã°ã¤ã³ä¸­",
+  "unknown": "ä¸æ",
+  "appearance": "å¤è¦³",
+  "theme": "ãã¼ã",
+  "dark": "ãã¼ã¯",
+  "light": "ã©ã¤ã",
+  "auto": "èªå",
+  "about": "æå ±",
+  "appVersion": "ã¢ããªãã¼ã¸ã§ã³",
+  "openSourceAnalytics": "ãªã¼ãã³ã½ã¼ã¹ã®ã¦ã§ãã¢ããªãã£ã¯ã¹",
+  "logoutConfirm": "ã­ã°ã¢ã¦ããã¦ãããããã§ããï¼",
+  "siteSettings": "ãµã¤ãè¨­å®",
+  "siteInformation": "ãµã¤ãæå ±",
+  "domain": "ãã¡ã¤ã³",
+  "siteId": "ãµã¤ãID",
+  "created": "ä½ææ¥",
+  "trackingSettings": "ãã©ãã­ã³ã°è¨­å®",
+  "publicDashboard": "å¬éããã·ã¥ãã¼ã",
+  "publicDashboardDesc": "ã¢ããªãã£ã¯ã¹ã¸ã®å¬éã¢ã¯ã»ã¹ãè¨±å¯ãã¾ã",
+  "sessionReplay": "ã»ãã·ã§ã³ãªãã¬ã¤",
+  "sessionReplayDesc": "ã¦ã¼ã¶ã¼ã»ãã·ã§ã³ãè¨é²ãã¾ã",
   "webVitals": "Web Vitals",
-  "webVitalsDesc": "Core Web Vitalsを計測します",
-  "trackErrors": "エラー追跡",
-  "trackErrorsDesc": "JavaScriptエラーをキャプチャします",
-  "outboundLinksTracking": "外部リンク",
-  "outboundLinksDesc": "外部リンクのクリックを追跡します",
-  "excludedIps": "除外IP",
-  "excludedCountries": "除外する国",
-  "settingsSaved": "設定を保存しました",
-  "failedToSave": "保存に失敗しました: {error}",
+  "webVitalsDesc": "Core Web Vitalsãè¨æ¸¬ãã¾ã",
+  "trackErrors": "ã¨ã©ã¼è¿½è·¡",
+  "trackErrorsDesc": "JavaScriptã¨ã©ã¼ãã­ã£ããã£ãã¾ã",
+  "outboundLinksTracking": "å¤é¨ãªã³ã¯",
+  "outboundLinksDesc": "å¤é¨ãªã³ã¯ã®ã¯ãªãã¯ãè¿½è·¡ãã¾ã",
+  "excludedIps": "é¤å¤IP",
+  "excludedCountries": "é¤å¤ããå½",
+  "settingsSaved": "è¨­å®ãä¿å­ãã¾ãã",
+  "failedToSave": "ä¿å­ã«å¤±æãã¾ãã: {error}",
   "@failedToSave": {
     "placeholders": {
       "error": {
@@ -298,28 +298,28 @@
       }
     }
   },
-  "timeRange": "期間",
-  "today": "今日",
-  "yesterday": "昨日",
-  "last7Days": "過去7日間",
-  "last30Days": "過去30日間",
-  "thisWeek": "今週",
-  "thisMonth": "今月",
-  "thisYear": "今年",
-  "customRange": "カスタム期間",
-  "filter": "フィルター",
-  "addFilter": "フィルターを追加",
-  "parameter": "パラメーター",
-  "value": "値",
-  "enterFilterValue": "フィルターの値を入力してください",
-  "requestTimedOut": "リクエストがタイムアウトしました。再度お試しください。",
-  "networkError": "ネットワークエラーです。接続を確認してください。",
-  "sessionExpired": "セッションの有効期限が切れました。再度ログインしてください。",
-  "accessDenied": "アクセスが拒否されました。",
-  "dataNotFound": "データが見つかりません。",
-  "serverError": "サーバーエラーです。しばらくしてから再度お試しください。",
-  "failedToLoadGeneric": "データの読み込みに失敗しました。再度お試しください。",
-  "chartDataPoints": "{count}データポイントのチャート",
+  "timeRange": "æé",
+  "today": "ä»æ¥",
+  "yesterday": "æ¨æ¥",
+  "last7Days": "éå»7æ¥é",
+  "last30Days": "éå»30æ¥é",
+  "thisWeek": "ä»é±",
+  "thisMonth": "ä»æ",
+  "thisYear": "ä»å¹´",
+  "customRange": "ã«ã¹ã¿ã æé",
+  "filter": "ãã£ã«ã¿ã¼",
+  "addFilter": "ãã£ã«ã¿ã¼ãè¿½å ",
+  "parameter": "ãã©ã¡ã¼ã¿ã¼",
+  "value": "å¤",
+  "enterFilterValue": "ãã£ã«ã¿ã¼ã®å¤ãå¥åãã¦ãã ãã",
+  "requestTimedOut": "ãªã¯ã¨ã¹ããã¿ã¤ã ã¢ã¦ããã¾ãããååº¦ãè©¦ããã ããã",
+  "networkError": "ãããã¯ã¼ã¯ã¨ã©ã¼ã§ããæ¥ç¶ãç¢ºèªãã¦ãã ããã",
+  "sessionExpired": "ã»ãã·ã§ã³ã®æå¹æéãåãã¾ãããååº¦ã­ã°ã¤ã³ãã¦ãã ããã",
+  "accessDenied": "ã¢ã¯ã»ã¹ãæå¦ããã¾ããã",
+  "dataNotFound": "ãã¼ã¿ãè¦ã¤ããã¾ããã",
+  "serverError": "ãµã¼ãã¼ã¨ã©ã¼ã§ãããã°ãããã¦ããååº¦ãè©¦ããã ããã",
+  "failedToLoadGeneric": "ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãããååº¦ãè©¦ããã ããã",
+  "chartDataPoints": "{count}ãã¼ã¿ãã¤ã³ãã®ãã£ã¼ã",
   "@chartDataPoints": {
     "placeholders": {
       "count": {
@@ -327,7 +327,7 @@
       }
     }
   },
-  "previousPrefix": "前回: {value}",
+  "previousPrefix": "åå: {value}",
   "@previousPrefix": {
     "placeholders": {
       "value": {
@@ -335,7 +335,7 @@
       }
     }
   },
-  "performanceRatingLabel": "パフォーマンス評価: {rating}",
+  "performanceRatingLabel": "ããã©ã¼ãã³ã¹è©ä¾¡: {rating}",
   "@performanceRatingLabel": {
     "placeholders": {
       "rating": {
@@ -343,10 +343,10 @@
       }
     }
   },
-  "loadingContent": "コンテンツを読み込み中",
-  "language": "言語",
-  "selectLanguage": "言語を選択",
-  "nUsers": "{count}人のユーザー",
+  "loadingContent": "ã³ã³ãã³ããèª­ã¿è¾¼ã¿ä¸­",
+  "language": "è¨èª",
+  "selectLanguage": "è¨èªãé¸æ",
+  "nUsers": "{count}äººã®ã¦ã¼ã¶ã¼",
   "@nUsers": {
     "placeholders": {
       "count": {
@@ -354,7 +354,7 @@
       }
     }
   },
-  "nSessions": "{count}セッション",
+  "nSessions": "{count}ã»ãã·ã§ã³",
   "@nSessions": {
     "placeholders": {
       "count": {
@@ -362,7 +362,7 @@
       }
     }
   },
-  "lastPrefix": "前回: {value}",
+  "lastPrefix": "åå: {value}",
   "@lastPrefix": {
     "placeholders": {
       "value": {
@@ -370,9 +370,9 @@
       }
     }
   },
-  "failedToLoadSiteConfig": "サイト設定の読み込みに失敗しました",
-  "failedToLoadUserDetails": "ユーザー詳細の読み込みに失敗しました",
-  "lastSeenPrefix": "最終閲覧: {value}",
+  "failedToLoadSiteConfig": "ãµã¤ãè¨­å®ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "failedToLoadUserDetails": "ã¦ã¼ã¶ã¼è©³ç´°ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "lastSeenPrefix": "æçµé²è¦§: {value}",
   "@lastSeenPrefix": {
     "placeholders": {
       "value": {
@@ -380,19 +380,19 @@
       }
     }
   },
-  "traits": "属性",
-  "noTraits": "このユーザーの属性はありません",
-  "sessionDetail": "セッション詳細",
-  "failedToLoadSession": "セッションの読み込みに失敗しました",
-  "entryPageLabel": "入口ページ",
-  "exitPage": "出口ページ",
-  "browserAndDevice": "ブラウザとデバイス",
-  "browser": "ブラウザ",
+  "traits": "å±æ§",
+  "noTraits": "ãã®ã¦ã¼ã¶ã¼ã®å±æ§ã¯ããã¾ãã",
+  "sessionDetail": "ã»ãã·ã§ã³è©³ç´°",
+  "failedToLoadSession": "ã»ãã·ã§ã³ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "entryPageLabel": "å¥å£ãã¼ã¸",
+  "exitPage": "åºå£ãã¼ã¸",
+  "browserAndDevice": "ãã©ã¦ã¶ã¨ããã¤ã¹",
+  "browser": "ãã©ã¦ã¶",
   "os": "OS",
-  "device": "デバイス",
-  "sourceLabel": "ソース",
-  "referrer": "リファラー",
-  "eventTimelineCount": "イベントタイムライン ({count})",
+  "device": "ããã¤ã¹",
+  "sourceLabel": "ã½ã¼ã¹",
+  "referrer": "ãªãã¡ã©ã¼",
+  "eventTimelineCount": "ã¤ãã³ãã¿ã¤ã ã©ã¤ã³ ({count})",
   "@eventTimelineCount": {
     "placeholders": {
       "count": {
@@ -400,13 +400,13 @@
       }
     }
   },
-  "noEvents": "イベントなし",
-  "replayEventsTitle": "リプレイイベント",
-  "failedToLoadReplay": "リプレイの読み込みに失敗しました",
-  "noReplayEvents": "リプレイイベントなし",
-  "totalEvents": "イベント合計",
-  "userActionsLabel": "ユーザーアクション",
-  "eventTimelineActions": "イベントタイムライン ({count}アクション)",
+  "noEvents": "ã¤ãã³ããªã",
+  "replayEventsTitle": "ãªãã¬ã¤ã¤ãã³ã",
+  "failedToLoadReplay": "ãªãã¬ã¤ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noReplayEvents": "ãªãã¬ã¤ã¤ãã³ããªã",
+  "totalEvents": "ã¤ãã³ãåè¨",
+  "userActionsLabel": "ã¦ã¼ã¶ã¼ã¢ã¯ã·ã§ã³",
+  "eventTimelineActions": "ã¤ãã³ãã¿ã¤ã ã©ã¤ã³ ({count}ã¢ã¯ã·ã§ã³)",
   "@eventTimelineActions": {
     "placeholders": {
       "count": {
@@ -414,70 +414,79 @@
       }
     }
   },
-  "eventLog": "イベントログ",
-  "viewEventLog": "イベントログを表示",
-  "failedToLoadEventLog": "イベントログの読み込みに失敗しました",
-  "activityHeatmap": "ヒートマップ",
-  "heatmapLast4Weeks": "過去4週間",
-  "less": "少ない",
-  "more": "多い",
-  "peakActivity": "ピークアクティビティ",
+  "eventLog": "ã¤ãã³ãã­ã°",
+  "viewEventLog": "ã¤ãã³ãã­ã°ãè¡¨ç¤º",
+  "failedToLoadEventLog": "ã¤ãã³ãã­ã°ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "activityHeatmap": "ãã¼ãããã",
+  "heatmapLast4Weeks": "éå»4é±é",
+  "less": "å°ãªã",
+  "more": "å¤ã",
+  "peakActivity": "ãã¼ã¯ã¢ã¯ãã£ããã£",
   "peakHour": "{day} {time}",
   "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
-  "busiestDay": "最も忙しい日: {day}",
+  "busiestDay": "æãå¿ããæ¥: {day}",
   "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
-  "dayMon": "月",
-  "dayTue": "火",
-  "dayWed": "水",
-  "dayThu": "木",
-  "dayFri": "金",
-  "daySat": "土",
-  "daySun": "日",
-  "searchEvents": "イベントを検索...",
-  "allTypes": "すべて",
-  "noMatchingEvents": "一致するイベントがありません",
-  "liveView": "ライブ",
-  "autoRefresh": "自動更新",
-  "usersOnlineNow": "現在オンラインのユーザー",
-  "lastUpdatedAt": "{time} に更新",
+  "dayMon": "æ",
+  "dayTue": "ç«",
+  "dayWed": "æ°´",
+  "dayThu": "æ¨",
+  "dayFri": "é",
+  "daySat": "å",
+  "daySun": "æ¥",
+  "searchEvents": "ã¤ãã³ããæ¤ç´¢...",
+  "allTypes": "ãã¹ã¦",
+  "noMatchingEvents": "ä¸è´ããã¤ãã³ããããã¾ãã",
+  "liveView": "ã©ã¤ã",
+  "autoRefresh": "èªåæ´æ°",
+  "usersOnlineNow": "ç¾å¨ãªã³ã©ã¤ã³ã®ã¦ã¼ã¶ã¼",
+  "lastUpdatedAt": "{time} ã«æ´æ°",
   "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
-  "last30Minutes": "過去30分",
-  "last5Minutes": "過去5分",
-  "recentEvents": "最近のイベント",
-  "noRecentEvents": "最近のイベントはありません",
+  "last30Minutes": "éå»30å",
+  "last5Minutes": "éå»5å",
+  "recentEvents": "æè¿ã®ã¤ãã³ã",
+  "noRecentEvents": "æè¿ã®ã¤ãã³ãã¯ããã¾ãã",
 
-  "retention": "リテンション",
-  "weekly": "週次",
-  "daily": "日次",
-  "retentionRange": "範囲",
-  "retentionDays": "{count}日間",
+  "retention": "ãªãã³ã·ã§ã³",
+  "weekly": "é±æ¬¡",
+  "daily": "æ¥æ¬¡",
+  "retentionRange": "ç¯å²",
+  "retentionDays": "{count}æ¥é",
   "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
-  "failedToLoadRetention": "リテンションデータの読み込みに失敗しました",
-  "noRetentionData": "リテンションデータなし",
-  "cohort": "コホート",
+  "failedToLoadRetention": "ãªãã³ã·ã§ã³ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noRetentionData": "ãªãã³ã·ã§ã³ãã¼ã¿ãªã",
+  "cohort": "ã³ãã¼ã",
   "retentionWeekPrefix": "W",
   "retentionDayPrefix": "D",
 
-  "journeys": "ジャーニー",
-  "journeySteps": "ステップ",
-  "failedToLoadJourneys": "ジャーニーの読み込みに失敗しました",
-  "noJourneysFound": "ジャーニーが見つかりません",
-  "journeySessions": "{count}セッション",
+  "journeys": "ã¸ã£ã¼ãã¼",
+  "journeySteps": "ã¹ããã",
+  "failedToLoadJourneys": "ã¸ã£ã¼ãã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noJourneysFound": "ã¸ã£ã¼ãã¼ãè¦ã¤ããã¾ãã",
+  "journeySessions": "{count}ã»ãã·ã§ã³",
   "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
 
-  "locations": "ロケーション",
-  "locationCities": "都市",
-  "failedToLoadLocations": "ロケーションの読み込みに失敗しました",
-  "noLocationsFound": "ロケーションが見つかりません",
+  "locations": "ã­ã±ã¼ã·ã§ã³",
+  "locationCities": "é½å¸",
+  "failedToLoadLocations": "ã­ã±ã¼ã·ã§ã³ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noLocationsFound": "ã­ã±ã¼ã·ã§ã³ãè¦ã¤ããã¾ãã",
 
-  "coreFeatures": "コア",
-  "insights": "インサイト",
-  "tools": "ツール",
+  "coreFeatures": "ã³ã¢",
+  "insights": "ã¤ã³ãµã¤ã",
+  "tools": "ãã¼ã«",
 
-  "userTraits": "トレイト",
-  "failedToLoadUserTraits": "ユーザートレイトの読み込みに失敗しました",
-  "noUserTraits": "トレイトが見つかりません",
-  "noUserTraitsHint": "カスタムプロパティでユーザーが識別されると表示されます",
-  "traitUsersCount": "{count}ユーザー",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
+  "userTraits": "ãã¬ã¤ã",
+  "failedToLoadUserTraits": "ã¦ã¼ã¶ã¼ãã¬ã¤ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã",
+  "noUserTraits": "ãã¬ã¤ããè¦ã¤ããã¾ãã",
+  "noUserTraitsHint": "ã«ã¹ã¿ã ãã­ããã£ã§ã¦ã¼ã¶ã¼ãè­å¥ãããã¨è¡¨ç¤ºããã¾ã",
+  "traitUsersCount": "{count}ã¦ã¼ã¶ã¼",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
+
+  "entryPages": "入口ページ",
+  "exitPages": "出口ページ",
+  "browsers": "ブラウザ",
+  "operatingSystems": "OS",
+  "utmSource": "UTMソース",
+  "channel": "チャネル",
+  "pageTitles": "ページタイトル",
+  "sources": "ソース"
 }

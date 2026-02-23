@@ -1879,6 +1879,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} users'**
   String traitUsersCount(String count);
+
+  /// No description provided for @entryPages.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Pages'**
+  String get entryPages;
+
+  /// No description provided for @exitPages.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit Pages'**
+  String get exitPages;
+
+  /// No description provided for @browsers.
+  ///
+  /// In en, this message translates to:
+  /// **'Browsers'**
+  String get browsers;
+
+  /// No description provided for @operatingSystems.
+  ///
+  /// In en, this message translates to:
+  /// **'OS'**
+  String get operatingSystems;
+
+  /// No description provided for @utmSource.
+  ///
+  /// In en, this message translates to:
+  /// **'UTM Source'**
+  String get utmSource;
+
+  /// No description provided for @channel.
+  ///
+  /// In en, this message translates to:
+  /// **'Channel'**
+  String get channel;
+
+  /// No description provided for @pageTitles.
+  ///
+  /// In en, this message translates to:
+  /// **'Page Titles'**
+  String get pageTitles;
+
+  /// No description provided for @sources.
+  ///
+  /// In en, this message translates to:
+  /// **'Sources'**
+  String get sources;
 }
 
 class _AppLocalizationsDelegate

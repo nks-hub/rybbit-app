@@ -12,337 +12,354 @@ class AppLocalizationsJa extends AppLocalizations {
   String get appName => 'Rybbit';
 
   @override
-  String get appSubtitle => '非公式';
+  String get appSubtitle => 'éå¬å¼';
 
   @override
-  String get cancel => 'キャンセル';
+  String get cancel => 'ã­ã£ã³ã»ã«';
 
   @override
-  String get delete => '削除';
+  String get delete => 'åé¤';
 
   @override
-  String get save => '保存';
+  String get save => 'ä¿å­';
 
   @override
-  String get update => '更新';
+  String get update => 'æ´æ°';
 
   @override
-  String get create => '作成';
+  String get create => 'ä½æ';
 
   @override
-  String get retry => '再試行';
+  String get retry => 'åè©¦è¡';
 
   @override
-  String get add => '追加';
+  String get add => 'è¿½å ';
 
   @override
-  String get edit => '編集';
+  String get edit => 'ç·¨é';
 
   @override
-  String get clear => 'クリア';
+  String get clear => 'ã¯ãªã¢';
 
   @override
-  String get apply => '適用';
+  String get apply => 'é©ç¨';
 
   @override
-  String get goBack => '戻る';
+  String get goBack => 'æ»ã';
 
   @override
-  String get noData => 'データなし';
+  String get noData => 'ãã¼ã¿ãªã';
 
   @override
-  String get loading => '読み込み中';
+  String get loading => 'èª­ã¿è¾¼ã¿ä¸­';
 
   @override
-  String get logout => 'ログアウト';
+  String get logout => 'ã­ã°ã¢ã¦ã';
 
   @override
-  String get close => '閉じる';
+  String get close => 'éãã';
 
   @override
-  String get serverUrl => 'サーバーURL';
+  String get serverUrl => 'ãµã¼ãã¼URL';
 
   @override
   String get serverUrlHint => 'https://your-rybbit-instance.com';
 
   @override
-  String get email => 'メールアドレス';
+  String get email => 'ã¡ã¼ã«ã¢ãã¬ã¹';
 
   @override
-  String get apiKey => 'APIキー';
+  String get apiKey => 'APIã­ã¼';
 
   @override
-  String get password => 'パスワード';
+  String get password => 'ãã¹ã¯ã¼ã';
 
   @override
-  String get connect => '接続';
+  String get connect => 'æ¥ç¶';
 
   @override
-  String get organizations => '組織';
+  String get organizations => 'çµç¹';
 
   @override
-  String get noSitesFound => 'サイトが見つかりません';
+  String get noSitesFound => 'ãµã¤ããè¦ã¤ããã¾ãã';
 
   @override
-  String get noSitesHint => 'Webダッシュボードでサイトを追加して始めましょう。';
+  String get noSitesHint =>
+      'Webããã·ã¥ãã¼ãã§ãµã¤ããè¿½å ãã¦å§ãã¾ãããã';
 
   @override
   String siteCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$countサイト',
+      other: '$countãµã¤ã',
     );
     return '$_temp0';
   }
 
   @override
   String members(int count) {
-    return 'メンバー ($count)';
+    return 'ã¡ã³ãã¼ ($count)';
   }
 
   @override
-  String get failedToLoadOrganizations => '組織の読み込みに失敗しました';
+  String get failedToLoadOrganizations =>
+      'çµç¹ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noOrganizations => '組織がありません';
+  String get noOrganizations => 'çµç¹ãããã¾ãã';
 
   @override
-  String get noOrganizationsHint => '組織はWebダッシュボードで作成できます';
+  String get noOrganizationsHint =>
+      'çµç¹ã¯Webããã·ã¥ãã¼ãã§ä½æã§ãã¾ã';
 
   @override
-  String get failedToLoadMembers => 'メンバーの読み込みに失敗しました';
+  String get failedToLoadMembers =>
+      'ã¡ã³ãã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get failedToLoadSites => 'サイトの読み込みに失敗しました';
+  String get failedToLoadSites =>
+      'ãµã¤ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get failedToLoadAnalytics => 'アナリティクスの読み込みに失敗しました';
+  String get failedToLoadAnalytics =>
+      'ã¢ããªãã£ã¯ã¹ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noDataAvailable => '利用可能なデータがありません';
+  String get noDataAvailable => 'å©ç¨å¯è½ãªãã¼ã¿ãããã¾ãã';
 
   @override
-  String get users => 'ユーザー';
+  String get users => 'ã¦ã¼ã¶ã¼';
 
   @override
-  String get sessions => 'セッション';
+  String get sessions => 'ã»ãã·ã§ã³';
 
   @override
-  String get pageviews => 'ページビュー';
+  String get pageviews => 'ãã¼ã¸ãã¥ã¼';
 
   @override
-  String get pagesPerSession => 'ページ/セッション';
+  String get pagesPerSession => 'ãã¼ã¸/ã»ãã·ã§ã³';
 
   @override
-  String get bounceRate => '直帰率';
+  String get bounceRate => 'ç´å¸°ç';
 
   @override
-  String get duration => '滞在時間';
+  String get duration => 'æ»å¨æé';
 
   @override
-  String get metrics => '指標';
+  String get metrics => 'ææ¨';
 
   @override
-  String get pages => 'ページ';
+  String get pages => 'ãã¼ã¸';
 
   @override
-  String get referrers => 'リファラー';
+  String get referrers => 'ãªãã¡ã©ã¼';
 
   @override
-  String get countries => '国';
+  String get countries => 'å½';
 
   @override
-  String get devices => 'デバイス';
+  String get devices => 'ããã¤ã¹';
 
   @override
-  String get performance => 'パフォーマンス';
+  String get performance => 'ããã©ã¼ãã³ã¹';
 
   @override
-  String get goals => '目標';
+  String get goals => 'ç®æ¨';
 
   @override
-  String get funnels => 'ファネル';
+  String get funnels => 'ãã¡ãã«';
 
   @override
-  String get replay => 'リプレイ';
+  String get replay => 'ãªãã¬ã¤';
 
   @override
-  String get config => '設定';
+  String get config => 'è¨­å®';
 
   @override
   String usersOnline(int count) {
-    return '$count人のユーザーがオンライン';
+    return '$countäººã®ã¦ã¼ã¶ã¼ããªã³ã©ã¤ã³';
   }
 
   @override
-  String get events => 'イベント';
+  String get events => 'ã¤ãã³ã';
 
   @override
-  String get eventsOverTime => 'イベントの推移';
+  String get eventsOverTime => 'ã¤ãã³ãã®æ¨ç§»';
 
   @override
-  String get eventNames => 'イベント名';
+  String get eventNames => 'ã¤ãã³ãå';
 
   @override
-  String get noCustomEventsTracked => 'カスタムイベントは記録されていません';
+  String get noCustomEventsTracked =>
+      'ã«ã¹ã¿ã ã¤ãã³ãã¯è¨é²ããã¦ãã¾ãã';
 
   @override
-  String get failedToLoadProperties => 'プロパティの読み込みに失敗しました';
+  String get failedToLoadProperties =>
+      'ãã­ããã£ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noProperties => 'プロパティがありません';
+  String get noProperties => 'ãã­ããã£ãããã¾ãã';
 
   @override
-  String get outboundLinks => '外部リンク';
+  String get outboundLinks => 'å¤é¨ãªã³ã¯';
 
   @override
-  String get noOutboundLinksTracked => '外部リンクは記録されていません';
+  String get noOutboundLinksTracked =>
+      'å¤é¨ãªã³ã¯ã¯è¨é²ããã¦ãã¾ãã';
 
   @override
-  String get failedToLoadChart => 'チャートの読み込みに失敗しました';
+  String get failedToLoadChart =>
+      'ãã£ã¼ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get errors => 'エラー';
+  String get errors => 'ã¨ã©ã¼';
 
   @override
-  String get failedToLoadErrors => 'エラーの読み込みに失敗しました';
+  String get failedToLoadErrors =>
+      'ã¨ã©ã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noErrorsFound => 'エラーは見つかりませんでした';
+  String get noErrorsFound => 'ã¨ã©ã¼ã¯è¦ã¤ããã¾ããã§ãã';
 
   @override
-  String get everythingLooksGood => 'すべて正常です！';
+  String get everythingLooksGood => 'ãã¹ã¦æ­£å¸¸ã§ãï¼';
 
   @override
-  String get occurrences => '発生回数';
+  String get occurrences => 'çºçåæ°';
 
   @override
-  String get sessionsAffected => '影響を受けたセッション';
+  String get sessionsAffected => 'å½±é¿ãåããã»ãã·ã§ã³';
 
   @override
   String failedToLoadEventsWithError(String error) {
-    return 'イベントの読み込みに失敗しました: $error';
+    return 'ã¤ãã³ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã: $error';
   }
 
   @override
-  String get noEventsFound => 'イベントが見つかりません';
+  String get noEventsFound => 'ã¤ãã³ããè¦ã¤ããã¾ãã';
 
   @override
-  String get failedToLoadFunnels => 'ファネルの読み込みに失敗しました';
+  String get failedToLoadFunnels =>
+      'ãã¡ãã«ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noFunnelsSaved => '保存されたファネルはありません';
+  String get noFunnelsSaved => 'ä¿å­ããããã¡ãã«ã¯ããã¾ãã';
 
   @override
-  String get createFunnelsHint => 'Webダッシュボードでファネルを作成してください';
+  String get createFunnelsHint =>
+      'Webããã·ã¥ãã¼ãã§ãã¡ãã«ãä½æãã¦ãã ãã';
 
   @override
-  String get deleteFunnel => 'ファネルを削除';
+  String get deleteFunnel => 'ãã¡ãã«ãåé¤';
 
   @override
   String deleteFunnelConfirm(String name) {
-    return '「$name」を削除しますか？';
+    return 'ã$nameããåé¤ãã¾ããï¼';
   }
 
   @override
   String failedToDeleteFunnel(String error) {
-    return 'ファネルの削除に失敗しました: $error';
+    return 'ãã¡ãã«ã®åé¤ã«å¤±æãã¾ãã: $error';
   }
 
   @override
-  String get noStepsDefined => 'このファネルにはステップが定義されていません';
+  String get noStepsDefined =>
+      'ãã®ãã¡ãã«ã«ã¯ã¹ããããå®ç¾©ããã¦ãã¾ãã';
 
   @override
   String failedToAnalyze(String error) {
-    return '分析に失敗しました: $error';
+    return 'åæã«å¤±æãã¾ãã: $error';
   }
 
   @override
-  String get overallConversion => '全体のコンバージョン';
+  String get overallConversion => 'å¨ä½ã®ã³ã³ãã¼ã¸ã§ã³';
 
   @override
   String dropoff(String value) {
-    return '離脱: $value';
+    return 'é¢è±: $value';
   }
 
   @override
-  String get createGoal => '目標を作成';
+  String get createGoal => 'ç®æ¨ãä½æ';
 
   @override
-  String get failedToLoadGoals => '目標の読み込みに失敗しました';
+  String get failedToLoadGoals => 'ç®æ¨ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noGoalsConfigured => '目標が設定されていません';
+  String get noGoalsConfigured => 'ç®æ¨ãè¨­å®ããã¦ãã¾ãã';
 
   @override
-  String get noGoalsHint => '＋をタップして新しい目標を作成してください';
+  String get noGoalsHint =>
+      'ï¼ãã¿ãããã¦æ°ããç®æ¨ãä½æãã¦ãã ãã';
 
   @override
-  String get conversions => 'コンバージョン';
+  String get conversions => 'ã³ã³ãã¼ã¸ã§ã³';
 
   @override
-  String get rate => '率';
+  String get rate => 'ç';
 
   @override
-  String get editGoal => '目標を編集';
+  String get editGoal => 'ç®æ¨ãç·¨é';
 
   @override
-  String get createGoalTitle => '目標を作成';
+  String get createGoalTitle => 'ç®æ¨ãä½æ';
 
   @override
-  String get name => '名前';
+  String get name => 'åå';
 
   @override
-  String get type => 'タイプ';
+  String get type => 'ã¿ã¤ã';
 
   @override
-  String get path => 'パス';
+  String get path => 'ãã¹';
 
   @override
-  String get event => 'イベント';
+  String get event => 'ã¤ãã³ã';
 
   @override
-  String get pathPattern => 'パスパターン';
+  String get pathPattern => 'ãã¹ãã¿ã¼ã³';
 
   @override
-  String get eventName => 'イベント名';
+  String get eventName => 'ã¤ãã³ãå';
 
   @override
-  String get deleteGoal => '目標を削除';
+  String get deleteGoal => 'ç®æ¨ãåé¤';
 
   @override
   String deleteGoalConfirm(String name) {
-    return '「$name」を削除しますか？';
+    return 'ã$nameããåé¤ãã¾ããï¼';
   }
 
   @override
   String failedToDeleteGoal(String error) {
-    return '目標の削除に失敗しました: $error';
+    return 'ç®æ¨ã®åé¤ã«å¤±æãã¾ãã: $error';
   }
 
   @override
-  String get failedToLoadPerformanceData => 'パフォーマンスデータの読み込みに失敗しました';
+  String get failedToLoadPerformanceData =>
+      'ããã©ã¼ãã³ã¹ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
   String metricOverTime(String metric) {
-    return '$metricの推移';
+    return '$metricã®æ¨ç§»';
   }
 
   @override
-  String get byDimension => 'ディメンション別';
+  String get byDimension => 'ãã£ã¡ã³ã·ã§ã³å¥';
 
   @override
-  String get failedToLoadDimensionData => 'ディメンションデータの読み込みに失敗しました';
+  String get failedToLoadDimensionData =>
+      'ãã£ã¡ã³ã·ã§ã³ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get good => '良好';
+  String get good => 'è¯å¥½';
 
   @override
-  String get needsImprovement => '改善が必要';
+  String get needsImprovement => 'æ¹åãå¿è¦';
 
   @override
-  String get poor => '不良';
+  String get poor => 'ä¸è¯';
 
   @override
   String get largestContentfulPaint => 'Largest Contentful Paint';
@@ -360,449 +377,473 @@ class AppLocalizationsJa extends AppLocalizations {
   String get interactionToNextPaint => 'Interaction to Next Paint';
 
   @override
-  String get dimPages => 'ページ';
+  String get dimPages => 'ãã¼ã¸';
 
   @override
-  String get dimCountries => '国';
+  String get dimCountries => 'å½';
 
   @override
-  String get dimDevices => 'デバイス';
+  String get dimDevices => 'ããã¤ã¹';
 
   @override
-  String get dimBrowsers => 'ブラウザ';
+  String get dimBrowsers => 'ãã©ã¦ã¶';
 
   @override
   String get dimOS => 'OS';
 
   @override
-  String get sessionFilters => 'セッションフィルター';
+  String get sessionFilters => 'ã»ãã·ã§ã³ãã£ã«ã¿ã¼';
 
   @override
-  String get minPageviews => '最小ページビュー数';
+  String get minPageviews => 'æå°ãã¼ã¸ãã¥ã¼æ°';
 
   @override
-  String get minEvents => '最小イベント数';
+  String get minEvents => 'æå°ã¤ãã³ãæ°';
 
   @override
-  String get minDurationSeconds => '最小滞在時間（秒）';
+  String get minDurationSeconds => 'æå°æ»å¨æéï¼ç§ï¼';
 
   @override
-  String get failedToLoadSessions => 'セッションの読み込みに失敗しました';
+  String get failedToLoadSessions =>
+      'ã»ãã·ã§ã³ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noSessionsFound => 'セッションが見つかりません';
+  String get noSessionsFound => 'ã»ãã·ã§ã³ãè¦ã¤ããã¾ãã';
 
   @override
-  String get filterSessions => 'セッションをフィルター';
+  String get filterSessions => 'ã»ãã·ã§ã³ããã£ã«ã¿ã¼';
 
   @override
-  String get loadingMoreSessions => 'セッションを追加読み込み中';
+  String get loadingMoreSessions => 'ã»ãã·ã§ã³ãè¿½å èª­ã¿è¾¼ã¿ä¸­';
 
   @override
   String entryPage(String page) {
-    return '入口ページ: $page';
+    return 'å¥å£ãã¼ã¸: $page';
   }
 
   @override
   String nPages(int count) {
-    return '$countページ';
+    return '$countãã¼ã¸';
   }
 
   @override
-  String get sessionReplays => 'セッションリプレイ';
+  String get sessionReplays => 'ã»ãã·ã§ã³ãªãã¬ã¤';
 
   @override
-  String get failedToLoadReplays => 'リプレイの読み込みに失敗しました';
+  String get failedToLoadReplays =>
+      'ãªãã¬ã¤ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noReplaysFound => 'リプレイが見つかりません';
+  String get noReplaysFound => 'ãªãã¬ã¤ãè¦ã¤ããã¾ãã';
 
   @override
-  String get noReplaysHint => 'セッションリプレイが有効になると、ここに表示されます。';
+  String get noReplaysHint =>
+      'ã»ãã·ã§ã³ãªãã¬ã¤ãæå¹ã«ãªãã¨ãããã«è¡¨ç¤ºããã¾ãã';
 
   @override
-  String get previousPage => '前のページ';
+  String get previousPage => 'åã®ãã¼ã¸';
 
   @override
-  String get nextPage => '次のページ';
+  String get nextPage => 'æ¬¡ã®ãã¼ã¸';
 
   @override
   String pageNumber(int number) {
-    return '$numberページ';
+    return '$numberãã¼ã¸';
   }
 
   @override
-  String get unknownBrowser => '不明なブラウザ';
+  String get unknownBrowser => 'ä¸æãªãã©ã¦ã¶';
 
   @override
-  String get unknownCountry => '不明な国';
+  String get unknownCountry => 'ä¸æãªå½';
 
   @override
-  String get sortUsers => 'ユーザーを並び替え';
+  String get sortUsers => 'ã¦ã¼ã¶ã¼ãä¸¦ã³æ¿ã';
 
   @override
-  String get showAllUsers => 'すべてのユーザーを表示';
+  String get showAllUsers => 'ãã¹ã¦ã®ã¦ã¼ã¶ã¼ãè¡¨ç¤º';
 
   @override
-  String get showIdentifiedOnly => '識別済みのみ表示';
+  String get showIdentifiedOnly => 'è­å¥æ¸ã¿ã®ã¿è¡¨ç¤º';
 
   @override
-  String get searchUsers => 'ユーザーを検索';
+  String get searchUsers => 'ã¦ã¼ã¶ã¼ãæ¤ç´¢';
 
   @override
-  String get searchUsersHint => 'ユーザーを検索...';
+  String get searchUsersHint => 'ã¦ã¼ã¶ã¼ãæ¤ç´¢...';
 
   @override
-  String get clearSearch => '検索をクリア';
+  String get clearSearch => 'æ¤ç´¢ãã¯ãªã¢';
 
   @override
-  String get failedToLoadUsers => 'ユーザーの読み込みに失敗しました';
+  String get failedToLoadUsers =>
+      'ã¦ã¼ã¶ã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noUsersFound => 'ユーザーが見つかりません';
+  String get noUsersFound => 'ã¦ã¼ã¶ã¼ãè¦ã¤ããã¾ãã';
 
   @override
-  String get noIdentifiedUsers => '識別済みユーザーがいません';
+  String get noIdentifiedUsers => 'è­å¥æ¸ã¿ã¦ã¼ã¶ã¼ããã¾ãã';
 
   @override
-  String get usersWillAppear => 'ユーザーが識別されると、ここに表示されます';
+  String get usersWillAppear =>
+      'ã¦ã¼ã¶ã¼ãè­å¥ãããã¨ãããã«è¡¨ç¤ºããã¾ã';
 
   @override
-  String get tryDifferentSearch => '別の検索キーワードをお試しください';
+  String get tryDifferentSearch =>
+      'å¥ã®æ¤ç´¢ã­ã¼ã¯ã¼ãããè©¦ããã ãã';
 
   @override
-  String get sortedBy => '並び順';
+  String get sortedBy => 'ä¸¦ã³é ';
 
   @override
-  String get loadingMoreUsers => 'ユーザーを追加読み込み中';
+  String get loadingMoreUsers => 'ã¦ã¼ã¶ã¼ãè¿½å èª­ã¿è¾¼ã¿ä¸­';
 
   @override
-  String get lastSeen => '最終確認';
+  String get lastSeen => 'æçµç¢ºèª';
 
   @override
-  String get firstSeen => '初回確認';
+  String get firstSeen => 'ååç¢ºèª';
 
   @override
   String nUsers(String count) {
-    return '$count人のユーザー';
+    return '$countäººã®ã¦ã¼ã¶ã¼';
   }
 
   @override
   String nSessions(int count) {
-    return '$countセッション';
+    return '$countã»ãã·ã§ã³';
   }
 
   @override
   String lastPrefix(String value) {
-    return '前回: $value';
+    return 'åå: $value';
   }
 
   @override
-  String get failedToLoadSiteConfig => 'サイト設定の読み込みに失敗しました';
+  String get failedToLoadSiteConfig =>
+      'ãµã¤ãè¨­å®ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get failedToLoadMetrics => '指標の読み込みに失敗しました';
+  String get failedToLoadMetrics =>
+      'ææ¨ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get loadingMoreMetrics => '指標を追加読み込み中';
+  String get loadingMoreMetrics => 'ææ¨ãè¿½å èª­ã¿è¾¼ã¿ä¸­';
 
   @override
   String noMetricData(String metric) {
-    return '$metricのデータがありません';
+    return '$metricã®ãã¼ã¿ãããã¾ãã';
   }
 
   @override
-  String get settings => '設定';
+  String get settings => 'è¨­å®';
 
   @override
-  String get connection => '接続';
+  String get connection => 'æ¥ç¶';
 
   @override
-  String get notConfigured => '未設定';
+  String get notConfigured => 'æªè¨­å®';
 
   @override
-  String get authMethod => '認証方式';
+  String get authMethod => 'èªè¨¼æ¹å¼';
 
   @override
-  String get sessionCookie => 'セッションCookie';
+  String get sessionCookie => 'ã»ãã·ã§ã³Cookie';
 
   @override
-  String get loggedInAs => 'ログイン中';
+  String get loggedInAs => 'ã­ã°ã¤ã³ä¸­';
 
   @override
-  String get unknown => '不明';
+  String get unknown => 'ä¸æ';
 
   @override
-  String get appearance => '外観';
+  String get appearance => 'å¤è¦³';
 
   @override
-  String get theme => 'テーマ';
+  String get theme => 'ãã¼ã';
 
   @override
-  String get dark => 'ダーク';
+  String get dark => 'ãã¼ã¯';
 
   @override
-  String get light => 'ライト';
+  String get light => 'ã©ã¤ã';
 
   @override
-  String get auto => '自動';
+  String get auto => 'èªå';
 
   @override
-  String get about => '情報';
+  String get about => 'æå ±';
 
   @override
-  String get appVersion => 'アプリバージョン';
+  String get appVersion => 'ã¢ããªãã¼ã¸ã§ã³';
 
   @override
-  String get openSourceAnalytics => 'オープンソースのウェブアナリティクス';
+  String get openSourceAnalytics =>
+      'ãªã¼ãã³ã½ã¼ã¹ã®ã¦ã§ãã¢ããªãã£ã¯ã¹';
 
   @override
-  String get logoutConfirm => 'ログアウトしてもよろしいですか？';
+  String get logoutConfirm =>
+      'ã­ã°ã¢ã¦ããã¦ãããããã§ããï¼';
 
   @override
-  String get siteSettings => 'サイト設定';
+  String get siteSettings => 'ãµã¤ãè¨­å®';
 
   @override
-  String get siteInformation => 'サイト情報';
+  String get siteInformation => 'ãµã¤ãæå ±';
 
   @override
-  String get domain => 'ドメイン';
+  String get domain => 'ãã¡ã¤ã³';
 
   @override
-  String get siteId => 'サイトID';
+  String get siteId => 'ãµã¤ãID';
 
   @override
-  String get created => '作成日';
+  String get created => 'ä½ææ¥';
 
   @override
-  String get trackingSettings => 'トラッキング設定';
+  String get trackingSettings => 'ãã©ãã­ã³ã°è¨­å®';
 
   @override
-  String get publicDashboard => '公開ダッシュボード';
+  String get publicDashboard => 'å¬éããã·ã¥ãã¼ã';
 
   @override
-  String get publicDashboardDesc => 'アナリティクスへの公開アクセスを許可します';
+  String get publicDashboardDesc =>
+      'ã¢ããªãã£ã¯ã¹ã¸ã®å¬éã¢ã¯ã»ã¹ãè¨±å¯ãã¾ã';
 
   @override
-  String get sessionReplay => 'セッションリプレイ';
+  String get sessionReplay => 'ã»ãã·ã§ã³ãªãã¬ã¤';
 
   @override
-  String get sessionReplayDesc => 'ユーザーセッションを記録します';
+  String get sessionReplayDesc =>
+      'ã¦ã¼ã¶ã¼ã»ãã·ã§ã³ãè¨é²ãã¾ã';
 
   @override
   String get webVitals => 'Web Vitals';
 
   @override
-  String get webVitalsDesc => 'Core Web Vitalsを計測します';
+  String get webVitalsDesc => 'Core Web Vitalsãè¨æ¸¬ãã¾ã';
 
   @override
-  String get trackErrors => 'エラー追跡';
+  String get trackErrors => 'ã¨ã©ã¼è¿½è·¡';
 
   @override
-  String get trackErrorsDesc => 'JavaScriptエラーをキャプチャします';
+  String get trackErrorsDesc =>
+      'JavaScriptã¨ã©ã¼ãã­ã£ããã£ãã¾ã';
 
   @override
-  String get outboundLinksTracking => '外部リンク';
+  String get outboundLinksTracking => 'å¤é¨ãªã³ã¯';
 
   @override
-  String get outboundLinksDesc => '外部リンクのクリックを追跡します';
+  String get outboundLinksDesc =>
+      'å¤é¨ãªã³ã¯ã®ã¯ãªãã¯ãè¿½è·¡ãã¾ã';
 
   @override
-  String get excludedIps => '除外IP';
+  String get excludedIps => 'é¤å¤IP';
 
   @override
-  String get excludedCountries => '除外する国';
+  String get excludedCountries => 'é¤å¤ããå½';
 
   @override
-  String get settingsSaved => '設定を保存しました';
+  String get settingsSaved => 'è¨­å®ãä¿å­ãã¾ãã';
 
   @override
   String failedToSave(String error) {
-    return '保存に失敗しました: $error';
+    return 'ä¿å­ã«å¤±æãã¾ãã: $error';
   }
 
   @override
-  String get timeRange => '期間';
+  String get timeRange => 'æé';
 
   @override
-  String get today => '今日';
+  String get today => 'ä»æ¥';
 
   @override
-  String get yesterday => '昨日';
+  String get yesterday => 'æ¨æ¥';
 
   @override
-  String get last7Days => '過去7日間';
+  String get last7Days => 'éå»7æ¥é';
 
   @override
-  String get last30Days => '過去30日間';
+  String get last30Days => 'éå»30æ¥é';
 
   @override
-  String get thisWeek => '今週';
+  String get thisWeek => 'ä»é±';
 
   @override
-  String get thisMonth => '今月';
+  String get thisMonth => 'ä»æ';
 
   @override
-  String get thisYear => '今年';
+  String get thisYear => 'ä»å¹´';
 
   @override
-  String get customRange => 'カスタム期間';
+  String get customRange => 'ã«ã¹ã¿ã æé';
 
   @override
-  String get filter => 'フィルター';
+  String get filter => 'ãã£ã«ã¿ã¼';
 
   @override
-  String get addFilter => 'フィルターを追加';
+  String get addFilter => 'ãã£ã«ã¿ã¼ãè¿½å ';
 
   @override
-  String get parameter => 'パラメーター';
+  String get parameter => 'ãã©ã¡ã¼ã¿ã¼';
 
   @override
-  String get value => '値';
+  String get value => 'å¤';
 
   @override
-  String get enterFilterValue => 'フィルターの値を入力してください';
+  String get enterFilterValue =>
+      'ãã£ã«ã¿ã¼ã®å¤ãå¥åãã¦ãã ãã';
 
   @override
-  String get requestTimedOut => 'リクエストがタイムアウトしました。再度お試しください。';
+  String get requestTimedOut =>
+      'ãªã¯ã¨ã¹ããã¿ã¤ã ã¢ã¦ããã¾ãããååº¦ãè©¦ããã ããã';
 
   @override
-  String get networkError => 'ネットワークエラーです。接続を確認してください。';
+  String get networkError =>
+      'ãããã¯ã¼ã¯ã¨ã©ã¼ã§ããæ¥ç¶ãç¢ºèªãã¦ãã ããã';
 
   @override
-  String get sessionExpired => 'セッションの有効期限が切れました。再度ログインしてください。';
+  String get sessionExpired =>
+      'ã»ãã·ã§ã³ã®æå¹æéãåãã¾ãããååº¦ã­ã°ã¤ã³ãã¦ãã ããã';
 
   @override
-  String get accessDenied => 'アクセスが拒否されました。';
+  String get accessDenied => 'ã¢ã¯ã»ã¹ãæå¦ããã¾ããã';
 
   @override
-  String get dataNotFound => 'データが見つかりません。';
+  String get dataNotFound => 'ãã¼ã¿ãè¦ã¤ããã¾ããã';
 
   @override
-  String get serverError => 'サーバーエラーです。しばらくしてから再度お試しください。';
+  String get serverError =>
+      'ãµã¼ãã¼ã¨ã©ã¼ã§ãããã°ãããã¦ããååº¦ãè©¦ããã ããã';
 
   @override
-  String get failedToLoadGeneric => 'データの読み込みに失敗しました。再度お試しください。';
+  String get failedToLoadGeneric =>
+      'ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãããååº¦ãè©¦ããã ããã';
 
   @override
   String chartDataPoints(int count) {
-    return '$countデータポイントのチャート';
+    return '$countãã¼ã¿ãã¤ã³ãã®ãã£ã¼ã';
   }
 
   @override
   String previousPrefix(String value) {
-    return '前回: $value';
+    return 'åå: $value';
   }
 
   @override
   String performanceRatingLabel(String rating) {
-    return 'パフォーマンス評価: $rating';
+    return 'ããã©ã¼ãã³ã¹è©ä¾¡: $rating';
   }
 
   @override
-  String get loadingContent => 'コンテンツを読み込み中';
+  String get loadingContent => 'ã³ã³ãã³ããèª­ã¿è¾¼ã¿ä¸­';
 
   @override
-  String get language => '言語';
+  String get language => 'è¨èª';
 
   @override
-  String get selectLanguage => '言語を選択';
+  String get selectLanguage => 'è¨èªãé¸æ';
 
   @override
-  String get failedToLoadUserDetails => 'ユーザー詳細の読み込みに失敗しました';
+  String get failedToLoadUserDetails =>
+      'ã¦ã¼ã¶ã¼è©³ç´°ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
   String lastSeenPrefix(String value) {
-    return '最終閲覧: $value';
+    return 'æçµé²è¦§: $value';
   }
 
   @override
-  String get traits => '属性';
+  String get traits => 'å±æ§';
 
   @override
-  String get noTraits => 'このユーザーの属性はありません';
+  String get noTraits => 'ãã®ã¦ã¼ã¶ã¼ã®å±æ§ã¯ããã¾ãã';
 
   @override
-  String get sessionDetail => 'セッション詳細';
+  String get sessionDetail => 'ã»ãã·ã§ã³è©³ç´°';
 
   @override
-  String get failedToLoadSession => 'セッションの読み込みに失敗しました';
+  String get failedToLoadSession =>
+      'ã»ãã·ã§ã³ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get entryPageLabel => '入口ページ';
+  String get entryPageLabel => 'å¥å£ãã¼ã¸';
 
   @override
-  String get exitPage => '出口ページ';
+  String get exitPage => 'åºå£ãã¼ã¸';
 
   @override
-  String get browserAndDevice => 'ブラウザとデバイス';
+  String get browserAndDevice => 'ãã©ã¦ã¶ã¨ããã¤ã¹';
 
   @override
-  String get browser => 'ブラウザ';
+  String get browser => 'ãã©ã¦ã¶';
 
   @override
   String get os => 'OS';
 
   @override
-  String get device => 'デバイス';
+  String get device => 'ããã¤ã¹';
 
   @override
-  String get sourceLabel => 'ソース';
+  String get sourceLabel => 'ã½ã¼ã¹';
 
   @override
-  String get referrer => 'リファラー';
+  String get referrer => 'ãªãã¡ã©ã¼';
 
   @override
   String eventTimelineCount(int count) {
-    return 'イベントタイムライン ($count)';
+    return 'ã¤ãã³ãã¿ã¤ã ã©ã¤ã³ ($count)';
   }
 
   @override
-  String get noEvents => 'イベントなし';
+  String get noEvents => 'ã¤ãã³ããªã';
 
   @override
-  String get replayEventsTitle => 'リプレイイベント';
+  String get replayEventsTitle => 'ãªãã¬ã¤ã¤ãã³ã';
 
   @override
-  String get failedToLoadReplay => 'リプレイの読み込みに失敗しました';
+  String get failedToLoadReplay =>
+      'ãªãã¬ã¤ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noReplayEvents => 'リプレイイベントなし';
+  String get noReplayEvents => 'ãªãã¬ã¤ã¤ãã³ããªã';
 
   @override
-  String get totalEvents => 'イベント合計';
+  String get totalEvents => 'ã¤ãã³ãåè¨';
 
   @override
-  String get userActionsLabel => 'ユーザーアクション';
+  String get userActionsLabel => 'ã¦ã¼ã¶ã¼ã¢ã¯ã·ã§ã³';
 
   @override
   String eventTimelineActions(int count) {
-    return 'イベントタイムライン ($countアクション)';
+    return 'ã¤ãã³ãã¿ã¤ã ã©ã¤ã³ ($countã¢ã¯ã·ã§ã³)';
   }
 
   @override
-  String get eventLog => 'イベントログ';
+  String get eventLog => 'ã¤ãã³ãã­ã°';
 
   @override
-  String get viewEventLog => 'イベントログを表示';
+  String get viewEventLog => 'ã¤ãã³ãã­ã°ãè¡¨ç¤º';
 
   @override
-  String get failedToLoadEventLog => 'イベントログの読み込みに失敗しました';
+  String get failedToLoadEventLog =>
+      'ã¤ãã³ãã­ã°ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get activityHeatmap => 'ヒートマップ';
+  String get activityHeatmap => 'ãã¼ãããã';
 
   @override
-  String get heatmapLast4Weeks => '過去4週間';
+  String get heatmapLast4Weeks => 'éå»4é±é';
 
   @override
-  String get less => '少ない';
+  String get less => 'å°ãªã';
 
   @override
-  String get more => '多い';
+  String get more => 'å¤ã';
 
   @override
-  String get peakActivity => 'ピークアクティビティ';
+  String get peakActivity => 'ãã¼ã¯ã¢ã¯ãã£ããã£';
 
   @override
   String peakHour(String day, String time) {
@@ -811,90 +852,91 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String busiestDay(String day) {
-    return '最も忙しい日: $day';
+    return 'æãå¿ããæ¥: $day';
   }
 
   @override
-  String get dayMon => '月';
+  String get dayMon => 'æ';
 
   @override
-  String get dayTue => '火';
+  String get dayTue => 'ç«';
 
   @override
-  String get dayWed => '水';
+  String get dayWed => 'æ°´';
 
   @override
-  String get dayThu => '木';
+  String get dayThu => 'æ¨';
 
   @override
-  String get dayFri => '金';
+  String get dayFri => 'é';
 
   @override
-  String get daySat => '土';
+  String get daySat => 'å';
 
   @override
-  String get daySun => '日';
+  String get daySun => 'æ¥';
 
   @override
-  String get searchEvents => 'イベントを検索...';
+  String get searchEvents => 'ã¤ãã³ããæ¤ç´¢...';
 
   @override
-  String get allTypes => 'すべて';
+  String get allTypes => 'ãã¹ã¦';
 
   @override
-  String get noMatchingEvents => '一致するイベントがありません';
+  String get noMatchingEvents => 'ä¸è´ããã¤ãã³ããããã¾ãã';
 
   @override
-  String get liveView => 'ライブ';
+  String get liveView => 'ã©ã¤ã';
 
   @override
-  String get autoRefresh => '自動更新';
+  String get autoRefresh => 'èªåæ´æ°';
 
   @override
-  String get usersOnlineNow => '現在オンラインのユーザー';
+  String get usersOnlineNow => 'ç¾å¨ãªã³ã©ã¤ã³ã®ã¦ã¼ã¶ã¼';
 
   @override
   String lastUpdatedAt(String time) {
-    return '$time に更新';
+    return '$time ã«æ´æ°';
   }
 
   @override
-  String get last30Minutes => '過去30分';
+  String get last30Minutes => 'éå»30å';
 
   @override
-  String get last5Minutes => '過去5分';
+  String get last5Minutes => 'éå»5å';
 
   @override
-  String get recentEvents => '最近のイベント';
+  String get recentEvents => 'æè¿ã®ã¤ãã³ã';
 
   @override
-  String get noRecentEvents => '最近のイベントはありません';
+  String get noRecentEvents => 'æè¿ã®ã¤ãã³ãã¯ããã¾ãã';
 
   @override
-  String get retention => 'リテンション';
+  String get retention => 'ãªãã³ã·ã§ã³';
 
   @override
-  String get weekly => '週次';
+  String get weekly => 'é±æ¬¡';
 
   @override
-  String get daily => '日次';
+  String get daily => 'æ¥æ¬¡';
 
   @override
-  String get retentionRange => '範囲';
+  String get retentionRange => 'ç¯å²';
 
   @override
   String retentionDays(int count) {
-    return '$count日間';
+    return '$countæ¥é';
   }
 
   @override
-  String get failedToLoadRetention => 'リテンションデータの読み込みに失敗しました';
+  String get failedToLoadRetention =>
+      'ãªãã³ã·ã§ã³ãã¼ã¿ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noRetentionData => 'リテンションデータなし';
+  String get noRetentionData => 'ãªãã³ã·ã§ã³ãã¼ã¿ãªã';
 
   @override
-  String get cohort => 'コホート';
+  String get cohort => 'ã³ãã¼ã';
 
   @override
   String get retentionWeekPrefix => 'W';
@@ -903,57 +945,85 @@ class AppLocalizationsJa extends AppLocalizations {
   String get retentionDayPrefix => 'D';
 
   @override
-  String get journeys => 'ジャーニー';
+  String get journeys => 'ã¸ã£ã¼ãã¼';
 
   @override
-  String get journeySteps => 'ステップ';
+  String get journeySteps => 'ã¹ããã';
 
   @override
-  String get failedToLoadJourneys => 'ジャーニーの読み込みに失敗しました';
+  String get failedToLoadJourneys =>
+      'ã¸ã£ã¼ãã¼ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noJourneysFound => 'ジャーニーが見つかりません';
+  String get noJourneysFound => 'ã¸ã£ã¼ãã¼ãè¦ã¤ããã¾ãã';
 
   @override
   String journeySessions(String count) {
-    return '$countセッション';
+    return '$countã»ãã·ã§ã³';
   }
 
   @override
-  String get locations => 'ロケーション';
+  String get locations => 'ã­ã±ã¼ã·ã§ã³';
 
   @override
-  String get locationCities => '都市';
+  String get locationCities => 'é½å¸';
 
   @override
-  String get failedToLoadLocations => 'ロケーションの読み込みに失敗しました';
+  String get failedToLoadLocations =>
+      'ã­ã±ã¼ã·ã§ã³ã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noLocationsFound => 'ロケーションが見つかりません';
+  String get noLocationsFound => 'ã­ã±ã¼ã·ã§ã³ãè¦ã¤ããã¾ãã';
 
   @override
-  String get coreFeatures => 'コア';
+  String get coreFeatures => 'ã³ã¢';
 
   @override
-  String get insights => 'インサイト';
+  String get insights => 'ã¤ã³ãµã¤ã';
 
   @override
-  String get tools => 'ツール';
+  String get tools => 'ãã¼ã«';
 
   @override
-  String get userTraits => 'トレイト';
+  String get userTraits => 'ãã¬ã¤ã';
 
   @override
-  String get failedToLoadUserTraits => 'ユーザートレイトの読み込みに失敗しました';
+  String get failedToLoadUserTraits =>
+      'ã¦ã¼ã¶ã¼ãã¬ã¤ãã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ãã';
 
   @override
-  String get noUserTraits => 'トレイトが見つかりません';
+  String get noUserTraits => 'ãã¬ã¤ããè¦ã¤ããã¾ãã';
 
   @override
-  String get noUserTraitsHint => 'カスタムプロパティでユーザーが識別されると表示されます';
+  String get noUserTraitsHint =>
+      'ã«ã¹ã¿ã ãã­ããã£ã§ã¦ã¼ã¶ã¼ãè­å¥ãããã¨è¡¨ç¤ºããã¾ã';
 
   @override
   String traitUsersCount(String count) {
-    return '$countユーザー';
+    return '$countã¦ã¼ã¶ã¼';
   }
+
+  @override
+  String get entryPages => '入口ページ';
+
+  @override
+  String get exitPages => '出口ページ';
+
+  @override
+  String get browsers => 'ブラウザ';
+
+  @override
+  String get operatingSystems => 'OS';
+
+  @override
+  String get utmSource => 'UTMソース';
+
+  @override
+  String get channel => 'チャネル';
+
+  @override
+  String get pageTitles => 'ページタイトル';
+
+  @override
+  String get sources => 'ソース';
 }

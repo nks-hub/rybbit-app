@@ -399,12 +399,37 @@ class AnalyticsScreen extends ConsumerWidget {
           grid([
             linkCard(l10n.pages, Icons.article_outlined,
                 () => context.push('/analytics/$siteId/metrics/pathname')),
+            linkCard(l10n.pageTitles, Icons.title,
+                () => context.push('/analytics/$siteId/metrics/page_title')),
+            linkCard(l10n.entryPages, Icons.login,
+                () => context.push('/analytics/$siteId/metrics/entry_page')),
+            linkCard(l10n.exitPages, Icons.logout,
+                () => context.push('/analytics/$siteId/metrics/exit_page')),
+          ]),
+
+          // Sources
+          sectionTitle(l10n.sources.toUpperCase()),
+          grid([
             linkCard(l10n.referrers, Icons.link,
                 () => context.push('/analytics/$siteId/metrics/referrer')),
+            linkCard(l10n.channel, Icons.trending_up,
+                () => context.push('/analytics/$siteId/metrics/channel')),
+            linkCard(l10n.utmSource, Icons.campaign,
+                () => context.push('/analytics/$siteId/metrics/utm_source')),
             linkCard(l10n.countries, Icons.public,
                 () => context.push('/analytics/$siteId/metrics/country')),
+          ]),
+
+          // Devices & Tech
+          grid([
             linkCard(l10n.devices, Icons.devices,
                 () => context.push('/analytics/$siteId/metrics/device_type')),
+            linkCard(l10n.browsers, Icons.web,
+                () => context.push('/analytics/$siteId/metrics/browser')),
+            linkCard(l10n.operatingSystems, Icons.computer,
+                () => context.push('/analytics/$siteId/metrics/operating_system')),
+            linkCard(l10n.locations, Icons.place,
+                () => context.push('/analytics/$siteId/locations')),
           ]),
 
           // Core features
@@ -427,10 +452,10 @@ class AnalyticsScreen extends ConsumerWidget {
                 () => context.push('/analytics/$siteId/retention')),
             linkCard(l10n.journeys, Icons.route,
                 () => context.push('/analytics/$siteId/journeys')),
-            linkCard(l10n.locations, Icons.place,
-                () => context.push('/analytics/$siteId/locations')),
             linkCard(l10n.activityHeatmap, Icons.grid_view,
                 () => context.push('/analytics/$siteId/heatmap')),
+            linkCard(l10n.eventLog, Icons.list_alt,
+                () => context.push('/analytics/$siteId/event-log')),
           ]),
 
           // Tools

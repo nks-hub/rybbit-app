@@ -972,4 +972,28 @@ class AppLocalizationsFr extends AppLocalizations {
   String traitUsersCount(String count) {
     return '$count utilisateurs';
   }
+
+  @override
+  String get entryPages => 'Pages d\'entrée';
+
+  @override
+  String get exitPages => 'Pages de sortie';
+
+  @override
+  String get browsers => 'Navigateurs';
+
+  @override
+  String get operatingSystems => 'Système';
+
+  @override
+  String get utmSource => 'Source UTM';
+
+  @override
+  String get channel => 'Canal';
+
+  @override
+  String get pageTitles => 'Titres de page';
+
+  @override
+  String get sources => 'Sources';
 }

@@ -357,5 +357,14 @@
   "noUserTraits": "No user traits found",
   "noUserTraitsHint": "User traits will appear when users are identified with custom properties",
   "traitUsersCount": "{count} users",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
+
+  "entryPages": "Entry Pages",
+  "exitPages": "Exit Pages",
+  "browsers": "Browsers",
+  "operatingSystems": "OS",
+  "utmSource": "UTM Source",
+  "channel": "Channel",
+  "pageTitles": "Page Titles",
+  "sources": "Sources"
 }

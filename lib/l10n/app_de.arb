@@ -479,5 +479,14 @@
   "noUserTraits": "Keine Benutzermerkmale gefunden",
   "noUserTraitsHint": "Merkmale erscheinen, wenn Benutzer mit benutzerdefinierten Eigenschaften identifiziert werden",
   "traitUsersCount": "{count} Benutzer",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
+
+  "entryPages": "Einstiegsseiten",
+  "exitPages": "Ausstiegsseiten",
+  "browsers": "Browser",
+  "operatingSystems": "Betriebssystem",
+  "utmSource": "UTM-Quelle",
+  "channel": "Kanal",
+  "pageTitles": "Seitentitel",
+  "sources": "Quellen"
 }

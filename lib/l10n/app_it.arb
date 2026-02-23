@@ -479,5 +479,14 @@
   "noUserTraits": "Nessun attributo trovato",
   "noUserTraitsHint": "Gli attributi appariranno quando gli utenti verranno identificati con proprietà personalizzate",
   "traitUsersCount": "{count} utenti",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
+
+  "entryPages": "Pagine di ingresso",
+  "exitPages": "Pagine di uscita",
+  "browsers": "Browser",
+  "operatingSystems": "SO",
+  "utmSource": "Fonte UTM",
+  "channel": "Canale",
+  "pageTitles": "Titoli pagina",
+  "sources": "Fonti"
 }

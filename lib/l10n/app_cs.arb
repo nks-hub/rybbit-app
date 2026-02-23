@@ -1,32 +1,32 @@
 {
   "@@locale": "cs",
   "appName": "Rybbit",
-  "appSubtitle": "Neoficiální",
-  "cancel": "Zrušit",
+  "appSubtitle": "NeoficiÃ¡lnÃ­",
+  "cancel": "ZruÅ¡it",
   "delete": "Smazat",
-  "save": "Uložit",
+  "save": "UloÅ¾it",
   "update": "Aktualizovat",
-  "create": "Vytvořit",
+  "create": "VytvoÅit",
   "retry": "Zkusit znovu",
-  "add": "Přidat",
+  "add": "PÅidat",
   "edit": "Upravit",
   "clear": "Vymazat",
-  "apply": "Použít",
-  "goBack": "Zpět",
-  "noData": "Žádná data",
-  "loading": "Načítání",
-  "logout": "Odhlásit se",
-  "close": "Zavřít",
+  "apply": "PouÅ¾Ã­t",
+  "goBack": "ZpÄt",
+  "noData": "Å½Ã¡dnÃ¡ data",
+  "loading": "NaÄÃ­tÃ¡nÃ­",
+  "logout": "OdhlÃ¡sit se",
+  "close": "ZavÅÃ­t",
   "serverUrl": "URL serveru",
   "serverUrlHint": "https://vase-rybbit-instance.com",
   "email": "E-mail",
-  "apiKey": "API klíč",
+  "apiKey": "API klÃ­Ä",
   "password": "Heslo",
-  "connect": "Připojit",
+  "connect": "PÅipojit",
   "organizations": "Organizace",
-  "noSitesFound": "Žádné weby nenalezeny",
-  "noSitesHint": "Pro začátek přidejte web ve webovém rozhraní.",
-  "siteCount": "{count, plural, one{1 web} few{{count} weby} other{{count} webů}}",
+  "noSitesFound": "Å½Ã¡dnÃ© weby nenalezeny",
+  "noSitesHint": "Pro zaÄÃ¡tek pÅidejte web ve webovÃ©m rozhranÃ­.",
+  "siteCount": "{count, plural, one{1 web} few{{count} weby} other{{count} webÅ¯}}",
   "@siteCount": {
     "placeholders": {
       "count": {
@@ -34,7 +34,7 @@
       }
     }
   },
-  "members": "Členové ({count})",
+  "members": "ÄlenovÃ© ({count})",
   "@members": {
     "placeholders": {
       "count": {
@@ -42,30 +42,30 @@
       }
     }
   },
-  "failedToLoadOrganizations": "Nepodařilo se načíst organizace",
-  "noOrganizations": "Žádné organizace",
-  "noOrganizationsHint": "Organizace lze vytvořit ve webovém rozhraní",
-  "failedToLoadMembers": "Nepodařilo se načíst členy",
-  "failedToLoadSites": "Nepodařilo se načíst weby",
-  "failedToLoadAnalytics": "Nepodařilo se načíst analytiku",
-  "noDataAvailable": "Žádná data k dispozici",
-  "users": "Uživatelé",
+  "failedToLoadOrganizations": "NepodaÅilo se naÄÃ­st organizace",
+  "noOrganizations": "Å½Ã¡dnÃ© organizace",
+  "noOrganizationsHint": "Organizace lze vytvoÅit ve webovÃ©m rozhranÃ­",
+  "failedToLoadMembers": "NepodaÅilo se naÄÃ­st Äleny",
+  "failedToLoadSites": "NepodaÅilo se naÄÃ­st weby",
+  "failedToLoadAnalytics": "NepodaÅilo se naÄÃ­st analytiku",
+  "noDataAvailable": "Å½Ã¡dnÃ¡ data k dispozici",
+  "users": "UÅ¾ivatelÃ©",
   "sessions": "Relace",
-  "pageviews": "Zobrazení stránek",
-  "pagesPerSession": "Stránky/relace",
-  "bounceRate": "Míra okamžitého opuštění",
-  "duration": "Doba trvání",
+  "pageviews": "ZobrazenÃ­ strÃ¡nek",
+  "pagesPerSession": "StrÃ¡nky/relace",
+  "bounceRate": "MÃ­ra okamÅ¾itÃ©ho opuÅ¡tÄnÃ­",
+  "duration": "Doba trvÃ¡nÃ­",
   "metrics": "Metriky",
-  "pages": "Stránky",
-  "referrers": "Odkazující",
-  "countries": "Země",
-  "devices": "Zařízení",
-  "performance": "Výkon",
-  "goals": "Cíle",
-  "funnels": "Trychtýře",
-  "replay": "Přehrávání",
-  "config": "Nastavení",
-  "usersOnline": "{count} uživatelů online",
+  "pages": "StrÃ¡nky",
+  "referrers": "OdkazujÃ­cÃ­",
+  "countries": "ZemÄ",
+  "devices": "ZaÅÃ­zenÃ­",
+  "performance": "VÃ½kon",
+  "goals": "CÃ­le",
+  "funnels": "TrychtÃ½Åe",
+  "replay": "PÅehrÃ¡vÃ¡nÃ­",
+  "config": "NastavenÃ­",
+  "usersOnline": "{count} uÅ¾ivatelÅ¯ online",
   "@usersOnline": {
     "placeholders": {
       "count": {
@@ -73,22 +73,22 @@
       }
     }
   },
-  "events": "Události",
-  "eventsOverTime": "Události v čase",
-  "eventNames": "Názvy událostí",
-  "noCustomEventsTracked": "Žádné vlastní události nebyly zaznamenány",
-  "failedToLoadProperties": "Nepodařilo se načíst vlastnosti",
-  "noProperties": "Žádné vlastnosti",
-  "outboundLinks": "Odchozí odkazy",
-  "noOutboundLinksTracked": "Žádné odchozí odkazy nebyly zaznamenány",
-  "failedToLoadChart": "Nepodařilo se načíst graf",
+  "events": "UdÃ¡losti",
+  "eventsOverTime": "UdÃ¡losti v Äase",
+  "eventNames": "NÃ¡zvy udÃ¡lostÃ­",
+  "noCustomEventsTracked": "Å½Ã¡dnÃ© vlastnÃ­ udÃ¡losti nebyly zaznamenÃ¡ny",
+  "failedToLoadProperties": "NepodaÅilo se naÄÃ­st vlastnosti",
+  "noProperties": "Å½Ã¡dnÃ© vlastnosti",
+  "outboundLinks": "OdchozÃ­ odkazy",
+  "noOutboundLinksTracked": "Å½Ã¡dnÃ© odchozÃ­ odkazy nebyly zaznamenÃ¡ny",
+  "failedToLoadChart": "NepodaÅilo se naÄÃ­st graf",
   "errors": "Chyby",
-  "failedToLoadErrors": "Nepodařilo se načíst chyby",
-  "noErrorsFound": "Žádné chyby nenalezeny",
-  "everythingLooksGood": "Vše vypadá v pořádku!",
-  "occurrences": "výskytů",
-  "sessionsAffected": "dotčených relací",
-  "failedToLoadEventsWithError": "Nepodařilo se načíst události: {error}",
+  "failedToLoadErrors": "NepodaÅilo se naÄÃ­st chyby",
+  "noErrorsFound": "Å½Ã¡dnÃ© chyby nenalezeny",
+  "everythingLooksGood": "VÅ¡e vypadÃ¡ v poÅÃ¡dku!",
+  "occurrences": "vÃ½skytÅ¯",
+  "sessionsAffected": "dotÄenÃ½ch relacÃ­",
+  "failedToLoadEventsWithError": "NepodaÅilo se naÄÃ­st udÃ¡losti: {error}",
   "@failedToLoadEventsWithError": {
     "placeholders": {
       "error": {
@@ -96,11 +96,11 @@
       }
     }
   },
-  "noEventsFound": "Žádné události nenalezeny",
-  "failedToLoadFunnels": "Nepodařilo se načíst trychtýře",
-  "noFunnelsSaved": "Žádné uložené trychtýře",
-  "createFunnelsHint": "Trychtýře lze vytvořit ve webovém rozhraní",
-  "deleteFunnel": "Smazat trychtýř",
+  "noEventsFound": "Å½Ã¡dnÃ© udÃ¡losti nenalezeny",
+  "failedToLoadFunnels": "NepodaÅilo se naÄÃ­st trychtÃ½Åe",
+  "noFunnelsSaved": "Å½Ã¡dnÃ© uloÅ¾enÃ© trychtÃ½Åe",
+  "createFunnelsHint": "TrychtÃ½Åe lze vytvoÅit ve webovÃ©m rozhranÃ­",
+  "deleteFunnel": "Smazat trychtÃ½Å",
   "deleteFunnelConfirm": "Smazat \"{name}\"?",
   "@deleteFunnelConfirm": {
     "placeholders": {
@@ -109,7 +109,7 @@
       }
     }
   },
-  "failedToDeleteFunnel": "Nepodařilo se smazat trychtýř: {error}",
+  "failedToDeleteFunnel": "NepodaÅilo se smazat trychtÃ½Å: {error}",
   "@failedToDeleteFunnel": {
     "placeholders": {
       "error": {
@@ -117,8 +117,8 @@
       }
     }
   },
-  "noStepsDefined": "Pro tento trychtýř nejsou definovány žádné kroky",
-  "failedToAnalyze": "Analýza se nezdařila: {error}",
+  "noStepsDefined": "Pro tento trychtÃ½Å nejsou definovÃ¡ny Å¾Ã¡dnÃ© kroky",
+  "failedToAnalyze": "AnalÃ½za se nezdaÅila: {error}",
   "@failedToAnalyze": {
     "placeholders": {
       "error": {
@@ -126,7 +126,7 @@
       }
     }
   },
-  "overallConversion": "Celková konverze",
+  "overallConversion": "CelkovÃ¡ konverze",
   "dropoff": "Odpad: {value}",
   "@dropoff": {
     "placeholders": {
@@ -135,21 +135,21 @@
       }
     }
   },
-  "createGoal": "Vytvořit cíl",
-  "failedToLoadGoals": "Nepodařilo se načíst cíle",
-  "noGoalsConfigured": "Žádné cíle nejsou nastaveny",
-  "noGoalsHint": "Klepněte na + pro vytvoření nového cíle",
+  "createGoal": "VytvoÅit cÃ­l",
+  "failedToLoadGoals": "NepodaÅilo se naÄÃ­st cÃ­le",
+  "noGoalsConfigured": "Å½Ã¡dnÃ© cÃ­le nejsou nastaveny",
+  "noGoalsHint": "KlepnÄte na + pro vytvoÅenÃ­ novÃ©ho cÃ­le",
   "conversions": "Konverze",
-  "rate": "Míra",
-  "editGoal": "Upravit cíl",
-  "createGoalTitle": "Vytvořit cíl",
-  "name": "Název",
+  "rate": "MÃ­ra",
+  "editGoal": "Upravit cÃ­l",
+  "createGoalTitle": "VytvoÅit cÃ­l",
+  "name": "NÃ¡zev",
   "type": "Typ",
   "path": "Cesta",
-  "event": "Událost",
+  "event": "UdÃ¡lost",
   "pathPattern": "Vzor cesty",
-  "eventName": "Název události",
-  "deleteGoal": "Smazat cíl",
+  "eventName": "NÃ¡zev udÃ¡losti",
+  "deleteGoal": "Smazat cÃ­l",
   "deleteGoalConfirm": "Smazat \"{name}\"?",
   "@deleteGoalConfirm": {
     "placeholders": {
@@ -158,7 +158,7 @@
       }
     }
   },
-  "failedToDeleteGoal": "Nepodařilo se smazat cíl: {error}",
+  "failedToDeleteGoal": "NepodaÅilo se smazat cÃ­l: {error}",
   "@failedToDeleteGoal": {
     "placeholders": {
       "error": {
@@ -166,8 +166,8 @@
       }
     }
   },
-  "failedToLoadPerformanceData": "Nepodařilo se načíst data o výkonu",
-  "metricOverTime": "{metric} v čase",
+  "failedToLoadPerformanceData": "NepodaÅilo se naÄÃ­st data o vÃ½konu",
+  "metricOverTime": "{metric} v Äase",
   "@metricOverTime": {
     "placeholders": {
       "metric": {
@@ -176,29 +176,29 @@
     }
   },
   "byDimension": "Podle dimenze",
-  "failedToLoadDimensionData": "Nepodařilo se načíst data dimenze",
-  "good": "Dobré",
-  "needsImprovement": "Vyžaduje zlepšení",
-  "poor": "Špatné",
+  "failedToLoadDimensionData": "NepodaÅilo se naÄÃ­st data dimenze",
+  "good": "DobrÃ©",
+  "needsImprovement": "VyÅ¾aduje zlepÅ¡enÃ­",
+  "poor": "Å patnÃ©",
   "largestContentfulPaint": "Largest Contentful Paint",
   "cumulativeLayoutShift": "Cumulative Layout Shift",
   "firstContentfulPaint": "First Contentful Paint",
   "timeToFirstByte": "Time to First Byte",
   "interactionToNextPaint": "Interaction to Next Paint",
-  "dimPages": "Stránky",
-  "dimCountries": "Země",
-  "dimDevices": "Zařízení",
-  "dimBrowsers": "Prohlížeče",
+  "dimPages": "StrÃ¡nky",
+  "dimCountries": "ZemÄ",
+  "dimDevices": "ZaÅÃ­zenÃ­",
+  "dimBrowsers": "ProhlÃ­Å¾eÄe",
   "dimOS": "OS",
-  "sessionFilters": "Filtry relací",
-  "minPageviews": "Min. zobrazení stránek",
-  "minEvents": "Min. událostí",
-  "minDurationSeconds": "Min. doba trvání (sekundy)",
-  "failedToLoadSessions": "Nepodařilo se načíst relace",
-  "noSessionsFound": "Žádné relace nenalezeny",
+  "sessionFilters": "Filtry relacÃ­",
+  "minPageviews": "Min. zobrazenÃ­ strÃ¡nek",
+  "minEvents": "Min. udÃ¡lostÃ­",
+  "minDurationSeconds": "Min. doba trvÃ¡nÃ­ (sekundy)",
+  "failedToLoadSessions": "NepodaÅilo se naÄÃ­st relace",
+  "noSessionsFound": "Å½Ã¡dnÃ© relace nenalezeny",
   "filterSessions": "Filtrovat relace",
-  "loadingMoreSessions": "Načítání dalších relací",
-  "entryPage": "Vstupní stránka: {page}",
+  "loadingMoreSessions": "NaÄÃ­tÃ¡nÃ­ dalÅ¡Ã­ch relacÃ­",
+  "entryPage": "VstupnÃ­ strÃ¡nka: {page}",
   "@entryPage": {
     "placeholders": {
       "page": {
@@ -206,7 +206,7 @@
       }
     }
   },
-  "nPages": "{count} stránek",
+  "nPages": "{count} strÃ¡nek",
   "@nPages": {
     "placeholders": {
       "count": {
@@ -214,13 +214,13 @@
       }
     }
   },
-  "sessionReplays": "Přehrávání relací",
-  "failedToLoadReplays": "Nepodařilo se načíst přehrávání",
-  "noReplaysFound": "Žádná přehrávání nenalezena",
-  "noReplaysHint": "Přehrávání relací se zde zobrazí, jakmile budou povolena.",
-  "previousPage": "Předchozí stránka",
-  "nextPage": "Další stránka",
-  "pageNumber": "Stránka {number}",
+  "sessionReplays": "PÅehrÃ¡vÃ¡nÃ­ relacÃ­",
+  "failedToLoadReplays": "NepodaÅilo se naÄÃ­st pÅehrÃ¡vÃ¡nÃ­",
+  "noReplaysFound": "Å½Ã¡dnÃ¡ pÅehrÃ¡vÃ¡nÃ­ nenalezena",
+  "noReplaysHint": "PÅehrÃ¡vÃ¡nÃ­ relacÃ­ se zde zobrazÃ­, jakmile budou povolena.",
+  "previousPage": "PÅedchozÃ­ strÃ¡nka",
+  "nextPage": "DalÅ¡Ã­ strÃ¡nka",
+  "pageNumber": "StrÃ¡nka {number}",
   "@pageNumber": {
     "placeholders": {
       "number": {
@@ -228,24 +228,24 @@
       }
     }
   },
-  "unknownBrowser": "Neznámý prohlížeč",
-  "unknownCountry": "Neznámá země",
-  "sortUsers": "Řadit uživatele",
-  "showAllUsers": "Zobrazit všechny uživatele",
-  "showIdentifiedOnly": "Zobrazit pouze identifikované",
-  "searchUsers": "Hledat uživatele",
-  "searchUsersHint": "Hledat uživatele...",
-  "clearSearch": "Vymazat hledání",
-  "failedToLoadUsers": "Nepodařilo se načíst uživatele",
-  "noUsersFound": "Žádní uživatelé nenalezeni",
-  "noIdentifiedUsers": "Žádní identifikovaní uživatelé",
-  "usersWillAppear": "Uživatelé se zobrazí po jejich identifikaci",
-  "tryDifferentSearch": "Zkuste jiný vyhledávací výraz",
-  "sortedBy": "Řazeno podle",
-  "loadingMoreUsers": "Načítání dalších uživatelů",
-  "lastSeen": "Naposledy viděn",
-  "firstSeen": "Poprvé viděn",
-  "nUsers": "{count} uživatelů",
+  "unknownBrowser": "NeznÃ¡mÃ½ prohlÃ­Å¾eÄ",
+  "unknownCountry": "NeznÃ¡mÃ¡ zemÄ",
+  "sortUsers": "Åadit uÅ¾ivatele",
+  "showAllUsers": "Zobrazit vÅ¡echny uÅ¾ivatele",
+  "showIdentifiedOnly": "Zobrazit pouze identifikovanÃ©",
+  "searchUsers": "Hledat uÅ¾ivatele",
+  "searchUsersHint": "Hledat uÅ¾ivatele...",
+  "clearSearch": "Vymazat hledÃ¡nÃ­",
+  "failedToLoadUsers": "NepodaÅilo se naÄÃ­st uÅ¾ivatele",
+  "noUsersFound": "Å½Ã¡dnÃ­ uÅ¾ivatelÃ© nenalezeni",
+  "noIdentifiedUsers": "Å½Ã¡dnÃ­ identifikovanÃ­ uÅ¾ivatelÃ©",
+  "usersWillAppear": "UÅ¾ivatelÃ© se zobrazÃ­ po jejich identifikaci",
+  "tryDifferentSearch": "Zkuste jinÃ½ vyhledÃ¡vacÃ­ vÃ½raz",
+  "sortedBy": "Åazeno podle",
+  "loadingMoreUsers": "NaÄÃ­tÃ¡nÃ­ dalÅ¡Ã­ch uÅ¾ivatelÅ¯",
+  "lastSeen": "Naposledy vidÄn",
+  "firstSeen": "PoprvÃ© vidÄn",
+  "nUsers": "{count} uÅ¾ivatelÅ¯",
   "@nUsers": {
     "placeholders": {
       "count": {
@@ -253,7 +253,7 @@
       }
     }
   },
-  "nSessions": "{count, plural, one{1 relace} few{{count} relace} other{{count} relací}}",
+  "nSessions": "{count, plural, one{1 relace} few{{count} relace} other{{count} relacÃ­}}",
   "@nSessions": {
     "placeholders": {
       "count": {
@@ -269,10 +269,10 @@
       }
     }
   },
-  "failedToLoadSiteConfig": "Nepodařilo se načíst nastavení webu",
-  "failedToLoadMetrics": "Nepodařilo se načíst metriky",
-  "loadingMoreMetrics": "Načítání dalších metrik",
-  "noMetricData": "Žádná data pro {metric}",
+  "failedToLoadSiteConfig": "NepodaÅilo se naÄÃ­st nastavenÃ­ webu",
+  "failedToLoadMetrics": "NepodaÅilo se naÄÃ­st metriky",
+  "loadingMoreMetrics": "NaÄÃ­tÃ¡nÃ­ dalÅ¡Ã­ch metrik",
+  "noMetricData": "Å½Ã¡dnÃ¡ data pro {metric}",
   "@noMetricData": {
     "placeholders": {
       "metric": {
@@ -280,42 +280,42 @@
       }
     }
   },
-  "settings": "Nastavení",
-  "connection": "Připojení",
+  "settings": "NastavenÃ­",
+  "connection": "PÅipojenÃ­",
   "notConfigured": "Nenastaveno",
-  "authMethod": "Metoda ověření",
+  "authMethod": "Metoda ovÄÅenÃ­",
   "sessionCookie": "Cookie relace",
-  "loggedInAs": "Přihlášen jako",
-  "unknown": "Neznámé",
+  "loggedInAs": "PÅihlÃ¡Å¡en jako",
+  "unknown": "NeznÃ¡mÃ©",
   "appearance": "Vzhled",
   "theme": "Motiv",
-  "dark": "Tmavý",
-  "light": "Světlý",
-  "auto": "Automatický",
+  "dark": "TmavÃ½",
+  "light": "SvÄtlÃ½",
+  "auto": "AutomatickÃ½",
   "about": "O aplikaci",
   "appVersion": "Verze aplikace",
-  "openSourceAnalytics": "Open source webová analytika",
-  "logoutConfirm": "Opravdu se chcete odhlásit?",
-  "siteSettings": "Nastavení webu",
+  "openSourceAnalytics": "Open source webovÃ¡ analytika",
+  "logoutConfirm": "Opravdu se chcete odhlÃ¡sit?",
+  "siteSettings": "NastavenÃ­ webu",
   "siteInformation": "Informace o webu",
-  "domain": "Doména",
+  "domain": "DomÃ©na",
   "siteId": "ID webu",
-  "created": "Vytvořeno",
-  "trackingSettings": "Nastavení sledování",
-  "publicDashboard": "Veřejný dashboard",
-  "publicDashboardDesc": "Povolit veřejný přístup k analytice",
-  "sessionReplay": "Přehrávání relací",
-  "sessionReplayDesc": "Zaznamenávat uživatelské relace",
+  "created": "VytvoÅeno",
+  "trackingSettings": "NastavenÃ­ sledovÃ¡nÃ­",
+  "publicDashboard": "VeÅejnÃ½ dashboard",
+  "publicDashboardDesc": "Povolit veÅejnÃ½ pÅÃ­stup k analytice",
+  "sessionReplay": "PÅehrÃ¡vÃ¡nÃ­ relacÃ­",
+  "sessionReplayDesc": "ZaznamenÃ¡vat uÅ¾ivatelskÃ© relace",
   "webVitals": "Web Vitals",
   "webVitalsDesc": "Sledovat Core Web Vitals",
-  "trackErrors": "Sledování chyb",
-  "trackErrorsDesc": "Zachytávat JavaScript chyby",
-  "outboundLinksTracking": "Odchozí odkazy",
-  "outboundLinksDesc": "Sledovat kliknutí na odchozí odkazy",
-  "excludedIps": "Vyloučené IP adresy",
-  "excludedCountries": "Vyloučené země",
-  "settingsSaved": "Nastavení uloženo",
-  "failedToSave": "Nepodařilo se uložit: {error}",
+  "trackErrors": "SledovÃ¡nÃ­ chyb",
+  "trackErrorsDesc": "ZachytÃ¡vat JavaScript chyby",
+  "outboundLinksTracking": "OdchozÃ­ odkazy",
+  "outboundLinksDesc": "Sledovat kliknutÃ­ na odchozÃ­ odkazy",
+  "excludedIps": "VylouÄenÃ© IP adresy",
+  "excludedCountries": "VylouÄenÃ© zemÄ",
+  "settingsSaved": "NastavenÃ­ uloÅ¾eno",
+  "failedToSave": "NepodaÅilo se uloÅ¾it: {error}",
   "@failedToSave": {
     "placeholders": {
       "error": {
@@ -323,28 +323,28 @@
       }
     }
   },
-  "timeRange": "Časové období",
+  "timeRange": "ÄasovÃ© obdobÃ­",
   "today": "Dnes",
-  "yesterday": "Včera",
-  "last7Days": "Posledních 7 dní",
-  "last30Days": "Posledních 30 dní",
-  "thisWeek": "Tento týden",
-  "thisMonth": "Tento měsíc",
+  "yesterday": "VÄera",
+  "last7Days": "PoslednÃ­ch 7 dnÃ­",
+  "last30Days": "PoslednÃ­ch 30 dnÃ­",
+  "thisWeek": "Tento tÃ½den",
+  "thisMonth": "Tento mÄsÃ­c",
   "thisYear": "Tento rok",
-  "customRange": "Vlastní období",
+  "customRange": "VlastnÃ­ obdobÃ­",
   "filter": "Filtr",
-  "addFilter": "Přidat filtr",
+  "addFilter": "PÅidat filtr",
   "parameter": "Parametr",
   "value": "Hodnota",
   "enterFilterValue": "Zadejte hodnotu filtru",
-  "requestTimedOut": "Požadavek vypršel. Zkuste to prosím znovu.",
-  "networkError": "Chyba sítě. Zkontrolujte připojení.",
-  "sessionExpired": "Relace vypršela. Přihlaste se prosím znovu.",
-  "accessDenied": "Přístup odepřen.",
+  "requestTimedOut": "PoÅ¾adavek vyprÅ¡el. Zkuste to prosÃ­m znovu.",
+  "networkError": "Chyba sÃ­tÄ. Zkontrolujte pÅipojenÃ­.",
+  "sessionExpired": "Relace vyprÅ¡ela. PÅihlaste se prosÃ­m znovu.",
+  "accessDenied": "PÅÃ­stup odepÅen.",
   "dataNotFound": "Data nenalezena.",
-  "serverError": "Chyba serveru. Zkuste to prosím později.",
-  "failedToLoadGeneric": "Nepodařilo se načíst data. Zkuste to prosím znovu.",
-  "chartDataPoints": "Graf s {count} datovými body",
+  "serverError": "Chyba serveru. Zkuste to prosÃ­m pozdÄji.",
+  "failedToLoadGeneric": "NepodaÅilo se naÄÃ­st data. Zkuste to prosÃ­m znovu.",
+  "chartDataPoints": "Graf s {count} datovÃ½mi body",
   "@chartDataPoints": {
     "placeholders": {
       "count": {
@@ -352,7 +352,7 @@
       }
     }
   },
-  "previousPrefix": "Předchozí: {value}",
+  "previousPrefix": "PÅedchozÃ­: {value}",
   "@previousPrefix": {
     "placeholders": {
       "value": {
@@ -360,7 +360,7 @@
       }
     }
   },
-  "performanceRatingLabel": "Hodnocení výkonu: {rating}",
+  "performanceRatingLabel": "HodnocenÃ­ vÃ½konu: {rating}",
   "@performanceRatingLabel": {
     "placeholders": {
       "rating": {
@@ -368,11 +368,11 @@
       }
     }
   },
-  "loadingContent": "Načítání obsahu",
+  "loadingContent": "NaÄÃ­tÃ¡nÃ­ obsahu",
   "language": "Jazyk",
   "selectLanguage": "Vyberte jazyk",
-  "failedToLoadUserDetails": "Nepodařilo se načíst detaily uživatele",
-  "lastSeenPrefix": "Naposledy viděn: {value}",
+  "failedToLoadUserDetails": "NepodaÅilo se naÄÃ­st detaily uÅ¾ivatele",
+  "lastSeenPrefix": "Naposledy vidÄn: {value}",
   "@lastSeenPrefix": {
     "placeholders": {
       "value": {
@@ -381,18 +381,18 @@
     }
   },
   "traits": "Vlastnosti",
-  "noTraits": "Žádné vlastnosti pro tohoto uživatele",
+  "noTraits": "Å½Ã¡dnÃ© vlastnosti pro tohoto uÅ¾ivatele",
   "sessionDetail": "Detail relace",
-  "failedToLoadSession": "Nepodařilo se načíst relaci",
-  "entryPageLabel": "Vstupní stránka",
-  "exitPage": "Výstupní stránka",
-  "browserAndDevice": "Prohlížeč a zařízení",
-  "browser": "Prohlížeč",
+  "failedToLoadSession": "NepodaÅilo se naÄÃ­st relaci",
+  "entryPageLabel": "VstupnÃ­ strÃ¡nka",
+  "exitPage": "VÃ½stupnÃ­ strÃ¡nka",
+  "browserAndDevice": "ProhlÃ­Å¾eÄ a zaÅÃ­zenÃ­",
+  "browser": "ProhlÃ­Å¾eÄ",
   "os": "OS",
-  "device": "Zařízení",
+  "device": "ZaÅÃ­zenÃ­",
   "sourceLabel": "Zdroj",
-  "referrer": "Odkazující stránka",
-  "eventTimelineCount": "Časová osa událostí ({count})",
+  "referrer": "OdkazujÃ­cÃ­ strÃ¡nka",
+  "eventTimelineCount": "ÄasovÃ¡ osa udÃ¡lostÃ­ ({count})",
   "@eventTimelineCount": {
     "placeholders": {
       "count": {
@@ -400,13 +400,13 @@
       }
     }
   },
-  "noEvents": "Žádné události",
-  "replayEventsTitle": "Události záznamu",
-  "failedToLoadReplay": "Nepodařilo se načíst záznam",
-  "noReplayEvents": "Žádné události záznamu",
-  "totalEvents": "Celkem událostí",
-  "userActionsLabel": "Akce uživatele",
-  "eventTimelineActions": "Časová osa událostí ({count} akcí)",
+  "noEvents": "Å½Ã¡dnÃ© udÃ¡losti",
+  "replayEventsTitle": "UdÃ¡losti zÃ¡znamu",
+  "failedToLoadReplay": "NepodaÅilo se naÄÃ­st zÃ¡znam",
+  "noReplayEvents": "Å½Ã¡dnÃ© udÃ¡losti zÃ¡znamu",
+  "totalEvents": "Celkem udÃ¡lostÃ­",
+  "userActionsLabel": "Akce uÅ¾ivatele",
+  "eventTimelineActions": "ÄasovÃ¡ osa udÃ¡lostÃ­ ({count} akcÃ­)",
   "@eventTimelineActions": {
     "placeholders": {
       "count": {
@@ -414,70 +414,79 @@
       }
     }
   },
-  "eventLog": "Protokol událostí",
-  "viewEventLog": "Zobrazit protokol událostí",
-  "failedToLoadEventLog": "Nepodařilo se načíst protokol událostí",
-  "activityHeatmap": "Teplotní mapa",
-  "heatmapLast4Weeks": "Posledních 4 týdnů",
-  "less": "Méně",
-  "more": "Více",
-  "peakActivity": "Špičková aktivita",
+  "eventLog": "Protokol udÃ¡lostÃ­",
+  "viewEventLog": "Zobrazit protokol udÃ¡lostÃ­",
+  "failedToLoadEventLog": "NepodaÅilo se naÄÃ­st protokol udÃ¡lostÃ­",
+  "activityHeatmap": "TeplotnÃ­ mapa",
+  "heatmapLast4Weeks": "PoslednÃ­ch 4 tÃ½dnÅ¯",
+  "less": "MÃ©nÄ",
+  "more": "VÃ­ce",
+  "peakActivity": "Å piÄkovÃ¡ aktivita",
   "peakHour": "{day} v {time}",
   "@peakHour": { "placeholders": { "day": { "type": "String" }, "time": { "type": "String" } } },
-  "busiestDay": "Nejvytíženější den: {day}",
+  "busiestDay": "NejvytÃ­Å¾enÄjÅ¡Ã­ den: {day}",
   "@busiestDay": { "placeholders": { "day": { "type": "String" } } },
   "dayMon": "Po",
-  "dayTue": "Út",
+  "dayTue": "Ãt",
   "dayWed": "St",
-  "dayThu": "Čt",
-  "dayFri": "Pá",
+  "dayThu": "Ät",
+  "dayFri": "PÃ¡",
   "daySat": "So",
   "daySun": "Ne",
-  "searchEvents": "Hledat události...",
-  "allTypes": "Vše",
-  "noMatchingEvents": "Žádné odpovídající události",
-  "liveView": "Živě",
-  "autoRefresh": "Automatická aktualizace",
-  "usersOnlineNow": "Uživatelé online",
-  "lastUpdatedAt": "Aktualizováno v {time}",
+  "searchEvents": "Hledat udÃ¡losti...",
+  "allTypes": "VÅ¡e",
+  "noMatchingEvents": "Å½Ã¡dnÃ© odpovÃ­dajÃ­cÃ­ udÃ¡losti",
+  "liveView": "Å½ivÄ",
+  "autoRefresh": "AutomatickÃ¡ aktualizace",
+  "usersOnlineNow": "UÅ¾ivatelÃ© online",
+  "lastUpdatedAt": "AktualizovÃ¡no v {time}",
   "@lastUpdatedAt": { "placeholders": { "time": { "type": "String" } } },
-  "last30Minutes": "Posledních 30 minut",
-  "last5Minutes": "Posledních 5 min",
-  "recentEvents": "Nedávné události",
-  "noRecentEvents": "Žádné nedávné události",
+  "last30Minutes": "PoslednÃ­ch 30 minut",
+  "last5Minutes": "PoslednÃ­ch 5 min",
+  "recentEvents": "NedÃ¡vnÃ© udÃ¡losti",
+  "noRecentEvents": "Å½Ã¡dnÃ© nedÃ¡vnÃ© udÃ¡losti",
 
   "retention": "Retence",
-  "weekly": "Týdně",
-  "daily": "Denně",
+  "weekly": "TÃ½dnÄ",
+  "daily": "DennÄ",
   "retentionRange": "Rozsah",
-  "retentionDays": "{count} dní",
+  "retentionDays": "{count} dnÃ­",
   "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
-  "failedToLoadRetention": "Nepodařilo se načíst data retence",
-  "noRetentionData": "Žádná data retence",
+  "failedToLoadRetention": "NepodaÅilo se naÄÃ­st data retence",
+  "noRetentionData": "Å½Ã¡dnÃ¡ data retence",
   "cohort": "Kohorta",
   "retentionWeekPrefix": "T",
   "retentionDayPrefix": "D",
 
-  "journeys": "Cesty uživatelů",
+  "journeys": "Cesty uÅ¾ivatelÅ¯",
   "journeySteps": "Kroky",
-  "failedToLoadJourneys": "Nepodařilo se načíst cesty",
-  "noJourneysFound": "Žádné cesty nenalezeny",
-  "journeySessions": "{count} relací",
+  "failedToLoadJourneys": "NepodaÅilo se naÄÃ­st cesty",
+  "noJourneysFound": "Å½Ã¡dnÃ© cesty nenalezeny",
+  "journeySessions": "{count} relacÃ­",
   "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
 
   "locations": "Lokace",
-  "locationCities": "Města",
-  "failedToLoadLocations": "Nepodařilo se načíst lokace",
-  "noLocationsFound": "Žádné lokace nenalezeny",
+  "locationCities": "MÄsta",
+  "failedToLoadLocations": "NepodaÅilo se naÄÃ­st lokace",
+  "noLocationsFound": "Å½Ã¡dnÃ© lokace nenalezeny",
 
-  "coreFeatures": "Hlavní",
-  "insights": "Přehledy",
-  "tools": "Nástroje",
+  "coreFeatures": "HlavnÃ­",
+  "insights": "PÅehledy",
+  "tools": "NÃ¡stroje",
 
   "userTraits": "Vlastnosti",
-  "failedToLoadUserTraits": "Nepodařilo se načíst vlastnosti uživatelů",
-  "noUserTraits": "Žádné vlastnosti nenalezeny",
-  "noUserTraitsHint": "Vlastnosti se zobrazí po identifikaci uživatelů s vlastními atributy",
-  "traitUsersCount": "{count} uživatelů",
-  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } }
+  "failedToLoadUserTraits": "NepodaÅilo se naÄÃ­st vlastnosti uÅ¾ivatelÅ¯",
+  "noUserTraits": "Å½Ã¡dnÃ© vlastnosti nenalezeny",
+  "noUserTraitsHint": "Vlastnosti se zobrazÃ­ po identifikaci uÅ¾ivatelÅ¯ s vlastnÃ­mi atributy",
+  "traitUsersCount": "{count} uÅ¾ivatelÅ¯",
+  "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
+
+  "entryPages": "Vstupní stránky",
+  "exitPages": "Výstupní stránky",
+  "browsers": "Prohlížeče",
+  "operatingSystems": "OS",
+  "utmSource": "UTM Zdroj",
+  "channel": "Kanál",
+  "pageTitles": "Názvy stránek",
+  "sources": "Zdroje"
 }
