@@ -19,7 +19,8 @@ class UserListItem {
   factory UserListItem.fromJson(Map<String, dynamic> json) {
     return UserListItem(
       userId: json['user_id'] as String? ?? json['userId'] as String? ?? '',
-      sessionCount: (json['session_count'] as num?)?.toInt() ??
+      sessionCount: (json['sessions'] as num?)?.toInt() ??
+          (json['session_count'] as num?)?.toInt() ??
           (json['sessionCount'] as num?)?.toInt() ??
           0,
       lastSeen:
@@ -45,7 +46,8 @@ class UserDetail {
   factory UserDetail.fromJson(Map<String, dynamic> json) {
     return UserDetail(
       userId: json['user_id'] as String? ?? json['userId'] as String? ?? '',
-      sessionCount: (json['session_count'] as num?)?.toInt() ??
+      sessionCount: (json['sessions'] as num?)?.toInt() ??
+          (json['session_count'] as num?)?.toInt() ??
           (json['sessionCount'] as num?)?.toInt() ??
           0,
       lastSeen:
