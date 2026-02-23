@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../../../features/analytics/application/filter_controller.dart';
 import '../../../features/analytics/application/time_range_controller.dart';
 import '../../../shared/models/event.dart';
@@ -52,11 +53,25 @@ class EventsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final eventNamesAsync = ref.watch(_eventNamesProvider(siteId));
     final bucketedAsync = ref.watch(_eventBucketedProvider(siteId));
+    final domain = ref.watch(currentSiteDomainProvider);
     final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Events', style: TextStyle(fontSize: 18)),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Events', style: TextStyle(fontSize: 18)),
+            if (domain != null)
+              Text(
+                domain,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: theme.textTheme.bodySmall?.color,
+                ),
+              ),
+          ],
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),

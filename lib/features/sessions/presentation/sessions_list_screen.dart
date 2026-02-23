@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
 import '../application/sessions_controller.dart';
@@ -56,9 +57,24 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
         ref.watch(sessionsControllerProvider(widget.siteId));
     final theme = Theme.of(context);
 
+    final domain = ref.watch(currentSiteDomainProvider);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sessions', style: TextStyle(fontSize: 18)),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Sessions', style: TextStyle(fontSize: 18)),
+            if (domain != null)
+              Text(
+                domain,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: theme.textTheme.bodySmall?.color,
+                ),
+              ),
+          ],
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),

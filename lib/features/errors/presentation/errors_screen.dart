@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../../../features/analytics/application/filter_controller.dart';
 import '../../../features/analytics/application/time_range_controller.dart';
 import '../../../shared/utils/formatters.dart';
@@ -42,9 +43,24 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
     final errorNamesAsync = ref.watch(_errorNamesProvider(widget.siteId));
     final theme = Theme.of(context);
 
+    final domain = ref.watch(currentSiteDomainProvider);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Errors', style: TextStyle(fontSize: 18)),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Errors', style: TextStyle(fontSize: 18)),
+            if (domain != null)
+              Text(
+                domain,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: theme.textTheme.bodySmall?.color,
+                ),
+              ),
+          ],
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),

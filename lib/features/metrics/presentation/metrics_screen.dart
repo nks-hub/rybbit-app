@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../application/metrics_controller.dart';
 import 'widgets/metric_list_item.dart';
 
@@ -84,11 +85,26 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
     final metricsAsync = ref.watch(metricsControllerProvider(key));
     final theme = Theme.of(context);
 
+    final domain = ref.watch(currentSiteDomainProvider);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          _selectedType.label,
-          style: const TextStyle(fontSize: 18),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              _selectedType.label,
+              style: const TextStyle(fontSize: 18),
+            ),
+            if (domain != null)
+              Text(
+                domain,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: theme.textTheme.bodySmall?.color,
+                ),
+              ),
+          ],
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

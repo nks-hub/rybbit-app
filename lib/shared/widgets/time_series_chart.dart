@@ -197,13 +197,13 @@ class TimeSeriesChart extends StatelessWidget {
   }
 
   String _formatLabel(String label) {
-    // Try parsing ISO timestamp and format it
     final dt = DateTime.tryParse(label);
     if (dt == null) return label;
-    // For hour-level data show time, for day-level show date
-    if (label.contains('T') || label.contains(' ')) {
-      return DateFormat('HH:mm').format(dt);
+    // Daily/weekly/monthly buckets: time part is midnight → show date
+    if (dt.hour == 0 && dt.minute == 0 && dt.second == 0) {
+      return DateFormat('MMM d').format(dt);
     }
-    return DateFormat('MMM d').format(dt);
+    // Hourly or sub-hourly buckets: show time
+    return DateFormat('HH:mm').format(dt);
   }
 }
