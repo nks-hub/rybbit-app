@@ -19,7 +19,16 @@ enum MetricType {
   entryPage('Entry Pages', 'entry_page', Icons.login),
   exitPage('Exit Pages', 'exit_page', Icons.logout),
   utmSource('UTM Source', 'utm_source', Icons.campaign),
-  hostname('Hostnames', 'hostname', Icons.dns);
+  hostname('Hostnames', 'hostname', Icons.dns),
+  vpn('VPN', 'vpn', Icons.vpn_key),
+  crawler('Crawlers', 'crawler', Icons.bug_report),
+  datacenter('Datacenters', 'datacenter', Icons.cloud),
+  company('Companies', 'company', Icons.business),
+  companyType('Company Type', 'company_type', Icons.category),
+  companyDomain('Company Domain', 'company_domain', Icons.domain),
+  asnOrg('ASN Org', 'asn_org', Icons.hub),
+  asnType('ASN Type', 'asn_type', Icons.router),
+  asnDomain('ASN Domain', 'asn_domain', Icons.language);
 
   const MetricType(this.label, this.parameter, this.icon);
   final String label;
