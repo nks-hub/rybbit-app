@@ -27,7 +27,7 @@ void main() async {
       cookieJarProvider.overrideWithValue(persistCookieJar),
     ],
   );
-  container.read(authControllerProvider.notifier).checkSession();
+  await container.read(authControllerProvider.notifier).checkSession();
 
   await SentryConfig.init(() {
     runApp(

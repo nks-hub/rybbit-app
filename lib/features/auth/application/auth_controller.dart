@@ -195,6 +195,12 @@ class AuthController extends Notifier<AuthState> {
         password != null &&
         password.isNotEmpty) {
       try {
+        // Re-set config to ensure Dio has correct baseUrl
+        ref.read(appConfigNotifierProvider.notifier).setConfig(
+              serverUrl: serverUrl,
+            );
+        await Future<void>.delayed(const Duration(milliseconds: 200));
+
         final repo = ref.read(authRepositoryProvider);
         final result = await repo.login(email, password);
         final user = result['user'] as Map<String, dynamic>?;
@@ -204,7 +210,7 @@ class AuthController extends Notifier<AuthState> {
         );
         return;
       } catch (_) {
-        // Auto re-login failed
+        // Auto re-login failed - fall through to unauthenticated
       }
     }
 

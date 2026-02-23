@@ -13,17 +13,25 @@ class StorageService {
     _settingsBox = await Hive.openBox<dynamic>(_settingsBoxName);
   }
 
-  // Secure storage (tokens, keys)
+  // Secure storage (tokens, keys) with Hive backup
   static Future<void> saveSecure(String key, String value) async {
     await _secureStorage.write(key: key, value: value);
+    await _settingsBox.put('_s_$key', value);
   }
 
   static Future<String?> readSecure(String key) async {
-    return _secureStorage.read(key: key);
+    try {
+      final value = await _secureStorage.read(key: key);
+      if (value != null && value.isNotEmpty) return value;
+    } catch (_) {
+      // SecureStorage failed, try Hive backup
+    }
+    return _settingsBox.get('_s_$key') as String?;
   }
 
   static Future<void> deleteSecure(String key) async {
     await _secureStorage.delete(key: key);
+    await _settingsBox.delete('_s_$key');
   }
 
   // Settings (Hive)
