@@ -155,7 +155,12 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
     final domain = ref.watch(currentSiteDomainProvider);
     final sessionFilter = ref.watch(sessionFilterProvider);
 
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) context.go('/');
+      },
+      child: Scaffold(
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,7 +179,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
         leading: IconButton(
           tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.pop(),
+          onPressed: () => context.go('/'),
         ),
         actions: [
           IconButton(
@@ -275,6 +280,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
           );
         },
       ),
+    ),
     );
   }
 }

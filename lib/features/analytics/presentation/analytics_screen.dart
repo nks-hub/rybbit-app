@@ -58,8 +58,18 @@ class AnalyticsScreen extends ConsumerWidget {
     final selectedStat = ref.watch(selectedStatProvider);
     final theme = Theme.of(context);
 
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) context.go('/');
+      },
+      child: Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          tooltip: l10n.goBack,
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/'),
+        ),
         title: Text(
           ref.watch(currentSiteDomainProvider) ?? l10n.siteLabel(siteId),
           style: const TextStyle(fontSize: 18),
@@ -252,6 +262,7 @@ class AnalyticsScreen extends ConsumerWidget {
           );
         },
       ),
+    ),
     );
   }
 
