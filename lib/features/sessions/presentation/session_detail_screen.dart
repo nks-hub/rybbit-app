@@ -5,14 +5,8 @@ import 'package:intl/intl.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
+import '../application/sessions_controller.dart';
 import '../data/sessions_repository.dart';
-import 'sessions_list_screen.dart';
-
-/// Provider for loading session detail.
-final sessionDetailProvider = FutureProvider.family<SessionDetail, ({String siteId, String sessionId})>((ref, args) async {
-  final repo = ref.read(sessionsRepositoryProvider);
-  return repo.getSessionDetail(args.siteId, args.sessionId);
-});
 
 class SessionDetailScreen extends ConsumerWidget {
   final String siteId;

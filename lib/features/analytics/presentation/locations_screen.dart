@@ -6,7 +6,6 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/session_location.dart';
 import '../../../shared/utils/formatters.dart';
-import '../../sessions/presentation/sessions_list_screen.dart';
 import '../application/time_range_controller.dart';
 import '../application/filter_controller.dart';
 import '../data/analytics_repository.dart';

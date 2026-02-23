@@ -6,6 +6,12 @@ import '../../../features/analytics/application/time_range_controller.dart';
 import '../../../shared/models/session.dart';
 import '../data/sessions_repository.dart';
 
+/// Provider for loading session detail (used by both list and detail screens).
+final sessionDetailProvider = FutureProvider.family<SessionDetail, ({String siteId, String sessionId})>((ref, args) async {
+  final repo = ref.read(sessionsRepositoryProvider);
+  return repo.getSessionDetail(args.siteId, args.sessionId);
+});
+
 class SessionFilterParams {
   final int? minPageviews;
   final int? minEvents;

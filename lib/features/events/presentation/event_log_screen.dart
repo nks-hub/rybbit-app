@@ -6,7 +6,6 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/event.dart';
 import '../../../shared/utils/formatters.dart';
-import '../../sessions/presentation/sessions_list_screen.dart';
 import '../application/event_log_controller.dart';
 
 /// Known event types for filter chips.

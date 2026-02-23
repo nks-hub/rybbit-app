@@ -41,6 +41,16 @@ String formatChangePercent(double value) {
   return '$sign${value.toStringAsFixed(1)}%';
 }
 
+/// Maps ISO 3166-1 alpha-2 country codes to flag emojis.
+String countryToFlag(String? countryCode) {
+  if (countryCode == null || countryCode.length != 2) return '';
+  final code = countryCode.toUpperCase();
+  if (!RegExp(r'^[A-Z]{2}$').hasMatch(code)) return '';
+  final firstChar = code.codeUnitAt(0) - 0x41 + 0x1F1E6;
+  final secondChar = code.codeUnitAt(1) - 0x41 + 0x1F1E6;
+  return String.fromCharCodes([firstChar, secondChar]);
+}
+
 /// Converts an error object to a user-friendly message.
 String formatError(Object error) {
   final msg = error.toString().toLowerCase();

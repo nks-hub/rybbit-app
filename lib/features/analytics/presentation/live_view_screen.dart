@@ -11,7 +11,6 @@ import '../../../shared/models/event.dart';
 import '../../../shared/models/overview.dart';
 import '../../../shared/utils/formatters.dart';
 import '../../events/data/events_repository.dart';
-import '../../sessions/presentation/sessions_list_screen.dart';
 import '../data/analytics_repository.dart';
 
 /// Live view data refreshed periodically.

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
 import '../application/sessions_controller.dart';
+import '../data/sessions_repository.dart';
+
+// ── Filter Dialog ────────────────────────────────────────────────
 
 class _SessionFilterDialog extends StatefulWidget {
   final SessionFilterParams initial;
@@ -78,8 +82,8 @@ class _SessionFilterDialogState extends State<_SessionFilterDialog> {
       ),
       actions: [
         TextButton(
-          onPressed: () => Navigator.pop(context,
-              const SessionFilterParams()),
+          onPressed: () =>
+              Navigator.pop(context, const SessionFilterParams()),
           child: Text(l10n.clear),
         ),
         TextButton(
@@ -104,15 +108,7 @@ class _SessionFilterDialogState extends State<_SessionFilterDialog> {
   }
 }
 
-/// Maps ISO 3166-1 alpha-2 country codes to flag emojis.
-String countryToFlag(String? countryCode) {
-  if (countryCode == null || countryCode.length != 2) return '';
-  final code = countryCode.toUpperCase();
-  if (!RegExp(r'^[A-Z]{2}$').hasMatch(code)) return '';
-  final firstChar = code.codeUnitAt(0) - 0x41 + 0x1F1E6;
-  final secondChar = code.codeUnitAt(1) - 0x41 + 0x1F1E6;
-  return String.fromCharCodes([firstChar, secondChar]);
-}
+// ── Main Screen ──────────────────────────────────────────────────
 
 class SessionsListScreen extends ConsumerStatefulWidget {
   final String siteId;
@@ -155,9 +151,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
     final sessionsAsync =
         ref.watch(sessionsControllerProvider(widget.siteId));
     final theme = Theme.of(context);
-
     final domain = ref.watch(currentSiteDomainProvider);
-
     final sessionFilter = ref.watch(sessionFilterProvider);
 
     return Scaffold(
@@ -222,8 +216,8 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () => ref
-                      .read(
-                          sessionsControllerProvider(widget.siteId).notifier)
+                      .read(sessionsControllerProvider(widget.siteId)
+                          .notifier)
                       .refresh(),
                   child: Text(l10n.retry),
                 ),
@@ -249,7 +243,8 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
 
           return RefreshIndicator(
             onRefresh: () => ref
-                .read(sessionsControllerProvider(widget.siteId).notifier)
+                .read(
+                    sessionsControllerProvider(widget.siteId).notifier)
                 .refresh(),
             child: ListView.builder(
               controller: _scrollController,
@@ -263,7 +258,8 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                     child: const Padding(
                       padding: EdgeInsets.all(16),
                       child: Center(
-                          child: CircularProgressIndicator(strokeWidth: 2)),
+                          child:
+                              CircularProgressIndicator(strokeWidth: 2)),
                     ),
                   );
                 }
@@ -271,9 +267,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                 final session = sessionsState.sessions[index];
                 return _SessionCard(
                   session: session,
-                  onTap: () => context.push(
-                    '/sessions/${widget.siteId}/${session.sessionId}',
-                  ),
+                  siteId: widget.siteId,
                 );
               },
             ),
@@ -284,11 +278,20 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
   }
 }
 
-class _SessionCard extends StatelessWidget {
-  final AnalyticsSession session;
-  final VoidCallback onTap;
+// ── Session Card (Expandable) ────────────────────────────────────
 
-  const _SessionCard({required this.session, required this.onTap});
+class _SessionCard extends ConsumerStatefulWidget {
+  final AnalyticsSession session;
+  final String siteId;
+
+  const _SessionCard({required this.session, required this.siteId});
+
+  @override
+  ConsumerState<_SessionCard> createState() => _SessionCardState();
+}
+
+class _SessionCardState extends ConsumerState<_SessionCard> {
+  bool _expanded = false;
 
   String _relativeTime(String? sessionStart) {
     if (sessionStart == null) return '';
@@ -304,8 +307,9 @@ class _SessionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final session = widget.session;
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final flag = countryToFlag(session.country);
     final duration = formatDuration(session.sessionDuration);
     final relTime = _relativeTime(session.sessionStart);
@@ -313,159 +317,513 @@ class _SessionCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
       child: Card(
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(12),
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Top row: flag + browser/OS + time ago
-                Row(
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          children: [
+            // ── Header (always visible) ──
+            InkWell(
+              onTap: () => setState(() => _expanded = !_expanded),
+              borderRadius: _expanded
+                  ? const BorderRadius.vertical(
+                      top: Radius.circular(12))
+                  : BorderRadius.circular(12),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (flag.isNotEmpty) ...[
-                      Text(flag,
-                          style: const TextStyle(fontSize: 20),
-                          semanticsLabel: session.country ?? l10n.unknownCountry),
-                      const SizedBox(width: 10),
-                    ],
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
+                    // Row 1: Flag + Browser/OS + Time
+                    Row(
+                      children: [
+                        if (flag.isNotEmpty) ...[
+                          Text(flag,
+                              style: const TextStyle(fontSize: 20),
+                              semanticsLabel: session.country ??
+                                  l10n.unknownCountry),
+                          const SizedBox(width: 10),
+                        ],
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment:
+                                CrossAxisAlignment.start,
                             children: [
-                              if (session.browser != null &&
-                                  session.browser!.isNotEmpty)
-                                Flexible(
-                                  child: Text(
-                                    session.browser!,
-                                    style: theme.textTheme.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              if (session.deviceType != null &&
-                                  session.deviceType!.isNotEmpty) ...[
-                                const SizedBox(width: 6),
-                                Flexible(
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 6, vertical: 1),
-                                    decoration: BoxDecoration(
-                                      color: theme.colorScheme.primary
-                                          .withValues(alpha: 0.1),
-                                      borderRadius: BorderRadius.circular(4),
-                                    ),
-                                    child: Text(
-                                      session.deviceType!,
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        color: theme.colorScheme.primary,
-                                        fontWeight: FontWeight.w500,
+                              Row(
+                                children: [
+                                  if (session.browser != null &&
+                                      session.browser!.isNotEmpty)
+                                    Flexible(
+                                      child: Text(
+                                        session.browser!,
+                                        style: theme
+                                            .textTheme.bodyMedium
+                                            ?.copyWith(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        overflow:
+                                            TextOverflow.ellipsis,
                                       ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
                                     ),
-                                  ),
+                                  if (session.deviceType != null &&
+                                      session
+                                          .deviceType!.isNotEmpty) ...[
+                                    const SizedBox(width: 6),
+                                    Flexible(
+                                      child: Container(
+                                        padding:
+                                            const EdgeInsets.symmetric(
+                                                horizontal: 6,
+                                                vertical: 1),
+                                        decoration: BoxDecoration(
+                                          color: theme
+                                              .colorScheme.primary
+                                              .withValues(alpha: 0.1),
+                                          borderRadius:
+                                              BorderRadius.circular(4),
+                                        ),
+                                        child: Text(
+                                          session.deviceType!,
+                                          style: TextStyle(
+                                            fontSize: 10,
+                                            color: theme
+                                                .colorScheme.primary,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                          overflow:
+                                              TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ],
+                              ),
+                              if (session.operatingSystem != null &&
+                                  session
+                                      .operatingSystem!.isNotEmpty)
+                                Text(
+                                  session.operatingSystem!,
+                                  style: theme.textTheme.bodySmall
+                                      ?.copyWith(fontSize: 11),
                                 ),
-                              ],
                             ],
                           ),
-                          if (session.operatingSystem != null &&
-                              session.operatingSystem!.isNotEmpty)
+                        ),
+                        // Time + duration column
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            if (relTime.isNotEmpty)
+                              Text(
+                                relTime,
+                                style: theme.textTheme.bodySmall
+                                    ?.copyWith(
+                                  color: theme.colorScheme.primary,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 11,
+                                ),
+                              ),
+                            const SizedBox(height: 2),
                             Text(
-                              session.operatingSystem!,
+                              duration,
                               style: theme.textTheme.bodySmall
-                                  ?.copyWith(fontSize: 11),
+                                  ?.copyWith(
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                        ],
-                      ),
+                          ],
+                        ),
+                      ],
                     ),
-                    // Time ago + duration
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                    const SizedBox(height: 6),
+                    // Row 2: Stats + Entry→Exit + expand icon
+                    Row(
                       children: [
-                        if (relTime.isNotEmpty)
-                          Text(
-                            relTime,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.primary,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 11,
-                            ),
+                        _StatBadge(
+                          icon: Icons.pageview,
+                          value: '${session.pageviews}',
+                          theme: theme,
+                        ),
+                        const SizedBox(width: 6),
+                        if (session.events > 0) ...[
+                          _StatBadge(
+                            icon: Icons.bolt,
+                            value: '${session.events}',
+                            theme: theme,
+                            color: const Color(0xFF22C55E),
                           ),
-                        const SizedBox(height: 2),
-                        Text(
-                          duration,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            fontWeight: FontWeight.w500,
+                          const SizedBox(width: 6),
+                        ],
+                        if (session.errors > 0) ...[
+                          _StatBadge(
+                            icon: Icons.error_outline,
+                            value: '${session.errors}',
+                            theme: theme,
+                            color: const Color(0xFFEF4444),
                           ),
+                          const SizedBox(width: 6),
+                        ],
+                        const Spacer(),
+                        // Entry → Exit page
+                        if (session.entryPage != null &&
+                            session.entryPage!.isNotEmpty)
+                          Flexible(
+                            child: _PagePath(session: session, theme: theme),
+                          ),
+                        const SizedBox(width: 4),
+                        Icon(
+                          _expanded
+                              ? Icons.expand_less
+                              : Icons.expand_more,
+                          size: 18,
+                          color: theme.textTheme.bodySmall?.color,
                         ),
                       ],
                     ),
                   ],
                 ),
+              ),
+            ),
+            // ── Expanded Detail ──
+            AnimatedSize(
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.easeInOut,
+              child: _expanded
+                  ? _ExpandedDetail(
+                      siteId: widget.siteId,
+                      session: session,
+                    )
+                  : const SizedBox.shrink(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-                const SizedBox(height: 6),
+// ── Entry → Exit Page Path ───────────────────────────────────────
 
-                // Bottom row: stats badges + entry page
-                Row(
-                  children: [
-                    _StatBadge(
-                      icon: Icons.pageview,
-                      value: '${session.pageviews}',
-                      theme: theme,
-                    ),
-                    const SizedBox(width: 6),
-                    if (session.events > 0) ...[
-                      _StatBadge(
-                        icon: Icons.bolt,
-                        value: '${session.events}',
-                        theme: theme,
-                        color: const Color(0xFF22C55E),
-                      ),
-                      const SizedBox(width: 6),
-                    ],
-                    if (session.errors > 0) ...[
-                      _StatBadge(
-                        icon: Icons.error_outline,
-                        value: '${session.errors}',
-                        theme: theme,
-                        color: const Color(0xFFEF4444),
-                      ),
-                      const SizedBox(width: 6),
-                    ],
-                    const Spacer(),
-                    if (session.entryPage != null &&
-                        session.entryPage!.isNotEmpty)
-                      Flexible(
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.login,
-                                size: 12,
-                                color: theme.textTheme.bodySmall?.color),
-                            const SizedBox(width: 3),
-                            Flexible(
-                              child: Text(
-                                session.entryPage!,
-                                style: theme.textTheme.bodySmall
-                                    ?.copyWith(fontSize: 11),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
-              ],
+class _PagePath extends StatelessWidget {
+  final AnalyticsSession session;
+  final ThemeData theme;
+
+  const _PagePath({required this.session, required this.theme});
+
+  @override
+  Widget build(BuildContext context) {
+    final entry = session.entryPage ?? '/';
+    final exit = session.exitPage;
+    final textStyle =
+        theme.textTheme.bodySmall?.copyWith(fontSize: 11);
+    final iconColor = theme.textTheme.bodySmall?.color;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(Icons.login, size: 12, color: iconColor),
+        const SizedBox(width: 3),
+        Flexible(
+          child: Text(
+            entry,
+            style: textStyle,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        if (exit != null &&
+            exit.isNotEmpty &&
+            exit != entry) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            child: Icon(Icons.arrow_forward,
+                size: 10, color: iconColor),
+          ),
+          Flexible(
+            child: Text(
+              exit,
+              style: textStyle,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+// ── Expanded Detail (Lazy-loaded) ────────────────────────────────
+
+class _ExpandedDetail extends ConsumerWidget {
+  final String siteId;
+  final AnalyticsSession session;
+
+  const _ExpandedDetail({
+    required this.siteId,
+    required this.session,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+    final detailAsync = ref.watch(
+      sessionDetailProvider(
+          (siteId: siteId, sessionId: session.sessionId)),
+    );
+
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            color: theme.dividerColor.withValues(alpha: 0.3),
+          ),
+        ),
+      ),
+      child: detailAsync.when(
+        loading: () => const Padding(
+          padding: EdgeInsets.all(24),
+          child: Center(
+            child: SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(strokeWidth: 2),
             ),
           ),
         ),
+        error: (e, _) => Padding(
+          padding: const EdgeInsets.all(16),
+          child: Text(
+            formatError(e),
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.error,
+            ),
+          ),
+        ),
+        data: (detail) =>
+            _DetailContent(detail: detail, siteId: siteId),
+      ),
+    );
+  }
+}
+
+// ── Detail Content ───────────────────────────────────────────────
+
+class _DetailContent extends StatelessWidget {
+  final SessionDetail detail;
+  final String siteId;
+
+  const _DetailContent({
+    required this.detail,
+    required this.siteId,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = detail.session;
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+
+    // Build location string
+    final locationParts = <String>[
+      if (s.country != null && s.country!.isNotEmpty) s.country!,
+      if (s.city != null && s.city!.isNotEmpty) s.city!,
+      if (s.region != null && s.region!.isNotEmpty) s.region!,
+    ];
+    final locationStr =
+        locationParts.isNotEmpty ? locationParts.join(', ') : null;
+
+    // Build device string
+    final deviceParts = <String>[
+      if (s.browser != null)
+        '${s.browser} ${s.browserVersion ?? ""}'.trim(),
+      if (s.operatingSystem != null)
+        '${s.operatingSystem} ${s.osVersion ?? ""}'.trim(),
+      if (s.language != null && s.language!.isNotEmpty) s.language!,
+    ];
+    final deviceStr = deviceParts.isNotEmpty
+        ? deviceParts.join(' \u00b7 ')
+        : null;
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Location
+          if (locationStr != null)
+            _DetailRow(
+              icon: Icons.location_on_outlined,
+              text: locationStr,
+              theme: theme,
+            ),
+          // Device
+          if (deviceStr != null)
+            _DetailRow(
+              icon: Icons.devices_outlined,
+              text: deviceStr,
+              theme: theme,
+            ),
+          // Source
+          if (s.referrer != null && s.referrer!.isNotEmpty)
+            _DetailRow(
+              icon: Icons.link,
+              text: s.referrer!,
+              theme: theme,
+            ),
+          // UTM
+          if (s.utmSource != null && s.utmSource!.isNotEmpty)
+            _DetailRow(
+              icon: Icons.campaign_outlined,
+              text: [s.utmSource, s.utmMedium, s.utmCampaign]
+                  .where((v) => v != null && v.isNotEmpty)
+                  .join(' / '),
+              theme: theme,
+            ),
+          // Channel
+          if (s.channel != null && s.channel!.isNotEmpty)
+            _DetailRow(
+              icon: Icons.public,
+              text: s.channel!,
+              theme: theme,
+            ),
+          const SizedBox(height: 8),
+          // Mini timeline header
+          Text(
+            l10n.eventTimelineCount(detail.events.length),
+            style: theme.textTheme.bodySmall?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 4),
+          // Timeline events (max 5)
+          if (detail.events.isEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Text(l10n.noEvents,
+                  style: theme.textTheme.bodySmall),
+            )
+          else ...[
+            ...detail.events
+                .take(5)
+                .map((event) =>
+                    _MiniTimelineEvent(event: event, theme: theme)),
+            if (detail.events.length > 5)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  onPressed: () => context.push(
+                    '/sessions/$siteId/${detail.session.sessionId}',
+                  ),
+                  icon: const Icon(Icons.list, size: 16),
+                  label: Text(
+                    l10n.eventTimelineCount(detail.events.length),
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8, vertical: 4),
+                    minimumSize: Size.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                ),
+              ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+// ── Helper Widgets ───────────────────────────────────────────────
+
+class _DetailRow extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  final ThemeData theme;
+
+  const _DetailRow({
+    required this.icon,
+    required this.text,
+    required this.theme,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 4),
+      child: Row(
+        children: [
+          Icon(icon,
+              size: 14,
+              color: theme.textTheme.bodySmall?.color),
+          const SizedBox(width: 6),
+          Expanded(
+            child: Text(
+              text.trim(),
+              style: theme.textTheme.bodySmall,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MiniTimelineEvent extends StatelessWidget {
+  final SessionEvent event;
+  final ThemeData theme;
+
+  const _MiniTimelineEvent({
+    required this.event,
+    required this.theme,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final dt = DateTime.tryParse(event.timestamp);
+    final timeStr =
+        dt != null ? DateFormat('HH:mm:ss').format(dt) : '';
+
+    Color dotColor;
+    IconData dotIcon;
+    switch (event.iconType) {
+      case IconType.pageview:
+        dotColor = theme.colorScheme.primary;
+        dotIcon = Icons.article_outlined;
+      case IconType.customEvent:
+        dotColor = const Color(0xFF22C55E);
+        dotIcon = Icons.bolt;
+      case IconType.error:
+        dotColor = const Color(0xFFEF4444);
+        dotIcon = Icons.error_outline;
+      case IconType.other:
+        dotColor = Colors.grey;
+        dotIcon = Icons.circle;
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 2),
+      child: Row(
+        children: [
+          Icon(dotIcon, size: 12, color: dotColor),
+          const SizedBox(width: 4),
+          Text(timeStr,
+              style: theme.textTheme.bodySmall?.copyWith(
+                fontSize: 10,
+                fontFamily: 'monospace',
+              )),
+          const SizedBox(width: 6),
+          Expanded(
+            child: Text(
+              event.displayLabel,
+              style: theme.textTheme.bodySmall
+                  ?.copyWith(fontSize: 11),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -486,9 +844,11 @@ class _StatBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final c = color ?? theme.textTheme.bodySmall?.color ?? Colors.grey;
+    final c =
+        color ?? theme.textTheme.bodySmall?.color ?? Colors.grey;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      padding:
+          const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
         color: c.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(4),
