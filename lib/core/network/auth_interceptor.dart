@@ -29,7 +29,7 @@ class AuthInterceptor extends Interceptor {
       // Skip logout trigger for auth endpoints to avoid loops
       final path = err.requestOptions.path;
       if (!path.contains('/api/auth/')) {
-        _ref!.read(authControllerProvider.notifier).logout();
+        _ref?.read(authControllerProvider.notifier).logout();
       }
     }
     handler.next(err);
