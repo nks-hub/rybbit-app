@@ -290,32 +290,45 @@ class _SessionCard extends StatelessWidget {
 
   const _SessionCard({required this.session, required this.onTap});
 
+  String _relativeTime(String? sessionStart) {
+    if (sessionStart == null) return '';
+    final dt = DateTime.tryParse(sessionStart);
+    if (dt == null) return '';
+    final diff = DateTime.now().difference(dt);
+    if (diff.inMinutes < 1) return 'now';
+    if (diff.inMinutes < 60) return '${diff.inMinutes}m';
+    if (diff.inHours < 24) return '${diff.inHours}h';
+    if (diff.inDays < 7) return '${diff.inDays}d';
+    return '${diff.inDays ~/ 7}w';
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final flag = countryToFlag(session.country);
     final duration = formatDuration(session.sessionDuration);
+    final relTime = _relativeTime(session.sessionStart);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
       child: Card(
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(12),
           child: Padding(
-            padding: const EdgeInsets.all(14),
+            padding: const EdgeInsets.all(12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Top row: country flag + browser + device + duration
+                // Top row: flag + browser/OS + time ago
                 Row(
                   children: [
                     if (flag.isNotEmpty) ...[
                       Text(flag,
-                          style: const TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 20),
                           semanticsLabel: session.country ?? l10n.unknownCountry),
-                      const SizedBox(width: 8),
+                      const SizedBox(width: 10),
                     ],
                     Expanded(
                       child: Column(
@@ -324,7 +337,7 @@ class _SessionCard extends StatelessWidget {
                           Row(
                             children: [
                               if (session.browser != null &&
-                                  session.browser!.isNotEmpty) ...[
+                                  session.browser!.isNotEmpty)
                                 Flexible(
                                   child: Text(
                                     session.browser!,
@@ -334,13 +347,12 @@ class _SessionCard extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                              ],
                               if (session.deviceType != null &&
                                   session.deviceType!.isNotEmpty) ...[
-                                const SizedBox(width: 8),
+                                const SizedBox(width: 6),
                                 Container(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 6, vertical: 2),
+                                      horizontal: 6, vertical: 1),
                                   decoration: BoxDecoration(
                                     color: theme.colorScheme.primary
                                         .withValues(alpha: 0.1),
@@ -362,58 +374,135 @@ class _SessionCard extends StatelessWidget {
                               session.operatingSystem!.isNotEmpty)
                             Text(
                               session.operatingSystem!,
-                              style: theme.textTheme.bodySmall,
+                              style: theme.textTheme.bodySmall
+                                  ?.copyWith(fontSize: 11),
                             ),
                         ],
                       ),
                     ),
+                    // Time ago + duration
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
+                        if (relTime.isNotEmpty)
+                          Text(
+                            relTime,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.primary,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 11,
+                            ),
+                          ),
+                        const SizedBox(height: 2),
                         Text(
                           duration,
-                          style: theme.textTheme.bodyMedium?.copyWith(
+                          style: theme.textTheme.bodySmall?.copyWith(
                             fontWeight: FontWeight.w500,
                           ),
-                        ),
-                        Text(
-                          l10n.nPages(session.pageviews),
-                          style: theme.textTheme.bodySmall,
                         ),
                       ],
                     ),
                   ],
                 ),
 
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
 
-                // Entry page
-                if (session.entryPage != null &&
-                    session.entryPage!.isNotEmpty) ...[
-                  Semantics(
-                    label: l10n.entryPage(session.entryPage!),
-                    excludeSemantics: true,
-                    child: Row(
-                      children: [
-                        Icon(Icons.login,
-                            size: 14,
-                            color: theme.textTheme.bodySmall?.color),
-                        const SizedBox(width: 4),
-                        Expanded(
-                          child: Text(
-                            session.entryPage!,
-                            style: theme.textTheme.bodySmall,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
+                // Bottom row: stats badges + entry page
+                Row(
+                  children: [
+                    _StatBadge(
+                      icon: Icons.pageview,
+                      value: '${session.pageviews}',
+                      theme: theme,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 6),
+                    if (session.events > 0) ...[
+                      _StatBadge(
+                        icon: Icons.bolt,
+                        value: '${session.events}',
+                        theme: theme,
+                        color: const Color(0xFF22C55E),
+                      ),
+                      const SizedBox(width: 6),
+                    ],
+                    if (session.errors > 0) ...[
+                      _StatBadge(
+                        icon: Icons.error_outline,
+                        value: '${session.errors}',
+                        theme: theme,
+                        color: const Color(0xFFEF4444),
+                      ),
+                      const SizedBox(width: 6),
+                    ],
+                    const Spacer(),
+                    if (session.entryPage != null &&
+                        session.entryPage!.isNotEmpty)
+                      Flexible(
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.login,
+                                size: 12,
+                                color: theme.textTheme.bodySmall?.color),
+                            const SizedBox(width: 3),
+                            Flexible(
+                              child: Text(
+                                session.entryPage!,
+                                style: theme.textTheme.bodySmall
+                                    ?.copyWith(fontSize: 11),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _StatBadge extends StatelessWidget {
+  final IconData icon;
+  final String value;
+  final ThemeData theme;
+  final Color? color;
+
+  const _StatBadge({
+    required this.icon,
+    required this.value,
+    required this.theme,
+    this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final c = color ?? theme.textTheme.bodySmall?.color ?? Colors.grey;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      decoration: BoxDecoration(
+        color: c.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 11, color: c),
+          const SizedBox(width: 3),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 11,
+              color: c,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
       ),
     );
   }
