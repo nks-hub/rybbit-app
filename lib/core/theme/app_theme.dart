@@ -91,7 +91,7 @@ class AppTheme {
         headlineMedium: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         bodyLarge: TextStyle(color: Colors.white),
         bodyMedium: TextStyle(color: Color(0xFFA3A3A3)),
-        bodySmall: TextStyle(color: Color(0xFF737373)),
+        bodySmall: TextStyle(color: Color(0xFF8A8A8A)),
       ),
     );
   }

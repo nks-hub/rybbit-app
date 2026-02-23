@@ -167,7 +167,9 @@ class _ErrorNameCard extends ConsumerWidget {
       child: Card(
         child: Column(
           children: [
-            InkWell(
+            Semantics(
+              expanded: isExpanded,
+              child: InkWell(
               onTap: onTap,
               borderRadius: isExpanded
                   ? const BorderRadius.vertical(top: Radius.circular(12))
@@ -237,6 +239,7 @@ class _ErrorNameCard extends ConsumerWidget {
                   ],
                 ),
               ),
+            ),
             ),
             if (isExpanded) ...[
               Divider(
