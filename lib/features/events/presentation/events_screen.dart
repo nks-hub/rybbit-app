@@ -226,7 +226,7 @@ class EventsScreen extends ConsumerWidget {
                     const SizedBox(height: 8),
                     Builder(builder: (context) {
                       final chartHeight =
-                          MediaQuery.of(context).orientation == Orientation.landscape
+                          MediaQuery.of(context).size.height < 500
                               ? 140.0
                               : 200.0;
                       return bucketedAsync.when(

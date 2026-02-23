@@ -324,16 +324,15 @@ class AnalyticsScreen extends ConsumerWidget {
       ),
     ];
 
-    final isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+    final isWide = MediaQuery.of(context).size.width > 500;
 
     return GridView.count(
-      crossAxisCount: isLandscape ? 3 : 2,
+      crossAxisCount: isWide ? 3 : 2,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 4,
       crossAxisSpacing: 4,
-      childAspectRatio: isLandscape ? 2.4 : 1.8,
+      childAspectRatio: isWide ? 2.4 : 1.8,
       children: stats
           .map((s) => StatCard(
                 title: s.title,
@@ -397,16 +396,15 @@ class AnalyticsScreen extends ConsumerWidget {
           ),
         );
 
-    final isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+    final isWide = MediaQuery.of(context).size.width > 500;
 
     Widget grid(List<Widget> children) => GridView.count(
-          crossAxisCount: isLandscape ? 3 : 2,
+          crossAxisCount: isWide ? 3 : 2,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           mainAxisSpacing: 6,
           crossAxisSpacing: 6,
-          childAspectRatio: isLandscape ? 4.0 : 3.2,
+          childAspectRatio: isWide ? 4.0 : 3.2,
           children: children,
         );
 
