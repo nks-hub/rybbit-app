@@ -293,16 +293,16 @@ class _SessionCard extends ConsumerStatefulWidget {
 class _SessionCardState extends ConsumerState<_SessionCard> {
   bool _expanded = false;
 
-  String _relativeTime(String? sessionStart) {
+  String _relativeTime(String? sessionStart, AppLocalizations l10n) {
     if (sessionStart == null) return '';
     final dt = DateTime.tryParse(sessionStart);
     if (dt == null) return '';
     final diff = DateTime.now().difference(dt);
-    if (diff.inMinutes < 1) return 'now';
-    if (diff.inMinutes < 60) return '${diff.inMinutes}m';
-    if (diff.inHours < 24) return '${diff.inHours}h';
-    if (diff.inDays < 7) return '${diff.inDays}d';
-    return '${diff.inDays ~/ 7}w';
+    if (diff.inMinutes < 1) return l10n.relativeNow;
+    if (diff.inMinutes < 60) return l10n.relativeMinutes(diff.inMinutes);
+    if (diff.inHours < 24) return l10n.relativeHours(diff.inHours);
+    if (diff.inDays < 7) return l10n.relativeDays(diff.inDays);
+    return l10n.relativeWeeks(diff.inDays ~/ 7);
   }
 
   @override
@@ -312,7 +312,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
     final l10n = AppLocalizations.of(context)!;
     final flag = countryToFlag(session.country);
     final duration = formatDuration(session.sessionDuration);
-    final relTime = _relativeTime(session.sessionStart);
+    final relTime = _relativeTime(session.sessionStart, l10n);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),

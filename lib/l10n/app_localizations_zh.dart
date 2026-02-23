@@ -960,25 +960,25 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get dashboard => 'Dashboard';
+  String get dashboard => '仪表板';
 
   @override
-  String get analytics => 'Analytics';
+  String get analytics => '分析';
 
   @override
-  String get noSiteSelected => 'No site selected';
+  String get noSiteSelected => '未选择站点';
 
   @override
   String selectSiteFromDashboard(String tabName) {
-    return 'Select a site from the Dashboard tab to view $tabName.';
+    return '从仪表板选项卡中选择一个站点以查看$tabName。';
   }
 
   @override
-  String get goToDashboard => 'Go to Dashboard';
+  String get goToDashboard => '前往仪表板';
 
   @override
   String todayVisitors(int count) {
-    return '$count today';
+    return '今天$count人';
   }
 
   @override
@@ -1127,4 +1127,30 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get screenDimensions => '屏幕尺寸';
+
+  @override
+  String get relativeNow => '现在';
+
+  @override
+  String relativeMinutes(int count) {
+    return '$count分钟';
+  }
+
+  @override
+  String relativeHours(int count) {
+    return '$count小时';
+  }
+
+  @override
+  String relativeDays(int count) {
+    return '$count天';
+  }
+
+  @override
+  String relativeWeeks(int count) {
+    return '$count周';
+  }
+
+  @override
+  String get emptyValue => '(空)';
 }

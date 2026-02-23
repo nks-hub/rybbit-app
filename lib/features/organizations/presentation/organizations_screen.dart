@@ -255,7 +255,7 @@ class _OrgCardState extends ConsumerState<_OrgCard> {
       } catch (e) {
         setState(() {
           _loading = false;
-          _error = '${AppLocalizations.of(context)?.failedToLoadMembers ?? "Failed to load members"}: $e';
+          _error = '${AppLocalizations.of(context)!.failedToLoadMembers}: $e';
         });
       }
     }

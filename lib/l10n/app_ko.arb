@@ -481,6 +481,15 @@
   "traitUsersCount": "{count}ëª ì¬ì©ì",
   "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
 
+  "dashboard": "대시보드",
+  "analytics": "분석",
+  "noSiteSelected": "선택된 사이트 없음",
+  "selectSiteFromDashboard": "{tabName}을(를) 보려면 대시보드 탭에서 사이트를 선택하세요.",
+  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "goToDashboard": "대시보드로 이동",
+  "todayVisitors": "오늘 {count}명",
+  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
+
   "entryPages": "진입 페이지",
   "exitPages": "이탈 페이지",
   "browsers": "브라우저",
@@ -530,5 +539,16 @@
   "utmContent": "UTM 콘텐츠",
   "browserVersions": "브라우저 버전",
   "osVersions": "OS 버전",
-  "screenDimensions": "화면 크기"
+  "screenDimensions": "화면 크기",
+
+  "relativeNow": "지금",
+  "relativeMinutes": "{count}분",
+  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "relativeHours": "{count}시간",
+  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "relativeDays": "{count}일",
+  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "relativeWeeks": "{count}주",
+  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
+  "emptyValue": "(비어있음)"
 }

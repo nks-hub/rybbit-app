@@ -561,6 +561,7 @@ class _PropertyList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     // Group properties by key
     final grouped = <String, List<EventProperty>>{};
@@ -601,7 +602,7 @@ class _PropertyList extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          p.propertyValue.isEmpty ? '(empty)' : p.propertyValue,
+                          p.propertyValue.isEmpty ? l10n.emptyValue : p.propertyValue,
                           style: theme.textTheme.bodySmall,
                           overflow: TextOverflow.ellipsis,
                         ),

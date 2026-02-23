@@ -481,6 +481,15 @@
   "traitUsersCount": "{count}ä¸ªç¨æ·",
   "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
 
+  "dashboard": "仪表板",
+  "analytics": "分析",
+  "noSiteSelected": "未选择站点",
+  "selectSiteFromDashboard": "从仪表板选项卡中选择一个站点以查看{tabName}。",
+  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "goToDashboard": "前往仪表板",
+  "todayVisitors": "今天{count}人",
+  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
+
   "entryPages": "入口页面",
   "exitPages": "出口页面",
   "browsers": "浏览器",
@@ -530,5 +539,16 @@
   "utmContent": "UTM内容",
   "browserVersions": "浏览器版本",
   "osVersions": "操作系统版本",
-  "screenDimensions": "屏幕尺寸"
+  "screenDimensions": "屏幕尺寸",
+
+  "relativeNow": "现在",
+  "relativeMinutes": "{count}分钟",
+  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "relativeHours": "{count}小时",
+  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "relativeDays": "{count}天",
+  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "relativeWeeks": "{count}周",
+  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
+  "emptyValue": "(空)"
 }

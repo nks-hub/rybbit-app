@@ -481,6 +481,15 @@
   "traitUsersCount": "{count} Benutzer",
   "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
 
+  "dashboard": "Dashboard",
+  "analytics": "Analyse",
+  "noSiteSelected": "Keine Website ausgewählt",
+  "selectSiteFromDashboard": "Wählen Sie eine Website im Dashboard-Tab, um {tabName} anzuzeigen.",
+  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "goToDashboard": "Zum Dashboard",
+  "todayVisitors": "{count} heute",
+  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
+
   "entryPages": "Einstiegsseiten",
   "exitPages": "Ausstiegsseiten",
   "browsers": "Browser",
@@ -530,5 +539,16 @@
   "utmContent": "UTM-Inhalt",
   "browserVersions": "Browser-Versionen",
   "osVersions": "OS-Versionen",
-  "screenDimensions": "Bildschirmauflösung"
+  "screenDimensions": "Bildschirmauflösung",
+
+  "relativeNow": "jetzt",
+  "relativeMinutes": "{count}m",
+  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "relativeHours": "{count}h",
+  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "relativeDays": "{count}d",
+  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "relativeWeeks": "{count}w",
+  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
+  "emptyValue": "(leer)"
 }

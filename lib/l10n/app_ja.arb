@@ -481,6 +481,15 @@
   "traitUsersCount": "{count}ã¦ã¼ã¶ã¼",
   "@traitUsersCount": { "placeholders": { "count": { "type": "String" } } },
 
+  "dashboard": "ダッシュボード",
+  "analytics": "アナリティクス",
+  "noSiteSelected": "サイトが選択されていません",
+  "selectSiteFromDashboard": "{tabName}を表示するにはダッシュボードタブからサイトを選択してください。",
+  "@selectSiteFromDashboard": { "placeholders": { "tabName": { "type": "String" } } },
+  "goToDashboard": "ダッシュボードへ",
+  "todayVisitors": "今日{count}人",
+  "@todayVisitors": { "placeholders": { "count": { "type": "int" } } },
+
   "entryPages": "入口ページ",
   "exitPages": "出口ページ",
   "browsers": "ブラウザ",
@@ -530,5 +539,16 @@
   "utmContent": "UTMコンテンツ",
   "browserVersions": "ブラウザバージョン",
   "osVersions": "OSバージョン",
-  "screenDimensions": "画面サイズ"
+  "screenDimensions": "画面サイズ",
+
+  "relativeNow": "今",
+  "relativeMinutes": "{count}分",
+  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "relativeHours": "{count}時間",
+  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "relativeDays": "{count}日",
+  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "relativeWeeks": "{count}週",
+  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
+  "emptyValue": "(空)"
 }

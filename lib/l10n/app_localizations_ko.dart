@@ -983,25 +983,25 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get dashboard => 'Dashboard';
+  String get dashboard => '대시보드';
 
   @override
-  String get analytics => 'Analytics';
+  String get analytics => '분석';
 
   @override
-  String get noSiteSelected => 'No site selected';
+  String get noSiteSelected => '선택된 사이트 없음';
 
   @override
   String selectSiteFromDashboard(String tabName) {
-    return 'Select a site from the Dashboard tab to view $tabName.';
+    return '$tabName을(를) 보려면 대시보드 탭에서 사이트를 선택하세요.';
   }
 
   @override
-  String get goToDashboard => 'Go to Dashboard';
+  String get goToDashboard => '대시보드로 이동';
 
   @override
   String todayVisitors(int count) {
-    return '$count today';
+    return '오늘 $count명';
   }
 
   @override
@@ -1150,4 +1150,30 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get screenDimensions => '화면 크기';
+
+  @override
+  String get relativeNow => '지금';
+
+  @override
+  String relativeMinutes(int count) {
+    return '$count분';
+  }
+
+  @override
+  String relativeHours(int count) {
+    return '$count시간';
+  }
+
+  @override
+  String relativeDays(int count) {
+    return '$count일';
+  }
+
+  @override
+  String relativeWeeks(int count) {
+    return '$count주';
+  }
+
+  @override
+  String get emptyValue => '(비어있음)';
 }

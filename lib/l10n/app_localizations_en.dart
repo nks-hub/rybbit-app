@@ -1128,4 +1128,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get screenDimensions => 'Screen Dimensions';
+
+  @override
+  String get relativeNow => 'now';
+
+  @override
+  String relativeMinutes(int count) {
+    return '${count}m';
+  }
+
+  @override
+  String relativeHours(int count) {
+    return '${count}h';
+  }
+
+  @override
+  String relativeDays(int count) {
+    return '${count}d';
+  }
+
+  @override
+  String relativeWeeks(int count) {
+    return '${count}w';
+  }
+
+  @override
+  String get emptyValue => '(empty)';
 }

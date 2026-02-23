@@ -2197,6 +2197,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Screen Dimensions'**
   String get screenDimensions;
+
+  /// No description provided for @relativeNow.
+  ///
+  /// In en, this message translates to:
+  /// **'now'**
+  String get relativeNow;
+
+  /// No description provided for @relativeMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}m'**
+  String relativeMinutes(int count);
+
+  /// No description provided for @relativeHours.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}h'**
+  String relativeHours(int count);
+
+  /// No description provided for @relativeDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}d'**
+  String relativeDays(int count);
+
+  /// No description provided for @relativeWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}w'**
+  String relativeWeeks(int count);
+
+  /// No description provided for @emptyValue.
+  ///
+  /// In en, this message translates to:
+  /// **'(empty)'**
+  String get emptyValue;
 }
 
 class _AppLocalizationsDelegate

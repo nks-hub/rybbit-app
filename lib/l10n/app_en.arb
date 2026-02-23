@@ -423,5 +423,16 @@
   "utmContent": "UTM Content",
   "browserVersions": "Browser Versions",
   "osVersions": "OS Versions",
-  "screenDimensions": "Screen Dimensions"
+  "screenDimensions": "Screen Dimensions",
+
+  "relativeNow": "now",
+  "relativeMinutes": "{count}m",
+  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "relativeHours": "{count}h",
+  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "relativeDays": "{count}d",
+  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "relativeWeeks": "{count}w",
+  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
+  "emptyValue": "(empty)"
 }

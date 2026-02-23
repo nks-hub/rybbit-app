@@ -1144,4 +1144,30 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get screenDimensions => 'Rozlišení obrazovky';
+
+  @override
+  String get relativeNow => 'teď';
+
+  @override
+  String relativeMinutes(int count) {
+    return '${count}m';
+  }
+
+  @override
+  String relativeHours(int count) {
+    return '${count}h';
+  }
+
+  @override
+  String relativeDays(int count) {
+    return '${count}d';
+  }
+
+  @override
+  String relativeWeeks(int count) {
+    return '${count}t';
+  }
+
+  @override
+  String get emptyValue => '(prázdné)';
 }

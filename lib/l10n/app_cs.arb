@@ -545,5 +545,16 @@
   "utmContent": "UTM Obsah",
   "browserVersions": "Verze prohlížečů",
   "osVersions": "Verze OS",
-  "screenDimensions": "Rozlišení obrazovky"
+  "screenDimensions": "Rozlišení obrazovky",
+
+  "relativeNow": "teď",
+  "relativeMinutes": "{count}m",
+  "@relativeMinutes": { "placeholders": { "count": { "type": "int" } } },
+  "relativeHours": "{count}h",
+  "@relativeHours": { "placeholders": { "count": { "type": "int" } } },
+  "relativeDays": "{count}d",
+  "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
+  "relativeWeeks": "{count}t",
+  "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
+  "emptyValue": "(prázdné)"
 }

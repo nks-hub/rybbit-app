@@ -143,7 +143,7 @@ class SettingsScreen extends ConsumerWidget {
                   leading: const Icon(Icons.language),
                   title: Text(l10n.language),
                   subtitle: Text(
-                    _currentLanguageName(ref),
+                    _currentLanguageName(ref, l10n),
                     style: theme.textTheme.bodySmall,
                   ),
                   onTap: () => _showLanguagePicker(context, ref),
@@ -203,9 +203,9 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  String _currentLanguageName(WidgetRef ref) {
+  String _currentLanguageName(WidgetRef ref, AppLocalizations l10n) {
     final locale = ref.watch(localeProvider);
-    if (locale == null) return 'Auto';
+    if (locale == null) return l10n.auto;
     return localeDisplayNames[locale.languageCode] ?? locale.languageCode;
   }
 

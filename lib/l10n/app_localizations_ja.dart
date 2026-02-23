@@ -1004,25 +1004,25 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get dashboard => 'Dashboard';
+  String get dashboard => 'ダッシュボード';
 
   @override
-  String get analytics => 'Analytics';
+  String get analytics => 'アナリティクス';
 
   @override
-  String get noSiteSelected => 'No site selected';
+  String get noSiteSelected => 'サイトが選択されていません';
 
   @override
   String selectSiteFromDashboard(String tabName) {
-    return 'Select a site from the Dashboard tab to view $tabName.';
+    return '$tabNameを表示するにはダッシュボードタブからサイトを選択してください。';
   }
 
   @override
-  String get goToDashboard => 'Go to Dashboard';
+  String get goToDashboard => 'ダッシュボードへ';
 
   @override
   String todayVisitors(int count) {
-    return '$count today';
+    return '今日$count人';
   }
 
   @override
@@ -1171,4 +1171,30 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get screenDimensions => '画面サイズ';
+
+  @override
+  String get relativeNow => '今';
+
+  @override
+  String relativeMinutes(int count) {
+    return '$count分';
+  }
+
+  @override
+  String relativeHours(int count) {
+    return '$count時間';
+  }
+
+  @override
+  String relativeDays(int count) {
+    return '$count日';
+  }
+
+  @override
+  String relativeWeeks(int count) {
+    return '$count週';
+  }
+
+  @override
+  String get emptyValue => '(空)';
 }

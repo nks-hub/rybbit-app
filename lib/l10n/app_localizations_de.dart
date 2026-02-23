@@ -983,22 +983,22 @@ class AppLocalizationsDe extends AppLocalizations {
   String get dashboard => 'Dashboard';
 
   @override
-  String get analytics => 'Analytics';
+  String get analytics => 'Analyse';
 
   @override
-  String get noSiteSelected => 'No site selected';
+  String get noSiteSelected => 'Keine Website ausgewählt';
 
   @override
   String selectSiteFromDashboard(String tabName) {
-    return 'Select a site from the Dashboard tab to view $tabName.';
+    return 'Wählen Sie eine Website im Dashboard-Tab, um $tabName anzuzeigen.';
   }
 
   @override
-  String get goToDashboard => 'Go to Dashboard';
+  String get goToDashboard => 'Zum Dashboard';
 
   @override
   String todayVisitors(int count) {
-    return '$count today';
+    return '$count heute';
   }
 
   @override
@@ -1147,4 +1147,30 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get screenDimensions => 'Bildschirmauflösung';
+
+  @override
+  String get relativeNow => 'jetzt';
+
+  @override
+  String relativeMinutes(int count) {
+    return '${count}m';
+  }
+
+  @override
+  String relativeHours(int count) {
+    return '${count}h';
+  }
+
+  @override
+  String relativeDays(int count) {
+    return '${count}d';
+  }
+
+  @override
+  String relativeWeeks(int count) {
+    return '${count}w';
+  }
+
+  @override
+  String get emptyValue => '(leer)';
 }
