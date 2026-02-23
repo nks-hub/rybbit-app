@@ -380,10 +380,18 @@ class EventsScreen extends ConsumerWidget {
                 data: (links) {
                   if (links.isEmpty) {
                     return Padding(
-                      padding: const EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(32),
                       child: Center(
-                        child: Text(l10n.noOutboundLinksTracked,
-                            style: theme.textTheme.bodySmall),
+                        child: Column(
+                          children: [
+                            Icon(Icons.open_in_new,
+                                size: 40,
+                                color: theme.textTheme.bodySmall?.color),
+                            const SizedBox(height: 12),
+                            Text(l10n.noOutboundLinksTracked,
+                                style: theme.textTheme.bodyMedium),
+                          ],
+                        ),
                       ),
                     );
                   }

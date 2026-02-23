@@ -340,10 +340,18 @@ class PerformanceScreen extends ConsumerWidget {
                 data: (items) {
                   if (items.isEmpty) {
                     return Padding(
-                      padding: const EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(32),
                       child: Center(
-                        child: Text(l10n.noData,
-                            style: theme.textTheme.bodySmall),
+                        child: Column(
+                          children: [
+                            Icon(Icons.bar_chart,
+                                size: 40,
+                                color: theme.textTheme.bodySmall?.color),
+                            const SizedBox(height: 12),
+                            Text(l10n.noData,
+                                style: theme.textTheme.bodyMedium),
+                          ],
+                        ),
                       ),
                     );
                   }
