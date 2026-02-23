@@ -886,4 +886,65 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get noRecentEvents => 'Žádné nedávné události';
+
+  @override
+  String get retention => 'Retence';
+
+  @override
+  String get weekly => 'Týdně';
+
+  @override
+  String get daily => 'Denně';
+
+  @override
+  String get retentionRange => 'Rozsah';
+
+  @override
+  String retentionDays(int count) {
+    return '$count dní';
+  }
+
+  @override
+  String get failedToLoadRetention => 'Nepodařilo se načíst data retence';
+
+  @override
+  String get noRetentionData => 'Žádná data retence';
+
+  @override
+  String get cohort => 'Kohorta';
+
+  @override
+  String get retentionWeekPrefix => 'T';
+
+  @override
+  String get retentionDayPrefix => 'D';
+
+  @override
+  String get journeys => 'Cesty uživatelů';
+
+  @override
+  String get journeySteps => 'Kroky';
+
+  @override
+  String get failedToLoadJourneys => 'Nepodařilo se načíst cesty';
+
+  @override
+  String get noJourneysFound => 'Žádné cesty nenalezeny';
+
+  @override
+  String journeySessions(String count) {
+    return '$count relací';
+  }
+
+  @override
+  String get locations => 'Lokace';
+
+  @override
+  String get locationCities => 'Města';
+
+  @override
+  String get failedToLoadLocations => 'Nepodařilo se načíst lokace';
+
+  @override
+  String get noLocationsFound => 'Žádné lokace nenalezeny';
 }

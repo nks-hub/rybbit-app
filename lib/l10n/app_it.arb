@@ -444,5 +444,29 @@
   "last30Minutes": "Ultimi 30 minuti",
   "last5Minutes": "Ultimi 5 min",
   "recentEvents": "Eventi recenti",
-  "noRecentEvents": "Nessun evento recente"
+  "noRecentEvents": "Nessun evento recente",
+
+  "retention": "Retention",
+  "weekly": "Settimanale",
+  "daily": "Giornaliero",
+  "retentionRange": "Intervallo",
+  "retentionDays": "{count} giorni",
+  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "failedToLoadRetention": "Impossibile caricare i dati di retention",
+  "noRetentionData": "Nessun dato di retention",
+  "cohort": "Coorte",
+  "retentionWeekPrefix": "S",
+  "retentionDayPrefix": "G",
+
+  "journeys": "Percorsi",
+  "journeySteps": "Passaggi",
+  "failedToLoadJourneys": "Impossibile caricare i percorsi",
+  "noJourneysFound": "Nessun percorso trovato",
+  "journeySessions": "{count} sessioni",
+  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
+
+  "locations": "Posizioni",
+  "locationCities": "Città",
+  "failedToLoadLocations": "Impossibile caricare le posizioni",
+  "noLocationsFound": "Nessuna posizione trovata"
 }

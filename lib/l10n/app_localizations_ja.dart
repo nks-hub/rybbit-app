@@ -869,4 +869,65 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noRecentEvents => '最近のイベントはありません';
+
+  @override
+  String get retention => 'リテンション';
+
+  @override
+  String get weekly => '週次';
+
+  @override
+  String get daily => '日次';
+
+  @override
+  String get retentionRange => '範囲';
+
+  @override
+  String retentionDays(int count) {
+    return '$count日間';
+  }
+
+  @override
+  String get failedToLoadRetention => 'リテンションデータの読み込みに失敗しました';
+
+  @override
+  String get noRetentionData => 'リテンションデータなし';
+
+  @override
+  String get cohort => 'コホート';
+
+  @override
+  String get retentionWeekPrefix => 'W';
+
+  @override
+  String get retentionDayPrefix => 'D';
+
+  @override
+  String get journeys => 'ジャーニー';
+
+  @override
+  String get journeySteps => 'ステップ';
+
+  @override
+  String get failedToLoadJourneys => 'ジャーニーの読み込みに失敗しました';
+
+  @override
+  String get noJourneysFound => 'ジャーニーが見つかりません';
+
+  @override
+  String journeySessions(String count) {
+    return '$countセッション';
+  }
+
+  @override
+  String get locations => 'ロケーション';
+
+  @override
+  String get locationCities => '都市';
+
+  @override
+  String get failedToLoadLocations => 'ロケーションの読み込みに失敗しました';
+
+  @override
+  String get noLocationsFound => 'ロケーションが見つかりません';
 }

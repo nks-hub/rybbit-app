@@ -444,5 +444,29 @@
   "last30Minutes": "Ostatnie 30 minut",
   "last5Minutes": "Ostatnie 5 min",
   "recentEvents": "Ostatnie zdarzenia",
-  "noRecentEvents": "Brak ostatnich zdarzeń"
+  "noRecentEvents": "Brak ostatnich zdarzeń",
+
+  "retention": "Retencja",
+  "weekly": "Tygodniowo",
+  "daily": "Dziennie",
+  "retentionRange": "Zakres",
+  "retentionDays": "{count} dni",
+  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "failedToLoadRetention": "Nie udało się załadować danych retencji",
+  "noRetentionData": "Brak danych retencji",
+  "cohort": "Kohorta",
+  "retentionWeekPrefix": "T",
+  "retentionDayPrefix": "D",
+
+  "journeys": "Ścieżki użytkowników",
+  "journeySteps": "Kroki",
+  "failedToLoadJourneys": "Nie udało się załadować ścieżek",
+  "noJourneysFound": "Nie znaleziono ścieżek",
+  "journeySessions": "{count} sesji",
+  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
+
+  "locations": "Lokalizacje",
+  "locationCities": "Miasta",
+  "failedToLoadLocations": "Nie udało się załadować lokalizacji",
+  "noLocationsFound": "Nie znaleziono lokalizacji"
 }

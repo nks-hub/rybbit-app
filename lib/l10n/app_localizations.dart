@@ -1717,6 +1717,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No recent events'**
   String get noRecentEvents;
+
+  /// No description provided for @retention.
+  ///
+  /// In en, this message translates to:
+  /// **'Retention'**
+  String get retention;
+
+  /// No description provided for @weekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get weekly;
+
+  /// No description provided for @daily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get daily;
+
+  /// No description provided for @retentionRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Range'**
+  String get retentionRange;
+
+  /// No description provided for @retentionDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days'**
+  String retentionDays(int count);
+
+  /// No description provided for @failedToLoadRetention.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load retention data'**
+  String get failedToLoadRetention;
+
+  /// No description provided for @noRetentionData.
+  ///
+  /// In en, this message translates to:
+  /// **'No retention data'**
+  String get noRetentionData;
+
+  /// No description provided for @cohort.
+  ///
+  /// In en, this message translates to:
+  /// **'Cohort'**
+  String get cohort;
+
+  /// No description provided for @retentionWeekPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'W'**
+  String get retentionWeekPrefix;
+
+  /// No description provided for @retentionDayPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'D'**
+  String get retentionDayPrefix;
+
+  /// No description provided for @journeys.
+  ///
+  /// In en, this message translates to:
+  /// **'Journeys'**
+  String get journeys;
+
+  /// No description provided for @journeySteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Steps'**
+  String get journeySteps;
+
+  /// No description provided for @failedToLoadJourneys.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load journeys'**
+  String get failedToLoadJourneys;
+
+  /// No description provided for @noJourneysFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No journeys found'**
+  String get noJourneysFound;
+
+  /// No description provided for @journeySessions.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} sessions'**
+  String journeySessions(String count);
+
+  /// No description provided for @locations.
+  ///
+  /// In en, this message translates to:
+  /// **'Locations'**
+  String get locations;
+
+  /// No description provided for @locationCities.
+  ///
+  /// In en, this message translates to:
+  /// **'Cities'**
+  String get locationCities;
+
+  /// No description provided for @failedToLoadLocations.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load locations'**
+  String get failedToLoadLocations;
+
+  /// No description provided for @noLocationsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No locations found'**
+  String get noLocationsFound;
 }
 
 class _AppLocalizationsDelegate

@@ -2,8 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../../../core/network/dio_provider.dart';
+import '../../../shared/models/journey.dart';
 import '../../../shared/models/metric.dart';
 import '../../../shared/models/overview.dart';
+import '../../../shared/models/retention.dart';
+import '../../../shared/models/session_location.dart';
 
 class AnalyticsRepository {
   final Dio _dio;
@@ -52,6 +55,46 @@ class AnalyticsRepository {
     final envelope = response.data as Map<String, dynamic>;
     final data = envelope['data'] as Map<String, dynamic>? ?? envelope;
     return MetricResponse.fromJson(data);
+  }
+
+  /// Fetches retention cohort data for a site.
+  Future<RetentionData> getRetention(
+      String siteId, Map<String, String> params) async {
+    final response = await _dio.get(
+      '/api/sites/$siteId/retention',
+      queryParameters: params,
+    );
+    final envelope = response.data as Map<String, dynamic>;
+    final data = envelope['data'] as Map<String, dynamic>? ?? envelope;
+    return RetentionData.fromJson(data);
+  }
+
+  /// Fetches user journey paths for a site.
+  Future<List<JourneyPath>> getJourneys(
+      String siteId, Map<String, String> params) async {
+    final response = await _dio.get(
+      '/api/sites/$siteId/journeys',
+      queryParameters: params,
+    );
+    final envelope = response.data as Map<String, dynamic>;
+    final list = envelope['journeys'] as List? ?? [];
+    return list
+        .map((e) => JourneyPath.fromJson(e as Map<String, dynamic>))
+        .toList();
+  }
+
+  /// Fetches session locations for a site.
+  Future<List<SessionLocation>> getSessionLocations(
+      String siteId, Map<String, String> params) async {
+    final response = await _dio.get(
+      '/api/sites/$siteId/session-locations',
+      queryParameters: params,
+    );
+    final envelope = response.data as Map<String, dynamic>;
+    final list = envelope['data'] as List? ?? [];
+    return list
+        .map((e) => SessionLocation.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   /// Fetches live user count for a site.

@@ -880,4 +880,66 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get noRecentEvents => 'Nessun evento recente';
+
+  @override
+  String get retention => 'Retention';
+
+  @override
+  String get weekly => 'Settimanale';
+
+  @override
+  String get daily => 'Giornaliero';
+
+  @override
+  String get retentionRange => 'Intervallo';
+
+  @override
+  String retentionDays(int count) {
+    return '$count giorni';
+  }
+
+  @override
+  String get failedToLoadRetention =>
+      'Impossibile caricare i dati di retention';
+
+  @override
+  String get noRetentionData => 'Nessun dato di retention';
+
+  @override
+  String get cohort => 'Coorte';
+
+  @override
+  String get retentionWeekPrefix => 'S';
+
+  @override
+  String get retentionDayPrefix => 'G';
+
+  @override
+  String get journeys => 'Percorsi';
+
+  @override
+  String get journeySteps => 'Passaggi';
+
+  @override
+  String get failedToLoadJourneys => 'Impossibile caricare i percorsi';
+
+  @override
+  String get noJourneysFound => 'Nessun percorso trovato';
+
+  @override
+  String journeySessions(String count) {
+    return '$count sessioni';
+  }
+
+  @override
+  String get locations => 'Posizioni';
+
+  @override
+  String get locationCities => 'Città';
+
+  @override
+  String get failedToLoadLocations => 'Impossibile caricare le posizioni';
+
+  @override
+  String get noLocationsFound => 'Nessuna posizione trovata';
 }

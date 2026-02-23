@@ -881,4 +881,65 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get noRecentEvents => 'Brak ostatnich zdarzeń';
+
+  @override
+  String get retention => 'Retencja';
+
+  @override
+  String get weekly => 'Tygodniowo';
+
+  @override
+  String get daily => 'Dziennie';
+
+  @override
+  String get retentionRange => 'Zakres';
+
+  @override
+  String retentionDays(int count) {
+    return '$count dni';
+  }
+
+  @override
+  String get failedToLoadRetention => 'Nie udało się załadować danych retencji';
+
+  @override
+  String get noRetentionData => 'Brak danych retencji';
+
+  @override
+  String get cohort => 'Kohorta';
+
+  @override
+  String get retentionWeekPrefix => 'T';
+
+  @override
+  String get retentionDayPrefix => 'D';
+
+  @override
+  String get journeys => 'Ścieżki użytkowników';
+
+  @override
+  String get journeySteps => 'Kroki';
+
+  @override
+  String get failedToLoadJourneys => 'Nie udało się załadować ścieżek';
+
+  @override
+  String get noJourneysFound => 'Nie znaleziono ścieżek';
+
+  @override
+  String journeySessions(String count) {
+    return '$count sesji';
+  }
+
+  @override
+  String get locations => 'Lokalizacje';
+
+  @override
+  String get locationCities => 'Miasta';
+
+  @override
+  String get failedToLoadLocations => 'Nie udało się załadować lokalizacji';
+
+  @override
+  String get noLocationsFound => 'Nie znaleziono lokalizacji';
 }

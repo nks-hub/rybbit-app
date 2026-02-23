@@ -322,5 +322,29 @@
   "last30Minutes": "Last 30 Minutes",
   "last5Minutes": "Last 5 min",
   "recentEvents": "Recent Events",
-  "noRecentEvents": "No recent events"
+  "noRecentEvents": "No recent events",
+
+  "retention": "Retention",
+  "weekly": "Weekly",
+  "daily": "Daily",
+  "retentionRange": "Range",
+  "retentionDays": "{count} days",
+  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "failedToLoadRetention": "Failed to load retention data",
+  "noRetentionData": "No retention data",
+  "cohort": "Cohort",
+  "retentionWeekPrefix": "W",
+  "retentionDayPrefix": "D",
+
+  "journeys": "Journeys",
+  "journeySteps": "Steps",
+  "failedToLoadJourneys": "Failed to load journeys",
+  "noJourneysFound": "No journeys found",
+  "journeySessions": "{count} sessions",
+  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
+
+  "locations": "Locations",
+  "locationCities": "Cities",
+  "failedToLoadLocations": "Failed to load locations",
+  "noLocationsFound": "No locations found"
 }

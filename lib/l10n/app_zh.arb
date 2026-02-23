@@ -444,5 +444,29 @@
   "last30Minutes": "最近30分钟",
   "last5Minutes": "最近5分钟",
   "recentEvents": "最近事件",
-  "noRecentEvents": "没有最近的事件"
+  "noRecentEvents": "没有最近的事件",
+
+  "retention": "留存率",
+  "weekly": "按周",
+  "daily": "按天",
+  "retentionRange": "范围",
+  "retentionDays": "{count}天",
+  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "failedToLoadRetention": "加载留存数据失败",
+  "noRetentionData": "无留存数据",
+  "cohort": "队列",
+  "retentionWeekPrefix": "W",
+  "retentionDayPrefix": "D",
+
+  "journeys": "用户路径",
+  "journeySteps": "步骤",
+  "failedToLoadJourneys": "加载用户路径失败",
+  "noJourneysFound": "未找到用户路径",
+  "journeySessions": "{count}个会话",
+  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
+
+  "locations": "位置",
+  "locationCities": "城市",
+  "failedToLoadLocations": "加载位置数据失败",
+  "noLocationsFound": "未找到位置数据"
 }

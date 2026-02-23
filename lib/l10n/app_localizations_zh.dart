@@ -869,4 +869,65 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noRecentEvents => '没有最近的事件';
+
+  @override
+  String get retention => '留存率';
+
+  @override
+  String get weekly => '按周';
+
+  @override
+  String get daily => '按天';
+
+  @override
+  String get retentionRange => '范围';
+
+  @override
+  String retentionDays(int count) {
+    return '$count天';
+  }
+
+  @override
+  String get failedToLoadRetention => '加载留存数据失败';
+
+  @override
+  String get noRetentionData => '无留存数据';
+
+  @override
+  String get cohort => '队列';
+
+  @override
+  String get retentionWeekPrefix => 'W';
+
+  @override
+  String get retentionDayPrefix => 'D';
+
+  @override
+  String get journeys => '用户路径';
+
+  @override
+  String get journeySteps => '步骤';
+
+  @override
+  String get failedToLoadJourneys => '加载用户路径失败';
+
+  @override
+  String get noJourneysFound => '未找到用户路径';
+
+  @override
+  String journeySessions(String count) {
+    return '$count个会话';
+  }
+
+  @override
+  String get locations => '位置';
+
+  @override
+  String get locationCities => '城市';
+
+  @override
+  String get failedToLoadLocations => '加载位置数据失败';
+
+  @override
+  String get noLocationsFound => '未找到位置数据';
 }

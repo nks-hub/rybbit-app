@@ -444,5 +444,29 @@
   "last30Minutes": "過去30分",
   "last5Minutes": "過去5分",
   "recentEvents": "最近のイベント",
-  "noRecentEvents": "最近のイベントはありません"
+  "noRecentEvents": "最近のイベントはありません",
+
+  "retention": "リテンション",
+  "weekly": "週次",
+  "daily": "日次",
+  "retentionRange": "範囲",
+  "retentionDays": "{count}日間",
+  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "failedToLoadRetention": "リテンションデータの読み込みに失敗しました",
+  "noRetentionData": "リテンションデータなし",
+  "cohort": "コホート",
+  "retentionWeekPrefix": "W",
+  "retentionDayPrefix": "D",
+
+  "journeys": "ジャーニー",
+  "journeySteps": "ステップ",
+  "failedToLoadJourneys": "ジャーニーの読み込みに失敗しました",
+  "noJourneysFound": "ジャーニーが見つかりません",
+  "journeySessions": "{count}セッション",
+  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
+
+  "locations": "ロケーション",
+  "locationCities": "都市",
+  "failedToLoadLocations": "ロケーションの読み込みに失敗しました",
+  "noLocationsFound": "ロケーションが見つかりません"
 }

@@ -869,4 +869,65 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noRecentEvents => '최근 이벤트 없음';
+
+  @override
+  String get retention => '리텐션';
+
+  @override
+  String get weekly => '주간';
+
+  @override
+  String get daily => '일간';
+
+  @override
+  String get retentionRange => '범위';
+
+  @override
+  String retentionDays(int count) {
+    return '$count일';
+  }
+
+  @override
+  String get failedToLoadRetention => '리텐션 데이터를 불러오지 못했습니다';
+
+  @override
+  String get noRetentionData => '리텐션 데이터 없음';
+
+  @override
+  String get cohort => '코호트';
+
+  @override
+  String get retentionWeekPrefix => 'W';
+
+  @override
+  String get retentionDayPrefix => 'D';
+
+  @override
+  String get journeys => '사용자 경로';
+
+  @override
+  String get journeySteps => '단계';
+
+  @override
+  String get failedToLoadJourneys => '사용자 경로를 불러오지 못했습니다';
+
+  @override
+  String get noJourneysFound => '사용자 경로가 없습니다';
+
+  @override
+  String journeySessions(String count) {
+    return '$count 세션';
+  }
+
+  @override
+  String get locations => '위치';
+
+  @override
+  String get locationCities => '도시';
+
+  @override
+  String get failedToLoadLocations => '위치를 불러오지 못했습니다';
+
+  @override
+  String get noLocationsFound => '위치가 없습니다';
 }

@@ -444,5 +444,29 @@
   "last30Minutes": "Posledních 30 minut",
   "last5Minutes": "Posledních 5 min",
   "recentEvents": "Nedávné události",
-  "noRecentEvents": "Žádné nedávné události"
+  "noRecentEvents": "Žádné nedávné události",
+
+  "retention": "Retence",
+  "weekly": "Týdně",
+  "daily": "Denně",
+  "retentionRange": "Rozsah",
+  "retentionDays": "{count} dní",
+  "@retentionDays": { "placeholders": { "count": { "type": "int" } } },
+  "failedToLoadRetention": "Nepodařilo se načíst data retence",
+  "noRetentionData": "Žádná data retence",
+  "cohort": "Kohorta",
+  "retentionWeekPrefix": "T",
+  "retentionDayPrefix": "D",
+
+  "journeys": "Cesty uživatelů",
+  "journeySteps": "Kroky",
+  "failedToLoadJourneys": "Nepodařilo se načíst cesty",
+  "noJourneysFound": "Žádné cesty nenalezeny",
+  "journeySessions": "{count} relací",
+  "@journeySessions": { "placeholders": { "count": { "type": "String" } } },
+
+  "locations": "Lokace",
+  "locationCities": "Města",
+  "failedToLoadLocations": "Nepodařilo se načíst lokace",
+  "noLocationsFound": "Žádné lokace nenalezeny"
 }
