@@ -80,6 +80,8 @@ class EventsScreen extends ConsumerWidget {
       ...filterCtrl.toQueryParams(),
     };
 
+    final propertiesFuture = repo.getEventProperties(siteId, eventName, params);
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -94,7 +96,7 @@ class EventsScreen extends ConsumerWidget {
           expand: false,
           builder: (ctx, scrollController) {
             return FutureBuilder<List<EventProperty>>(
-              future: repo.getEventProperties(siteId, eventName, params),
+              future: propertiesFuture,
               builder: (context, snapshot) {
                 final theme = Theme.of(context);
                 return Column(
@@ -288,7 +290,7 @@ class EventsScreen extends ConsumerWidget {
                 error: (error, _) => Padding(
                   padding: const EdgeInsets.all(32),
                   child: Center(
-                    child: Text('Failed to load events: $error',
+                    child: Text(formatError(error),
                         style: theme.textTheme.bodySmall),
                   ),
                 ),

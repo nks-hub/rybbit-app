@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../../../features/analytics/application/filter_controller.dart';
@@ -168,7 +169,8 @@ class UsersController extends FamilyAsyncNotifier<UsersState, String> {
         totalCount: response.totalCount,
         hasMore: response.users.length >= _pageSize,
       ));
-    } catch (_) {
+    } catch (e) {
+      debugPrint('Users loadMore failed: $e');
       state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
     }
   }

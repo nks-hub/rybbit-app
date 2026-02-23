@@ -106,6 +106,7 @@ class _SessionFilterDialogState extends State<_SessionFilterDialog> {
 String countryToFlag(String? countryCode) {
   if (countryCode == null || countryCode.length != 2) return '';
   final code = countryCode.toUpperCase();
+  if (!RegExp(r'^[A-Z]{2}$').hasMatch(code)) return '';
   final firstChar = code.codeUnitAt(0) - 0x41 + 0x1F1E6;
   final secondChar = code.codeUnitAt(1) - 0x41 + 0x1F1E6;
   return String.fromCharCodes([firstChar, secondChar]);

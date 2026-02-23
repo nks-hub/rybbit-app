@@ -396,9 +396,13 @@ class _GoalFormDialogState extends State<_GoalFormDialog> {
 
             final config = <String, dynamic>{};
             if (_goalType == 'path') {
-              config['pathPattern'] = _pathController.text.trim();
+              final path = _pathController.text.trim();
+              if (path.isEmpty) return;
+              config['pathPattern'] = path;
             } else {
-              config['eventName'] = _eventNameController.text.trim();
+              final event = _eventNameController.text.trim();
+              if (event.isEmpty) return;
+              config['eventName'] = event;
             }
 
             final body = <String, dynamic>{

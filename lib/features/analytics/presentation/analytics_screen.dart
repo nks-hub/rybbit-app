@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../shared/models/overview.dart';
+import '../../../shared/models/time_range.dart';
 import '../../../shared/utils/formatters.dart';
 import '../../../shared/widgets/filter_bar.dart';
 import '../../../shared/widgets/stat_card.dart';
@@ -502,15 +503,33 @@ class AnalyticsScreen extends ConsumerWidget {
   }
 
   TimeRangePreset? _getCurrentPreset(WidgetRef ref) {
-    final label = ref.read(timeRangeControllerProvider.notifier).label;
-    return switch (label) {
-      'Today' => TimeRangePreset.today,
-      'Yesterday' => TimeRangePreset.yesterday,
-      'This Week' => TimeRangePreset.thisWeek,
-      'This Month' => TimeRangePreset.thisMonth,
-      'This Year' => TimeRangePreset.thisYear,
-      _ => null,
-    };
+    final state = ref.read(timeRangeControllerProvider);
+    switch (state.mode) {
+      case TimeMode.day:
+        final now = DateTime.now();
+        final today = DateTime(now.year, now.month, now.day);
+        if (state.startDate == today) return TimeRangePreset.today;
+        final yesterday = today.subtract(const Duration(days: 1));
+        if (state.startDate == yesterday) return TimeRangePreset.yesterday;
+        return null;
+      case TimeMode.week:
+        return TimeRangePreset.thisWeek;
+      case TimeMode.month:
+        return TimeRangePreset.thisMonth;
+      case TimeMode.year:
+        return TimeRangePreset.thisYear;
+      case TimeMode.range:
+        final now = DateTime.now();
+        final today = DateTime(now.year, now.month, now.day);
+        if (state.endDate == today) {
+          final diff = today.difference(state.startDate).inDays;
+          if (diff == 6) return TimeRangePreset.last7Days;
+          if (diff == 29) return TimeRangePreset.last30Days;
+        }
+        return null;
+      default:
+        return null;
+    }
   }
 
   Future<void> _showTimeRangePicker(BuildContext context, WidgetRef ref) async {

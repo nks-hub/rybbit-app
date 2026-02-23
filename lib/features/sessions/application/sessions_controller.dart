@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../../../features/analytics/application/filter_controller.dart';
@@ -135,7 +136,8 @@ class SessionsController extends FamilyAsyncNotifier<SessionsState, String> {
         currentPage: nextPage,
         hasMore: sessions.length >= _pageSize,
       ));
-    } catch (_) {
+    } catch (e) {
+      debugPrint('Sessions loadMore failed: $e');
       state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
     }
   }

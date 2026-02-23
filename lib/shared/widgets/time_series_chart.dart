@@ -104,8 +104,10 @@ class TimeSeriesChart extends StatelessWidget {
               getTooltipItems: (touchedSpots) {
                 return touchedSpots.map((spot) {
                   final formatter = tooltipFormatter ?? _formatAxisValue;
-                  final label =
-                      spot.barIndex == 0 ? formatter(spot.y) : formatter(spot.y);
+                  final isPrevious = spot.barIndex == 1;
+                  final label = isPrevious
+                      ? 'Prev: ${formatter(spot.y)}'
+                      : formatter(spot.y);
                   return LineTooltipItem(
                     label,
                     TextStyle(

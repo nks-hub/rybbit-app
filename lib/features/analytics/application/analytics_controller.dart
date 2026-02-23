@@ -75,21 +75,21 @@ class AnalyticsController
       ...filterParams,
     };
 
-    // Load data in parallel
-    final results = await Future.wait([
+    // Load data in parallel with type-safe record wait
+    final (overview, buckets, liveCount, prevOverview, prevBuckets) = await (
       repo.getOverview(siteId, overviewParams),
       repo.getOverviewBucketed(siteId, bucketedParams),
       repo.getLiveUserCount(siteId),
       repo.getOverview(siteId, prevParams),
       repo.getOverviewBucketed(siteId, prevBucketedParams),
-    ]);
+    ).wait;
 
     return AnalyticsState(
-      overview: results[0] as Overview,
-      previousOverview: results[3] as Overview,
-      buckets: results[1] as List<OverviewBucket>,
-      previousBuckets: results[4] as List<OverviewBucket>,
-      liveUserCount: results[2] as int,
+      overview: overview,
+      previousOverview: prevOverview,
+      buckets: buckets,
+      previousBuckets: prevBuckets,
+      liveUserCount: liveCount,
     );
   }
 
