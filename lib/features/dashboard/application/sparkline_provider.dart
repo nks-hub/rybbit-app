@@ -6,34 +6,17 @@ final sparklineProvider =
     FutureProvider.family<List<double>, String>(
   (ref, siteId) async {
     final repo = ref.watch(analyticsRepositoryProvider);
-    final now = DateTime.now();
+    final now = DateTime.now().toUtc();
+    final start = now.subtract(const Duration(hours: 24));
     final buckets = await repo.getOverviewBucketed(siteId, {
-      'startDate': now
-          .subtract(const Duration(days: 14))
-          .toIso8601String()
-          .split('T')
-          .first,
-      'endDate': now.toIso8601String().split('T').first,
-      'bucket': 'day',
+      'start_date': '${start.year}-${start.month.toString().padLeft(2, '0')}-${start.day.toString().padLeft(2, '0')}',
+      'end_date': '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}',
+      'time_zone': 'UTC',
+      'bucket': 'hour',
     });
     if (buckets.isEmpty) return [];
 
-    // Build a complete 14-day series, filling missing days with 0
-    final startDate = now.subtract(const Duration(days: 14));
-    final bucketMap = <String, double>{};
-    for (final b in buckets) {
-      final key = b.time.split('T').first;
-      bucketMap[key] = b.pageviews.toDouble();
-    }
-
-    final values = <double>[];
-    for (int i = 0; i <= 14; i++) {
-      final date = startDate.add(Duration(days: i));
-      final key =
-          '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
-      values.add(bucketMap[key] ?? 0);
-    }
-    return values;
+    return buckets.map((b) => b.pageviews.toDouble()).toList();
   },
 );
 
@@ -45,8 +28,9 @@ final todayUsersProvider =
     final today = DateTime.now().toIso8601String().split('T').first;
     try {
       final overview = await repo.getOverview(siteId, {
-        'startDate': today,
-        'endDate': today,
+        'start_date': today,
+        'end_date': today,
+        'time_zone': 'UTC',
       });
       return overview.users;
     } catch (_) {

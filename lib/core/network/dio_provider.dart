@@ -7,9 +7,12 @@ import 'package:sentry_dio/sentry_dio.dart';
 import '../config/app_config.dart';
 import 'auth_interceptor.dart';
 
+/// Cookie jar provider - overridden in main.dart with PersistCookieJar.
+final cookieJarProvider = Provider<CookieJar>((ref) => CookieJar());
+
 final authInterceptorProvider = Provider<AuthInterceptor>((ref) {
   final config = ref.watch(appConfigNotifierProvider);
-  final interceptor = AuthInterceptor(ref: ref);
+  final interceptor = AuthInterceptor();
   interceptor.apiKey = config.apiKey;
   return interceptor;
 });
@@ -17,7 +20,7 @@ final authInterceptorProvider = Provider<AuthInterceptor>((ref) {
 final dioProvider = Provider<Dio>((ref) {
   final config = ref.watch(appConfigNotifierProvider);
   final authInterceptor = ref.watch(authInterceptorProvider);
-  final cookieJar = CookieJar();
+  final cookieJar = ref.watch(cookieJarProvider);
 
   final dio = Dio(
     BaseOptions(

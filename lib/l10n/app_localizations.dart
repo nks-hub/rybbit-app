@@ -2125,6 +2125,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'URL'**
   String get url;
+
+  /// No description provided for @searchSites.
+  ///
+  /// In en, this message translates to:
+  /// **'Search sites...'**
+  String get searchSites;
+
+  /// No description provided for @sortSites.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort sites'**
+  String get sortSites;
+
+  /// No description provided for @sortAlphabetically.
+  ///
+  /// In en, this message translates to:
+  /// **'Alphabetically'**
+  String get sortAlphabetically;
+
+  /// No description provided for @sortByVisitors.
+  ///
+  /// In en, this message translates to:
+  /// **'By visitors today'**
+  String get sortByVisitors;
+
+  /// No description provided for @sortByLiveUsers.
+  ///
+  /// In en, this message translates to:
+  /// **'By live users'**
+  String get sortByLiveUsers;
+
+  /// No description provided for @noMatchingSites.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching sites'**
+  String get noMatchingSites;
 }
 
 class _AppLocalizationsDelegate

@@ -532,5 +532,12 @@
   "replayResize": "Změna velikosti",
   "replayInput": "Vstup",
   "replayUpdate": "Aktualizace",
-  "url": "URL"
+  "url": "URL",
+
+  "searchSites": "Hledat weby...",
+  "sortSites": "Seřadit weby",
+  "sortAlphabetically": "Abecedně",
+  "sortByVisitors": "Podle návštěvníků dnes",
+  "sortByLiveUsers": "Podle online uživatelů",
+  "noMatchingSites": "Žádné odpovídající weby"
 }

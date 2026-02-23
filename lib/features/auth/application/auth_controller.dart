@@ -62,7 +62,7 @@ class AuthController extends Notifier<AuthState> {
       await StorageService.saveSecure('last_email', email);
       await StorageService.deleteSecure('api_key');
 
-      // sign-in/email returns { user: {...}, token, redirect }
+      // Session cookie is automatically persisted by PersistCookieJar
       final user = result['user'] as Map<String, dynamic>?;
 
       state = AuthState(
@@ -154,7 +154,7 @@ class AuthController extends Notifier<AuthState> {
       final repo = ref.read(authRepositoryProvider);
 
       if (apiKey != null && apiKey.isNotEmpty) {
-        // API key auth: verify by calling a protected endpoint
+        // API key auth
         final user = await repo.verifyApiKey();
         if (user != null) {
           state = AuthState(
@@ -165,7 +165,7 @@ class AuthController extends Notifier<AuthState> {
           state = const AuthState(status: AuthStatus.unauthenticated);
         }
       } else {
-        // Session cookie auth: verify via get-session
+        // Session cookie auth - PersistCookieJar has the cookies
         final session = await repo.getSession();
         if (session != null) {
           final user = session['user'] as Map<String, dynamic>?;

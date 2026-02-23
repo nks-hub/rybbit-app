@@ -410,5 +410,12 @@
   "replayResize": "Resize",
   "replayInput": "Input",
   "replayUpdate": "Update",
-  "url": "URL"
+  "url": "URL",
+
+  "searchSites": "Search sites...",
+  "sortSites": "Sort sites",
+  "sortAlphabetically": "Alphabetically",
+  "sortByVisitors": "By visitors today",
+  "sortByLiveUsers": "By live users",
+  "noMatchingSites": "No matching sites"
 }

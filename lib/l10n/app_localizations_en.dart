@@ -1092,4 +1092,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get url => 'URL';
+
+  @override
+  String get searchSites => 'Search sites...';
+
+  @override
+  String get sortSites => 'Sort sites';
+
+  @override
+  String get sortAlphabetically => 'Alphabetically';
+
+  @override
+  String get sortByVisitors => 'By visitors today';
+
+  @override
+  String get sortByLiveUsers => 'By live users';
+
+  @override
+  String get noMatchingSites => 'No matching sites';
 }

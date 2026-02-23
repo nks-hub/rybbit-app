@@ -1017,89 +1017,107 @@ class AppLocalizationsPt extends AppLocalizations {
   String get sources => 'Fontes';
 
   @override
-  String get cities => 'Cities';
+  String get cities => 'Cidades';
 
   @override
-  String get languages => 'Languages';
+  String get languages => 'Idiomas';
 
   @override
-  String get hostnames => 'Hostnames';
+  String get hostnames => 'Nomes de host';
 
   @override
   String get vpn => 'VPN';
 
   @override
-  String get crawlers => 'Crawlers';
+  String get crawlers => 'Rastreadores';
 
   @override
-  String get datacenters => 'Datacenters';
+  String get datacenters => 'Data centers';
 
   @override
-  String get companies => 'Companies';
+  String get companies => 'Empresas';
 
   @override
-  String get companyType => 'Company Type';
+  String get companyType => 'Tipo de empresa';
 
   @override
-  String get companyDomain => 'Company Domain';
+  String get companyDomain => 'Domínio da empresa';
 
   @override
-  String get asnOrg => 'ASN Org';
+  String get asnOrg => 'Organização ASN';
 
   @override
-  String get asnType => 'ASN Type';
+  String get asnType => 'Tipo ASN';
 
   @override
-  String get asnDomain => 'ASN Domain';
+  String get asnDomain => 'Domínio ASN';
 
   @override
-  String get utmMedium => 'UTM Medium';
+  String get utmMedium => 'UTM Meio';
 
   @override
-  String get utmCampaign => 'UTM Campaign';
+  String get utmCampaign => 'UTM Campanha';
 
   @override
   String nMoreItems(int count) {
-    return '+$count more';
+    return '+$count mais';
   }
 
   @override
   String sessionsWithPercentage(String count, String percentage) {
-    return '$count sessions ($percentage%)';
+    return '$count sessões ($percentage%)';
   }
 
   @override
   String errorGeneric(String error) {
-    return 'Error: $error';
+    return 'Erro: $error';
   }
 
   @override
-  String get replayPageSnapshot => 'Page Snapshot';
+  String get replayPageSnapshot => 'Captura de página';
 
   @override
-  String get replayPageLoad => 'Page Load';
+  String get replayPageLoad => 'Carregamento de página';
 
   @override
-  String get replayCustomEvent => 'Custom Event';
+  String get replayCustomEvent => 'Evento personalizado';
 
   @override
-  String get replayPluginEvent => 'Plugin Event';
+  String get replayPluginEvent => 'Evento de plugin';
 
   @override
-  String get replayInteraction => 'Interaction';
+  String get replayInteraction => 'Interação';
 
   @override
-  String get replayScroll => 'Scroll';
+  String get replayScroll => 'Rolagem';
 
   @override
-  String get replayResize => 'Resize';
+  String get replayResize => 'Redimensionamento';
 
   @override
-  String get replayInput => 'Input';
+  String get replayInput => 'Entrada';
 
   @override
-  String get replayUpdate => 'Update';
+  String get replayUpdate => 'Atualização';
 
   @override
   String get url => 'URL';
+
+  @override
+  String get searchSites => 'Pesquisar sites...';
+
+  @override
+  String get sortSites => 'Ordenar sites';
+
+  @override
+  String get sortAlphabetically => 'Alfabeticamente';
+
+  @override
+  String get sortByVisitors => 'Por visitantes hoje';
+
+  @override
+  String get sortByLiveUsers => 'Por utilizadores online';
+
+  @override
+  String get noMatchingSites => 'Nenhum site correspondente';
 }

@@ -1006,89 +1006,107 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sources => '来源';
 
   @override
-  String get cities => 'Cities';
+  String get cities => '城市';
 
   @override
-  String get languages => 'Languages';
+  String get languages => '语言';
 
   @override
-  String get hostnames => 'Hostnames';
+  String get hostnames => '主机名';
 
   @override
   String get vpn => 'VPN';
 
   @override
-  String get crawlers => 'Crawlers';
+  String get crawlers => '爬虫';
 
   @override
-  String get datacenters => 'Datacenters';
+  String get datacenters => '数据中心';
 
   @override
-  String get companies => 'Companies';
+  String get companies => '公司';
 
   @override
-  String get companyType => 'Company Type';
+  String get companyType => '公司类型';
 
   @override
-  String get companyDomain => 'Company Domain';
+  String get companyDomain => '公司域名';
 
   @override
-  String get asnOrg => 'ASN Org';
+  String get asnOrg => 'ASN组织';
 
   @override
-  String get asnType => 'ASN Type';
+  String get asnType => 'ASN类型';
 
   @override
-  String get asnDomain => 'ASN Domain';
+  String get asnDomain => 'ASN域名';
 
   @override
-  String get utmMedium => 'UTM Medium';
+  String get utmMedium => 'UTM媒介';
 
   @override
-  String get utmCampaign => 'UTM Campaign';
+  String get utmCampaign => 'UTM活动';
 
   @override
   String nMoreItems(int count) {
-    return '+$count more';
+    return '+$count个更多';
   }
 
   @override
   String sessionsWithPercentage(String count, String percentage) {
-    return '$count sessions ($percentage%)';
+    return '$count个会话 ($percentage%)';
   }
 
   @override
   String errorGeneric(String error) {
-    return 'Error: $error';
+    return '错误: $error';
   }
 
   @override
-  String get replayPageSnapshot => 'Page Snapshot';
+  String get replayPageSnapshot => '页面快照';
 
   @override
-  String get replayPageLoad => 'Page Load';
+  String get replayPageLoad => '页面加载';
 
   @override
-  String get replayCustomEvent => 'Custom Event';
+  String get replayCustomEvent => '自定义事件';
 
   @override
-  String get replayPluginEvent => 'Plugin Event';
+  String get replayPluginEvent => '插件事件';
 
   @override
-  String get replayInteraction => 'Interaction';
+  String get replayInteraction => '交互';
 
   @override
-  String get replayScroll => 'Scroll';
+  String get replayScroll => '滚动';
 
   @override
-  String get replayResize => 'Resize';
+  String get replayResize => '调整大小';
 
   @override
-  String get replayInput => 'Input';
+  String get replayInput => '输入';
 
   @override
-  String get replayUpdate => 'Update';
+  String get replayUpdate => '更新';
 
   @override
   String get url => 'URL';
+
+  @override
+  String get searchSites => '搜索站点...';
+
+  @override
+  String get sortSites => '排序站点';
+
+  @override
+  String get sortAlphabetically => '按字母顺序';
+
+  @override
+  String get sortByVisitors => '按今日访客';
+
+  @override
+  String get sortByLiveUsers => '按在线用户';
+
+  @override
+  String get noMatchingSites => '没有匹配的站点';
 }

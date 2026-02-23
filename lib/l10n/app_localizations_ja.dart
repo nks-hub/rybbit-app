@@ -1050,89 +1050,107 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sources => 'ソース';
 
   @override
-  String get cities => 'Cities';
+  String get cities => '都市';
 
   @override
-  String get languages => 'Languages';
+  String get languages => '言語';
 
   @override
-  String get hostnames => 'Hostnames';
+  String get hostnames => 'ホスト名';
 
   @override
   String get vpn => 'VPN';
 
   @override
-  String get crawlers => 'Crawlers';
+  String get crawlers => 'クローラー';
 
   @override
-  String get datacenters => 'Datacenters';
+  String get datacenters => 'データセンター';
 
   @override
-  String get companies => 'Companies';
+  String get companies => '企業';
 
   @override
-  String get companyType => 'Company Type';
+  String get companyType => '企業タイプ';
 
   @override
-  String get companyDomain => 'Company Domain';
+  String get companyDomain => '企業ドメイン';
 
   @override
-  String get asnOrg => 'ASN Org';
+  String get asnOrg => 'ASN組織';
 
   @override
-  String get asnType => 'ASN Type';
+  String get asnType => 'ASNタイプ';
 
   @override
-  String get asnDomain => 'ASN Domain';
+  String get asnDomain => 'ASNドメイン';
 
   @override
-  String get utmMedium => 'UTM Medium';
+  String get utmMedium => 'UTMメディア';
 
   @override
-  String get utmCampaign => 'UTM Campaign';
+  String get utmCampaign => 'UTMキャンペーン';
 
   @override
   String nMoreItems(int count) {
-    return '+$count more';
+    return '+$count件';
   }
 
   @override
   String sessionsWithPercentage(String count, String percentage) {
-    return '$count sessions ($percentage%)';
+    return '$countセッション ($percentage%)';
   }
 
   @override
   String errorGeneric(String error) {
-    return 'Error: $error';
+    return 'エラー: $error';
   }
 
   @override
-  String get replayPageSnapshot => 'Page Snapshot';
+  String get replayPageSnapshot => 'ページスナップショット';
 
   @override
-  String get replayPageLoad => 'Page Load';
+  String get replayPageLoad => 'ページ読み込み';
 
   @override
-  String get replayCustomEvent => 'Custom Event';
+  String get replayCustomEvent => 'カスタムイベント';
 
   @override
-  String get replayPluginEvent => 'Plugin Event';
+  String get replayPluginEvent => 'プラグインイベント';
 
   @override
-  String get replayInteraction => 'Interaction';
+  String get replayInteraction => 'インタラクション';
 
   @override
-  String get replayScroll => 'Scroll';
+  String get replayScroll => 'スクロール';
 
   @override
-  String get replayResize => 'Resize';
+  String get replayResize => 'リサイズ';
 
   @override
-  String get replayInput => 'Input';
+  String get replayInput => '入力';
 
   @override
-  String get replayUpdate => 'Update';
+  String get replayUpdate => '更新';
 
   @override
   String get url => 'URL';
+
+  @override
+  String get searchSites => 'サイトを検索...';
+
+  @override
+  String get sortSites => 'サイトを並べ替え';
+
+  @override
+  String get sortAlphabetically => 'アルファベット順';
+
+  @override
+  String get sortByVisitors => '今日の訪問者数順';
+
+  @override
+  String get sortByLiveUsers => 'オンラインユーザー数順';
+
+  @override
+  String get noMatchingSites => '該当するサイトがありません';
 }

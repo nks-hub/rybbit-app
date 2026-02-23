@@ -1108,4 +1108,22 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get url => 'URL';
+
+  @override
+  String get searchSites => 'Hledat weby...';
+
+  @override
+  String get sortSites => 'Seřadit weby';
+
+  @override
+  String get sortAlphabetically => 'Abecedně';
+
+  @override
+  String get sortByVisitors => 'Podle návštěvníků dnes';
+
+  @override
+  String get sortByLiveUsers => 'Podle online uživatelů';
+
+  @override
+  String get noMatchingSites => 'Žádné odpovídající weby';
 }
