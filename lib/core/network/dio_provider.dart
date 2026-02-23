@@ -8,7 +8,7 @@ import 'auth_interceptor.dart';
 
 final authInterceptorProvider = Provider<AuthInterceptor>((ref) {
   final config = ref.watch(appConfigNotifierProvider);
-  final interceptor = AuthInterceptor();
+  final interceptor = AuthInterceptor(ref: ref);
   interceptor.apiKey = config.apiKey;
   return interceptor;
 });
