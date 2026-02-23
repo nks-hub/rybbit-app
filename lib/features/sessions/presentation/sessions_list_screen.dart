@@ -7,6 +7,101 @@ import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
 import '../application/sessions_controller.dart';
 
+class _SessionFilterDialog extends StatefulWidget {
+  final SessionFilterParams initial;
+  const _SessionFilterDialog({required this.initial});
+
+  @override
+  State<_SessionFilterDialog> createState() => _SessionFilterDialogState();
+}
+
+class _SessionFilterDialogState extends State<_SessionFilterDialog> {
+  late final TextEditingController _pageviewsCtrl;
+  late final TextEditingController _eventsCtrl;
+  late final TextEditingController _durationCtrl;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageviewsCtrl = TextEditingController(
+        text: (widget.initial.minPageviews ?? 0) > 0
+            ? widget.initial.minPageviews.toString()
+            : '');
+    _eventsCtrl = TextEditingController(
+        text: (widget.initial.minEvents ?? 0) > 0
+            ? widget.initial.minEvents.toString()
+            : '');
+    _durationCtrl = TextEditingController(
+        text: (widget.initial.minDuration ?? 0) > 0
+            ? widget.initial.minDuration.toString()
+            : '');
+  }
+
+  @override
+  void dispose() {
+    _pageviewsCtrl.dispose();
+    _eventsCtrl.dispose();
+    _durationCtrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Session Filters'),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: _pageviewsCtrl,
+              decoration: const InputDecoration(labelText: 'Min Pageviews'),
+              keyboardType: TextInputType.number,
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _eventsCtrl,
+              decoration: const InputDecoration(labelText: 'Min Events'),
+              keyboardType: TextInputType.number,
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _durationCtrl,
+              decoration:
+                  const InputDecoration(labelText: 'Min Duration (seconds)'),
+              keyboardType: TextInputType.number,
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context,
+              const SessionFilterParams()),
+          child: const Text('Clear'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pop(
+              context,
+              SessionFilterParams(
+                minPageviews: int.tryParse(_pageviewsCtrl.text),
+                minEvents: int.tryParse(_eventsCtrl.text),
+                minDuration: int.tryParse(_durationCtrl.text),
+              ),
+            );
+          },
+          child: const Text('Apply'),
+        ),
+      ],
+    );
+  }
+}
+
 /// Maps ISO 3166-1 alpha-2 country codes to flag emojis.
 String countryToFlag(String? countryCode) {
   if (countryCode == null || countryCode.length != 2) return '';
@@ -59,6 +154,8 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
 
     final domain = ref.watch(currentSiteDomainProvider);
 
+    final sessionFilter = ref.watch(sessionFilterProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: Column(
@@ -80,6 +177,26 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
+        actions: [
+          IconButton(
+            tooltip: 'Filter sessions',
+            icon: Badge(
+              isLabelVisible: sessionFilter.hasFilters,
+              smallSize: 8,
+              child: const Icon(Icons.filter_list),
+            ),
+            onPressed: () async {
+              final result = await showDialog<SessionFilterParams>(
+                context: context,
+                builder: (_) =>
+                    _SessionFilterDialog(initial: sessionFilter),
+              );
+              if (result != null) {
+                ref.read(sessionFilterProvider.notifier).state = result;
+              }
+            },
+          ),
+        ],
       ),
       body: sessionsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),

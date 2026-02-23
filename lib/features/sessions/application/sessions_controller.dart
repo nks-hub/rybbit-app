@@ -5,6 +5,36 @@ import '../../../features/analytics/application/time_range_controller.dart';
 import '../../../shared/models/session.dart';
 import '../data/sessions_repository.dart';
 
+class SessionFilterParams {
+  final int? minPageviews;
+  final int? minEvents;
+  final int? minDuration;
+
+  const SessionFilterParams({this.minPageviews, this.minEvents, this.minDuration});
+
+  Map<String, String> toQueryParams() {
+    final params = <String, String>{};
+    if (minPageviews != null && minPageviews! > 0) {
+      params['min_pageviews'] = minPageviews.toString();
+    }
+    if (minEvents != null && minEvents! > 0) {
+      params['min_events'] = minEvents.toString();
+    }
+    if (minDuration != null && minDuration! > 0) {
+      params['min_duration'] = minDuration.toString();
+    }
+    return params;
+  }
+
+  bool get hasFilters =>
+      (minPageviews ?? 0) > 0 ||
+      (minEvents ?? 0) > 0 ||
+      (minDuration ?? 0) > 0;
+}
+
+final sessionFilterProvider =
+    StateProvider<SessionFilterParams>((ref) => const SessionFilterParams());
+
 class SessionsState {
   final List<AnalyticsSession> sessions;
   final int currentPage;
@@ -40,6 +70,7 @@ class SessionsController extends FamilyAsyncNotifier<SessionsState, String> {
   Future<SessionsState> build(String arg) async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
+    ref.watch(sessionFilterProvider);
     return _loadData(arg, page: 1);
   }
 
@@ -47,10 +78,12 @@ class SessionsController extends FamilyAsyncNotifier<SessionsState, String> {
     final repo = ref.read(sessionsRepositoryProvider);
     final timeRange = ref.read(timeRangeControllerProvider);
     final filterCtrl = ref.read(filterControllerProvider.notifier);
+    final sessionFilter = ref.read(sessionFilterProvider);
 
     final params = {
       ...timeRange.toQueryParams(),
       ...filterCtrl.toQueryParams(),
+      ...sessionFilter.toQueryParams(),
     };
 
     final sessions = await repo.getSessions(
@@ -81,11 +114,13 @@ class SessionsController extends FamilyAsyncNotifier<SessionsState, String> {
       final repo = ref.read(sessionsRepositoryProvider);
       final timeRange = ref.read(timeRangeControllerProvider);
       final filterCtrl = ref.read(filterControllerProvider.notifier);
+      final sessionFilter = ref.read(sessionFilterProvider);
       final nextPage = currentState.currentPage + 1;
 
       final params = {
         ...timeRange.toQueryParams(),
         ...filterCtrl.toQueryParams(),
+        ...sessionFilter.toQueryParams(),
       };
 
       final sessions = await repo.getSessions(
