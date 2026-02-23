@@ -53,7 +53,7 @@ class _ReplayListScreenState extends ConsumerState<ReplayListScreen> {
                 Text('Failed to load replays',
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
-                Text(error.toString(),
+                Text(formatError(error),
                     style: theme.textTheme.bodySmall,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 24),

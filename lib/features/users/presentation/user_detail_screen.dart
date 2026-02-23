@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../shared/utils/formatters.dart';
 import '../data/users_repository.dart';
 
 /// Provider for user detail, keyed by "siteId:userId".
@@ -58,7 +59,7 @@ class UserDetailScreen extends ConsumerWidget {
                 Text('Failed to load user details',
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
-                Text(error.toString(),
+                Text(formatError(error),
                     style: theme.textTheme.bodySmall,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 24),

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../features/analytics/application/filter_controller.dart';
 import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../shared/utils/formatters.dart';
 import '../data/users_repository.dart';
 
 /// Provider for paginated user list.
@@ -57,7 +58,7 @@ class UsersScreen extends ConsumerWidget {
                 Text('Failed to load users',
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
-                Text(error.toString(),
+                Text(formatError(error),
                     style: theme.textTheme.bodySmall,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 24),

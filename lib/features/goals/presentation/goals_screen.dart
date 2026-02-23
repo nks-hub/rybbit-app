@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../shared/models/goal.dart';
+import '../../../shared/utils/formatters.dart';
 import '../data/goals_repository.dart';
 
 /// Provider for goals list.
@@ -50,7 +51,7 @@ class GoalsScreen extends ConsumerWidget {
                 Text('Failed to load goals',
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
-                Text(error.toString(),
+                Text(formatError(error),
                     style: theme.textTheme.bodySmall,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 24),

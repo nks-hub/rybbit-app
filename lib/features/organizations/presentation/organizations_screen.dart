@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../shared/models/organization.dart';
+import '../../../shared/utils/formatters.dart';
 import '../data/organizations_repository.dart';
 
 /// Provider for organizations list.
@@ -44,7 +45,7 @@ class OrganizationsScreen extends ConsumerWidget {
                 Text('Failed to load organizations',
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
-                Text(error.toString(),
+                Text(formatError(error),
                     style: theme.textTheme.bodySmall,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 24),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/formatters.dart';
+
 /// Generic error widget for displaying error states consistently.
 /// Suitable for use within AsyncValue.error handlers.
 class ErrorView extends StatelessWidget {
@@ -18,7 +20,7 @@ class ErrorView extends StatelessWidget {
   factory ErrorView.fromError(Object error, {VoidCallback? onRetry}) {
     return ErrorView(
       message: 'An error occurred',
-      detail: error.toString(),
+      detail: formatError(error),
       onRetry: onRetry,
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../shared/utils/formatters.dart';
 import '../application/metrics_controller.dart';
 import 'widgets/metric_list_item.dart';
 
@@ -174,7 +175,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                       Text('Failed to load metrics',
                           style: theme.textTheme.bodyLarge),
                       const SizedBox(height: 8),
-                      Text(error.toString(),
+                      Text(formatError(error),
                           style: theme.textTheme.bodySmall,
                           textAlign: TextAlign.center),
                       const SizedBox(height: 24),

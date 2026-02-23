@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../shared/utils/formatters.dart';
 import '../data/replay_repository.dart';
 
 /// Provider for replay events of a specific session.
@@ -45,7 +46,7 @@ class ReplayDetailScreen extends ConsumerWidget {
                 Text('Failed to load replay',
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
-                Text(error.toString(),
+                Text(formatError(error),
                     style: theme.textTheme.bodySmall,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 24),

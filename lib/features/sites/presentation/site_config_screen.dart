@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../shared/utils/formatters.dart';
 import '../data/site_config_repository.dart';
 
 /// Provider for site config.
@@ -71,7 +72,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                 Text('Failed to load site config',
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
-                Text(error.toString(),
+                Text(formatError(error),
                     style: theme.textTheme.bodySmall,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 24),

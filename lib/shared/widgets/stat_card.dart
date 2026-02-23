@@ -86,7 +86,9 @@ class StatCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        '${changePercent!.abs().toStringAsFixed(1)}%',
+                        changePercent!.abs() > 999
+                            ? '999%+'
+                            : '${changePercent!.abs().toStringAsFixed(1)}%',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,

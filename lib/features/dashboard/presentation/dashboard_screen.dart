@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
 import '../../../shared/models/site.dart';
+import '../../../shared/utils/formatters.dart';
 import '../../auth/application/auth_controller.dart';
 import '../application/sites_controller.dart';
 import 'widgets/site_card.dart';
@@ -192,7 +193,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  error.toString(),
+                  formatError(error),
                   style: theme.textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),

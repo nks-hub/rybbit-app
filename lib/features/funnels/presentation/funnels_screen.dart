@@ -46,7 +46,7 @@ class FunnelsScreen extends ConsumerWidget {
                 Text('Failed to load funnels',
                     style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 8),
-                Text(error.toString(),
+                Text(formatError(error),
                     style: theme.textTheme.bodySmall,
                     textAlign: TextAlign.center),
                 const SizedBox(height: 24),
