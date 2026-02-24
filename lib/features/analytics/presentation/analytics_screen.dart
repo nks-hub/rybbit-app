@@ -340,7 +340,7 @@ class AnalyticsScreen extends ConsumerWidget {
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 4,
       crossAxisSpacing: 4,
-      childAspectRatio: isWide ? 2.4 : 1.8,
+      childAspectRatio: isWide ? 2.4 : 1.6,
       children: stats
           .map((s) => StatCard(
                 title: s.title,

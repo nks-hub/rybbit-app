@@ -77,28 +77,35 @@ class TimeRangePicker extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          ...TimeRangePreset.values.map((preset) {
-            final isSelected = preset == selectedPreset;
-            final isCustom = preset == TimeRangePreset.custom;
-            return ListTile(
-              title: Text(preset.label(l10n)),
-              leading: Icon(
-                isSelected
-                    ? Icons.radio_button_checked
-                    : Icons.radio_button_off,
-                color: isSelected
-                    ? theme.colorScheme.primary
-                    : theme.textTheme.bodySmall?.color,
+          Flexible(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: TimeRangePreset.values.map((preset) {
+                  final isSelected = preset == selectedPreset;
+                  final isCustom = preset == TimeRangePreset.custom;
+                  return ListTile(
+                    title: Text(preset.label(l10n)),
+                    leading: Icon(
+                      isSelected
+                          ? Icons.radio_button_checked
+                          : Icons.radio_button_off,
+                      color: isSelected
+                          ? theme.colorScheme.primary
+                          : theme.textTheme.bodySmall?.color,
+                    ),
+                    trailing: isCustom
+                        ? Icon(Icons.calendar_month,
+                            size: 20, color: theme.textTheme.bodySmall?.color)
+                        : null,
+                    selected: isSelected,
+                    selectedColor: theme.colorScheme.primary,
+                    onTap: () => onPresetSelected(preset),
+                  );
+                }).toList(),
               ),
-              trailing: isCustom
-                  ? Icon(Icons.calendar_month,
-                      size: 20, color: theme.textTheme.bodySmall?.color)
-                  : null,
-              selected: isSelected,
-              selectedColor: theme.colorScheme.primary,
-              onTap: () => onPresetSelected(preset),
-            );
-          }),
+            ),
+          ),
           const SizedBox(height: 8),
         ],
       ),
