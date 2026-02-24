@@ -30,6 +30,7 @@ final dioProvider = Provider<Dio>((ref) {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
+        if (config.baseUrl.isNotEmpty) 'Origin': config.baseUrl,
       },
     ),
   );
