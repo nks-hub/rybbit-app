@@ -209,9 +209,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 style: theme.textTheme.bodyLarge,
                 onChanged: (v) => setState(() => _searchQuery = v),
               )
-            : Text(
-                l10n.appName,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+            : Image.asset(
+                'assets/rybbit_horizontal_white.png',
+                height: 24,
+                fit: BoxFit.contain,
               ),
         actions: [
           // Search toggle

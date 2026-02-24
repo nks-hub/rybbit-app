@@ -86,13 +86,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      l10n.appName,
-                      style: theme.textTheme.headlineLarge?.copyWith(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
+                    Image.asset(
+                      'assets/rybbit_horizontal_white.png',
+                      height: 40,
+                      fit: BoxFit.contain,
                     ),
                     const SizedBox(height: 4),
                     Text(
