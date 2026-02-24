@@ -286,6 +286,13 @@
   "domain": "Domena",
   "siteId": "ID witryny",
   "siteLabel": "Witryna {id}",
+  "@siteLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "created": "Utworzono",
   "trackingSettings": "Ustawienia śledzenia",
   "publicDashboard": "Publiczny panel",
@@ -320,6 +327,13 @@
   "customRange": "Zakres niestandardowy",
   "allTime": "Cały okres",
   "lastMinutes": "Ostatnie {count} min",
+  "@lastMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "notSet": "(nieustawione)",
   "bouncePrefix": "Odrzucenia",
   "timePrefix": "Czas",
@@ -473,6 +487,7 @@
   "daySun": "Ndz",
   "searchEvents": "Szukaj zdarzeń...",
   "allTypes": "Wszystkie",
+  "allOrganizations": "Wszystkie organizacje",
   "noMatchingEvents": "Brak pasujących zdarzeń",
   "liveView": "Na żywo",
   "autoRefresh": "Automatyczne odświeżanie",

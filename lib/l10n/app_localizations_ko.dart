@@ -612,7 +612,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get domain => 'ëë©ì¸';
 
   @override
-  String get siteId => 'Ã¬ÂÂ¬Ã¬ÂÂ´Ã­ÂÂ¸ ID';
+  String get siteId => '사이트 ID';
 
   @override
   String siteLabel(String id) {
@@ -798,7 +798,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get filterUtmMedium => 'UTM 매체';
 
   @override
-  String get filterUtmCampaign => 'UTM 캔페인';
+  String get filterUtmCampaign => 'UTM 캠페인';
 
   @override
   String get filterUtmTerm => 'UTM 용어';
@@ -997,6 +997,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get allTypes => 'ì ì²´';
+
+  @override
+  String get allOrganizations => '모든 조직';
 
   @override
   String get noMatchingEvents => 'ì¼ì¹íë ì´ë²¤í¸ ìì';

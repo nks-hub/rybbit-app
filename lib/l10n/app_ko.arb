@@ -284,8 +284,15 @@
   "siteSettings": "ì¬ì´í¸ ì¤ì ",
   "siteInformation": "ì¬ì´í¸ ì ë³´",
   "domain": "ëë©ì¸",
-  "siteId": "Ã¬ÂÂ¬Ã¬ÂÂ´Ã­ÂÂ¸ ID",
+  "siteId": "사이트 ID",
   "siteLabel": "사이트 {id}",
+  "@siteLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "created": "ìì±ì¼",
   "trackingSettings": "ì¶ì  ì¤ì ",
   "publicDashboard": "ê³µê° ëìë³´ë",
@@ -320,6 +327,13 @@
   "customRange": "ì¬ì©ì ì§ì  ê¸°ê°",
   "allTime": "전체 기간",
   "lastMinutes": "최근 {count}분",
+  "@lastMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "notSet": "(설정되지 않음)",
   "bouncePrefix": "이탈률",
   "timePrefix": "시간",
@@ -473,6 +487,7 @@
   "daySun": "ì¼",
   "searchEvents": "ì´ë²¤í¸ ê²ì...",
   "allTypes": "ì ì²´",
+  "allOrganizations": "모든 조직",
   "noMatchingEvents": "ì¼ì¹íë ì´ë²¤í¸ ìì",
   "liveView": "ë¼ì´ë¸",
   "autoRefresh": "ìë ìë¡ê³ ì¹¨",
@@ -678,7 +693,7 @@
   "filterChannel": "채널",
   "filterUtmSource": "UTM 소스",
   "filterUtmMedium": "UTM 매체",
-  "filterUtmCampaign": "UTM 캔페인",
+  "filterUtmCampaign": "UTM 캠페인",
   "filterUtmTerm": "UTM 용어",
   "filterUtmContent": "UTM 콘텐츠",
   "filterEntryPage": "진입 페이지",

@@ -286,6 +286,13 @@
   "domain": "Domínio",
   "siteId": "ID do site",
   "siteLabel": "Site {id}",
+  "@siteLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "created": "Criado",
   "trackingSettings": "Configurações de rastreamento",
   "publicDashboard": "Painel público",
@@ -320,6 +327,13 @@
   "customRange": "Período personalizado",
   "allTime": "Todo o período",
   "lastMinutes": "Últimos {count} min",
+  "@lastMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "notSet": "(não definido)",
   "bouncePrefix": "Rejeição",
   "timePrefix": "Tempo",
@@ -369,7 +383,7 @@
   "loadingContent": "Carregando conteúdo",
   "language": "Idioma",
   "selectLanguage": "Selecionar idioma",
-  "nUsers": "{count} utilizadores",
+  "nUsers": "{count} usuários",
   "@nUsers": {
     "placeholders": {
       "count": {
@@ -394,7 +408,7 @@
     }
   },
   "failedToLoadSiteConfig": "Falha ao carregar a configuração do site",
-  "failedToLoadUserDetails": "Falha ao carregar detalhes do utilizador",
+  "failedToLoadUserDetails": "Falha ao carregar detalhes do usuário",
   "lastSeenPrefix": "Visto pela última vez: {value}",
   "@lastSeenPrefix": {
     "placeholders": {
@@ -404,7 +418,7 @@
     }
   },
   "traits": "Propriedades",
-  "noTraits": "Sem propriedades para este utilizador",
+  "noTraits": "Sem propriedades para este usuário",
   "sessionDetail": "Detalhe da sessão",
   "failedToLoadSession": "Falha ao carregar a sessão",
   "entryPageLabel": "Página de entrada",
@@ -428,7 +442,7 @@
   "failedToLoadReplay": "Falha ao carregar a reprodução",
   "noReplayEvents": "Sem eventos de reprodução",
   "totalEvents": "Total de eventos",
-  "userActionsLabel": "Ações do utilizador",
+  "userActionsLabel": "Ações do usuário",
   "eventTimelineActions": "Linha do tempo ({count} ações)",
   "@eventTimelineActions": {
     "placeholders": {
@@ -473,6 +487,7 @@
   "daySun": "Dom",
   "searchEvents": "Pesquisar eventos...",
   "allTypes": "Todos",
+  "allOrganizations": "Todas as organizações",
   "noMatchingEvents": "Nenhum evento correspondente",
   "liveView": "Ao vivo",
   "autoRefresh": "Atualização automática",
@@ -621,7 +636,7 @@
   "sortAlphabetically": "Alfabeticamente",
   "sortByCount": "Ordenar por contagem",
   "sortByVisitors": "Por visitantes hoje",
-  "sortByLiveUsers": "Por utilizadores online",
+  "sortByLiveUsers": "Por usuários online",
   "noMatchingSites": "Nenhum site correspondente",
   "utmTerm": "UTM Termo",
   "utmContent": "UTM Conteúdo",

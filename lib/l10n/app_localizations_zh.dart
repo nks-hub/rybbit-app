@@ -979,6 +979,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get allTypes => 'å¨é¨';
 
   @override
+  String get allOrganizations => '所有组织';
+
+  @override
   String get noMatchingEvents => 'æ²¡æå¹éçäºä»¶';
 
   @override

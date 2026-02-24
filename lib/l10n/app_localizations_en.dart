@@ -982,6 +982,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allTypes => 'All';
 
   @override
+  String get allOrganizations => 'All organizations';
+
+  @override
   String get noMatchingEvents => 'No matching events';
 
   @override

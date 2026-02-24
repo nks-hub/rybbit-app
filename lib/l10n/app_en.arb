@@ -370,6 +370,7 @@
 
   "searchEvents": "Search events...",
   "allTypes": "All",
+  "allOrganizations": "All organizations",
   "noMatchingEvents": "No matching events",
 
   "liveView": "Live",

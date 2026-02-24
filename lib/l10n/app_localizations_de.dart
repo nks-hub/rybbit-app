@@ -1000,6 +1000,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get allTypes => 'Alle';
 
   @override
+  String get allOrganizations => 'Alle Organisationen';
+
+  @override
   String get noMatchingEvents => 'Keine passenden Ereignisse';
 
   @override

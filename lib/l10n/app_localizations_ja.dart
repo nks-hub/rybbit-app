@@ -626,7 +626,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get domain => 'ãã¡ã¤ã³';
 
   @override
-  String get siteId => 'Ã£ÂÂµÃ£ÂÂ¤Ã£ÂÂID';
+  String get siteId => 'サイトID';
 
   @override
   String siteLabel(String id) {
@@ -1017,6 +1017,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get allTypes => 'ãã¹ã¦';
+
+  @override
+  String get allOrganizations => 'すべての組織';
 
   @override
   String get noMatchingEvents => 'ä¸è´ããã¤ãã³ããããã¾ãã';

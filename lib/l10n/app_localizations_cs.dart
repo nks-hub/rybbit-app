@@ -712,7 +712,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get notSet => '(nenastaveno)';
 
   @override
-  String get bouncePrefix => 'Mira odrazu';
+  String get bouncePrefix => 'Míra odrazu';
 
   @override
   String get timePrefix => 'Čas';
@@ -995,6 +995,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get allTypes => 'Vše';
+
+  @override
+  String get allOrganizations => 'Všechny organizace';
 
   @override
   String get noMatchingEvents => 'Žádné odpovídající události';

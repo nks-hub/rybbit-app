@@ -506,7 +506,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String nUsers(String count) {
-    return '$count utilizadores';
+    return '$count usuários';
   }
 
   @override
@@ -858,8 +858,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get selectLanguage => 'Selecionar idioma';
 
   @override
-  String get failedToLoadUserDetails =>
-      'Falha ao carregar detalhes do utilizador';
+  String get failedToLoadUserDetails => 'Falha ao carregar detalhes do usuário';
 
   @override
   String lastSeenPrefix(String value) {
@@ -870,7 +869,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get traits => 'Propriedades';
 
   @override
-  String get noTraits => 'Sem propriedades para este utilizador';
+  String get noTraits => 'Sem propriedades para este usuário';
 
   @override
   String get sessionDetail => 'Detalhe da sessão';
@@ -923,7 +922,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get totalEvents => 'Total de eventos';
 
   @override
-  String get userActionsLabel => 'Ações do utilizador';
+  String get userActionsLabel => 'Ações do usuário';
 
   @override
   String eventTimelineActions(int count) {
@@ -990,6 +989,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get allTypes => 'Todos';
+
+  @override
+  String get allOrganizations => 'Todas as organizações';
 
   @override
   String get noMatchingEvents => 'Nenhum evento correspondente';
@@ -1258,7 +1260,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get sortByVisitors => 'Por visitantes hoje';
 
   @override
-  String get sortByLiveUsers => 'Por utilizadores online';
+  String get sortByLiveUsers => 'Por usuários online';
 
   @override
   String get noMatchingSites => 'Nenhum site correspondente';

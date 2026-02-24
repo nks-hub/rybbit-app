@@ -1928,6 +1928,12 @@ abstract class AppLocalizations {
   /// **'All'**
   String get allTypes;
 
+  /// No description provided for @allOrganizations.
+  ///
+  /// In en, this message translates to:
+  /// **'All organizations'**
+  String get allOrganizations;
+
   /// No description provided for @noMatchingEvents.
   ///
   /// In en, this message translates to:

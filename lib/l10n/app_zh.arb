@@ -286,6 +286,13 @@
   "domain": "åå",
   "siteId": "ç«ç¹ ID",
   "siteLabel": "站点 {id}",
+  "@siteLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "created": "åå»ºæ¶é´",
   "trackingSettings": "è·è¸ªè®¾ç½®",
   "publicDashboard": "å¬å¼ä»ªè¡¨æ¿",
@@ -320,6 +327,13 @@
   "customRange": "èªå®ä¹èå´",
   "allTime": "所有时间",
   "lastMinutes": "最近{count}分钟",
+  "@lastMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "notSet": "(未设置)",
   "bouncePrefix": "跳出率",
   "timePrefix": "时间",
@@ -473,6 +487,7 @@
   "daySun": "å¨æ¥",
   "searchEvents": "æç´¢äºä»¶...",
   "allTypes": "å¨é¨",
+  "allOrganizations": "所有组织",
   "noMatchingEvents": "æ²¡æå¹éçäºä»¶",
   "liveView": "å®æ¶",
   "autoRefresh": "èªå¨å·æ°",

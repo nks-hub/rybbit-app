@@ -311,6 +311,13 @@
   "domain": "Doména",
   "siteId": "ID webu",
   "siteLabel": "Web {id}",
+  "@siteLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "created": "Vytvořeno",
   "trackingSettings": "Nastavení sledování",
   "publicDashboard": "Veřejný dashboard",
@@ -345,8 +352,15 @@
   "customRange": "Vlastní období",
   "allTime": "Celé období",
   "lastMinutes": "Posledních {count} min",
+  "@lastMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "notSet": "(nenastaveno)",
-  "bouncePrefix": "Mira odrazu",
+  "bouncePrefix": "Míra odrazu",
   "timePrefix": "Čas",
   "eventTypePageview": "Zobrazení stránky",
   "eventTypeCustom": "Vlastní",
@@ -473,6 +487,7 @@
   "daySun": "Ne",
   "searchEvents": "Hledat události...",
   "allTypes": "Vše",
+  "allOrganizations": "Všechny organizace",
   "noMatchingEvents": "Žádné odpovídající události",
   "liveView": "Živě",
   "autoRefresh": "Automatická aktualizace",

@@ -284,8 +284,15 @@
   "siteSettings": "ãµã¤ãè¨­å®",
   "siteInformation": "ãµã¤ãæå ±",
   "domain": "ãã¡ã¤ã³",
-  "siteId": "Ã£ÂÂµÃ£ÂÂ¤Ã£ÂÂID",
+  "siteId": "サイトID",
   "siteLabel": "サイト {id}",
+  "@siteLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "created": "ä½ææ¥",
   "trackingSettings": "ãã©ãã­ã³ã°è¨­å®",
   "publicDashboard": "å¬éããã·ã¥ãã¼ã",
@@ -320,6 +327,13 @@
   "customRange": "ã«ã¹ã¿ã æé",
   "allTime": "全期間",
   "lastMinutes": "過去{count}分",
+  "@lastMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "notSet": "(未設定)",
   "bouncePrefix": "直帰率",
   "timePrefix": "時間",
@@ -473,6 +487,7 @@
   "daySun": "æ¥",
   "searchEvents": "ã¤ãã³ããæ¤ç´¢...",
   "allTypes": "ãã¹ã¦",
+  "allOrganizations": "すべての組織",
   "noMatchingEvents": "ä¸è´ããã¤ãã³ããããã¾ãã",
   "liveView": "ã©ã¤ã",
   "autoRefresh": "èªåæ´æ°",

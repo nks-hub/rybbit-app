@@ -286,6 +286,13 @@
   "domain": "Dominio",
   "siteId": "ID del sitio",
   "siteLabel": "Sitio {id}",
+  "@siteLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "created": "Creado",
   "trackingSettings": "Configuración de seguimiento",
   "publicDashboard": "Panel público",
@@ -320,6 +327,13 @@
   "customRange": "Rango personalizado",
   "allTime": "Todo el tiempo",
   "lastMinutes": "Últimos {count} min",
+  "@lastMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "notSet": "(no establecido)",
   "bouncePrefix": "Rebote",
   "timePrefix": "Tiempo",
@@ -473,6 +487,7 @@
   "daySun": "Dom",
   "searchEvents": "Buscar eventos...",
   "allTypes": "Todos",
+  "allOrganizations": "Todas las organizaciones",
   "noMatchingEvents": "No hay eventos coincidentes",
   "liveView": "En vivo",
   "autoRefresh": "Actualización automática",
