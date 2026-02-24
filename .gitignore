@@ -54,3 +54,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Screenshots - only track anonymized finals
+/screenshots/raw/
+/screenshots/final/
+/screenshots/*.py
+/samsung_screen.png

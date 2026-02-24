@@ -25,6 +25,31 @@
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/dashboard_en.png" width="200" alt="Dashboard">
+  &nbsp;&nbsp;
+  <img src="screenshots/analytics_en.png" width="200" alt="Analytics">
+  &nbsp;&nbsp;
+  <img src="screenshots/sessions_en.png" width="200" alt="Sessions">
+  &nbsp;&nbsp;
+  <img src="screenshots/settings_full_en.png" width="200" alt="Settings">
+</p>
+
+<details>
+<summary>More screenshots</summary>
+<p align="center">
+  <img src="screenshots/countries_en.png" width="200" alt="Countries">
+  &nbsp;&nbsp;
+  <img src="screenshots/pages_en.png" width="200" alt="Pages">
+  &nbsp;&nbsp;
+  <img src="screenshots/session_expanded_en.png" width="200" alt="Session Detail">
+</p>
+</details>
+
+---
+
 ## Features
 
 ### Dashboard & Analytics
