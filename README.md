@@ -1,13 +1,42 @@
-# Rybbit Mobile
+<p align="center">
+  <img src="assets/rybbit_icon.svg" width="100" alt="Rybbit Logo">
+</p>
 
-Unofficial Flutter mobile client for [Rybbit](https://github.com/rybbit-io/rybbit) — open-source, privacy-friendly web analytics platform.
+<h1 align="center">Rybbit Mobile</h1>
 
-Built and maintained by [NKS Hub](https://nks-hub.cz) (dev@nks-hub.cz).
+<p align="center">
+  Unofficial Flutter mobile client for <a href="https://github.com/rybbit-io/rybbit">Rybbit</a> — open-source, privacy-friendly web analytics.
+</p>
+
+<p align="center">
+  <a href="https://github.com/nks-hub/rybbit-app/stargazers"><img src="https://img.shields.io/github/stars/nks-hub/rybbit-app?style=flat&color=22c55e" alt="Stars"></a>
+  <a href="https://github.com/nks-hub/rybbit-app/network/members"><img src="https://img.shields.io/github/forks/nks-hub/rybbit-app?style=flat&color=3b82f6" alt="Forks"></a>
+  <a href="https://github.com/nks-hub/rybbit-app/issues"><img src="https://img.shields.io/github/issues/nks-hub/rybbit-app?style=flat&color=f59e0b" alt="Issues"></a>
+  <a href="https://github.com/nks-hub/rybbit-app/blob/master/LICENSE"><img src="https://img.shields.io/github/license/nks-hub/rybbit-app?style=flat&color=64748b" alt="License"></a>
+  <a href="https://github.com/nks-hub/rybbit-app/releases"><img src="https://img.shields.io/github/v/release/nks-hub/rybbit-app?style=flat&color=a855f7&include_prereleases" alt="Release"></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-3.38+-02569B?logo=flutter&logoColor=white" alt="Flutter">
+  <img src="https://img.shields.io/badge/Dart-3.10+-0175C2?logo=dart&logoColor=white" alt="Dart">
+  <img src="https://img.shields.io/badge/Android-5.0+-3DDC84?logo=android&logoColor=white" alt="Android">
+  <img src="https://img.shields.io/badge/iOS-12+-000000?logo=apple&logoColor=white" alt="iOS">
+  <img src="https://img.shields.io/badge/languages-11-ff6b6b" alt="Languages">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Riverpod-state_mgmt-00d1b2" alt="Riverpod">
+  <img src="https://img.shields.io/badge/go__router-navigation-7c3aed" alt="GoRouter">
+  <img src="https://img.shields.io/badge/Freezed-models-e11d48" alt="Freezed">
+  <img src="https://img.shields.io/badge/Dio-networking-0ea5e9" alt="Dio">
+</p>
+
+---
 
 ## Features
 
 ### Dashboard & Analytics
-- Multi-site dashboard with real-time visitor counts
+- Multi-site dashboard with real-time visitor counts and organization filtering
 - Time-series charts with period comparison (current vs previous)
 - Selectable metrics: users, sessions, pageviews, pages/session, bounce rate, duration
 - Flexible time range picker (today, yesterday, 7/30 days, week, month, year, custom)
@@ -35,13 +64,11 @@ Built and maintained by [NKS Hub](https://nks-hub.cz) (dev@nks-hub.cz).
 - Goal creation/editing (path-based and event-based)
 - Conversion rate tracking
 - Funnel visualization with step-by-step dropoff analysis
-- Overall conversion percentage
 
 ### Sessions & Users
 - Session list with country flags, browser info, entry pages
 - Session detail with full event timeline
-- User list with search, sort, and identified/anonymous filtering
-- User detail with traits and session history
+- Identified user display with traits (username, email)
 - Session replay event viewer
 
 ### Error Tracking
@@ -53,27 +80,73 @@ Built and maintained by [NKS Hub](https://nks-hub.cz) (dev@nks-hub.cz).
 - Organization management with member listing
 
 ### Settings
-- Dark/Light/Auto theme switching
-- Language selection with 11 languages
+- Dark / Light / Auto theme
+- 11 languages
 - Server connection and auth method display
+
+---
 
 ## Supported Languages
 
-Full localization with 290+ translation keys per language:
+| Language | Code | Language | Code |
+|----------|------|----------|------|
+| English | `en` | Japanese | `ja` |
+| Czech | `cs` | Korean | `ko` |
+| German | `de` | Polish | `pl` |
+| Spanish | `es` | Portuguese | `pt` |
+| French | `fr` | Chinese | `zh` |
+| Italian | `it` | | |
 
-| Language | Code |
-|----------|------|
-| English | `en` |
-| Czech (Cestina) | `cs` |
-| German (Deutsch) | `de` |
-| Spanish (Espanol) | `es` |
-| French (Francais) | `fr` |
-| Italian (Italiano) | `it` |
-| Japanese | `ja` |
-| Korean | `ko` |
-| Polish (Polski) | `pl` |
-| Portuguese (Portugues) | `pt` |
-| Chinese | `zh` |
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Flutter SDK 3.38+
+- Android SDK / Xcode (for iOS)
+- A running [Rybbit](https://github.com/rybbit-io/rybbit) instance
+
+### Setup
+
+```bash
+git clone https://github.com/nks-hub/rybbit-app.git
+cd rybbit-app
+
+# Install dependencies
+flutter pub get
+
+# Generate code (Freezed models, JSON serialization)
+flutter pub run build_runner build --delete-conflicting-outputs
+
+# Generate localizations
+flutter gen-l10n
+
+# Run
+flutter run
+```
+
+### Sentry (optional)
+
+Error tracking via Sentry is optional. Pass the DSN at build time:
+
+```bash
+flutter build apk --dart-define=SENTRY_DSN=https://your-key@your-sentry-host/project-id
+flutter run --dart-define=SENTRY_DSN=https://your-key@your-sentry-host/project-id
+```
+
+If `SENTRY_DSN` is not provided, the app works normally without error tracking.
+
+### Authentication
+
+Two auth methods supported:
+
+1. **Email + Password** — Standard login with session cookies
+2. **API Key** — Direct API key authentication
+
+Enter your Rybbit server URL (e.g. `https://analytics.example.com`) and credentials on the login screen.
+
+---
 
 ## Tech Stack
 
@@ -87,7 +160,9 @@ Full localization with 290+ translation keys per language:
 | Charts | fl_chart |
 | Serialization | Freezed + json_serializable |
 | Localization | Flutter gen-l10n (ARB files) |
-| Testing | flutter_test + mocktail |
+| Error Tracking | Sentry (optional, via `--dart-define`) |
+
+---
 
 ## Architecture
 
@@ -95,102 +170,61 @@ Feature-first modular architecture:
 
 ```
 lib/
-├── app.dart                    # App root, locale/theme providers
-├── main.dart                   # Entry point, Hive init
 ├── core/
-│   ├── config/                 # App configuration
-│   ├── network/                # Dio provider, auth interceptor
-│   ├── router/                 # go_router setup, shell screen
-│   ├── state/                  # Current site provider
-│   ├── storage/                # Hive storage service
-│   └── theme/                  # Light & dark Material themes
+│   ├── config/         # App configuration
+│   ├── network/        # Dio provider, auth interceptor
+│   ├── router/         # go_router setup, shell screen
+│   ├── sentry/         # Sentry initialization
+│   ├── state/          # Current site provider
+│   ├── storage/        # Hive storage service
+│   └── theme/          # Light & dark Material themes
 ├── features/
-│   ├── analytics/              # Main analytics (overview, charts, time range)
-│   ├── auth/                   # Login (email/password + API key)
-│   ├── dashboard/              # Site listing, site cards
-│   ├── errors/                 # JS error tracking
-│   ├── events/                 # Custom events, properties, outbound links
-│   ├── funnels/                # Conversion funnels
-│   ├── goals/                  # Goal CRUD + conversion stats
-│   ├── metrics/                # Pages, referrers, countries, devices
-│   ├── organizations/          # Org listing + members
-│   ├── performance/            # Core Web Vitals, dimensions
-│   ├── session_replay/         # Replay event viewer
-│   ├── sessions/               # Session list + detail + timeline
-│   ├── settings/               # Theme, language, account
-│   ├── sites/                  # Site config management
-│   └── users/                  # User list + detail + traits
-├── l10n/                       # ARB translation files + generated code
+│   ├── analytics/      # Overview, charts, time range
+│   ├── auth/           # Login (email/password + API key)
+│   ├── dashboard/      # Site listing, org filter
+│   ├── errors/         # JS error tracking
+│   ├── events/         # Custom events, properties
+│   ├── funnels/        # Conversion funnels
+│   ├── goals/          # Goal CRUD + conversion stats
+│   ├── metrics/        # Pages, referrers, countries, devices
+│   ├── organizations/  # Org listing + members
+│   ├── performance/    # Core Web Vitals
+│   ├── session_replay/ # Replay event viewer
+│   ├── sessions/       # Session list + detail
+│   ├── settings/       # Theme, language, account
+│   ├── sites/          # Site config management
+│   └── users/          # User list + detail + traits
+├── l10n/               # ARB translation files
 └── shared/
-    ├── models/                 # Freezed data models
-    ├── utils/                  # Formatters, helpers
-    └── widgets/                # Reusable UI components
+    ├── models/         # Freezed data models
+    ├── utils/          # Formatters, helpers
+    └── widgets/        # Reusable UI components
 ```
 
-Each feature follows the pattern:
-- `data/` — Repository with API calls
-- `application/` — Controllers/state management
-- `presentation/` — Screens and widgets
+Each feature follows: `data/` (API) → `application/` (state) → `presentation/` (UI)
 
-## Getting Started
-
-### Prerequisites
-
-- Flutter SDK 3.38+
-- Android SDK / Xcode (for iOS)
-- A running [Rybbit](https://github.com/rybbit-io/rybbit) instance
-
-### Setup
-
-```bash
-# Clone
-git clone https://github.com/nks-hub/rybbit-app.git
-cd rybbit-app
-
-# Install dependencies
-flutter pub get
-
-# Generate code (Freezed models, JSON serialization)
-flutter pub run build_runner build --delete-conflicting-outputs
-
-# Generate localizations
-flutter gen-l10n
-
-# Run on connected device/emulator
-flutter run
-```
-
-### Authentication
-
-The app supports two authentication methods:
-
-1. **Email + Password** — Standard login with session cookies
-2. **API Key** — Direct API key authentication
-
-Enter your Rybbit server URL (e.g., `https://analytics.example.com`) and credentials on the login screen.
+---
 
 ## Development
 
 ```bash
-# Run in debug mode
+# Debug
 flutter run -d <device-id>
 
-# Build debug APK
+# Build APK (debug / release)
 flutter build apk --debug
-
-# Build release APK
 flutter build apk --release
 
-# Run code generation (after model changes)
+# Code generation (after model changes)
 flutter pub run build_runner build --delete-conflicting-outputs
 
-# Regenerate translations (after ARB changes)
+# Translations (after ARB changes)
 flutter gen-l10n
 
-# Analyze code
+# Analyze
 flutter analyze
 
-# Run tests
+# Tests
 flutter test
 ```
 
@@ -202,11 +236,29 @@ flutter test
 4. Add display name to `localeDisplayNames` in `lib/app.dart`
 5. Run `flutter gen-l10n`
 
+---
+
 ## Compatibility
 
-- **Android**: API 21+ (Android 5.0 Lollipop)
-- **iOS**: iOS 12+
-- **Backend**: Rybbit v1.0+
+| Platform | Minimum |
+|----------|---------|
+| Android | API 21 (5.0 Lollipop) |
+| iOS | 12.0 |
+| Backend | Rybbit v1.0+ |
+
+---
+
+## Contributing
+
+Contributions welcome! Please open an issue or pull request.
+
+1. Fork the repo
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+---
 
 ## License
 
@@ -214,4 +266,12 @@ This is an unofficial community project. Rybbit is developed by [rybbit-io](http
 
 ---
 
-Developed by [NKS Hub](https://nks-hub.cz) | Contact: dev@nks-hub.cz
+<p align="center">
+  Developed by <a href="https://nks-hub.cz">NKS Hub</a> | <a href="mailto:dev@nks-hub.cz">dev@nks-hub.cz</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/nks-hub/rybbit-app">
+    <img src="https://img.shields.io/badge/Give_a-⭐-yellow?style=for-the-badge" alt="Star this repo">
+  </a>
+</p>
