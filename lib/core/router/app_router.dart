@@ -29,7 +29,6 @@ import '../../features/users/presentation/user_detail_screen.dart';
 import '../../features/users/presentation/user_traits_screen.dart';
 import '../../features/users/presentation/users_screen.dart';
 import '../../l10n/app_localizations.dart';
-import '../state/current_site_provider.dart';
 import 'shell_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -91,13 +90,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: '/analytics',
                 builder: (context, state) {
-                  final container = ProviderScope.containerOf(context);
-                  final siteId = container.read(currentSiteIdProvider);
-                  if (siteId == null) {
-                    return SiteSelectorPlaceholder(
-                        tabName: AppLocalizations.of(context)!.analytics);
-                  }
-                  return AnalyticsScreen(siteId: siteId);
+                  return SiteAwareRoute(
+                    tabName: AppLocalizations.of(context)!.analytics,
+                    builder: (siteId) => AnalyticsScreen(siteId: siteId),
+                  );
                 },
                 routes: [
                   GoRoute(
@@ -258,13 +254,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: '/sessions',
                 builder: (context, state) {
-                  final container = ProviderScope.containerOf(context);
-                  final siteId = container.read(currentSiteIdProvider);
-                  if (siteId == null) {
-                    return SiteSelectorPlaceholder(
-                        tabName: AppLocalizations.of(context)!.sessions);
-                  }
-                  return SessionsListScreen(siteId: siteId);
+                  return SiteAwareRoute(
+                    tabName: AppLocalizations.of(context)!.sessions,
+                    builder: (siteId) => SessionsListScreen(siteId: siteId),
+                  );
                 },
                 routes: [
                   GoRoute(

@@ -116,6 +116,26 @@ class _ShellScreenState extends ConsumerState<ShellScreen> {
 }
 
 /// Placeholder screen shown when no site is selected for Analytics/Sessions tabs.
+class SiteAwareRoute extends ConsumerWidget {
+  final String tabName;
+  final Widget Function(String siteId) builder;
+
+  const SiteAwareRoute({
+    super.key,
+    required this.tabName,
+    required this.builder,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final siteId = ref.watch(currentSiteIdProvider);
+    if (siteId == null) {
+      return SiteSelectorPlaceholder(tabName: tabName);
+    }
+    return builder(siteId);
+  }
+}
+
 class SiteSelectorPlaceholder extends StatelessWidget {
   final String tabName;
 
