@@ -586,6 +586,22 @@ class AppLocalizationsDe extends AppLocalizations {
   String get openSourceAnalytics => 'Open-Source-Webanalyse';
 
   @override
+  String get developer => 'Entwickler';
+
+  @override
+  String get sourceCode => 'Quellcode';
+
+  @override
+  String get viewOnGitHub => 'Auf GitHub ansehen';
+
+  @override
+  String get unofficialClient =>
+      'Inoffizieller mobiler Client für die Rybbit-Analyseplattform';
+
+  @override
+  String get madeBy => 'Erstellt von NKS Hub';
+
+  @override
   String get logoutConfirm => 'Möchten Sie sich wirklich abmelden?';
 
   @override

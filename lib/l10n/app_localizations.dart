@@ -1160,6 +1160,36 @@ abstract class AppLocalizations {
   /// **'Open source web analytics'**
   String get openSourceAnalytics;
 
+  /// No description provided for @developer.
+  ///
+  /// In en, this message translates to:
+  /// **'Developer'**
+  String get developer;
+
+  /// No description provided for @sourceCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Source Code'**
+  String get sourceCode;
+
+  /// No description provided for @viewOnGitHub.
+  ///
+  /// In en, this message translates to:
+  /// **'View on GitHub'**
+  String get viewOnGitHub;
+
+  /// No description provided for @unofficialClient.
+  ///
+  /// In en, this message translates to:
+  /// **'Unofficial mobile client for Rybbit analytics platform'**
+  String get unofficialClient;
+
+  /// No description provided for @madeBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Made by NKS Hub'**
+  String get madeBy;
+
   /// No description provided for @logoutConfirm.
   ///
   /// In en, this message translates to:

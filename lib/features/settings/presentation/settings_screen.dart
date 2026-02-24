@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app.dart';
 import '../../../core/config/app_config.dart';
@@ -176,8 +177,31 @@ class SettingsScreen extends ConsumerWidget {
                   leading: const Icon(Icons.code),
                   title: Text(l10n.appName),
                   subtitle: Text(
-                    l10n.openSourceAnalytics,
+                    l10n.unofficialClient,
                     style: theme.textTheme.bodySmall,
+                  ),
+                ),
+                const Divider(height: 1),
+                ListTile(
+                  leading: const Icon(Icons.person_outline),
+                  title: Text(l10n.developer),
+                  subtitle: Text(
+                    l10n.madeBy,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                ),
+                const Divider(height: 1),
+                ListTile(
+                  leading: const Icon(Icons.open_in_new),
+                  title: Text(l10n.sourceCode),
+                  subtitle: Text(
+                    'github.com/nks-hub/rybbit-app',
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  trailing: const Icon(Icons.chevron_right, size: 20),
+                  onTap: () => launchUrl(
+                    Uri.parse('https://github.com/nks-hub/rybbit-app'),
+                    mode: LaunchMode.externalApplication,
                   ),
                 ),
               ],

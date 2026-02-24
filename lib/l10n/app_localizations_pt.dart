@@ -580,6 +580,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String get openSourceAnalytics => 'Análise web de código aberto';
 
   @override
+  String get developer => 'Desenvolvedor';
+
+  @override
+  String get sourceCode => 'Código-fonte';
+
+  @override
+  String get viewOnGitHub => 'Ver no GitHub';
+
+  @override
+  String get unofficialClient =>
+      'Cliente móvel não oficial para a plataforma de análise Rybbit';
+
+  @override
+  String get madeBy => 'Feito por NKS Hub';
+
+  @override
   String get logoutConfirm => 'Tem certeza de que deseja sair?';
 
   @override

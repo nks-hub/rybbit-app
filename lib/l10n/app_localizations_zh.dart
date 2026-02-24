@@ -573,6 +573,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get openSourceAnalytics => 'å¼æº Web åæå·¥å·';
 
   @override
+  String get developer => '开发者';
+
+  @override
+  String get sourceCode => '源代码';
+
+  @override
+  String get viewOnGitHub => '在 GitHub 上查看';
+
+  @override
+  String get unofficialClient => 'Rybbit 分析平台非官方移动客户端';
+
+  @override
+  String get madeBy => '由 NKS Hub 制作';
+
+  @override
   String get logoutConfirm => 'ç¡®å®è¦éåºç»å½åï¼';
 
   @override

@@ -275,6 +275,11 @@
   "about": "æå ±",
   "appVersion": "ã¢ããªãã¼ã¸ã§ã³",
   "openSourceAnalytics": "ãªã¼ãã³ã½ã¼ã¹ã®ã¦ã§ãã¢ããªãã£ã¯ã¹",
+  "developer": "開発者",
+  "sourceCode": "ソースコード",
+  "viewOnGitHub": "GitHubで見る",
+  "unofficialClient": "Rybbit分析プラットフォーム用の非公式モバイルクライアント",
+  "madeBy": "NKS Hub 制作",
   "logoutConfirm": "ã­ã°ã¢ã¦ããã¦ãããããã§ããï¼",
   "siteSettings": "ãµã¤ãè¨­å®",
   "siteInformation": "ãµã¤ãæå ±",

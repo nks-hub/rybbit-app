@@ -275,6 +275,11 @@
   "about": "å³äº",
   "appVersion": "åºç¨çæ¬",
   "openSourceAnalytics": "å¼æº Web åæå·¥å·",
+  "developer": "开发者",
+  "sourceCode": "源代码",
+  "viewOnGitHub": "在 GitHub 上查看",
+  "unofficialClient": "Rybbit 分析平台非官方移动客户端",
+  "madeBy": "由 NKS Hub 制作",
   "logoutConfirm": "ç¡®å®è¦éåºç»å½åï¼",
   "siteSettings": "ç«ç¹è®¾ç½®",
   "siteInformation": "ç«ç¹ä¿¡æ¯",

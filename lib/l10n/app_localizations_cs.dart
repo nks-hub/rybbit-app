@@ -588,6 +588,22 @@ class AppLocalizationsCs extends AppLocalizations {
   String get openSourceAnalytics => 'Open source webová analytika';
 
   @override
+  String get developer => 'Vývojář';
+
+  @override
+  String get sourceCode => 'Zdrojový kód';
+
+  @override
+  String get viewOnGitHub => 'Zobrazit na GitHubu';
+
+  @override
+  String get unofficialClient =>
+      'Neoficiální mobilní klient pro analytickou platformu Rybbit';
+
+  @override
+  String get madeBy => 'Vytvořil NKS Hub';
+
+  @override
   String get logoutConfirm => 'Opravdu se chcete odhlásit?';
 
   @override

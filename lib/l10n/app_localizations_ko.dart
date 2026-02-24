@@ -585,6 +585,21 @@ class AppLocalizationsKo extends AppLocalizations {
   String get openSourceAnalytics => 'ì¤í ìì¤ ì¹ ë¶ì ëêµ¬';
 
   @override
+  String get developer => '개발자';
+
+  @override
+  String get sourceCode => '소스 코드';
+
+  @override
+  String get viewOnGitHub => 'GitHub에서 보기';
+
+  @override
+  String get unofficialClient => 'Rybbit 분석 플랫폼 비공식 모바일 클라이언트';
+
+  @override
+  String get madeBy => 'NKS Hub 제작';
+
+  @override
   String get logoutConfirm => 'ì ë§ ë¡ê·¸ììíìê² ìµëê¹?';
 
   @override

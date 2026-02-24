@@ -598,6 +598,21 @@ class AppLocalizationsJa extends AppLocalizations {
       'ãªã¼ãã³ã½ã¼ã¹ã®ã¦ã§ãã¢ããªãã£ã¯ã¹';
 
   @override
+  String get developer => '開発者';
+
+  @override
+  String get sourceCode => 'ソースコード';
+
+  @override
+  String get viewOnGitHub => 'GitHubで見る';
+
+  @override
+  String get unofficialClient => 'Rybbit分析プラットフォーム用の非公式モバイルクライアント';
+
+  @override
+  String get madeBy => 'NKS Hub 制作';
+
+  @override
   String get logoutConfirm =>
       'ã­ã°ã¢ã¦ããã¦ãããããã§ããï¼';
 
