@@ -25,6 +25,7 @@
   "showPassword": "Pokaż hasło",
   "hidePassword": "Ukryj hasło",
   "connect": "Połącz",
+  "invalidUrl": "Wprowadź prawidłowy URL (https://...)",
   "connectionFailed": "Połączenie nie powiodło się. Sprawdź adres URL serwera.",
   "invalidApiKey": "Nieprawidłowy klucz API",
   "connectionFailedApiKey": "Połączenie nie powiodło się. Sprawdź adres URL serwera i klucz API.",

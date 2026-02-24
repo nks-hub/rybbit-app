@@ -84,6 +84,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get connect => '연결';
 
   @override
+  String get invalidUrl => '유효한 URL을 입력하세요 (https://...)';
+
+  @override
   String get connectionFailed => '연결에 실패했습니다. 서버 URL을 확인하세요.';
 
   @override

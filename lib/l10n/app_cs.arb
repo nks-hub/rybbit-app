@@ -25,6 +25,7 @@
   "showPassword": "Zobrazit heslo",
   "hidePassword": "Skrýt heslo",
   "connect": "Připojit",
+  "invalidUrl": "Zadejte platnou URL (https://...)",
   "connectionFailed": "Připojení selhalo. Zkontrolujte URL serveru.",
   "invalidApiKey": "Neplatný API klíč",
   "connectionFailedApiKey": "Připojení selhalo. Zkontrolujte URL serveru a API klíč.",

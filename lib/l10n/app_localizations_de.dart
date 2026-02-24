@@ -84,6 +84,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get connect => 'Verbinden';
 
   @override
+  String get invalidUrl => 'Geben Sie eine gültige URL ein (https://...)';
+
+  @override
   String get connectionFailed =>
       'Verbindung fehlgeschlagen. Überprüfen Sie die Server-URL.';
 

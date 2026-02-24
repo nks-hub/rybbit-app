@@ -84,6 +84,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get connect => 'Připojit';
 
   @override
+  String get invalidUrl => 'Zadejte platnou URL (https://...)';
+
+  @override
   String get connectionFailed => 'Připojení selhalo. Zkontrolujte URL serveru.';
 
   @override

@@ -25,6 +25,7 @@
   "showPassword": "비밀번호 표시",
   "hidePassword": "비밀번호 숨기기",
   "connect": "연결",
+  "invalidUrl": "유효한 URL을 입력하세요 (https://...)",
   "connectionFailed": "연결에 실패했습니다. 서버 URL을 확인하세요.",
   "invalidApiKey": "유효하지 않은 API 키",
   "connectionFailedApiKey": "연결에 실패했습니다. 서버 URL과 API 키를 확인하세요.",

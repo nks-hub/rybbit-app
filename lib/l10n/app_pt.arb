@@ -25,6 +25,7 @@
   "showPassword": "Mostrar senha",
   "hidePassword": "Ocultar senha",
   "connect": "Conectar",
+  "invalidUrl": "Insira uma URL válida (https://...)",
   "connectionFailed": "Falha na conexão. Verifique a URL do servidor.",
   "invalidApiKey": "Chave API inválida",
   "connectionFailedApiKey": "Falha na conexão. Verifique a URL do servidor e a chave API.",

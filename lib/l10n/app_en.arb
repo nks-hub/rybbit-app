@@ -28,6 +28,7 @@
   "showPassword": "Show password",
   "hidePassword": "Hide password",
   "connect": "Connect",
+  "invalidUrl": "Enter a valid URL (https://...)",
   "connectionFailed": "Connection failed. Check server URL.",
   "invalidApiKey": "Invalid API key",
   "connectionFailedApiKey": "Connection failed. Check server URL and API key.",

@@ -266,6 +266,12 @@ abstract class AppLocalizations {
   /// **'Connect'**
   String get connect;
 
+  /// No description provided for @invalidUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid URL (https://...)'**
+  String get invalidUrl;
+
   /// No description provided for @connectionFailed.
   ///
   /// In en, this message translates to:

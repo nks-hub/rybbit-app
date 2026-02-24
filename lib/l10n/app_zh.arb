@@ -25,6 +25,7 @@
   "showPassword": "显示密码",
   "hidePassword": "隐藏密码",
   "connect": "连接",
+  "invalidUrl": "请输入有效的URL (https://...)",
   "connectionFailed": "连接失败。请检查服务器 URL。",
   "invalidApiKey": "无效的 API 密钥",
   "connectionFailedApiKey": "连接失败。请检查服务器 URL 和 API 密钥。",

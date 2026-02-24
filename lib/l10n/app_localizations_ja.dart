@@ -84,6 +84,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get connect => '接続';
 
   @override
+  String get invalidUrl => '有効なURLを入力してください (https://...)';
+
+  @override
   String get connectionFailed => '接続に失敗しました。サーバーURLを確認してください。';
 
   @override

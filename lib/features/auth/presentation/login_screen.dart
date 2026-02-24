@@ -114,6 +114,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         if (value == null || value.trim().isEmpty) {
                           return l10n.serverUrl;
                         }
+                        final url = value.trim();
+                        final uri = Uri.tryParse(url);
+                        if (uri == null ||
+                            !uri.hasScheme ||
+                            !uri.isAbsolute ||
+                            (uri.scheme != 'http' && uri.scheme != 'https') ||
+                            uri.host.isEmpty ||
+                            uri.host.contains(',') ||
+                            uri.host.contains(' ')) {
+                          return l10n.invalidUrl;
+                        }
                         return null;
                       },
                     ),

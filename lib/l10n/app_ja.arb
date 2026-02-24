@@ -25,6 +25,7 @@
   "showPassword": "パスワードを表示",
   "hidePassword": "パスワードを非表示",
   "connect": "接続",
+  "invalidUrl": "有効なURLを入力してください (https://...)",
   "connectionFailed": "接続に失敗しました。サーバーURLを確認してください。",
   "invalidApiKey": "無効なAPIキー",
   "connectionFailedApiKey": "接続に失敗しました。サーバーURLとAPIキーを確認してください。",

@@ -84,6 +84,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get connect => '连接';
 
   @override
+  String get invalidUrl => '请输入有效的URL (https://...)';
+
+  @override
   String get connectionFailed => '连接失败。请检查服务器 URL。';
 
   @override
