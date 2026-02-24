@@ -597,6 +597,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get sourceCode => 'Zdrojový kód';
 
   @override
+  String get originalProject => 'Původní projekt';
+
+  @override
   String get viewOnGitHub => 'Zobrazit na GitHubu';
 
   @override
@@ -605,6 +608,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get madeBy => 'Vytvořil NKS Hub';
+
+  @override
+  String get mobileAppDeveloper => 'Vývojář mobilní aplikace';
 
   @override
   String get logoutConfirm => 'Opravdu se chcete odhlásit?';

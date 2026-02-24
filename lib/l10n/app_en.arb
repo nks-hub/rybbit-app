@@ -210,9 +210,11 @@
   "openSourceAnalytics": "Open source web analytics",
   "developer": "Developer",
   "sourceCode": "Source Code",
+  "originalProject": "Original Project",
   "viewOnGitHub": "View on GitHub",
   "unofficialClient": "Unofficial mobile client for Rybbit analytics platform",
   "madeBy": "Made by NKS Hub",
+  "mobileAppDeveloper": "Mobile Application Developer",
   "logoutConfirm": "Are you sure you want to logout?",
 
   "siteSettings": "Site Settings",

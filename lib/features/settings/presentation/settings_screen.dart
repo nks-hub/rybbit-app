@@ -183,10 +183,24 @@ class SettingsScreen extends ConsumerWidget {
                 ),
                 const Divider(height: 1),
                 ListTile(
+                  leading: const Icon(Icons.public),
+                  title: Text(l10n.originalProject),
+                  subtitle: Text(
+                    'github.com/rybbit-io/rybbit',
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  trailing: const Icon(Icons.chevron_right, size: 20),
+                  onTap: () => launchUrl(
+                    Uri.parse('https://github.com/rybbit-io/rybbit'),
+                    mode: LaunchMode.externalApplication,
+                  ),
+                ),
+                const Divider(height: 1),
+                ListTile(
                   leading: const Icon(Icons.person_outline),
                   title: Text(l10n.developer),
                   subtitle: Text(
-                    l10n.madeBy,
+                    '${l10n.madeBy} — ${l10n.mobileAppDeveloper}',
                     style: theme.textTheme.bodySmall,
                   ),
                 ),

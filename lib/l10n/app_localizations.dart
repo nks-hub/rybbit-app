@@ -1178,6 +1178,12 @@ abstract class AppLocalizations {
   /// **'Source Code'**
   String get sourceCode;
 
+  /// No description provided for @originalProject.
+  ///
+  /// In en, this message translates to:
+  /// **'Original Project'**
+  String get originalProject;
+
   /// No description provided for @viewOnGitHub.
   ///
   /// In en, this message translates to:
@@ -1195,6 +1201,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Made by NKS Hub'**
   String get madeBy;
+
+  /// No description provided for @mobileAppDeveloper.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Application Developer'**
+  String get mobileAppDeveloper;
 
   /// No description provided for @logoutConfirm.
   ///

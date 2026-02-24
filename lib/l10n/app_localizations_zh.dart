@@ -581,6 +581,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sourceCode => '源代码';
 
   @override
+  String get originalProject => '原始项目';
+
+  @override
   String get viewOnGitHub => '在 GitHub 上查看';
 
   @override
@@ -588,6 +591,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get madeBy => '由 NKS Hub 制作';
+
+  @override
+  String get mobileAppDeveloper => '移动应用开发者';
 
   @override
   String get logoutConfirm => '确定要退出登录吗？';

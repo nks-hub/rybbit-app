@@ -581,6 +581,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sourceCode => 'ソースコード';
 
   @override
+  String get originalProject => 'オリジナルプロジェクト';
+
+  @override
   String get viewOnGitHub => 'GitHubで見る';
 
   @override
@@ -588,6 +591,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get madeBy => 'NKS Hub 制作';
+
+  @override
+  String get mobileAppDeveloper => 'モバイルアプリ開発者';
 
   @override
   String get logoutConfirm => 'ログアウトしてもよろしいですか？';

@@ -591,6 +591,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get sourceCode => 'Codice sorgente';
 
   @override
+  String get originalProject => 'Progetto originale';
+
+  @override
   String get viewOnGitHub => 'Visualizza su GitHub';
 
   @override
@@ -599,6 +602,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get madeBy => 'Realizzato da NKS Hub';
+
+  @override
+  String get mobileAppDeveloper => 'Sviluppatore dell\'app mobile';
 
   @override
   String get logoutConfirm => 'Confermare l\'uscita?';
