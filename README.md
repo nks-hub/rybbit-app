@@ -2,7 +2,7 @@
   <img src="assets/rybbit_icon.svg" width="100" alt="Rybbit Logo">
 </p>
 
-<h1 align="center">Rybbit Mobile</h1>
+<h1 align="center">🐸 Rybbit Mobile</h1>
 
 <p align="center">
   Unofficial Flutter mobile client for <a href="https://github.com/rybbit-io/rybbit">Rybbit</a> — open-source, privacy-friendly web analytics.
@@ -18,17 +18,9 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Flutter-3.38+-02569B?logo=flutter&logoColor=white" alt="Flutter">
-  <img src="https://img.shields.io/badge/Dart-3.10+-0175C2?logo=dart&logoColor=white" alt="Dart">
   <img src="https://img.shields.io/badge/Android-5.0+-3DDC84?logo=android&logoColor=white" alt="Android">
   <img src="https://img.shields.io/badge/iOS-12+-000000?logo=apple&logoColor=white" alt="iOS">
   <img src="https://img.shields.io/badge/languages-11-ff6b6b" alt="Languages">
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Riverpod-state_mgmt-00d1b2" alt="Riverpod">
-  <img src="https://img.shields.io/badge/go__router-navigation-7c3aed" alt="GoRouter">
-  <img src="https://img.shields.io/badge/Freezed-models-e11d48" alt="Freezed">
-  <img src="https://img.shields.io/badge/Dio-networking-0ea5e9" alt="Dio">
 </p>
 
 ---
