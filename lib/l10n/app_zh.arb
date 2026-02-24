@@ -1,37 +1,37 @@
 {
   "@@locale": "zh",
   "appName": "Rybbit",
-  "appSubtitle": "éå®æ¹",
-  "cancel": "åæ¶",
-  "delete": "å é¤",
-  "save": "ä¿å­",
-  "update": "æ´æ°",
-  "create": "åå»º",
-  "retry": "éè¯",
-  "add": "æ·»å ",
-  "edit": "ç¼è¾",
-  "clear": "æ¸é¤",
-  "apply": "åºç¨",
-  "goBack": "è¿å",
-  "noData": "ææ æ°æ®",
-  "loading": "å è½½ä¸­",
-  "logout": "éåºç»å½",
-  "close": "å³é­",
-  "serverUrl": "æå¡å¨ URL",
+  "appSubtitle": "非官方",
+  "cancel": "取消",
+  "delete": "删除",
+  "save": "保存",
+  "update": "更新",
+  "create": "创建",
+  "retry": "重试",
+  "add": "添加",
+  "edit": "编辑",
+  "clear": "清除",
+  "apply": "应用",
+  "goBack": "返回",
+  "noData": "暂无数据",
+  "loading": "加载中",
+  "logout": "退出登录",
+  "close": "关闭",
+  "serverUrl": "服务器 URL",
   "serverUrlHint": "https://your-rybbit-instance.com",
-  "email": "é®ç®±",
-  "apiKey": "API å¯é¥",
-  "password": "å¯ç ",
-  "showPassword": "æ¾ç¤ºå¯ç ",
-  "hidePassword": "éèå¯ç ",
-  "connect": "è¿æ¥",
+  "email": "邮箱",
+  "apiKey": "API 密钥",
+  "password": "密码",
+  "showPassword": "显示密码",
+  "hidePassword": "隐藏密码",
+  "connect": "连接",
   "connectionFailed": "连接失败。请检查服务器 URL。",
   "invalidApiKey": "无效的 API 密钥",
   "connectionFailedApiKey": "连接失败。请检查服务器 URL 和 API 密钥。",
-  "organizations": "ç»ç»",
-  "noSitesFound": "æªæ¾å°ç«ç¹",
-  "noSitesHint": "å¨ Web ä»ªè¡¨æ¿ä¸­æ·»å ç«ç¹ä»¥å¼å§ä½¿ç¨ã",
-  "siteCount": "{count, plural, other{{count} ä¸ªç«ç¹}}",
+  "organizations": "组织",
+  "noSitesFound": "未找到站点",
+  "noSitesHint": "在 Web 仪表板中添加站点以开始使用。",
+  "siteCount": "{count, plural, other{{count} 个站点}}",
   "@siteCount": {
     "placeholders": {
       "count": {
@@ -39,7 +39,7 @@
       }
     }
   },
-  "members": "æå ({count})",
+  "members": "成员 ({count})",
   "@members": {
     "placeholders": {
       "count": {
@@ -47,30 +47,30 @@
       }
     }
   },
-  "failedToLoadOrganizations": "å è½½ç»ç»å¤±è´¥",
-  "noOrganizations": "ææ ç»ç»",
-  "noOrganizationsHint": "å¯ä»¥å¨ Web ä»ªè¡¨æ¿ä¸­åå»ºç»ç»",
-  "failedToLoadMembers": "å è½½æåå¤±è´¥",
-  "failedToLoadSites": "å è½½ç«ç¹å¤±è´¥",
-  "failedToLoadAnalytics": "å è½½åææ°æ®å¤±è´¥",
-  "noDataAvailable": "ææ å¯ç¨æ°æ®",
-  "users": "ç¨æ·",
-  "sessions": "ä¼è¯",
-  "pageviews": "é¡µé¢æµè§é",
-  "pagesPerSession": "é¡µé¢/ä¼è¯",
-  "bounceRate": "è·³åºç",
-  "duration": "æ¶é¿",
-  "metrics": "ææ ",
-  "pages": "é¡µé¢",
-  "referrers": "å¼èæ¥æº",
-  "countries": "å½å®¶/å°åº",
-  "devices": "è®¾å¤",
-  "performance": "æ§è½",
-  "goals": "ç®æ ",
-  "funnels": "æ¼æ",
-  "replay": "åæ¾",
-  "config": "éç½®",
-  "usersOnline": "{count} ä½ç¨æ·å¨çº¿",
+  "failedToLoadOrganizations": "加载组织失败",
+  "noOrganizations": "暂无组织",
+  "noOrganizationsHint": "可以在 Web 仪表板中创建组织",
+  "failedToLoadMembers": "加载成员失败",
+  "failedToLoadSites": "加载站点失败",
+  "failedToLoadAnalytics": "加载分析数据失败",
+  "noDataAvailable": "暂无可用数据",
+  "users": "用户",
+  "sessions": "会话",
+  "pageviews": "页面浏览量",
+  "pagesPerSession": "页面/会话",
+  "bounceRate": "跳出率",
+  "duration": "时长",
+  "metrics": "指标",
+  "pages": "页面",
+  "referrers": "引荐来源",
+  "countries": "国家/地区",
+  "devices": "设备",
+  "performance": "性能",
+  "goals": "目标",
+  "funnels": "漏斗",
+  "replay": "回放",
+  "config": "配置",
+  "usersOnline": "{count} 位用户在线",
   "@usersOnline": {
     "placeholders": {
       "count": {
@@ -78,22 +78,22 @@
       }
     }
   },
-  "events": "äºä»¶",
-  "eventsOverTime": "äºä»¶è¶å¿",
-  "eventNames": "äºä»¶åç§°",
-  "noCustomEventsTracked": "æªè·è¸ªèªå®ä¹äºä»¶",
-  "failedToLoadProperties": "å è½½å±æ§å¤±è´¥",
-  "noProperties": "ææ å±æ§",
-  "outboundLinks": "å¤é¨é¾æ¥",
-  "noOutboundLinksTracked": "æªè·è¸ªå¤é¨é¾æ¥",
-  "failedToLoadChart": "å è½½å¾è¡¨å¤±è´¥",
-  "errors": "éè¯¯",
-  "failedToLoadErrors": "å è½½éè¯¯å¤±è´¥",
-  "noErrorsFound": "æªåç°éè¯¯",
-  "everythingLooksGood": "ä¸åæ­£å¸¸ï¼",
-  "occurrences": "åçæ¬¡æ°",
-  "sessionsAffected": "åå½±åçä¼è¯",
-  "failedToLoadEventsWithError": "å è½½äºä»¶å¤±è´¥ï¼{error}",
+  "events": "事件",
+  "eventsOverTime": "事件趋势",
+  "eventNames": "事件名称",
+  "noCustomEventsTracked": "未跟踪自定义事件",
+  "failedToLoadProperties": "加载属性失败",
+  "noProperties": "暂无属性",
+  "outboundLinks": "外部链接",
+  "noOutboundLinksTracked": "未跟踪外部链接",
+  "failedToLoadChart": "加载图表失败",
+  "errors": "错误",
+  "failedToLoadErrors": "加载错误失败",
+  "noErrorsFound": "未发现错误",
+  "everythingLooksGood": "一切正常！",
+  "occurrences": "发生次数",
+  "sessionsAffected": "受影响的会话",
+  "failedToLoadEventsWithError": "加载事件失败：{error}",
   "@failedToLoadEventsWithError": {
     "placeholders": {
       "error": {
@@ -101,12 +101,12 @@
       }
     }
   },
-  "noEventsFound": "æªæ¾å°äºä»¶",
-  "failedToLoadFunnels": "å è½½æ¼æå¤±è´¥",
-  "noFunnelsSaved": "ææ å·²ä¿å­çæ¼æ",
-  "createFunnelsHint": "å¨ Web ä»ªè¡¨æ¿ä¸­åå»ºæ¼æ",
-  "deleteFunnel": "å é¤æ¼æ",
-  "deleteFunnelConfirm": "å é¤\"{name}\"ï¼",
+  "noEventsFound": "未找到事件",
+  "failedToLoadFunnels": "加载漏斗失败",
+  "noFunnelsSaved": "暂无已保存的漏斗",
+  "createFunnelsHint": "在 Web 仪表板中创建漏斗",
+  "deleteFunnel": "删除漏斗",
+  "deleteFunnelConfirm": "删除\"{name}\"？",
   "@deleteFunnelConfirm": {
     "placeholders": {
       "name": {
@@ -114,7 +114,7 @@
       }
     }
   },
-  "failedToDeleteFunnel": "å é¤æ¼æå¤±è´¥ï¼{error}",
+  "failedToDeleteFunnel": "删除漏斗失败：{error}",
   "@failedToDeleteFunnel": {
     "placeholders": {
       "error": {
@@ -122,8 +122,8 @@
       }
     }
   },
-  "noStepsDefined": "æ­¤æ¼ææªå®ä¹æ­¥éª¤",
-  "failedToAnalyze": "åæå¤±è´¥ï¼{error}",
+  "noStepsDefined": "此漏斗未定义步骤",
+  "failedToAnalyze": "分析失败：{error}",
   "@failedToAnalyze": {
     "placeholders": {
       "error": {
@@ -131,8 +131,8 @@
       }
     }
   },
-  "overallConversion": "æ´ä½è½¬åç",
-  "dropoff": "æµå¤±ï¼{value}",
+  "overallConversion": "整体转化率",
+  "dropoff": "流失：{value}",
   "@dropoff": {
     "placeholders": {
       "value": {
@@ -140,22 +140,22 @@
       }
     }
   },
-  "createGoal": "åå»ºç®æ ",
-  "failedToLoadGoals": "å è½½ç®æ å¤±è´¥",
-  "noGoalsConfigured": "ææ å·²éç½®çç®æ ",
-  "noGoalsHint": "ç¹å» + åå»ºæ°ç®æ ",
-  "conversions": "è½¬å",
-  "rate": "æ¯ç",
-  "editGoal": "ç¼è¾ç®æ ",
-  "createGoalTitle": "åå»ºç®æ ",
-  "name": "åç§°",
-  "type": "ç±»å",
-  "path": "è·¯å¾",
-  "event": "äºä»¶",
-  "pathPattern": "è·¯å¾æ¨¡å¼",
-  "eventName": "äºä»¶åç§°",
-  "deleteGoal": "å é¤ç®æ ",
-  "deleteGoalConfirm": "å é¤\"{name}\"ï¼",
+  "createGoal": "创建目标",
+  "failedToLoadGoals": "加载目标失败",
+  "noGoalsConfigured": "暂无已配置的目标",
+  "noGoalsHint": "点击 + 创建新目标",
+  "conversions": "转化",
+  "rate": "比率",
+  "editGoal": "编辑目标",
+  "createGoalTitle": "创建目标",
+  "name": "名称",
+  "type": "类型",
+  "path": "路径",
+  "event": "事件",
+  "pathPattern": "路径模式",
+  "eventName": "事件名称",
+  "deleteGoal": "删除目标",
+  "deleteGoalConfirm": "删除\"{name}\"？",
   "@deleteGoalConfirm": {
     "placeholders": {
       "name": {
@@ -163,7 +163,7 @@
       }
     }
   },
-  "failedToDeleteGoal": "å é¤ç®æ å¤±è´¥ï¼{error}",
+  "failedToDeleteGoal": "删除目标失败：{error}",
   "@failedToDeleteGoal": {
     "placeholders": {
       "error": {
@@ -171,8 +171,8 @@
       }
     }
   },
-  "failedToLoadPerformanceData": "å è½½æ§è½æ°æ®å¤±è´¥",
-  "metricOverTime": "{metric}è¶å¿",
+  "failedToLoadPerformanceData": "加载性能数据失败",
+  "metricOverTime": "{metric}趋势",
   "@metricOverTime": {
     "placeholders": {
       "metric": {
@@ -180,30 +180,30 @@
       }
     }
   },
-  "byDimension": "æç»´åº¦",
-  "failedToLoadDimensionData": "å è½½ç»´åº¦æ°æ®å¤±è´¥",
-  "good": "è¯å¥½",
-  "needsImprovement": "éè¦æ¹è¿",
-  "poor": "è¾å·®",
-  "largestContentfulPaint": "æå¤§åå®¹ç»å¶",
-  "cumulativeLayoutShift": "ç´¯è®¡å¸å±åç§»",
-  "firstContentfulPaint": "é¦æ¬¡åå®¹ç»å¶",
-  "timeToFirstByte": "é¦å­èæ¶é´",
-  "interactionToNextPaint": "äº¤äºå°ä¸ä¸æ¬¡ç»å¶",
-  "dimPages": "é¡µé¢",
-  "dimCountries": "å½å®¶/å°åº",
-  "dimDevices": "è®¾å¤",
-  "dimBrowsers": "æµè§å¨",
-  "dimOS": "æä½ç³»ç»",
-  "sessionFilters": "ä¼è¯ç­é",
-  "minPageviews": "æå°é¡µé¢æµè§é",
-  "minEvents": "æå°äºä»¶æ°",
-  "minDurationSeconds": "æç­æ¶é¿ï¼ç§ï¼",
-  "failedToLoadSessions": "å è½½ä¼è¯å¤±è´¥",
-  "noSessionsFound": "æªæ¾å°ä¼è¯",
-  "filterSessions": "ç­éä¼è¯",
-  "loadingMoreSessions": "æ­£å¨å è½½æ´å¤ä¼è¯",
-  "entryPage": "å¥å£é¡µé¢ï¼{page}",
+  "byDimension": "按维度",
+  "failedToLoadDimensionData": "加载维度数据失败",
+  "good": "良好",
+  "needsImprovement": "需要改进",
+  "poor": "较差",
+  "largestContentfulPaint": "最大内容绘制",
+  "cumulativeLayoutShift": "累计布局偏移",
+  "firstContentfulPaint": "首次内容绘制",
+  "timeToFirstByte": "首字节时间",
+  "interactionToNextPaint": "交互到下一次绘制",
+  "dimPages": "页面",
+  "dimCountries": "国家/地区",
+  "dimDevices": "设备",
+  "dimBrowsers": "浏览器",
+  "dimOS": "操作系统",
+  "sessionFilters": "会话筛选",
+  "minPageviews": "最少页面浏览量",
+  "minEvents": "最少事件数",
+  "minDurationSeconds": "最短时长（秒）",
+  "failedToLoadSessions": "加载会话失败",
+  "noSessionsFound": "未找到会话",
+  "filterSessions": "筛选会话",
+  "loadingMoreSessions": "正在加载更多会话",
+  "entryPage": "入口页面：{page}",
   "@entryPage": {
     "placeholders": {
       "page": {
@@ -211,7 +211,7 @@
       }
     }
   },
-  "nPages": "{count} ä¸ªé¡µé¢",
+  "nPages": "{count} 个页面",
   "@nPages": {
     "placeholders": {
       "count": {
@@ -219,13 +219,13 @@
       }
     }
   },
-  "sessionReplays": "ä¼è¯åæ¾",
-  "failedToLoadReplays": "å è½½åæ¾å¤±è´¥",
-  "noReplaysFound": "æªæ¾å°åæ¾",
-  "noReplaysHint": "å¯ç¨åï¼ä¼è¯åæ¾å°æ¾ç¤ºå¨æ­¤å¤ã",
-  "previousPage": "ä¸ä¸é¡µ",
-  "nextPage": "ä¸ä¸é¡µ",
-  "pageNumber": "ç¬¬ {number} é¡µ",
+  "sessionReplays": "会话回放",
+  "failedToLoadReplays": "加载回放失败",
+  "noReplaysFound": "未找到回放",
+  "noReplaysHint": "启用后，会话回放将显示在此处。",
+  "previousPage": "上一页",
+  "nextPage": "下一页",
+  "pageNumber": "第 {number} 页",
   "@pageNumber": {
     "placeholders": {
       "number": {
@@ -233,26 +233,26 @@
       }
     }
   },
-  "unknownBrowser": "æªç¥æµè§å¨",
-  "unknownCountry": "æªç¥å½å®¶/å°åº",
-  "sortUsers": "æåºç¨æ·",
-  "showAllUsers": "æ¾ç¤ºææç¨æ·",
-  "showIdentifiedOnly": "ä»æ¾ç¤ºå·²è¯å«ç¨æ·",
-  "searchUsers": "æç´¢ç¨æ·",
-  "searchUsersHint": "æç´¢ç¨æ·â¦",
-  "clearSearch": "æ¸é¤æç´¢",
-  "failedToLoadUsers": "å è½½ç¨æ·å¤±è´¥",
-  "noUsersFound": "æªæ¾å°ç¨æ·",
-  "noIdentifiedUsers": "ææ å·²è¯å«ç¨æ·",
-  "usersWillAppear": "ç¨æ·è¢«è¯å«åå°æ¾ç¤ºå¨æ­¤å¤",
-  "tryDifferentSearch": "å°è¯å¶ä»æç´¢è¯",
-  "sortedBy": "æåºæ¹å¼",
-  "loadingMoreUsers": "æ­£å¨å è½½æ´å¤ç¨æ·",
-  "lastSeen": "æåå¨çº¿",
-  "firstSeen": "é¦æ¬¡å¨çº¿",
-  "failedToLoadMetrics": "å è½½ææ å¤±è´¥",
-  "loadingMoreMetrics": "æ­£å¨å è½½æ´å¤ææ ",
-  "noMetricData": "ææ {metric}æ°æ®",
+  "unknownBrowser": "未知浏览器",
+  "unknownCountry": "未知国家/地区",
+  "sortUsers": "排序用户",
+  "showAllUsers": "显示所有用户",
+  "showIdentifiedOnly": "仅显示已识别用户",
+  "searchUsers": "搜索用户",
+  "searchUsersHint": "搜索用户…",
+  "clearSearch": "清除搜索",
+  "failedToLoadUsers": "加载用户失败",
+  "noUsersFound": "未找到用户",
+  "noIdentifiedUsers": "暂无已识别用户",
+  "usersWillAppear": "用户被识别后将显示在此处",
+  "tryDifferentSearch": "尝试其他搜索词",
+  "sortedBy": "排序方式",
+  "loadingMoreUsers": "正在加载更多用户",
+  "lastSeen": "最后在线",
+  "firstSeen": "首次在线",
+  "failedToLoadMetrics": "加载指标失败",
+  "loadingMoreMetrics": "正在加载更多指标",
+  "noMetricData": "暂无{metric}数据",
   "@noMetricData": {
     "placeholders": {
       "metric": {
@@ -260,31 +260,31 @@
       }
     }
   },
-  "settings": "è®¾ç½®",
-  "connection": "è¿æ¥",
-  "notConfigured": "æªéç½®",
-  "authMethod": "è®¤è¯æ¹å¼",
-  "sessionCookie": "ä¼è¯ Cookie",
-  "loggedInAs": "ç»å½èº«ä»½",
-  "unknown": "æªç¥",
-  "appearance": "å¤è§",
-  "theme": "ä¸»é¢",
-  "dark": "æ·±è²",
-  "light": "æµè²",
-  "auto": "èªå¨",
-  "about": "å³äº",
-  "appVersion": "åºç¨çæ¬",
-  "openSourceAnalytics": "å¼æº Web åæå·¥å·",
+  "settings": "设置",
+  "connection": "连接",
+  "notConfigured": "未配置",
+  "authMethod": "认证方式",
+  "sessionCookie": "会话 Cookie",
+  "loggedInAs": "登录身份",
+  "unknown": "未知",
+  "appearance": "外观",
+  "theme": "主题",
+  "dark": "深色",
+  "light": "浅色",
+  "auto": "自动",
+  "about": "关于",
+  "appVersion": "应用版本",
+  "openSourceAnalytics": "开源 Web 分析工具",
   "developer": "开发者",
   "sourceCode": "源代码",
   "viewOnGitHub": "在 GitHub 上查看",
   "unofficialClient": "Rybbit 分析平台非官方移动客户端",
   "madeBy": "由 NKS Hub 制作",
-  "logoutConfirm": "ç¡®å®è¦éåºç»å½åï¼",
-  "siteSettings": "ç«ç¹è®¾ç½®",
-  "siteInformation": "ç«ç¹ä¿¡æ¯",
-  "domain": "åå",
-  "siteId": "ç«ç¹ ID",
+  "logoutConfirm": "确定要退出登录吗？",
+  "siteSettings": "站点设置",
+  "siteInformation": "站点信息",
+  "domain": "域名",
+  "siteId": "站点 ID",
   "siteLabel": "站点 {id}",
   "@siteLabel": {
     "placeholders": {
@@ -293,22 +293,22 @@
       }
     }
   },
-  "created": "åå»ºæ¶é´",
-  "trackingSettings": "è·è¸ªè®¾ç½®",
-  "publicDashboard": "å¬å¼ä»ªè¡¨æ¿",
-  "publicDashboardDesc": "åè®¸å¬å¼è®¿é®åææ°æ®",
-  "sessionReplay": "ä¼è¯åæ¾",
-  "sessionReplayDesc": "å½å¶ç¨æ·ä¼è¯",
+  "created": "创建时间",
+  "trackingSettings": "跟踪设置",
+  "publicDashboard": "公开仪表板",
+  "publicDashboardDesc": "允许公开访问分析数据",
+  "sessionReplay": "会话回放",
+  "sessionReplayDesc": "录制用户会话",
   "webVitals": "Web Vitals",
-  "webVitalsDesc": "è·è¸ªæ ¸å¿ Web ææ ",
-  "trackErrors": "éè¯¯è·è¸ª",
-  "trackErrorsDesc": "æè· JavaScript éè¯¯",
-  "outboundLinksTracking": "å¤é¨é¾æ¥",
-  "outboundLinksDesc": "è·è¸ªå¤é¨é¾æ¥ç¹å»",
-  "excludedIps": "æé¤ç IP",
-  "excludedCountries": "æé¤çå½å®¶/å°åº",
-  "settingsSaved": "è®¾ç½®å·²ä¿å­",
-  "failedToSave": "ä¿å­å¤±è´¥ï¼{error}",
+  "webVitalsDesc": "跟踪核心 Web 指标",
+  "trackErrors": "错误跟踪",
+  "trackErrorsDesc": "捕获 JavaScript 错误",
+  "outboundLinksTracking": "外部链接",
+  "outboundLinksDesc": "跟踪外部链接点击",
+  "excludedIps": "排除的 IP",
+  "excludedCountries": "排除的国家/地区",
+  "settingsSaved": "设置已保存",
+  "failedToSave": "保存失败：{error}",
   "@failedToSave": {
     "placeholders": {
       "error": {
@@ -316,15 +316,15 @@
       }
     }
   },
-  "timeRange": "æ¶é´èå´",
-  "today": "ä»å¤©",
-  "yesterday": "æ¨å¤©",
-  "last7Days": "è¿å» 7 å¤©",
-  "last30Days": "è¿å» 30 å¤©",
-  "thisWeek": "æ¬å¨",
-  "thisMonth": "æ¬æ",
-  "thisYear": "ä»å¹´",
-  "customRange": "èªå®ä¹èå´",
+  "timeRange": "时间范围",
+  "today": "今天",
+  "yesterday": "昨天",
+  "last7Days": "过去 7 天",
+  "last30Days": "过去 30 天",
+  "thisWeek": "本周",
+  "thisMonth": "本月",
+  "thisYear": "今年",
+  "customRange": "自定义范围",
   "allTime": "所有时间",
   "lastMinutes": "最近{count}分钟",
   "@lastMinutes": {
@@ -344,19 +344,19 @@
   "eventTypeForm": "表单",
   "eventTypeInput": "输入",
   "eventTypeCopy": "复制",
-  "filter": "ç­é",
-  "addFilter": "æ·»å ç­é",
-  "parameter": "åæ°",
-  "value": "å¼",
-  "enterFilterValue": "è¾å¥ç­éå¼",
-  "requestTimedOut": "è¯·æ±è¶æ¶ï¼è¯·éè¯ã",
-  "networkError": "ç½ç»éè¯¯ï¼è¯·æ£æ¥æ¨çè¿æ¥ã",
-  "sessionExpired": "ä¼è¯å·²è¿æï¼è¯·éæ°ç»å½ã",
-  "accessDenied": "è®¿é®è¢«æç»ã",
-  "dataNotFound": "æªæ¾å°æ°æ®ã",
-  "serverError": "æå¡å¨éè¯¯ï¼è¯·ç¨åéè¯ã",
-  "failedToLoadGeneric": "å è½½æ°æ®å¤±è´¥ï¼è¯·éè¯ã",
-  "chartDataPoints": "å¾è¡¨åå« {count} ä¸ªæ°æ®ç¹",
+  "filter": "筛选",
+  "addFilter": "添加筛选",
+  "parameter": "参数",
+  "value": "值",
+  "enterFilterValue": "输入筛选值",
+  "requestTimedOut": "请求超时，请重试。",
+  "networkError": "网络错误，请检查您的连接。",
+  "sessionExpired": "会话已过期，请重新登录。",
+  "accessDenied": "访问被拒绝。",
+  "dataNotFound": "未找到数据。",
+  "serverError": "服务器错误，请稍后重试。",
+  "failedToLoadGeneric": "加载数据失败，请重试。",
+  "chartDataPoints": "图表包含 {count} 个数据点",
   "@chartDataPoints": {
     "placeholders": {
       "count": {
@@ -364,7 +364,7 @@
       }
     }
   },
-  "previousPrefix": "ä¸æï¼{value}",
+  "previousPrefix": "上期：{value}",
   "@previousPrefix": {
     "placeholders": {
       "value": {
@@ -372,7 +372,7 @@
       }
     }
   },
-  "performanceRatingLabel": "æ§è½è¯çº§ï¼{rating}",
+  "performanceRatingLabel": "性能评级：{rating}",
   "@performanceRatingLabel": {
     "placeholders": {
       "rating": {
@@ -380,10 +380,10 @@
       }
     }
   },
-  "loadingContent": "æ­£å¨å è½½åå®¹",
-  "language": "è¯­è¨",
-  "selectLanguage": "éæ©è¯­è¨",
-  "nUsers": "{count} ä½ç¨æ·",
+  "loadingContent": "正在加载内容",
+  "language": "语言",
+  "selectLanguage": "选择语言",
+  "nUsers": "{count} 位用户",
   "@nUsers": {
     "placeholders": {
       "count": {
@@ -391,7 +391,7 @@
       }
     }
   },
-  "nSessions": "{count} ä¸ªä¼è¯",
+  "nSessions": "{count} 个会话",
   "@nSessions": {
     "placeholders": {
       "count": {
@@ -399,7 +399,7 @@
       }
     }
   },
-  "lastPrefix": "ä¸æ¬¡ï¼{value}",
+  "lastPrefix": "上次：{value}",
   "@lastPrefix": {
     "placeholders": {
       "value": {
@@ -407,9 +407,9 @@
       }
     }
   },
-  "failedToLoadSiteConfig": "å è½½ç«ç¹éç½®å¤±è´¥",
-  "failedToLoadUserDetails": "å è½½ç¨æ·è¯¦æå¤±è´¥",
-  "lastSeenPrefix": "æåå¨çº¿ï¼{value}",
+  "failedToLoadSiteConfig": "加载站点配置失败",
+  "failedToLoadUserDetails": "加载用户详情失败",
+  "lastSeenPrefix": "最后在线：{value}",
   "@lastSeenPrefix": {
     "placeholders": {
       "value": {
@@ -417,19 +417,19 @@
       }
     }
   },
-  "traits": "ç¨æ·å±æ§",
-  "noTraits": "è¯¥ç¨æ·æ²¡æè®¾ç½®å±æ§",
-  "sessionDetail": "ä¼è¯è¯¦æ",
-  "failedToLoadSession": "å è½½ä¼è¯å¤±è´¥",
-  "entryPageLabel": "å¥å£é¡µé¢",
-  "exitPage": "åºå£é¡µé¢",
-  "browserAndDevice": "æµè§å¨åè®¾å¤",
-  "browser": "æµè§å¨",
-  "os": "æä½ç³»ç»",
-  "device": "è®¾å¤",
-  "sourceLabel": "æ¥æº",
-  "referrer": "å¼èæ¥æº",
-  "eventTimelineCount": "äºä»¶æ¶é´çº¿ ({count})",
+  "traits": "用户属性",
+  "noTraits": "该用户没有设置属性",
+  "sessionDetail": "会话详情",
+  "failedToLoadSession": "加载会话失败",
+  "entryPageLabel": "入口页面",
+  "exitPage": "出口页面",
+  "browserAndDevice": "浏览器和设备",
+  "browser": "浏览器",
+  "os": "操作系统",
+  "device": "设备",
+  "sourceLabel": "来源",
+  "referrer": "引荐来源",
+  "eventTimelineCount": "事件时间线 ({count})",
   "@eventTimelineCount": {
     "placeholders": {
       "count": {
@@ -437,13 +437,13 @@
       }
     }
   },
-  "noEvents": "ææ äºä»¶",
-  "replayEventsTitle": "åæ¾äºä»¶",
-  "failedToLoadReplay": "å è½½åæ¾å¤±è´¥",
-  "noReplayEvents": "ææ åæ¾äºä»¶",
-  "totalEvents": "äºä»¶æ»è®¡",
-  "userActionsLabel": "ç¨æ·æä½",
-  "eventTimelineActions": "äºä»¶æ¶é´çº¿ï¼{count} ä¸ªæä½ï¼",
+  "noEvents": "暂无事件",
+  "replayEventsTitle": "回放事件",
+  "failedToLoadReplay": "加载回放失败",
+  "noReplayEvents": "暂无回放事件",
+  "totalEvents": "事件总计",
+  "userActionsLabel": "用户操作",
+  "eventTimelineActions": "事件时间线（{count} 个操作）",
   "@eventTimelineActions": {
     "placeholders": {
       "count": {
@@ -451,14 +451,14 @@
       }
     }
   },
-  "eventLog": "äºä»¶æ¥å¿",
-  "viewEventLog": "æ¥çäºä»¶æ¥å¿",
-  "failedToLoadEventLog": "æ æ³å è½½äºä»¶æ¥å¿",
-  "activityHeatmap": "ç­åå¾",
-  "heatmapLast4Weeks": "æè¿4å¨",
-  "less": "è¾å°",
-  "more": "è¾å¤",
-  "peakActivity": "å³°å¼æ´»å¨",
+  "eventLog": "事件日志",
+  "viewEventLog": "查看事件日志",
+  "failedToLoadEventLog": "无法加载事件日志",
+  "activityHeatmap": "热力图",
+  "heatmapLast4Weeks": "最近4周",
+  "less": "较少",
+  "more": "较多",
+  "peakActivity": "峰值活动",
   "peakHour": "{day} {time}",
   "@peakHour": {
     "placeholders": {
@@ -470,7 +470,7 @@
       }
     }
   },
-  "busiestDay": "æç¹å¿çä¸å¤©ï¼{day}",
+  "busiestDay": "最繁忙的一天：{day}",
   "@busiestDay": {
     "placeholders": {
       "day": {
@@ -478,21 +478,21 @@
       }
     }
   },
-  "dayMon": "å¨ä¸",
-  "dayTue": "å¨äº",
-  "dayWed": "å¨ä¸",
-  "dayThu": "å¨å",
-  "dayFri": "å¨äº",
-  "daySat": "å¨å­",
-  "daySun": "å¨æ¥",
-  "searchEvents": "æç´¢äºä»¶...",
-  "allTypes": "å¨é¨",
+  "dayMon": "周一",
+  "dayTue": "周二",
+  "dayWed": "周三",
+  "dayThu": "周四",
+  "dayFri": "周五",
+  "daySat": "周六",
+  "daySun": "周日",
+  "searchEvents": "搜索事件...",
+  "allTypes": "全部",
   "allOrganizations": "所有组织",
-  "noMatchingEvents": "æ²¡æå¹éçäºä»¶",
-  "liveView": "å®æ¶",
-  "autoRefresh": "èªå¨å·æ°",
-  "usersOnlineNow": "å½åå¨çº¿ç¨æ·",
-  "lastUpdatedAt": "æ´æ°äº {time}",
+  "noMatchingEvents": "没有匹配的事件",
+  "liveView": "实时",
+  "autoRefresh": "自动刷新",
+  "usersOnlineNow": "当前在线用户",
+  "lastUpdatedAt": "更新于 {time}",
   "@lastUpdatedAt": {
     "placeholders": {
       "time": {
@@ -500,15 +500,15 @@
       }
     }
   },
-  "last30Minutes": "æè¿30åé",
-  "last5Minutes": "æè¿5åé",
-  "recentEvents": "æè¿äºä»¶",
-  "noRecentEvents": "æ²¡ææè¿çäºä»¶",
-  "retention": "çå­ç",
-  "weekly": "æå¨",
-  "daily": "æå¤©",
-  "retentionRange": "èå´",
-  "retentionDays": "{count}å¤©",
+  "last30Minutes": "最近30分钟",
+  "last5Minutes": "最近5分钟",
+  "recentEvents": "最近事件",
+  "noRecentEvents": "没有最近的事件",
+  "retention": "留存率",
+  "weekly": "按周",
+  "daily": "按天",
+  "retentionRange": "范围",
+  "retentionDays": "{count}天",
   "@retentionDays": {
     "placeholders": {
       "count": {
@@ -516,16 +516,16 @@
       }
     }
   },
-  "failedToLoadRetention": "å è½½çå­æ°æ®å¤±è´¥",
-  "noRetentionData": "æ çå­æ°æ®",
-  "cohort": "éå",
+  "failedToLoadRetention": "加载留存数据失败",
+  "noRetentionData": "无留存数据",
+  "cohort": "队列",
   "retentionWeekPrefix": "W",
   "retentionDayPrefix": "D",
-  "journeys": "ç¨æ·è·¯å¾",
-  "journeySteps": "æ­¥éª¤",
-  "failedToLoadJourneys": "å è½½ç¨æ·è·¯å¾å¤±è´¥",
-  "noJourneysFound": "æªæ¾å°ç¨æ·è·¯å¾",
-  "journeySessions": "{count}ä¸ªä¼è¯",
+  "journeys": "用户路径",
+  "journeySteps": "步骤",
+  "failedToLoadJourneys": "加载用户路径失败",
+  "noJourneysFound": "未找到用户路径",
+  "journeySessions": "{count}个会话",
   "@journeySessions": {
     "placeholders": {
       "count": {
@@ -533,18 +533,18 @@
       }
     }
   },
-  "locations": "ä½ç½®",
-  "locationCities": "åå¸",
-  "failedToLoadLocations": "å è½½ä½ç½®æ°æ®å¤±è´¥",
-  "noLocationsFound": "æªæ¾å°ä½ç½®æ°æ®",
-  "coreFeatures": "æ ¸å¿",
-  "insights": "æ´å¯",
-  "tools": "å·¥å·",
-  "userTraits": "ç¨æ·ç¹å¾",
-  "failedToLoadUserTraits": "å è½½ç¨æ·ç¹å¾å¤±è´¥",
-  "noUserTraits": "æªæ¾å°ç¨æ·ç¹å¾",
-  "noUserTraitsHint": "å½ç¨æ·ä½¿ç¨èªå®ä¹å±æ§æ è¯æ¶å°æ¾ç¤ºç¹å¾",
-  "traitUsersCount": "{count}ä¸ªç¨æ·",
+  "locations": "位置",
+  "locationCities": "城市",
+  "failedToLoadLocations": "加载位置数据失败",
+  "noLocationsFound": "未找到位置数据",
+  "coreFeatures": "核心",
+  "insights": "洞察",
+  "tools": "工具",
+  "userTraits": "用户特征",
+  "failedToLoadUserTraits": "加载用户特征失败",
+  "noUserTraits": "未找到用户特征",
+  "noUserTraitsHint": "当用户使用自定义属性标识时将显示特征",
+  "traitUsersCount": "{count}个用户",
   "@traitUsersCount": {
     "placeholders": {
       "count": {

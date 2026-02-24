@@ -1,37 +1,37 @@
 {
   "@@locale": "ko",
   "appName": "Rybbit",
-  "appSubtitle": "ë¹ê³µì",
-  "cancel": "ì·¨ì",
-  "delete": "ì­ì ",
-  "save": "ì ì¥",
-  "update": "ìë°ì´í¸",
-  "create": "ìì±",
-  "retry": "ë¤ì ìë",
-  "add": "ì¶ê°",
-  "edit": "í¸ì§",
-  "clear": "ì§ì°ê¸°",
-  "apply": "ì ì©",
-  "goBack": "ë¤ë¡ ê°ê¸°",
-  "noData": "ë°ì´í° ìì",
-  "loading": "ë¡ë© ì¤",
-  "logout": "ë¡ê·¸ìì",
-  "close": "ë«ê¸°",
-  "serverUrl": "ìë² URL",
+  "appSubtitle": "비공식",
+  "cancel": "취소",
+  "delete": "삭제",
+  "save": "저장",
+  "update": "업데이트",
+  "create": "생성",
+  "retry": "다시 시도",
+  "add": "추가",
+  "edit": "편집",
+  "clear": "지우기",
+  "apply": "적용",
+  "goBack": "뒤로 가기",
+  "noData": "데이터 없음",
+  "loading": "로딩 중",
+  "logout": "로그아웃",
+  "close": "닫기",
+  "serverUrl": "서버 URL",
   "serverUrlHint": "https://your-rybbit-instance.com",
-  "email": "ì´ë©ì¼",
-  "apiKey": "API í¤",
-  "password": "ë¹ë°ë²í¸",
-  "showPassword": "ë¹ë°ë²í¸ íì",
-  "hidePassword": "ë¹ë°ë²í¸ ì¨ê¸°ê¸°",
-  "connect": "ì°ê²°",
+  "email": "이메일",
+  "apiKey": "API 키",
+  "password": "비밀번호",
+  "showPassword": "비밀번호 표시",
+  "hidePassword": "비밀번호 숨기기",
+  "connect": "연결",
   "connectionFailed": "연결에 실패했습니다. 서버 URL을 확인하세요.",
   "invalidApiKey": "유효하지 않은 API 키",
   "connectionFailedApiKey": "연결에 실패했습니다. 서버 URL과 API 키를 확인하세요.",
-  "organizations": "ì¡°ì§",
-  "noSitesFound": "ì¬ì´í¸ë¥¼ ì°¾ì ì ììµëë¤",
-  "noSitesHint": "ììíë ¤ë©´ ì¹ ëìë³´ëìì ì¬ì´í¸ë¥¼ ì¶ê°íì¸ì.",
-  "siteCount": "{count, plural, other{{count}ê° ì¬ì´í¸}}",
+  "organizations": "조직",
+  "noSitesFound": "사이트를 찾을 수 없습니다",
+  "noSitesHint": "시작하려면 웹 대시보드에서 사이트를 추가하세요.",
+  "siteCount": "{count, plural, other{{count}개 사이트}}",
   "@siteCount": {
     "placeholders": {
       "count": {
@@ -39,7 +39,7 @@
       }
     }
   },
-  "members": "ë©¤ë² ({count})",
+  "members": "멤버 ({count})",
   "@members": {
     "placeholders": {
       "count": {
@@ -47,30 +47,30 @@
       }
     }
   },
-  "failedToLoadOrganizations": "ì¡°ì§ì ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noOrganizations": "ì¡°ì§ ìì",
-  "noOrganizationsHint": "ì¹ ëìë³´ëìì ì¡°ì§ì ìì±í  ì ììµëë¤",
-  "failedToLoadMembers": "ë©¤ë²ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "failedToLoadSites": "ì¬ì´í¸ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "failedToLoadAnalytics": "ë¶ì ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noDataAvailable": "ì¬ì© ê°ë¥í ë°ì´í°ê° ììµëë¤",
-  "users": "ì¬ì©ì",
-  "sessions": "ì¸ì",
-  "pageviews": "íì´ì§ë·°",
-  "pagesPerSession": "íì´ì§/ì¸ì",
-  "bounceRate": "ì´íë¥ ",
-  "duration": "ì²´ë¥ ìê°",
-  "metrics": "ì§í",
-  "pages": "íì´ì§",
-  "referrers": "ì ì ê²½ë¡",
-  "countries": "êµ­ê°",
-  "devices": "ê¸°ê¸°",
-  "performance": "ì±ë¥",
-  "goals": "ëª©í",
-  "funnels": "í¼ë",
-  "replay": "ë¦¬íë ì´",
-  "config": "ì¤ì ",
-  "usersOnline": "{count}ëª ì¨ë¼ì¸",
+  "failedToLoadOrganizations": "조직을 불러오지 못했습니다",
+  "noOrganizations": "조직 없음",
+  "noOrganizationsHint": "웹 대시보드에서 조직을 생성할 수 있습니다",
+  "failedToLoadMembers": "멤버를 불러오지 못했습니다",
+  "failedToLoadSites": "사이트를 불러오지 못했습니다",
+  "failedToLoadAnalytics": "분석 데이터를 불러오지 못했습니다",
+  "noDataAvailable": "사용 가능한 데이터가 없습니다",
+  "users": "사용자",
+  "sessions": "세션",
+  "pageviews": "페이지뷰",
+  "pagesPerSession": "페이지/세션",
+  "bounceRate": "이탈률",
+  "duration": "체류 시간",
+  "metrics": "지표",
+  "pages": "페이지",
+  "referrers": "유입 경로",
+  "countries": "국가",
+  "devices": "기기",
+  "performance": "성능",
+  "goals": "목표",
+  "funnels": "퍼널",
+  "replay": "리플레이",
+  "config": "설정",
+  "usersOnline": "{count}명 온라인",
   "@usersOnline": {
     "placeholders": {
       "count": {
@@ -78,22 +78,22 @@
       }
     }
   },
-  "events": "ì´ë²¤í¸",
-  "eventsOverTime": "ìê°ë³ ì´ë²¤í¸",
-  "eventNames": "ì´ë²¤í¸ ì´ë¦",
-  "noCustomEventsTracked": "ì¶ì ë ì»¤ì¤í ì´ë²¤í¸ê° ììµëë¤",
-  "failedToLoadProperties": "ìì±ì ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noProperties": "ìì± ìì",
-  "outboundLinks": "ì¸ë¶ ë§í¬",
-  "noOutboundLinksTracked": "ì¶ì ë ì¸ë¶ ë§í¬ê° ììµëë¤",
-  "failedToLoadChart": "ì°¨í¸ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "errors": "ì¤ë¥",
-  "failedToLoadErrors": "ì¤ë¥ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noErrorsFound": "ì¤ë¥ë¥¼ ì°¾ì ì ììµëë¤",
-  "everythingLooksGood": "ëª¨ë  ê²ì´ ì ììëë¤!",
-  "occurrences": "ë°ì íì",
-  "sessionsAffected": "ìí¥ë°ì ì¸ì",
-  "failedToLoadEventsWithError": "ì´ë²¤í¸ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤: {error}",
+  "events": "이벤트",
+  "eventsOverTime": "시간별 이벤트",
+  "eventNames": "이벤트 이름",
+  "noCustomEventsTracked": "추적된 커스텀 이벤트가 없습니다",
+  "failedToLoadProperties": "속성을 불러오지 못했습니다",
+  "noProperties": "속성 없음",
+  "outboundLinks": "외부 링크",
+  "noOutboundLinksTracked": "추적된 외부 링크가 없습니다",
+  "failedToLoadChart": "차트를 불러오지 못했습니다",
+  "errors": "오류",
+  "failedToLoadErrors": "오류를 불러오지 못했습니다",
+  "noErrorsFound": "오류를 찾을 수 없습니다",
+  "everythingLooksGood": "모든 것이 정상입니다!",
+  "occurrences": "발생 횟수",
+  "sessionsAffected": "영향받은 세션",
+  "failedToLoadEventsWithError": "이벤트를 불러오지 못했습니다: {error}",
   "@failedToLoadEventsWithError": {
     "placeholders": {
       "error": {
@@ -101,12 +101,12 @@
       }
     }
   },
-  "noEventsFound": "ì´ë²¤í¸ë¥¼ ì°¾ì ì ììµëë¤",
-  "failedToLoadFunnels": "í¼ëì ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noFunnelsSaved": "ì ì¥ë í¼ëì´ ììµëë¤",
-  "createFunnelsHint": "ì¹ ëìë³´ëìì í¼ëì ìì±íì¸ì",
-  "deleteFunnel": "í¼ë ì­ì ",
-  "deleteFunnelConfirm": "\"{name}\"ì(ë¥¼) ì­ì íìê² ìµëê¹?",
+  "noEventsFound": "이벤트를 찾을 수 없습니다",
+  "failedToLoadFunnels": "퍼널을 불러오지 못했습니다",
+  "noFunnelsSaved": "저장된 퍼널이 없습니다",
+  "createFunnelsHint": "웹 대시보드에서 퍼널을 생성하세요",
+  "deleteFunnel": "퍼널 삭제",
+  "deleteFunnelConfirm": "\"{name}\"을(를) 삭제하시겠습니까?",
   "@deleteFunnelConfirm": {
     "placeholders": {
       "name": {
@@ -114,7 +114,7 @@
       }
     }
   },
-  "failedToDeleteFunnel": "í¼ë ì­ì  ì¤í¨: {error}",
+  "failedToDeleteFunnel": "퍼널 삭제 실패: {error}",
   "@failedToDeleteFunnel": {
     "placeholders": {
       "error": {
@@ -122,8 +122,8 @@
       }
     }
   },
-  "noStepsDefined": "ì´ í¼ëì ì ìë ë¨ê³ê° ììµëë¤",
-  "failedToAnalyze": "ë¶ì ì¤í¨: {error}",
+  "noStepsDefined": "이 퍼널에 정의된 단계가 없습니다",
+  "failedToAnalyze": "분석 실패: {error}",
   "@failedToAnalyze": {
     "placeholders": {
       "error": {
@@ -131,8 +131,8 @@
       }
     }
   },
-  "overallConversion": "ì ì²´ ì íì¨",
-  "dropoff": "ì´í: {value}",
+  "overallConversion": "전체 전환율",
+  "dropoff": "이탈: {value}",
   "@dropoff": {
     "placeholders": {
       "value": {
@@ -140,22 +140,22 @@
       }
     }
   },
-  "createGoal": "ëª©í ìì±",
-  "failedToLoadGoals": "ëª©íë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noGoalsConfigured": "ì¤ì ë ëª©íê° ììµëë¤",
-  "noGoalsHint": "+ ë²í¼ì ëë¬ ì ëª©íë¥¼ ìì±íì¸ì",
-  "conversions": "ì í",
-  "rate": "ë¹ì¨",
-  "editGoal": "ëª©í í¸ì§",
-  "createGoalTitle": "ëª©í ìì±",
-  "name": "ì´ë¦",
-  "type": "ì í",
-  "path": "ê²½ë¡",
-  "event": "ì´ë²¤í¸",
-  "pathPattern": "ê²½ë¡ í¨í´",
-  "eventName": "ì´ë²¤í¸ ì´ë¦",
-  "deleteGoal": "ëª©í ì­ì ",
-  "deleteGoalConfirm": "\"{name}\"ì(ë¥¼) ì­ì íìê² ìµëê¹?",
+  "createGoal": "목표 생성",
+  "failedToLoadGoals": "목표를 불러오지 못했습니다",
+  "noGoalsConfigured": "설정된 목표가 없습니다",
+  "noGoalsHint": "+ 버튼을 눌러 새 목표를 생성하세요",
+  "conversions": "전환",
+  "rate": "비율",
+  "editGoal": "목표 편집",
+  "createGoalTitle": "목표 생성",
+  "name": "이름",
+  "type": "유형",
+  "path": "경로",
+  "event": "이벤트",
+  "pathPattern": "경로 패턴",
+  "eventName": "이벤트 이름",
+  "deleteGoal": "목표 삭제",
+  "deleteGoalConfirm": "\"{name}\"을(를) 삭제하시겠습니까?",
   "@deleteGoalConfirm": {
     "placeholders": {
       "name": {
@@ -163,7 +163,7 @@
       }
     }
   },
-  "failedToDeleteGoal": "ëª©í ì­ì  ì¤í¨: {error}",
+  "failedToDeleteGoal": "목표 삭제 실패: {error}",
   "@failedToDeleteGoal": {
     "placeholders": {
       "error": {
@@ -171,8 +171,8 @@
       }
     }
   },
-  "failedToLoadPerformanceData": "ì±ë¥ ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "metricOverTime": "ìê°ë³ {metric}",
+  "failedToLoadPerformanceData": "성능 데이터를 불러오지 못했습니다",
+  "metricOverTime": "시간별 {metric}",
   "@metricOverTime": {
     "placeholders": {
       "metric": {
@@ -180,30 +180,30 @@
       }
     }
   },
-  "byDimension": "ì°¨ìë³",
-  "failedToLoadDimensionData": "ì°¨ì ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "good": "ìí¸",
-  "needsImprovement": "ê°ì  íì",
-  "poor": "ëì¨",
+  "byDimension": "차원별",
+  "failedToLoadDimensionData": "차원 데이터를 불러오지 못했습니다",
+  "good": "양호",
+  "needsImprovement": "개선 필요",
+  "poor": "나쁨",
   "largestContentfulPaint": "Largest Contentful Paint",
   "cumulativeLayoutShift": "Cumulative Layout Shift",
   "firstContentfulPaint": "First Contentful Paint",
   "timeToFirstByte": "Time to First Byte",
   "interactionToNextPaint": "Interaction to Next Paint",
-  "dimPages": "íì´ì§",
-  "dimCountries": "êµ­ê°",
-  "dimDevices": "ê¸°ê¸°",
-  "dimBrowsers": "ë¸ë¼ì°ì ",
+  "dimPages": "페이지",
+  "dimCountries": "국가",
+  "dimDevices": "기기",
+  "dimBrowsers": "브라우저",
   "dimOS": "OS",
-  "sessionFilters": "ì¸ì íí°",
-  "minPageviews": "ìµì íì´ì§ë·°",
-  "minEvents": "ìµì ì´ë²¤í¸",
-  "minDurationSeconds": "ìµì ì²´ë¥ ìê° (ì´)",
-  "failedToLoadSessions": "ì¸ìì ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noSessionsFound": "ì¸ìì ì°¾ì ì ììµëë¤",
-  "filterSessions": "ì¸ì íí°ë§",
-  "loadingMoreSessions": "ë ë§ì ì¸ì ë¡ë© ì¤",
-  "entryPage": "ì§ì íì´ì§: {page}",
+  "sessionFilters": "세션 필터",
+  "minPageviews": "최소 페이지뷰",
+  "minEvents": "최소 이벤트",
+  "minDurationSeconds": "최소 체류 시간 (초)",
+  "failedToLoadSessions": "세션을 불러오지 못했습니다",
+  "noSessionsFound": "세션을 찾을 수 없습니다",
+  "filterSessions": "세션 필터링",
+  "loadingMoreSessions": "더 많은 세션 로딩 중",
+  "entryPage": "진입 페이지: {page}",
   "@entryPage": {
     "placeholders": {
       "page": {
@@ -211,7 +211,7 @@
       }
     }
   },
-  "nPages": "{count}ê° íì´ì§",
+  "nPages": "{count}개 페이지",
   "@nPages": {
     "placeholders": {
       "count": {
@@ -219,13 +219,13 @@
       }
     }
   },
-  "sessionReplays": "ì¸ì ë¦¬íë ì´",
-  "failedToLoadReplays": "ë¦¬íë ì´ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noReplaysFound": "ë¦¬íë ì´ë¥¼ ì°¾ì ì ììµëë¤",
-  "noReplaysHint": "ì¸ì ë¦¬íë ì´ê° íì±íëë©´ ì¬ê¸°ì íìë©ëë¤.",
-  "previousPage": "ì´ì  íì´ì§",
-  "nextPage": "ë¤ì íì´ì§",
-  "pageNumber": "{number} íì´ì§",
+  "sessionReplays": "세션 리플레이",
+  "failedToLoadReplays": "리플레이를 불러오지 못했습니다",
+  "noReplaysFound": "리플레이를 찾을 수 없습니다",
+  "noReplaysHint": "세션 리플레이가 활성화되면 여기에 표시됩니다.",
+  "previousPage": "이전 페이지",
+  "nextPage": "다음 페이지",
+  "pageNumber": "{number} 페이지",
   "@pageNumber": {
     "placeholders": {
       "number": {
@@ -233,26 +233,26 @@
       }
     }
   },
-  "unknownBrowser": "ì ì ìë ë¸ë¼ì°ì ",
-  "unknownCountry": "ì ì ìë êµ­ê°",
-  "sortUsers": "ì¬ì©ì ì ë ¬",
-  "showAllUsers": "ëª¨ë  ì¬ì©ì íì",
-  "showIdentifiedOnly": "ìë³ë ì¬ì©ìë§ íì",
-  "searchUsers": "ì¬ì©ì ê²ì",
-  "searchUsersHint": "ì¬ì©ì ê²ì...",
-  "clearSearch": "ê²ì ì§ì°ê¸°",
-  "failedToLoadUsers": "ì¬ì©ìë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noUsersFound": "ì¬ì©ìë¥¼ ì°¾ì ì ììµëë¤",
-  "noIdentifiedUsers": "ìë³ë ì¬ì©ìê° ììµëë¤",
-  "usersWillAppear": "ì¬ì©ìê° ìë³ëë©´ ì¬ê¸°ì íìë©ëë¤",
-  "tryDifferentSearch": "ë¤ë¥¸ ê²ìì´ë¥¼ ìëí´ ë³´ì¸ì",
-  "sortedBy": "ì ë ¬ ê¸°ì¤",
-  "loadingMoreUsers": "ë ë§ì ì¬ì©ì ë¡ë© ì¤",
-  "lastSeen": "ë§ì§ë§ ë°©ë¬¸",
-  "firstSeen": "ì²« ë°©ë¬¸",
-  "failedToLoadMetrics": "ì§íë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "loadingMoreMetrics": "ë ë§ì ì§í ë¡ë© ì¤",
-  "noMetricData": "{metric} ë°ì´í° ìì",
+  "unknownBrowser": "알 수 없는 브라우저",
+  "unknownCountry": "알 수 없는 국가",
+  "sortUsers": "사용자 정렬",
+  "showAllUsers": "모든 사용자 표시",
+  "showIdentifiedOnly": "식별된 사용자만 표시",
+  "searchUsers": "사용자 검색",
+  "searchUsersHint": "사용자 검색...",
+  "clearSearch": "검색 지우기",
+  "failedToLoadUsers": "사용자를 불러오지 못했습니다",
+  "noUsersFound": "사용자를 찾을 수 없습니다",
+  "noIdentifiedUsers": "식별된 사용자가 없습니다",
+  "usersWillAppear": "사용자가 식별되면 여기에 표시됩니다",
+  "tryDifferentSearch": "다른 검색어를 시도해 보세요",
+  "sortedBy": "정렬 기준",
+  "loadingMoreUsers": "더 많은 사용자 로딩 중",
+  "lastSeen": "마지막 방문",
+  "firstSeen": "첫 방문",
+  "failedToLoadMetrics": "지표를 불러오지 못했습니다",
+  "loadingMoreMetrics": "더 많은 지표 로딩 중",
+  "noMetricData": "{metric} 데이터 없음",
   "@noMetricData": {
     "placeholders": {
       "metric": {
@@ -260,30 +260,30 @@
       }
     }
   },
-  "settings": "ì¤ì ",
-  "connection": "ì°ê²°",
-  "notConfigured": "ì¤ì ëì§ ìì",
-  "authMethod": "ì¸ì¦ ë°©ì",
-  "sessionCookie": "ì¸ì ì¿ í¤",
-  "loggedInAs": "ë¡ê·¸ì¸ ê³ì ",
-  "unknown": "ì ì ìì",
-  "appearance": "ì¸ê´",
-  "theme": "íë§",
-  "dark": "ë¤í¬",
-  "light": "ë¼ì´í¸",
-  "auto": "ìë",
-  "about": "ì ë³´",
-  "appVersion": "ì± ë²ì ",
-  "openSourceAnalytics": "ì¤í ìì¤ ì¹ ë¶ì ëêµ¬",
+  "settings": "설정",
+  "connection": "연결",
+  "notConfigured": "설정되지 않음",
+  "authMethod": "인증 방식",
+  "sessionCookie": "세션 쿠키",
+  "loggedInAs": "로그인 계정",
+  "unknown": "알 수 없음",
+  "appearance": "외관",
+  "theme": "테마",
+  "dark": "다크",
+  "light": "라이트",
+  "auto": "자동",
+  "about": "정보",
+  "appVersion": "앱 버전",
+  "openSourceAnalytics": "오픈 소스 웹 분석 도구",
   "developer": "개발자",
   "sourceCode": "소스 코드",
   "viewOnGitHub": "GitHub에서 보기",
   "unofficialClient": "Rybbit 분석 플랫폼 비공식 모바일 클라이언트",
   "madeBy": "NKS Hub 제작",
-  "logoutConfirm": "ì ë§ ë¡ê·¸ììíìê² ìµëê¹?",
-  "siteSettings": "ì¬ì´í¸ ì¤ì ",
-  "siteInformation": "ì¬ì´í¸ ì ë³´",
-  "domain": "ëë©ì¸",
+  "logoutConfirm": "정말 로그아웃하시겠습니까?",
+  "siteSettings": "사이트 설정",
+  "siteInformation": "사이트 정보",
+  "domain": "도메인",
   "siteId": "사이트 ID",
   "siteLabel": "사이트 {id}",
   "@siteLabel": {
@@ -293,22 +293,22 @@
       }
     }
   },
-  "created": "ìì±ì¼",
-  "trackingSettings": "ì¶ì  ì¤ì ",
-  "publicDashboard": "ê³µê° ëìë³´ë",
-  "publicDashboardDesc": "ë¶ì ë°ì´í°ì ê³µê° ì ê·¼ íì©",
-  "sessionReplay": "ì¸ì ë¦¬íë ì´",
-  "sessionReplayDesc": "ì¬ì©ì ì¸ì ê¸°ë¡",
+  "created": "생성일",
+  "trackingSettings": "추적 설정",
+  "publicDashboard": "공개 대시보드",
+  "publicDashboardDesc": "분석 데이터에 공개 접근 허용",
+  "sessionReplay": "세션 리플레이",
+  "sessionReplayDesc": "사용자 세션 기록",
   "webVitals": "Web Vitals",
-  "webVitalsDesc": "Core Web Vitals ì¶ì ",
-  "trackErrors": "ì¤ë¥ ì¶ì ",
-  "trackErrorsDesc": "JavaScript ì¤ë¥ ìº¡ì²",
-  "outboundLinksTracking": "ì¸ë¶ ë§í¬",
-  "outboundLinksDesc": "ì¸ë¶ ë§í¬ í´ë¦­ ì¶ì ",
-  "excludedIps": "ì ì¸ë IP",
-  "excludedCountries": "ì ì¸ë êµ­ê°",
-  "settingsSaved": "ì¤ì ì´ ì ì¥ëììµëë¤",
-  "failedToSave": "ì ì¥ ì¤í¨: {error}",
+  "webVitalsDesc": "Core Web Vitals 추적",
+  "trackErrors": "오류 추적",
+  "trackErrorsDesc": "JavaScript 오류 캡처",
+  "outboundLinksTracking": "외부 링크",
+  "outboundLinksDesc": "외부 링크 클릭 추적",
+  "excludedIps": "제외된 IP",
+  "excludedCountries": "제외된 국가",
+  "settingsSaved": "설정이 저장되었습니다",
+  "failedToSave": "저장 실패: {error}",
   "@failedToSave": {
     "placeholders": {
       "error": {
@@ -316,15 +316,15 @@
       }
     }
   },
-  "timeRange": "ê¸°ê°",
-  "today": "ì¤ë",
-  "yesterday": "ì´ì ",
-  "last7Days": "ìµê·¼ 7ì¼",
-  "last30Days": "ìµê·¼ 30ì¼",
-  "thisWeek": "ì´ë² ì£¼",
-  "thisMonth": "ì´ë² ë¬",
-  "thisYear": "ì¬í´",
-  "customRange": "ì¬ì©ì ì§ì  ê¸°ê°",
+  "timeRange": "기간",
+  "today": "오늘",
+  "yesterday": "어제",
+  "last7Days": "최근 7일",
+  "last30Days": "최근 30일",
+  "thisWeek": "이번 주",
+  "thisMonth": "이번 달",
+  "thisYear": "올해",
+  "customRange": "사용자 지정 기간",
   "allTime": "전체 기간",
   "lastMinutes": "최근 {count}분",
   "@lastMinutes": {
@@ -344,19 +344,19 @@
   "eventTypeForm": "양식",
   "eventTypeInput": "입력",
   "eventTypeCopy": "복사",
-  "filter": "íí°",
-  "addFilter": "íí° ì¶ê°",
-  "parameter": "ë§¤ê°ë³ì",
-  "value": "ê°",
-  "enterFilterValue": "íí° ê°ì ìë ¥íì¸ì",
-  "requestTimedOut": "ìì²­ ìê°ì´ ì´ê³¼ëììµëë¤. ë¤ì ìëí´ ì£¼ì¸ì.",
-  "networkError": "ë¤í¸ìí¬ ì¤ë¥ìëë¤. ì°ê²°ì íì¸í´ ì£¼ì¸ì.",
-  "sessionExpired": "ì¸ìì´ ë§ë£ëììµëë¤. ë¤ì ë¡ê·¸ì¸í´ ì£¼ì¸ì.",
-  "accessDenied": "ì ê·¼ì´ ê±°ë¶ëììµëë¤.",
-  "dataNotFound": "ë°ì´í°ë¥¼ ì°¾ì ì ììµëë¤.",
-  "serverError": "ìë² ì¤ë¥ìëë¤. ëì¤ì ë¤ì ìëí´ ì£¼ì¸ì.",
-  "failedToLoadGeneric": "ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤. ë¤ì ìëí´ ì£¼ì¸ì.",
-  "chartDataPoints": "{count}ê°ì ë°ì´í° í¬ì¸í¸ê° ìë ì°¨í¸",
+  "filter": "필터",
+  "addFilter": "필터 추가",
+  "parameter": "매개변수",
+  "value": "값",
+  "enterFilterValue": "필터 값을 입력하세요",
+  "requestTimedOut": "요청 시간이 초과되었습니다. 다시 시도해 주세요.",
+  "networkError": "네트워크 오류입니다. 연결을 확인해 주세요.",
+  "sessionExpired": "세션이 만료되었습니다. 다시 로그인해 주세요.",
+  "accessDenied": "접근이 거부되었습니다.",
+  "dataNotFound": "데이터를 찾을 수 없습니다.",
+  "serverError": "서버 오류입니다. 나중에 다시 시도해 주세요.",
+  "failedToLoadGeneric": "데이터를 불러오지 못했습니다. 다시 시도해 주세요.",
+  "chartDataPoints": "{count}개의 데이터 포인트가 있는 차트",
   "@chartDataPoints": {
     "placeholders": {
       "count": {
@@ -364,7 +364,7 @@
       }
     }
   },
-  "previousPrefix": "ì´ì : {value}",
+  "previousPrefix": "이전: {value}",
   "@previousPrefix": {
     "placeholders": {
       "value": {
@@ -372,7 +372,7 @@
       }
     }
   },
-  "performanceRatingLabel": "ì±ë¥ ë±ê¸: {rating}",
+  "performanceRatingLabel": "성능 등급: {rating}",
   "@performanceRatingLabel": {
     "placeholders": {
       "rating": {
@@ -380,10 +380,10 @@
       }
     }
   },
-  "loadingContent": "ì½íì¸  ë¡ë© ì¤",
-  "language": "ì¸ì´",
-  "selectLanguage": "ì¸ì´ ì í",
-  "nUsers": "{count}ëªì ì¬ì©ì",
+  "loadingContent": "콘텐츠 로딩 중",
+  "language": "언어",
+  "selectLanguage": "언어 선택",
+  "nUsers": "{count}명의 사용자",
   "@nUsers": {
     "placeholders": {
       "count": {
@@ -391,7 +391,7 @@
       }
     }
   },
-  "nSessions": "{count}ê° ì¸ì",
+  "nSessions": "{count}개 세션",
   "@nSessions": {
     "placeholders": {
       "count": {
@@ -399,7 +399,7 @@
       }
     }
   },
-  "lastPrefix": "ì´ì : {value}",
+  "lastPrefix": "이전: {value}",
   "@lastPrefix": {
     "placeholders": {
       "value": {
@@ -407,9 +407,9 @@
       }
     }
   },
-  "failedToLoadSiteConfig": "ì¬ì´í¸ ì¤ì ì ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "failedToLoadUserDetails": "ì¬ì©ì ì¸ë¶ ì ë³´ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "lastSeenPrefix": "ë§ì§ë§ ì ì: {value}",
+  "failedToLoadSiteConfig": "사이트 설정을 불러오지 못했습니다",
+  "failedToLoadUserDetails": "사용자 세부 정보를 불러오지 못했습니다",
+  "lastSeenPrefix": "마지막 접속: {value}",
   "@lastSeenPrefix": {
     "placeholders": {
       "value": {
@@ -417,19 +417,19 @@
       }
     }
   },
-  "traits": "ìì±",
-  "noTraits": "ì´ ì¬ì©ìì ìì±ì´ ììµëë¤",
-  "sessionDetail": "ì¸ì ìì¸",
-  "failedToLoadSession": "ì¸ìì ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "entryPageLabel": "ì§ì íì´ì§",
-  "exitPage": "ì´í íì´ì§",
-  "browserAndDevice": "ë¸ë¼ì°ì  ë° ê¸°ê¸°",
-  "browser": "ë¸ë¼ì°ì ",
+  "traits": "속성",
+  "noTraits": "이 사용자의 속성이 없습니다",
+  "sessionDetail": "세션 상세",
+  "failedToLoadSession": "세션을 불러오지 못했습니다",
+  "entryPageLabel": "진입 페이지",
+  "exitPage": "이탈 페이지",
+  "browserAndDevice": "브라우저 및 기기",
+  "browser": "브라우저",
   "os": "OS",
-  "device": "ê¸°ê¸°",
-  "sourceLabel": "ìì¤",
-  "referrer": "ë¦¬í¼ë¬",
-  "eventTimelineCount": "ì´ë²¤í¸ íìë¼ì¸ ({count})",
+  "device": "기기",
+  "sourceLabel": "소스",
+  "referrer": "리퍼러",
+  "eventTimelineCount": "이벤트 타임라인 ({count})",
   "@eventTimelineCount": {
     "placeholders": {
       "count": {
@@ -437,13 +437,13 @@
       }
     }
   },
-  "noEvents": "ì´ë²¤í¸ ìì",
-  "replayEventsTitle": "ë¦¬íë ì´ ì´ë²¤í¸",
-  "failedToLoadReplay": "ë¦¬íë ì´ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noReplayEvents": "ë¦¬íë ì´ ì´ë²¤í¸ ìì",
-  "totalEvents": "ì ì²´ ì´ë²¤í¸",
-  "userActionsLabel": "ì¬ì©ì ëì",
-  "eventTimelineActions": "ì´ë²¤í¸ íìë¼ì¸ ({count}ê° ëì)",
+  "noEvents": "이벤트 없음",
+  "replayEventsTitle": "리플레이 이벤트",
+  "failedToLoadReplay": "리플레이를 불러오지 못했습니다",
+  "noReplayEvents": "리플레이 이벤트 없음",
+  "totalEvents": "전체 이벤트",
+  "userActionsLabel": "사용자 동작",
+  "eventTimelineActions": "이벤트 타임라인 ({count}개 동작)",
   "@eventTimelineActions": {
     "placeholders": {
       "count": {
@@ -451,14 +451,14 @@
       }
     }
   },
-  "eventLog": "ì´ë²¤í¸ ë¡ê·¸",
-  "viewEventLog": "ì´ë²¤í¸ ë¡ê·¸ ë³´ê¸°",
-  "failedToLoadEventLog": "ì´ë²¤í¸ ë¡ê·¸ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "activityHeatmap": "íí¸ë§µ",
-  "heatmapLast4Weeks": "ìµê·¼ 4ì£¼",
-  "less": "ì ì",
-  "more": "ë§ì",
-  "peakActivity": "ìµê³  íë",
+  "eventLog": "이벤트 로그",
+  "viewEventLog": "이벤트 로그 보기",
+  "failedToLoadEventLog": "이벤트 로그를 불러오지 못했습니다",
+  "activityHeatmap": "히트맵",
+  "heatmapLast4Weeks": "최근 4주",
+  "less": "적음",
+  "more": "많음",
+  "peakActivity": "최고 활동",
   "peakHour": "{day} {time}",
   "@peakHour": {
     "placeholders": {
@@ -470,7 +470,7 @@
       }
     }
   },
-  "busiestDay": "ê°ì¥ ë°ì ë : {day}",
+  "busiestDay": "가장 바쁜 날: {day}",
   "@busiestDay": {
     "placeholders": {
       "day": {
@@ -478,21 +478,21 @@
       }
     }
   },
-  "dayMon": "ì",
-  "dayTue": "í",
-  "dayWed": "ì",
-  "dayThu": "ëª©",
-  "dayFri": "ê¸",
-  "daySat": "í ",
-  "daySun": "ì¼",
-  "searchEvents": "ì´ë²¤í¸ ê²ì...",
-  "allTypes": "ì ì²´",
+  "dayMon": "월",
+  "dayTue": "화",
+  "dayWed": "수",
+  "dayThu": "목",
+  "dayFri": "금",
+  "daySat": "토",
+  "daySun": "일",
+  "searchEvents": "이벤트 검색...",
+  "allTypes": "전체",
   "allOrganizations": "모든 조직",
-  "noMatchingEvents": "ì¼ì¹íë ì´ë²¤í¸ ìì",
-  "liveView": "ë¼ì´ë¸",
-  "autoRefresh": "ìë ìë¡ê³ ì¹¨",
-  "usersOnlineNow": "íì¬ ì¨ë¼ì¸ ì¬ì©ì",
-  "lastUpdatedAt": "{time}ì ìë°ì´í¸ë¨",
+  "noMatchingEvents": "일치하는 이벤트 없음",
+  "liveView": "라이브",
+  "autoRefresh": "자동 새로고침",
+  "usersOnlineNow": "현재 온라인 사용자",
+  "lastUpdatedAt": "{time}에 업데이트됨",
   "@lastUpdatedAt": {
     "placeholders": {
       "time": {
@@ -500,15 +500,15 @@
       }
     }
   },
-  "last30Minutes": "ìµê·¼ 30ë¶",
-  "last5Minutes": "ìµê·¼ 5ë¶",
-  "recentEvents": "ìµê·¼ ì´ë²¤í¸",
-  "noRecentEvents": "ìµê·¼ ì´ë²¤í¸ ìì",
-  "retention": "ë¦¬íì",
-  "weekly": "ì£¼ê°",
-  "daily": "ì¼ê°",
-  "retentionRange": "ë²ì",
-  "retentionDays": "{count}ì¼",
+  "last30Minutes": "최근 30분",
+  "last5Minutes": "최근 5분",
+  "recentEvents": "최근 이벤트",
+  "noRecentEvents": "최근 이벤트 없음",
+  "retention": "리텐션",
+  "weekly": "주간",
+  "daily": "일간",
+  "retentionRange": "범위",
+  "retentionDays": "{count}일",
   "@retentionDays": {
     "placeholders": {
       "count": {
@@ -516,16 +516,16 @@
       }
     }
   },
-  "failedToLoadRetention": "ë¦¬íì ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noRetentionData": "ë¦¬íì ë°ì´í° ìì",
-  "cohort": "ì½í¸í¸",
+  "failedToLoadRetention": "리텐션 데이터를 불러오지 못했습니다",
+  "noRetentionData": "리텐션 데이터 없음",
+  "cohort": "코호트",
   "retentionWeekPrefix": "W",
   "retentionDayPrefix": "D",
-  "journeys": "ì¬ì©ì ê²½ë¡",
-  "journeySteps": "ë¨ê³",
-  "failedToLoadJourneys": "ì¬ì©ì ê²½ë¡ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noJourneysFound": "ì¬ì©ì ê²½ë¡ê° ììµëë¤",
-  "journeySessions": "{count} ì¸ì",
+  "journeys": "사용자 경로",
+  "journeySteps": "단계",
+  "failedToLoadJourneys": "사용자 경로를 불러오지 못했습니다",
+  "noJourneysFound": "사용자 경로가 없습니다",
+  "journeySessions": "{count} 세션",
   "@journeySessions": {
     "placeholders": {
       "count": {
@@ -533,18 +533,18 @@
       }
     }
   },
-  "locations": "ìì¹",
-  "locationCities": "ëì",
-  "failedToLoadLocations": "ìì¹ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noLocationsFound": "ìì¹ê° ììµëë¤",
-  "coreFeatures": "íµì¬",
-  "insights": "ì¸ì¬ì´í¸",
-  "tools": "ëêµ¬",
-  "userTraits": "í¹ì±",
-  "failedToLoadUserTraits": "ì¬ì©ì í¹ì±ì ë¶ë¬ì¤ì§ ëª»íìµëë¤",
-  "noUserTraits": "í¹ì±ì´ ììµëë¤",
-  "noUserTraitsHint": "ì¬ì©ìê° ì¬ì©ì ì ì ìì±ì¼ë¡ ìë³ëë©´ íìë©ëë¤",
-  "traitUsersCount": "{count}ëª ì¬ì©ì",
+  "locations": "위치",
+  "locationCities": "도시",
+  "failedToLoadLocations": "위치를 불러오지 못했습니다",
+  "noLocationsFound": "위치가 없습니다",
+  "coreFeatures": "핵심",
+  "insights": "인사이트",
+  "tools": "도구",
+  "userTraits": "특성",
+  "failedToLoadUserTraits": "사용자 특성을 불러오지 못했습니다",
+  "noUserTraits": "특성이 없습니다",
+  "noUserTraitsHint": "사용자가 사용자 정의 속성으로 식별되면 표시됩니다",
+  "traitUsersCount": "{count}명 사용자",
   "@traitUsersCount": {
     "placeholders": {
       "count": {

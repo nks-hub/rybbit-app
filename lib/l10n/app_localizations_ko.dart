@@ -12,76 +12,76 @@ class AppLocalizationsKo extends AppLocalizations {
   String get appName => 'Rybbit';
 
   @override
-  String get appSubtitle => 'ë¹ê³µì';
+  String get appSubtitle => '비공식';
 
   @override
-  String get cancel => 'ì·¨ì';
+  String get cancel => '취소';
 
   @override
-  String get delete => 'ì­ì ';
+  String get delete => '삭제';
 
   @override
-  String get save => 'ì ì¥';
+  String get save => '저장';
 
   @override
-  String get update => 'ìë°ì´í¸';
+  String get update => '업데이트';
 
   @override
-  String get create => 'ìì±';
+  String get create => '생성';
 
   @override
-  String get retry => 'ë¤ì ìë';
+  String get retry => '다시 시도';
 
   @override
-  String get add => 'ì¶ê°';
+  String get add => '추가';
 
   @override
-  String get edit => 'í¸ì§';
+  String get edit => '편집';
 
   @override
-  String get clear => 'ì§ì°ê¸°';
+  String get clear => '지우기';
 
   @override
-  String get apply => 'ì ì©';
+  String get apply => '적용';
 
   @override
-  String get goBack => 'ë¤ë¡ ê°ê¸°';
+  String get goBack => '뒤로 가기';
 
   @override
-  String get noData => 'ë°ì´í° ìì';
+  String get noData => '데이터 없음';
 
   @override
-  String get loading => 'ë¡ë© ì¤';
+  String get loading => '로딩 중';
 
   @override
-  String get logout => 'ë¡ê·¸ìì';
+  String get logout => '로그아웃';
 
   @override
-  String get close => 'ë«ê¸°';
+  String get close => '닫기';
 
   @override
-  String get serverUrl => 'ìë² URL';
+  String get serverUrl => '서버 URL';
 
   @override
   String get serverUrlHint => 'https://your-rybbit-instance.com';
 
   @override
-  String get email => 'ì´ë©ì¼';
+  String get email => '이메일';
 
   @override
-  String get apiKey => 'API í¤';
+  String get apiKey => 'API 키';
 
   @override
-  String get password => 'ë¹ë°ë²í¸';
+  String get password => '비밀번호';
 
   @override
-  String get showPassword => 'ë¹ë°ë²í¸ íì';
+  String get showPassword => '비밀번호 표시';
 
   @override
-  String get hidePassword => 'ë¹ë°ë²í¸ ì¨ê¸°ê¸°';
+  String get hidePassword => '비밀번호 숨기기';
 
   @override
-  String get connect => 'ì°ê²°';
+  String get connect => '연결';
 
   @override
   String get connectionFailed => '연결에 실패했습니다. 서버 URL을 확인하세요.';
@@ -93,280 +93,271 @@ class AppLocalizationsKo extends AppLocalizations {
   String get connectionFailedApiKey => '연결에 실패했습니다. 서버 URL과 API 키를 확인하세요.';
 
   @override
-  String get organizations => 'ì¡°ì§';
+  String get organizations => '조직';
 
   @override
-  String get noSitesFound => 'ì¬ì´í¸ë¥¼ ì°¾ì ì ììµëë¤';
+  String get noSitesFound => '사이트를 찾을 수 없습니다';
 
   @override
-  String get noSitesHint =>
-      'ììíë ¤ë©´ ì¹ ëìë³´ëìì ì¬ì´í¸ë¥¼ ì¶ê°íì¸ì.';
+  String get noSitesHint => '시작하려면 웹 대시보드에서 사이트를 추가하세요.';
 
   @override
   String siteCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$countê° ì¬ì´í¸',
+      other: '$count개 사이트',
     );
     return '$_temp0';
   }
 
   @override
   String members(int count) {
-    return 'ë©¤ë² ($count)';
+    return '멤버 ($count)';
   }
 
   @override
-  String get failedToLoadOrganizations =>
-      'ì¡°ì§ì ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadOrganizations => '조직을 불러오지 못했습니다';
 
   @override
-  String get noOrganizations => 'ì¡°ì§ ìì';
+  String get noOrganizations => '조직 없음';
 
   @override
-  String get noOrganizationsHint =>
-      'ì¹ ëìë³´ëìì ì¡°ì§ì ìì±í  ì ììµëë¤';
+  String get noOrganizationsHint => '웹 대시보드에서 조직을 생성할 수 있습니다';
 
   @override
-  String get failedToLoadMembers => 'ë©¤ë²ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadMembers => '멤버를 불러오지 못했습니다';
 
   @override
-  String get failedToLoadSites => 'ì¬ì´í¸ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadSites => '사이트를 불러오지 못했습니다';
 
   @override
-  String get failedToLoadAnalytics =>
-      'ë¶ì ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadAnalytics => '분석 데이터를 불러오지 못했습니다';
 
   @override
-  String get noDataAvailable => 'ì¬ì© ê°ë¥í ë°ì´í°ê° ììµëë¤';
+  String get noDataAvailable => '사용 가능한 데이터가 없습니다';
 
   @override
-  String get users => 'ì¬ì©ì';
+  String get users => '사용자';
 
   @override
-  String get sessions => 'ì¸ì';
+  String get sessions => '세션';
 
   @override
-  String get pageviews => 'íì´ì§ë·°';
+  String get pageviews => '페이지뷰';
 
   @override
-  String get pagesPerSession => 'íì´ì§/ì¸ì';
+  String get pagesPerSession => '페이지/세션';
 
   @override
-  String get bounceRate => 'ì´íë¥ ';
+  String get bounceRate => '이탈률';
 
   @override
-  String get duration => 'ì²´ë¥ ìê°';
+  String get duration => '체류 시간';
 
   @override
-  String get metrics => 'ì§í';
+  String get metrics => '지표';
 
   @override
-  String get pages => 'íì´ì§';
+  String get pages => '페이지';
 
   @override
-  String get referrers => 'ì ì ê²½ë¡';
+  String get referrers => '유입 경로';
 
   @override
-  String get countries => 'êµ­ê°';
+  String get countries => '국가';
 
   @override
-  String get devices => 'ê¸°ê¸°';
+  String get devices => '기기';
 
   @override
-  String get performance => 'ì±ë¥';
+  String get performance => '성능';
 
   @override
-  String get goals => 'ëª©í';
+  String get goals => '목표';
 
   @override
-  String get funnels => 'í¼ë';
+  String get funnels => '퍼널';
 
   @override
-  String get replay => 'ë¦¬íë ì´';
+  String get replay => '리플레이';
 
   @override
-  String get config => 'ì¤ì ';
+  String get config => '설정';
 
   @override
   String usersOnline(int count) {
-    return '$countëª ì¨ë¼ì¸';
+    return '$count명 온라인';
   }
 
   @override
-  String get events => 'ì´ë²¤í¸';
+  String get events => '이벤트';
 
   @override
-  String get eventsOverTime => 'ìê°ë³ ì´ë²¤í¸';
+  String get eventsOverTime => '시간별 이벤트';
 
   @override
-  String get eventNames => 'ì´ë²¤í¸ ì´ë¦';
+  String get eventNames => '이벤트 이름';
 
   @override
-  String get noCustomEventsTracked =>
-      'ì¶ì ë ì»¤ì¤í ì´ë²¤í¸ê° ììµëë¤';
+  String get noCustomEventsTracked => '추적된 커스텀 이벤트가 없습니다';
 
   @override
-  String get failedToLoadProperties => 'ìì±ì ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadProperties => '속성을 불러오지 못했습니다';
 
   @override
-  String get noProperties => 'ìì± ìì';
+  String get noProperties => '속성 없음';
 
   @override
-  String get outboundLinks => 'ì¸ë¶ ë§í¬';
+  String get outboundLinks => '외부 링크';
 
   @override
-  String get noOutboundLinksTracked =>
-      'ì¶ì ë ì¸ë¶ ë§í¬ê° ììµëë¤';
+  String get noOutboundLinksTracked => '추적된 외부 링크가 없습니다';
 
   @override
-  String get failedToLoadChart => 'ì°¨í¸ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadChart => '차트를 불러오지 못했습니다';
 
   @override
-  String get errors => 'ì¤ë¥';
+  String get errors => '오류';
 
   @override
-  String get failedToLoadErrors => 'ì¤ë¥ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadErrors => '오류를 불러오지 못했습니다';
 
   @override
-  String get noErrorsFound => 'ì¤ë¥ë¥¼ ì°¾ì ì ììµëë¤';
+  String get noErrorsFound => '오류를 찾을 수 없습니다';
 
   @override
-  String get everythingLooksGood => 'ëª¨ë  ê²ì´ ì ììëë¤!';
+  String get everythingLooksGood => '모든 것이 정상입니다!';
 
   @override
-  String get occurrences => 'ë°ì íì';
+  String get occurrences => '발생 횟수';
 
   @override
-  String get sessionsAffected => 'ìí¥ë°ì ì¸ì';
+  String get sessionsAffected => '영향받은 세션';
 
   @override
   String failedToLoadEventsWithError(String error) {
-    return 'ì´ë²¤í¸ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤: $error';
+    return '이벤트를 불러오지 못했습니다: $error';
   }
 
   @override
-  String get noEventsFound => 'ì´ë²¤í¸ë¥¼ ì°¾ì ì ììµëë¤';
+  String get noEventsFound => '이벤트를 찾을 수 없습니다';
 
   @override
-  String get failedToLoadFunnels => 'í¼ëì ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadFunnels => '퍼널을 불러오지 못했습니다';
 
   @override
-  String get noFunnelsSaved => 'ì ì¥ë í¼ëì´ ììµëë¤';
+  String get noFunnelsSaved => '저장된 퍼널이 없습니다';
 
   @override
-  String get createFunnelsHint =>
-      'ì¹ ëìë³´ëìì í¼ëì ìì±íì¸ì';
+  String get createFunnelsHint => '웹 대시보드에서 퍼널을 생성하세요';
 
   @override
-  String get deleteFunnel => 'í¼ë ì­ì ';
+  String get deleteFunnel => '퍼널 삭제';
 
   @override
   String deleteFunnelConfirm(String name) {
-    return '\"$name\"ì(ë¥¼) ì­ì íìê² ìµëê¹?';
+    return '\"$name\"을(를) 삭제하시겠습니까?';
   }
 
   @override
   String failedToDeleteFunnel(String error) {
-    return 'í¼ë ì­ì  ì¤í¨: $error';
+    return '퍼널 삭제 실패: $error';
   }
 
   @override
-  String get noStepsDefined => 'ì´ í¼ëì ì ìë ë¨ê³ê° ììµëë¤';
+  String get noStepsDefined => '이 퍼널에 정의된 단계가 없습니다';
 
   @override
   String failedToAnalyze(String error) {
-    return 'ë¶ì ì¤í¨: $error';
+    return '분석 실패: $error';
   }
 
   @override
-  String get overallConversion => 'ì ì²´ ì íì¨';
+  String get overallConversion => '전체 전환율';
 
   @override
   String dropoff(String value) {
-    return 'ì´í: $value';
+    return '이탈: $value';
   }
 
   @override
-  String get createGoal => 'ëª©í ìì±';
+  String get createGoal => '목표 생성';
 
   @override
-  String get failedToLoadGoals => 'ëª©íë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadGoals => '목표를 불러오지 못했습니다';
 
   @override
-  String get noGoalsConfigured => 'ì¤ì ë ëª©íê° ììµëë¤';
+  String get noGoalsConfigured => '설정된 목표가 없습니다';
 
   @override
-  String get noGoalsHint => '+ ë²í¼ì ëë¬ ì ëª©íë¥¼ ìì±íì¸ì';
+  String get noGoalsHint => '+ 버튼을 눌러 새 목표를 생성하세요';
 
   @override
-  String get conversions => 'ì í';
+  String get conversions => '전환';
 
   @override
-  String get rate => 'ë¹ì¨';
+  String get rate => '비율';
 
   @override
-  String get editGoal => 'ëª©í í¸ì§';
+  String get editGoal => '목표 편집';
 
   @override
-  String get createGoalTitle => 'ëª©í ìì±';
+  String get createGoalTitle => '목표 생성';
 
   @override
-  String get name => 'ì´ë¦';
+  String get name => '이름';
 
   @override
-  String get type => 'ì í';
+  String get type => '유형';
 
   @override
-  String get path => 'ê²½ë¡';
+  String get path => '경로';
 
   @override
-  String get event => 'ì´ë²¤í¸';
+  String get event => '이벤트';
 
   @override
-  String get pathPattern => 'ê²½ë¡ í¨í´';
+  String get pathPattern => '경로 패턴';
 
   @override
-  String get eventName => 'ì´ë²¤í¸ ì´ë¦';
+  String get eventName => '이벤트 이름';
 
   @override
-  String get deleteGoal => 'ëª©í ì­ì ';
+  String get deleteGoal => '목표 삭제';
 
   @override
   String deleteGoalConfirm(String name) {
-    return '\"$name\"ì(ë¥¼) ì­ì íìê² ìµëê¹?';
+    return '\"$name\"을(를) 삭제하시겠습니까?';
   }
 
   @override
   String failedToDeleteGoal(String error) {
-    return 'ëª©í ì­ì  ì¤í¨: $error';
+    return '목표 삭제 실패: $error';
   }
 
   @override
-  String get failedToLoadPerformanceData =>
-      'ì±ë¥ ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadPerformanceData => '성능 데이터를 불러오지 못했습니다';
 
   @override
   String metricOverTime(String metric) {
-    return 'ìê°ë³ $metric';
+    return '시간별 $metric';
   }
 
   @override
-  String get byDimension => 'ì°¨ìë³';
+  String get byDimension => '차원별';
 
   @override
-  String get failedToLoadDimensionData =>
-      'ì°¨ì ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadDimensionData => '차원 데이터를 불러오지 못했습니다';
 
   @override
-  String get good => 'ìí¸';
+  String get good => '양호';
 
   @override
-  String get needsImprovement => 'ê°ì  íì';
+  String get needsImprovement => '개선 필요';
 
   @override
-  String get poor => 'ëì¨';
+  String get poor => '나쁨';
 
   @override
   String get largestContentfulPaint => 'Largest Contentful Paint';
@@ -384,205 +375,201 @@ class AppLocalizationsKo extends AppLocalizations {
   String get interactionToNextPaint => 'Interaction to Next Paint';
 
   @override
-  String get dimPages => 'íì´ì§';
+  String get dimPages => '페이지';
 
   @override
-  String get dimCountries => 'êµ­ê°';
+  String get dimCountries => '국가';
 
   @override
-  String get dimDevices => 'ê¸°ê¸°';
+  String get dimDevices => '기기';
 
   @override
-  String get dimBrowsers => 'ë¸ë¼ì°ì ';
+  String get dimBrowsers => '브라우저';
 
   @override
   String get dimOS => 'OS';
 
   @override
-  String get sessionFilters => 'ì¸ì íí°';
+  String get sessionFilters => '세션 필터';
 
   @override
-  String get minPageviews => 'ìµì íì´ì§ë·°';
+  String get minPageviews => '최소 페이지뷰';
 
   @override
-  String get minEvents => 'ìµì ì´ë²¤í¸';
+  String get minEvents => '최소 이벤트';
 
   @override
-  String get minDurationSeconds => 'ìµì ì²´ë¥ ìê° (ì´)';
+  String get minDurationSeconds => '최소 체류 시간 (초)';
 
   @override
-  String get failedToLoadSessions => 'ì¸ìì ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadSessions => '세션을 불러오지 못했습니다';
 
   @override
-  String get noSessionsFound => 'ì¸ìì ì°¾ì ì ììµëë¤';
+  String get noSessionsFound => '세션을 찾을 수 없습니다';
 
   @override
-  String get filterSessions => 'ì¸ì íí°ë§';
+  String get filterSessions => '세션 필터링';
 
   @override
-  String get loadingMoreSessions => 'ë ë§ì ì¸ì ë¡ë© ì¤';
+  String get loadingMoreSessions => '더 많은 세션 로딩 중';
 
   @override
   String entryPage(String page) {
-    return 'ì§ì íì´ì§: $page';
+    return '진입 페이지: $page';
   }
 
   @override
   String nPages(int count) {
-    return '$countê° íì´ì§';
+    return '$count개 페이지';
   }
 
   @override
-  String get sessionReplays => 'ì¸ì ë¦¬íë ì´';
+  String get sessionReplays => '세션 리플레이';
 
   @override
-  String get failedToLoadReplays =>
-      'ë¦¬íë ì´ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadReplays => '리플레이를 불러오지 못했습니다';
 
   @override
-  String get noReplaysFound => 'ë¦¬íë ì´ë¥¼ ì°¾ì ì ììµëë¤';
+  String get noReplaysFound => '리플레이를 찾을 수 없습니다';
 
   @override
-  String get noReplaysHint =>
-      'ì¸ì ë¦¬íë ì´ê° íì±íëë©´ ì¬ê¸°ì íìë©ëë¤.';
+  String get noReplaysHint => '세션 리플레이가 활성화되면 여기에 표시됩니다.';
 
   @override
-  String get previousPage => 'ì´ì  íì´ì§';
+  String get previousPage => '이전 페이지';
 
   @override
-  String get nextPage => 'ë¤ì íì´ì§';
+  String get nextPage => '다음 페이지';
 
   @override
   String pageNumber(int number) {
-    return '$number íì´ì§';
+    return '$number 페이지';
   }
 
   @override
-  String get unknownBrowser => 'ì ì ìë ë¸ë¼ì°ì ';
+  String get unknownBrowser => '알 수 없는 브라우저';
 
   @override
-  String get unknownCountry => 'ì ì ìë êµ­ê°';
+  String get unknownCountry => '알 수 없는 국가';
 
   @override
-  String get sortUsers => 'ì¬ì©ì ì ë ¬';
+  String get sortUsers => '사용자 정렬';
 
   @override
-  String get showAllUsers => 'ëª¨ë  ì¬ì©ì íì';
+  String get showAllUsers => '모든 사용자 표시';
 
   @override
-  String get showIdentifiedOnly => 'ìë³ë ì¬ì©ìë§ íì';
+  String get showIdentifiedOnly => '식별된 사용자만 표시';
 
   @override
-  String get searchUsers => 'ì¬ì©ì ê²ì';
+  String get searchUsers => '사용자 검색';
 
   @override
-  String get searchUsersHint => 'ì¬ì©ì ê²ì...';
+  String get searchUsersHint => '사용자 검색...';
 
   @override
-  String get clearSearch => 'ê²ì ì§ì°ê¸°';
+  String get clearSearch => '검색 지우기';
 
   @override
-  String get failedToLoadUsers => 'ì¬ì©ìë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadUsers => '사용자를 불러오지 못했습니다';
 
   @override
-  String get noUsersFound => 'ì¬ì©ìë¥¼ ì°¾ì ì ììµëë¤';
+  String get noUsersFound => '사용자를 찾을 수 없습니다';
 
   @override
-  String get noIdentifiedUsers => 'ìë³ë ì¬ì©ìê° ììµëë¤';
+  String get noIdentifiedUsers => '식별된 사용자가 없습니다';
 
   @override
-  String get usersWillAppear =>
-      'ì¬ì©ìê° ìë³ëë©´ ì¬ê¸°ì íìë©ëë¤';
+  String get usersWillAppear => '사용자가 식별되면 여기에 표시됩니다';
 
   @override
-  String get tryDifferentSearch => 'ë¤ë¥¸ ê²ìì´ë¥¼ ìëí´ ë³´ì¸ì';
+  String get tryDifferentSearch => '다른 검색어를 시도해 보세요';
 
   @override
-  String get sortedBy => 'ì ë ¬ ê¸°ì¤';
+  String get sortedBy => '정렬 기준';
 
   @override
-  String get loadingMoreUsers => 'ë ë§ì ì¬ì©ì ë¡ë© ì¤';
+  String get loadingMoreUsers => '더 많은 사용자 로딩 중';
 
   @override
-  String get lastSeen => 'ë§ì§ë§ ë°©ë¬¸';
+  String get lastSeen => '마지막 방문';
 
   @override
-  String get firstSeen => 'ì²« ë°©ë¬¸';
+  String get firstSeen => '첫 방문';
 
   @override
   String nUsers(String count) {
-    return '$countëªì ì¬ì©ì';
+    return '$count명의 사용자';
   }
 
   @override
   String nSessions(int count) {
-    return '$countê° ì¸ì';
+    return '$count개 세션';
   }
 
   @override
   String lastPrefix(String value) {
-    return 'ì´ì : $value';
+    return '이전: $value';
   }
 
   @override
-  String get failedToLoadSiteConfig =>
-      'ì¬ì´í¸ ì¤ì ì ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadSiteConfig => '사이트 설정을 불러오지 못했습니다';
 
   @override
-  String get failedToLoadMetrics => 'ì§íë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadMetrics => '지표를 불러오지 못했습니다';
 
   @override
-  String get loadingMoreMetrics => 'ë ë§ì ì§í ë¡ë© ì¤';
+  String get loadingMoreMetrics => '더 많은 지표 로딩 중';
 
   @override
   String noMetricData(String metric) {
-    return '$metric ë°ì´í° ìì';
+    return '$metric 데이터 없음';
   }
 
   @override
-  String get settings => 'ì¤ì ';
+  String get settings => '설정';
 
   @override
-  String get connection => 'ì°ê²°';
+  String get connection => '연결';
 
   @override
-  String get notConfigured => 'ì¤ì ëì§ ìì';
+  String get notConfigured => '설정되지 않음';
 
   @override
-  String get authMethod => 'ì¸ì¦ ë°©ì';
+  String get authMethod => '인증 방식';
 
   @override
-  String get sessionCookie => 'ì¸ì ì¿ í¤';
+  String get sessionCookie => '세션 쿠키';
 
   @override
-  String get loggedInAs => 'ë¡ê·¸ì¸ ê³ì ';
+  String get loggedInAs => '로그인 계정';
 
   @override
-  String get unknown => 'ì ì ìì';
+  String get unknown => '알 수 없음';
 
   @override
-  String get appearance => 'ì¸ê´';
+  String get appearance => '외관';
 
   @override
-  String get theme => 'íë§';
+  String get theme => '테마';
 
   @override
-  String get dark => 'ë¤í¬';
+  String get dark => '다크';
 
   @override
-  String get light => 'ë¼ì´í¸';
+  String get light => '라이트';
 
   @override
-  String get auto => 'ìë';
+  String get auto => '자동';
 
   @override
-  String get about => 'ì ë³´';
+  String get about => '정보';
 
   @override
-  String get appVersion => 'ì± ë²ì ';
+  String get appVersion => '앱 버전';
 
   @override
-  String get openSourceAnalytics => 'ì¤í ìì¤ ì¹ ë¶ì ëêµ¬';
+  String get openSourceAnalytics => '오픈 소스 웹 분석 도구';
 
   @override
   String get developer => '개발자';
@@ -600,16 +587,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get madeBy => 'NKS Hub 제작';
 
   @override
-  String get logoutConfirm => 'ì ë§ ë¡ê·¸ììíìê² ìµëê¹?';
+  String get logoutConfirm => '정말 로그아웃하시겠습니까?';
 
   @override
-  String get siteSettings => 'ì¬ì´í¸ ì¤ì ';
+  String get siteSettings => '사이트 설정';
 
   @override
-  String get siteInformation => 'ì¬ì´í¸ ì ë³´';
+  String get siteInformation => '사이트 정보';
 
   @override
-  String get domain => 'ëë©ì¸';
+  String get domain => '도메인';
 
   @override
   String get siteId => '사이트 ID';
@@ -620,81 +607,81 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get created => 'ìì±ì¼';
+  String get created => '생성일';
 
   @override
-  String get trackingSettings => 'ì¶ì  ì¤ì ';
+  String get trackingSettings => '추적 설정';
 
   @override
-  String get publicDashboard => 'ê³µê° ëìë³´ë';
+  String get publicDashboard => '공개 대시보드';
 
   @override
-  String get publicDashboardDesc => 'ë¶ì ë°ì´í°ì ê³µê° ì ê·¼ íì©';
+  String get publicDashboardDesc => '분석 데이터에 공개 접근 허용';
 
   @override
-  String get sessionReplay => 'ì¸ì ë¦¬íë ì´';
+  String get sessionReplay => '세션 리플레이';
 
   @override
-  String get sessionReplayDesc => 'ì¬ì©ì ì¸ì ê¸°ë¡';
+  String get sessionReplayDesc => '사용자 세션 기록';
 
   @override
   String get webVitals => 'Web Vitals';
 
   @override
-  String get webVitalsDesc => 'Core Web Vitals ì¶ì ';
+  String get webVitalsDesc => 'Core Web Vitals 추적';
 
   @override
-  String get trackErrors => 'ì¤ë¥ ì¶ì ';
+  String get trackErrors => '오류 추적';
 
   @override
-  String get trackErrorsDesc => 'JavaScript ì¤ë¥ ìº¡ì²';
+  String get trackErrorsDesc => 'JavaScript 오류 캡처';
 
   @override
-  String get outboundLinksTracking => 'ì¸ë¶ ë§í¬';
+  String get outboundLinksTracking => '외부 링크';
 
   @override
-  String get outboundLinksDesc => 'ì¸ë¶ ë§í¬ í´ë¦­ ì¶ì ';
+  String get outboundLinksDesc => '외부 링크 클릭 추적';
 
   @override
-  String get excludedIps => 'ì ì¸ë IP';
+  String get excludedIps => '제외된 IP';
 
   @override
-  String get excludedCountries => 'ì ì¸ë êµ­ê°';
+  String get excludedCountries => '제외된 국가';
 
   @override
-  String get settingsSaved => 'ì¤ì ì´ ì ì¥ëììµëë¤';
+  String get settingsSaved => '설정이 저장되었습니다';
 
   @override
   String failedToSave(String error) {
-    return 'ì ì¥ ì¤í¨: $error';
+    return '저장 실패: $error';
   }
 
   @override
-  String get timeRange => 'ê¸°ê°';
+  String get timeRange => '기간';
 
   @override
-  String get today => 'ì¤ë';
+  String get today => '오늘';
 
   @override
-  String get yesterday => 'ì´ì ';
+  String get yesterday => '어제';
 
   @override
-  String get last7Days => 'ìµê·¼ 7ì¼';
+  String get last7Days => '최근 7일';
 
   @override
-  String get last30Days => 'ìµê·¼ 30ì¼';
+  String get last30Days => '최근 30일';
 
   @override
-  String get thisWeek => 'ì´ë² ì£¼';
+  String get thisWeek => '이번 주';
 
   @override
-  String get thisMonth => 'ì´ë² ë¬';
+  String get thisMonth => '이번 달';
 
   @override
-  String get thisYear => 'ì¬í´';
+  String get thisYear => '올해';
 
   @override
-  String get customRange => 'ì¬ì©ì ì§ì  ê¸°ê°';
+  String get customRange => '사용자 지정 기간';
 
   @override
   String get allTime => '전체 기간';
@@ -735,19 +722,19 @@ class AppLocalizationsKo extends AppLocalizations {
   String get eventTypeCopy => '복사';
 
   @override
-  String get filter => 'íí°';
+  String get filter => '필터';
 
   @override
-  String get addFilter => 'íí° ì¶ê°';
+  String get addFilter => '필터 추가';
 
   @override
-  String get parameter => 'ë§¤ê°ë³ì';
+  String get parameter => '매개변수';
 
   @override
-  String get value => 'ê°';
+  String get value => '값';
 
   @override
-  String get enterFilterValue => 'íí° ê°ì ìë ¥íì¸ì';
+  String get enterFilterValue => '필터 값을 입력하세요';
 
   @override
   String get filterBrowser => '브라우저';
@@ -813,153 +800,145 @@ class AppLocalizationsKo extends AppLocalizations {
   String get filterExitPage => '이탈 페이지';
 
   @override
-  String get requestTimedOut =>
-      'ìì²­ ìê°ì´ ì´ê³¼ëììµëë¤. ë¤ì ìëí´ ì£¼ì¸ì.';
+  String get requestTimedOut => '요청 시간이 초과되었습니다. 다시 시도해 주세요.';
 
   @override
-  String get networkError =>
-      'ë¤í¸ìí¬ ì¤ë¥ìëë¤. ì°ê²°ì íì¸í´ ì£¼ì¸ì.';
+  String get networkError => '네트워크 오류입니다. 연결을 확인해 주세요.';
 
   @override
-  String get sessionExpired =>
-      'ì¸ìì´ ë§ë£ëììµëë¤. ë¤ì ë¡ê·¸ì¸í´ ì£¼ì¸ì.';
+  String get sessionExpired => '세션이 만료되었습니다. 다시 로그인해 주세요.';
 
   @override
-  String get accessDenied => 'ì ê·¼ì´ ê±°ë¶ëììµëë¤.';
+  String get accessDenied => '접근이 거부되었습니다.';
 
   @override
-  String get dataNotFound => 'ë°ì´í°ë¥¼ ì°¾ì ì ììµëë¤.';
+  String get dataNotFound => '데이터를 찾을 수 없습니다.';
 
   @override
-  String get serverError =>
-      'ìë² ì¤ë¥ìëë¤. ëì¤ì ë¤ì ìëí´ ì£¼ì¸ì.';
+  String get serverError => '서버 오류입니다. 나중에 다시 시도해 주세요.';
 
   @override
-  String get failedToLoadGeneric =>
-      'ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤. ë¤ì ìëí´ ì£¼ì¸ì.';
+  String get failedToLoadGeneric => '데이터를 불러오지 못했습니다. 다시 시도해 주세요.';
 
   @override
   String chartDataPoints(int count) {
-    return '$countê°ì ë°ì´í° í¬ì¸í¸ê° ìë ì°¨í¸';
+    return '$count개의 데이터 포인트가 있는 차트';
   }
 
   @override
   String previousPrefix(String value) {
-    return 'ì´ì : $value';
+    return '이전: $value';
   }
 
   @override
   String performanceRatingLabel(String rating) {
-    return 'ì±ë¥ ë±ê¸: $rating';
+    return '성능 등급: $rating';
   }
 
   @override
-  String get loadingContent => 'ì½íì¸  ë¡ë© ì¤';
+  String get loadingContent => '콘텐츠 로딩 중';
 
   @override
-  String get language => 'ì¸ì´';
+  String get language => '언어';
 
   @override
-  String get selectLanguage => 'ì¸ì´ ì í';
+  String get selectLanguage => '언어 선택';
 
   @override
-  String get failedToLoadUserDetails =>
-      'ì¬ì©ì ì¸ë¶ ì ë³´ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadUserDetails => '사용자 세부 정보를 불러오지 못했습니다';
 
   @override
   String lastSeenPrefix(String value) {
-    return 'ë§ì§ë§ ì ì: $value';
+    return '마지막 접속: $value';
   }
 
   @override
-  String get traits => 'ìì±';
+  String get traits => '속성';
 
   @override
-  String get noTraits => 'ì´ ì¬ì©ìì ìì±ì´ ììµëë¤';
+  String get noTraits => '이 사용자의 속성이 없습니다';
 
   @override
-  String get sessionDetail => 'ì¸ì ìì¸';
+  String get sessionDetail => '세션 상세';
 
   @override
-  String get failedToLoadSession => 'ì¸ìì ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadSession => '세션을 불러오지 못했습니다';
 
   @override
-  String get entryPageLabel => 'ì§ì íì´ì§';
+  String get entryPageLabel => '진입 페이지';
 
   @override
-  String get exitPage => 'ì´í íì´ì§';
+  String get exitPage => '이탈 페이지';
 
   @override
-  String get browserAndDevice => 'ë¸ë¼ì°ì  ë° ê¸°ê¸°';
+  String get browserAndDevice => '브라우저 및 기기';
 
   @override
-  String get browser => 'ë¸ë¼ì°ì ';
+  String get browser => '브라우저';
 
   @override
   String get os => 'OS';
 
   @override
-  String get device => 'ê¸°ê¸°';
+  String get device => '기기';
 
   @override
-  String get sourceLabel => 'ìì¤';
+  String get sourceLabel => '소스';
 
   @override
-  String get referrer => 'ë¦¬í¼ë¬';
+  String get referrer => '리퍼러';
 
   @override
   String eventTimelineCount(int count) {
-    return 'ì´ë²¤í¸ íìë¼ì¸ ($count)';
+    return '이벤트 타임라인 ($count)';
   }
 
   @override
-  String get noEvents => 'ì´ë²¤í¸ ìì';
+  String get noEvents => '이벤트 없음';
 
   @override
-  String get replayEventsTitle => 'ë¦¬íë ì´ ì´ë²¤í¸';
+  String get replayEventsTitle => '리플레이 이벤트';
 
   @override
-  String get failedToLoadReplay =>
-      'ë¦¬íë ì´ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadReplay => '리플레이를 불러오지 못했습니다';
 
   @override
-  String get noReplayEvents => 'ë¦¬íë ì´ ì´ë²¤í¸ ìì';
+  String get noReplayEvents => '리플레이 이벤트 없음';
 
   @override
-  String get totalEvents => 'ì ì²´ ì´ë²¤í¸';
+  String get totalEvents => '전체 이벤트';
 
   @override
-  String get userActionsLabel => 'ì¬ì©ì ëì';
+  String get userActionsLabel => '사용자 동작';
 
   @override
   String eventTimelineActions(int count) {
-    return 'ì´ë²¤í¸ íìë¼ì¸ ($countê° ëì)';
+    return '이벤트 타임라인 ($count개 동작)';
   }
 
   @override
-  String get eventLog => 'ì´ë²¤í¸ ë¡ê·¸';
+  String get eventLog => '이벤트 로그';
 
   @override
-  String get viewEventLog => 'ì´ë²¤í¸ ë¡ê·¸ ë³´ê¸°';
+  String get viewEventLog => '이벤트 로그 보기';
 
   @override
-  String get failedToLoadEventLog =>
-      'ì´ë²¤í¸ ë¡ê·¸ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadEventLog => '이벤트 로그를 불러오지 못했습니다';
 
   @override
-  String get activityHeatmap => 'íí¸ë§µ';
+  String get activityHeatmap => '히트맵';
 
   @override
-  String get heatmapLast4Weeks => 'ìµê·¼ 4ì£¼';
+  String get heatmapLast4Weeks => '최근 4주';
 
   @override
-  String get less => 'ì ì';
+  String get less => '적음';
 
   @override
-  String get more => 'ë§ì';
+  String get more => '많음';
 
   @override
-  String get peakActivity => 'ìµê³  íë';
+  String get peakActivity => '최고 활동';
 
   @override
   String peakHour(String day, String time) {
@@ -968,94 +947,93 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String busiestDay(String day) {
-    return 'ê°ì¥ ë°ì ë : $day';
+    return '가장 바쁜 날: $day';
   }
 
   @override
-  String get dayMon => 'ì';
+  String get dayMon => '월';
 
   @override
-  String get dayTue => 'í';
+  String get dayTue => '화';
 
   @override
-  String get dayWed => 'ì';
+  String get dayWed => '수';
 
   @override
-  String get dayThu => 'ëª©';
+  String get dayThu => '목';
 
   @override
-  String get dayFri => 'ê¸';
+  String get dayFri => '금';
 
   @override
-  String get daySat => 'í ';
+  String get daySat => '토';
 
   @override
-  String get daySun => 'ì¼';
+  String get daySun => '일';
 
   @override
-  String get searchEvents => 'ì´ë²¤í¸ ê²ì...';
+  String get searchEvents => '이벤트 검색...';
 
   @override
-  String get allTypes => 'ì ì²´';
+  String get allTypes => '전체';
 
   @override
   String get allOrganizations => '모든 조직';
 
   @override
-  String get noMatchingEvents => 'ì¼ì¹íë ì´ë²¤í¸ ìì';
+  String get noMatchingEvents => '일치하는 이벤트 없음';
 
   @override
-  String get liveView => 'ë¼ì´ë¸';
+  String get liveView => '라이브';
 
   @override
-  String get autoRefresh => 'ìë ìë¡ê³ ì¹¨';
+  String get autoRefresh => '자동 새로고침';
 
   @override
-  String get usersOnlineNow => 'íì¬ ì¨ë¼ì¸ ì¬ì©ì';
+  String get usersOnlineNow => '현재 온라인 사용자';
 
   @override
   String lastUpdatedAt(String time) {
-    return '$timeì ìë°ì´í¸ë¨';
+    return '$time에 업데이트됨';
   }
 
   @override
-  String get last30Minutes => 'ìµê·¼ 30ë¶';
+  String get last30Minutes => '최근 30분';
 
   @override
-  String get last5Minutes => 'ìµê·¼ 5ë¶';
+  String get last5Minutes => '최근 5분';
 
   @override
-  String get recentEvents => 'ìµê·¼ ì´ë²¤í¸';
+  String get recentEvents => '최근 이벤트';
 
   @override
-  String get noRecentEvents => 'ìµê·¼ ì´ë²¤í¸ ìì';
+  String get noRecentEvents => '최근 이벤트 없음';
 
   @override
-  String get retention => 'ë¦¬íì';
+  String get retention => '리텐션';
 
   @override
-  String get weekly => 'ì£¼ê°';
+  String get weekly => '주간';
 
   @override
-  String get daily => 'ì¼ê°';
+  String get daily => '일간';
 
   @override
-  String get retentionRange => 'ë²ì';
+  String get retentionRange => '범위';
 
   @override
   String retentionDays(int count) {
-    return '$countì¼';
+    return '$count일';
   }
 
   @override
-  String get failedToLoadRetention =>
-      'ë¦¬íì ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadRetention => '리텐션 데이터를 불러오지 못했습니다';
 
   @override
-  String get noRetentionData => 'ë¦¬íì ë°ì´í° ìì';
+  String get noRetentionData => '리텐션 데이터 없음';
 
   @override
-  String get cohort => 'ì½í¸í¸';
+  String get cohort => '코호트';
 
   @override
   String get retentionWeekPrefix => 'W';
@@ -1064,61 +1042,58 @@ class AppLocalizationsKo extends AppLocalizations {
   String get retentionDayPrefix => 'D';
 
   @override
-  String get journeys => 'ì¬ì©ì ê²½ë¡';
+  String get journeys => '사용자 경로';
 
   @override
-  String get journeySteps => 'ë¨ê³';
+  String get journeySteps => '단계';
 
   @override
-  String get failedToLoadJourneys =>
-      'ì¬ì©ì ê²½ë¡ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadJourneys => '사용자 경로를 불러오지 못했습니다';
 
   @override
-  String get noJourneysFound => 'ì¬ì©ì ê²½ë¡ê° ììµëë¤';
+  String get noJourneysFound => '사용자 경로가 없습니다';
 
   @override
   String journeySessions(String count) {
-    return '$count ì¸ì';
+    return '$count 세션';
   }
 
   @override
-  String get locations => 'ìì¹';
+  String get locations => '위치';
 
   @override
-  String get locationCities => 'ëì';
+  String get locationCities => '도시';
 
   @override
-  String get failedToLoadLocations => 'ìì¹ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadLocations => '위치를 불러오지 못했습니다';
 
   @override
-  String get noLocationsFound => 'ìì¹ê° ììµëë¤';
+  String get noLocationsFound => '위치가 없습니다';
 
   @override
-  String get coreFeatures => 'íµì¬';
+  String get coreFeatures => '핵심';
 
   @override
-  String get insights => 'ì¸ì¬ì´í¸';
+  String get insights => '인사이트';
 
   @override
-  String get tools => 'ëêµ¬';
+  String get tools => '도구';
 
   @override
-  String get userTraits => 'í¹ì±';
+  String get userTraits => '특성';
 
   @override
-  String get failedToLoadUserTraits =>
-      'ì¬ì©ì í¹ì±ì ë¶ë¬ì¤ì§ ëª»íìµëë¤';
+  String get failedToLoadUserTraits => '사용자 특성을 불러오지 못했습니다';
 
   @override
-  String get noUserTraits => 'í¹ì±ì´ ììµëë¤';
+  String get noUserTraits => '특성이 없습니다';
 
   @override
-  String get noUserTraitsHint =>
-      'ì¬ì©ìê° ì¬ì©ì ì ì ìì±ì¼ë¡ ìë³ëë©´ íìë©ëë¤';
+  String get noUserTraitsHint => '사용자가 사용자 정의 속성으로 식별되면 표시됩니다';
 
   @override
   String traitUsersCount(String count) {
-    return '$countëª ì¬ì©ì';
+    return '$count명 사용자';
   }
 
   @override
