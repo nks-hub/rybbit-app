@@ -118,16 +118,29 @@ flutter gen-l10n
 flutter run
 ```
 
-### Sentry (optional)
+### Environment
 
-Error tracking via Sentry is optional. Pass the DSN at build time:
+Copy `.env.example` to `.env` and fill in your values:
 
 ```bash
-flutter build apk --dart-define=SENTRY_DSN=https://your-key@your-sentry-host/project-id
-flutter run --dart-define=SENTRY_DSN=https://your-key@your-sentry-host/project-id
+cp .env.example .env
 ```
 
-If `SENTRY_DSN` is not provided, the app works normally without error tracking.
+The `.env` file is automatically loaded at build time via `--dart-define-from-file`:
+
+```bash
+# Run with .env
+flutter run --dart-define-from-file=.env
+
+# Build with .env
+flutter build apk --dart-define-from-file=.env
+```
+
+Currently supported variables:
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `SENTRY_DSN` | No | Sentry error tracking DSN. App works without it. |
 
 ### Authentication
 
@@ -200,12 +213,12 @@ Each feature follows: `data/` (API) → `application/` (state) → `presentation
 ## Development
 
 ```bash
-# Debug
-flutter run -d <device-id>
+# Debug (with .env)
+flutter run -d <device-id> --dart-define-from-file=.env
 
 # Build APK (debug / release)
-flutter build apk --debug
-flutter build apk --release
+flutter build apk --debug --dart-define-from-file=.env
+flutter build apk --release --dart-define-from-file=.env
 
 # Code generation (after model changes)
 flutter pub run build_runner build --delete-conflicting-outputs
