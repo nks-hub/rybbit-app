@@ -68,7 +68,8 @@ class TimeSeriesChart extends StatelessWidget {
                     _formatAxisValue(value),
                     style: TextStyle(
                       fontSize: 10,
-                      color: theme.textTheme.bodySmall?.color,
+                      color: theme.colorScheme.onSurface
+                          .withValues(alpha: 0.6),
                     ),
                   );
                 },
@@ -90,7 +91,8 @@ class TimeSeriesChart extends StatelessWidget {
                       _formatLabel(labels[idx]),
                       style: TextStyle(
                         fontSize: 10,
-                        color: theme.textTheme.bodySmall?.color,
+                        color: theme.colorScheme.onSurface
+                            .withValues(alpha: 0.6),
                       ),
                     ),
                   );
@@ -109,16 +111,30 @@ class TimeSeriesChart extends StatelessWidget {
                 return touchedSpots.map((spot) {
                   final formatter = tooltipFormatter ?? _formatAxisValue;
                   final isPrevious = spot.barIndex == 1;
-                  final label = isPrevious
+                  final idx = spot.x.toInt();
+                  final timeLabel = idx >= 0 && idx < labels.length
+                      ? _formatLabel(labels[idx])
+                      : '';
+                  final valueStr = isPrevious
                       ? l10n.previousPrefix(formatter(spot.y))
                       : formatter(spot.y);
                   return LineTooltipItem(
-                    label,
+                    timeLabel,
                     TextStyle(
-                      color: spot.bar.color,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12,
+                      color: theme.colorScheme.onSurface
+                          .withValues(alpha: 0.7),
+                      fontSize: 11,
                     ),
+                    children: [
+                      TextSpan(
+                        text: '\n$valueStr',
+                        style: TextStyle(
+                          color: spot.bar.color,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
                   );
                 }).toList();
               },
