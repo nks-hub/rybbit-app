@@ -20,6 +20,7 @@ _$SiteImpl _$$SiteImplFromJson(Map<String, dynamic> json) => _$SiteImpl(
   trackOutbound: json['track_outbound'] as bool? ?? false,
   isOwner: json['is_owner'] as bool? ?? false,
   sessionsLast24Hours: (json['sessions_last_24_hours'] as num?)?.toInt(),
+  type: json['type'] as String? ?? 'web',
   tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
 );
 
@@ -38,5 +39,6 @@ Map<String, dynamic> _$$SiteImplToJson(_$SiteImpl instance) =>
       'track_outbound': instance.trackOutbound,
       'is_owner': instance.isOwner,
       'sessions_last_24_hours': instance.sessionsLast24Hours,
+      'type': instance.type,
       'tags': instance.tags,
     };

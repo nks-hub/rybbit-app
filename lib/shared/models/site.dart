@@ -19,6 +19,7 @@ class Site with _$Site {
     @JsonKey(name: 'track_outbound') @Default(false) bool trackOutbound,
     @JsonKey(name: 'is_owner') @Default(false) bool isOwner,
     @JsonKey(name: 'sessions_last_24_hours') int? sessionsLast24Hours,
+    @Default('web') String type,
     List<String>? tags,
   }) = _Site;
 

@@ -44,6 +44,7 @@ mixin _$Site {
   bool get isOwner => throw _privateConstructorUsedError;
   @JsonKey(name: 'sessions_last_24_hours')
   int? get sessionsLast24Hours => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
 
   /// Serializes this Site to a JSON map.
@@ -74,6 +75,7 @@ abstract class $SiteCopyWith<$Res> {
     @JsonKey(name: 'track_outbound') bool trackOutbound,
     @JsonKey(name: 'is_owner') bool isOwner,
     @JsonKey(name: 'sessions_last_24_hours') int? sessionsLast24Hours,
+    String type,
     List<String>? tags,
   });
 }
@@ -106,6 +108,7 @@ class _$SiteCopyWithImpl<$Res, $Val extends Site>
     Object? trackOutbound = null,
     Object? isOwner = null,
     Object? sessionsLast24Hours = freezed,
+    Object? type = null,
     Object? tags = freezed,
   }) {
     return _then(
@@ -162,6 +165,10 @@ class _$SiteCopyWithImpl<$Res, $Val extends Site>
                 ? _value.sessionsLast24Hours
                 : sessionsLast24Hours // ignore: cast_nullable_to_non_nullable
                       as int?,
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
             tags: freezed == tags
                 ? _value.tags
                 : tags // ignore: cast_nullable_to_non_nullable
@@ -194,6 +201,7 @@ abstract class _$$SiteImplCopyWith<$Res> implements $SiteCopyWith<$Res> {
     @JsonKey(name: 'track_outbound') bool trackOutbound,
     @JsonKey(name: 'is_owner') bool isOwner,
     @JsonKey(name: 'sessions_last_24_hours') int? sessionsLast24Hours,
+    String type,
     List<String>? tags,
   });
 }
@@ -223,6 +231,7 @@ class __$$SiteImplCopyWithImpl<$Res>
     Object? trackOutbound = null,
     Object? isOwner = null,
     Object? sessionsLast24Hours = freezed,
+    Object? type = null,
     Object? tags = freezed,
   }) {
     return _then(
@@ -279,6 +288,10 @@ class __$$SiteImplCopyWithImpl<$Res>
             ? _value.sessionsLast24Hours
             : sessionsLast24Hours // ignore: cast_nullable_to_non_nullable
                   as int?,
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
         tags: freezed == tags
             ? _value._tags
             : tags // ignore: cast_nullable_to_non_nullable
@@ -305,6 +318,7 @@ class _$SiteImpl implements _Site {
     @JsonKey(name: 'track_outbound') this.trackOutbound = false,
     @JsonKey(name: 'is_owner') this.isOwner = false,
     @JsonKey(name: 'sessions_last_24_hours') this.sessionsLast24Hours,
+    this.type = 'web',
     final List<String>? tags,
   }) : _tags = tags;
 
@@ -347,6 +361,9 @@ class _$SiteImpl implements _Site {
   @override
   @JsonKey(name: 'sessions_last_24_hours')
   final int? sessionsLast24Hours;
+  @override
+  @JsonKey()
+  final String type;
   final List<String>? _tags;
   @override
   List<String>? get tags {
@@ -359,7 +376,7 @@ class _$SiteImpl implements _Site {
 
   @override
   String toString() {
-    return 'Site(id: $id, siteId: $siteId, name: $name, domain: $domain, createdAt: $createdAt, organizationId: $organizationId, public: $public, sessionReplay: $sessionReplay, webVitals: $webVitals, trackErrors: $trackErrors, trackOutbound: $trackOutbound, isOwner: $isOwner, sessionsLast24Hours: $sessionsLast24Hours, tags: $tags)';
+    return 'Site(id: $id, siteId: $siteId, name: $name, domain: $domain, createdAt: $createdAt, organizationId: $organizationId, public: $public, sessionReplay: $sessionReplay, webVitals: $webVitals, trackErrors: $trackErrors, trackOutbound: $trackOutbound, isOwner: $isOwner, sessionsLast24Hours: $sessionsLast24Hours, type: $type, tags: $tags)';
   }
 
   @override
@@ -387,6 +404,7 @@ class _$SiteImpl implements _Site {
             (identical(other.isOwner, isOwner) || other.isOwner == isOwner) &&
             (identical(other.sessionsLast24Hours, sessionsLast24Hours) ||
                 other.sessionsLast24Hours == sessionsLast24Hours) &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
@@ -407,6 +425,7 @@ class _$SiteImpl implements _Site {
     trackOutbound,
     isOwner,
     sessionsLast24Hours,
+    type,
     const DeepCollectionEquality().hash(_tags),
   );
 
@@ -439,6 +458,7 @@ abstract class _Site implements Site {
     @JsonKey(name: 'track_outbound') final bool trackOutbound,
     @JsonKey(name: 'is_owner') final bool isOwner,
     @JsonKey(name: 'sessions_last_24_hours') final int? sessionsLast24Hours,
+    final String type,
     final List<String>? tags,
   }) = _$SiteImpl;
 
@@ -480,6 +500,8 @@ abstract class _Site implements Site {
   @override
   @JsonKey(name: 'sessions_last_24_hours')
   int? get sessionsLast24Hours;
+  @override
+  String get type;
   @override
   List<String>? get tags;
 
