@@ -240,6 +240,25 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                           );
                         },
                       ),
+                      GoRoute(
+                        path: 'sessions',
+                        builder: (context, state) {
+                          final siteId = state.pathParameters['siteId']!;
+                          return SessionsListScreen(siteId: siteId);
+                        },
+                      ),
+                      GoRoute(
+                        path: 'sessions/:sessionId',
+                        builder: (context, state) {
+                          final siteId = state.pathParameters['siteId']!;
+                          final sessionId =
+                              state.pathParameters['sessionId']!;
+                          return SessionDetailScreen(
+                            siteId: siteId,
+                            sessionId: sessionId,
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ],

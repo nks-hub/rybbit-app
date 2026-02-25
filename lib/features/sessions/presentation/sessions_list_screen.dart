@@ -155,8 +155,11 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
     final domain = ref.watch(currentSiteDomainProvider);
     final sessionFilter = ref.watch(sessionFilterProvider);
 
+    final location = GoRouterState.of(context).matchedLocation;
+    final isSubRoute = location.contains('/analytics/');
+
     return PopScope(
-      canPop: false,
+      canPop: isSubRoute,
       onPopInvokedWithResult: (didPop, _) {
         if (!didPop) context.go('/');
       },
@@ -179,7 +182,13 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
         leading: IconButton(
           tooltip: l10n.goBack,
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.go('/'),
+          onPressed: () {
+            if (isSubRoute) {
+              context.pop();
+            } else {
+              context.go('/');
+            }
+          },
         ),
         actions: [
           IconButton(
@@ -622,7 +631,7 @@ class _ExpandedDetail extends ConsumerWidget {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
     final detailAsync = ref.watch(
-      sessionDetailProvider(
+      sessionDetailControllerProvider(
           (siteId: siteId, sessionId: session.sessionId)),
     );
 
@@ -656,7 +665,7 @@ class _ExpandedDetail extends ConsumerWidget {
           ),
         ),
         data: (detail) =>
-            _DetailContent(detail: detail, siteId: siteId),
+            _DetailContent(detail: detail, siteId: siteId, listSession: session),
       ),
     );
   }
@@ -665,12 +674,14 @@ class _ExpandedDetail extends ConsumerWidget {
 // ── Detail Content ───────────────────────────────────────────────
 
 class _DetailContent extends StatelessWidget {
-  final SessionDetail detail;
+  final SessionDetailViewState detail;
   final String siteId;
+  final AnalyticsSession listSession;
 
   const _DetailContent({
     required this.detail,
     required this.siteId,
+    required this.listSession,
   });
 
   @override
@@ -705,6 +716,14 @@ class _DetailContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Identified user (use listSession as fallback for identified_user_id)
+          if (isIdentified(listSession))
+            _DetailRow(
+              icon: Icons.person,
+              text: getUserDisplayName(listSession),
+              theme: theme,
+              color: const Color(0xFF22C55E),
+            ),
           // Location
           if (locationStr != null)
             _DetailRow(
@@ -745,7 +764,10 @@ class _DetailContent extends StatelessWidget {
           const SizedBox(height: 8),
           // Mini timeline header
           Text(
-            l10n.eventTimelineCount(detail.events.length),
+            l10n.eventTimelineCount(
+                detail.totalEvents > detail.events.length
+                    ? detail.totalEvents
+                    : detail.events.length),
             style: theme.textTheme.bodySmall?.copyWith(
               fontWeight: FontWeight.bold,
             ),
@@ -767,9 +789,18 @@ class _DetailContent extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton.icon(
-                  onPressed: () => context.push(
-                    '/sessions/$siteId/${detail.session.sessionId}',
-                  ),
+                  onPressed: () {
+                    final loc = GoRouterState.of(context).matchedLocation;
+                    if (loc.contains('/analytics/')) {
+                      context.push(
+                        '/analytics/$siteId/sessions/${detail.session.sessionId}',
+                      );
+                    } else {
+                      context.push(
+                        '/sessions/$siteId/${detail.session.sessionId}',
+                      );
+                    }
+                  },
                   icon: const Icon(Icons.list, size: 16),
                   label: Text(
                     l10n.eventTimelineCount(detail.events.length),
@@ -795,11 +826,13 @@ class _DetailRow extends StatelessWidget {
   final IconData icon;
   final String text;
   final ThemeData theme;
+  final Color? color;
 
   const _DetailRow({
     required this.icon,
     required this.text,
     required this.theme,
+    this.color,
   });
 
   @override
@@ -810,12 +843,15 @@ class _DetailRow extends StatelessWidget {
         children: [
           Icon(icon,
               size: 14,
-              color: theme.textTheme.bodySmall?.color),
+              color: color ?? theme.textTheme.bodySmall?.color),
           const SizedBox(width: 6),
           Expanded(
             child: Text(
               text.trim(),
-              style: theme.textTheme.bodySmall,
+              style: color != null
+                  ? theme.textTheme.bodySmall?.copyWith(
+                      color: color, fontWeight: FontWeight.w600)
+                  : theme.textTheme.bodySmall,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),

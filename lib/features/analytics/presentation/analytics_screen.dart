@@ -465,7 +465,7 @@ class AnalyticsScreen extends ConsumerWidget {
             linkCard(l10n.liveView, Icons.sensors,
                 () => context.push('/analytics/$siteId/live')),
             linkCard(l10n.sessions, Icons.people_outline,
-                () => context.push('/sessions/$siteId')),
+                () => context.push('/analytics/$siteId/sessions')),
             linkCard(l10n.events, Icons.bolt,
                 () => context.push('/analytics/$siteId/events')),
             linkCard(l10n.errors, Icons.error_outline,
