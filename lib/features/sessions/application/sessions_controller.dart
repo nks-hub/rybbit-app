@@ -6,11 +6,92 @@ import '../../../features/analytics/application/time_range_controller.dart';
 import '../../../shared/models/session.dart';
 import '../data/sessions_repository.dart';
 
-/// Provider for loading session detail (used by both list and detail screens).
-final sessionDetailProvider = FutureProvider.family<SessionDetail, ({String siteId, String sessionId})>((ref, args) async {
-  final repo = ref.read(sessionsRepositoryProvider);
-  return repo.getSessionDetail(args.siteId, args.sessionId);
-});
+// ── Session Detail Controller ───────────────────────────────────
+
+class SessionDetailViewState {
+  final AnalyticsSession session;
+  final List<SessionEvent> events;
+  final int totalEvents;
+  final bool hasMore;
+  final bool isLoadingMore;
+
+  const SessionDetailViewState({
+    required this.session,
+    required this.events,
+    this.totalEvents = 0,
+    this.hasMore = false,
+    this.isLoadingMore = false,
+  });
+
+  SessionDetailViewState copyWith({
+    AnalyticsSession? session,
+    List<SessionEvent>? events,
+    int? totalEvents,
+    bool? hasMore,
+    bool? isLoadingMore,
+  }) {
+    return SessionDetailViewState(
+      session: session ?? this.session,
+      events: events ?? this.events,
+      totalEvents: totalEvents ?? this.totalEvents,
+      hasMore: hasMore ?? this.hasMore,
+      isLoadingMore: isLoadingMore ?? this.isLoadingMore,
+    );
+  }
+}
+
+class SessionDetailController extends AutoDisposeFamilyAsyncNotifier<
+    SessionDetailViewState, ({String siteId, String sessionId})> {
+  @override
+  Future<SessionDetailViewState> build(
+      ({String siteId, String sessionId}) arg) async {
+    final repo = ref.read(sessionsRepositoryProvider);
+    final detail = await repo.getSessionDetail(arg.siteId, arg.sessionId);
+    return SessionDetailViewState(
+      session: detail.session,
+      events: detail.events,
+      totalEvents: detail.pagination.total,
+      hasMore: detail.pagination.hasMore,
+    );
+  }
+
+  Future<void> loadMoreEvents() async {
+    final current = state.valueOrNull;
+    if (current == null || !current.hasMore || current.isLoadingMore) return;
+
+    state = AsyncValue.data(current.copyWith(isLoadingMore: true));
+
+    try {
+      final repo = ref.read(sessionsRepositoryProvider);
+      final detail = await repo.getSessionDetail(
+        arg.siteId,
+        arg.sessionId,
+        offset: current.events.length,
+      );
+      final allEvents = [...current.events, ...detail.events];
+      state = AsyncValue.data(SessionDetailViewState(
+        session: current.session,
+        events: allEvents,
+        totalEvents: detail.pagination.total,
+        hasMore: detail.pagination.hasMore,
+      ));
+    } catch (e) {
+      debugPrint('SessionDetail loadMoreEvents failed: $e');
+      state = AsyncValue.data(current.copyWith(isLoadingMore: false));
+    }
+  }
+
+  Future<void> refresh() async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() => build(arg));
+  }
+}
+
+final sessionDetailControllerProvider = AsyncNotifierProvider.autoDispose
+    .family<SessionDetailController, SessionDetailViewState,
+        ({String siteId, String sessionId})>(SessionDetailController.new);
+
+// ── Session Filters ─────────────────────────────────────────────
 
 class SessionFilterParams {
   final int? minPageviews;
@@ -41,6 +122,8 @@ class SessionFilterParams {
 
 final sessionFilterProvider =
     StateProvider<SessionFilterParams>((ref) => const SessionFilterParams());
+
+// ── Sessions List Controller ────────────────────────────────────
 
 class SessionsState {
   final List<AnalyticsSession> sessions;
@@ -149,6 +232,8 @@ class SessionsController extends FamilyAsyncNotifier<SessionsState, String> {
   }
 
   Future<void> refresh() async {
+    // Invalidate all cached session details
+    ref.invalidate(sessionDetailControllerProvider);
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() => _loadData(arg, page: 1));
   }

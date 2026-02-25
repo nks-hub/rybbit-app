@@ -39,10 +39,16 @@ class SessionsRepository {
   /// Fetches full session detail with events.
   Future<SessionDetail> getSessionDetail(
     String siteId,
-    String sessionId,
-  ) async {
+    String sessionId, {
+    int offset = 0,
+    int limit = 100,
+  }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/sessions/$sessionId',
+      queryParameters: {
+        'offset': offset.toString(),
+        'limit': limit.toString(),
+      },
     );
 
     final data = response.data;
