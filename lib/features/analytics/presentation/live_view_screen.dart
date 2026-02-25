@@ -361,9 +361,12 @@ class _RecentStatsGrid extends StatelessWidget {
                         size: 14,
                         color: theme.textTheme.bodySmall?.color),
                     const SizedBox(width: 6),
-                    Text(s.$1,
-                        style: theme.textTheme.bodySmall
-                            ?.copyWith(fontSize: 11)),
+                    Flexible(
+                      child: Text(s.$1,
+                          style: theme.textTheme.bodySmall
+                              ?.copyWith(fontSize: 11),
+                          overflow: TextOverflow.ellipsis),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 4),
@@ -372,6 +375,7 @@ class _RecentStatsGrid extends StatelessWidget {
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
