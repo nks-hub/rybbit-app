@@ -285,7 +285,7 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                             return _UserCard(
                               user: user,
                               onTap: () => context.push(
-                                '/sites/${widget.siteId}/users/${Uri.encodeComponent(user.userId)}',
+                                '/analytics/${widget.siteId}/users/${Uri.encodeComponent(user.userId)}',
                               ),
                             );
                           },
@@ -309,13 +309,37 @@ class _UserCard extends StatelessWidget {
 
   const _UserCard({required this.user, required this.onTap});
 
+  String _getDisplayName() {
+    // Prefer identifiedUserId (set via rybbit.identify)
+    if (user.identifiedUserId != null && user.identifiedUserId!.isNotEmpty) {
+      return user.identifiedUserId!;
+    }
+    // Then check traits for human-readable names
+    final traits = user.traits;
+    if (traits != null) {
+      final username = traits['username']?.toString();
+      if (username != null && username.isNotEmpty) return username;
+      final name = traits['name']?.toString();
+      if (name != null && name.isNotEmpty) return name;
+      final email = traits['email']?.toString();
+      if (email != null && email.isNotEmpty) return email;
+    }
+    return user.userId.length > 24
+        ? '${user.userId.substring(0, 24)}...'
+        : user.userId;
+  }
+
+  bool get _isIdentified {
+    final traits = user.traits;
+    return traits != null && traits.isNotEmpty;
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    final displayId = user.userId.length > 24
-        ? '${user.userId.substring(0, 24)}...'
-        : user.userId;
+    final displayName = _getDisplayName();
+    final identified = _isIdentified;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
@@ -328,10 +352,16 @@ class _UserCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 18,
-                backgroundColor:
-                    theme.colorScheme.primary.withValues(alpha: 0.15),
-                child: Icon(Icons.person_outline,
-                    size: 18, color: theme.colorScheme.primary),
+                backgroundColor: identified
+                    ? const Color(0xFF22C55E).withValues(alpha: 0.15)
+                    : theme.colorScheme.primary.withValues(alpha: 0.15),
+                child: Icon(
+                  identified ? Icons.person : Icons.person_outline,
+                  size: 18,
+                  color: identified
+                      ? const Color(0xFF22C55E)
+                      : theme.colorScheme.primary,
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -339,9 +369,10 @@ class _UserCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      displayId,
+                      displayName,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w600,
+                        color: identified ? const Color(0xFF22C55E) : null,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),

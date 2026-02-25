@@ -5,12 +5,14 @@ import '../../../core/network/dio_provider.dart';
 
 class UserListItem {
   final String userId;
+  final String? identifiedUserId;
   final int sessionCount;
   final String? lastSeen;
   final Map<String, dynamic>? traits;
 
   const UserListItem({
     required this.userId,
+    this.identifiedUserId,
     required this.sessionCount,
     this.lastSeen,
     this.traits,
@@ -19,6 +21,8 @@ class UserListItem {
   factory UserListItem.fromJson(Map<String, dynamic> json) {
     return UserListItem(
       userId: json['user_id'] as String? ?? json['userId'] as String? ?? '',
+      identifiedUserId: json['identified_user_id'] as String? ??
+          json['identifiedUserId'] as String?,
       sessionCount: (json['sessions'] as num?)?.toInt() ??
           (json['session_count'] as num?)?.toInt() ??
           (json['sessionCount'] as num?)?.toInt() ??
@@ -32,12 +36,14 @@ class UserListItem {
 
 class UserDetail {
   final String userId;
+  final String? identifiedUserId;
   final int sessionCount;
   final String? lastSeen;
   final Map<String, dynamic> traits;
 
   const UserDetail({
     required this.userId,
+    this.identifiedUserId,
     required this.sessionCount,
     this.lastSeen,
     this.traits = const {},
@@ -46,6 +52,8 @@ class UserDetail {
   factory UserDetail.fromJson(Map<String, dynamic> json) {
     return UserDetail(
       userId: json['user_id'] as String? ?? json['userId'] as String? ?? '',
+      identifiedUserId: json['identified_user_id'] as String? ??
+          json['identifiedUserId'] as String?,
       sessionCount: (json['sessions'] as num?)?.toInt() ??
           (json['session_count'] as num?)?.toInt() ??
           (json['sessionCount'] as num?)?.toInt() ??

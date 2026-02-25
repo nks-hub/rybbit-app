@@ -17,6 +17,26 @@ final _userDetailProvider =
   return repo.getUserDetail(siteId, userId);
 });
 
+String _getDisplayName(UserDetail detail) {
+  // Prefer identifiedUserId (set via rybbit.identify)
+  if (detail.identifiedUserId != null && detail.identifiedUserId!.isNotEmpty) {
+    return detail.identifiedUserId!;
+  }
+  // Then check traits for human-readable names
+  final traits = detail.traits;
+  if (traits.isNotEmpty) {
+    final username = traits['username']?.toString();
+    if (username != null && username.isNotEmpty) return username;
+    final name = traits['name']?.toString();
+    if (name != null && name.isNotEmpty) return name;
+    final email = traits['email']?.toString();
+    if (email != null && email.isNotEmpty) return email;
+  }
+  return detail.userId.length > 24
+      ? '${detail.userId.substring(0, 24)}...'
+      : detail.userId;
+}
+
 class UserDetailScreen extends ConsumerWidget {
   final String siteId;
   final String userId;
@@ -36,9 +56,12 @@ class UserDetailScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          userId.length > 20
-              ? '${userId.substring(0, 20)}...'
-              : userId,
+          detailAsync.whenOrNull(
+                data: (d) => _getDisplayName(d),
+              ) ??
+              (userId.length > 20
+                  ? '${userId.substring(0, 20)}...'
+                  : userId),
           style: const TextStyle(fontSize: 18),
         ),
         leading: IconButton(
@@ -94,11 +117,20 @@ class UserDetailScreen extends ConsumerWidget {
                           children: [
                             CircleAvatar(
                               radius: 24,
-                              backgroundColor: theme.colorScheme.primary
-                                  .withValues(alpha: 0.15),
-                              child: Icon(Icons.person,
-                                  size: 24,
-                                  color: theme.colorScheme.primary),
+                              backgroundColor: detail.traits.isNotEmpty
+                                  ? const Color(0xFF22C55E)
+                                      .withValues(alpha: 0.15)
+                                  : theme.colorScheme.primary
+                                      .withValues(alpha: 0.15),
+                              child: Icon(
+                                detail.traits.isNotEmpty
+                                    ? Icons.person
+                                    : Icons.person_outline,
+                                size: 24,
+                                color: detail.traits.isNotEmpty
+                                    ? const Color(0xFF22C55E)
+                                    : theme.colorScheme.primary,
+                              ),
                             ),
                             const SizedBox(width: 12),
                             Expanded(
@@ -106,7 +138,7 @@ class UserDetailScreen extends ConsumerWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    detail.userId,
+                                    _getDisplayName(detail),
                                     style:
                                         theme.textTheme.bodyLarge?.copyWith(
                                       fontWeight: FontWeight.w600,
@@ -114,6 +146,18 @@ class UserDetailScreen extends ConsumerWidget {
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 2,
                                   ),
+                                  if (_getDisplayName(detail) !=
+                                      detail.userId) ...[
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      detail.userId.length > 32
+                                          ? '${detail.userId.substring(0, 32)}...'
+                                          : detail.userId,
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(fontSize: 11),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
                                   const SizedBox(height: 4),
                                   Text(
                                     l10n.nSessions(detail.sessionCount),
