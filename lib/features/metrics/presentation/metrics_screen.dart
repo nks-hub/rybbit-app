@@ -44,10 +44,25 @@ enum MetricType {
   final String parameter;
   final IconData icon;
 
-  String localizedLabel(AppLocalizations l10n) {
+  bool get isWebOnly => const {
+    MetricType.referrer,
+    MetricType.browser,
+    MetricType.browserVersion,
+    MetricType.dimensions,
+    MetricType.utmSource,
+    MetricType.utmMedium,
+    MetricType.utmCampaign,
+    MetricType.utmTerm,
+    MetricType.utmContent,
+    MetricType.channel,
+    MetricType.hostname,
+    MetricType.crawler,
+  }.contains(this);
+
+  String localizedLabel(AppLocalizations l10n, {bool isMobile = false}) {
     switch (this) {
       case MetricType.pathname:
-        return l10n.pages;
+        return isMobile ? l10n.screens : l10n.pages;
       case MetricType.pageTitle:
         return l10n.pageTitles;
       case MetricType.referrer:
@@ -71,9 +86,9 @@ enum MetricType {
       case MetricType.language:
         return l10n.languages;
       case MetricType.entryPage:
-        return l10n.entryPages;
+        return isMobile ? l10n.entryScreens : l10n.entryPages;
       case MetricType.exitPage:
-        return l10n.exitPages;
+        return isMobile ? l10n.exitScreens : l10n.exitPages;
       case MetricType.utmSource:
         return l10n.utmSource;
       case MetricType.utmMedium:
@@ -172,8 +187,12 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
     final metricsAsync = ref.watch(metricsControllerProvider(key));
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     final domain = ref.watch(currentSiteDomainProvider);
+    final availableTypes = isMobile
+        ? MetricType.values.where((t) => !t.isWebOnly).toList()
+        : MetricType.values;
 
     return Scaffold(
       appBar: AppBar(
@@ -181,7 +200,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              _selectedType.localizedLabel(l10n),
+              _selectedType.localizedLabel(l10n, isMobile: isMobile),
               style: const TextStyle(fontSize: 18),
             ),
             if (domain != null)
@@ -228,15 +247,15 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 12),
-              itemCount: MetricType.values.length,
+              itemCount: availableTypes.length,
               itemBuilder: (context, index) {
-                final type = MetricType.values[index];
+                final type = availableTypes[index];
                 final isSelected = type == _selectedType;
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
                   child: FilterChip(
                     label: Text(
-                      type.localizedLabel(l10n),
+                      type.localizedLabel(l10n, isMobile: isMobile),
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight:
@@ -309,7 +328,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          l10n.noMetricData(_selectedType.localizedLabel(l10n).toLowerCase()),
+                          l10n.noMetricData(_selectedType.localizedLabel(l10n, isMobile: isMobile).toLowerCase()),
                           style: theme.textTheme.bodyLarge,
                         ),
                       ],
