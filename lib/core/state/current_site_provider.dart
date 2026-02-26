@@ -3,6 +3,7 @@ import '../storage/storage_service.dart';
 
 const _siteIdKey = 'current_site_id';
 const _siteDomainKey = 'current_site_domain';
+const _siteTypeKey = 'current_site_type';
 
 class CurrentSiteIdNotifier extends Notifier<String?> {
   @override
@@ -36,6 +37,18 @@ class CurrentSiteDomainNotifier extends Notifier<String?> {
   }
 }
 
+class CurrentSiteTypeNotifier extends Notifier<String> {
+  @override
+  String build() {
+    return StorageService.readSetting(_siteTypeKey) as String? ?? 'web';
+  }
+
+  void set(String type) {
+    state = type;
+    StorageService.saveSetting(_siteTypeKey, type);
+  }
+}
+
 /// Holds the currently selected site ID.
 /// Persisted to local storage so it survives app restarts.
 final currentSiteIdProvider =
@@ -47,3 +60,15 @@ final currentSiteIdProvider =
 final currentSiteDomainProvider =
     NotifierProvider<CurrentSiteDomainNotifier, String?>(
         CurrentSiteDomainNotifier.new);
+
+/// Holds the currently selected site type ('web', 'mobile', 'desktop').
+/// Persisted to local storage so it survives app restarts.
+final currentSiteTypeProvider =
+    NotifierProvider<CurrentSiteTypeNotifier, String>(
+        CurrentSiteTypeNotifier.new);
+
+/// Whether the current site is a mobile or desktop app (not web).
+final currentSiteIsMobileProvider = Provider<bool>((ref) {
+  final siteType = ref.watch(currentSiteTypeProvider);
+  return siteType == 'mobile' || siteType == 'desktop';
+});
