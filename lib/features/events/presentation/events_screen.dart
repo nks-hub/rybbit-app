@@ -172,7 +172,8 @@ class EventsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final eventNamesAsync = ref.watch(_eventNamesProvider(siteId));
     final bucketedAsync = ref.watch(_eventBucketedProvider(siteId));
-    final outboundAsync = ref.watch(_outboundLinksProvider(siteId));
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
+    final outboundAsync = isMobile ? null : ref.watch(_outboundLinksProvider(siteId));
     final domain = ref.watch(currentSiteDomainProvider);
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
@@ -203,7 +204,7 @@ class EventsScreen extends ConsumerWidget {
         onRefresh: () async {
           ref.invalidate(_eventNamesProvider(siteId));
           ref.invalidate(_eventBucketedProvider(siteId));
-          ref.invalidate(_outboundLinksProvider(siteId));
+          if (!isMobile) ref.invalidate(_outboundLinksProvider(siteId));
         },
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
@@ -360,108 +361,110 @@ class EventsScreen extends ConsumerWidget {
                 ),
               ),
 
-              // Outbound links section
-              const Divider(height: 1),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                child: Text(
-                  l10n.outboundLinks,
-                  style: theme.textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
+              // Outbound links section (web only)
+              if (!isMobile && outboundAsync != null) ...[
+                const Divider(height: 1),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                  child: Text(
+                    l10n.outboundLinks,
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              outboundAsync.when(
-                loading: () => const Padding(
-                  padding: EdgeInsets.all(32),
-                  child: Center(child: CircularProgressIndicator()),
-                ),
-                error: (error, _) => Padding(
-                  padding: const EdgeInsets.all(32),
-                  child: Center(
-                    child: Text(formatError(error),
-                        style: theme.textTheme.bodySmall),
+                outboundAsync.when(
+                  loading: () => const Padding(
+                    padding: EdgeInsets.all(32),
+                    child: Center(child: CircularProgressIndicator()),
                   ),
-                ),
-                data: (links) {
-                  if (links.isEmpty) {
-                    return Padding(
-                      padding: const EdgeInsets.all(32),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Icon(Icons.open_in_new,
-                                size: 40,
-                                color: theme.textTheme.bodySmall?.color),
-                            const SizedBox(height: 12),
-                            Text(l10n.noOutboundLinksTracked,
-                                style: theme.textTheme.bodyMedium),
-                          ],
-                        ),
-                      ),
-                    );
-                  }
-
-                  final maxCount = links.fold<int>(
-                      0, (max, l) => l.count > max ? l.count : max);
-
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: links.length,
-                    itemBuilder: (context, index) {
-                      final link = links[index];
-                      final pct = maxCount > 0
-                          ? (link.count / maxCount * 100)
-                          : 0.0;
+                  error: (error, _) => Padding(
+                    padding: const EdgeInsets.all(32),
+                    child: Center(
+                      child: Text(formatError(error),
+                          style: theme.textTheme.bodySmall),
+                    ),
+                  ),
+                  data: (links) {
+                    if (links.isEmpty) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 4),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(Icons.open_in_new,
-                                    size: 14,
-                                    color: theme.textTheme.bodySmall?.color),
-                                const SizedBox(width: 8),
-                                Expanded(
-                                  child: Text(
-                                    link.url,
-                                    style: theme.textTheme.bodySmall,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                                Text(
-                                  formatNumber(link.count),
-                                  style: theme.textTheme.bodySmall?.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 2),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(2),
-                              child: LinearProgressIndicator(
-                                value: (pct / 100).clamp(0.0, 1.0),
-                                backgroundColor: theme.colorScheme.primary
-                                    .withValues(alpha: 0.1),
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  theme.colorScheme.primary
-                                      .withValues(alpha: 0.5),
-                                ),
-                                minHeight: 3,
-                              ),
-                            ),
-                          ],
+                        padding: const EdgeInsets.all(32),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              Icon(Icons.open_in_new,
+                                  size: 40,
+                                  color: theme.textTheme.bodySmall?.color),
+                              const SizedBox(height: 12),
+                              Text(l10n.noOutboundLinksTracked,
+                                  style: theme.textTheme.bodyMedium),
+                            ],
+                          ),
                         ),
                       );
-                    },
-                  );
-                },
-              ),
+                    }
+
+                    final maxCount = links.fold<int>(
+                        0, (max, l) => l.count > max ? l.count : max);
+
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: links.length,
+                      itemBuilder: (context, index) {
+                        final link = links[index];
+                        final pct = maxCount > 0
+                            ? (link.count / maxCount * 100)
+                            : 0.0;
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 4),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(Icons.open_in_new,
+                                      size: 14,
+                                      color: theme.textTheme.bodySmall?.color),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      link.url,
+                                      style: theme.textTheme.bodySmall,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  Text(
+                                    formatNumber(link.count),
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 2),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(2),
+                                child: LinearProgressIndicator(
+                                  value: (pct / 100).clamp(0.0, 1.0),
+                                  backgroundColor: theme.colorScheme.primary
+                                      .withValues(alpha: 0.1),
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    theme.colorScheme.primary
+                                        .withValues(alpha: 0.5),
+                                  ),
+                                  minHeight: 3,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ],
             ],
           ),
         ),
