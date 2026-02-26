@@ -1320,4 +1320,28 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get emptyValue => '(prázdné)';
+
+  @override
+  String get screenviews => 'Zobrazení obrazovek';
+
+  @override
+  String get screensPerSession => 'Obrazovky/Relace';
+
+  @override
+  String get screens => 'Obrazovky';
+
+  @override
+  String get entryScreens => 'Vstupní obrazovky';
+
+  @override
+  String get exitScreens => 'Výstupní obrazovky';
+
+  @override
+  String get deviceModel => 'Model zařízení';
+
+  @override
+  String get appVersions => 'Verze aplikace';
+
+  @override
+  String get sdkInfo => 'Informace o SDK';
 }

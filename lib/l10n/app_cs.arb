@@ -700,5 +700,13 @@
   "filterUtmTerm": "UTM Výraz",
   "filterUtmContent": "UTM Obsah",
   "filterEntryPage": "Vstupní stránka",
-  "filterExitPage": "Výstupní stránka"
+  "filterExitPage": "Výstupní stránka",
+  "screenviews": "Zobrazení obrazovek",
+  "screensPerSession": "Obrazovky/Relace",
+  "screens": "Obrazovky",
+  "entryScreens": "Vstupní obrazovky",
+  "exitScreens": "Výstupní obrazovky",
+  "deviceModel": "Model zařízení",
+  "appVersions": "Verze aplikace",
+  "sdkInfo": "Informace o SDK"
 }

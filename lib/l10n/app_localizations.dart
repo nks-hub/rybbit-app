@@ -2521,6 +2521,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'(empty)'**
   String get emptyValue;
+
+  /// No description provided for @screenviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Screenviews'**
+  String get screenviews;
+
+  /// No description provided for @screensPerSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Screens/Session'**
+  String get screensPerSession;
+
+  /// No description provided for @screens.
+  ///
+  /// In en, this message translates to:
+  /// **'Screens'**
+  String get screens;
+
+  /// No description provided for @entryScreens.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Screens'**
+  String get entryScreens;
+
+  /// No description provided for @exitScreens.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit Screens'**
+  String get exitScreens;
+
+  /// No description provided for @deviceModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Device Model'**
+  String get deviceModel;
+
+  /// No description provided for @appVersions.
+  ///
+  /// In en, this message translates to:
+  /// **'App Versions'**
+  String get appVersions;
+
+  /// No description provided for @sdkInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'SDK Info'**
+  String get sdkInfo;
 }
 
 class _AppLocalizationsDelegate

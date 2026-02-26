@@ -57,6 +57,7 @@ class AnalyticsScreen extends ConsumerWidget {
     final filters = ref.watch(filterControllerProvider);
     final selectedStat = ref.watch(selectedStatProvider);
     final theme = Theme.of(context);
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     return PopScope(
       canPop: false,
@@ -204,7 +205,7 @@ class AnalyticsScreen extends ConsumerWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: _buildStatGrid(
-                        context, ref, overview, analyticsState, selectedStat),
+                        context, ref, overview, analyticsState, selectedStat, isMobile),
                   ),
 
                   const SizedBox(height: 16),
@@ -255,7 +256,7 @@ class AnalyticsScreen extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  _buildQuickLinks(context),
+                  _buildQuickLinks(context, isMobile),
                 ],
               ),
             ),
@@ -272,6 +273,7 @@ class AnalyticsScreen extends ConsumerWidget {
     Overview overview,
     AnalyticsState analyticsState,
     SelectedStat selectedStat,
+    bool isMobile,
   ) {
     final l10n = AppLocalizations.of(context)!;
     final prev = analyticsState.previousOverview;
@@ -299,7 +301,7 @@ class AnalyticsScreen extends ConsumerWidget {
         stat: SelectedStat.sessions,
       ),
       (
-        title: l10n.pageviews,
+        title: isMobile ? l10n.screenviews : l10n.pageviews,
         value: formatNumber(overview.pageviews),
         change: prev != null
             ? change(overview.pageviews.toDouble(), prev.pageviews.toDouble())
@@ -307,7 +309,7 @@ class AnalyticsScreen extends ConsumerWidget {
         stat: SelectedStat.pageviews,
       ),
       (
-        title: l10n.pagesPerSession,
+        title: isMobile ? l10n.screensPerSession : l10n.pagesPerSession,
         value: overview.pagesPerSession.toStringAsFixed(1),
         change: prev != null
             ? change(overview.pagesPerSession, prev.pagesPerSession)
@@ -354,7 +356,7 @@ class AnalyticsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildQuickLinks(BuildContext context) {
+  Widget _buildQuickLinks(BuildContext context, bool isMobile) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
 
@@ -424,35 +426,48 @@ class AnalyticsScreen extends ConsumerWidget {
           // Metrics row
           sectionTitle(l10n.metrics.toUpperCase()),
           grid([
-            linkCard(l10n.pages, Icons.article_outlined,
+            linkCard(isMobile ? l10n.screens : l10n.pages, Icons.article_outlined,
                 () => context.push('/analytics/$siteId/metrics/pathname')),
             linkCard(l10n.pageTitles, Icons.title,
                 () => context.push('/analytics/$siteId/metrics/page_title')),
-            linkCard(l10n.entryPages, Icons.login,
+            linkCard(isMobile ? l10n.entryScreens : l10n.entryPages, Icons.login,
                 () => context.push('/analytics/$siteId/metrics/entry_page')),
-            linkCard(l10n.exitPages, Icons.logout,
+            linkCard(isMobile ? l10n.exitScreens : l10n.exitPages, Icons.logout,
                 () => context.push('/analytics/$siteId/metrics/exit_page')),
           ]),
 
-          // Sources
-          sectionTitle(l10n.sources.toUpperCase()),
-          grid([
-            linkCard(l10n.referrers, Icons.link,
-                () => context.push('/analytics/$siteId/metrics/referrer')),
-            linkCard(l10n.channel, Icons.trending_up,
-                () => context.push('/analytics/$siteId/metrics/channel')),
-            linkCard(l10n.utmSource, Icons.campaign,
-                () => context.push('/analytics/$siteId/metrics/utm_source')),
-            linkCard(l10n.countries, Icons.public,
-                () => context.push('/analytics/$siteId/metrics/country')),
-          ]),
+          // Sources - hide web-only links for mobile
+          if (!isMobile) ...[
+            sectionTitle(l10n.sources.toUpperCase()),
+            grid([
+              linkCard(l10n.referrers, Icons.link,
+                  () => context.push('/analytics/$siteId/metrics/referrer')),
+              linkCard(l10n.channel, Icons.trending_up,
+                  () => context.push('/analytics/$siteId/metrics/channel')),
+              linkCard(l10n.utmSource, Icons.campaign,
+                  () => context.push('/analytics/$siteId/metrics/utm_source')),
+              linkCard(l10n.countries, Icons.public,
+                  () => context.push('/analytics/$siteId/metrics/country')),
+            ]),
+          ],
+          if (isMobile) ...[
+            sectionTitle(l10n.sources.toUpperCase()),
+            grid([
+              linkCard(l10n.countries, Icons.public,
+                  () => context.push('/analytics/$siteId/metrics/country')),
+            ]),
+          ],
 
           // Devices & Tech
           grid([
             linkCard(l10n.devices, Icons.devices,
                 () => context.push('/analytics/$siteId/metrics/device_type')),
-            linkCard(l10n.browsers, Icons.web,
-                () => context.push('/analytics/$siteId/metrics/browser')),
+            if (!isMobile)
+              linkCard(l10n.browsers, Icons.web,
+                  () => context.push('/analytics/$siteId/metrics/browser')),
+            if (isMobile)
+              linkCard(l10n.appVersions, Icons.label_outlined,
+                  () => context.push('/analytics/$siteId/metrics/app_version')),
             linkCard(l10n.operatingSystems, Icons.computer,
                 () => context.push('/analytics/$siteId/metrics/operating_system')),
             linkCard(l10n.locations, Icons.place,
@@ -502,8 +517,9 @@ class AnalyticsScreen extends ConsumerWidget {
           grid([
             linkCard(l10n.userTraits, Icons.label_outlined,
                 () => context.push('/analytics/$siteId/user-traits')),
-            linkCard(l10n.replay, Icons.videocam_outlined,
-                () => context.push('/analytics/$siteId/replay')),
+            if (!isMobile)
+              linkCard(l10n.replay, Icons.videocam_outlined,
+                  () => context.push('/analytics/$siteId/replay')),
             linkCard(l10n.config, Icons.settings_outlined,
                 () => context.push('/analytics/$siteId/config')),
           ]),

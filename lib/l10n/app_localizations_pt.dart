@@ -1314,4 +1314,28 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get emptyValue => '(vazio)';
+
+  @override
+  String get screenviews => 'Screenviews';
+
+  @override
+  String get screensPerSession => 'Screens/Session';
+
+  @override
+  String get screens => 'Screens';
+
+  @override
+  String get entryScreens => 'Entry Screens';
+
+  @override
+  String get exitScreens => 'Exit Screens';
+
+  @override
+  String get deviceModel => 'Device Model';
+
+  @override
+  String get appVersions => 'App Versions';
+
+  @override
+  String get sdkInfo => 'SDK Info';
 }

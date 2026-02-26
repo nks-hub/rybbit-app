@@ -496,5 +496,13 @@
   "@relativeDays": { "placeholders": { "count": { "type": "int" } } },
   "relativeWeeks": "{count}w",
   "@relativeWeeks": { "placeholders": { "count": { "type": "int" } } },
-  "emptyValue": "(empty)"
+  "emptyValue": "(empty)",
+  "screenviews": "Screenviews",
+  "screensPerSession": "Screens/Session",
+  "screens": "Screens",
+  "entryScreens": "Entry Screens",
+  "exitScreens": "Exit Screens",
+  "deviceModel": "Device Model",
+  "appVersions": "App Versions",
+  "sdkInfo": "SDK Info"
 }
