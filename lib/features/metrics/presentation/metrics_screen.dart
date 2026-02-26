@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../shared/models/filter.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../analytics/application/filter_controller.dart';
 import '../application/metrics_controller.dart';
 import 'widgets/metric_list_item.dart';
 
@@ -363,6 +365,32 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
     );
   }
 
+  void _onMetricTap(String value) {
+    // Find matching FilterParameter for current MetricType
+    final paramStr = _selectedType.parameter;
+    final filterParam = FilterParameter.values.where(
+      (p) => p.value == paramStr,
+    );
+    if (filterParam.isEmpty || value.isEmpty) return;
+
+    // Toggle filter: remove if exists, add if not
+    final filterCtrl = ref.read(filterControllerProvider.notifier);
+    final existing = ref.read(filterControllerProvider);
+    final idx = existing.indexWhere(
+      (f) => f.parameter == filterParam.first && f.value.contains(value),
+    );
+    if (idx >= 0) {
+      filterCtrl.removeFilter(idx);
+    } else {
+      filterCtrl.addFilter(Filter(
+        parameter: filterParam.first,
+        type: FilterType.equals,
+        value: [value],
+      ));
+    }
+    context.pop();
+  }
+
   Widget _buildMetricList(MetricsState metricsState, ThemeData theme, AppLocalizations l10n) {
     final items = _sortMode == _SortMode.alphabetical
         ? (List.of(metricsState.items)
@@ -398,6 +426,7 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
           percentage: item.percentage,
           bounceRate: item.bounceRate,
           timeOnPageSeconds: item.timeOnPageSeconds,
+          onTap: () => _onMetricTap(item.value),
         );
       },
     );

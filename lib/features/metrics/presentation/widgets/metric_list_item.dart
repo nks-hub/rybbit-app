@@ -9,6 +9,7 @@ class MetricListItem extends StatelessWidget {
   final double percentage;
   final double? bounceRate;
   final double? timeOnPageSeconds;
+  final VoidCallback? onTap;
 
   const MetricListItem({
     super.key,
@@ -17,6 +18,7 @@ class MetricListItem extends StatelessWidget {
     required this.percentage,
     this.bounceRate,
     this.timeOnPageSeconds,
+    this.onTap,
   });
 
   @override
@@ -25,7 +27,9 @@ class MetricListItem extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final barColor = theme.colorScheme.primary;
 
-    return Padding(
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,6 +101,7 @@ class MetricListItem extends StatelessWidget {
           ],
         ],
       ),
+    ),
     );
   }
 }
