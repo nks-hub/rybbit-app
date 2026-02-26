@@ -31,16 +31,16 @@ class AnalyticsScreen extends ConsumerWidget {
 
   const AnalyticsScreen({super.key, required this.siteId});
 
-  String _localizedStatLabel(AppLocalizations l10n, SelectedStat stat) {
+  String _localizedStatLabel(AppLocalizations l10n, SelectedStat stat, {bool isMobile = false}) {
     switch (stat) {
       case SelectedStat.users:
         return l10n.users;
       case SelectedStat.sessions:
         return l10n.sessions;
       case SelectedStat.pageviews:
-        return l10n.pageviews;
+        return isMobile ? l10n.screenviews : l10n.pageviews;
       case SelectedStat.pagesPerSession:
-        return l10n.pagesPerSession;
+        return isMobile ? l10n.screensPerSession : l10n.pagesPerSession;
       case SelectedStat.bounceRate:
         return l10n.bounceRate;
       case SelectedStat.duration:
@@ -217,7 +217,7 @@ class AnalyticsScreen extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          _localizedStatLabel(l10n, selectedStat),
+                          _localizedStatLabel(l10n, selectedStat, isMobile: isMobile),
                           style: theme.textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.w600,
                           ),
