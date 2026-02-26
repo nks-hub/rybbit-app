@@ -334,14 +334,15 @@ class _ErrorEventsSection extends ConsumerWidget {
   }
 }
 
-class _ErrorEventTile extends StatelessWidget {
+class _ErrorEventTile extends ConsumerWidget {
   final ErrorEventItem event;
 
   const _ErrorEventTile({required this.event});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
     final dt = DateTime.tryParse(event.timestamp);
     final timeStr = dt != null ? DateFormat('MMM d, HH:mm:ss').format(dt) : '';
 
@@ -360,7 +361,7 @@ class _ErrorEventTile extends StatelessWidget {
                 style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
               ),
               const Spacer(),
-              if (event.browser != null && event.browser!.isNotEmpty)
+              if (!isMobile && event.browser != null && event.browser!.isNotEmpty)
                 Text(
                   event.browser!,
                   style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
