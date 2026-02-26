@@ -363,7 +363,7 @@
     }
   },
   "notSet": "(nenastaveno)",
-  "bouncePrefix": "Míra odrazu",
+  "bouncePrefix": "Míra opuštění",
   "timePrefix": "Čas",
   "eventTypePageview": "Zobrazení stránky",
   "eventTypeCustom": "Vlastní",
