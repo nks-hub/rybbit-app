@@ -96,7 +96,10 @@ class HeatmapScreen extends ConsumerWidget {
             ),
           ),
         ),
-        data: (buckets) => _HeatmapContent(buckets: buckets),
+        data: (buckets) => _HeatmapContent(
+          buckets: buckets,
+          isMobile: ref.watch(currentSiteIsMobileProvider),
+        ),
       ),
     );
   }
@@ -104,8 +107,9 @@ class HeatmapScreen extends ConsumerWidget {
 
 class _HeatmapContent extends StatefulWidget {
   final List<OverviewBucket> buckets;
+  final bool isMobile;
 
-  const _HeatmapContent({required this.buckets});
+  const _HeatmapContent({required this.buckets, this.isMobile = false});
 
   @override
   State<_HeatmapContent> createState() => _HeatmapContentState();
@@ -172,7 +176,7 @@ class _HeatmapContentState extends State<_HeatmapContent> {
     final metricLabel = switch (_metric) {
       _HeatmapMetric.users => l10n.users,
       _HeatmapMetric.sessions => l10n.sessions,
-      _HeatmapMetric.pageviews => l10n.pageviews,
+      _HeatmapMetric.pageviews => widget.isMobile ? l10n.screenviews : l10n.pageviews,
     };
 
     return SingleChildScrollView(
@@ -202,7 +206,7 @@ class _HeatmapContentState extends State<_HeatmapContent> {
                   ),
                   ButtonSegment(
                     value: _HeatmapMetric.pageviews,
-                    label: Text(l10n.pageviews, style: const TextStyle(fontSize: 11)),
+                    label: Text(widget.isMobile ? l10n.screenviews : l10n.pageviews, style: const TextStyle(fontSize: 11)),
                   ),
                 ],
                 selected: {_metric},
