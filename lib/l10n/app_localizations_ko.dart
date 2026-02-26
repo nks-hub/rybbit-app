@@ -1323,4 +1323,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get sdkInfo => 'SDK Info';
+
+  @override
+  String get minScreenviews => '최소 화면조회수';
+
+  @override
+  String get appBadge => '앱';
 }

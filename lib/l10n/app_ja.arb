@@ -700,5 +700,7 @@
   "filterUtmTerm": "UTM用語",
   "filterUtmContent": "UTMコンテンツ",
   "filterEntryPage": "エントリーページ",
-  "filterExitPage": "離脱ページ"
+  "filterExitPage": "離脱ページ",
+  "minScreenviews": "最小スクリーンビュー数",
+  "appBadge": "アプリ"
 }

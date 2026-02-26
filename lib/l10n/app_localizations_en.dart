@@ -1328,4 +1328,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sdkInfo => 'SDK Info';
+
+  @override
+  String get minScreenviews => 'Min Screenviews';
+
+  @override
+  String get appBadge => 'App';
 }

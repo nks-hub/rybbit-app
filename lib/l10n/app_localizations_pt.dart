@@ -1338,4 +1338,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get sdkInfo => 'SDK Info';
+
+  @override
+  String get minScreenviews => 'Mín. de visualizações de tela';
+
+  @override
+  String get appBadge => 'App';
 }

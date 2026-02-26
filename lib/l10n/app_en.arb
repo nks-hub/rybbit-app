@@ -504,5 +504,7 @@
   "exitScreens": "Exit Screens",
   "deviceModel": "Device Model",
   "appVersions": "App Versions",
-  "sdkInfo": "SDK Info"
+  "sdkInfo": "SDK Info",
+  "minScreenviews": "Min Screenviews",
+  "appBadge": "App"
 }

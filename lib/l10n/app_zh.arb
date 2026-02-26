@@ -700,5 +700,7 @@
   "filterUtmTerm": "UTM术语",
   "filterUtmContent": "UTM内容",
   "filterEntryPage": "入口页",
-  "filterExitPage": "出口页"
+  "filterExitPage": "出口页",
+  "minScreenviews": "最少屏幕浏览量",
+  "appBadge": "应用"
 }

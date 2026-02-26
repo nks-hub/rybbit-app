@@ -1340,4 +1340,10 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get sdkInfo => 'SDK Info';
+
+  @override
+  String get minScreenviews => 'Min. wyświetleń ekranu';
+
+  @override
+  String get appBadge => 'Aplikacja';
 }

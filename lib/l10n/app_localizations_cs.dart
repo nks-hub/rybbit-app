@@ -1344,4 +1344,10 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get sdkInfo => 'Informace o SDK';
+
+  @override
+  String get minScreenviews => 'Min. zobrazení obrazovek';
+
+  @override
+  String get appBadge => 'Aplikace';
 }

@@ -1323,4 +1323,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get sdkInfo => 'SDK Info';
+
+  @override
+  String get minScreenviews => '最少屏幕浏览量';
+
+  @override
+  String get appBadge => '应用';
 }

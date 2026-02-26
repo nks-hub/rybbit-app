@@ -700,5 +700,7 @@
   "filterUtmTerm": "UTM 용어",
   "filterUtmContent": "UTM 콘텐츠",
   "filterEntryPage": "진입 페이지",
-  "filterExitPage": "이탈 페이지"
+  "filterExitPage": "이탈 페이지",
+  "minScreenviews": "최소 화면조회수",
+  "appBadge": "앱"
 }

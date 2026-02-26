@@ -1323,4 +1323,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sdkInfo => 'SDK Info';
+
+  @override
+  String get minScreenviews => '最小スクリーンビュー数';
+
+  @override
+  String get appBadge => 'アプリ';
 }

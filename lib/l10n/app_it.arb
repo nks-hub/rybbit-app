@@ -700,5 +700,7 @@
   "filterUtmTerm": "Termine UTM",
   "filterUtmContent": "Contenuto UTM",
   "filterEntryPage": "Pagina di ingresso",
-  "filterExitPage": "Pagina di uscita"
+  "filterExitPage": "Pagina di uscita",
+  "minScreenviews": "Visualizzazioni schermo minime",
+  "appBadge": "App"
 }

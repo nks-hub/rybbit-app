@@ -2569,6 +2569,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'SDK Info'**
   String get sdkInfo;
+
+  /// No description provided for @minScreenviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Min Screenviews'**
+  String get minScreenviews;
+
+  /// No description provided for @appBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'App'**
+  String get appBadge;
 }
 
 class _AppLocalizationsDelegate
