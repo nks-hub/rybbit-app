@@ -459,17 +459,18 @@ class AnalyticsScreen extends ConsumerWidget {
           ],
 
           // Devices & Tech
+          sectionTitle(l10n.devices.toUpperCase()),
           grid([
-            linkCard(l10n.devices, Icons.devices,
-                () => context.push('/analytics/$siteId/metrics/device_type')),
-            if (!isMobile)
-              linkCard(l10n.browsers, Icons.web,
-                  () => context.push('/analytics/$siteId/metrics/browser')),
             if (isMobile) ...[
+              linkCard(l10n.devices, Icons.smartphone,
+                  () => context.push('/analytics/$siteId/metrics/device_model')),
               linkCard(l10n.appVersions, Icons.label_outlined,
                   () => context.push('/analytics/$siteId/metrics/app_version')),
-              linkCard(l10n.deviceModel, Icons.smartphone,
-                  () => context.push('/analytics/$siteId/metrics/device_model')),
+            ] else ...[
+              linkCard(l10n.devices, Icons.devices,
+                  () => context.push('/analytics/$siteId/metrics/device_type')),
+              linkCard(l10n.browsers, Icons.web,
+                  () => context.push('/analytics/$siteId/metrics/browser')),
             ],
             linkCard(l10n.operatingSystems, Icons.computer,
                 () => context.push('/analytics/$siteId/metrics/operating_system')),
