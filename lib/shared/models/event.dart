@@ -36,6 +36,8 @@ class RawEvent {
   final String? city;
   final String? deviceType;
   final String type;
+  final String? appVersion;
+  final String? deviceModel;
 
   const RawEvent({
     required this.timestamp,
@@ -55,6 +57,8 @@ class RawEvent {
     this.city,
     this.deviceType,
     this.type = 'pageview',
+    this.appVersion,
+    this.deviceModel,
   });
 
   factory RawEvent.fromJson(Map<String, dynamic> json) {
@@ -78,6 +82,8 @@ class RawEvent {
       city: json['city'] as String?,
       deviceType: json['device_type'] as String?,
       type: json['type'] as String? ?? 'pageview',
+      appVersion: json['app_version'] as String?,
+      deviceModel: json['device_model'] as String?,
     );
   }
 

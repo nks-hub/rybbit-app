@@ -43,6 +43,8 @@ class AnalyticsSession with _$AnalyticsSession {
     @JsonKey(name: 'utm_campaign', fromJson: _toStringOrNull) String? utmCampaign,
     @JsonKey(name: 'identified_user_id', fromJson: _toStringOrNull) String? identifiedUserId,
     @JsonKey(fromJson: _traitsFromJson) Map<String, dynamic>? traits,
+    @JsonKey(name: 'app_version', fromJson: _toStringOrNull) String? appVersion,
+    @JsonKey(name: 'device_model', fromJson: _toStringOrNull) String? deviceModel,
   }) = _AnalyticsSession;
 
   factory AnalyticsSession.fromJson(Map<String, dynamic> json) =>

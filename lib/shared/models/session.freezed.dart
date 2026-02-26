@@ -74,6 +74,10 @@ mixin _$AnalyticsSession {
   String? get identifiedUserId => throw _privateConstructorUsedError;
   @JsonKey(fromJson: _traitsFromJson)
   Map<String, dynamic>? get traits => throw _privateConstructorUsedError;
+  @JsonKey(name: 'app_version', fromJson: _toStringOrNull)
+  String? get appVersion => throw _privateConstructorUsedError;
+  @JsonKey(name: 'device_model', fromJson: _toStringOrNull)
+  String? get deviceModel => throw _privateConstructorUsedError;
 
   /// Serializes this AnalyticsSession to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -127,6 +131,8 @@ abstract class $AnalyticsSessionCopyWith<$Res> {
     @JsonKey(name: 'identified_user_id', fromJson: _toStringOrNull)
     String? identifiedUserId,
     @JsonKey(fromJson: _traitsFromJson) Map<String, dynamic>? traits,
+    @JsonKey(name: 'app_version', fromJson: _toStringOrNull) String? appVersion,
+    @JsonKey(name: 'device_model', fromJson: _toStringOrNull) String? deviceModel,
   });
 }
 
@@ -173,6 +179,8 @@ class _$AnalyticsSessionCopyWithImpl<$Res, $Val extends AnalyticsSession>
     Object? utmCampaign = freezed,
     Object? identifiedUserId = freezed,
     Object? traits = freezed,
+    Object? appVersion = freezed,
+    Object? deviceModel = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -288,6 +296,14 @@ class _$AnalyticsSessionCopyWithImpl<$Res, $Val extends AnalyticsSession>
                 ? _value.traits
                 : traits // ignore: cast_nullable_to_non_nullable
                       as Map<String, dynamic>?,
+            appVersion: freezed == appVersion
+                ? _value.appVersion
+                : appVersion // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            deviceModel: freezed == deviceModel
+                ? _value.deviceModel
+                : deviceModel // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -338,6 +354,8 @@ abstract class _$$AnalyticsSessionImplCopyWith<$Res>
     @JsonKey(name: 'identified_user_id', fromJson: _toStringOrNull)
     String? identifiedUserId,
     @JsonKey(fromJson: _traitsFromJson) Map<String, dynamic>? traits,
+    @JsonKey(name: 'app_version', fromJson: _toStringOrNull) String? appVersion,
+    @JsonKey(name: 'device_model', fromJson: _toStringOrNull) String? deviceModel,
   });
 }
 
@@ -383,6 +401,8 @@ class __$$AnalyticsSessionImplCopyWithImpl<$Res>
     Object? utmCampaign = freezed,
     Object? identifiedUserId = freezed,
     Object? traits = freezed,
+    Object? appVersion = freezed,
+    Object? deviceModel = freezed,
   }) {
     return _then(
       _$AnalyticsSessionImpl(
@@ -498,6 +518,14 @@ class __$$AnalyticsSessionImplCopyWithImpl<$Res>
             ? _value._traits
             : traits // ignore: cast_nullable_to_non_nullable
                   as Map<String, dynamic>?,
+        appVersion: freezed == appVersion
+            ? _value.appVersion
+            : appVersion // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        deviceModel: freezed == deviceModel
+            ? _value.deviceModel
+            : deviceModel // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -541,6 +569,8 @@ class _$AnalyticsSessionImpl implements _AnalyticsSession {
     @JsonKey(name: 'identified_user_id', fromJson: _toStringOrNull)
     this.identifiedUserId,
     @JsonKey(fromJson: _traitsFromJson) final Map<String, dynamic>? traits,
+    @JsonKey(name: 'app_version', fromJson: _toStringOrNull) this.appVersion,
+    @JsonKey(name: 'device_model', fromJson: _toStringOrNull) this.deviceModel,
   }) : _traits = traits;
 
   factory _$AnalyticsSessionImpl.fromJson(Map<String, dynamic> json) =>
@@ -639,8 +669,15 @@ class _$AnalyticsSessionImpl implements _AnalyticsSession {
   }
 
   @override
+  @JsonKey(name: 'app_version', fromJson: _toStringOrNull)
+  final String? appVersion;
+  @override
+  @JsonKey(name: 'device_model', fromJson: _toStringOrNull)
+  final String? deviceModel;
+
+  @override
   String toString() {
-    return 'AnalyticsSession(sessionId: $sessionId, userId: $userId, country: $country, region: $region, city: $city, language: $language, deviceType: $deviceType, browser: $browser, browserVersion: $browserVersion, operatingSystem: $operatingSystem, osVersion: $osVersion, referrer: $referrer, channel: $channel, hostname: $hostname, entryPage: $entryPage, exitPage: $exitPage, sessionStart: $sessionStart, sessionEnd: $sessionEnd, sessionDuration: $sessionDuration, pageviews: $pageviews, events: $events, errors: $errors, hasReplay: $hasReplay, utmSource: $utmSource, utmMedium: $utmMedium, utmCampaign: $utmCampaign, identifiedUserId: $identifiedUserId, traits: $traits)';
+    return 'AnalyticsSession(sessionId: $sessionId, userId: $userId, country: $country, region: $region, city: $city, language: $language, deviceType: $deviceType, browser: $browser, browserVersion: $browserVersion, operatingSystem: $operatingSystem, osVersion: $osVersion, referrer: $referrer, channel: $channel, hostname: $hostname, entryPage: $entryPage, exitPage: $exitPage, sessionStart: $sessionStart, sessionEnd: $sessionEnd, sessionDuration: $sessionDuration, pageviews: $pageviews, events: $events, errors: $errors, hasReplay: $hasReplay, utmSource: $utmSource, utmMedium: $utmMedium, utmCampaign: $utmCampaign, identifiedUserId: $identifiedUserId, traits: $traits, appVersion: $appVersion, deviceModel: $deviceModel)';
   }
 
   @override
@@ -694,7 +731,11 @@ class _$AnalyticsSessionImpl implements _AnalyticsSession {
                 other.utmCampaign == utmCampaign) &&
             (identical(other.identifiedUserId, identifiedUserId) ||
                 other.identifiedUserId == identifiedUserId) &&
-            const DeepCollectionEquality().equals(other._traits, _traits));
+            const DeepCollectionEquality().equals(other._traits, _traits) &&
+            (identical(other.appVersion, appVersion) ||
+                other.appVersion == appVersion) &&
+            (identical(other.deviceModel, deviceModel) ||
+                other.deviceModel == deviceModel));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -729,6 +770,8 @@ class _$AnalyticsSessionImpl implements _AnalyticsSession {
     utmCampaign,
     identifiedUserId,
     const DeepCollectionEquality().hash(_traits),
+    appVersion,
+    deviceModel,
   ]);
 
   /// Create a copy of AnalyticsSession
@@ -791,6 +834,10 @@ abstract class _AnalyticsSession implements AnalyticsSession {
     @JsonKey(name: 'identified_user_id', fromJson: _toStringOrNull)
     final String? identifiedUserId,
     @JsonKey(fromJson: _traitsFromJson) final Map<String, dynamic>? traits,
+    @JsonKey(name: 'app_version', fromJson: _toStringOrNull)
+    final String? appVersion,
+    @JsonKey(name: 'device_model', fromJson: _toStringOrNull)
+    final String? deviceModel,
   }) = _$AnalyticsSessionImpl;
 
   factory _AnalyticsSession.fromJson(Map<String, dynamic> json) =
@@ -877,6 +924,12 @@ abstract class _AnalyticsSession implements AnalyticsSession {
   @override
   @JsonKey(fromJson: _traitsFromJson)
   Map<String, dynamic>? get traits;
+  @override
+  @JsonKey(name: 'app_version', fromJson: _toStringOrNull)
+  String? get appVersion;
+  @override
+  @JsonKey(name: 'device_model', fromJson: _toStringOrNull)
+  String? get deviceModel;
 
   /// Create a copy of AnalyticsSession
   /// with the given fields replaced by the non-null parameter values.
