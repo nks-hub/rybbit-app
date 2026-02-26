@@ -142,7 +142,7 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
         mainAxisSize: MainAxisSize.min,
         children: [
           DropdownButtonFormField<FilterParameter>(
-            initialValue: _parameter,
+            value: _parameter,
             decoration: InputDecoration(labelText: l10n.parameter),
             items: params
                 .map((p) => DropdownMenuItem(
