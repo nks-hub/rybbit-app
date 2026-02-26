@@ -99,6 +99,7 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
     final domain = ref.watch(currentSiteDomainProvider);
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -174,6 +175,7 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
                   ),
                 ),
                 for (final type in _eventTypes)
+                  if (!(isMobile && type == 'outbound'))
                   Padding(
                     padding: const EdgeInsets.only(right: 6),
                     child: FilterChip(
@@ -288,7 +290,7 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
                       }
 
                       final event = filtered[index];
-                      return _RawEventCard(event: event);
+                      return _RawEventCard(event: event, isMobile: isMobile);
                     },
                   ),
                 );
@@ -303,8 +305,9 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
 
 class _RawEventCard extends StatelessWidget {
   final RawEvent event;
+  final bool isMobile;
 
-  const _RawEventCard({required this.event});
+  const _RawEventCard({required this.event, this.isMobile = false});
 
   @override
   Widget build(BuildContext context) {
@@ -389,7 +392,7 @@ class _RawEventCard extends StatelessWidget {
                       prefix: flag.isNotEmpty ? flag : null,
                       text: event.country ?? l10n.unknownCountry,
                     ),
-                  if (event.browser != null && event.browser!.isNotEmpty)
+                  if (!isMobile && event.browser != null && event.browser!.isNotEmpty)
                     _DetailChip(
                       icon: Icons.public,
                       text: event.browser!,
@@ -402,8 +405,8 @@ class _RawEventCard extends StatelessWidget {
                 ],
               ),
 
-              // Referrer
-              if (event.referrer != null && event.referrer!.isNotEmpty) ...[
+              // Referrer (web only)
+              if (!isMobile && event.referrer != null && event.referrer!.isNotEmpty) ...[
                 const SizedBox(height: 4),
                 Row(
                   children: [
