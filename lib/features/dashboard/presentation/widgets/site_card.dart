@@ -43,10 +43,28 @@ class SiteCard extends ConsumerWidget {
                   if (site.type != 'web') ...[
                     Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: Icon(
-                        site.type == 'mobile' ? Icons.smartphone : Icons.desktop_windows,
-                        size: 20,
-                        color: theme.colorScheme.primary,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: theme.dividerTheme.color ?? const Color(0xFF262626),
+                          ),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.smartphone, size: 12, color: theme.textTheme.bodySmall?.color),
+                            const SizedBox(width: 4),
+                            Text(
+                              l10n.appBadge,
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: theme.textTheme.bodySmall?.color,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
