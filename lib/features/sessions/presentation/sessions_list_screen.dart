@@ -863,7 +863,10 @@ class _DetailContent extends ConsumerWidget {
                   },
                   icon: const Icon(Icons.list, size: 16),
                   label: Text(
-                    l10n.eventTimelineCount(detail.events.length),
+                    l10n.eventTimelineCount(
+                        detail.totalEvents > detail.events.length
+                            ? detail.totalEvents
+                            : detail.events.length),
                     style: const TextStyle(fontSize: 12),
                   ),
                   style: TextButton.styleFrom(
