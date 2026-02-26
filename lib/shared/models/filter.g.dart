@@ -41,6 +41,8 @@ const _$FilterParameterEnumMap = {
   FilterParameter.utmContent: 'utm_content',
   FilterParameter.entryPage: 'entry_page',
   FilterParameter.exitPage: 'exit_page',
+  FilterParameter.deviceModel: 'device_model',
+  FilterParameter.appVersion: 'app_version',
 };
 
 const _$FilterTypeEnumMap = {

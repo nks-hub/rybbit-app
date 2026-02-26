@@ -40,10 +40,31 @@ enum FilterParameter {
   utmTerm('utm_term'),
   utmContent('utm_content'),
   entryPage('entry_page'),
-  exitPage('exit_page');
+  exitPage('exit_page'),
+  deviceModel('device_model'),
+  appVersion('app_version');
 
   const FilterParameter(this.value);
   final String value;
+
+  /// Whether this filter is only relevant for web sites.
+  bool get isWebOnly => const {
+    FilterParameter.referrer,
+    FilterParameter.hostname,
+    FilterParameter.channel,
+    FilterParameter.querystring,
+    FilterParameter.utmSource,
+    FilterParameter.utmMedium,
+    FilterParameter.utmCampaign,
+    FilterParameter.utmTerm,
+    FilterParameter.utmContent,
+  }.contains(this);
+
+  /// Whether this filter is only relevant for mobile/desktop sites.
+  bool get isMobileOnly => const {
+    FilterParameter.deviceModel,
+    FilterParameter.appVersion,
+  }.contains(this);
 }
 
 @freezed

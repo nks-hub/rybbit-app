@@ -26,6 +26,8 @@ String _filterParamLabel(FilterParameter param, AppLocalizations l10n) {
     FilterParameter.utmContent => l10n.filterUtmContent,
     FilterParameter.entryPage => l10n.filterEntryPage,
     FilterParameter.exitPage => l10n.filterExitPage,
+    FilterParameter.deviceModel => l10n.deviceModel,
+    FilterParameter.appVersion => l10n.appVersion,
   };
 }
 
@@ -96,12 +98,14 @@ class FilterBar extends StatelessWidget {
 }
 
 class AddFilterDialog extends StatefulWidget {
-  const AddFilterDialog({super.key});
+  final bool isMobile;
 
-  static Future<Filter?> show(BuildContext context) {
+  const AddFilterDialog({super.key, this.isMobile = false});
+
+  static Future<Filter?> show(BuildContext context, {bool isMobile = false}) {
     return showDialog<Filter>(
       context: context,
-      builder: (context) => const AddFilterDialog(),
+      builder: (context) => AddFilterDialog(isMobile: isMobile),
     );
   }
 
@@ -113,6 +117,14 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
   FilterParameter _parameter = FilterParameter.country;
   final _valueController = TextEditingController();
 
+  List<FilterParameter> get _availableParameters {
+    return FilterParameter.values.where((p) {
+      if (widget.isMobile && p.isWebOnly) return false;
+      if (!widget.isMobile && p.isMobileOnly) return false;
+      return true;
+    }).toList();
+  }
+
   @override
   void dispose() {
     _valueController.dispose();
@@ -122,6 +134,7 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final params = _availableParameters;
 
     return AlertDialog(
       title: Text(l10n.addFilter),
@@ -131,7 +144,7 @@ class _AddFilterDialogState extends State<AddFilterDialog> {
           DropdownButtonFormField<FilterParameter>(
             initialValue: _parameter,
             decoration: InputDecoration(labelText: l10n.parameter),
-            items: FilterParameter.values
+            items: params
                 .map((p) => DropdownMenuItem(
                       value: p,
                       child: Text(_filterParamLabel(p, l10n)),

@@ -635,7 +635,8 @@ class AnalyticsScreen extends ConsumerWidget {
   }
 
   Future<void> _showAddFilter(BuildContext context, WidgetRef ref) async {
-    final filter = await AddFilterDialog.show(context);
+    final isMobile = ref.read(currentSiteIsMobileProvider);
+    final filter = await AddFilterDialog.show(context, isMobile: isMobile);
     if (filter != null) {
       ref.read(filterControllerProvider.notifier).addFilter(filter);
     }
