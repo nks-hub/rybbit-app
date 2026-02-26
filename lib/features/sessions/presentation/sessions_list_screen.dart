@@ -329,6 +329,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
     final flag = countryToFlag(session.country);
     final duration = formatDuration(session.sessionDuration);
     final relTime = _relativeTime(session.sessionStart, l10n);
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
@@ -397,7 +398,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                       ],
                     ),
                     const SizedBox(height: 4),
-                    // Row 1: Flag + Browser/OS + Time
+                    // Row 1: Flag + Browser/Device info + Time
                     Row(
                       children: [
                         if (flag.isNotEmpty) ...[
@@ -414,51 +415,95 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                             children: [
                               Row(
                                 children: [
-                                  if (session.browser != null &&
-                                      session.browser!.isNotEmpty)
-                                    Flexible(
-                                      child: Text(
-                                        session.browser!,
-                                        style: theme
-                                            .textTheme.bodyMedium
-                                            ?.copyWith(
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        overflow:
-                                            TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                  if (session.deviceType != null &&
-                                      session
-                                          .deviceType!.isNotEmpty) ...[
-                                    const SizedBox(width: 6),
-                                    Flexible(
-                                      child: Container(
-                                        padding:
-                                            const EdgeInsets.symmetric(
-                                                horizontal: 6,
-                                                vertical: 1),
-                                        decoration: BoxDecoration(
-                                          color: theme
-                                              .colorScheme.primary
-                                              .withValues(alpha: 0.1),
-                                          borderRadius:
-                                              BorderRadius.circular(4),
-                                        ),
+                                  if (isMobile) ...[
+                                    // Mobile: show device model and app version
+                                    if (session.deviceModel != null &&
+                                        session.deviceModel!.isNotEmpty)
+                                      Flexible(
                                         child: Text(
-                                          session.deviceType!,
-                                          style: TextStyle(
-                                            fontSize: 10,
-                                            color: theme
-                                                .colorScheme.primary,
-                                            fontWeight: FontWeight.w500,
+                                          session.deviceModel!,
+                                          style: theme
+                                              .textTheme.bodyMedium
+                                              ?.copyWith(
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    if (session.appVersion != null &&
+                                        session.appVersion!.isNotEmpty) ...[
+                                      const SizedBox(width: 6),
+                                      Flexible(
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 6, vertical: 1),
+                                          decoration: BoxDecoration(
+                                            color: theme.colorScheme.primary
+                                                .withValues(alpha: 0.1),
+                                            borderRadius:
+                                                BorderRadius.circular(4),
+                                          ),
+                                          child: Text(
+                                            'v${session.appVersion!}',
+                                            style: TextStyle(
+                                              fontSize: 10,
+                                              color: theme.colorScheme.primary,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ] else ...[
+                                    // Web: show browser and device type
+                                    if (session.browser != null &&
+                                        session.browser!.isNotEmpty)
+                                      Flexible(
+                                        child: Text(
+                                          session.browser!,
+                                          style: theme
+                                              .textTheme.bodyMedium
+                                              ?.copyWith(
+                                            fontWeight: FontWeight.w600,
                                           ),
                                           overflow:
                                               TextOverflow.ellipsis,
-                                          maxLines: 1,
                                         ),
                                       ),
-                                    ),
+                                    if (session.deviceType != null &&
+                                        session
+                                            .deviceType!.isNotEmpty) ...[
+                                      const SizedBox(width: 6),
+                                      Flexible(
+                                        child: Container(
+                                          padding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 6,
+                                                  vertical: 1),
+                                          decoration: BoxDecoration(
+                                            color: theme
+                                                .colorScheme.primary
+                                                .withValues(alpha: 0.1),
+                                            borderRadius:
+                                                BorderRadius.circular(4),
+                                          ),
+                                          child: Text(
+                                            session.deviceType!,
+                                            style: TextStyle(
+                                              fontSize: 10,
+                                              color: theme
+                                                  .colorScheme.primary,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            overflow:
+                                                TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ],
                                 ],
                               ),
@@ -673,7 +718,7 @@ class _ExpandedDetail extends ConsumerWidget {
 
 // ── Detail Content ───────────────────────────────────────────────
 
-class _DetailContent extends StatelessWidget {
+class _DetailContent extends ConsumerWidget {
   final SessionDetailViewState detail;
   final String siteId;
   final AnalyticsSession listSession;
@@ -685,10 +730,11 @@ class _DetailContent extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final s = detail.session;
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     // Build location string
     final locationParts = <String>[
@@ -699,17 +745,27 @@ class _DetailContent extends StatelessWidget {
     final locationStr =
         locationParts.isNotEmpty ? locationParts.join(', ') : null;
 
-    // Build device string
-    final deviceParts = <String>[
-      if (s.browser != null)
-        '${s.browser} ${s.browserVersion ?? ""}'.trim(),
-      if (s.operatingSystem != null)
-        '${s.operatingSystem} ${s.osVersion ?? ""}'.trim(),
-      if (s.language != null && s.language!.isNotEmpty) s.language!,
-    ];
-    final deviceStr = deviceParts.isNotEmpty
-        ? deviceParts.join(' \u00b7 ')
-        : null;
+    // Build device string - different for mobile vs web
+    final String? deviceStr;
+    if (isMobile) {
+      final mobileParts = <String>[
+        if (s.deviceModel != null && s.deviceModel!.isNotEmpty) s.deviceModel!,
+        if (s.operatingSystem != null)
+          '${s.operatingSystem} ${s.osVersion ?? ""}'.trim(),
+        if (s.appVersion != null && s.appVersion!.isNotEmpty) 'v${s.appVersion!}',
+        if (s.language != null && s.language!.isNotEmpty) s.language!,
+      ];
+      deviceStr = mobileParts.isNotEmpty ? mobileParts.join(' \u00b7 ') : null;
+    } else {
+      final webParts = <String>[
+        if (s.browser != null)
+          '${s.browser} ${s.browserVersion ?? ""}'.trim(),
+        if (s.operatingSystem != null)
+          '${s.operatingSystem} ${s.osVersion ?? ""}'.trim(),
+        if (s.language != null && s.language!.isNotEmpty) s.language!,
+      ];
+      deviceStr = webParts.isNotEmpty ? webParts.join(' \u00b7 ') : null;
+    }
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 12),
@@ -734,19 +790,19 @@ class _DetailContent extends StatelessWidget {
           // Device
           if (deviceStr != null)
             _DetailRow(
-              icon: Icons.devices_outlined,
+              icon: isMobile ? Icons.smartphone : Icons.devices_outlined,
               text: deviceStr,
               theme: theme,
             ),
-          // Source
-          if (s.referrer != null && s.referrer!.isNotEmpty)
+          // Source - only for web sites
+          if (!isMobile && s.referrer != null && s.referrer!.isNotEmpty)
             _DetailRow(
               icon: Icons.link,
               text: s.referrer!,
               theme: theme,
             ),
-          // UTM
-          if (s.utmSource != null && s.utmSource!.isNotEmpty)
+          // UTM - only for web sites
+          if (!isMobile && s.utmSource != null && s.utmSource!.isNotEmpty)
             _DetailRow(
               icon: Icons.campaign_outlined,
               text: [s.utmSource, s.utmMedium, s.utmCampaign]
@@ -754,8 +810,8 @@ class _DetailContent extends StatelessWidget {
                   .join(' / '),
               theme: theme,
             ),
-          // Channel
-          if (s.channel != null && s.channel!.isNotEmpty)
+          // Channel - only for web sites
+          if (!isMobile && s.channel != null && s.channel!.isNotEmpty)
             _DetailRow(
               icon: Icons.public,
               text: s.channel!,
