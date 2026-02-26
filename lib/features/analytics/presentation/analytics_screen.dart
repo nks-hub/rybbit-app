@@ -503,8 +503,9 @@ class AnalyticsScreen extends ConsumerWidget {
           // Tools
           sectionTitle(l10n.tools.toUpperCase()),
           grid([
-            linkCard(l10n.performance, Icons.speed,
-                () => context.push('/analytics/$siteId/performance')),
+            if (!isMobile)
+              linkCard(l10n.performance, Icons.speed,
+                  () => context.push('/analytics/$siteId/performance')),
             linkCard(l10n.goals, Icons.flag_outlined,
                 () => context.push('/analytics/$siteId/goals')),
             linkCard(l10n.funnels, Icons.filter_alt_outlined,
