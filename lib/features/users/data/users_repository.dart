@@ -9,6 +9,8 @@ class UserListItem {
   final int sessionCount;
   final String? lastSeen;
   final Map<String, dynamic>? traits;
+  final String? deviceModel;
+  final String? appVersion;
 
   const UserListItem({
     required this.userId,
@@ -16,6 +18,8 @@ class UserListItem {
     required this.sessionCount,
     this.lastSeen,
     this.traits,
+    this.deviceModel,
+    this.appVersion,
   });
 
   factory UserListItem.fromJson(Map<String, dynamic> json) {
@@ -30,6 +34,8 @@ class UserListItem {
       lastSeen:
           json['last_seen'] as String? ?? json['lastSeen'] as String?,
       traits: json['traits'] as Map<String, dynamic>?,
+      deviceModel: json['device_model'] as String?,
+      appVersion: json['app_version'] as String?,
     );
   }
 }
@@ -40,6 +46,8 @@ class UserDetail {
   final int sessionCount;
   final String? lastSeen;
   final Map<String, dynamic> traits;
+  final String? deviceModel;
+  final String? appVersion;
 
   const UserDetail({
     required this.userId,
@@ -47,6 +55,8 @@ class UserDetail {
     required this.sessionCount,
     this.lastSeen,
     this.traits = const {},
+    this.deviceModel,
+    this.appVersion,
   });
 
   factory UserDetail.fromJson(Map<String, dynamic> json) {
@@ -61,6 +71,8 @@ class UserDetail {
       lastSeen:
           json['last_seen'] as String? ?? json['lastSeen'] as String?,
       traits: json['traits'] as Map<String, dynamic>? ?? {},
+      deviceModel: json['device_model'] as String?,
+      appVersion: json['app_version'] as String?,
     );
   }
 }

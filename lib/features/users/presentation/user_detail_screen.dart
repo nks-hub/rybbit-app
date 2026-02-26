@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/users_repository.dart';
@@ -52,6 +53,7 @@ class UserDetailScreen extends ConsumerWidget {
     final detailAsync = ref.watch(_userDetailProvider('$siteId:$userId'));
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -187,6 +189,64 @@ class UserDetailScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
+
+                // Device info for mobile sites
+                if (isMobile &&
+                    ((detail.deviceModel != null && detail.deviceModel!.isNotEmpty) ||
+                     (detail.appVersion != null && detail.appVersion!.isNotEmpty))) ...[
+                  const SizedBox(height: 16),
+                  Text(
+                    l10n.sdkInfo,
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        children: [
+                          if (detail.deviceModel != null &&
+                              detail.deviceModel!.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.smartphone, size: 16,
+                                      color: theme.textTheme.bodySmall?.color),
+                                  const SizedBox(width: 8),
+                                  Text(l10n.deviceModel,
+                                      style: theme.textTheme.bodySmall?.copyWith(
+                                        fontWeight: FontWeight.w600,
+                                      )),
+                                  const Spacer(),
+                                  Text(detail.deviceModel!,
+                                      style: theme.textTheme.bodyMedium),
+                                ],
+                              ),
+                            ),
+                          if (detail.appVersion != null &&
+                              detail.appVersion!.isNotEmpty)
+                            Row(
+                              children: [
+                                Icon(Icons.label_outlined, size: 16,
+                                    color: theme.textTheme.bodySmall?.color),
+                                const SizedBox(width: 8),
+                                Text(l10n.appVersion,
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    )),
+                                const Spacer(),
+                                Text(detail.appVersion!,
+                                    style: theme.textTheme.bodyMedium),
+                              ],
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
 
                 const SizedBox(height: 16),
 
