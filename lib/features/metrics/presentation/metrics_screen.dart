@@ -38,11 +38,18 @@ enum MetricType {
   companyDomain('company_domain', Icons.domain),
   asnOrg('asn_org', Icons.hub),
   asnType('asn_type', Icons.router),
-  asnDomain('asn_domain', Icons.language);
+  asnDomain('asn_domain', Icons.language),
+  appVersion('app_version', Icons.label_outlined),
+  deviceModel('device_model', Icons.smartphone);
 
   const MetricType(this.parameter, this.icon);
   final String parameter;
   final IconData icon;
+
+  bool get isMobileOnly => const {
+    MetricType.appVersion,
+    MetricType.deviceModel,
+  }.contains(this);
 
   bool get isWebOnly => const {
     MetricType.referrer,
@@ -121,6 +128,10 @@ enum MetricType {
         return l10n.asnType;
       case MetricType.asnDomain:
         return l10n.asnDomain;
+      case MetricType.appVersion:
+        return l10n.appVersion;
+      case MetricType.deviceModel:
+        return l10n.deviceModel;
     }
   }
 
@@ -190,9 +201,11 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
     final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     final domain = ref.watch(currentSiteDomainProvider);
-    final availableTypes = isMobile
-        ? MetricType.values.where((t) => !t.isWebOnly).toList()
-        : MetricType.values;
+    final availableTypes = MetricType.values.where((t) {
+      if (isMobile && t.isWebOnly) return false;
+      if (!isMobile && t.isMobileOnly) return false;
+      return true;
+    }).toList();
 
     return Scaffold(
       appBar: AppBar(
