@@ -15,7 +15,8 @@ import '../data/sessions_repository.dart';
 
 class _SessionFilterDialog extends StatefulWidget {
   final SessionFilterParams initial;
-  const _SessionFilterDialog({required this.initial});
+  final bool isMobile;
+  const _SessionFilterDialog({required this.initial, this.isMobile = false});
 
   @override
   State<_SessionFilterDialog> createState() => _SessionFilterDialogState();
@@ -62,7 +63,9 @@ class _SessionFilterDialogState extends State<_SessionFilterDialog> {
           children: [
             TextField(
               controller: _pageviewsCtrl,
-              decoration: InputDecoration(labelText: l10n.minPageviews),
+              decoration: InputDecoration(
+                labelText: widget.isMobile ? l10n.minScreenviews : l10n.minPageviews,
+              ),
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 12),
@@ -199,10 +202,11 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
               child: const Icon(Icons.filter_list),
             ),
             onPressed: () async {
+              final isMobile = ref.read(currentSiteIsMobileProvider);
               final result = await showDialog<SessionFilterParams>(
                 context: context,
                 builder: (_) =>
-                    _SessionFilterDialog(initial: sessionFilter),
+                    _SessionFilterDialog(initial: sessionFilter, isMobile: isMobile),
               );
               if (result != null) {
                 ref.read(sessionFilterProvider.notifier).state = result;
