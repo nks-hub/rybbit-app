@@ -61,6 +61,7 @@ class SitesRepository {
           createdAt: siteMap['createdAt']?.toString() ?? '',
           organizationId: siteMap['organizationId']?.toString(),
           public: siteMap['public'] == true,
+          type: siteMap['type']?.toString() ?? 'web',
         ));
       }
     }
