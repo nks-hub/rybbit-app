@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/site_config_repository.dart';
@@ -37,6 +38,7 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
     final l10n = AppLocalizations.of(context)!;
     final configAsync = ref.watch(_siteConfigProvider(widget.siteId));
     final theme = Theme.of(context);
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -143,21 +145,23 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                         value: isPublic,
                         onChanged: (v) => setState(() => _public = v),
                       ),
-                      const Divider(height: 1),
-                      SwitchListTile(
-                        title: Text(l10n.sessionReplay),
-                        subtitle: Text(l10n.sessionReplayDesc),
-                        value: replay,
-                        onChanged: (v) =>
-                            setState(() => _sessionReplay = v),
-                      ),
-                      const Divider(height: 1),
-                      SwitchListTile(
-                        title: Text(l10n.webVitals),
-                        subtitle: Text(l10n.webVitalsDesc),
-                        value: vitals,
-                        onChanged: (v) => setState(() => _webVitals = v),
-                      ),
+                      if (!isMobile) ...[
+                        const Divider(height: 1),
+                        SwitchListTile(
+                          title: Text(l10n.sessionReplay),
+                          subtitle: Text(l10n.sessionReplayDesc),
+                          value: replay,
+                          onChanged: (v) =>
+                              setState(() => _sessionReplay = v),
+                        ),
+                        const Divider(height: 1),
+                        SwitchListTile(
+                          title: Text(l10n.webVitals),
+                          subtitle: Text(l10n.webVitalsDesc),
+                          value: vitals,
+                          onChanged: (v) => setState(() => _webVitals = v),
+                        ),
+                      ],
                       const Divider(height: 1),
                       SwitchListTile(
                         title: Text(l10n.trackErrors),
@@ -166,14 +170,16 @@ class _SiteConfigScreenState extends ConsumerState<SiteConfigScreen> {
                         onChanged: (v) =>
                             setState(() => _trackErrors = v),
                       ),
-                      const Divider(height: 1),
-                      SwitchListTile(
-                        title: Text(l10n.outboundLinksTracking),
-                        subtitle: Text(l10n.outboundLinksDesc),
-                        value: outbound,
-                        onChanged: (v) =>
-                            setState(() => _trackOutbound = v),
-                      ),
+                      if (!isMobile) ...[
+                        const Divider(height: 1),
+                        SwitchListTile(
+                          title: Text(l10n.outboundLinksTracking),
+                          subtitle: Text(l10n.outboundLinksDesc),
+                          value: outbound,
+                          onChanged: (v) =>
+                              setState(() => _trackOutbound = v),
+                        ),
+                      ],
                     ],
                   ),
                 ),
