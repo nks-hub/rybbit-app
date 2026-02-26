@@ -312,11 +312,7 @@ class _UserCard extends StatelessWidget {
   const _UserCard({required this.user, required this.onTap});
 
   String _getDisplayName() {
-    // Prefer identifiedUserId (set via rybbit.identify)
-    if (user.identifiedUserId != null && user.identifiedUserId!.isNotEmpty) {
-      return user.identifiedUserId!;
-    }
-    // Then check traits for human-readable names
+    // Prefer human-readable traits (username, name, email)
     final traits = user.traits;
     if (traits != null) {
       final username = traits['username']?.toString();
@@ -325,6 +321,10 @@ class _UserCard extends StatelessWidget {
       if (name != null && name.isNotEmpty) return name;
       final email = traits['email']?.toString();
       if (email != null && email.isNotEmpty) return email;
+    }
+    // Then identifiedUserId
+    if (user.identifiedUserId != null && user.identifiedUserId!.isNotEmpty) {
+      return user.identifiedUserId!;
     }
     return user.userId.length > 24
         ? '${user.userId.substring(0, 24)}...'
