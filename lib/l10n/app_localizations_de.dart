@@ -1326,32 +1326,35 @@ class AppLocalizationsDe extends AppLocalizations {
   String get emptyValue => '(leer)';
 
   @override
-  String get screenviews => 'Screenviews';
+  String get screenviews => 'Bildschirmaufrufe';
 
   @override
-  String get screensPerSession => 'Screens/Session';
+  String get screensPerSession => 'Bildschirme/Sitzung';
 
   @override
-  String get screens => 'Screens';
+  String get screens => 'Bildschirme';
 
   @override
-  String get entryScreens => 'Entry Screens';
+  String get entryScreens => 'Eingangsbildschirme';
 
   @override
-  String get exitScreens => 'Exit Screens';
+  String get exitScreens => 'Ausgangsbildschirme';
 
   @override
-  String get deviceModel => 'Device Model';
+  String get deviceModel => 'Gerätemodell';
 
   @override
-  String get appVersions => 'App Versions';
+  String get appVersions => 'App-Versionen';
 
   @override
-  String get sdkInfo => 'Device Info';
+  String get sdkInfo => 'Geräteinformationen';
 
   @override
   String get minScreenviews => 'Min. Bildschirmaufrufe';
 
   @override
   String get appBadge => 'App';
+
+  @override
+  String get eventTypeScreenview => 'Bildschirmaufruf';
 }

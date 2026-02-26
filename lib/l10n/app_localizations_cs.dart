@@ -1350,4 +1350,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get appBadge => 'Aplikace';
+
+  @override
+  String get eventTypeScreenview => 'Zobrazení obrazovky';
 }

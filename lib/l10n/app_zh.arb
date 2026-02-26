@@ -702,5 +702,14 @@
   "filterEntryPage": "入口页",
   "filterExitPage": "出口页",
   "minScreenviews": "最少屏幕浏览量",
-  "appBadge": "应用"
+  "appBadge": "应用",
+  "screenviews": "屏幕浏览量",
+  "screensPerSession": "屏幕/会话",
+  "screens": "屏幕",
+  "entryScreens": "入口屏幕",
+  "exitScreens": "出口屏幕",
+  "appVersions": "应用版本",
+  "deviceModel": "设备型号",
+  "sdkInfo": "设备信息",
+  "eventTypeScreenview": "屏幕浏览"
 }

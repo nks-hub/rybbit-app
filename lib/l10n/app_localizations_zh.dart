@@ -1301,32 +1301,35 @@ class AppLocalizationsZh extends AppLocalizations {
   String get emptyValue => '(空)';
 
   @override
-  String get screenviews => 'Screenviews';
+  String get screenviews => '屏幕浏览量';
 
   @override
-  String get screensPerSession => 'Screens/Session';
+  String get screensPerSession => '屏幕/会话';
 
   @override
-  String get screens => 'Screens';
+  String get screens => '屏幕';
 
   @override
-  String get entryScreens => 'Entry Screens';
+  String get entryScreens => '入口屏幕';
 
   @override
-  String get exitScreens => 'Exit Screens';
+  String get exitScreens => '出口屏幕';
 
   @override
-  String get deviceModel => 'Device Model';
+  String get deviceModel => '设备型号';
 
   @override
-  String get appVersions => 'App Versions';
+  String get appVersions => '应用版本';
 
   @override
-  String get sdkInfo => 'Device Info';
+  String get sdkInfo => '设备信息';
 
   @override
   String get minScreenviews => '最少屏幕浏览量';
 
   @override
   String get appBadge => '应用';
+
+  @override
+  String get eventTypeScreenview => '屏幕浏览';
 }

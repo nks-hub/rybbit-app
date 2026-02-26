@@ -1301,32 +1301,35 @@ class AppLocalizationsKo extends AppLocalizations {
   String get emptyValue => '(비어있음)';
 
   @override
-  String get screenviews => 'Screenviews';
+  String get screenviews => '화면조회수';
 
   @override
-  String get screensPerSession => 'Screens/Session';
+  String get screensPerSession => '화면/세션';
 
   @override
-  String get screens => 'Screens';
+  String get screens => '화면';
 
   @override
-  String get entryScreens => 'Entry Screens';
+  String get entryScreens => '진입 화면';
 
   @override
-  String get exitScreens => 'Exit Screens';
+  String get exitScreens => '종료 화면';
 
   @override
-  String get deviceModel => 'Device Model';
+  String get deviceModel => '기기 모델';
 
   @override
-  String get appVersions => 'App Versions';
+  String get appVersions => '앱 버전';
 
   @override
-  String get sdkInfo => 'Device Info';
+  String get sdkInfo => '기기 정보';
 
   @override
   String get minScreenviews => '최소 화면조회수';
 
   @override
   String get appBadge => '앱';
+
+  @override
+  String get eventTypeScreenview => '화면조회';
 }

@@ -2581,6 +2581,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'App'**
   String get appBadge;
+
+  /// No description provided for @eventTypeScreenview.
+  ///
+  /// In en, this message translates to:
+  /// **'Screenview'**
+  String get eventTypeScreenview;
 }
 
 class _AppLocalizationsDelegate

@@ -710,5 +710,6 @@
   "appVersions": "Verze aplikace",
   "sdkInfo": "Informace o zařízení",
   "minScreenviews": "Min. zobrazení obrazovek",
-  "appBadge": "Aplikace"
+  "appBadge": "Aplikace",
+  "eventTypeScreenview": "Zobrazení obrazovky"
 }

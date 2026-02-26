@@ -1316,32 +1316,35 @@ class AppLocalizationsPt extends AppLocalizations {
   String get emptyValue => '(vazio)';
 
   @override
-  String get screenviews => 'Screenviews';
+  String get screenviews => 'Visualizações de tela';
 
   @override
-  String get screensPerSession => 'Screens/Session';
+  String get screensPerSession => 'Telas/Sessão';
 
   @override
-  String get screens => 'Screens';
+  String get screens => 'Telas';
 
   @override
-  String get entryScreens => 'Entry Screens';
+  String get entryScreens => 'Telas de entrada';
 
   @override
-  String get exitScreens => 'Exit Screens';
+  String get exitScreens => 'Telas de saída';
 
   @override
-  String get deviceModel => 'Device Model';
+  String get deviceModel => 'Modelo do dispositivo';
 
   @override
-  String get appVersions => 'App Versions';
+  String get appVersions => 'Versões do app';
 
   @override
-  String get sdkInfo => 'Device Info';
+  String get sdkInfo => 'Informações do dispositivo';
 
   @override
   String get minScreenviews => 'Mín. de visualizações de tela';
 
   @override
   String get appBadge => 'App';
+
+  @override
+  String get eventTypeScreenview => 'Visualização de tela';
 }

@@ -702,5 +702,14 @@
   "filterEntryPage": "エントリーページ",
   "filterExitPage": "離脱ページ",
   "minScreenviews": "最小スクリーンビュー数",
-  "appBadge": "アプリ"
+  "appBadge": "アプリ",
+  "screenviews": "スクリーンビュー",
+  "screensPerSession": "スクリーン/セッション",
+  "screens": "スクリーン",
+  "entryScreens": "入口スクリーン",
+  "exitScreens": "出口スクリーン",
+  "appVersions": "アプリバージョン",
+  "deviceModel": "デバイスモデル",
+  "sdkInfo": "デバイス情報",
+  "eventTypeScreenview": "スクリーンビュー"
 }

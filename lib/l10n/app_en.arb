@@ -506,5 +506,6 @@
   "appVersions": "App Versions",
   "sdkInfo": "Device Info",
   "minScreenviews": "Min Screenviews",
-  "appBadge": "App"
+  "appBadge": "App",
+  "eventTypeScreenview": "Screenview"
 }

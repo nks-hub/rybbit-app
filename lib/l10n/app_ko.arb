@@ -702,5 +702,14 @@
   "filterEntryPage": "진입 페이지",
   "filterExitPage": "이탈 페이지",
   "minScreenviews": "최소 화면조회수",
-  "appBadge": "앱"
+  "appBadge": "앱",
+  "screenviews": "화면조회수",
+  "screensPerSession": "화면/세션",
+  "screens": "화면",
+  "entryScreens": "진입 화면",
+  "exitScreens": "종료 화면",
+  "appVersions": "앱 버전",
+  "deviceModel": "기기 모델",
+  "sdkInfo": "기기 정보",
+  "eventTypeScreenview": "화면조회"
 }

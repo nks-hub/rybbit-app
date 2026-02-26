@@ -80,9 +80,9 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
     return filtered;
   }
 
-  String _typeLabel(String type, AppLocalizations l10n) {
+  String _typeLabel(String type, AppLocalizations l10n, {bool isMobile = false}) {
     return switch (type) {
-      'pageview' => l10n.eventTypePageview,
+      'pageview' => isMobile ? l10n.eventTypeScreenview : l10n.eventTypePageview,
       'custom_event' => l10n.eventTypeCustom,
       'outbound' => l10n.eventTypeOutbound,
       'button_click' => l10n.eventTypeClick,
@@ -179,7 +179,7 @@ class _EventLogScreenState extends ConsumerState<EventLogScreen> {
                   Padding(
                     padding: const EdgeInsets.only(right: 6),
                     child: FilterChip(
-                      label: Text(_typeLabel(type, l10n),
+                      label: Text(_typeLabel(type, l10n, isMobile: isMobile),
                           style: const TextStyle(fontSize: 12)),
                       selected: _selectedTypes.contains(type),
                       onSelected: (selected) {

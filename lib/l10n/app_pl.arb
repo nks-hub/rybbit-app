@@ -702,5 +702,14 @@
   "filterEntryPage": "Strona wejściowa",
   "filterExitPage": "Strona wyjściowa",
   "minScreenviews": "Min. wyświetleń ekranu",
-  "appBadge": "Aplikacja"
+  "appBadge": "Aplikacja",
+  "screenviews": "Wyświetlenia ekranów",
+  "screensPerSession": "Ekrany/Sesja",
+  "screens": "Ekrany",
+  "entryScreens": "Ekrany wejściowe",
+  "exitScreens": "Ekrany wyjściowe",
+  "appVersions": "Wersje aplikacji",
+  "deviceModel": "Model urządzenia",
+  "sdkInfo": "Informacje o urządzeniu",
+  "eventTypeScreenview": "Wyświetlenie ekranu"
 }

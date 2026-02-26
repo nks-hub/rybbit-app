@@ -1334,4 +1334,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appBadge => 'App';
+
+  @override
+  String get eventTypeScreenview => 'Screenview';
 }

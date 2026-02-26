@@ -702,5 +702,14 @@
   "filterEntryPage": "Página de entrada",
   "filterExitPage": "Página de salida",
   "minScreenviews": "Mín. vistas de pantalla",
-  "appBadge": "App"
+  "appBadge": "App",
+  "screenviews": "Vistas de pantalla",
+  "screensPerSession": "Pantallas/Sesión",
+  "screens": "Pantallas",
+  "entryScreens": "Pantallas de entrada",
+  "exitScreens": "Pantallas de salida",
+  "appVersions": "Versiones de la app",
+  "deviceModel": "Modelo de dispositivo",
+  "sdkInfo": "Información del dispositivo",
+  "eventTypeScreenview": "Vista de pantalla"
 }
