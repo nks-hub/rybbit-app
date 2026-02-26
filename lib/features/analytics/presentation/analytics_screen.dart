@@ -465,9 +465,12 @@ class AnalyticsScreen extends ConsumerWidget {
             if (!isMobile)
               linkCard(l10n.browsers, Icons.web,
                   () => context.push('/analytics/$siteId/metrics/browser')),
-            if (isMobile)
+            if (isMobile) ...[
               linkCard(l10n.appVersions, Icons.label_outlined,
                   () => context.push('/analytics/$siteId/metrics/app_version')),
+              linkCard(l10n.deviceModel, Icons.smartphone,
+                  () => context.push('/analytics/$siteId/metrics/device_model')),
+            ],
             linkCard(l10n.operatingSystems, Icons.computer,
                 () => context.push('/analytics/$siteId/metrics/operating_system')),
             linkCard(l10n.locations, Icons.place,
