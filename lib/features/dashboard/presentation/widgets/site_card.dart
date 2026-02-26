@@ -37,15 +37,27 @@ class SiteCard extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Top row: domain + live badge + chevron
+              // Top row: site identity + live badge + chevron
               Row(
                 children: [
+                  if (site.type != 'web') ...[
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Icon(
+                        site.type == 'mobile' ? Icons.smartphone : Icons.desktop_windows,
+                        size: 20,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ],
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          site.domain,
+                          (site.type != 'web' && site.name.isNotEmpty)
+                              ? site.name
+                              : site.domain,
                           style: theme.textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
@@ -53,7 +65,14 @@ class SiteCard extends ConsumerWidget {
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                         ),
-                        if (site.name.isNotEmpty &&
+                        if (site.type != 'web' && site.name.isNotEmpty &&
+                            site.name != site.domain) ...[
+                          const SizedBox(height: 2),
+                          Text(
+                            site.domain,
+                            style: theme.textTheme.bodySmall,
+                          ),
+                        ] else if (site.type == 'web' && site.name.isNotEmpty &&
                             site.name != site.domain) ...[
                           const SizedBox(height: 2),
                           Text(
