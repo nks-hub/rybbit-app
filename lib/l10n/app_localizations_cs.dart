@@ -721,7 +721,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get notSet => '(nenastaveno)';
 
   @override
-  String get bouncePrefix => 'Míra odrazu';
+  String get bouncePrefix => 'Míra opuštění';
 
   @override
   String get timePrefix => 'Čas';
@@ -1343,7 +1343,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get appVersions => 'Verze aplikace';
 
   @override
-  String get sdkInfo => 'Informace o SDK';
+  String get sdkInfo => 'Informace o zařízení';
 
   @override
   String get minScreenviews => 'Min. zobrazení obrazovek';

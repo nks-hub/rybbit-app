@@ -708,7 +708,7 @@
   "exitScreens": "Výstupní obrazovky",
   "deviceModel": "Model zařízení",
   "appVersions": "Verze aplikace",
-  "sdkInfo": "Informace o SDK",
+  "sdkInfo": "Informace o zařízení",
   "minScreenviews": "Min. zobrazení obrazovek",
   "appBadge": "Aplikace"
 }

@@ -1322,7 +1322,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get appVersions => 'App Versions';
 
   @override
-  String get sdkInfo => 'SDK Info';
+  String get sdkInfo => 'Device Info';
 
   @override
   String get minScreenviews => '最少屏幕浏览量';

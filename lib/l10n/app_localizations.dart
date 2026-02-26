@@ -2567,7 +2567,7 @@ abstract class AppLocalizations {
   /// No description provided for @sdkInfo.
   ///
   /// In en, this message translates to:
-  /// **'SDK Info'**
+  /// **'Device Info'**
   String get sdkInfo;
 
   /// No description provided for @minScreenviews.
