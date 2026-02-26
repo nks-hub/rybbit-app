@@ -19,11 +19,7 @@ final _userDetailProvider =
 });
 
 String _getDisplayName(UserDetail detail) {
-  // Prefer identifiedUserId (set via rybbit.identify)
-  if (detail.identifiedUserId != null && detail.identifiedUserId!.isNotEmpty) {
-    return detail.identifiedUserId!;
-  }
-  // Then check traits for human-readable names
+  // Prefer human-readable traits (username, name, email)
   final traits = detail.traits;
   if (traits.isNotEmpty) {
     final username = traits['username']?.toString();
@@ -32,6 +28,10 @@ String _getDisplayName(UserDetail detail) {
     if (name != null && name.isNotEmpty) return name;
     final email = traits['email']?.toString();
     if (email != null && email.isNotEmpty) return email;
+  }
+  // Then identifiedUserId
+  if (detail.identifiedUserId != null && detail.identifiedUserId!.isNotEmpty) {
+    return detail.identifiedUserId!;
   }
   return detail.userId.length > 24
       ? '${detail.userId.substring(0, 24)}...'
