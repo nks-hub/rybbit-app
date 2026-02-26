@@ -4,19 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../application/users_controller.dart';
 import '../data/users_repository.dart';
 
-String _localizedSortLabel(AppLocalizations l10n, UserSortBy sortBy) {
+String _localizedSortLabel(AppLocalizations l10n, UserSortBy sortBy, {bool isMobile = false}) {
   switch (sortBy) {
     case UserSortBy.lastSeen:
       return l10n.lastSeen;
     case UserSortBy.firstSeen:
       return l10n.firstSeen;
     case UserSortBy.pageviews:
-      return l10n.pageviews;
+      return isMobile ? l10n.screenviews : l10n.pageviews;
     case UserSortBy.sessions:
       return l10n.sessions;
     case UserSortBy.events:
@@ -78,6 +79,7 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
     final usersAsync = ref.watch(usersControllerProvider(widget.siteId));
     final searchParams = ref.watch(userSearchParamsProvider);
     final theme = Theme.of(context);
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -108,7 +110,7 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                 value: s,
                 child: Row(
                   children: [
-                    Expanded(child: Text(_localizedSortLabel(l10n, s))),
+                    Expanded(child: Text(_localizedSortLabel(l10n, s, isMobile: isMobile))),
                     if (isSelected)
                       Icon(
                         searchParams.sortAsc
@@ -255,7 +257,7 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                             ),
                             const Spacer(),
                             Text(
-                              '${l10n.sortedBy} ${_localizedSortLabel(l10n, searchParams.sortBy)}',
+                              '${l10n.sortedBy} ${_localizedSortLabel(l10n, searchParams.sortBy, isMobile: isMobile)}',
                               style: theme.textTheme.bodySmall
                                   ?.copyWith(fontSize: 11),
                             ),
