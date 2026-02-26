@@ -27,6 +27,21 @@ class SitesRepository {
     return response.data as Map<String, dynamic>;
   }
 
+  /// Fetches individual site details including type.
+  /// GET /api/sites/:siteId returns full site object with type field.
+  Future<String> getSiteType(String siteId) async {
+    try {
+      final response = await _dio.get('/api/sites/$siteId');
+      final data = response.data;
+      if (data is Map<String, dynamic>) {
+        return data['type']?.toString() ?? 'web';
+      }
+      return 'web';
+    } catch (_) {
+      return 'web';
+    }
+  }
+
   /// Fetches live user count for a specific site.
   /// GET /api/sites/:siteId/live-user-count returns { count }
   Future<int> getLiveUserCount(String siteId) async {

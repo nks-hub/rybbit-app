@@ -11,6 +11,7 @@ import '../../../shared/utils/formatters.dart';
 import '../../auth/application/auth_controller.dart';
 import '../application/sites_controller.dart';
 import '../application/sparkline_provider.dart';
+import '../data/sites_repository.dart';
 import 'widgets/site_card.dart';
 
 enum _SortMode { alphabetical, visitors, liveUsers, organization }
@@ -274,7 +275,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   void _onSiteTap(BuildContext context, WidgetRef ref, Site site) {
     ref.read(currentSiteIdProvider.notifier).set(site.siteId.toString());
     ref.read(currentSiteDomainProvider.notifier).set(site.domain);
-    ref.read(currentSiteTypeProvider.notifier).set(site.type);
+    // The /api/organizations endpoint doesn't return type, fetch it separately
+    ref.read(sitesRepositoryProvider).getSiteType(site.siteId.toString()).then(
+      (type) => ref.read(currentSiteTypeProvider.notifier).set(type),
+    );
     context.go('/analytics/${site.siteId}');
   }
 
