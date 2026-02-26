@@ -259,12 +259,12 @@ class _SessionDetailScreenState extends ConsumerState<SessionDetailScreen> {
                           ),
                           _InfoRow(
                             icon: Icons.login,
-                            label: l10n.entryPageLabel,
+                            label: isMobile ? l10n.entryScreens : l10n.entryPageLabel,
                             value: session.entryPage ?? '-',
                           ),
                           _InfoRow(
                             icon: Icons.logout,
-                            label: l10n.exitPage,
+                            label: isMobile ? l10n.exitScreens : l10n.exitPage,
                             value: session.exitPage ?? '-',
                           ),
                         ],
