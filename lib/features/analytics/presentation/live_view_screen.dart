@@ -323,18 +323,19 @@ class _LiveCountCard extends StatelessWidget {
   }
 }
 
-class _RecentStatsGrid extends StatelessWidget {
+class _RecentStatsGrid extends ConsumerWidget {
   final Overview overview;
 
   const _RecentStatsGrid({required this.overview});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     final stats = [
-      (l10n.pageviews, formatNumber(overview.pageviews), Icons.visibility),
+      (isMobile ? l10n.screenviews : l10n.pageviews, formatNumber(overview.pageviews), Icons.visibility),
       (l10n.sessions, formatNumber(overview.sessions), Icons.people),
       (l10n.bounceRate, formatPercentage(overview.bounceRate), Icons.trending_down),
       (l10n.duration, formatDuration(overview.sessionDuration), Icons.timer),
