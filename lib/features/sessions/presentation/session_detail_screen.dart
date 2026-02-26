@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
@@ -109,6 +110,7 @@ class _SessionDetailScreenState extends ConsumerState<SessionDetailScreen> {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
     final flag = countryToFlag(session.country);
+    final isMobile = ref.watch(currentSiteIsMobileProvider);
 
     return RefreshIndicator(
       onRefresh: () =>
@@ -252,7 +254,7 @@ class _SessionDetailScreenState extends ConsumerState<SessionDetailScreen> {
                           ),
                           _InfoRow(
                             icon: Icons.pageview,
-                            label: l10n.pageviews,
+                            label: isMobile ? l10n.screenviews : l10n.pageviews,
                             value: session.pageviews.toString(),
                           ),
                           _InfoRow(
@@ -271,7 +273,7 @@ class _SessionDetailScreenState extends ConsumerState<SessionDetailScreen> {
                   ),
                 ),
 
-                // Browser/Device card
+                // Browser/Device card - conditional for mobile vs web
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Card(
@@ -281,34 +283,62 @@ class _SessionDetailScreenState extends ConsumerState<SessionDetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            l10n.browserAndDevice,
+                            isMobile ? l10n.sdkInfo : l10n.browserAndDevice,
                             style: theme.textTheme.bodyMedium?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           const SizedBox(height: 8),
-                          _InfoRow(
-                            icon: Icons.web,
-                            label: l10n.browser,
-                            value:
-                                '${session.browser ?? "-"} ${session.browserVersion ?? ""}',
-                          ),
-                          _InfoRow(
-                            icon: Icons.computer,
-                            label: l10n.os,
-                            value:
-                                '${session.operatingSystem ?? "-"} ${session.osVersion ?? ""}',
-                          ),
-                          _InfoRow(
-                            icon: Icons.devices,
-                            label: l10n.device,
-                            value: session.deviceType ?? '-',
-                          ),
-                          _InfoRow(
-                            icon: Icons.translate,
-                            label: l10n.language,
-                            value: session.language ?? '-',
-                          ),
+                          if (isMobile) ...[
+                            if (session.deviceModel != null &&
+                                session.deviceModel!.isNotEmpty)
+                              _InfoRow(
+                                icon: Icons.smartphone,
+                                label: l10n.deviceModel,
+                                value: session.deviceModel!,
+                              ),
+                            if (session.appVersion != null &&
+                                session.appVersion!.isNotEmpty)
+                              _InfoRow(
+                                icon: Icons.label_outlined,
+                                label: l10n.appVersion,
+                                value: session.appVersion!,
+                              ),
+                            _InfoRow(
+                              icon: Icons.computer,
+                              label: l10n.os,
+                              value:
+                                  '${session.operatingSystem ?? "-"} ${session.osVersion ?? ""}',
+                            ),
+                            _InfoRow(
+                              icon: Icons.translate,
+                              label: l10n.language,
+                              value: session.language ?? '-',
+                            ),
+                          ] else ...[
+                            _InfoRow(
+                              icon: Icons.web,
+                              label: l10n.browser,
+                              value:
+                                  '${session.browser ?? "-"} ${session.browserVersion ?? ""}',
+                            ),
+                            _InfoRow(
+                              icon: Icons.computer,
+                              label: l10n.os,
+                              value:
+                                  '${session.operatingSystem ?? "-"} ${session.osVersion ?? ""}',
+                            ),
+                            _InfoRow(
+                              icon: Icons.devices,
+                              label: l10n.device,
+                              value: session.deviceType ?? '-',
+                            ),
+                            _InfoRow(
+                              icon: Icons.translate,
+                              label: l10n.language,
+                              value: session.language ?? '-',
+                            ),
+                          ],
                         ],
                       ),
                     ),
@@ -317,8 +347,8 @@ class _SessionDetailScreenState extends ConsumerState<SessionDetailScreen> {
 
                 const SizedBox(height: 8),
 
-                // Referrer/UTM card
-                if (_hasReferrerOrUtm(session))
+                // Referrer/UTM card - only for web sites
+                if (!isMobile && _hasReferrerOrUtm(session))
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Card(
