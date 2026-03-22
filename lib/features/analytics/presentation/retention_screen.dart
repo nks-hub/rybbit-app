@@ -14,7 +14,11 @@ final _retentionProvider = FutureProvider.family
     .autoDispose<RetentionData, ({String siteId, String mode, int range})>(
   (ref, args) async {
     final repo = ref.watch(analyticsRepositoryProvider);
-    final tz = DateTime.now().timeZoneName;
+    final tzOffset = DateTime.now().timeZoneOffset;
+    final tzSign = tzOffset.isNegative ? '-' : '+';
+    final tzH = tzOffset.inHours.abs().toString().padLeft(2, '0');
+    final tzM = (tzOffset.inMinutes.abs() % 60).toString().padLeft(2, '0');
+    final tz = 'UTC$tzSign$tzH:$tzM';
     return repo.getRetention(args.siteId, {
       'mode': args.mode,
       'range': args.range.toString(),
@@ -254,10 +258,11 @@ class _RetentionTable extends StatelessWidget {
     final theme = Theme.of(context);
 
     // Format date label
+    final locale = AppLocalizations.of(context)!.localeName;
     String dateLabel;
     try {
       final date = DateTime.parse(cohortKey);
-      dateLabel = DateFormat('MMM d').format(date);
+      dateLabel = DateFormat('MMM d', locale).format(date);
     } catch (_) {
       dateLabel = cohortKey;
     }

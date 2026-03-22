@@ -326,8 +326,10 @@ class _ErrorEventTile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isMobile = ref.watch(currentSiteIsMobileProvider);
+    final locale = AppLocalizations.of(context)!.localeName;
     final dt = DateTime.tryParse(event.timestamp);
-    final timeStr = dt != null ? DateFormat('MMM d, HH:mm:ss').format(dt) : '';
+    final timeStr =
+        dt != null ? DateFormat('MMM d, HH:mm:ss', locale).format(dt) : '';
 
     return Padding(
       padding: const EdgeInsets.all(14),

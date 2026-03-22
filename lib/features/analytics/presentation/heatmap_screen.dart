@@ -23,7 +23,11 @@ final _heatmapDataProvider =
   final today = DateTime(now.year, now.month, now.day);
   final start = today.subtract(const Duration(days: 27));
   final df = DateFormat('yyyy-MM-dd');
-  final tz = now.timeZoneName;
+  final tzOffset = now.timeZoneOffset;
+  final tzSign = tzOffset.isNegative ? '-' : '+';
+  final tzH = tzOffset.inHours.abs().toString().padLeft(2, '0');
+  final tzM = (tzOffset.inMinutes.abs() % 60).toString().padLeft(2, '0');
+  final tz = 'UTC$tzSign$tzH:$tzM';
 
   final params = <String, String>{
     'start_date': df.format(start),

@@ -164,8 +164,9 @@ class _ReplaySessionCard extends StatelessWidget {
     final duration = formatDuration(session.sessionDuration);
 
     final dt = DateTime.tryParse(session.sessionStart ?? '');
-    final dateStr =
-        dt != null ? DateFormat('MMM d, HH:mm').format(dt) : l10n.unknown;
+    final dateStr = dt != null
+        ? DateFormat('MMM d, HH:mm', l10n.localeName).format(dt)
+        : l10n.unknown;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),

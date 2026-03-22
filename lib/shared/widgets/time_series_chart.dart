@@ -23,6 +23,7 @@ class TimeSeriesChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final locale = l10n.localeName;
 
     if (values.isEmpty) {
       return SizedBox(
@@ -88,7 +89,7 @@ class TimeSeriesChart extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(top: 6),
                     child: Text(
-                      _formatLabel(labels[idx]),
+                      _formatLabel(labels[idx], locale),
                       style: TextStyle(
                         fontSize: 10,
                         color: theme.colorScheme.onSurface
@@ -113,7 +114,7 @@ class TimeSeriesChart extends StatelessWidget {
                   final isPrevious = spot.barIndex == 1;
                   final idx = spot.x.toInt();
                   final timeLabel = idx >= 0 && idx < labels.length
-                      ? _formatLabel(labels[idx])
+                      ? _formatLabel(labels[idx], locale)
                       : '';
                   final valueStr = isPrevious
                       ? l10n.previousPrefix(formatter(spot.y))
@@ -220,11 +221,11 @@ class TimeSeriesChart extends StatelessWidget {
     return value.toStringAsFixed(1);
   }
 
-  String _formatLabel(String label) {
+  String _formatLabel(String label, String locale) {
     final dt = DateTime.tryParse(label);
     if (dt == null) return label;
     if (dt.hour == 0 && dt.minute == 0 && dt.second == 0) {
-      return DateFormat('MMM d').format(dt);
+      return DateFormat('MMM d', locale).format(dt);
     }
     return DateFormat('HH:mm').format(dt);
   }

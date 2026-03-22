@@ -65,7 +65,11 @@ class _LiveViewScreenState extends ConsumerState<LiveViewScreen> {
       final analyticsRepo = ref.read(analyticsRepositoryProvider);
       final eventsRepo = ref.read(eventsRepositoryProvider);
       final siteId = widget.siteId;
-      final tz = DateTime.now().timeZoneName;
+      final tzOffset = DateTime.now().timeZoneOffset;
+      final tzSign = tzOffset.isNegative ? '-' : '+';
+      final tzH = tzOffset.inHours.abs().toString().padLeft(2, '0');
+      final tzM = (tzOffset.inMinutes.abs() % 60).toString().padLeft(2, '0');
+      final tz = 'UTC$tzSign$tzH:$tzM';
 
       final results = await Future.wait([
         analyticsRepo.getLiveUserCount(siteId),

@@ -4,8 +4,17 @@ import 'package:riverpod/riverpod.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/models/time_range.dart';
 
+/// Returns a UTC offset string (e.g. "UTC+01:00") derived from the device's
+/// current offset. This avoids the ambiguity of abbreviated names like "CET"
+/// or "EST" returned by [DateTime.timeZoneName], while requiring no extra
+/// package dependency. The Rybbit API accepts UTC offset strings as a valid
+/// timezone identifier.
 String _systemTimeZone() {
-  return DateTime.now().timeZoneName;
+  final offset = DateTime.now().timeZoneOffset;
+  final sign = offset.isNegative ? '-' : '+';
+  final hours = offset.inHours.abs().toString().padLeft(2, '0');
+  final minutes = (offset.inMinutes.abs() % 60).toString().padLeft(2, '0');
+  return 'UTC$sign$hours:$minutes';
 }
 
 TimeRange _todayRange() {
@@ -137,7 +146,7 @@ class TimeRangeController extends Notifier<TimeRange> {
 
   /// Returns a human-readable label for the current time range.
   String localizedLabel(AppLocalizations l10n) {
-    final df = DateFormat('MMM d');
+    final df = DateFormat('MMM d', l10n.localeName);
     switch (state.mode) {
       case TimeMode.day:
         final now = DateTime.now();
