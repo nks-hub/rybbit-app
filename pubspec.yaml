@@ -12,7 +12,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_riverpod: ^2.6.1
-  riverpod_annotation: ^2.6.1
   riverpod: ^2.6.1
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
@@ -25,8 +24,6 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   fl_chart: ^0.70.2
   intl: ^0.20.2
-  connectivity_plus: ^6.1.4
-  cupertino_icons: ^1.0.8
   sentry_flutter: ^9.0.0
   sentry_dio: ^9.0.0
   package_info_plus: ^8.1.3
