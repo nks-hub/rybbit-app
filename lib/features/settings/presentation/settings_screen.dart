@@ -11,15 +11,23 @@ import '../../../core/storage/storage_service.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/application/auth_controller.dart';
 
-/// Theme mode provider persisted to SharedPreferences.
-final themeModeProvider = StateProvider<ThemeMode>((ref) {
-  final saved = ref.read(storageServiceProvider).readSetting('theme_mode', defaultValue: 'dark');
-  return switch (saved) {
-    'light' => ThemeMode.light,
-    'system' => ThemeMode.system,
-    _ => ThemeMode.dark,
-  };
-});
+/// Theme mode notifier persisted to SharedPreferences.
+class ThemeModeNotifier extends Notifier<ThemeMode> {
+  @override
+  ThemeMode build() {
+    final saved = ref.read(storageServiceProvider).readSetting('theme_mode', defaultValue: 'dark');
+    return switch (saved) {
+      'light' => ThemeMode.light,
+      'system' => ThemeMode.system,
+      _ => ThemeMode.dark,
+    };
+  }
+
+  void set(ThemeMode mode) => state = mode;
+}
+
+final themeModeProvider =
+    NotifierProvider<ThemeModeNotifier, ThemeMode>(ThemeModeNotifier.new);
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -125,7 +133,7 @@ class SettingsScreen extends ConsumerWidget {
                           selected: {themeMode},
                           onSelectionChanged: (selected) {
                             final mode = selected.first;
-                            ref.read(themeModeProvider.notifier).state = mode;
+                            ref.read(themeModeProvider.notifier).set(mode);
                             final modeStr = switch (mode) {
                               ThemeMode.light => 'light',
                               ThemeMode.system => 'system',
@@ -341,10 +349,10 @@ class SettingsScreen extends ConsumerWidget {
     if (selected == null) return;
 
     if (selected == '__auto__') {
-      ref.read(localeProvider.notifier).state = null;
+      ref.read(localeProvider.notifier).set(null);
       unawaited(ref.read(storageServiceProvider).deleteSetting('locale'));
     } else {
-      ref.read(localeProvider.notifier).state = Locale(selected);
+      ref.read(localeProvider.notifier).set(Locale(selected));
       unawaited(ref.read(storageServiceProvider).saveSetting('locale', selected));
     }
   }

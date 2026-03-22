@@ -1,4 +1,4 @@
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../storage/storage_service.dart';
 
 const _siteIdKey = 'current_site_id';

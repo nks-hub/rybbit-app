@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Mixin for [AutoDisposeFamilyAsyncNotifier] subclasses that implement
-/// paginated list loading with a [loadMore] method.
+/// Mixin for [AsyncNotifier] subclasses that implement paginated list loading
+/// with a [loadMore] method.
 ///
 /// Type parameters:
 ///   [S] – the full notifier state (e.g. SessionsState)
@@ -14,8 +14,7 @@ import 'package:riverpod/riverpod.dart';
 ///   - [getPaginationInfo] extract [PaginationInfo] flags from [S]
 ///   - [setLoadingMore]    return a copy of [S] with isLoadingMore toggled
 ///   - [fetchNextPage]     perform the network call and return [PageResult<T>]
-mixin PaginatedNotifierMixin<S, T, Arg>
-    on AutoDisposeFamilyAsyncNotifier<S, Arg> {
+mixin PaginatedNotifierMixin<S, T> on AsyncNotifier<S> {
   /// Maximum number of items kept in memory across pages.
   int get maxItems => 500;
 
@@ -41,7 +40,7 @@ mixin PaginatedNotifierMixin<S, T, Arg>
   /// Safe to call multiple times; subsequent calls while loading or when there
   /// is no more data are silently ignored.
   Future<void> loadMore() async {
-    final currentState = state.valueOrNull;
+    final currentState = state.value;
     if (currentState == null) return;
 
     final info = getPaginationInfo(currentState);

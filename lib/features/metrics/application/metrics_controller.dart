@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
@@ -58,8 +58,9 @@ class MetricsState {
 }
 
 class MetricsController
-    extends AutoDisposeFamilyAsyncNotifier<MetricsState, MetricsKey>
-    with PaginatedNotifierMixin<MetricsState, MetricItem, MetricsKey> {
+    extends AsyncNotifier<MetricsState>
+    with PaginatedNotifierMixin<MetricsState, MetricItem> {
+  late final MetricsKey _key;
   static const int _pageSize = 20;
   CancelToken? _cancelToken;
 
@@ -92,8 +93,8 @@ class MetricsController
     };
 
     final response = await repo.getMetric(
-      arg.siteId,
-      arg.parameter,
+      _key.siteId,
+      _key.parameter,
       params,
       cancelToken: _cancelToken,
     );
@@ -122,13 +123,13 @@ class MetricsController
   }
 
   @override
-  Future<MetricsState> build(MetricsKey arg) async {
+  Future<MetricsState> build() async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
 
     ref.onDispose(() => _cancelToken?.cancel());
 
-    return _loadData(arg, page: 1);
+    return _loadData(_key, page: 1);
   }
 
   Future<MetricsState> _loadData(MetricsKey key, {required int page}) async {
@@ -161,12 +162,13 @@ class MetricsController
   Future<void> refresh() async {
     ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() => _loadData(arg, page: 1));
+    state = await AsyncValue.guard(() => _loadData(_key, page: 1));
   }
 }
 
-final metricsControllerProvider = AsyncNotifierProvider.autoDispose.family<
-    MetricsController, MetricsState, MetricsKey>(MetricsController.new);
+final metricsControllerProvider = AsyncNotifierProvider.autoDispose
+    .family<MetricsController, MetricsState, MetricsKey>(
+        (arg) => MetricsController().._key = arg);
 
 class _MetricsPageResult extends PageResult<MetricItem> {
   final int nextPage;

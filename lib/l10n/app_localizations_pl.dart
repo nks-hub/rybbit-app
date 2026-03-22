@@ -102,8 +102,9 @@ class AppLocalizationsPl extends AppLocalizations {
       'Wystąpił nieoczekiwany błąd. Spróbuj ponownie.';
 
   @override
-  String loginRateLimited(String seconds) =>
-      'Zbyt wiele nieudanych prób. Poczekaj ${seconds}s przed ponowną próbą.';
+  String loginRateLimited(String seconds) {
+    return 'Zbyt wiele nieudanych prób. Poczekaj ${seconds}s przed ponowną próbą.';
+  }
 
   @override
   String get organizations => 'Organizacje';

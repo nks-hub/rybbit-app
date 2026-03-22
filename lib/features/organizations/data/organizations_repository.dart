@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/dio_provider.dart';
 import '../../../shared/models/organization.dart';

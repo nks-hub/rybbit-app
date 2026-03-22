@@ -208,7 +208,7 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
                     _SessionFilterDialog(initial: sessionFilter, isMobile: isMobile),
               );
               if (result != null) {
-                ref.read(sessionFilterProvider.notifier).state = result;
+                ref.read(sessionFilterProvider.notifier).set(result);
               }
             },
           ),

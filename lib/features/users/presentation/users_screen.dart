@@ -71,8 +71,8 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
   void _onSearchChanged(String value) {
     _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 400), () {
-      ref.read(userSearchParamsProvider.notifier).state =
-          ref.read(userSearchParamsProvider).copyWith(query: value.trim());
+      ref.read(userSearchParamsProvider.notifier).set(
+          ref.read(userSearchParamsProvider).copyWith(query: value.trim()));
     });
   }
 
@@ -100,11 +100,11 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
             onSelected: (sortBy) {
               final current = ref.read(userSearchParamsProvider);
               if (current.sortBy == sortBy) {
-                ref.read(userSearchParamsProvider.notifier).state =
-                    current.copyWith(sortAsc: !current.sortAsc);
+                ref.read(userSearchParamsProvider.notifier).set(
+                    current.copyWith(sortAsc: !current.sortAsc));
               } else {
-                ref.read(userSearchParamsProvider.notifier).state =
-                    current.copyWith(sortBy: sortBy, sortAsc: false);
+                ref.read(userSearchParamsProvider.notifier).set(
+                    current.copyWith(sortBy: sortBy, sortAsc: false));
               }
             },
             itemBuilder: (_) => UserSortBy.values.map((s) {
@@ -141,9 +141,9 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                   : null,
             ),
             onPressed: () {
-              ref.read(userSearchParamsProvider.notifier).state =
+              ref.read(userSearchParamsProvider.notifier).set(
                   searchParams.copyWith(
-                      identifiedOnly: !searchParams.identifiedOnly);
+                      identifiedOnly: !searchParams.identifiedOnly));
             },
           ),
         ],

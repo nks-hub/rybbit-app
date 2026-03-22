@@ -80,9 +80,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       case _SortMode.visitors:
         sites.sort((a, b) {
           final aUsers =
-              ref.read(todayUsersProvider(a.siteId.toString())).valueOrNull ?? 0;
+              ref.read(todayUsersProvider(a.siteId.toString())).value ?? 0;
           final bUsers =
-              ref.read(todayUsersProvider(b.siteId.toString())).valueOrNull ?? 0;
+              ref.read(todayUsersProvider(b.siteId.toString())).value ?? 0;
           return bUsers.compareTo(aUsers);
         });
       case _SortMode.liveUsers:

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../shared/models/overview.dart';
@@ -39,19 +39,19 @@ class AnalyticsState {
   }
 }
 
-class AnalyticsController
-    extends AutoDisposeFamilyAsyncNotifier<AnalyticsState, String> {
+class AnalyticsController extends AsyncNotifier<AnalyticsState> {
+  late final String _siteId;
   CancelToken? _cancelToken;
 
   @override
-  Future<AnalyticsState> build(String arg) async {
+  Future<AnalyticsState> build() async {
     // Watch dependencies to auto-rebuild when they change
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
 
     ref.onDispose(() => _cancelToken?.cancel());
 
-    return _loadData(arg);
+    return _loadData(_siteId);
   }
 
   Future<AnalyticsState> _loadData(String siteId) async {
@@ -124,9 +124,10 @@ class AnalyticsController
   Future<void> refresh() async {
     ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() => _loadData(arg));
+    state = await AsyncValue.guard(() => _loadData(_siteId));
   }
 }
 
-final analyticsControllerProvider = AsyncNotifierProvider.autoDispose.family<
-    AnalyticsController, AnalyticsState, String>(AnalyticsController.new);
+final analyticsControllerProvider = AsyncNotifierProvider.autoDispose
+    .family<AnalyticsController, AnalyticsState, String>(
+        (arg) => AnalyticsController().._siteId = arg);

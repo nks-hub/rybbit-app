@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
@@ -44,13 +44,14 @@ class SessionDetailViewState {
   }
 }
 
-class SessionDetailController extends AutoDisposeFamilyAsyncNotifier<
-    SessionDetailViewState, ({String siteId, String sessionId})> {
+class SessionDetailController
+    extends AsyncNotifier<SessionDetailViewState> {
+  late final ({String siteId, String sessionId}) _arg;
+
   @override
-  Future<SessionDetailViewState> build(
-      ({String siteId, String sessionId}) arg) async {
+  Future<SessionDetailViewState> build() async {
     final repo = ref.read(sessionsRepositoryProvider);
-    final detail = await repo.getSessionDetail(arg.siteId, arg.sessionId);
+    final detail = await repo.getSessionDetail(_arg.siteId, _arg.sessionId);
     return SessionDetailViewState(
       session: detail.session,
       events: detail.events,
@@ -60,7 +61,7 @@ class SessionDetailController extends AutoDisposeFamilyAsyncNotifier<
   }
 
   Future<void> loadMoreEvents() async {
-    final current = state.valueOrNull;
+    final current = state.value;
     if (current == null || !current.hasMore || current.isLoadingMore) return;
 
     state = AsyncValue.data(current.copyWith(isLoadingMore: true));
@@ -68,8 +69,8 @@ class SessionDetailController extends AutoDisposeFamilyAsyncNotifier<
     try {
       final repo = ref.read(sessionsRepositoryProvider);
       final detail = await repo.getSessionDetail(
-        arg.siteId,
-        arg.sessionId,
+        _arg.siteId,
+        _arg.sessionId,
         offset: current.events.length,
       );
       final allEvents = [...current.events, ...detail.events];
@@ -87,13 +88,14 @@ class SessionDetailController extends AutoDisposeFamilyAsyncNotifier<
 
   Future<void> refresh() async {
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() => build(arg));
+    state = await AsyncValue.guard(() => build());
   }
 }
 
 final sessionDetailControllerProvider = AsyncNotifierProvider.autoDispose
     .family<SessionDetailController, SessionDetailViewState,
-        ({String siteId, String sessionId})>(SessionDetailController.new);
+        ({String siteId, String sessionId})>(
+        (arg) => SessionDetailController().._arg = arg);
 
 // ── Session Filters ─────────────────────────────────────────────
 
@@ -124,8 +126,16 @@ class SessionFilterParams {
       (minDuration ?? 0) > 0;
 }
 
+class SessionFilterNotifier extends Notifier<SessionFilterParams> {
+  @override
+  SessionFilterParams build() => const SessionFilterParams();
+
+  void set(SessionFilterParams params) => state = params;
+}
+
 final sessionFilterProvider =
-    StateProvider<SessionFilterParams>((ref) => const SessionFilterParams());
+    NotifierProvider<SessionFilterNotifier, SessionFilterParams>(
+        SessionFilterNotifier.new);
 
 // ── Sessions List Controller ────────────────────────────────────
 
@@ -158,8 +168,9 @@ class SessionsState {
 }
 
 class SessionsController
-    extends AutoDisposeFamilyAsyncNotifier<SessionsState, String>
-    with PaginatedNotifierMixin<SessionsState, AnalyticsSession, String> {
+    extends AsyncNotifier<SessionsState>
+    with PaginatedNotifierMixin<SessionsState, AnalyticsSession> {
+  late final String _siteId;
   static const int _pageSize = 20;
   CancelToken? _cancelToken;
 
@@ -193,7 +204,7 @@ class SessionsController
     };
 
     final sessions = await repo.getSessions(
-      arg,
+      _siteId,
       page: nextPage,
       limit: _pageSize,
       params: params,
@@ -222,14 +233,14 @@ class SessionsController
   }
 
   @override
-  Future<SessionsState> build(String arg) async {
+  Future<SessionsState> build() async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
     ref.watch(sessionFilterProvider);
 
     ref.onDispose(() => _cancelToken?.cancel());
 
-    return _loadData(arg, page: 1);
+    return _loadData(_siteId, page: 1);
   }
 
   Future<SessionsState> _loadData(String siteId, {required int page}) async {
@@ -268,12 +279,13 @@ class SessionsController
     // Invalidate all cached session details
     ref.invalidate(sessionDetailControllerProvider);
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() => _loadData(arg, page: 1));
+    state = await AsyncValue.guard(() => _loadData(_siteId, page: 1));
   }
 }
 
-final sessionsControllerProvider = AsyncNotifierProvider.autoDispose.family<
-    SessionsController, SessionsState, String>(SessionsController.new);
+final sessionsControllerProvider = AsyncNotifierProvider.autoDispose
+    .family<SessionsController, SessionsState, String>(
+        (arg) => SessionsController().._siteId = arg);
 
 class _SessionsPageResult extends PageResult<AnalyticsSession> {
   final int nextPage;

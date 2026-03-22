@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CacheInterceptor extends Interceptor {
   final Map<String, _CacheEntry> _cache = {};

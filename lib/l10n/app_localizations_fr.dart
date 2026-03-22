@@ -102,8 +102,9 @@ class AppLocalizationsFr extends AppLocalizations {
       'Une erreur inattendue s\'est produite. Veuillez réessayer.';
 
   @override
-  String loginRateLimited(String seconds) =>
-      'Trop de tentatives échouées. Veuillez attendre ${seconds}s avant de réessayer.';
+  String loginRateLimited(String seconds) {
+    return 'Trop de tentatives échouées. Veuillez attendre ${seconds}s avant de réessayer.';
+  }
 
   @override
   String get organizations => 'Organisations';

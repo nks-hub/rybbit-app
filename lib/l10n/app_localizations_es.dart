@@ -102,8 +102,9 @@ class AppLocalizationsEs extends AppLocalizations {
       'Ocurrió un error inesperado. Por favor, inténtelo de nuevo.';
 
   @override
-  String loginRateLimited(String seconds) =>
-      'Demasiados intentos fallidos. Espere ${seconds}s antes de volver a intentarlo.';
+  String loginRateLimited(String seconds) {
+    return 'Demasiados intentos fallidos. Espere ${seconds}s antes de volver a intentarlo.';
+  }
 
   @override
   String get organizations => 'Organizaciones';

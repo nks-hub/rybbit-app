@@ -101,8 +101,9 @@ class AppLocalizationsCs extends AppLocalizations {
       'Došlo k neočekávané chybě. Zkuste to prosím znovu.';
 
   @override
-  String loginRateLimited(String seconds) =>
-      'Příliš mnoho neúspěšných pokusů. Počkejte prosím ${seconds}s a zkuste to znovu.';
+  String loginRateLimited(String seconds) {
+    return 'Příliš mnoho neúspěšných pokusů. Počkejte prosím ${seconds}s a zkuste to znovu.';
+  }
 
   @override
   String get organizations => 'Organizace';

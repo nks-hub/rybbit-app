@@ -86,8 +86,15 @@ final _perfOverviewProvider =
 });
 
 /// Provider for the selected metric.
+class _SelectedMetricNotifier extends Notifier<WebVital> {
+  @override
+  WebVital build() => WebVital.lcp;
+
+  void set(WebVital vital) => state = vital;
+}
+
 final _selectedMetricProvider =
-    StateProvider<WebVital>((ref) => WebVital.lcp);
+    NotifierProvider<_SelectedMetricNotifier, WebVital>(_SelectedMetricNotifier.new);
 
 /// Dimension options for breakdown.
 enum PerfDimension {
@@ -116,8 +123,15 @@ enum PerfDimension {
   }
 }
 
+class _SelectedDimensionNotifier extends Notifier<PerfDimension> {
+  @override
+  PerfDimension build() => PerfDimension.pathname;
+
+  void set(PerfDimension dim) => state = dim;
+}
+
 final _selectedDimensionProvider =
-    StateProvider<PerfDimension>((ref) => PerfDimension.pathname);
+    NotifierProvider<_SelectedDimensionNotifier, PerfDimension>(_SelectedDimensionNotifier.new);
 
 /// Provider for performance by dimension breakdown.
 final _perfByDimensionProvider = FutureProvider.autoDispose.family<
@@ -299,7 +313,7 @@ class PerformanceScreen extends ConsumerWidget {
                         selected: isSelected,
                         onSelected: (_) => ref
                             .read(_selectedDimensionProvider.notifier)
-                            .state = d,
+                            .set(d),
                         showCheckmark: false,
                         selectedColor:
                             theme.colorScheme.primary.withValues(alpha: 0.2),
@@ -435,7 +449,7 @@ class PerformanceScreen extends ConsumerWidget {
           value: value,
           selected: vital == selected,
           onTap: () =>
-              ref.read(_selectedMetricProvider.notifier).state = vital,
+              ref.read(_selectedMetricProvider.notifier).set(vital),
         );
       }).toList(),
     );

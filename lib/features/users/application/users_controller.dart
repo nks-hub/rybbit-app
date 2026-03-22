@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
@@ -63,8 +63,16 @@ class UserSearchParams {
   }
 }
 
+class UserSearchParamsNotifier extends Notifier<UserSearchParams> {
+  @override
+  UserSearchParams build() => const UserSearchParams();
+
+  void set(UserSearchParams params) => state = params;
+}
+
 final userSearchParamsProvider =
-    StateProvider<UserSearchParams>((ref) => const UserSearchParams());
+    NotifierProvider<UserSearchParamsNotifier, UserSearchParams>(
+        UserSearchParamsNotifier.new);
 
 class UsersState {
   final List<UserListItem> users;
@@ -99,8 +107,9 @@ class UsersState {
 }
 
 class UsersController
-    extends AutoDisposeFamilyAsyncNotifier<UsersState, String>
-    with PaginatedNotifierMixin<UsersState, UserListItem, String> {
+    extends AsyncNotifier<UsersState>
+    with PaginatedNotifierMixin<UsersState, UserListItem> {
+  late final String _siteId;
   static const int _pageSize = 20;
   CancelToken? _cancelToken;
 
@@ -133,7 +142,7 @@ class UsersController
     };
 
     final response = await repo.getUsers(
-      arg,
+      _siteId,
       page: nextPage,
       pageSize: _pageSize,
       params: params,
@@ -164,14 +173,14 @@ class UsersController
   }
 
   @override
-  Future<UsersState> build(String arg) async {
+  Future<UsersState> build() async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
     ref.watch(userSearchParamsProvider);
 
     ref.onDispose(() => _cancelToken?.cancel());
 
-    return _loadData(arg, page: 1);
+    return _loadData(_siteId, page: 1);
   }
 
   Future<UsersState> _loadData(String siteId, {required int page}) async {
@@ -209,12 +218,13 @@ class UsersController
   Future<void> refresh() async {
     ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() => _loadData(arg, page: 1));
+    state = await AsyncValue.guard(() => _loadData(_siteId, page: 1));
   }
 }
 
-final usersControllerProvider = AsyncNotifierProvider.autoDispose.family<
-    UsersController, UsersState, String>(UsersController.new);
+final usersControllerProvider = AsyncNotifierProvider.autoDispose
+    .family<UsersController, UsersState, String>(
+        (arg) => UsersController().._siteId = arg);
 
 class _UsersPageResult extends PageResult<UserListItem> {
   final int nextPage;

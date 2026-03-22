@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
@@ -37,8 +37,9 @@ class EventLogState {
 }
 
 class EventLogController
-    extends AutoDisposeFamilyAsyncNotifier<EventLogState, String>
-    with PaginatedNotifierMixin<EventLogState, RawEvent, String> {
+    extends AsyncNotifier<EventLogState>
+    with PaginatedNotifierMixin<EventLogState, RawEvent> {
+  late final String _siteId;
   static const int _pageSize = 50;
   CancelToken? _cancelToken;
 
@@ -73,7 +74,7 @@ class EventLogController
     }
 
     final response =
-        await repo.getRawEvents(arg, params, cancelToken: _cancelToken);
+        await repo.getRawEvents(_siteId, params, cancelToken: _cancelToken);
 
     return _EventLogPageResult(
       items: response.data,
@@ -97,13 +98,13 @@ class EventLogController
   }
 
   @override
-  Future<EventLogState> build(String arg) async {
+  Future<EventLogState> build() async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
 
     ref.onDispose(() => _cancelToken?.cancel());
 
-    return _loadData(arg);
+    return _loadData(_siteId);
   }
 
   Future<EventLogState> _loadData(String siteId,
@@ -138,12 +139,13 @@ class EventLogController
   Future<void> refresh() async {
     ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() => _loadData(arg));
+    state = await AsyncValue.guard(() => _loadData(_siteId));
   }
 }
 
-final eventLogControllerProvider = AsyncNotifierProvider.autoDispose.family<
-    EventLogController, EventLogState, String>(EventLogController.new);
+final eventLogControllerProvider = AsyncNotifierProvider.autoDispose
+    .family<EventLogController, EventLogState, String>(
+        (arg) => EventLogController().._siteId = arg);
 
 class _EventLogPageResult extends PageResult<RawEvent> {
   final String? oldestTimestamp;

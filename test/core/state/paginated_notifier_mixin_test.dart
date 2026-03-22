@@ -38,14 +38,14 @@ class _TestState {
 typedef _FetchFn = Future<PageResult<String>> Function(_TestState);
 
 class _TestNotifier
-    extends AutoDisposeFamilyAsyncNotifier<_TestState, int>
-    with PaginatedNotifierMixin<_TestState, String, int> {
+    extends AsyncNotifier<_TestState>
+    with PaginatedNotifierMixin<_TestState, String> {
   _FetchFn? _fetchFn;
 
   void setFetchFn(_FetchFn fn) => _fetchFn = fn;
 
   @override
-  Future<_TestState> build(int arg) async => const _TestState();
+  Future<_TestState> build() async => const _TestState();
 
   @override
   List<String> getItems(_TestState s) => s.items;
@@ -71,7 +71,7 @@ class _TestNotifier
 }
 
 final _testProvider =
-    AsyncNotifierProvider.autoDispose.family<_TestNotifier, _TestState, int>(
+    AsyncNotifierProvider.autoDispose<_TestNotifier, _TestState>(
   _TestNotifier.new,
 );
 
@@ -84,8 +84,8 @@ ProviderContainer _container() => ProviderContainer();
 /// Waits until the provider has a non-loading data value.
 Future<_TestState> _resolve(ProviderContainer c) async {
   // The initial build is async; wait for it.
-  await c.read(_testProvider(0).future);
-  return c.read(_testProvider(0)).requireValue;
+  await c.read(_testProvider.future);
+  return c.read(_testProvider).requireValue;
 }
 
 void main() {
@@ -97,19 +97,19 @@ void main() {
       await _resolve(c);
 
       // Set hasMore = false
-      c.read(_testProvider(0).notifier).state =
+      c.read(_testProvider.notifier).state =
           const AsyncValue.data(_TestState(hasMore: false));
 
       int fetchCalled = 0;
-      c.read(_testProvider(0).notifier).setFetchFn((_) async {
+      c.read(_testProvider.notifier).setFetchFn((_) async {
         fetchCalled++;
         return const PageResult(items: ['x'], hasMore: false);
       });
 
-      await c.read(_testProvider(0).notifier).loadMore();
+      await c.read(_testProvider.notifier).loadMore();
 
       expect(fetchCalled, 0);
-      expect(c.read(_testProvider(0)).requireValue.items, isEmpty);
+      expect(c.read(_testProvider).requireValue.items, isEmpty);
     });
 
     test('no-op when already loading', () async {
@@ -118,17 +118,17 @@ void main() {
 
       await _resolve(c);
 
-      c.read(_testProvider(0).notifier).state = const AsyncValue.data(
+      c.read(_testProvider.notifier).state = const AsyncValue.data(
         _TestState(hasMore: true, isLoadingMore: true),
       );
 
       int fetchCalled = 0;
-      c.read(_testProvider(0).notifier).setFetchFn((_) async {
+      c.read(_testProvider.notifier).setFetchFn((_) async {
         fetchCalled++;
         return const PageResult(items: ['x'], hasMore: false);
       });
 
-      await c.read(_testProvider(0).notifier).loadMore();
+      await c.read(_testProvider.notifier).loadMore();
 
       expect(fetchCalled, 0);
     });
@@ -139,16 +139,16 @@ void main() {
 
       await _resolve(c);
 
-      c.read(_testProvider(0).notifier).state = const AsyncValue.data(
+      c.read(_testProvider.notifier).state = const AsyncValue.data(
         _TestState(items: ['a', 'b'], hasMore: true),
       );
 
-      c.read(_testProvider(0).notifier).setFetchFn((_) async =>
+      c.read(_testProvider.notifier).setFetchFn((_) async =>
           const PageResult(items: ['c', 'd'], hasMore: false));
 
-      await c.read(_testProvider(0).notifier).loadMore();
+      await c.read(_testProvider.notifier).loadMore();
 
-      final result = c.read(_testProvider(0)).requireValue;
+      final result = c.read(_testProvider).requireValue;
       expect(result.items, ['a', 'b', 'c', 'd']);
       expect(result.hasMore, false);
       expect(result.isLoadingMore, false);
@@ -162,17 +162,17 @@ void main() {
 
       // 499 existing items
       final existing = List.generate(499, (i) => 'old_$i');
-      c.read(_testProvider(0).notifier).state =
+      c.read(_testProvider.notifier).state =
           AsyncValue.data(_TestState(items: existing, hasMore: true));
 
       // 10 new items → combined 509 > 500 → trimmed to last 500
       final newPage = List.generate(10, (i) => 'new_$i');
-      c.read(_testProvider(0).notifier).setFetchFn(
+      c.read(_testProvider.notifier).setFetchFn(
           (_) async => PageResult(items: newPage, hasMore: false));
 
-      await c.read(_testProvider(0).notifier).loadMore();
+      await c.read(_testProvider.notifier).loadMore();
 
-      final result = c.read(_testProvider(0)).requireValue;
+      final result = c.read(_testProvider).requireValue;
       expect(result.items.length, 500);
       // Last 500 of the 509 combined: first 9 old items are trimmed
       expect(result.items.first, 'old_9');
@@ -185,15 +185,15 @@ void main() {
 
       await _resolve(c);
 
-      c.read(_testProvider(0).notifier).state =
+      c.read(_testProvider.notifier).state =
           const AsyncValue.data(_TestState(hasMore: true));
 
-      c.read(_testProvider(0).notifier).setFetchFn(
+      c.read(_testProvider.notifier).setFetchFn(
           (_) async => throw Exception('network failure'));
 
-      await c.read(_testProvider(0).notifier).loadMore();
+      await c.read(_testProvider.notifier).loadMore();
 
-      final result = c.read(_testProvider(0)).requireValue;
+      final result = c.read(_testProvider).requireValue;
       expect(result.isLoadingMore, false);
       expect(result.items, isEmpty);
     });
@@ -205,19 +205,19 @@ void main() {
 
       await _resolve(c);
 
-      c.read(_testProvider(0).notifier).state =
+      c.read(_testProvider.notifier).state =
           const AsyncValue.data(_TestState(items: ['x'], hasMore: true));
 
-      c.read(_testProvider(0).notifier).setFetchFn((_) async => throw DioException(
+      c.read(_testProvider.notifier).setFetchFn((_) async => throw DioException(
             requestOptions: RequestOptions(path: ''),
             type: DioExceptionType.cancel,
           ));
 
-      await c.read(_testProvider(0).notifier).loadMore();
+      await c.read(_testProvider.notifier).loadMore();
 
       // Cancelled requests must not reset isLoadingMore (stays as-is after cancel)
       // State is still data (not error)
-      expect(c.read(_testProvider(0)).hasValue, true);
+      expect(c.read(_testProvider).hasValue, true);
     });
 
     test('non-cancel DioException resets isLoadingMore', () async {
@@ -226,17 +226,17 @@ void main() {
 
       await _resolve(c);
 
-      c.read(_testProvider(0).notifier).state =
+      c.read(_testProvider.notifier).state =
           const AsyncValue.data(_TestState(hasMore: true));
 
-      c.read(_testProvider(0).notifier).setFetchFn((_) async => throw DioException(
+      c.read(_testProvider.notifier).setFetchFn((_) async => throw DioException(
             requestOptions: RequestOptions(path: ''),
             type: DioExceptionType.connectionError,
           ));
 
-      await c.read(_testProvider(0).notifier).loadMore();
+      await c.read(_testProvider.notifier).loadMore();
 
-      final result = c.read(_testProvider(0)).requireValue;
+      final result = c.read(_testProvider).requireValue;
       expect(result.isLoadingMore, false);
     });
   });

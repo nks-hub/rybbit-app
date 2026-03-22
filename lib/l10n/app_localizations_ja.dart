@@ -99,7 +99,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unexpectedError => '予期しないエラーが発生しました。もう一度お試しください。';
 
   @override
-  String loginRateLimited(String seconds) => 'ログイン試行回数が多すぎます。${seconds}秒後に再試行してください。';
+  String loginRateLimited(String seconds) {
+    return 'ログイン試行回数が多すぎます。$seconds秒後に再試行してください。';
+  }
 
   @override
   String get organizations => '組織';

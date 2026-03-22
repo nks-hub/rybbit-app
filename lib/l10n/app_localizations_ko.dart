@@ -99,7 +99,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get unexpectedError => '예기치 않은 오류가 발생했습니다. 다시 시도해 주세요.';
 
   @override
-  String loginRateLimited(String seconds) => '로그인 시도 횟수가 너무 많습니다. ${seconds}초 후에 다시 시도해 주세요.';
+  String loginRateLimited(String seconds) {
+    return '로그인 시도 횟수가 너무 많습니다. $seconds초 후에 다시 시도해 주세요.';
+  }
 
   @override
   String get organizations => '조직';

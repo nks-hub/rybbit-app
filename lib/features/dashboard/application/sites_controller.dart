@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../features/analytics/data/analytics_repository.dart';
 import '../../../shared/models/site.dart';
@@ -79,7 +79,7 @@ class SitesController extends AsyncNotifier<SitesState> {
   }
 
   Future<void> refreshLiveCounts() async {
-    final currentState = state.valueOrNull;
+    final currentState = state.value;
     if (currentState == null) return;
 
     final analyticsRepo = ref.read(analyticsRepositoryProvider);

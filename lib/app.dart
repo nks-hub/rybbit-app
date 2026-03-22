@@ -28,14 +28,22 @@ const localeDisplayNames = {
   'cs': 'Čeština',
 };
 
-/// Locale provider persisted to SharedPreferences. Defaults to system locale.
-final localeProvider = StateProvider<Locale?>((ref) {
-  final saved = ref.read(storageServiceProvider).readSetting('locale') as String?;
-  if (saved != null && supportedLocaleCodes.contains(saved)) {
-    return Locale(saved);
+/// Locale notifier persisted to SharedPreferences. Defaults to system locale.
+class LocaleNotifier extends Notifier<Locale?> {
+  @override
+  Locale? build() {
+    final saved = ref.read(storageServiceProvider).readSetting('locale') as String?;
+    if (saved != null && supportedLocaleCodes.contains(saved)) {
+      return Locale(saved);
+    }
+    return null; // null = follow system
   }
-  return null; // null = follow system
-});
+
+  void set(Locale? locale) => state = locale;
+}
+
+final localeProvider =
+    NotifierProvider<LocaleNotifier, Locale?>(LocaleNotifier.new);
 
 class RybbitApp extends ConsumerWidget {
   const RybbitApp({super.key});

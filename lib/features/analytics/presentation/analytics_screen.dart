@@ -26,7 +26,15 @@ enum SelectedStat {
   duration;
 }
 
-final selectedStatProvider = StateProvider<SelectedStat>((ref) => SelectedStat.users);
+class SelectedStatNotifier extends Notifier<SelectedStat> {
+  @override
+  SelectedStat build() => SelectedStat.users;
+
+  void set(SelectedStat stat) => state = stat;
+}
+
+final selectedStatProvider =
+    NotifierProvider<SelectedStatNotifier, SelectedStat>(SelectedStatNotifier.new);
 
 class AnalyticsScreen extends ConsumerWidget {
   final String siteId;
@@ -333,7 +341,7 @@ class AnalyticsScreen extends ConsumerWidget {
                 changePercent: s.change,
                 selected: selectedStat == s.stat,
                 onTap: () =>
-                    ref.read(selectedStatProvider.notifier).state = s.stat,
+                    ref.read(selectedStatProvider.notifier).set(s.stat),
               ))
           .toList(),
     );

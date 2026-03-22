@@ -101,8 +101,9 @@ class AppLocalizationsEn extends AppLocalizations {
       'An unexpected error occurred. Please try again.';
 
   @override
-  String loginRateLimited(String seconds) =>
-      'Too many failed attempts. Please wait ${seconds}s before trying again.';
+  String loginRateLimited(String seconds) {
+    return 'Too many failed attempts. Please wait ${seconds}s before trying again.';
+  }
 
   @override
   String get organizations => 'Organizations';

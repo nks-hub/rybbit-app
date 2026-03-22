@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../shared/models/time_range.dart';
