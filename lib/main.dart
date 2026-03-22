@@ -1,11 +1,7 @@
-import 'dart:async';
-
 import 'package:cookie_jar/cookie_jar.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'app.dart';
 import 'core/network/dio_provider.dart';
@@ -37,15 +33,4 @@ void main() async {
       ),
     );
   });
-
-  // Capture Flutter errors
-  FlutterError.onError = (details) {
-    FlutterError.presentError(details);
-    if (!kDebugMode) {
-      Sentry.captureException(
-        details.exception,
-        stackTrace: details.stack,
-      );
-    }
-  };
 }
