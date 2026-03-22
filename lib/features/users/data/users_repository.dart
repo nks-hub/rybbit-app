@@ -102,6 +102,7 @@ class UsersRepository {
     int page = 1,
     int pageSize = 20,
     Map<String, String>? params,
+    CancelToken? cancelToken,
   }) async {
     final queryParams = <String, String>{
       'page': page.toString(),
@@ -112,6 +113,7 @@ class UsersRepository {
     final response = await _dio.get(
       '/api/sites/$siteId/users',
       queryParameters: queryParams,
+      cancelToken: cancelToken,
     );
 
     final raw = response.data;

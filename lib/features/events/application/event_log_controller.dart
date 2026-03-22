@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
+import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../shared/models/event.dart';
@@ -38,15 +40,24 @@ class EventLogController
     extends AutoDisposeFamilyAsyncNotifier<EventLogState, String> {
   static const int _pageSize = 50;
   static const int _maxItems = 500;
+  CancelToken? _cancelToken;
 
   @override
   Future<EventLogState> build(String arg) async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
+
+    ref.onDispose(() => _cancelToken?.cancel());
+
     return _loadData(arg);
   }
 
-  Future<EventLogState> _loadData(String siteId, {String? beforeTimestamp}) async {
+  Future<EventLogState> _loadData(String siteId,
+      {String? beforeTimestamp}) async {
+    _cancelToken?.cancel();
+    _cancelToken = CancelToken();
+    final token = _cancelToken!;
+
     final repo = ref.read(eventsRepositoryProvider);
     final timeRange = ref.read(timeRangeControllerProvider);
     final filterCtrl = ref.read(filterControllerProvider.notifier);
@@ -61,7 +72,7 @@ class EventLogController
       params['before_timestamp'] = beforeTimestamp;
     }
 
-    final response = await repo.getRawEvents(siteId, params);
+    final response = await repo.getRawEvents(siteId, params, cancelToken: token);
 
     return EventLogState(
       events: response.data,
@@ -95,7 +106,11 @@ class EventLogController
         params['before_timestamp'] = currentState.oldestTimestamp!;
       }
 
-      final response = await repo.getRawEvents(arg, params);
+      final response = await repo.getRawEvents(
+        arg,
+        params,
+        cancelToken: _cancelToken,
+      );
 
       final combined = [...currentState.events, ...response.data];
       final trimmed = combined.length > _maxItems
@@ -106,6 +121,11 @@ class EventLogController
         hasMore: response.cursor?.hasMore ?? false,
         oldestTimestamp: response.cursor?.oldestTimestamp,
       ));
+    } on DioException catch (e) {
+      if (e.type != DioExceptionType.cancel) {
+        debugPrint('EventLog loadMore failed: $e');
+        state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
+      }
     } catch (e) {
       debugPrint('EventLog loadMore failed: $e');
       state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
@@ -113,6 +133,7 @@ class EventLogController
   }
 
   Future<void> refresh() async {
+    ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() => _loadData(arg));
   }

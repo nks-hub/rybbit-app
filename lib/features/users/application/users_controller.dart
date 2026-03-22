@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
+import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../data/users_repository.dart';
@@ -99,16 +101,24 @@ class UsersController
     extends AutoDisposeFamilyAsyncNotifier<UsersState, String> {
   static const int _pageSize = 20;
   static const int _maxItems = 500;
+  CancelToken? _cancelToken;
 
   @override
   Future<UsersState> build(String arg) async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
     ref.watch(userSearchParamsProvider);
+
+    ref.onDispose(() => _cancelToken?.cancel());
+
     return _loadData(arg, page: 1);
   }
 
   Future<UsersState> _loadData(String siteId, {required int page}) async {
+    _cancelToken?.cancel();
+    _cancelToken = CancelToken();
+    final token = _cancelToken!;
+
     final repo = ref.read(usersRepositoryProvider);
     final timeRange = ref.read(timeRangeControllerProvider);
     final filterCtrl = ref.read(filterControllerProvider.notifier);
@@ -125,6 +135,7 @@ class UsersController
       page: page,
       pageSize: _pageSize,
       params: params,
+      cancelToken: token,
     );
 
     return UsersState(
@@ -163,6 +174,7 @@ class UsersController
         page: nextPage,
         pageSize: _pageSize,
         params: params,
+        cancelToken: _cancelToken,
       );
 
       final combined = [...currentState.users, ...response.users];
@@ -175,6 +187,11 @@ class UsersController
         totalCount: response.totalCount,
         hasMore: response.users.length >= _pageSize,
       ));
+    } on DioException catch (e) {
+      if (e.type != DioExceptionType.cancel) {
+        debugPrint('Users loadMore failed: $e');
+        state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
+      }
     } catch (e) {
       debugPrint('Users loadMore failed: $e');
       state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
@@ -182,6 +199,7 @@ class UsersController
   }
 
   Future<void> refresh() async {
+    ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() => _loadData(arg, page: 1));
   }

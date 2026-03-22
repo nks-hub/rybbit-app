@@ -15,6 +15,7 @@ class SessionsRepository {
     int page = 1,
     int limit = 20,
     Map<String, String>? params,
+    CancelToken? cancelToken,
   }) async {
     final queryParams = <String, String>{
       'page': page.toString(),
@@ -25,6 +26,7 @@ class SessionsRepository {
     final response = await _dio.get(
       '/api/sites/$siteId/sessions',
       queryParameters: queryParams,
+      cancelToken: cancelToken,
     );
 
     final data = response.data;

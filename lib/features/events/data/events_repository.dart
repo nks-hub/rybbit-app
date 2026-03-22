@@ -12,11 +12,13 @@ class EventsRepository {
   /// Fetches event names with counts for a site.
   Future<List<EventName>> getEventNames(
     String siteId,
-    Map<String, String> params,
-  ) async {
+    Map<String, String> params, {
+    CancelToken? cancelToken,
+  }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/events/names',
       queryParameters: params,
+      cancelToken: cancelToken,
     );
 
     final data = response.data;
@@ -76,11 +78,13 @@ class EventsRepository {
   /// Fetches raw individual events with cursor-based pagination.
   Future<RawEventsResponse> getRawEvents(
     String siteId,
-    Map<String, String> params,
-  ) async {
+    Map<String, String> params, {
+    CancelToken? cancelToken,
+  }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/events',
       queryParameters: params,
+      cancelToken: cancelToken,
     );
 
     final data = response.data;

@@ -15,10 +15,14 @@ class AnalyticsRepository {
 
   /// Fetches overview stats for a site within a time range.
   Future<Overview> getOverview(
-      String siteId, Map<String, String> params) async {
+    String siteId,
+    Map<String, String> params, {
+    CancelToken? cancelToken,
+  }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/overview',
       queryParameters: params,
+      cancelToken: cancelToken,
     );
     final envelope = response.data as Map<String, dynamic>;
     final data = envelope['data'] as Map<String, dynamic>? ?? envelope;
@@ -27,10 +31,14 @@ class AnalyticsRepository {
 
   /// Fetches bucketed overview data for charting.
   Future<List<OverviewBucket>> getOverviewBucketed(
-      String siteId, Map<String, String> params) async {
+    String siteId,
+    Map<String, String> params, {
+    CancelToken? cancelToken,
+  }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/overview-bucketed',
       queryParameters: params,
+      cancelToken: cancelToken,
     );
     final raw = response.data;
     // API returns { data: [...] } envelope
@@ -45,12 +53,17 @@ class AnalyticsRepository {
 
   /// Fetches a specific metric breakdown for a site.
   Future<MetricResponse> getMetric(
-      String siteId, String parameter, Map<String, String> params) async {
+    String siteId,
+    String parameter,
+    Map<String, String> params, {
+    CancelToken? cancelToken,
+  }) async {
     final queryParams = Map<String, String>.from(params);
     queryParams['parameter'] = parameter;
     final response = await _dio.get(
       '/api/sites/$siteId/metric',
       queryParameters: queryParams,
+      cancelToken: cancelToken,
     );
     final envelope = response.data as Map<String, dynamic>;
     final data = envelope['data'] as Map<String, dynamic>? ?? envelope;
@@ -59,10 +72,14 @@ class AnalyticsRepository {
 
   /// Fetches retention cohort data for a site.
   Future<RetentionData> getRetention(
-      String siteId, Map<String, String> params) async {
+    String siteId,
+    Map<String, String> params, {
+    CancelToken? cancelToken,
+  }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/retention',
       queryParameters: params,
+      cancelToken: cancelToken,
     );
     final envelope = response.data as Map<String, dynamic>;
     final data = envelope['data'] as Map<String, dynamic>? ?? envelope;
@@ -71,10 +88,14 @@ class AnalyticsRepository {
 
   /// Fetches user journey paths for a site.
   Future<List<JourneyPath>> getJourneys(
-      String siteId, Map<String, String> params) async {
+    String siteId,
+    Map<String, String> params, {
+    CancelToken? cancelToken,
+  }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/journeys',
       queryParameters: params,
+      cancelToken: cancelToken,
     );
     final envelope = response.data as Map<String, dynamic>;
     final list = envelope['journeys'] as List? ?? [];
@@ -85,10 +106,14 @@ class AnalyticsRepository {
 
   /// Fetches session locations for a site.
   Future<List<SessionLocation>> getSessionLocations(
-      String siteId, Map<String, String> params) async {
+    String siteId,
+    Map<String, String> params, {
+    CancelToken? cancelToken,
+  }) async {
     final response = await _dio.get(
       '/api/sites/$siteId/session-locations',
       queryParameters: params,
+      cancelToken: cancelToken,
     );
     final envelope = response.data as Map<String, dynamic>;
     final list = envelope['data'] as List? ?? [];
@@ -98,9 +123,12 @@ class AnalyticsRepository {
   }
 
   /// Fetches live user count for a site.
-  Future<int> getLiveUserCount(String siteId) async {
+  Future<int> getLiveUserCount(String siteId, {CancelToken? cancelToken}) async {
     try {
-      final response = await _dio.get('/api/sites/$siteId/live-user-count');
+      final response = await _dio.get(
+        '/api/sites/$siteId/live-user-count',
+        cancelToken: cancelToken,
+      );
       final data = response.data;
       if (data is Map<String, dynamic>) {
         return (data['count'] as num?)?.toInt() ?? 0;

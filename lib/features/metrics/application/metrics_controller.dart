@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:riverpod/riverpod.dart';
 
+import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../features/analytics/data/analytics_repository.dart';
@@ -58,15 +60,23 @@ class MetricsController
     extends AutoDisposeFamilyAsyncNotifier<MetricsState, MetricsKey> {
   static const int _pageSize = 20;
   static const int _maxItems = 500;
+  CancelToken? _cancelToken;
 
   @override
   Future<MetricsState> build(MetricsKey arg) async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
+
+    ref.onDispose(() => _cancelToken?.cancel());
+
     return _loadData(arg, page: 1);
   }
 
   Future<MetricsState> _loadData(MetricsKey key, {required int page}) async {
+    _cancelToken?.cancel();
+    _cancelToken = CancelToken();
+    final token = _cancelToken!;
+
     final repo = ref.read(analyticsRepositoryProvider);
     final timeRange = ref.read(timeRangeControllerProvider);
     final filterCtrl = ref.read(filterControllerProvider.notifier);
@@ -78,7 +88,8 @@ class MetricsController
       'page': page.toString(),
     };
 
-    final response = await repo.getMetric(key.siteId, key.parameter, params);
+    final response =
+        await repo.getMetric(key.siteId, key.parameter, params, cancelToken: token);
 
     return MetricsState(
       items: response.data,
@@ -109,7 +120,12 @@ class MetricsController
         'page': nextPage.toString(),
       };
 
-      final response = await repo.getMetric(arg.siteId, arg.parameter, params);
+      final response = await repo.getMetric(
+        arg.siteId,
+        arg.parameter,
+        params,
+        cancelToken: _cancelToken,
+      );
 
       final combined = [...currentState.items, ...response.data];
       final trimmed = combined.length > _maxItems
@@ -121,14 +137,19 @@ class MetricsController
         currentPage: nextPage,
         hasMore: response.data.length >= _pageSize,
       ));
+    } on DioException catch (e) {
+      if (e.type != DioExceptionType.cancel) {
+        state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
+        throw AsyncError(e, e.stackTrace);
+      }
     } catch (e, st) {
       state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-      // Rethrow so caller can handle if needed
       throw AsyncError(e, st);
     }
   }
 
   Future<void> refresh() async {
+    ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() => _loadData(arg, page: 1));
   }

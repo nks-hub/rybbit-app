@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
+import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../shared/models/session.dart';
@@ -157,16 +159,24 @@ class SessionsController
     extends AutoDisposeFamilyAsyncNotifier<SessionsState, String> {
   static const int _pageSize = 20;
   static const int _maxItems = 500;
+  CancelToken? _cancelToken;
 
   @override
   Future<SessionsState> build(String arg) async {
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
     ref.watch(sessionFilterProvider);
+
+    ref.onDispose(() => _cancelToken?.cancel());
+
     return _loadData(arg, page: 1);
   }
 
   Future<SessionsState> _loadData(String siteId, {required int page}) async {
+    _cancelToken?.cancel();
+    _cancelToken = CancelToken();
+    final token = _cancelToken!;
+
     final repo = ref.read(sessionsRepositoryProvider);
     final timeRange = ref.read(timeRangeControllerProvider);
     final filterCtrl = ref.read(filterControllerProvider.notifier);
@@ -183,6 +193,7 @@ class SessionsController
       page: page,
       limit: _pageSize,
       params: params,
+      cancelToken: token,
     );
 
     return SessionsState(
@@ -220,6 +231,7 @@ class SessionsController
         page: nextPage,
         limit: _pageSize,
         params: params,
+        cancelToken: _cancelToken,
       );
 
       final combined = [...currentState.sessions, ...sessions];
@@ -231,6 +243,11 @@ class SessionsController
         currentPage: nextPage,
         hasMore: sessions.length >= _pageSize,
       ));
+    } on DioException catch (e) {
+      if (e.type != DioExceptionType.cancel) {
+        debugPrint('Sessions loadMore failed: $e');
+        state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
+      }
     } catch (e) {
       debugPrint('Sessions loadMore failed: $e');
       state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
@@ -238,6 +255,7 @@ class SessionsController
   }
 
   Future<void> refresh() async {
+    ref.read(cacheInterceptorProvider).invalidate();
     // Invalidate all cached session details
     ref.invalidate(sessionDetailControllerProvider);
     state = const AsyncValue.loading();

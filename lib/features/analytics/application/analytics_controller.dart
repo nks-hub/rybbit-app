@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:riverpod/riverpod.dart';
 
+import '../../../core/network/cache_interceptor.dart';
 import '../../../shared/models/overview.dart';
 import '../data/analytics_repository.dart';
 import '../../../core/state/filter_controller.dart';
@@ -39,16 +41,24 @@ class AnalyticsState {
 
 class AnalyticsController
     extends AutoDisposeFamilyAsyncNotifier<AnalyticsState, String> {
+  CancelToken? _cancelToken;
+
   @override
   Future<AnalyticsState> build(String arg) async {
     // Watch dependencies to auto-rebuild when they change
     ref.watch(timeRangeControllerProvider);
     ref.watch(filterControllerProvider);
 
+    ref.onDispose(() => _cancelToken?.cancel());
+
     return _loadData(arg);
   }
 
   Future<AnalyticsState> _loadData(String siteId) async {
+    _cancelToken?.cancel();
+    _cancelToken = CancelToken();
+    final token = _cancelToken!;
+
     final repo = ref.read(analyticsRepositoryProvider);
     final timeRange = ref.read(timeRangeControllerProvider);
     final filterCtrl = ref.read(filterControllerProvider.notifier);
@@ -62,9 +72,9 @@ class AnalyticsController
 
     // Load current period first (3 requests) for fast initial render.
     final (overview, buckets, liveCount) = await (
-      repo.getOverview(siteId, overviewParams),
-      repo.getOverviewBucketed(siteId, bucketedParams),
-      repo.getLiveUserCount(siteId),
+      repo.getOverview(siteId, overviewParams, cancelToken: token),
+      repo.getOverviewBucketed(siteId, bucketedParams, cancelToken: token),
+      repo.getLiveUserCount(siteId, cancelToken: token),
     ).wait;
 
     final initialState = AnalyticsState(
@@ -92,8 +102,8 @@ class AnalyticsController
 
     try {
       final (prevOverview, prevBuckets) = await (
-        repo.getOverview(siteId, prevParams),
-        repo.getOverviewBucketed(siteId, prevBucketedParams),
+        repo.getOverview(siteId, prevParams, cancelToken: token),
+        repo.getOverviewBucketed(siteId, prevBucketedParams, cancelToken: token),
       ).wait;
 
       // Only update if not superseded by a newer load (ref still alive)
@@ -101,6 +111,9 @@ class AnalyticsController
         previousOverview: prevOverview,
         previousBuckets: prevBuckets,
       ));
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.cancel) return state.value!;
+      // Previous period data is non-critical; leave it null
     } catch (_) {
       // Previous period data is non-critical; leave it null
     }
@@ -109,6 +122,7 @@ class AnalyticsController
   }
 
   Future<void> refresh() async {
+    ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() => _loadData(arg));
   }
