@@ -262,7 +262,7 @@ class _HeatmapContentState extends State<_HeatmapContent> {
                       for (int h = 0; h < 24; h++)
                         Tooltip(
                           message:
-                              '${dayLabels[d]} ${h}:00 — ${grid[d][h].toStringAsFixed(1)} $metricLabel',
+                              '${dayLabels[d]} $h:00 — ${grid[d][h].toStringAsFixed(1)} $metricLabel',
                           child: Container(
                             width: 26,
                             height: 26,

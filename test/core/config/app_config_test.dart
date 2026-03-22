@@ -83,7 +83,6 @@ void main() {
 
   group('AppConfigNotifier', () {
     test('initial state has empty serverUrl and null apiKey', () {
-      final notifier = AppConfigNotifier();
       // Build is called by the Riverpod framework; test via AppConfig directly
       const config = AppConfig();
       expect(config.serverUrl, '');

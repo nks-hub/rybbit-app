@@ -153,7 +153,7 @@ class SiteCard extends ConsumerWidget {
                 children: [
                   todayAsync.when(
                     loading: () => const SizedBox.shrink(),
-                    error: (_, __) => const SizedBox.shrink(),
+                    error: (_, _) => const SizedBox.shrink(),
                     data: (users) => users > 0
                         ? Row(
                             mainAxisSize: MainAxisSize.min,
@@ -179,7 +179,7 @@ class SiteCard extends ConsumerWidget {
                   const Spacer(),
                   sparklineAsync.when(
                     loading: () => const SizedBox(width: 120, height: 44),
-                    error: (_, __) => const SizedBox(width: 120, height: 44),
+                    error: (_, _) => const SizedBox(width: 120, height: 44),
                     data: (values) => values.isNotEmpty
                         ? RepaintBoundary(
                             child: _Sparkline(values: values, theme: theme),

@@ -366,7 +366,7 @@ class PerformanceScreen extends ConsumerWidget {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16),
                     itemCount: items.length,
-                    separatorBuilder: (_, __) => Divider(
+                    separatorBuilder: (_, _) => Divider(
                       height: 1,
                       color: theme.dividerTheme.color
                           ?.withValues(alpha: 0.3),

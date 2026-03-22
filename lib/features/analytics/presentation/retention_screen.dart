@@ -91,7 +91,7 @@ class _RetentionScreenState extends ConsumerState<RetentionScreen> {
                 // Range selector
                 Expanded(
                   child: DropdownButtonFormField<int>(
-                    value: _range,
+                    initialValue: _range,
                     decoration: InputDecoration(
                       labelText: l10n.retentionRange,
                       isDense: true,

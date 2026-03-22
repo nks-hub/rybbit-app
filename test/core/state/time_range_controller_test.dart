@@ -179,7 +179,6 @@ void main() {
       final controller =
           container.read(timeRangeControllerProvider.notifier);
       final start = DateTime(2024, 1, 1);
-      final end = DateTime(2024, 4, 1); // 91 days but diff.inDays=91
       // Use exactly 90 days difference
       final end90 = start.add(const Duration(days: 90));
       controller.setCustomRange(start, end90);

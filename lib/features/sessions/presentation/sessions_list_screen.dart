@@ -679,7 +679,6 @@ class _ExpandedDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
     final detailAsync = ref.watch(
       sessionDetailControllerProvider(
           (siteId: siteId, sessionId: session.sessionId)),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -84,7 +86,7 @@ class EventsScreen extends ConsumerWidget {
 
     final propertiesFuture = repo.getEventProperties(siteId, eventName, params);
 
-    showModalBottomSheet(
+    unawaited(showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -166,7 +168,7 @@ class EventsScreen extends ConsumerWidget {
           },
         );
       },
-    );
+    ));
   }
 
   @override

@@ -253,11 +253,13 @@ class _FunnelCardState extends ConsumerState<_FunnelCard> {
         final repo = ref.read(funnelsRepositoryProvider);
         final analysis =
             await repo.analyzeFunnel(widget.siteId, steps, null);
+        if (!mounted) return;
         setState(() {
           _analysis = analysis;
           _loading = false;
         });
       } catch (e) {
+        if (!mounted) return;
         final l10n = AppLocalizations.of(context)!;
         setState(() {
           _loading = false;

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -129,7 +131,7 @@ class SettingsScreen extends ConsumerWidget {
                               ThemeMode.system => 'system',
                               _ => 'dark',
                             };
-                            StorageService.saveSetting('theme_mode', modeStr);
+                            unawaited(StorageService.saveSetting('theme_mode', modeStr));
                           },
                           style: const ButtonStyle(
                             visualDensity: VisualDensity.compact,
@@ -190,10 +192,10 @@ class SettingsScreen extends ConsumerWidget {
                     style: theme.textTheme.bodySmall,
                   ),
                   trailing: const Icon(Icons.chevron_right, size: 20),
-                  onTap: () => launchUrl(
+                  onTap: () => unawaited(launchUrl(
                     Uri.parse('https://github.com/rybbit-io/rybbit'),
                     mode: LaunchMode.externalApplication,
-                  ),
+                  )),
                 ),
                 const Divider(height: 1),
                 ListTile(
@@ -213,10 +215,10 @@ class SettingsScreen extends ConsumerWidget {
                     style: theme.textTheme.bodySmall,
                   ),
                   trailing: const Icon(Icons.chevron_right, size: 20),
-                  onTap: () => launchUrl(
+                  onTap: () => unawaited(launchUrl(
                     Uri.parse('https://github.com/nks-hub/rybbit-app'),
                     mode: LaunchMode.externalApplication,
-                  ),
+                  )),
                 ),
               ],
             ),
@@ -340,10 +342,10 @@ class SettingsScreen extends ConsumerWidget {
 
     if (selected == '__auto__') {
       ref.read(localeProvider.notifier).state = null;
-      StorageService.deleteSetting('locale');
+      unawaited(StorageService.deleteSetting('locale'));
     } else {
       ref.read(localeProvider.notifier).state = Locale(selected);
-      StorageService.saveSetting('locale', selected);
+      unawaited(StorageService.saveSetting('locale', selected));
     }
   }
 
@@ -369,7 +371,7 @@ class SettingsScreen extends ConsumerWidget {
     );
 
     if (confirmed == true) {
-      ref.read(authControllerProvider.notifier).logout();
+      unawaited(ref.read(authControllerProvider.notifier).logout());
     }
   }
 }
