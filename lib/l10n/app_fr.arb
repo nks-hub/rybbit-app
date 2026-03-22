@@ -30,6 +30,8 @@
   "invalidApiKey": "Clé API invalide",
   "connectionFailedApiKey": "Échec de connexion. Vérifiez l'URL du serveur et la clé API.",
   "unexpectedError": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+  "loginRateLimited": "Trop de tentatives échouées. Veuillez attendre {seconds}s avant de réessayer.",
+  "@loginRateLimited": { "placeholders": { "seconds": { "type": "String" } } },
   "organizations": "Organisations",
   "noSitesFound": "Aucun site trouvé",
   "noSitesHint": "Ajoutez un site dans le tableau de bord web pour commencer.",

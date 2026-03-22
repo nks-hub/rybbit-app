@@ -283,6 +283,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   String _localizeError(String error, AppLocalizations l10n) {
+    if (error.startsWith(AuthController.rateLimitedErrorPrefix)) {
+      final seconds =
+          error.substring(AuthController.rateLimitedErrorPrefix.length);
+      return l10n.loginRateLimited(seconds);
+    }
     switch (error) {
       case AuthController.connectionFailedError:
         return l10n.connectionFailed;

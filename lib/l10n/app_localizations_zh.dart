@@ -99,6 +99,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unexpectedError => '发生了意外错误。请重试。';
 
   @override
+  String loginRateLimited(String seconds) => '登录失败次数过多。请等待 ${seconds}秒后再试。';
+
+  @override
   String get organizations => '组织';
 
   @override

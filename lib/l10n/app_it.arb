@@ -30,6 +30,8 @@
   "invalidApiKey": "Chiave API non valida",
   "connectionFailedApiKey": "Connessione fallita. Controlla l'URL del server e la chiave API.",
   "unexpectedError": "Si è verificato un errore imprevisto. Riprova.",
+  "loginRateLimited": "Troppi tentativi falliti. Attendi {seconds}s prima di riprovare.",
+  "@loginRateLimited": { "placeholders": { "seconds": { "type": "String" } } },
   "organizations": "Organizzazioni",
   "noSitesFound": "Nessun sito trovato",
   "noSitesHint": "Aggiungere un sito nella dashboard web per iniziare.",

@@ -30,6 +30,8 @@
   "invalidApiKey": "Neplatný API klíč",
   "connectionFailedApiKey": "Připojení selhalo. Zkontrolujte URL serveru a API klíč.",
   "unexpectedError": "Došlo k neočekávané chybě. Zkuste to prosím znovu.",
+  "loginRateLimited": "Příliš mnoho neúspěšných pokusů. Počkejte prosím {seconds}s a zkuste to znovu.",
+  "@loginRateLimited": { "placeholders": { "seconds": { "type": "String" } } },
   "organizations": "Organizace",
   "noSitesFound": "Žádné weby nenalezeny",
   "noSitesHint": "Pro začátek přidejte web ve webovém rozhraní.",

@@ -102,6 +102,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
 
   @override
+  String loginRateLimited(String seconds) =>
+      'Zu viele fehlgeschlagene Versuche. Bitte warten Sie ${seconds}s und versuchen Sie es erneut.';
+
+  @override
   String get organizations => 'Organisationen';
 
   @override

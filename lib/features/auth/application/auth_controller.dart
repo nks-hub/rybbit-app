@@ -42,6 +42,10 @@ class AuthController extends Notifier<AuthState> {
   static const invalidApiKeyError = 'err:invalid_api_key';
   static const connectionFailedApiKeyError = 'err:connection_failed_api_key';
   static const unexpectedError = 'err:unexpected';
+  static const rateLimitedErrorPrefix = 'rateLimited:';
+
+  int _failedAttempts = 0;
+  DateTime? _lockoutUntil;
 
   @override
   AuthState build() {
@@ -53,6 +57,15 @@ class AuthController extends Notifier<AuthState> {
     String email,
     String password,
   ) async {
+    if (_lockoutUntil != null && DateTime.now().isBefore(_lockoutUntil!)) {
+      final remaining = _lockoutUntil!.difference(DateTime.now()).inSeconds;
+      state = state.copyWith(
+        error: '$rateLimitedErrorPrefix$remaining',
+        isLoading: false,
+      );
+      return;
+    }
+
     state = state.copyWith(isLoading: true, error: null);
 
     try {
@@ -72,6 +85,12 @@ class AuthController extends Notifier<AuthState> {
       await storage.saveSecure('server_url', serverUrl);
       await storage.saveSecure('last_email', email);
       await storage.deleteSecure('api_key');
+      await storage.saveSetting(
+          'auth_timestamp', DateTime.now().millisecondsSinceEpoch);
+
+      // Reset rate limiting on successful login
+      _failedAttempts = 0;
+      _lockoutUntil = null;
 
       // Session cookie is automatically persisted by PersistCookieJar
       final userMap = result['user'] as Map<String, dynamic>? ?? result;
@@ -81,6 +100,11 @@ class AuthController extends Notifier<AuthState> {
         user: User.fromJson(userMap),
       );
     } on DioException catch (e) {
+      _failedAttempts++;
+      if (_failedAttempts >= 3) {
+        _lockoutUntil = DateTime.now()
+            .add(Duration(seconds: 30 * (_failedAttempts - 2)));
+      }
       final message = e.response?.data?['message']?.toString() ??
           e.response?.data?['error']?.toString() ??
           connectionFailedError;
@@ -90,6 +114,11 @@ class AuthController extends Notifier<AuthState> {
         error: message,
       );
     } catch (e) {
+      _failedAttempts++;
+      if (_failedAttempts >= 3) {
+        _lockoutUntil = DateTime.now()
+            .add(Duration(seconds: 30 * (_failedAttempts - 2)));
+      }
       state = state.copyWith(
         status: AuthStatus.unauthenticated,
         isLoading: false,
@@ -125,6 +154,8 @@ class AuthController extends Notifier<AuthState> {
       final storage = ref.read(storageServiceProvider);
       await storage.saveSecure('server_url', serverUrl);
       await storage.saveSecure('api_key', apiKey);
+      await storage.saveSetting(
+          'auth_timestamp', DateTime.now().millisecondsSinceEpoch);
 
       state = AuthState(
         status: AuthStatus.authenticated,
@@ -155,6 +186,17 @@ class AuthController extends Notifier<AuthState> {
     if (serverUrl == null || serverUrl.isEmpty) {
       state = const AuthState(status: AuthStatus.unauthenticated);
       return;
+    }
+
+    // Check credential expiry (30-day maximum session age)
+    final authTimestamp = storage.readSetting('auth_timestamp') as int?;
+    if (authTimestamp != null) {
+      final authDate = DateTime.fromMillisecondsSinceEpoch(authTimestamp);
+      if (DateTime.now().difference(authDate).inDays > 30) {
+        await _clearAuth();
+        state = const AuthState(status: AuthStatus.unauthenticated);
+        return;
+      }
     }
 
     ref.read(appConfigNotifierProvider.notifier).setConfig(
@@ -204,10 +246,17 @@ class AuthController extends Notifier<AuthState> {
       // Logout even if API call fails
     }
 
-    await ref.read(storageServiceProvider).deleteSecure('api_key');
-    ref.read(appConfigNotifierProvider.notifier).clear();
-
+    await _clearAuth();
     state = const AuthState(status: AuthStatus.unauthenticated);
+  }
+
+  Future<void> _clearAuth() async {
+    final storage = ref.read(storageServiceProvider);
+    await storage.deleteSecure('api_key');
+    await storage.deleteSetting('auth_timestamp');
+    _failedAttempts = 0;
+    _lockoutUntil = null;
+    ref.read(appConfigNotifierProvider.notifier).clear();
   }
 }
 

@@ -30,6 +30,8 @@
   "invalidApiKey": "Nieprawidłowy klucz API",
   "connectionFailedApiKey": "Połączenie nie powiodło się. Sprawdź adres URL serwera i klucz API.",
   "unexpectedError": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie.",
+  "loginRateLimited": "Zbyt wiele nieudanych prób. Poczekaj {seconds}s przed ponowną próbą.",
+  "@loginRateLimited": { "placeholders": { "seconds": { "type": "String" } } },
   "organizations": "Organizacje",
   "noSitesFound": "Nie znaleziono witryn",
   "noSitesHint": "Dodaj witrynę w panelu internetowym, aby rozpocząć.",

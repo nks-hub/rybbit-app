@@ -19,7 +19,7 @@ void main() async {
   // Parallelize independent init tasks
   final (_, appDir) = await (
     storageService.init(),
-    getApplicationDocumentsDirectory(),
+    getApplicationSupportDirectory(),
   ).wait;
 
   final persistCookieJar =

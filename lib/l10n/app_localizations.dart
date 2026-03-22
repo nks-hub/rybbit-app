@@ -296,6 +296,12 @@ abstract class AppLocalizations {
   /// **'An unexpected error occurred. Please try again.'**
   String get unexpectedError;
 
+  /// No description provided for @loginRateLimited.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many failed attempts. Please wait {seconds}s before trying again.'**
+  String loginRateLimited(String seconds);
+
   /// No description provided for @organizations.
   ///
   /// In en, this message translates to:
