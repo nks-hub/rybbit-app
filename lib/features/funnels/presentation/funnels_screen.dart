@@ -6,6 +6,8 @@ import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/funnel.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/empty_state.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../data/funnels_repository.dart';
 
 /// Provider for saved funnels list.
@@ -23,7 +25,6 @@ class FunnelsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final funnelsAsync = ref.watch(_funnelsProvider(siteId));
-    final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
@@ -37,46 +38,17 @@ class FunnelsScreen extends ConsumerWidget {
       ),
       body: funnelsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Semantics(liveRegion: true, child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.error_outline,
-                    size: 48, color: theme.colorScheme.error),
-                const SizedBox(height: 16),
-                Text(l10n.failedToLoadFunnels,
-                    style: theme.textTheme.bodyLarge),
-                const SizedBox(height: 8),
-                Text(formatError(error),
-                    style: theme.textTheme.bodySmall,
-                    textAlign: TextAlign.center),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () => ref.invalidate(_funnelsProvider(siteId)),
-                  child: Text(l10n.retry),
-                ),
-              ],
-            ),
-          ),
-        )),
+        error: (error, _) => ErrorView(
+          message: l10n.failedToLoadFunnels,
+          detail: formatError(error),
+          onRetry: () => ref.invalidate(_funnelsProvider(siteId)),
+        ),
         data: (funnels) {
           if (funnels.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.filter_alt_outlined,
-                      size: 64, color: theme.textTheme.bodySmall?.color),
-                  const SizedBox(height: 16),
-                  Text(l10n.noFunnelsSaved,
-                      style: theme.textTheme.bodyLarge),
-                  const SizedBox(height: 8),
-                  Text(l10n.createFunnelsHint,
-                      style: theme.textTheme.bodySmall),
-                ],
-              ),
+            return EmptyState(
+              icon: Icons.filter_alt_outlined,
+              title: l10n.noFunnelsSaved,
+              subtitle: l10n.createFunnelsHint,
             );
           }
 

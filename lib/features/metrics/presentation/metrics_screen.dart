@@ -6,6 +6,8 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/filter.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/empty_state.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../../../core/state/filter_controller.dart';
 import '../application/metrics_controller.dart';
 import 'widgets/metric_list_item.dart';
@@ -304,50 +306,18 @@ class _MetricsScreenState extends ConsumerState<MetricsScreen> {
             child: metricsAsync.when(
               loading: () =>
                   const Center(child: CircularProgressIndicator()),
-              error: (error, _) => Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(32),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.error_outline,
-                          size: 48, color: theme.colorScheme.error),
-                      const SizedBox(height: 16),
-                      Text(l10n.failedToLoadMetrics,
-                          style: theme.textTheme.bodyLarge),
-                      const SizedBox(height: 8),
-                      Text(formatError(error),
-                          style: theme.textTheme.bodySmall,
-                          textAlign: TextAlign.center),
-                      const SizedBox(height: 24),
-                      ElevatedButton(
-                        onPressed: () => ref
-                            .read(metricsControllerProvider(key).notifier)
-                            .refresh(),
-                        child: Text(l10n.retry),
-                      ),
-                    ],
-                  ),
-                ),
+              error: (error, _) => ErrorView(
+                message: l10n.failedToLoadMetrics,
+                detail: formatError(error),
+                onRetry: () => ref
+                    .read(metricsControllerProvider(key).notifier)
+                    .refresh(),
               ),
               data: (metricsState) {
                 if (metricsState.items.isEmpty) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          _selectedType.icon,
-                          size: 48,
-                          color: theme.textTheme.bodySmall?.color,
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          l10n.noMetricData(_selectedType.localizedLabel(l10n, isMobile: isMobile).toLowerCase()),
-                          style: theme.textTheme.bodyLarge,
-                        ),
-                      ],
-                    ),
+                  return EmptyState(
+                    icon: _selectedType.icon,
+                    title: l10n.noMetricData(_selectedType.localizedLabel(l10n, isMobile: isMobile).toLowerCase()),
                   );
                 }
 

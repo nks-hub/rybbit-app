@@ -8,6 +8,8 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/empty_state.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../application/users_controller.dart';
 import '../data/users_repository.dart';
 
@@ -184,58 +186,23 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
             child: usersAsync.when(
               loading: () =>
                   const Center(child: CircularProgressIndicator()),
-              error: (error, _) => Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(32),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.error_outline,
-                          size: 48, color: theme.colorScheme.error),
-                      const SizedBox(height: 16),
-                      Text(l10n.failedToLoadUsers,
-                          style: theme.textTheme.bodyLarge),
-                      const SizedBox(height: 8),
-                      Text(formatError(error),
-                          style: theme.textTheme.bodySmall,
-                          textAlign: TextAlign.center),
-                      const SizedBox(height: 24),
-                      ElevatedButton(
-                        onPressed: () => ref
-                            .read(usersControllerProvider(widget.siteId)
-                                .notifier)
-                            .refresh(),
-                        child: Text(l10n.retry),
-                      ),
-                    ],
-                  ),
-                ),
+              error: (error, _) => ErrorView(
+                message: l10n.failedToLoadUsers,
+                detail: formatError(error),
+                onRetry: () => ref
+                    .read(usersControllerProvider(widget.siteId).notifier)
+                    .refresh(),
               ),
               data: (usersState) {
                 if (usersState.users.isEmpty) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.people_outline,
-                            size: 64,
-                            color: theme.textTheme.bodySmall?.color),
-                        const SizedBox(height: 16),
-                        Text(
-                          searchParams.query.isNotEmpty
-                              ? l10n.noUsersFound
-                              : l10n.noIdentifiedUsers,
-                          style: theme.textTheme.bodyLarge,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          searchParams.query.isNotEmpty
-                              ? l10n.tryDifferentSearch
-                              : l10n.usersWillAppear,
-                          style: theme.textTheme.bodySmall,
-                        ),
-                      ],
-                    ),
+                  return EmptyState(
+                    icon: Icons.people_outline,
+                    title: searchParams.query.isNotEmpty
+                        ? l10n.noUsersFound
+                        : l10n.noIdentifiedUsers,
+                    subtitle: searchParams.query.isNotEmpty
+                        ? l10n.tryDifferentSearch
+                        : l10n.usersWillAppear,
                   );
                 }
 

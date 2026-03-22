@@ -8,6 +8,8 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/site.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/empty_state.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../../auth/application/auth_controller.dart';
 import '../application/sites_controller.dart';
 import '../application/sparkline_provider.dart';
@@ -122,16 +124,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     final l10n = AppLocalizations.of(context)!;
 
     if (sites.isEmpty && (_searchQuery.isNotEmpty || _selectedOrgId != null)) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.search_off,
-                size: 48, color: theme.textTheme.bodySmall?.color),
-            const SizedBox(height: 16),
-            Text(l10n.noMatchingSites, style: theme.textTheme.bodyLarge),
-          ],
-        ),
+      return EmptyState(
+        icon: Icons.search_off,
+        title: l10n.noMatchingSites,
       );
     }
 
@@ -432,61 +427,17 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       ),
       body: sitesAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Semantics(liveRegion: true, child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.error_outline,
-                  size: 48,
-                  color: theme.colorScheme.error,
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.failedToLoadSites,
-                  style: theme.textTheme.bodyLarge,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  formatError(error),
-                  style: theme.textTheme.bodySmall,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () =>
-                      ref.read(sitesControllerProvider.notifier).refresh(),
-                  child: Text(l10n.retry),
-                ),
-              ],
-            ),
-          ),
-        )),
+        error: (error, stack) => ErrorView(
+          message: l10n.failedToLoadSites,
+          detail: formatError(error),
+          onRetry: () => ref.read(sitesControllerProvider.notifier).refresh(),
+        ),
         data: (sitesState) {
           if (sitesState.sites.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.language,
-                    size: 64,
-                    color: theme.textTheme.bodySmall?.color,
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    l10n.noSitesFound,
-                    style: theme.textTheme.bodyLarge,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    l10n.noSitesHint,
-                    style: theme.textTheme.bodySmall,
-                  ),
-                ],
-              ),
+            return EmptyState(
+              icon: Icons.language,
+              title: l10n.noSitesFound,
+              subtitle: l10n.noSitesHint,
             );
           }
 

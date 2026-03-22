@@ -11,6 +11,7 @@ import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/event.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/time_series_chart.dart';
 import '../data/events_repository.dart';
 
@@ -140,18 +141,9 @@ class EventsScreen extends ConsumerWidget {
                       )
                     else if (!snapshot.hasData || snapshot.data!.isEmpty)
                       Expanded(
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.data_object,
-                                  size: 40,
-                                  color: theme.textTheme.bodySmall?.color),
-                              const SizedBox(height: 12),
-                              Text(l10n.noProperties,
-                                  style: theme.textTheme.bodyMedium),
-                            ],
-                          ),
+                        child: EmptyState(
+                          icon: Icons.data_object,
+                          title: l10n.noProperties,
                         ),
                       )
                     else
@@ -309,20 +301,9 @@ class EventsScreen extends ConsumerWidget {
                 ),
                 data: (events) {
                   if (events.isEmpty) {
-                    return Padding(
-                      padding: const EdgeInsets.all(32),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Icon(Icons.bolt,
-                                size: 48,
-                                color: theme.textTheme.bodySmall?.color),
-                            const SizedBox(height: 16),
-                            Text(l10n.noCustomEventsTracked,
-                                style: theme.textTheme.bodyLarge),
-                          ],
-                        ),
-                      ),
+                    return EmptyState(
+                      icon: Icons.bolt,
+                      title: l10n.noCustomEventsTracked,
                     );
                   }
 
@@ -390,20 +371,9 @@ class EventsScreen extends ConsumerWidget {
                   ),
                   data: (links) {
                     if (links.isEmpty) {
-                      return Padding(
-                        padding: const EdgeInsets.all(32),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Icon(Icons.open_in_new,
-                                  size: 40,
-                                  color: theme.textTheme.bodySmall?.color),
-                              const SizedBox(height: 12),
-                              Text(l10n.noOutboundLinksTracked,
-                                  style: theme.textTheme.bodyMedium),
-                            ],
-                          ),
-                        ),
+                      return EmptyState(
+                        icon: Icons.open_in_new,
+                        title: l10n.noOutboundLinksTracked,
                       );
                     }
 

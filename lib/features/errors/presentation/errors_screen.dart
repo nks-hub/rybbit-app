@@ -9,6 +9,7 @@ import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../data/errors_repository.dart';
 
 /// Provider for error names list.
@@ -77,30 +78,10 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
         },
         child: errorNamesAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, _) => Center(
-            child: Padding(
-              padding: const EdgeInsets.all(32),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.error_outline,
-                      size: 48, color: theme.colorScheme.error),
-                  const SizedBox(height: 16),
-                  Text(l10n.failedToLoadErrors,
-                      style: theme.textTheme.bodyLarge),
-                  const SizedBox(height: 8),
-                  Text(formatError(error),
-                      style: theme.textTheme.bodySmall,
-                      textAlign: TextAlign.center),
-                  const SizedBox(height: 24),
-                  ElevatedButton(
-                    onPressed: () =>
-                        ref.invalidate(_errorNamesProvider(widget.siteId)),
-                    child: Text(l10n.retry),
-                  ),
-                ],
-              ),
-            ),
+          error: (error, _) => ErrorView(
+            message: l10n.failedToLoadErrors,
+            detail: formatError(error),
+            onRetry: () => ref.invalidate(_errorNamesProvider(widget.siteId)),
           ),
           data: (errors) {
             if (errors.isEmpty) {

@@ -6,6 +6,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/overview.dart';
 import '../../../shared/models/time_range.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../../../shared/widgets/filter_bar.dart';
 import '../../../shared/widgets/stat_card.dart';
 import '../../../shared/widgets/time_range_picker.dart';
@@ -147,32 +148,13 @@ class AnalyticsScreen extends ConsumerWidget {
       ),
       body: analyticsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Semantics(liveRegion: true, child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.error_outline,
-                    size: 48, color: theme.colorScheme.error),
-                const SizedBox(height: 16),
-                Text(l10n.failedToLoadAnalytics,
-                    style: theme.textTheme.bodyLarge),
-                const SizedBox(height: 8),
-                Text(formatError(error),
-                    style: theme.textTheme.bodySmall,
-                    textAlign: TextAlign.center),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () => ref
-                      .read(analyticsControllerProvider(siteId).notifier)
-                      .refresh(),
-                  child: Text(l10n.retry),
-                ),
-              ],
-            ),
-          ),
-        )),
+        error: (error, stack) => ErrorView(
+          message: l10n.failedToLoadAnalytics,
+          detail: formatError(error),
+          onRetry: () => ref
+              .read(analyticsControllerProvider(siteId).notifier)
+              .refresh(),
+        ),
         data: (analyticsState) {
           final overview = analyticsState.overview;
           if (overview == null) {

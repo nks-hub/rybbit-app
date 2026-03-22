@@ -8,6 +8,8 @@ import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/empty_state.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../../../shared/utils/user_display_name.dart';
 import '../application/sessions_controller.dart';
 import '../data/sessions_repository.dart';
@@ -218,46 +220,18 @@ class _SessionsListScreenState extends ConsumerState<SessionsListScreen> {
       ),
       body: sessionsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Semantics(liveRegion: true, child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.error_outline,
-                    size: 48, color: theme.colorScheme.error),
-                const SizedBox(height: 16),
-                Text(l10n.failedToLoadSessions,
-                    style: theme.textTheme.bodyLarge),
-                const SizedBox(height: 8),
-                Text(formatError(error),
-                    style: theme.textTheme.bodySmall,
-                    textAlign: TextAlign.center),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () => ref
-                      .read(sessionsControllerProvider(widget.siteId)
-                          .notifier)
-                      .refresh(),
-                  child: Text(l10n.retry),
-                ),
-              ],
-            ),
-          ),
-        )),
+        error: (error, _) => ErrorView(
+          message: l10n.failedToLoadSessions,
+          detail: formatError(error),
+          onRetry: () => ref
+              .read(sessionsControllerProvider(widget.siteId).notifier)
+              .refresh(),
+        ),
         data: (sessionsState) {
           if (sessionsState.sessions.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.people_outline,
-                      size: 48, color: theme.textTheme.bodySmall?.color),
-                  const SizedBox(height: 16),
-                  Text(l10n.noSessionsFound,
-                      style: theme.textTheme.bodyLarge),
-                ],
-              ),
+            return EmptyState(
+              icon: Icons.people_outline,
+              title: l10n.noSessionsFound,
             );
           }
 

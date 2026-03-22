@@ -7,6 +7,8 @@ import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/goal.dart';
 import '../../../shared/utils/formatters.dart';
+import '../../../shared/widgets/empty_state.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../data/goals_repository.dart';
 
 /// Provider for goals list with conversion stats.
@@ -27,7 +29,6 @@ class GoalsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final goalsAsync = ref.watch(_goalsProvider(siteId));
-    final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
@@ -46,46 +47,17 @@ class GoalsScreen extends ConsumerWidget {
       ),
       body: goalsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Semantics(liveRegion: true, child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.error_outline,
-                    size: 48, color: theme.colorScheme.error),
-                const SizedBox(height: 16),
-                Text(l10n.failedToLoadGoals,
-                    style: theme.textTheme.bodyLarge),
-                const SizedBox(height: 8),
-                Text(formatError(error),
-                    style: theme.textTheme.bodySmall,
-                    textAlign: TextAlign.center),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () => ref.invalidate(_goalsProvider(siteId)),
-                  child: Text(l10n.retry),
-                ),
-              ],
-            ),
-          ),
-        )),
+        error: (error, _) => ErrorView(
+          message: l10n.failedToLoadGoals,
+          detail: formatError(error),
+          onRetry: () => ref.invalidate(_goalsProvider(siteId)),
+        ),
         data: (goals) {
           if (goals.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.flag_outlined,
-                      size: 64, color: theme.textTheme.bodySmall?.color, semanticLabel: ''),
-                  const SizedBox(height: 16),
-                  Text(l10n.noGoalsConfigured,
-                      style: theme.textTheme.bodyLarge),
-                  const SizedBox(height: 8),
-                  Text(l10n.noGoalsHint,
-                      style: theme.textTheme.bodySmall),
-                ],
-              ),
+            return EmptyState(
+              icon: Icons.flag_outlined,
+              title: l10n.noGoalsConfigured,
+              subtitle: l10n.noGoalsHint,
             );
           }
 

@@ -7,6 +7,8 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/performance_data.dart';
+import '../../../shared/widgets/empty_state.dart';
+import '../../../shared/widgets/error_view.dart';
 import '../../../shared/widgets/time_series_chart.dart';
 import '../data/performance_repository.dart';
 
@@ -198,20 +200,8 @@ class PerformanceScreen extends ConsumerWidget {
                     height: 200,
                     child: Center(child: CircularProgressIndicator()),
                   ),
-                  error: (err, _) => SizedBox(
-                    height: 200,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.error_outline,
-                              size: 48, color: theme.colorScheme.error),
-                          const SizedBox(height: 8),
-                          Text(l10n.failedToLoadPerformanceData,
-                              style: theme.textTheme.bodySmall),
-                        ],
-                      ),
-                    ),
+                  error: (err, _) => ErrorView(
+                    message: l10n.failedToLoadPerformanceData,
                   ),
                   data: (overview) => _buildVitalsGrid(
                     context,
@@ -340,20 +330,9 @@ class PerformanceScreen extends ConsumerWidget {
                 ),
                 data: (items) {
                   if (items.isEmpty) {
-                    return Padding(
-                      padding: const EdgeInsets.all(32),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Icon(Icons.bar_chart,
-                                size: 40,
-                                color: theme.textTheme.bodySmall?.color),
-                            const SizedBox(height: 12),
-                            Text(l10n.noData,
-                                style: theme.textTheme.bodyMedium),
-                          ],
-                        ),
-                      ),
+                    return EmptyState(
+                      icon: Icons.bar_chart,
+                      title: l10n.noData,
                     );
                   }
 
