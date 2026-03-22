@@ -70,8 +70,8 @@ class SettingsScreen extends ConsumerWidget {
                     leading: const Icon(Icons.person_outline),
                     title: Text(l10n.loggedInAs),
                     subtitle: Text(
-                      authState.user?['email'] as String? ??
-                          authState.user?['name'] as String? ??
+                      authState.user?.email ??
+                          authState.user?.name ??
                           l10n.unknown,
                       style: theme.textTheme.bodySmall,
                     ),

@@ -5,12 +5,13 @@ import '../../../core/config/app_config.dart';
 import '../../../core/storage/storage_service.dart';
 import '../data/auth_repository.dart';
 import '../../../core/network/dio_provider.dart';
+import '../../../shared/models/user.dart';
 
 enum AuthStatus { unknown, authenticated, unauthenticated }
 
 class AuthState {
   final AuthStatus status;
-  final Map<String, dynamic>? user;
+  final User? user;
   final String? error;
   final bool isLoading;
 
@@ -23,7 +24,7 @@ class AuthState {
 
   AuthState copyWith({
     AuthStatus? status,
-    Map<String, dynamic>? user,
+    User? user,
     String? error,
     bool? isLoading,
   }) {
@@ -73,11 +74,11 @@ class AuthController extends Notifier<AuthState> {
       await storage.deleteSecure('api_key');
 
       // Session cookie is automatically persisted by PersistCookieJar
-      final user = result['user'] as Map<String, dynamic>?;
+      final userMap = result['user'] as Map<String, dynamic>? ?? result;
 
       state = AuthState(
         status: AuthStatus.authenticated,
-        user: user ?? result,
+        user: User.fromJson(userMap),
       );
     } on DioException catch (e) {
       final message = e.response?.data?['message']?.toString() ??
@@ -110,9 +111,9 @@ class AuthController extends Notifier<AuthState> {
       ref.invalidate(authRepositoryProvider);
 
       final repo = ref.read(authRepositoryProvider);
-      final user = await repo.verifyApiKey();
+      final userMap = await repo.verifyApiKey();
 
-      if (user == null) {
+      if (userMap == null) {
         state = state.copyWith(
           status: AuthStatus.unauthenticated,
           isLoading: false,
@@ -127,7 +128,7 @@ class AuthController extends Notifier<AuthState> {
 
       state = AuthState(
         status: AuthStatus.authenticated,
-        user: user,
+        user: User.fromJson(userMap),
       );
     } on DioException catch (e) {
       final message = e.response?.data?['message']?.toString() ??
@@ -168,21 +169,21 @@ class AuthController extends Notifier<AuthState> {
       final repo = ref.read(authRepositoryProvider);
 
       if (apiKey != null && apiKey.isNotEmpty) {
-        final user = await repo.verifyApiKey();
-        if (user != null) {
+        final userMap = await repo.verifyApiKey();
+        if (userMap != null) {
           state = AuthState(
             status: AuthStatus.authenticated,
-            user: user,
+            user: User.fromJson(userMap),
           );
           return;
         }
       } else {
         final session = await repo.getSession();
         if (session != null) {
-          final user = session['user'] as Map<String, dynamic>?;
+          final userMap = session['user'] as Map<String, dynamic>? ?? session;
           state = AuthState(
             status: AuthStatus.authenticated,
-            user: user ?? session,
+            user: User.fromJson(userMap),
           );
           return;
         }

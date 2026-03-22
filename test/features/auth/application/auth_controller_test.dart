@@ -154,7 +154,7 @@ void main() {
       final state = container.read(authControllerProvider);
       expect(state.status, AuthStatus.authenticated);
       expect(state.isLoading, false);
-      expect(state.user?['email'], 'a@b.com');
+      expect(state.user?.email, 'a@b.com');
 
       verify(() => mockStorage.saveSecure('server_url', 'https://example.com')).called(1);
       verify(() => mockStorage.saveSecure('last_email', 'a@b.com')).called(1);
@@ -243,7 +243,7 @@ void main() {
       final state = container.read(authControllerProvider);
       expect(state.status, AuthStatus.authenticated);
       expect(state.isLoading, false);
-      expect(state.user?['name'], 'API Key User');
+      expect(state.user?.name, 'API Key User');
 
       verify(() => mockStorage.saveSecure('server_url', 'https://example.com')).called(1);
       verify(() => mockStorage.saveSecure('api_key', 'valid-key')).called(1);
@@ -305,7 +305,7 @@ void main() {
 
       final state = container.read(authControllerProvider);
       expect(state.status, AuthStatus.authenticated);
-      expect(state.user?['email'], 'a@b.com');
+      expect(state.user?.email, 'a@b.com');
     });
 
     test('valid server_url with valid api_key → authenticated', () async {
