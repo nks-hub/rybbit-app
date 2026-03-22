@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
+import '../../../core/state/paginated_notifier_mixin.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../data/models.dart';
 import '../data/users_repository.dart';
@@ -99,10 +99,69 @@ class UsersState {
 }
 
 class UsersController
-    extends AutoDisposeFamilyAsyncNotifier<UsersState, String> {
+    extends AutoDisposeFamilyAsyncNotifier<UsersState, String>
+    with PaginatedNotifierMixin<UsersState, UserListItem, String> {
   static const int _pageSize = 20;
-  static const int _maxItems = 500;
   CancelToken? _cancelToken;
+
+  @override
+  int get maxItems => 500;
+
+  @override
+  List<UserListItem> getItems(UsersState s) => s.users;
+
+  @override
+  PaginationInfo getPaginationInfo(UsersState s) =>
+      PaginationInfo(hasMore: s.hasMore, isLoadingMore: s.isLoadingMore);
+
+  @override
+  UsersState setLoadingMore(UsersState s, {required bool value}) =>
+      s.copyWith(isLoadingMore: value);
+
+  @override
+  Future<PageResult<UserListItem>> fetchNextPage(UsersState currentState) async {
+    final repo = ref.read(usersRepositoryProvider);
+    final timeRange = ref.read(timeRangeControllerProvider);
+    final filterCtrl = ref.read(filterControllerProvider.notifier);
+    final searchParams = ref.read(userSearchParamsProvider);
+    final nextPage = currentState.currentPage + 1;
+
+    final params = {
+      ...timeRange.toQueryParams(),
+      ...filterCtrl.toQueryParams(),
+      ...searchParams.toQueryParams(),
+    };
+
+    final response = await repo.getUsers(
+      arg,
+      page: nextPage,
+      pageSize: _pageSize,
+      params: params,
+      cancelToken: _cancelToken,
+    );
+
+    return _UsersPageResult(
+      items: response.users,
+      hasMore: response.users.length >= _pageSize,
+      nextPage: nextPage,
+      totalCount: response.totalCount,
+    );
+  }
+
+  @override
+  UsersState buildNextState(
+    UsersState currentState,
+    List<UserListItem> trimmedItems,
+    PageResult<UserListItem> result,
+  ) {
+    final r = result as _UsersPageResult;
+    return UsersState(
+      users: trimmedItems,
+      currentPage: r.nextPage,
+      totalCount: r.totalCount,
+      hasMore: r.hasMore,
+    );
+  }
 
   @override
   Future<UsersState> build(String arg) async {
@@ -147,58 +206,6 @@ class UsersController
     );
   }
 
-  Future<void> loadMore() async {
-    final currentState = state.valueOrNull;
-    if (currentState == null ||
-        !currentState.hasMore ||
-        currentState.isLoadingMore) {
-      return;
-    }
-
-    state = AsyncValue.data(currentState.copyWith(isLoadingMore: true));
-
-    try {
-      final repo = ref.read(usersRepositoryProvider);
-      final timeRange = ref.read(timeRangeControllerProvider);
-      final filterCtrl = ref.read(filterControllerProvider.notifier);
-      final searchParams = ref.read(userSearchParamsProvider);
-      final nextPage = currentState.currentPage + 1;
-
-      final params = {
-        ...timeRange.toQueryParams(),
-        ...filterCtrl.toQueryParams(),
-        ...searchParams.toQueryParams(),
-      };
-
-      final response = await repo.getUsers(
-        arg,
-        page: nextPage,
-        pageSize: _pageSize,
-        params: params,
-        cancelToken: _cancelToken,
-      );
-
-      final combined = [...currentState.users, ...response.users];
-      final trimmed = combined.length > _maxItems
-          ? combined.sublist(combined.length - _maxItems)
-          : combined;
-      state = AsyncValue.data(UsersState(
-        users: trimmed,
-        currentPage: nextPage,
-        totalCount: response.totalCount,
-        hasMore: response.users.length >= _pageSize,
-      ));
-    } on DioException catch (e) {
-      if (e.type != DioExceptionType.cancel) {
-        debugPrint('Users loadMore failed: $e');
-        state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-      }
-    } catch (e) {
-      debugPrint('Users loadMore failed: $e');
-      state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-    }
-  }
-
   Future<void> refresh() async {
     ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
@@ -208,3 +215,15 @@ class UsersController
 
 final usersControllerProvider = AsyncNotifierProvider.autoDispose.family<
     UsersController, UsersState, String>(UsersController.new);
+
+class _UsersPageResult extends PageResult<UserListItem> {
+  final int nextPage;
+  final int totalCount;
+
+  const _UsersPageResult({
+    required super.items,
+    required super.hasMore,
+    required this.nextPage,
+    required this.totalCount,
+  });
+}

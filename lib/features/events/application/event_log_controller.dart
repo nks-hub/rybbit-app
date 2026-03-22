@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
+import '../../../core/state/paginated_notifier_mixin.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../shared/models/event.dart';
 import '../data/events_repository.dart';
@@ -37,10 +37,64 @@ class EventLogState {
 }
 
 class EventLogController
-    extends AutoDisposeFamilyAsyncNotifier<EventLogState, String> {
+    extends AutoDisposeFamilyAsyncNotifier<EventLogState, String>
+    with PaginatedNotifierMixin<EventLogState, RawEvent, String> {
   static const int _pageSize = 50;
-  static const int _maxItems = 500;
   CancelToken? _cancelToken;
+
+  @override
+  int get maxItems => 500;
+
+  @override
+  List<RawEvent> getItems(EventLogState s) => s.events;
+
+  @override
+  PaginationInfo getPaginationInfo(EventLogState s) =>
+      PaginationInfo(hasMore: s.hasMore, isLoadingMore: s.isLoadingMore);
+
+  @override
+  EventLogState setLoadingMore(EventLogState s, {required bool value}) =>
+      s.copyWith(isLoadingMore: value);
+
+  @override
+  Future<PageResult<RawEvent>> fetchNextPage(EventLogState currentState) async {
+    final repo = ref.read(eventsRepositoryProvider);
+    final timeRange = ref.read(timeRangeControllerProvider);
+    final filterCtrl = ref.read(filterControllerProvider.notifier);
+
+    final params = <String, String>{
+      ...timeRange.toQueryParams(),
+      ...filterCtrl.toQueryParams(),
+      'page_size': _pageSize.toString(),
+    };
+
+    if (currentState.oldestTimestamp != null) {
+      params['before_timestamp'] = currentState.oldestTimestamp!;
+    }
+
+    final response =
+        await repo.getRawEvents(arg, params, cancelToken: _cancelToken);
+
+    return _EventLogPageResult(
+      items: response.data,
+      hasMore: response.cursor?.hasMore ?? false,
+      oldestTimestamp: response.cursor?.oldestTimestamp,
+    );
+  }
+
+  @override
+  EventLogState buildNextState(
+    EventLogState currentState,
+    List<RawEvent> trimmedItems,
+    PageResult<RawEvent> result,
+  ) {
+    final r = result as _EventLogPageResult;
+    return EventLogState(
+      events: trimmedItems,
+      hasMore: r.hasMore,
+      oldestTimestamp: r.oldestTimestamp,
+    );
+  }
 
   @override
   Future<EventLogState> build(String arg) async {
@@ -81,57 +135,6 @@ class EventLogController
     );
   }
 
-  Future<void> loadMore() async {
-    final currentState = state.valueOrNull;
-    if (currentState == null ||
-        !currentState.hasMore ||
-        currentState.isLoadingMore) {
-      return;
-    }
-
-    state = AsyncValue.data(currentState.copyWith(isLoadingMore: true));
-
-    try {
-      final repo = ref.read(eventsRepositoryProvider);
-      final timeRange = ref.read(timeRangeControllerProvider);
-      final filterCtrl = ref.read(filterControllerProvider.notifier);
-
-      final params = <String, String>{
-        ...timeRange.toQueryParams(),
-        ...filterCtrl.toQueryParams(),
-        'page_size': _pageSize.toString(),
-      };
-
-      if (currentState.oldestTimestamp != null) {
-        params['before_timestamp'] = currentState.oldestTimestamp!;
-      }
-
-      final response = await repo.getRawEvents(
-        arg,
-        params,
-        cancelToken: _cancelToken,
-      );
-
-      final combined = [...currentState.events, ...response.data];
-      final trimmed = combined.length > _maxItems
-          ? combined.sublist(combined.length - _maxItems)
-          : combined;
-      state = AsyncValue.data(EventLogState(
-        events: trimmed,
-        hasMore: response.cursor?.hasMore ?? false,
-        oldestTimestamp: response.cursor?.oldestTimestamp,
-      ));
-    } on DioException catch (e) {
-      if (e.type != DioExceptionType.cancel) {
-        debugPrint('EventLog loadMore failed: $e');
-        state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-      }
-    } catch (e) {
-      debugPrint('EventLog loadMore failed: $e');
-      state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-    }
-  }
-
   Future<void> refresh() async {
     ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
@@ -141,3 +144,13 @@ class EventLogController
 
 final eventLogControllerProvider = AsyncNotifierProvider.autoDispose.family<
     EventLogController, EventLogState, String>(EventLogController.new);
+
+class _EventLogPageResult extends PageResult<RawEvent> {
+  final String? oldestTimestamp;
+
+  const _EventLogPageResult({
+    required super.items,
+    required super.hasMore,
+    this.oldestTimestamp,
+  });
+}

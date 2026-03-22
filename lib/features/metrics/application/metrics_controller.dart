@@ -3,6 +3,7 @@ import 'package:riverpod/riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
+import '../../../core/state/paginated_notifier_mixin.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../features/analytics/data/analytics_repository.dart';
 import '../../../shared/models/metric.dart';
@@ -57,10 +58,68 @@ class MetricsState {
 }
 
 class MetricsController
-    extends AutoDisposeFamilyAsyncNotifier<MetricsState, MetricsKey> {
+    extends AutoDisposeFamilyAsyncNotifier<MetricsState, MetricsKey>
+    with PaginatedNotifierMixin<MetricsState, MetricItem, MetricsKey> {
   static const int _pageSize = 20;
-  static const int _maxItems = 500;
   CancelToken? _cancelToken;
+
+  @override
+  int get maxItems => 500;
+
+  @override
+  List<MetricItem> getItems(MetricsState s) => s.items;
+
+  @override
+  PaginationInfo getPaginationInfo(MetricsState s) =>
+      PaginationInfo(hasMore: s.hasMore, isLoadingMore: s.isLoadingMore);
+
+  @override
+  MetricsState setLoadingMore(MetricsState s, {required bool value}) =>
+      s.copyWith(isLoadingMore: value);
+
+  @override
+  Future<PageResult<MetricItem>> fetchNextPage(MetricsState currentState) async {
+    final repo = ref.read(analyticsRepositoryProvider);
+    final timeRange = ref.read(timeRangeControllerProvider);
+    final filterCtrl = ref.read(filterControllerProvider.notifier);
+    final nextPage = currentState.currentPage + 1;
+
+    final params = {
+      ...timeRange.toQueryParams(),
+      ...filterCtrl.toQueryParams(),
+      'limit': _pageSize.toString(),
+      'page': nextPage.toString(),
+    };
+
+    final response = await repo.getMetric(
+      arg.siteId,
+      arg.parameter,
+      params,
+      cancelToken: _cancelToken,
+    );
+
+    return _MetricsPageResult(
+      items: response.data,
+      hasMore: response.data.length >= _pageSize,
+      nextPage: nextPage,
+      totalCount: response.totalCount,
+    );
+  }
+
+  @override
+  MetricsState buildNextState(
+    MetricsState currentState,
+    List<MetricItem> trimmedItems,
+    PageResult<MetricItem> result,
+  ) {
+    final r = result as _MetricsPageResult;
+    return MetricsState(
+      items: trimmedItems,
+      totalCount: r.totalCount,
+      currentPage: r.nextPage,
+      hasMore: r.hasMore,
+    );
+  }
 
   @override
   Future<MetricsState> build(MetricsKey arg) async {
@@ -99,55 +158,6 @@ class MetricsController
     );
   }
 
-  Future<void> loadMore() async {
-    final currentState = state.valueOrNull;
-    if (currentState == null || !currentState.hasMore || currentState.isLoadingMore) {
-      return;
-    }
-
-    state = AsyncValue.data(currentState.copyWith(isLoadingMore: true));
-
-    try {
-      final repo = ref.read(analyticsRepositoryProvider);
-      final timeRange = ref.read(timeRangeControllerProvider);
-      final filterCtrl = ref.read(filterControllerProvider.notifier);
-      final nextPage = currentState.currentPage + 1;
-
-      final params = {
-        ...timeRange.toQueryParams(),
-        ...filterCtrl.toQueryParams(),
-        'limit': _pageSize.toString(),
-        'page': nextPage.toString(),
-      };
-
-      final response = await repo.getMetric(
-        arg.siteId,
-        arg.parameter,
-        params,
-        cancelToken: _cancelToken,
-      );
-
-      final combined = [...currentState.items, ...response.data];
-      final trimmed = combined.length > _maxItems
-          ? combined.sublist(combined.length - _maxItems)
-          : combined;
-      state = AsyncValue.data(MetricsState(
-        items: trimmed,
-        totalCount: response.totalCount,
-        currentPage: nextPage,
-        hasMore: response.data.length >= _pageSize,
-      ));
-    } on DioException catch (e) {
-      if (e.type != DioExceptionType.cancel) {
-        state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-        throw AsyncError(e, e.stackTrace);
-      }
-    } catch (e, st) {
-      state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-      throw AsyncError(e, st);
-    }
-  }
-
   Future<void> refresh() async {
     ref.read(cacheInterceptorProvider).invalidate();
     state = const AsyncValue.loading();
@@ -157,3 +167,15 @@ class MetricsController
 
 final metricsControllerProvider = AsyncNotifierProvider.autoDispose.family<
     MetricsController, MetricsState, MetricsKey>(MetricsController.new);
+
+class _MetricsPageResult extends PageResult<MetricItem> {
+  final int nextPage;
+  final int totalCount;
+
+  const _MetricsPageResult({
+    required super.items,
+    required super.hasMore,
+    required this.nextPage,
+    required this.totalCount,
+  });
+}

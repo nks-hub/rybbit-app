@@ -4,6 +4,7 @@ import 'package:riverpod/riverpod.dart';
 
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
+import '../../../core/state/paginated_notifier_mixin.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../shared/models/session.dart';
 import '../data/models.dart';
@@ -157,10 +158,68 @@ class SessionsState {
 }
 
 class SessionsController
-    extends AutoDisposeFamilyAsyncNotifier<SessionsState, String> {
+    extends AutoDisposeFamilyAsyncNotifier<SessionsState, String>
+    with PaginatedNotifierMixin<SessionsState, AnalyticsSession, String> {
   static const int _pageSize = 20;
-  static const int _maxItems = 500;
   CancelToken? _cancelToken;
+
+  @override
+  int get maxItems => 500;
+
+  @override
+  List<AnalyticsSession> getItems(SessionsState s) => s.sessions;
+
+  @override
+  PaginationInfo getPaginationInfo(SessionsState s) =>
+      PaginationInfo(hasMore: s.hasMore, isLoadingMore: s.isLoadingMore);
+
+  @override
+  SessionsState setLoadingMore(SessionsState s, {required bool value}) =>
+      s.copyWith(isLoadingMore: value);
+
+  @override
+  Future<PageResult<AnalyticsSession>> fetchNextPage(
+      SessionsState currentState) async {
+    final repo = ref.read(sessionsRepositoryProvider);
+    final timeRange = ref.read(timeRangeControllerProvider);
+    final filterCtrl = ref.read(filterControllerProvider.notifier);
+    final sessionFilter = ref.read(sessionFilterProvider);
+    final nextPage = currentState.currentPage + 1;
+
+    final params = {
+      ...timeRange.toQueryParams(),
+      ...filterCtrl.toQueryParams(),
+      ...sessionFilter.toQueryParams(),
+    };
+
+    final sessions = await repo.getSessions(
+      arg,
+      page: nextPage,
+      limit: _pageSize,
+      params: params,
+      cancelToken: _cancelToken,
+    );
+
+    return _SessionsPageResult(
+      items: sessions,
+      hasMore: sessions.length >= _pageSize,
+      nextPage: nextPage,
+    );
+  }
+
+  @override
+  SessionsState buildNextState(
+    SessionsState currentState,
+    List<AnalyticsSession> trimmedItems,
+    PageResult<AnalyticsSession> result,
+  ) {
+    final r = result as _SessionsPageResult;
+    return SessionsState(
+      sessions: trimmedItems,
+      currentPage: r.nextPage,
+      hasMore: r.hasMore,
+    );
+  }
 
   @override
   Future<SessionsState> build(String arg) async {
@@ -204,57 +263,6 @@ class SessionsController
     );
   }
 
-  Future<void> loadMore() async {
-    final currentState = state.valueOrNull;
-    if (currentState == null ||
-        !currentState.hasMore ||
-        currentState.isLoadingMore) {
-      return;
-    }
-
-    state = AsyncValue.data(currentState.copyWith(isLoadingMore: true));
-
-    try {
-      final repo = ref.read(sessionsRepositoryProvider);
-      final timeRange = ref.read(timeRangeControllerProvider);
-      final filterCtrl = ref.read(filterControllerProvider.notifier);
-      final sessionFilter = ref.read(sessionFilterProvider);
-      final nextPage = currentState.currentPage + 1;
-
-      final params = {
-        ...timeRange.toQueryParams(),
-        ...filterCtrl.toQueryParams(),
-        ...sessionFilter.toQueryParams(),
-      };
-
-      final sessions = await repo.getSessions(
-        arg,
-        page: nextPage,
-        limit: _pageSize,
-        params: params,
-        cancelToken: _cancelToken,
-      );
-
-      final combined = [...currentState.sessions, ...sessions];
-      final trimmed = combined.length > _maxItems
-          ? combined.sublist(combined.length - _maxItems)
-          : combined;
-      state = AsyncValue.data(SessionsState(
-        sessions: trimmed,
-        currentPage: nextPage,
-        hasMore: sessions.length >= _pageSize,
-      ));
-    } on DioException catch (e) {
-      if (e.type != DioExceptionType.cancel) {
-        debugPrint('Sessions loadMore failed: $e');
-        state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-      }
-    } catch (e) {
-      debugPrint('Sessions loadMore failed: $e');
-      state = AsyncValue.data(currentState.copyWith(isLoadingMore: false));
-    }
-  }
-
   Future<void> refresh() async {
     ref.read(cacheInterceptorProvider).invalidate();
     // Invalidate all cached session details
@@ -266,3 +274,13 @@ class SessionsController
 
 final sessionsControllerProvider = AsyncNotifierProvider.autoDispose.family<
     SessionsController, SessionsState, String>(SessionsController.new);
+
+class _SessionsPageResult extends PageResult<AnalyticsSession> {
+  final int nextPage;
+
+  const _SessionsPageResult({
+    required super.items,
+    required super.hasMore,
+    required this.nextPage,
+  });
+}
