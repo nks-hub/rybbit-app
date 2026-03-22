@@ -3,7 +3,19 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   errors:
     invalid_annotation_target: ignore
+  language:
+    strict-casts: true
 
 linter:
   rules:
     unnecessary_getters_setters: false
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_final_fields: true
+    prefer_final_locals: true
+    use_super_parameters: true
+    avoid_print: true
+    unawaited_futures: true
+    prefer_single_quotes: true
+    sort_child_properties_last: true
+    use_build_context_synchronously: true
