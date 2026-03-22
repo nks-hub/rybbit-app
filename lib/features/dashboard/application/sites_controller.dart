@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:riverpod/riverpod.dart';
 
@@ -82,13 +83,19 @@ class SitesController extends AsyncNotifier<SitesState> {
 
     final repo = ref.read(sitesRepositoryProvider);
     final counts = <String, int>{};
+    final sites = currentState.sites;
 
-    await Future.wait(
-      currentState.sites.map((site) async {
-        final count = await repo.getLiveUserCount(site.siteId.toString());
-        counts[site.siteId.toString()] = count;
-      }),
-    );
+    // Limit concurrency to 4 to avoid overwhelming the server with N requests.
+    const maxConcurrent = 4;
+    for (var i = 0; i < sites.length; i += maxConcurrent) {
+      final batch = sites.sublist(i, min(i + maxConcurrent, sites.length));
+      await Future.wait(
+        batch.map((site) async {
+          final count = await repo.getLiveUserCount(site.siteId.toString());
+          counts[site.siteId.toString()] = count;
+        }),
+      );
+    }
 
     state = AsyncValue.data(currentState.copyWith(liveCounts: counts));
   }

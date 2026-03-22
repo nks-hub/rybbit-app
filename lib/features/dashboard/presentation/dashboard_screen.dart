@@ -38,7 +38,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       ref.read(sitesControllerProvider.notifier).refreshLiveCounts();
     });
     _liveCountTimer = Timer.periodic(
-      const Duration(seconds: 30),
+      const Duration(seconds: 60),
       (_) => ref.read(sitesControllerProvider.notifier).refreshLiveCounts(),
     );
   }
