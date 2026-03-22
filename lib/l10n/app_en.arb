@@ -33,6 +33,8 @@
   "invalidApiKey": "Invalid API key",
   "connectionFailedApiKey": "Connection failed. Check server URL and API key.",
   "unexpectedError": "An unexpected error occurred. Please try again.",
+  "loginRateLimited": "Too many failed attempts. Please wait {seconds}s before trying again.",
+  "@loginRateLimited": { "placeholders": { "seconds": { "type": "String" } } },
 
   "organizations": "Organizations",
   "noSitesFound": "No sites found",
