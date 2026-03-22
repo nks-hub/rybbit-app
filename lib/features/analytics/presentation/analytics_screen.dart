@@ -12,8 +12,8 @@ import '../../../shared/widgets/time_range_picker.dart';
 import '../../../shared/widgets/time_series_chart.dart';
 import '../../../core/state/current_site_provider.dart';
 import '../application/analytics_controller.dart';
-import '../application/filter_controller.dart';
-import '../application/time_range_controller.dart';
+import '../../../core/state/filter_controller.dart';
+import '../../../core/state/time_range_controller.dart';
 
 enum SelectedStat {
   users,

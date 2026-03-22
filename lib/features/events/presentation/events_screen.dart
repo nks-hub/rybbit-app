@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
-import '../../../features/analytics/application/filter_controller.dart';
-import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../core/state/filter_controller.dart';
+import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/event.dart';
 import '../../../shared/utils/formatters.dart';

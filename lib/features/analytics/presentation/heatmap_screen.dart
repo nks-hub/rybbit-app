@@ -7,7 +7,7 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/overview.dart';
 import '../../../shared/utils/formatters.dart';
-import '../application/filter_controller.dart';
+import '../../../core/state/filter_controller.dart';
 import '../data/analytics_repository.dart';
 
 /// Fetches 4 weeks of hourly bucketed data for the heatmap.

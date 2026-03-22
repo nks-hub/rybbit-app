@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/state/current_site_provider.dart';
-import '../../../features/analytics/application/filter_controller.dart';
-import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../core/state/filter_controller.dart';
+import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/errors_repository.dart';

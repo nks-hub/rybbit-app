@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
-import '../../../features/analytics/application/filter_controller.dart';
-import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../core/state/filter_controller.dart';
+import '../../../core/state/time_range_controller.dart';
 import '../data/users_repository.dart';
 
 enum UserSortBy {

@@ -7,8 +7,8 @@ import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/journey.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/analytics_repository.dart';
-import '../application/time_range_controller.dart';
-import '../application/filter_controller.dart';
+import '../../../core/state/filter_controller.dart';
+import '../../../core/state/time_range_controller.dart';
 
 final _journeysProvider = FutureProvider.family
     .autoDispose<List<JourneyPath>, ({String siteId, int steps})>(

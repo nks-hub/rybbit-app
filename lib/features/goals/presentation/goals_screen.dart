@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/goal.dart';
 import '../../../shared/utils/formatters.dart';

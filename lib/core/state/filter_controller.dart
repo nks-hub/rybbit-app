@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:riverpod/riverpod.dart';
 
-import '../../../shared/models/filter.dart';
+import '../../shared/models/filter.dart';
 
 class FilterController extends Notifier<List<Filter>> {
   @override

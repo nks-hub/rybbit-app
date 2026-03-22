@@ -2,8 +2,8 @@ import 'package:riverpod/riverpod.dart';
 
 import '../../../shared/models/overview.dart';
 import '../data/analytics_repository.dart';
-import 'filter_controller.dart';
-import 'time_range_controller.dart';
+import '../../../core/state/filter_controller.dart';
+import '../../../core/state/time_range_controller.dart';
 
 class AnalyticsState {
   final Overview? overview;

@@ -6,7 +6,7 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/filter.dart';
 import '../../../shared/utils/formatters.dart';
-import '../../analytics/application/filter_controller.dart';
+import '../../../core/state/filter_controller.dart';
 import '../application/metrics_controller.dart';
 import 'widgets/metric_list_item.dart';
 

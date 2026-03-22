@@ -1,7 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 
-import '../../../features/analytics/application/filter_controller.dart';
-import '../../../features/analytics/application/time_range_controller.dart';
+import '../../../core/state/filter_controller.dart';
+import '../../../core/state/time_range_controller.dart';
 import '../../../features/analytics/data/analytics_repository.dart';
 import '../../../shared/models/metric.dart';
 

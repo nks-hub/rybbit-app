@@ -1,8 +1,8 @@
 import 'package:intl/intl.dart';
 import 'package:riverpod/riverpod.dart';
 
-import '../../../l10n/app_localizations.dart';
-import '../../../shared/models/time_range.dart';
+import '../../l10n/app_localizations.dart';
+import '../../shared/models/time_range.dart';
 
 String _systemTimeZone() {
   return DateTime.now().timeZoneName;
