@@ -38,7 +38,7 @@ class AnalyticsState {
 }
 
 class AnalyticsController
-    extends FamilyAsyncNotifier<AnalyticsState, String> {
+    extends AutoDisposeFamilyAsyncNotifier<AnalyticsState, String> {
   @override
   Future<AnalyticsState> build(String arg) async {
     // Watch dependencies to auto-rebuild when they change
@@ -99,5 +99,5 @@ class AnalyticsController
   }
 }
 
-final analyticsControllerProvider = AsyncNotifierProvider.family<
+final analyticsControllerProvider = AsyncNotifierProvider.autoDispose.family<
     AnalyticsController, AnalyticsState, String>(AnalyticsController.new);

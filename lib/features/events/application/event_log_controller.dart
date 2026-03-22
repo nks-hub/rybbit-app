@@ -34,8 +34,10 @@ class EventLogState {
   }
 }
 
-class EventLogController extends FamilyAsyncNotifier<EventLogState, String> {
+class EventLogController
+    extends AutoDisposeFamilyAsyncNotifier<EventLogState, String> {
   static const int _pageSize = 50;
+  static const int _maxItems = 500;
 
   @override
   Future<EventLogState> build(String arg) async {
@@ -95,8 +97,12 @@ class EventLogController extends FamilyAsyncNotifier<EventLogState, String> {
 
       final response = await repo.getRawEvents(arg, params);
 
+      final combined = [...currentState.events, ...response.data];
+      final trimmed = combined.length > _maxItems
+          ? combined.sublist(combined.length - _maxItems)
+          : combined;
       state = AsyncValue.data(EventLogState(
-        events: [...currentState.events, ...response.data],
+        events: trimmed,
         hasMore: response.cursor?.hasMore ?? false,
         oldestTimestamp: response.cursor?.oldestTimestamp,
       ));
@@ -112,5 +118,5 @@ class EventLogController extends FamilyAsyncNotifier<EventLogState, String> {
   }
 }
 
-final eventLogControllerProvider = AsyncNotifierProvider.family<
+final eventLogControllerProvider = AsyncNotifierProvider.autoDispose.family<
     EventLogController, EventLogState, String>(EventLogController.new);

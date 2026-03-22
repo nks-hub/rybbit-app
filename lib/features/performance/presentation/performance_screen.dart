@@ -65,7 +65,7 @@ enum WebVital {
 
 /// Provider for performance overview.
 final _perfOverviewProvider =
-    FutureProvider.family<PerformanceOverview, String>((ref, siteId) async {
+    FutureProvider.autoDispose.family<PerformanceOverview, String>((ref, siteId) async {
   ref.watch(timeRangeControllerProvider);
   ref.watch(filterControllerProvider);
 
@@ -116,7 +116,7 @@ final _selectedDimensionProvider =
     StateProvider<PerfDimension>((ref) => PerfDimension.pathname);
 
 /// Provider for performance by dimension breakdown.
-final _perfByDimensionProvider = FutureProvider.family<
+final _perfByDimensionProvider = FutureProvider.autoDispose.family<
     List<PerformanceDimensionItem>, String>((ref, siteId) async {
   ref.watch(timeRangeControllerProvider);
   ref.watch(filterControllerProvider);
@@ -135,7 +135,7 @@ final _perfByDimensionProvider = FutureProvider.family<
 });
 
 /// Provider for time series of selected metric.
-final _perfTimeSeriesProvider = FutureProvider.family<
+final _perfTimeSeriesProvider = FutureProvider.autoDispose.family<
     List<PerformanceTimeSeries>, String>((ref, siteId) async {
   ref.watch(timeRangeControllerProvider);
   ref.watch(filterControllerProvider);

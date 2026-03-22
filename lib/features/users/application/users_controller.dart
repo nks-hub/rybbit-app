@@ -95,8 +95,10 @@ class UsersState {
   }
 }
 
-class UsersController extends FamilyAsyncNotifier<UsersState, String> {
+class UsersController
+    extends AutoDisposeFamilyAsyncNotifier<UsersState, String> {
   static const int _pageSize = 20;
+  static const int _maxItems = 500;
 
   @override
   Future<UsersState> build(String arg) async {
@@ -163,8 +165,12 @@ class UsersController extends FamilyAsyncNotifier<UsersState, String> {
         params: params,
       );
 
+      final combined = [...currentState.users, ...response.users];
+      final trimmed = combined.length > _maxItems
+          ? combined.sublist(combined.length - _maxItems)
+          : combined;
       state = AsyncValue.data(UsersState(
-        users: [...currentState.users, ...response.users],
+        users: trimmed,
         currentPage: nextPage,
         totalCount: response.totalCount,
         hasMore: response.users.length >= _pageSize,
@@ -181,5 +187,5 @@ class UsersController extends FamilyAsyncNotifier<UsersState, String> {
   }
 }
 
-final usersControllerProvider = AsyncNotifierProvider.family<UsersController,
-    UsersState, String>(UsersController.new);
+final usersControllerProvider = AsyncNotifierProvider.autoDispose.family<
+    UsersController, UsersState, String>(UsersController.new);

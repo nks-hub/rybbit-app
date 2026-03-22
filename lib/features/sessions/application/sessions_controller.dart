@@ -153,8 +153,10 @@ class SessionsState {
   }
 }
 
-class SessionsController extends FamilyAsyncNotifier<SessionsState, String> {
+class SessionsController
+    extends AutoDisposeFamilyAsyncNotifier<SessionsState, String> {
   static const int _pageSize = 20;
+  static const int _maxItems = 500;
 
   @override
   Future<SessionsState> build(String arg) async {
@@ -220,8 +222,12 @@ class SessionsController extends FamilyAsyncNotifier<SessionsState, String> {
         params: params,
       );
 
+      final combined = [...currentState.sessions, ...sessions];
+      final trimmed = combined.length > _maxItems
+          ? combined.sublist(combined.length - _maxItems)
+          : combined;
       state = AsyncValue.data(SessionsState(
-        sessions: [...currentState.sessions, ...sessions],
+        sessions: trimmed,
         currentPage: nextPage,
         hasMore: sessions.length >= _pageSize,
       ));
@@ -239,5 +245,5 @@ class SessionsController extends FamilyAsyncNotifier<SessionsState, String> {
   }
 }
 
-final sessionsControllerProvider = AsyncNotifierProvider.family<
+final sessionsControllerProvider = AsyncNotifierProvider.autoDispose.family<
     SessionsController, SessionsState, String>(SessionsController.new);

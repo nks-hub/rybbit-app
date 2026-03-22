@@ -54,8 +54,10 @@ class MetricsState {
   }
 }
 
-class MetricsController extends FamilyAsyncNotifier<MetricsState, MetricsKey> {
+class MetricsController
+    extends AutoDisposeFamilyAsyncNotifier<MetricsState, MetricsKey> {
   static const int _pageSize = 20;
+  static const int _maxItems = 500;
 
   @override
   Future<MetricsState> build(MetricsKey arg) async {
@@ -109,8 +111,12 @@ class MetricsController extends FamilyAsyncNotifier<MetricsState, MetricsKey> {
 
       final response = await repo.getMetric(arg.siteId, arg.parameter, params);
 
+      final combined = [...currentState.items, ...response.data];
+      final trimmed = combined.length > _maxItems
+          ? combined.sublist(combined.length - _maxItems)
+          : combined;
       state = AsyncValue.data(MetricsState(
-        items: [...currentState.items, ...response.data],
+        items: trimmed,
         totalCount: response.totalCount,
         currentPage: nextPage,
         hasMore: response.data.length >= _pageSize,
@@ -128,5 +134,5 @@ class MetricsController extends FamilyAsyncNotifier<MetricsState, MetricsKey> {
   }
 }
 
-final metricsControllerProvider = AsyncNotifierProvider.family<
+final metricsControllerProvider = AsyncNotifierProvider.autoDispose.family<
     MetricsController, MetricsState, MetricsKey>(MetricsController.new);

@@ -3,7 +3,7 @@ import 'package:riverpod/riverpod.dart';
 import '../../analytics/data/analytics_repository.dart';
 
 final sparklineProvider =
-    FutureProvider.family<List<double>, String>(
+    FutureProvider.autoDispose.family<List<double>, String>(
   (ref, siteId) async {
     final repo = ref.watch(analyticsRepositoryProvider);
     final now = DateTime.now().toUtc();
@@ -36,7 +36,7 @@ final sparklineProvider =
 
 /// Provider for today's unique visitors per site.
 final todayUsersProvider =
-    FutureProvider.family<int, String>(
+    FutureProvider.autoDispose.family<int, String>(
   (ref, siteId) async {
     final repo = ref.watch(analyticsRepositoryProvider);
     final today = DateTime.now().toIso8601String().split('T').first;
