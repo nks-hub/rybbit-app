@@ -134,6 +134,38 @@ void main() {
     });
   });
 
+  group('_systemTimeZone via TimeRangeController', () {
+    late ProviderContainer container;
+
+    setUp(() {
+      container = ProviderContainer();
+    });
+
+    tearDown(() {
+      container.dispose();
+    });
+
+    test('initial state timeZone matches UTC offset format', () {
+      final state = container.read(timeRangeControllerProvider);
+      // _systemTimeZone() returns e.g. "UTC+01:00" or "UTC-05:00" or "UTC+00:00"
+      expect(state.timeZone,
+          matches(RegExp(r'^UTC[+-]\d{2}:\d{2}$')));
+    });
+
+    test('setToday timeZone matches UTC offset format', () {
+      final notifier = container.read(timeRangeControllerProvider.notifier);
+      notifier.setToday();
+      final state = container.read(timeRangeControllerProvider);
+      expect(state.timeZone, matches(RegExp(r'^UTC[+-]\d{2}:\d{2}$')));
+    });
+
+    test('toQueryParams includes timeZone in UTC offset format', () {
+      final state = container.read(timeRangeControllerProvider);
+      final params = state.toQueryParams();
+      expect(params['time_zone'], matches(RegExp(r'^UTC[+-]\d{2}:\d{2}$')));
+    });
+  });
+
   group('TimeRangeController.setCustomRange bucket logic', () {
     late ProviderContainer container;
 
