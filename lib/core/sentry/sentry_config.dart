@@ -25,8 +25,8 @@ class SentryConfig {
         options.tracesSampleRate = kDebugMode ? 1.0 : 0.2;
         options.release = version;
         options.environment = kDebugMode ? 'debug' : 'production';
-        options.attachScreenshot = true;
-        options.attachViewHierarchy = true;
+        options.attachScreenshot = kDebugMode;
+        options.attachViewHierarchy = kDebugMode;
         options.sendDefaultPii = false;
       },
       appRunner: appRunner,
