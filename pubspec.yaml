@@ -21,7 +21,7 @@ dependencies:
   dio_cookie_manager: ^3.4.0
   shared_preferences: ^2.3.0
   flutter_secure_storage: ^10.0.0
-  fl_chart: ^0.70.2
+  fl_chart: ^1.2.0
   intl: ^0.20.2
   sentry_flutter: ^9.15.0
   sentry_dio: ^9.15.0
