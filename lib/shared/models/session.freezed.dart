@@ -132,7 +132,8 @@ abstract class $AnalyticsSessionCopyWith<$Res> {
     String? identifiedUserId,
     @JsonKey(fromJson: _traitsFromJson) Map<String, dynamic>? traits,
     @JsonKey(name: 'app_version', fromJson: _toStringOrNull) String? appVersion,
-    @JsonKey(name: 'device_model', fromJson: _toStringOrNull) String? deviceModel,
+    @JsonKey(name: 'device_model', fromJson: _toStringOrNull)
+    String? deviceModel,
   });
 }
 
@@ -355,7 +356,8 @@ abstract class _$$AnalyticsSessionImplCopyWith<$Res>
     String? identifiedUserId,
     @JsonKey(fromJson: _traitsFromJson) Map<String, dynamic>? traits,
     @JsonKey(name: 'app_version', fromJson: _toStringOrNull) String? appVersion,
-    @JsonKey(name: 'device_model', fromJson: _toStringOrNull) String? deviceModel,
+    @JsonKey(name: 'device_model', fromJson: _toStringOrNull)
+    String? deviceModel,
   });
 }
 
