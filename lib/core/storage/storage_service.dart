@@ -19,7 +19,7 @@ abstract class StorageService {
 class StorageServiceImpl implements StorageService {
   late SharedPreferences _prefs;
   final _secureStorage = const FlutterSecureStorage(
-    aOptions: AndroidOptions(encryptedSharedPreferences: true),
+    aOptions: AndroidOptions(),
   );
 
   @override
