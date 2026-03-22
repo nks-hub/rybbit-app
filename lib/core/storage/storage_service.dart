@@ -8,19 +8,23 @@ class StorageService {
     aOptions: AndroidOptions(encryptedSharedPreferences: true),
   );
 
+  /// Duration after which saved credentials expire and require re-login.
+  static const credentialTtl = Duration(days: 30);
+
   static Future<void> init() async {
     await Hive.initFlutter();
     _settingsBox = await Hive.openBox<dynamic>(_settingsBoxName);
   }
 
-  // Secure storage (tokens, keys) with Hive backup
+  // Secure storage (tokens, keys) with Hive fallback only when
+  // FlutterSecureStorage is unavailable.
   static Future<void> saveSecure(String key, String value) async {
     try {
       await _secureStorage.write(key: key, value: value);
     } catch (_) {
-      // Keychain unavailable (e.g. missing entitlements on simulator)
+      // Keychain unavailable - fall back to Hive
+      await _settingsBox.put('_s_$key', value);
     }
-    await _settingsBox.put('_s_$key', value);
   }
 
   static Future<String?> readSecure(String key) async {
@@ -28,7 +32,7 @@ class StorageService {
       final value = await _secureStorage.read(key: key);
       if (value != null && value.isNotEmpty) return value;
     } catch (_) {
-      // SecureStorage failed, try Hive backup
+      // SecureStorage failed, try Hive fallback
     }
     return _settingsBox.get('_s_$key') as String?;
   }
@@ -40,6 +44,30 @@ class StorageService {
       // Keychain unavailable
     }
     await _settingsBox.delete('_s_$key');
+  }
+
+  /// Saves the current timestamp as the credential storage time.
+  static Future<void> stampCredentialTime() async {
+    await saveSetting(
+      '_credential_ts',
+      DateTime.now().millisecondsSinceEpoch,
+    );
+  }
+
+  /// Returns true if stored credentials have expired (older than [credentialTtl]).
+  static bool areCredentialsExpired() {
+    final ts = readSetting('_credential_ts') as int?;
+    if (ts == null) return true;
+    final stored = DateTime.fromMillisecondsSinceEpoch(ts);
+    return DateTime.now().difference(stored) > credentialTtl;
+  }
+
+  /// Removes saved login credentials and their timestamp.
+  static Future<void> clearCredentials() async {
+    await deleteSecure('last_email');
+    await deleteSecure('last_password');
+    await deleteSecure('api_key');
+    await deleteSetting('_credential_ts');
   }
 
   // Settings (Hive)

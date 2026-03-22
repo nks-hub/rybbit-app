@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../../../core/config/app_config.dart';
+import '../../../core/network/dio_provider.dart';
 import '../../../core/storage/storage_service.dart';
 import '../data/auth_repository.dart';
 
@@ -45,6 +46,16 @@ class AuthController extends Notifier<AuthState> {
     return const AuthState();
   }
 
+  /// Applies config and invalidates the Dio provider so that
+  /// subsequent reads return a client with the updated baseUrl/apiKey.
+  void _applyConfig({required String serverUrl, String? apiKey}) {
+    ref.read(appConfigNotifierProvider.notifier).setConfig(
+          serverUrl: serverUrl,
+          apiKey: apiKey,
+        );
+    ref.invalidate(dioProvider);
+  }
+
   Future<void> login(
     String serverUrl,
     String email,
@@ -53,11 +64,7 @@ class AuthController extends Notifier<AuthState> {
     state = state.copyWith(isLoading: true, error: null);
 
     try {
-      ref.read(appConfigNotifierProvider.notifier).setConfig(
-            serverUrl: serverUrl,
-          );
-
-      await Future<void>.delayed(const Duration(milliseconds: 100));
+      _applyConfig(serverUrl: serverUrl);
 
       final repo = ref.read(authRepositoryProvider);
       final result = await repo.login(email, password);
@@ -66,6 +73,7 @@ class AuthController extends Notifier<AuthState> {
       await StorageService.saveSecure('last_email', email);
       await StorageService.saveSecure('last_password', password);
       await StorageService.deleteSecure('api_key');
+      await StorageService.stampCredentialTime();
 
       // Session cookie is automatically persisted by PersistCookieJar
       final user = result['user'] as Map<String, dynamic>?;
@@ -96,12 +104,7 @@ class AuthController extends Notifier<AuthState> {
     state = state.copyWith(isLoading: true, error: null);
 
     try {
-      ref.read(appConfigNotifierProvider.notifier).setConfig(
-            serverUrl: serverUrl,
-            apiKey: apiKey,
-          );
-
-      await Future<void>.delayed(const Duration(milliseconds: 100));
+      _applyConfig(serverUrl: serverUrl, apiKey: apiKey);
 
       final repo = ref.read(authRepositoryProvider);
       final user = await repo.verifyApiKey();
@@ -117,6 +120,7 @@ class AuthController extends Notifier<AuthState> {
 
       await StorageService.saveSecure('server_url', serverUrl);
       await StorageService.saveSecure('api_key', apiKey);
+      await StorageService.stampCredentialTime();
 
       state = AuthState(
         status: AuthStatus.authenticated,
@@ -148,12 +152,14 @@ class AuthController extends Notifier<AuthState> {
       return;
     }
 
-    ref.read(appConfigNotifierProvider.notifier).setConfig(
-          serverUrl: serverUrl,
-          apiKey: apiKey,
-        );
+    // Credentials expired - require fresh login
+    if (StorageService.areCredentialsExpired()) {
+      await StorageService.clearCredentials();
+      state = const AuthState(status: AuthStatus.unauthenticated);
+      return;
+    }
 
-    await Future<void>.delayed(const Duration(milliseconds: 200));
+    _applyConfig(serverUrl: serverUrl, apiKey: apiKey);
 
     try {
       final repo = ref.read(authRepositoryProvider);
@@ -195,11 +201,7 @@ class AuthController extends Notifier<AuthState> {
         password != null &&
         password.isNotEmpty) {
       try {
-        // Re-set config to ensure Dio has correct baseUrl
-        ref.read(appConfigNotifierProvider.notifier).setConfig(
-              serverUrl: serverUrl,
-            );
-        await Future<void>.delayed(const Duration(milliseconds: 200));
+        _applyConfig(serverUrl: serverUrl);
 
         final repo = ref.read(authRepositoryProvider);
         final result = await repo.login(email, password);
@@ -225,8 +227,8 @@ class AuthController extends Notifier<AuthState> {
       // Logout even if API call fails
     }
 
-    await StorageService.deleteSecure('api_key');
-    await StorageService.deleteSecure('last_password');
+    await StorageService.clearCredentials();
+    await StorageService.deleteSecure('server_url');
     ref.read(appConfigNotifierProvider.notifier).clear();
 
     state = const AuthState(status: AuthStatus.unauthenticated);
