@@ -6,6 +6,7 @@ import '../../../core/state/current_site_provider.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
+import '../data/models.dart';
 import '../data/users_repository.dart';
 
 /// Provider for user detail, keyed by "siteId:userId".

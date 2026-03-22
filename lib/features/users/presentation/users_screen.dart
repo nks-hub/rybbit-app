@@ -11,7 +11,7 @@ import '../../../shared/utils/formatters.dart';
 import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../application/users_controller.dart';
-import '../data/users_repository.dart';
+import '../data/models.dart';
 
 String _localizedSortLabel(AppLocalizations l10n, UserSortBy sortBy, {bool isMobile = false}) {
   switch (sortBy) {

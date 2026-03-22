@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/organization.dart';
 import '../../../shared/utils/formatters.dart';
+import '../data/models.dart';
 import '../data/organizations_repository.dart';
 
 /// Provider for organizations list.

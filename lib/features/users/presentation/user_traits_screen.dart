@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/state/current_site_provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
+import '../data/models.dart';
 import '../data/users_repository.dart';
 
 final _traitKeysProvider =

@@ -11,6 +11,7 @@ import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../../../shared/widgets/time_series_chart.dart';
 import '../data/performance_repository.dart';
+import '../data/models.dart';
 
 /// Web Vital metric definitions with thresholds.
 enum WebVital {

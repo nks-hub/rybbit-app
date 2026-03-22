@@ -6,6 +6,7 @@ import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../shared/models/session.dart';
+import '../data/models.dart';
 import '../data/sessions_repository.dart';
 
 // ── Session Detail Controller ───────────────────────────────────

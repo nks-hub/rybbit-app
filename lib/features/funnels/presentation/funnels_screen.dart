@@ -9,6 +9,7 @@ import '../../../shared/utils/formatters.dart';
 import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../data/funnels_repository.dart';
+import '../data/models.dart';
 
 /// Provider for saved funnels list.
 final _funnelsProvider =

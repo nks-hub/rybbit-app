@@ -10,7 +10,7 @@ import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
 import '../../../shared/utils/user_display_name.dart';
 import '../application/sessions_controller.dart';
-import '../data/sessions_repository.dart';
+import '../data/models.dart';
 
 class SessionDetailScreen extends ConsumerStatefulWidget {
   final String siteId;

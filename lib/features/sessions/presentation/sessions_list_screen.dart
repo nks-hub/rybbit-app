@@ -12,7 +12,7 @@ import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../../../shared/utils/user_display_name.dart';
 import '../application/sessions_controller.dart';
-import '../data/sessions_repository.dart';
+import '../data/models.dart';
 
 // ── Filter Dialog ────────────────────────────────────────────────
 

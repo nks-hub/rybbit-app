@@ -5,6 +5,7 @@ import 'package:riverpod/riverpod.dart';
 import '../../../core/network/cache_interceptor.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
+import '../data/models.dart';
 import '../data/users_repository.dart';
 
 enum UserSortBy {

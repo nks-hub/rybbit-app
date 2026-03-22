@@ -14,6 +14,7 @@ import '../../../shared/utils/formatters.dart';
 import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/time_series_chart.dart';
 import '../data/events_repository.dart';
+import '../data/models.dart';
 
 /// Provider for event names list.
 final _eventNamesProvider = FutureProvider.family<List<EventName>, String>((ref, siteId) async {

@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
+import '../data/models.dart';
 import '../data/replay_repository.dart';
 
 /// Provider for the replay list, keyed by (siteId, page).

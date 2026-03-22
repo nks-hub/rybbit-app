@@ -11,6 +11,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../../../shared/widgets/error_view.dart';
 import '../data/errors_repository.dart';
+import '../data/models.dart';
 
 /// Provider for error names list.
 final _errorNamesProvider = FutureProvider.family<List<ErrorNameItem>, String>((ref, siteId) async {
