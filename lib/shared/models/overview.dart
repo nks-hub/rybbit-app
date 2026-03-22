@@ -4,7 +4,7 @@ part 'overview.freezed.dart';
 part 'overview.g.dart';
 
 @freezed
-class Overview with _$Overview {
+abstract class Overview with _$Overview {
   const factory Overview({
     @Default(0) int sessions,
     @Default(0) int pageviews,
@@ -19,7 +19,7 @@ class Overview with _$Overview {
 }
 
 @freezed
-class OverviewBucket with _$OverviewBucket {
+abstract class OverviewBucket with _$OverviewBucket {
   const factory OverviewBucket({
     @Default('') String time,
     @Default(0) int pageviews,

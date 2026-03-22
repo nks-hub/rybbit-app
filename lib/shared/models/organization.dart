@@ -4,7 +4,7 @@ part 'organization.freezed.dart';
 part 'organization.g.dart';
 
 @freezed
-class Organization with _$Organization {
+abstract class Organization with _$Organization {
   const factory Organization({
     required String id,
     required String name,
@@ -17,7 +17,7 @@ class Organization with _$Organization {
 }
 
 @freezed
-class OrgWithSites with _$OrgWithSites {
+abstract class OrgWithSites with _$OrgWithSites {
   const factory OrgWithSites({
     required Organization organization,
     required List<dynamic> sites,

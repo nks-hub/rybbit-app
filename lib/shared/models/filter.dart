@@ -68,7 +68,7 @@ enum FilterParameter {
 }
 
 @freezed
-class Filter with _$Filter {
+abstract class Filter with _$Filter {
   const factory Filter({
     required FilterParameter parameter,
     required FilterType type,

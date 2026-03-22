@@ -4,7 +4,7 @@ part 'metric.freezed.dart';
 part 'metric.g.dart';
 
 @freezed
-class MetricItem with _$MetricItem {
+abstract class MetricItem with _$MetricItem {
   const factory MetricItem({
     required String value,
     String? title,
@@ -22,7 +22,7 @@ class MetricItem with _$MetricItem {
 }
 
 @freezed
-class MetricResponse with _$MetricResponse {
+abstract class MetricResponse with _$MetricResponse {
   const factory MetricResponse({
     required List<MetricItem> data,
     @JsonKey(name: 'totalCount') @Default(0) int totalCount,

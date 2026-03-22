@@ -49,7 +49,7 @@ enum TimeBucket {
 }
 
 @freezed
-class TimeRange with _$TimeRange {
+abstract class TimeRange with _$TimeRange {
   const TimeRange._();
 
   const factory TimeRange({

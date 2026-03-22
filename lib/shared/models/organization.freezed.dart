@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,417 +9,568 @@ part of 'organization.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-Organization _$OrganizationFromJson(Map<String, dynamic> json) {
-  return _Organization.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Organization {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get slug => throw _privateConstructorUsedError;
-  String? get logo => throw _privateConstructorUsedError;
+
+ String get id; String get name; String get slug; String? get logo;
+/// Create a copy of Organization
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$OrganizationCopyWith<Organization> get copyWith => _$OrganizationCopyWithImpl<Organization>(this as Organization, _$identity);
 
   /// Serializes this Organization to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Organization
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $OrganizationCopyWith<Organization> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Organization&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.logo, logo) || other.logo == logo));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,name,slug,logo);
+
+@override
+String toString() {
+  return 'Organization(id: $id, name: $name, slug: $slug, logo: $logo)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $OrganizationCopyWith<$Res> {
-  factory $OrganizationCopyWith(
-    Organization value,
-    $Res Function(Organization) then,
-  ) = _$OrganizationCopyWithImpl<$Res, Organization>;
-  @useResult
-  $Res call({String id, String name, String slug, String? logo});
-}
+abstract mixin class $OrganizationCopyWith<$Res>  {
+  factory $OrganizationCopyWith(Organization value, $Res Function(Organization) _then) = _$OrganizationCopyWithImpl;
+@useResult
+$Res call({
+ String id, String name, String slug, String? logo
+});
 
+
+
+
+}
 /// @nodoc
-class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
+class _$OrganizationCopyWithImpl<$Res>
     implements $OrganizationCopyWith<$Res> {
-  _$OrganizationCopyWithImpl(this._value, this._then);
+  _$OrganizationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Organization _self;
+  final $Res Function(Organization) _then;
 
-  /// Create a copy of Organization
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? slug = null,
-    Object? logo = freezed,
-  }) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as String,
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            slug: null == slug
-                ? _value.slug
-                : slug // ignore: cast_nullable_to_non_nullable
-                      as String,
-            logo: freezed == logo
-                ? _value.logo
-                : logo // ignore: cast_nullable_to_non_nullable
-                      as String?,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of Organization
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? slug = null,Object? logo = freezed,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,slug: null == slug ? _self.slug : slug // ignore: cast_nullable_to_non_nullable
+as String,logo: freezed == logo ? _self.logo : logo // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$OrganizationImplCopyWith<$Res>
-    implements $OrganizationCopyWith<$Res> {
-  factory _$$OrganizationImplCopyWith(
-    _$OrganizationImpl value,
-    $Res Function(_$OrganizationImpl) then,
-  ) = __$$OrganizationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, String name, String slug, String? logo});
 }
 
-/// @nodoc
-class __$$OrganizationImplCopyWithImpl<$Res>
-    extends _$OrganizationCopyWithImpl<$Res, _$OrganizationImpl>
-    implements _$$OrganizationImplCopyWith<$Res> {
-  __$$OrganizationImplCopyWithImpl(
-    _$OrganizationImpl _value,
-    $Res Function(_$OrganizationImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of Organization
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? slug = null,
-    Object? logo = freezed,
-  }) {
-    return _then(
-      _$OrganizationImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as String,
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        slug: null == slug
-            ? _value.slug
-            : slug // ignore: cast_nullable_to_non_nullable
-                  as String,
-        logo: freezed == logo
-            ? _value.logo
-            : logo // ignore: cast_nullable_to_non_nullable
-                  as String?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [Organization].
+extension OrganizationPatterns on Organization {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Organization value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Organization() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Organization value)  $default,){
+final _that = this;
+switch (_that) {
+case _Organization():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Organization value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Organization() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String slug,  String? logo)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Organization() when $default != null:
+return $default(_that.id,_that.name,_that.slug,_that.logo);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String slug,  String? logo)  $default,) {final _that = this;
+switch (_that) {
+case _Organization():
+return $default(_that.id,_that.name,_that.slug,_that.logo);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String slug,  String? logo)?  $default,) {final _that = this;
+switch (_that) {
+case _Organization() when $default != null:
+return $default(_that.id,_that.name,_that.slug,_that.logo);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$OrganizationImpl implements _Organization {
-  const _$OrganizationImpl({
-    required this.id,
-    required this.name,
-    required this.slug,
-    this.logo,
-  });
 
-  factory _$OrganizationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OrganizationImplFromJson(json);
+class _Organization implements Organization {
+  const _Organization({required this.id, required this.name, required this.slug, this.logo});
+  factory _Organization.fromJson(Map<String, dynamic> json) => _$OrganizationFromJson(json);
 
-  @override
-  final String id;
-  @override
-  final String name;
-  @override
-  final String slug;
-  @override
-  final String? logo;
+@override final  String id;
+@override final  String name;
+@override final  String slug;
+@override final  String? logo;
 
-  @override
-  String toString() {
-    return 'Organization(id: $id, name: $name, slug: $slug, logo: $logo)';
-  }
+/// Create a copy of Organization
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$OrganizationCopyWith<_Organization> get copyWith => __$OrganizationCopyWithImpl<_Organization>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OrganizationImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.slug, slug) || other.slug == slug) &&
-            (identical(other.logo, logo) || other.logo == logo));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, name, slug, logo);
-
-  /// Create a copy of Organization
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OrganizationImplCopyWith<_$OrganizationImpl> get copyWith =>
-      __$$OrganizationImplCopyWithImpl<_$OrganizationImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OrganizationImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$OrganizationToJson(this, );
 }
 
-abstract class _Organization implements Organization {
-  const factory _Organization({
-    required final String id,
-    required final String name,
-    required final String slug,
-    final String? logo,
-  }) = _$OrganizationImpl;
-
-  factory _Organization.fromJson(Map<String, dynamic> json) =
-      _$OrganizationImpl.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get name;
-  @override
-  String get slug;
-  @override
-  String? get logo;
-
-  /// Create a copy of Organization
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OrganizationImplCopyWith<_$OrganizationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Organization&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.logo, logo) || other.logo == logo));
 }
 
-OrgWithSites _$OrgWithSitesFromJson(Map<String, dynamic> json) {
-  return _OrgWithSites.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,name,slug,logo);
+
+@override
+String toString() {
+  return 'Organization(id: $id, name: $name, slug: $slug, logo: $logo)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$OrganizationCopyWith<$Res> implements $OrganizationCopyWith<$Res> {
+  factory _$OrganizationCopyWith(_Organization value, $Res Function(_Organization) _then) = __$OrganizationCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, String name, String slug, String? logo
+});
+
+
+
+
+}
+/// @nodoc
+class __$OrganizationCopyWithImpl<$Res>
+    implements _$OrganizationCopyWith<$Res> {
+  __$OrganizationCopyWithImpl(this._self, this._then);
+
+  final _Organization _self;
+  final $Res Function(_Organization) _then;
+
+/// Create a copy of Organization
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? slug = null,Object? logo = freezed,}) {
+  return _then(_Organization(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,slug: null == slug ? _self.slug : slug // ignore: cast_nullable_to_non_nullable
+as String,logo: freezed == logo ? _self.logo : logo // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$OrgWithSites {
-  Organization get organization => throw _privateConstructorUsedError;
-  List<dynamic> get sites => throw _privateConstructorUsedError;
+
+ Organization get organization; List<dynamic> get sites;
+/// Create a copy of OrgWithSites
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$OrgWithSitesCopyWith<OrgWithSites> get copyWith => _$OrgWithSitesCopyWithImpl<OrgWithSites>(this as OrgWithSites, _$identity);
 
   /// Serializes this OrgWithSites to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of OrgWithSites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $OrgWithSitesCopyWith<OrgWithSites> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OrgWithSites&&(identical(other.organization, organization) || other.organization == organization)&&const DeepCollectionEquality().equals(other.sites, sites));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,organization,const DeepCollectionEquality().hash(sites));
+
+@override
+String toString() {
+  return 'OrgWithSites(organization: $organization, sites: $sites)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $OrgWithSitesCopyWith<$Res> {
-  factory $OrgWithSitesCopyWith(
-    OrgWithSites value,
-    $Res Function(OrgWithSites) then,
-  ) = _$OrgWithSitesCopyWithImpl<$Res, OrgWithSites>;
-  @useResult
-  $Res call({Organization organization, List<dynamic> sites});
+abstract mixin class $OrgWithSitesCopyWith<$Res>  {
+  factory $OrgWithSitesCopyWith(OrgWithSites value, $Res Function(OrgWithSites) _then) = _$OrgWithSitesCopyWithImpl;
+@useResult
+$Res call({
+ Organization organization, List<dynamic> sites
+});
 
-  $OrganizationCopyWith<$Res> get organization;
+
+$OrganizationCopyWith<$Res> get organization;
+
 }
-
 /// @nodoc
-class _$OrgWithSitesCopyWithImpl<$Res, $Val extends OrgWithSites>
+class _$OrgWithSitesCopyWithImpl<$Res>
     implements $OrgWithSitesCopyWith<$Res> {
-  _$OrgWithSitesCopyWithImpl(this._value, this._then);
+  _$OrgWithSitesCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final OrgWithSites _self;
+  final $Res Function(OrgWithSites) _then;
 
-  /// Create a copy of OrgWithSites
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? organization = null, Object? sites = null}) {
-    return _then(
-      _value.copyWith(
-            organization: null == organization
-                ? _value.organization
-                : organization // ignore: cast_nullable_to_non_nullable
-                      as Organization,
-            sites: null == sites
-                ? _value.sites
-                : sites // ignore: cast_nullable_to_non_nullable
-                      as List<dynamic>,
-          )
-          as $Val,
-    );
-  }
-
-  /// Create a copy of OrgWithSites
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $OrganizationCopyWith<$Res> get organization {
-    return $OrganizationCopyWith<$Res>(_value.organization, (value) {
-      return _then(_value.copyWith(organization: value) as $Val);
-    });
-  }
+/// Create a copy of OrgWithSites
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? organization = null,Object? sites = null,}) {
+  return _then(_self.copyWith(
+organization: null == organization ? _self.organization : organization // ignore: cast_nullable_to_non_nullable
+as Organization,sites: null == sites ? _self.sites : sites // ignore: cast_nullable_to_non_nullable
+as List<dynamic>,
+  ));
+}
+/// Create a copy of OrgWithSites
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$OrganizationCopyWith<$Res> get organization {
+  
+  return $OrganizationCopyWith<$Res>(_self.organization, (value) {
+    return _then(_self.copyWith(organization: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$OrgWithSitesImplCopyWith<$Res>
-    implements $OrgWithSitesCopyWith<$Res> {
-  factory _$$OrgWithSitesImplCopyWith(
-    _$OrgWithSitesImpl value,
-    $Res Function(_$OrgWithSitesImpl) then,
-  ) = __$$OrgWithSitesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Organization organization, List<dynamic> sites});
 
-  @override
-  $OrganizationCopyWith<$Res> get organization;
+/// Adds pattern-matching-related methods to [OrgWithSites].
+extension OrgWithSitesPatterns on OrgWithSites {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OrgWithSites value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _OrgWithSites() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OrgWithSites value)  $default,){
+final _that = this;
+switch (_that) {
+case _OrgWithSites():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OrgWithSites value)?  $default,){
+final _that = this;
+switch (_that) {
+case _OrgWithSites() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Organization organization,  List<dynamic> sites)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _OrgWithSites() when $default != null:
+return $default(_that.organization,_that.sites);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Organization organization,  List<dynamic> sites)  $default,) {final _that = this;
+switch (_that) {
+case _OrgWithSites():
+return $default(_that.organization,_that.sites);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Organization organization,  List<dynamic> sites)?  $default,) {final _that = this;
+switch (_that) {
+case _OrgWithSites() when $default != null:
+return $default(_that.organization,_that.sites);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$OrgWithSitesImplCopyWithImpl<$Res>
-    extends _$OrgWithSitesCopyWithImpl<$Res, _$OrgWithSitesImpl>
-    implements _$$OrgWithSitesImplCopyWith<$Res> {
-  __$$OrgWithSitesImplCopyWithImpl(
-    _$OrgWithSitesImpl _value,
-    $Res Function(_$OrgWithSitesImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of OrgWithSites
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? organization = null, Object? sites = null}) {
-    return _then(
-      _$OrgWithSitesImpl(
-        organization: null == organization
-            ? _value.organization
-            : organization // ignore: cast_nullable_to_non_nullable
-                  as Organization,
-        sites: null == sites
-            ? _value._sites
-            : sites // ignore: cast_nullable_to_non_nullable
-                  as List<dynamic>,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$OrgWithSitesImpl implements _OrgWithSites {
-  const _$OrgWithSitesImpl({
-    required this.organization,
-    required final List<dynamic> sites,
-  }) : _sites = sites;
 
-  factory _$OrgWithSitesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OrgWithSitesImplFromJson(json);
+class _OrgWithSites implements OrgWithSites {
+  const _OrgWithSites({required this.organization, required final  List<dynamic> sites}): _sites = sites;
+  factory _OrgWithSites.fromJson(Map<String, dynamic> json) => _$OrgWithSitesFromJson(json);
 
-  @override
-  final Organization organization;
-  final List<dynamic> _sites;
-  @override
-  List<dynamic> get sites {
-    if (_sites is EqualUnmodifiableListView) return _sites;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sites);
-  }
-
-  @override
-  String toString() {
-    return 'OrgWithSites(organization: $organization, sites: $sites)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OrgWithSitesImpl &&
-            (identical(other.organization, organization) ||
-                other.organization == organization) &&
-            const DeepCollectionEquality().equals(other._sites, _sites));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    organization,
-    const DeepCollectionEquality().hash(_sites),
-  );
-
-  /// Create a copy of OrgWithSites
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OrgWithSitesImplCopyWith<_$OrgWithSitesImpl> get copyWith =>
-      __$$OrgWithSitesImplCopyWithImpl<_$OrgWithSitesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OrgWithSitesImplToJson(this);
-  }
+@override final  Organization organization;
+ final  List<dynamic> _sites;
+@override List<dynamic> get sites {
+  if (_sites is EqualUnmodifiableListView) return _sites;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_sites);
 }
 
-abstract class _OrgWithSites implements OrgWithSites {
-  const factory _OrgWithSites({
-    required final Organization organization,
-    required final List<dynamic> sites,
-  }) = _$OrgWithSitesImpl;
 
-  factory _OrgWithSites.fromJson(Map<String, dynamic> json) =
-      _$OrgWithSitesImpl.fromJson;
+/// Create a copy of OrgWithSites
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$OrgWithSitesCopyWith<_OrgWithSites> get copyWith => __$OrgWithSitesCopyWithImpl<_OrgWithSites>(this, _$identity);
 
-  @override
-  Organization get organization;
-  @override
-  List<dynamic> get sites;
-
-  /// Create a copy of OrgWithSites
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OrgWithSitesImplCopyWith<_$OrgWithSitesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$OrgWithSitesToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OrgWithSites&&(identical(other.organization, organization) || other.organization == organization)&&const DeepCollectionEquality().equals(other._sites, _sites));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,organization,const DeepCollectionEquality().hash(_sites));
+
+@override
+String toString() {
+  return 'OrgWithSites(organization: $organization, sites: $sites)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$OrgWithSitesCopyWith<$Res> implements $OrgWithSitesCopyWith<$Res> {
+  factory _$OrgWithSitesCopyWith(_OrgWithSites value, $Res Function(_OrgWithSites) _then) = __$OrgWithSitesCopyWithImpl;
+@override @useResult
+$Res call({
+ Organization organization, List<dynamic> sites
+});
+
+
+@override $OrganizationCopyWith<$Res> get organization;
+
+}
+/// @nodoc
+class __$OrgWithSitesCopyWithImpl<$Res>
+    implements _$OrgWithSitesCopyWith<$Res> {
+  __$OrgWithSitesCopyWithImpl(this._self, this._then);
+
+  final _OrgWithSites _self;
+  final $Res Function(_OrgWithSites) _then;
+
+/// Create a copy of OrgWithSites
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? organization = null,Object? sites = null,}) {
+  return _then(_OrgWithSites(
+organization: null == organization ? _self.organization : organization // ignore: cast_nullable_to_non_nullable
+as Organization,sites: null == sites ? _self._sites : sites // ignore: cast_nullable_to_non_nullable
+as List<dynamic>,
+  ));
+}
+
+/// Create a copy of OrgWithSites
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$OrganizationCopyWith<$Res> get organization {
+  
+  return $OrganizationCopyWith<$Res>(_self.organization, (value) {
+    return _then(_self.copyWith(organization: value));
+  });
+}
+}
+
+// dart format on

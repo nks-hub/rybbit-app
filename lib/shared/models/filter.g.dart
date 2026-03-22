@@ -6,18 +6,17 @@ part of 'filter.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FilterImpl _$$FilterImplFromJson(Map<String, dynamic> json) => _$FilterImpl(
+_Filter _$FilterFromJson(Map<String, dynamic> json) => _Filter(
   parameter: $enumDecode(_$FilterParameterEnumMap, json['parameter']),
   type: $enumDecode(_$FilterTypeEnumMap, json['type']),
   value: (json['value'] as List<dynamic>).map((e) => e as String).toList(),
 );
 
-Map<String, dynamic> _$$FilterImplToJson(_$FilterImpl instance) =>
-    <String, dynamic>{
-      'parameter': _$FilterParameterEnumMap[instance.parameter]!,
-      'type': _$FilterTypeEnumMap[instance.type]!,
-      'value': instance.value,
-    };
+Map<String, dynamic> _$FilterToJson(_Filter instance) => <String, dynamic>{
+  'parameter': _$FilterParameterEnumMap[instance.parameter]!,
+  'type': _$FilterTypeEnumMap[instance.type]!,
+  'value': instance.value,
+};
 
 const _$FilterParameterEnumMap = {
   FilterParameter.browser: 'browser',

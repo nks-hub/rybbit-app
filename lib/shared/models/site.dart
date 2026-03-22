@@ -4,7 +4,7 @@ part 'site.freezed.dart';
 part 'site.g.dart';
 
 @freezed
-class Site with _$Site {
+abstract class Site with _$Site {
   const factory Site({
     required String id,
     @JsonKey(name: 'site_id') required int siteId,

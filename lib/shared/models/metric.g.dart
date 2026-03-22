@@ -6,20 +6,19 @@ part of 'metric.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MetricItemImpl _$$MetricItemImplFromJson(Map<String, dynamic> json) =>
-    _$MetricItemImpl(
-      value: json['value'] as String,
-      title: json['title'] as String?,
-      pathname: json['pathname'] as String?,
-      count: (json['count'] as num?)?.toInt() ?? 0,
-      percentage: (json['percentage'] as num?)?.toDouble() ?? 0,
-      pageviews: (json['pageviews'] as num?)?.toInt(),
-      pageviewsPercentage: (json['pageviews_percentage'] as num?)?.toDouble(),
-      timeOnPageSeconds: (json['time_on_page_seconds'] as num?)?.toDouble(),
-      bounceRate: (json['bounce_rate'] as num?)?.toDouble(),
-    );
+_MetricItem _$MetricItemFromJson(Map<String, dynamic> json) => _MetricItem(
+  value: json['value'] as String,
+  title: json['title'] as String?,
+  pathname: json['pathname'] as String?,
+  count: (json['count'] as num?)?.toInt() ?? 0,
+  percentage: (json['percentage'] as num?)?.toDouble() ?? 0,
+  pageviews: (json['pageviews'] as num?)?.toInt(),
+  pageviewsPercentage: (json['pageviews_percentage'] as num?)?.toDouble(),
+  timeOnPageSeconds: (json['time_on_page_seconds'] as num?)?.toDouble(),
+  bounceRate: (json['bounce_rate'] as num?)?.toDouble(),
+);
 
-Map<String, dynamic> _$$MetricItemImplToJson(_$MetricItemImpl instance) =>
+Map<String, dynamic> _$MetricItemToJson(_MetricItem instance) =>
     <String, dynamic>{
       'value': instance.value,
       'title': instance.title,
@@ -32,17 +31,13 @@ Map<String, dynamic> _$$MetricItemImplToJson(_$MetricItemImpl instance) =>
       'bounce_rate': instance.bounceRate,
     };
 
-_$MetricResponseImpl _$$MetricResponseImplFromJson(Map<String, dynamic> json) =>
-    _$MetricResponseImpl(
+_MetricResponse _$MetricResponseFromJson(Map<String, dynamic> json) =>
+    _MetricResponse(
       data: (json['data'] as List<dynamic>)
           .map((e) => MetricItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalCount: (json['totalCount'] as num?)?.toInt() ?? 0,
     );
 
-Map<String, dynamic> _$$MetricResponseImplToJson(
-  _$MetricResponseImpl instance,
-) => <String, dynamic>{
-  'data': instance.data,
-  'totalCount': instance.totalCount,
-};
+Map<String, dynamic> _$MetricResponseToJson(_MetricResponse instance) =>
+    <String, dynamic>{'data': instance.data, 'totalCount': instance.totalCount};

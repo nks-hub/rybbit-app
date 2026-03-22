@@ -13,7 +13,7 @@ Map<String, dynamic>? _traitsFromJson(dynamic value) {
 }
 
 @freezed
-class AnalyticsSession with _$AnalyticsSession {
+abstract class AnalyticsSession with _$AnalyticsSession {
   const factory AnalyticsSession({
     @JsonKey(name: 'session_id', fromJson: _toStringRequired) required String sessionId,
     @JsonKey(name: 'user_id', fromJson: _toStringOrNull) String? userId,
