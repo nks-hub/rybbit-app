@@ -30,7 +30,7 @@ const localeDisplayNames = {
 
 /// Locale provider persisted to Hive. Defaults to system locale.
 final localeProvider = StateProvider<Locale?>((ref) {
-  final saved = StorageService.readSetting('locale') as String?;
+  final saved = ref.read(storageServiceProvider).readSetting('locale') as String?;
   if (saved != null && supportedLocaleCodes.contains(saved)) {
     return Locale(saved);
   }

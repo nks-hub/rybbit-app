@@ -13,7 +13,7 @@ import '../../auth/application/auth_controller.dart';
 
 /// Theme mode provider persisted to Hive.
 final themeModeProvider = StateProvider<ThemeMode>((ref) {
-  final saved = StorageService.readSetting('theme_mode', defaultValue: 'dark');
+  final saved = ref.read(storageServiceProvider).readSetting('theme_mode', defaultValue: 'dark');
   return switch (saved) {
     'light' => ThemeMode.light,
     'system' => ThemeMode.system,
@@ -131,7 +131,7 @@ class SettingsScreen extends ConsumerWidget {
                               ThemeMode.system => 'system',
                               _ => 'dark',
                             };
-                            unawaited(StorageService.saveSetting('theme_mode', modeStr));
+                            unawaited(ref.read(storageServiceProvider).saveSetting('theme_mode', modeStr));
                           },
                           style: const ButtonStyle(
                             visualDensity: VisualDensity.compact,
@@ -342,10 +342,10 @@ class SettingsScreen extends ConsumerWidget {
 
     if (selected == '__auto__') {
       ref.read(localeProvider.notifier).state = null;
-      unawaited(StorageService.deleteSetting('locale'));
+      unawaited(ref.read(storageServiceProvider).deleteSetting('locale'));
     } else {
       ref.read(localeProvider.notifier).state = Locale(selected);
-      unawaited(StorageService.saveSetting('locale', selected));
+      unawaited(ref.read(storageServiceProvider).saveSetting('locale', selected));
     }
   }
 

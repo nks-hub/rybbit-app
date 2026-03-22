@@ -31,11 +31,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Future<void> _loadSavedCredentials() async {
-    final savedUrl = await StorageService.readSecure('server_url');
+    final storage = ref.read(storageServiceProvider);
+    final savedUrl = await storage.readSecure('server_url');
     if (savedUrl != null && savedUrl.isNotEmpty && mounted) {
       _serverUrlController.text = savedUrl;
     }
-    final savedEmail = await StorageService.readSecure('last_email');
+    final savedEmail = await storage.readSecure('last_email');
     if (savedEmail != null && savedEmail.isNotEmpty && mounted) {
       _emailController.text = savedEmail;
     }

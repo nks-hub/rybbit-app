@@ -14,9 +14,11 @@ import 'features/auth/application/auth_controller.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  final storageService = StorageServiceImpl();
+
   // Parallelize independent init tasks
   final (_, appDir) = await (
-    StorageService.init(),
+    storageService.init(),
     getApplicationDocumentsDirectory(),
   ).wait;
 
@@ -25,6 +27,7 @@ void main() async {
 
   final container = ProviderContainer(
     overrides: [
+      storageServiceProvider.overrideWithValue(storageService),
       cookieJarProvider.overrideWithValue(persistCookieJar),
     ],
   );

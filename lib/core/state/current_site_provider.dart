@@ -8,15 +8,16 @@ const _siteTypeKey = 'current_site_type';
 class CurrentSiteIdNotifier extends Notifier<String?> {
   @override
   String? build() {
-    return StorageService.readSetting(_siteIdKey) as String?;
+    return ref.read(storageServiceProvider).readSetting(_siteIdKey) as String?;
   }
 
   void set(String? siteId) {
     state = siteId;
+    final storage = ref.read(storageServiceProvider);
     if (siteId != null) {
-      StorageService.saveSetting(_siteIdKey, siteId);
+      storage.saveSetting(_siteIdKey, siteId);
     } else {
-      StorageService.deleteSetting(_siteIdKey);
+      storage.deleteSetting(_siteIdKey);
     }
   }
 }
@@ -24,15 +25,16 @@ class CurrentSiteIdNotifier extends Notifier<String?> {
 class CurrentSiteDomainNotifier extends Notifier<String?> {
   @override
   String? build() {
-    return StorageService.readSetting(_siteDomainKey) as String?;
+    return ref.read(storageServiceProvider).readSetting(_siteDomainKey) as String?;
   }
 
   void set(String? domain) {
     state = domain;
+    final storage = ref.read(storageServiceProvider);
     if (domain != null) {
-      StorageService.saveSetting(_siteDomainKey, domain);
+      storage.saveSetting(_siteDomainKey, domain);
     } else {
-      StorageService.deleteSetting(_siteDomainKey);
+      storage.deleteSetting(_siteDomainKey);
     }
   }
 }
@@ -40,12 +42,12 @@ class CurrentSiteDomainNotifier extends Notifier<String?> {
 class CurrentSiteTypeNotifier extends Notifier<String> {
   @override
   String build() {
-    return StorageService.readSetting(_siteTypeKey) as String? ?? 'web';
+    return ref.read(storageServiceProvider).readSetting(_siteTypeKey) as String? ?? 'web';
   }
 
   void set(String type) {
     state = type;
-    StorageService.saveSetting(_siteTypeKey, type);
+    ref.read(storageServiceProvider).saveSetting(_siteTypeKey, type);
   }
 }
 

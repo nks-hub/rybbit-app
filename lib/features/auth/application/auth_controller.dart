@@ -67,9 +67,10 @@ class AuthController extends Notifier<AuthState> {
 
       // Store server URL and email for UX convenience (pre-fill login form)
       // Do NOT store password - session persistence is handled by PersistCookieJar
-      await StorageService.saveSecure('server_url', serverUrl);
-      await StorageService.saveSecure('last_email', email);
-      await StorageService.deleteSecure('api_key');
+      final storage = ref.read(storageServiceProvider);
+      await storage.saveSecure('server_url', serverUrl);
+      await storage.saveSecure('last_email', email);
+      await storage.deleteSecure('api_key');
 
       // Session cookie is automatically persisted by PersistCookieJar
       final user = result['user'] as Map<String, dynamic>?;
@@ -120,8 +121,9 @@ class AuthController extends Notifier<AuthState> {
         return;
       }
 
-      await StorageService.saveSecure('server_url', serverUrl);
-      await StorageService.saveSecure('api_key', apiKey);
+      final storage = ref.read(storageServiceProvider);
+      await storage.saveSecure('server_url', serverUrl);
+      await storage.saveSecure('api_key', apiKey);
 
       state = AuthState(
         status: AuthStatus.authenticated,
@@ -145,8 +147,9 @@ class AuthController extends Notifier<AuthState> {
   }
 
   Future<void> checkSession() async {
-    final serverUrl = await StorageService.readSecure('server_url');
-    final apiKey = await StorageService.readSecure('api_key');
+    final storage = ref.read(storageServiceProvider);
+    final serverUrl = await storage.readSecure('server_url');
+    final apiKey = await storage.readSecure('api_key');
 
     if (serverUrl == null || serverUrl.isEmpty) {
       state = const AuthState(status: AuthStatus.unauthenticated);
@@ -200,7 +203,7 @@ class AuthController extends Notifier<AuthState> {
       // Logout even if API call fails
     }
 
-    await StorageService.deleteSecure('api_key');
+    await ref.read(storageServiceProvider).deleteSecure('api_key');
     ref.read(appConfigNotifierProvider.notifier).clear();
 
     state = const AuthState(status: AuthStatus.unauthenticated);
