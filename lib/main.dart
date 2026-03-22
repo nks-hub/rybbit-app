@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,10 +13,13 @@ import 'features/auth/application/auth_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await StorageService.init();
 
-  // Initialize persistent cookie jar
-  final appDir = await getApplicationDocumentsDirectory();
+  // Parallelize independent init tasks
+  final (_, appDir) = await (
+    StorageService.init(),
+    getApplicationDocumentsDirectory(),
+  ).wait;
+
   final persistCookieJar =
       PersistCookieJar(storage: FileStorage('${appDir.path}/.cookies/'));
 
@@ -23,7 +28,6 @@ void main() async {
       cookieJarProvider.overrideWithValue(persistCookieJar),
     ],
   );
-  await container.read(authControllerProvider.notifier).checkSession();
 
   await SentryConfig.init(() {
     runApp(
@@ -33,4 +37,8 @@ void main() async {
       ),
     );
   });
+
+  // Check session after first frame - AuthStatus.unknown shows loading state
+  // and the router redirect holds until status is resolved.
+  unawaited(container.read(authControllerProvider.notifier).checkSession());
 }
