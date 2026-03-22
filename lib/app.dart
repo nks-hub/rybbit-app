@@ -28,7 +28,7 @@ const localeDisplayNames = {
   'cs': 'Čeština',
 };
 
-/// Locale provider persisted to Hive. Defaults to system locale.
+/// Locale provider persisted to SharedPreferences. Defaults to system locale.
 final localeProvider = StateProvider<Locale?>((ref) {
   final saved = ref.read(storageServiceProvider).readSetting('locale') as String?;
   if (saved != null && supportedLocaleCodes.contains(saved)) {

@@ -11,7 +11,7 @@ import '../../../core/storage/storage_service.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/application/auth_controller.dart';
 
-/// Theme mode provider persisted to Hive.
+/// Theme mode provider persisted to SharedPreferences.
 final themeModeProvider = StateProvider<ThemeMode>((ref) {
   final saved = ref.read(storageServiceProvider).readSetting('theme_mode', defaultValue: 'dark');
   return switch (saved) {
