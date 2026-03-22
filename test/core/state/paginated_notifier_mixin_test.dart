@@ -98,7 +98,7 @@ void main() {
 
       // Set hasMore = false
       c.read(_testProvider(0).notifier).state =
-          AsyncValue.data(const _TestState(hasMore: false));
+          const AsyncValue.data(_TestState(hasMore: false));
 
       int fetchCalled = 0;
       c.read(_testProvider(0).notifier).setFetchFn((_) async {
@@ -118,8 +118,8 @@ void main() {
 
       await _resolve(c);
 
-      c.read(_testProvider(0).notifier).state = AsyncValue.data(
-        const _TestState(hasMore: true, isLoadingMore: true),
+      c.read(_testProvider(0).notifier).state = const AsyncValue.data(
+        _TestState(hasMore: true, isLoadingMore: true),
       );
 
       int fetchCalled = 0;
@@ -139,8 +139,8 @@ void main() {
 
       await _resolve(c);
 
-      c.read(_testProvider(0).notifier).state = AsyncValue.data(
-        const _TestState(items: ['a', 'b'], hasMore: true),
+      c.read(_testProvider(0).notifier).state = const AsyncValue.data(
+        _TestState(items: ['a', 'b'], hasMore: true),
       );
 
       c.read(_testProvider(0).notifier).setFetchFn((_) async =>
@@ -186,7 +186,7 @@ void main() {
       await _resolve(c);
 
       c.read(_testProvider(0).notifier).state =
-          AsyncValue.data(const _TestState(hasMore: true));
+          const AsyncValue.data(_TestState(hasMore: true));
 
       c.read(_testProvider(0).notifier).setFetchFn(
           (_) async => throw Exception('network failure'));
@@ -206,7 +206,7 @@ void main() {
       await _resolve(c);
 
       c.read(_testProvider(0).notifier).state =
-          AsyncValue.data(const _TestState(items: ['x'], hasMore: true));
+          const AsyncValue.data(_TestState(items: ['x'], hasMore: true));
 
       c.read(_testProvider(0).notifier).setFetchFn((_) async => throw DioException(
             requestOptions: RequestOptions(path: ''),
@@ -216,7 +216,6 @@ void main() {
       await c.read(_testProvider(0).notifier).loadMore();
 
       // Cancelled requests must not reset isLoadingMore (stays as-is after cancel)
-      final result = c.read(_testProvider(0)).requireValue;
       // State is still data (not error)
       expect(c.read(_testProvider(0)).hasValue, true);
     });
@@ -228,7 +227,7 @@ void main() {
       await _resolve(c);
 
       c.read(_testProvider(0).notifier).state =
-          AsyncValue.data(const _TestState(hasMore: true));
+          const AsyncValue.data(_TestState(hasMore: true));
 
       c.read(_testProvider(0).notifier).setFetchFn((_) async => throw DioException(
             requestOptions: RequestOptions(path: ''),
