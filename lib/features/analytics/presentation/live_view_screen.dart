@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/event.dart';
 import '../../../shared/models/overview.dart';
@@ -142,7 +143,7 @@ class _LiveViewScreenState extends ConsumerState<LiveViewScreen> {
                     width: 8,
                     height: 8,
                     decoration: const BoxDecoration(
-                      color: Color(0xFF22C55E),
+                      color: AppColors.success,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -287,7 +288,7 @@ class _LiveCountCard extends StatelessWidget {
                   height: 12,
                   decoration: BoxDecoration(
                     color: count > 0
-                        ? const Color(0xFF22C55E)
+                        ? AppColors.success
                         : const Color(0xFF94A3B8),
                     shape: BoxShape.circle,
                   ),
@@ -298,7 +299,7 @@ class _LiveCountCard extends StatelessWidget {
                   style: theme.textTheme.headlineLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: count > 0
-                        ? const Color(0xFF22C55E)
+                        ? AppColors.success
                         : theme.textTheme.bodyMedium?.color,
                   ),
                 ),
@@ -399,7 +400,7 @@ class _LiveEventTile extends StatelessWidget {
 
     final (Color typeColor, IconData typeIcon) = switch (event.type) {
       'pageview' => (const Color(0xFF3B82F6), Icons.visibility),
-      'custom_event' => (const Color(0xFF22C55E), Icons.bolt),
+      'custom_event' => (AppColors.success, Icons.bolt),
       'outbound' => (const Color(0xFFF59E0B), Icons.open_in_new),
       _ => (const Color(0xFF94A3B8), Icons.circle),
     };

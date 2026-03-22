@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/time_range_controller.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/goal.dart';
 import '../../../shared/utils/formatters.dart';
@@ -200,7 +201,7 @@ class _GoalCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final typeColor = goal.goalType == 'path'
         ? const Color(0xFF3B82F6)
-        : const Color(0xFF22C55E);
+        : AppColors.success;
     final ratePercent = (goal.conversionRate * 100).clamp(0, 100).toDouble();
 
     return Card(

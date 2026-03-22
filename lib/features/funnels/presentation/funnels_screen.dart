@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/funnel.dart';
 import '../../../shared/utils/formatters.dart';
@@ -296,7 +297,7 @@ class _FunnelVisualization extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
-              color: const Color(0xFF22C55E).withValues(alpha: 0.1),
+              color: AppColors.success.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -309,7 +310,7 @@ class _FunnelVisualization extends StatelessWidget {
                 Text(
                   formatPercentage(analysis.overallConversion),
                   style: const TextStyle(
-                    color: Color(0xFF22C55E),
+                    color: AppColors.success,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),

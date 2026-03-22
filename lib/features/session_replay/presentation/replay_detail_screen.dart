@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/replay_repository.dart';
@@ -364,7 +365,7 @@ class _ReplayEventTimelineItem extends StatelessWidget {
         );
       case 5: // Custom event
         return (
-          const Color(0xFF22C55E),
+          AppColors.success,
           Icons.bolt,
           event.detailLabel ?? l10n.replayCustomEvent,
         );

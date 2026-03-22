@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/filter_controller.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/performance_data.dart';
@@ -41,9 +42,9 @@ enum WebVital {
   }
 
   Color ratingColor(double value) {
-    if (value <= goodMax) return const Color(0xFF22C55E);
+    if (value <= goodMax) return AppColors.success;
     if (value < poorMin) return const Color(0xFFF59E0B);
-    return const Color(0xFFEF4444);
+    return AppColors.error;
   }
 
   String ratingLabel(double value, AppLocalizations l10n) {

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/retention.dart';
 import '../../../shared/utils/formatters.dart';
@@ -319,16 +320,16 @@ class _RetentionTable extends StatelessWidget {
   Color _retentionColor(double percentage, bool isDark) {
     if (percentage >= 80) return const Color(0xFF166534);
     if (percentage >= 60) return const Color(0xFF15803D);
-    if (percentage >= 40) return const Color(0xFF22C55E);
+    if (percentage >= 40) return AppColors.success;
     if (percentage >= 20) {
       return isDark
-          ? const Color(0xFF22C55E).withValues(alpha: 0.4)
-          : const Color(0xFF22C55E).withValues(alpha: 0.3);
+          ? AppColors.success.withValues(alpha: 0.4)
+          : AppColors.success.withValues(alpha: 0.3);
     }
     if (percentage > 0) {
       return isDark
-          ? const Color(0xFF22C55E).withValues(alpha: 0.15)
-          : const Color(0xFF22C55E).withValues(alpha: 0.12);
+          ? AppColors.success.withValues(alpha: 0.15)
+          : AppColors.success.withValues(alpha: 0.12);
     }
     return Colors.transparent;
   }

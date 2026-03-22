@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../data/users_repository.dart';
@@ -120,7 +121,7 @@ class UserDetailScreen extends ConsumerWidget {
                             CircleAvatar(
                               radius: 24,
                               backgroundColor: detail.traits.isNotEmpty
-                                  ? const Color(0xFF22C55E)
+                                  ? AppColors.success
                                       .withValues(alpha: 0.15)
                                   : theme.colorScheme.primary
                                       .withValues(alpha: 0.15),
@@ -130,7 +131,7 @@ class UserDetailScreen extends ConsumerWidget {
                                     : Icons.person_outline,
                                 size: 24,
                                 color: detail.traits.isNotEmpty
-                                    ? const Color(0xFF22C55E)
+                                    ? AppColors.success
                                     : theme.colorScheme.primary,
                               ),
                             ),

@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/models/site.dart';
 import '../../application/sparkline_provider.dart';
@@ -111,7 +112,7 @@ class SiteCard extends ConsumerWidget {
                             horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                           color:
-                              const Color(0xFF22C55E).withValues(alpha: 0.15),
+                              AppColors.success.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Row(
@@ -121,7 +122,7 @@ class SiteCard extends ConsumerWidget {
                               width: 8,
                               height: 8,
                               decoration: const BoxDecoration(
-                                color: Color(0xFF22C55E),
+                                color: AppColors.success,
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -129,7 +130,7 @@ class SiteCard extends ConsumerWidget {
                             Text(
                               '$liveCount',
                               style: const TextStyle(
-                                color: Color(0xFF22C55E),
+                                color: AppColors.success,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 13,
                               ),
@@ -208,7 +209,7 @@ class _Sparkline extends StatelessWidget {
     final range = maxVal - minVal;
     final isUpward = values.last >= values.first;
     final color = isUpward
-        ? const Color(0xFF22C55E)
+        ? AppColors.success
         : theme.colorScheme.error;
 
     return SizedBox(

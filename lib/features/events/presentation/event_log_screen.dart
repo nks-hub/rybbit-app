@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/event.dart';
 import '../../../shared/utils/formatters.dart';
@@ -469,7 +470,7 @@ class _RawEventCard extends StatelessWidget {
   (Color, IconData) _getTypeStyle(String type) {
     return switch (type) {
       'pageview' => (const Color(0xFF3B82F6), Icons.visibility),
-      'custom_event' => (const Color(0xFF22C55E), Icons.bolt),
+      'custom_event' => (AppColors.success, Icons.bolt),
       'outbound' => (const Color(0xFFF59E0B), Icons.open_in_new),
       'button_click' => (const Color(0xFF8B5CF6), Icons.touch_app),
       'form_submit' => (const Color(0xFFEC4899), Icons.send),

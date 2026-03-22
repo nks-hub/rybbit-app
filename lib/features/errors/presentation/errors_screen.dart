@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
@@ -107,8 +108,8 @@ class _ErrorsScreenState extends ConsumerState<ErrorsScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.check_circle_outline,
-                        size: 48, color: const Color(0xFF22C55E)),
+                    const Icon(Icons.check_circle_outline,
+                        size: 48, color: AppColors.success),
                     const SizedBox(height: 16),
                     Text(l10n.noErrorsFound, style: theme.textTheme.bodyLarge),
                     const SizedBox(height: 8),
@@ -163,7 +164,7 @@ class _ErrorNameCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
-    final errorColor = const Color(0xFFEF4444);
+    const errorColor = AppColors.error;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -193,7 +194,7 @@ class _ErrorNameCard extends ConsumerWidget {
                           ),
                           child: Text(
                             error.errorName,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 10,
                               color: errorColor,
                               fontWeight: FontWeight.w600,
@@ -390,7 +391,7 @@ class _ErrorEventTile extends ConsumerWidget {
               event.message,
               style: theme.textTheme.bodySmall?.copyWith(
                 fontSize: 12,
-                color: const Color(0xFFEF4444),
+                color: AppColors.error,
               ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

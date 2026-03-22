@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
+
 class AppTheme {
   static const _primaryColor = Color(0xFF6366F1);
   static const _scaffoldDark = Color(0xFF0A0A0A);
@@ -17,7 +19,7 @@ class AppTheme {
         surface: _surfaceDark,
         onSurface: Colors.white,
         onPrimary: Colors.white,
-        error: const Color(0xFFEF4444),
+        error: AppColors.error,
       ),
       scaffoldBackgroundColor: _scaffoldDark,
       cardTheme: CardThemeData(
@@ -52,11 +54,11 @@ class AppTheme {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFFEF4444)),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFFEF4444)),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
@@ -150,7 +152,7 @@ class AppTheme {
         surface: Colors.white,
         onSurface: Colors.black,
         onPrimary: Colors.white,
-        error: const Color(0xFFEF4444),
+        error: AppColors.error,
       ),
       scaffoldBackgroundColor: const Color(0xFFF5F5F5),
       cardTheme: CardThemeData(
@@ -185,11 +187,11 @@ class AppTheme {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFFEF4444)),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFFEF4444)),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),

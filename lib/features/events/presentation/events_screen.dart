@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
 import '../../../l10n/app_localizations.dart';
@@ -107,7 +108,7 @@ class EventsScreen extends ConsumerWidget {
                       padding: const EdgeInsets.all(16),
                       child: Row(
                         children: [
-                          const Icon(Icons.bolt, size: 20, color: Color(0xFF22C55E)),
+                          const Icon(Icons.bolt, size: 20, color: AppColors.success),
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
@@ -270,7 +271,7 @@ class EventsScreen extends ConsumerWidget {
                         return TimeSeriesChart(
                           values: values,
                           labels: timeLabels,
-                          lineColor: const Color(0xFF22C55E),
+                          lineColor: AppColors.success,
                           tooltipFormatter: (v) => formatNumber(v),
                         );
                       },
@@ -489,7 +490,7 @@ class _EventNameTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final barColor = const Color(0xFF22C55E);
+    const barColor = AppColors.success;
 
     return InkWell(
       onTap: onTap,
@@ -500,7 +501,7 @@ class _EventNameTile extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.bolt, size: 16, color: barColor),
+                const Icon(Icons.bolt, size: 16, color: barColor),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(

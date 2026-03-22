@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/overview.dart';
 import '../../../shared/utils/formatters.dart';
@@ -327,7 +328,7 @@ class _HeatmapContentState extends State<_HeatmapContent> {
       // Dark theme: from dark blue to bright green
       return Color.lerp(
         const Color(0xFF1E3A5F),
-        const Color(0xFF22C55E),
+        AppColors.success,
         intensity,
       )!;
     } else {

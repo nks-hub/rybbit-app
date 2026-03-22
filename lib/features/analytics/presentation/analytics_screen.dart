@@ -11,6 +11,7 @@ import '../../../shared/widgets/stat_card.dart';
 import '../../../shared/widgets/time_range_picker.dart';
 import '../../../shared/widgets/time_series_chart.dart';
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../application/analytics_controller.dart';
 import '../../../core/state/filter_controller.dart';
 import '../../../core/state/time_range_controller.dart';
@@ -90,7 +91,7 @@ class AnalyticsScreen extends ConsumerWidget {
                       padding:
                           const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF22C55E).withValues(alpha: 0.15),
+                        color: AppColors.success.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Row(
@@ -100,7 +101,7 @@ class AnalyticsScreen extends ConsumerWidget {
                             width: 6,
                             height: 6,
                             decoration: const BoxDecoration(
-                              color: Color(0xFF22C55E),
+                              color: AppColors.success,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -108,7 +109,7 @@ class AnalyticsScreen extends ConsumerWidget {
                           Text(
                             '${state.liveUserCount}',
                             style: const TextStyle(
-                              color: Color(0xFF22C55E),
+                              color: AppColors.success,
                               fontWeight: FontWeight.w600,
                               fontSize: 12,
                             ),

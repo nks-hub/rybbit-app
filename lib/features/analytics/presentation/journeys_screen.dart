@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/journey.dart';
 import '../../../shared/utils/formatters.dart';
@@ -293,14 +294,14 @@ class _PathFlow extends StatelessWidget {
             const Color(0xFF8B5CF6).withValues(alpha: 0.2),
             const Color(0xFFEC4899).withValues(alpha: 0.2),
             const Color(0xFFF59E0B).withValues(alpha: 0.2),
-            const Color(0xFF22C55E).withValues(alpha: 0.2),
+            AppColors.success.withValues(alpha: 0.2),
           ]
         : [
             const Color(0xFF3B82F6).withValues(alpha: 0.12),
             const Color(0xFF8B5CF6).withValues(alpha: 0.12),
             const Color(0xFFEC4899).withValues(alpha: 0.12),
             const Color(0xFFF59E0B).withValues(alpha: 0.12),
-            const Color(0xFF22C55E).withValues(alpha: 0.12),
+            AppColors.success.withValues(alpha: 0.12),
           ];
     return colors[index % colors.length];
   }

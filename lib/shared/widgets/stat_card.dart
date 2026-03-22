@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_colors.dart';
+
 class StatCard extends StatelessWidget {
   final String title;
   final String value;
@@ -79,9 +81,9 @@ class StatCard extends StatelessWidget {
                                 : Icons.trending_flat,
                         size: 14,
                         color: isPositive
-                            ? const Color(0xFF22C55E)
+                            ? AppColors.success
                             : isNegative
-                                ? const Color(0xFFEF4444)
+                                ? AppColors.error
                                 : theme.textTheme.bodySmall?.color,
                       ),
                       const SizedBox(width: 4),
@@ -93,9 +95,9 @@ class StatCard extends StatelessWidget {
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                           color: isPositive
-                              ? const Color(0xFF22C55E)
+                              ? AppColors.success
                               : isNegative
-                                  ? const Color(0xFFEF4444)
+                                  ? AppColors.error
                                   : theme.textTheme.bodySmall?.color,
                         ),
                       ),

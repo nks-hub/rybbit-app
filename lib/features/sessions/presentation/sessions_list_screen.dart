@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/session.dart';
 import '../../../shared/utils/formatters.dart';
@@ -362,7 +363,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                               : Icons.person_outline,
                           size: 14,
                           color: isIdentified(session)
-                              ? const Color(0xFF22C55E)
+                              ? AppColors.success
                               : theme.colorScheme.primary,
                         ),
                         const SizedBox(width: 4),
@@ -372,7 +373,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                             style: TextStyle(
                               fontSize: 11,
                               color: isIdentified(session)
-                                  ? const Color(0xFF22C55E)
+                                  ? AppColors.success
                                   : theme.colorScheme.primary,
                               fontWeight: FontWeight.w600,
                             ),
@@ -385,7 +386,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 5, vertical: 1),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF22C55E)
+                              color: AppColors.success
                                   .withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
@@ -393,7 +394,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                               'ID',
                               style: TextStyle(
                                 fontSize: 9,
-                                color: Color(0xFF22C55E),
+                                color: AppColors.success,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -563,7 +564,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                             icon: Icons.bolt,
                             value: '${session.events}',
                             theme: theme,
-                            color: const Color(0xFF22C55E),
+                            color: AppColors.success,
                           ),
                           const SizedBox(width: 6),
                         ],
@@ -572,7 +573,7 @@ class _SessionCardState extends ConsumerState<_SessionCard> {
                             icon: Icons.error_outline,
                             value: '${session.errors}',
                             theme: theme,
-                            color: const Color(0xFFEF4444),
+                            color: AppColors.error,
                           ),
                           const SizedBox(width: 6),
                         ],
@@ -782,7 +783,7 @@ class _DetailContent extends ConsumerWidget {
               icon: Icons.person,
               text: getUserDisplayName(listSession),
               theme: theme,
-              color: const Color(0xFF22C55E),
+              color: AppColors.success,
             ),
           // Location
           if (locationStr != null)
@@ -947,10 +948,10 @@ class _MiniTimelineEvent extends StatelessWidget {
         dotColor = theme.colorScheme.primary;
         dotIcon = Icons.article_outlined;
       case IconType.customEvent:
-        dotColor = const Color(0xFF22C55E);
+        dotColor = AppColors.success;
         dotIcon = Icons.bolt;
       case IconType.error:
-        dotColor = const Color(0xFFEF4444);
+        dotColor = AppColors.error;
         dotIcon = Icons.error_outline;
       case IconType.other:
         dotColor = theme.disabledColor;

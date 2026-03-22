@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/state/current_site_provider.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/utils/formatters.dart';
 import '../application/users_controller.dart';
@@ -355,13 +356,13 @@ class _UserCard extends StatelessWidget {
               CircleAvatar(
                 radius: 18,
                 backgroundColor: identified
-                    ? const Color(0xFF22C55E).withValues(alpha: 0.15)
+                    ? AppColors.success.withValues(alpha: 0.15)
                     : theme.colorScheme.primary.withValues(alpha: 0.15),
                 child: Icon(
                   identified ? Icons.person : Icons.person_outline,
                   size: 18,
                   color: identified
-                      ? const Color(0xFF22C55E)
+                      ? AppColors.success
                       : theme.colorScheme.primary,
                 ),
               ),
@@ -374,7 +375,7 @@ class _UserCard extends StatelessWidget {
                       displayName,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w600,
-                        color: identified ? const Color(0xFF22C55E) : null,
+                        color: identified ? AppColors.success : null,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
