@@ -60,10 +60,25 @@ class AnalyticsController
     final overviewParams = {...baseParams, ...filterParams};
     final bucketedParams = {...bucketParams, ...filterParams};
 
+    // Load current period first (3 requests) for fast initial render.
+    final (overview, buckets, liveCount) = await (
+      repo.getOverview(siteId, overviewParams),
+      repo.getOverviewBucketed(siteId, bucketedParams),
+      repo.getLiveUserCount(siteId),
+    ).wait;
+
+    final initialState = AnalyticsState(
+      overview: overview,
+      buckets: buckets,
+      liveUserCount: liveCount,
+    );
+
+    // Render immediately with primary data; load previous period in background.
+    state = AsyncValue.data(initialState);
+
     // Compute previous period params
     final duration = timeRange.endDate.difference(timeRange.startDate);
-    final prevEnd =
-        timeRange.startDate.subtract(const Duration(days: 1));
+    final prevEnd = timeRange.startDate.subtract(const Duration(days: 1));
     final prevStart = prevEnd.subtract(duration);
     final prevTimeRange = timeRange.copyWith(
       startDate: prevStart,
@@ -75,22 +90,22 @@ class AnalyticsController
       ...filterParams,
     };
 
-    // Load data in parallel with type-safe record wait
-    final (overview, buckets, liveCount, prevOverview, prevBuckets) = await (
-      repo.getOverview(siteId, overviewParams),
-      repo.getOverviewBucketed(siteId, bucketedParams),
-      repo.getLiveUserCount(siteId),
-      repo.getOverview(siteId, prevParams),
-      repo.getOverviewBucketed(siteId, prevBucketedParams),
-    ).wait;
+    try {
+      final (prevOverview, prevBuckets) = await (
+        repo.getOverview(siteId, prevParams),
+        repo.getOverviewBucketed(siteId, prevBucketedParams),
+      ).wait;
 
-    return AnalyticsState(
-      overview: overview,
-      previousOverview: prevOverview,
-      buckets: buckets,
-      previousBuckets: prevBuckets,
-      liveUserCount: liveCount,
-    );
+      // Only update if not superseded by a newer load (ref still alive)
+      state = AsyncValue.data(initialState.copyWith(
+        previousOverview: prevOverview,
+        previousBuckets: prevBuckets,
+      ));
+    } catch (_) {
+      // Previous period data is non-critical; leave it null
+    }
+
+    return state.value!;
   }
 
   Future<void> refresh() async {
