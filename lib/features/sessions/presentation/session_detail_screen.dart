@@ -459,7 +459,7 @@ class _SessionDetailScreenState extends ConsumerState<SessionDetailScreen> {
     );
   }
 
-  bool _hasReferrerOrUtm(dynamic session) {
+  bool _hasReferrerOrUtm(AnalyticsSession session) {
     return (session.referrer != null && session.referrer!.isNotEmpty) ||
         (session.utmSource != null && session.utmSource!.isNotEmpty) ||
         (session.utmMedium != null && session.utmMedium!.isNotEmpty) ||
