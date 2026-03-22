@@ -4,6 +4,7 @@ import 'package:riverpod/riverpod.dart';
 import '../../../core/config/app_config.dart';
 import '../../../core/storage/storage_service.dart';
 import '../data/auth_repository.dart';
+import '../../../core/network/dio_provider.dart';
 
 enum AuthStatus { unknown, authenticated, unauthenticated }
 
@@ -39,6 +40,7 @@ class AuthController extends Notifier<AuthState> {
   static const connectionFailedError = 'err:connection_failed';
   static const invalidApiKeyError = 'err:invalid_api_key';
   static const connectionFailedApiKeyError = 'err:connection_failed_api_key';
+  static const unexpectedError = 'err:unexpected';
 
   @override
   AuthState build() {
@@ -56,15 +58,17 @@ class AuthController extends Notifier<AuthState> {
       ref.read(appConfigNotifierProvider.notifier).setConfig(
             serverUrl: serverUrl,
           );
-
-      await Future<void>.delayed(const Duration(milliseconds: 100));
+      // Invalidate derived providers so they pick up the new config synchronously
+      ref.invalidate(dioProvider);
+      ref.invalidate(authRepositoryProvider);
 
       final repo = ref.read(authRepositoryProvider);
       final result = await repo.login(email, password);
 
+      // Store server URL and email for UX convenience (pre-fill login form)
+      // Do NOT store password - session persistence is handled by PersistCookieJar
       await StorageService.saveSecure('server_url', serverUrl);
       await StorageService.saveSecure('last_email', email);
-      await StorageService.saveSecure('last_password', password);
       await StorageService.deleteSecure('api_key');
 
       // Session cookie is automatically persisted by PersistCookieJar
@@ -87,7 +91,7 @@ class AuthController extends Notifier<AuthState> {
       state = state.copyWith(
         status: AuthStatus.unauthenticated,
         isLoading: false,
-        error: e.toString(),
+        error: unexpectedError,
       );
     }
   }
@@ -100,8 +104,9 @@ class AuthController extends Notifier<AuthState> {
             serverUrl: serverUrl,
             apiKey: apiKey,
           );
-
-      await Future<void>.delayed(const Duration(milliseconds: 100));
+      // Invalidate derived providers so they pick up the new config synchronously
+      ref.invalidate(dioProvider);
+      ref.invalidate(authRepositoryProvider);
 
       final repo = ref.read(authRepositoryProvider);
       final user = await repo.verifyApiKey();
@@ -134,7 +139,7 @@ class AuthController extends Notifier<AuthState> {
       state = state.copyWith(
         status: AuthStatus.unauthenticated,
         isLoading: false,
-        error: e.toString(),
+        error: unexpectedError,
       );
     }
   }
@@ -152,8 +157,9 @@ class AuthController extends Notifier<AuthState> {
           serverUrl: serverUrl,
           apiKey: apiKey,
         );
-
-    await Future<void>.delayed(const Duration(milliseconds: 200));
+    // Invalidate derived providers so they pick up the restored config synchronously
+    ref.invalidate(dioProvider);
+    ref.invalidate(authRepositoryProvider);
 
     try {
       final repo = ref.read(authRepositoryProvider);
@@ -179,41 +185,10 @@ class AuthController extends Notifier<AuthState> {
         }
       }
     } catch (_) {
-      // Session check failed, will try re-login below
+      // Session check failed
     }
 
-    // Session expired or cookie lost - try silent re-login with saved credentials
-    await _tryAutoReLogin(serverUrl);
-  }
-
-  Future<void> _tryAutoReLogin(String serverUrl) async {
-    final email = await StorageService.readSecure('last_email');
-    final password = await StorageService.readSecure('last_password');
-
-    if (email != null &&
-        email.isNotEmpty &&
-        password != null &&
-        password.isNotEmpty) {
-      try {
-        // Re-set config to ensure Dio has correct baseUrl
-        ref.read(appConfigNotifierProvider.notifier).setConfig(
-              serverUrl: serverUrl,
-            );
-        await Future<void>.delayed(const Duration(milliseconds: 200));
-
-        final repo = ref.read(authRepositoryProvider);
-        final result = await repo.login(email, password);
-        final user = result['user'] as Map<String, dynamic>?;
-        state = AuthState(
-          status: AuthStatus.authenticated,
-          user: user ?? result,
-        );
-        return;
-      } catch (_) {
-        // Auto re-login failed - fall through to unauthenticated
-      }
-    }
-
+    // Session expired or cookie lost - user must log in again
     state = const AuthState(status: AuthStatus.unauthenticated);
   }
 
@@ -226,7 +201,6 @@ class AuthController extends Notifier<AuthState> {
     }
 
     await StorageService.deleteSecure('api_key');
-    await StorageService.deleteSecure('last_password');
     ref.read(appConfigNotifierProvider.notifier).clear();
 
     state = const AuthState(status: AuthStatus.unauthenticated);

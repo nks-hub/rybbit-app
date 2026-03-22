@@ -290,6 +290,12 @@ abstract class AppLocalizations {
   /// **'Connection failed. Check server URL and API key.'**
   String get connectionFailedApiKey;
 
+  /// No description provided for @unexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred. Please try again.'**
+  String get unexpectedError;
+
   /// No description provided for @organizations.
   ///
   /// In en, this message translates to:

@@ -98,6 +98,10 @@ class AppLocalizationsPt extends AppLocalizations {
       'Falha na conexão. Verifique a URL do servidor e a chave API.';
 
   @override
+  String get unexpectedError =>
+      'Ocorreu um erro inesperado. Por favor, tente novamente.';
+
+  @override
   String get organizations => 'Organizações';
 
   @override

@@ -96,6 +96,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get connectionFailedApiKey => '连接失败。请检查服务器 URL 和 API 密钥。';
 
   @override
+  String get unexpectedError => '发生了意外错误。请重试。';
+
+  @override
   String get organizations => '组织';
 
   @override

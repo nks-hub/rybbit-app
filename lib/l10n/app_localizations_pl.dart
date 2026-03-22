@@ -98,6 +98,10 @@ class AppLocalizationsPl extends AppLocalizations {
       'Połączenie nie powiodło się. Sprawdź adres URL serwera i klucz API.';
 
   @override
+  String get unexpectedError =>
+      'Wystąpił nieoczekiwany błąd. Spróbuj ponownie.';
+
+  @override
   String get organizations => 'Organizacje';
 
   @override

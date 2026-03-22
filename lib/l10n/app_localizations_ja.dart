@@ -96,6 +96,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get connectionFailedApiKey => '接続に失敗しました。サーバーURLとAPIキーを確認してください。';
 
   @override
+  String get unexpectedError => '予期しないエラーが発生しました。もう一度お試しください。';
+
+  @override
   String get organizations => '組織';
 
   @override

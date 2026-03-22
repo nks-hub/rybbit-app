@@ -29,6 +29,7 @@
   "connectionFailed": "Připojení selhalo. Zkontrolujte URL serveru.",
   "invalidApiKey": "Neplatný API klíč",
   "connectionFailedApiKey": "Připojení selhalo. Zkontrolujte URL serveru a API klíč.",
+  "unexpectedError": "Došlo k neočekávané chybě. Zkuste to prosím znovu.",
   "organizations": "Organizace",
   "noSitesFound": "Žádné weby nenalezeny",
   "noSitesHint": "Pro začátek přidejte web ve webovém rozhraní.",

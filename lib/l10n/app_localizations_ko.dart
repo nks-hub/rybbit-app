@@ -96,6 +96,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get connectionFailedApiKey => '연결에 실패했습니다. 서버 URL과 API 키를 확인하세요.';
 
   @override
+  String get unexpectedError => '예기치 않은 오류가 발생했습니다. 다시 시도해 주세요.';
+
+  @override
   String get organizations => '조직';
 
   @override

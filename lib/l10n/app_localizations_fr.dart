@@ -98,6 +98,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Échec de connexion. Vérifiez l\'URL du serveur et la clé API.';
 
   @override
+  String get unexpectedError =>
+      'Une erreur inattendue s\'est produite. Veuillez réessayer.';
+
+  @override
   String get organizations => 'Organisations';
 
   @override

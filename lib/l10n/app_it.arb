@@ -29,6 +29,7 @@
   "connectionFailed": "Connessione fallita. Controlla l'URL del server.",
   "invalidApiKey": "Chiave API non valida",
   "connectionFailedApiKey": "Connessione fallita. Controlla l'URL del server e la chiave API.",
+  "unexpectedError": "Si è verificato un errore imprevisto. Riprova.",
   "organizations": "Organizzazioni",
   "noSitesFound": "Nessun sito trovato",
   "noSitesHint": "Aggiungere un sito nella dashboard web per iniziare.",

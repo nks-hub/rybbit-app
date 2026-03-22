@@ -13,12 +13,13 @@ class StorageService {
     _settingsBox = await Hive.openBox<dynamic>(_settingsBoxName);
   }
 
-  // Secure storage (tokens, keys) with Hive backup
+  // Secure storage (tokens, keys) with Hive fallback only when FlutterSecureStorage fails.
   static Future<void> saveSecure(String key, String value) async {
     try {
       await _secureStorage.write(key: key, value: value);
+      return; // Secure storage succeeded - do NOT duplicate to plaintext Hive
     } catch (_) {
-      // Keychain unavailable (e.g. missing entitlements on simulator)
+      // Keychain unavailable (e.g. missing entitlements on simulator) - fall back to Hive
     }
     await _settingsBox.put('_s_$key', value);
   }
@@ -28,7 +29,7 @@ class StorageService {
       final value = await _secureStorage.read(key: key);
       if (value != null && value.isNotEmpty) return value;
     } catch (_) {
-      // SecureStorage failed, try Hive backup
+      // SecureStorage failed, try Hive fallback
     }
     return _settingsBox.get('_s_$key') as String?;
   }
@@ -39,6 +40,7 @@ class StorageService {
     } catch (_) {
       // Keychain unavailable
     }
+    // Always clean up Hive fallback entry as well
     await _settingsBox.delete('_s_$key');
   }
 

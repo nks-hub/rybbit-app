@@ -29,6 +29,7 @@
   "connectionFailed": "Falha na conexão. Verifique a URL do servidor.",
   "invalidApiKey": "Chave API inválida",
   "connectionFailedApiKey": "Falha na conexão. Verifique a URL do servidor e a chave API.",
+  "unexpectedError": "Ocorreu um erro inesperado. Por favor, tente novamente.",
   "organizations": "Organizações",
   "noSitesFound": "Nenhum site encontrado",
   "noSitesHint": "Adicione um site no painel web para começar.",

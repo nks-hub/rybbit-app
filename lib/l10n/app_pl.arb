@@ -29,6 +29,7 @@
   "connectionFailed": "Połączenie nie powiodło się. Sprawdź adres URL serwera.",
   "invalidApiKey": "Nieprawidłowy klucz API",
   "connectionFailedApiKey": "Połączenie nie powiodło się. Sprawdź adres URL serwera i klucz API.",
+  "unexpectedError": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie.",
   "organizations": "Organizacje",
   "noSitesFound": "Nie znaleziono witryn",
   "noSitesHint": "Dodaj witrynę w panelu internetowym, aby rozpocząć.",

@@ -29,6 +29,7 @@
   "connectionFailed": "接続に失敗しました。サーバーURLを確認してください。",
   "invalidApiKey": "無効なAPIキー",
   "connectionFailedApiKey": "接続に失敗しました。サーバーURLとAPIキーを確認してください。",
+  "unexpectedError": "予期しないエラーが発生しました。もう一度お試しください。",
   "organizations": "組織",
   "noSitesFound": "サイトが見つかりません",
   "noSitesHint": "Webダッシュボードでサイトを追加して始めましょう。",

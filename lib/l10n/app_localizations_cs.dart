@@ -97,6 +97,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Připojení selhalo. Zkontrolujte URL serveru a API klíč.';
 
   @override
+  String get unexpectedError =>
+      'Došlo k neočekávané chybě. Zkuste to prosím znovu.';
+
+  @override
   String get organizations => 'Organizace';
 
   @override

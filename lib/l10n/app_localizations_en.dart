@@ -97,6 +97,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'Connection failed. Check server URL and API key.';
 
   @override
+  String get unexpectedError =>
+      'An unexpected error occurred. Please try again.';
+
+  @override
   String get organizations => 'Organizations';
 
   @override

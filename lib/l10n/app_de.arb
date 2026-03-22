@@ -29,6 +29,7 @@
   "connectionFailed": "Verbindung fehlgeschlagen. Überprüfen Sie die Server-URL.",
   "invalidApiKey": "Ungültiger API-Schlüssel",
   "connectionFailedApiKey": "Verbindung fehlgeschlagen. Überprüfen Sie Server-URL und API-Schlüssel.",
+  "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
   "organizations": "Organisationen",
   "noSitesFound": "Keine Websites gefunden",
   "noSitesHint": "Fügen Sie eine Website im Web-Dashboard hinzu, um zu beginnen.",

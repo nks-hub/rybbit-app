@@ -98,6 +98,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Connessione fallita. Controlla l\'URL del server e la chiave API.';
 
   @override
+  String get unexpectedError =>
+      'Si è verificato un errore imprevisto. Riprova.';
+
+  @override
   String get organizations => 'Organizzazioni';
 
   @override

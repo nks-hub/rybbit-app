@@ -98,6 +98,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Verbindung fehlgeschlagen. Überprüfen Sie Server-URL und API-Schlüssel.';
 
   @override
+  String get unexpectedError =>
+      'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
+
+  @override
   String get organizations => 'Organisationen';
 
   @override

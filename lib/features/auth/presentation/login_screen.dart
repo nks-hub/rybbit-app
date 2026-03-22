@@ -289,8 +289,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         return l10n.invalidApiKey;
       case AuthController.connectionFailedApiKeyError:
         return l10n.connectionFailedApiKey;
+      case AuthController.unexpectedError:
+        return l10n.unexpectedError;
       default:
-        return error;
+        return l10n.unexpectedError;
     }
   }
 }
