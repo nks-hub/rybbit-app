@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:riverpod/riverpod.dart';
 
+import '../../../features/analytics/data/analytics_repository.dart';
 import '../../../shared/models/site.dart';
 import '../data/sites_repository.dart';
 
@@ -81,7 +82,7 @@ class SitesController extends AsyncNotifier<SitesState> {
     final currentState = state.valueOrNull;
     if (currentState == null) return;
 
-    final repo = ref.read(sitesRepositoryProvider);
+    final analyticsRepo = ref.read(analyticsRepositoryProvider);
     final counts = <String, int>{};
     final sites = currentState.sites;
 
@@ -91,7 +92,7 @@ class SitesController extends AsyncNotifier<SitesState> {
       final batch = sites.sublist(i, min(i + maxConcurrent, sites.length));
       await Future.wait(
         batch.map((site) async {
-          final count = await repo.getLiveUserCount(site.siteId.toString());
+          final count = await analyticsRepo.getLiveUserCount(site.siteId.toString());
           counts[site.siteId.toString()] = count;
         }),
       );

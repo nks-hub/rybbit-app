@@ -42,22 +42,6 @@ class SitesRepository {
     }
   }
 
-  /// Fetches live user count for a specific site.
-  /// GET /api/sites/:siteId/live-user-count returns { count }
-  Future<int> getLiveUserCount(String siteId) async {
-    try {
-      final response = await _dio.get('/api/sites/$siteId/live-user-count');
-      final data = response.data;
-      if (data is Map<String, dynamic>) {
-        return (data['count'] as num?)?.toInt() ?? 0;
-      }
-      if (data is int) return data;
-      return 0;
-    } catch (_) {
-      return 0;
-    }
-  }
-
   /// Extracts Site objects from the organizations response.
   List<Site> parseSitesFromOrganizations(
       List<Map<String, dynamic>> organizations) {
