@@ -104,7 +104,7 @@ void main() {
 
     test('direct List response returns list of OverviewBucket', () async {
       when(() => mockDio.get(
-            '/api/sites/$siteId/overview-bucketed',
+            '/api/sites/$siteId/overview/time-series',
             queryParameters: any(named: 'queryParameters'),
           )).thenAnswer((_) async => _mockResponse([bucketItem]));
 
@@ -118,7 +118,7 @@ void main() {
     test('Map response with data List returns list of OverviewBucket', () async {
       final envelope = {'data': [bucketItem, bucketItem]};
       when(() => mockDio.get(
-            '/api/sites/$siteId/overview-bucketed',
+            '/api/sites/$siteId/overview/time-series',
             queryParameters: any(named: 'queryParameters'),
           )).thenAnswer((_) async => _mockResponse(envelope));
 
@@ -129,7 +129,7 @@ void main() {
 
     test('empty List returns empty list', () async {
       when(() => mockDio.get(
-            '/api/sites/$siteId/overview-bucketed',
+            '/api/sites/$siteId/overview/time-series',
             queryParameters: any(named: 'queryParameters'),
           )).thenAnswer((_) async => _mockResponse(<dynamic>[]));
 
@@ -141,7 +141,7 @@ void main() {
     test('Map with non-List data returns empty list', () async {
       final envelope = {'data': <String, dynamic>{}};
       when(() => mockDio.get(
-            '/api/sites/$siteId/overview-bucketed',
+            '/api/sites/$siteId/overview/time-series',
             queryParameters: any(named: 'queryParameters'),
           )).thenAnswer((_) async => _mockResponse(envelope));
 

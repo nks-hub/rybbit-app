@@ -63,13 +63,13 @@ final currentSiteDomainProvider =
     NotifierProvider<CurrentSiteDomainNotifier, String?>(
         CurrentSiteDomainNotifier.new);
 
-/// Holds the currently selected site type ('web' or 'app').
+/// Holds the currently selected site type ('web' or 'mobile').
 /// Persisted to local storage so it survives app restarts.
 final currentSiteTypeProvider =
     NotifierProvider<CurrentSiteTypeNotifier, String>(
         CurrentSiteTypeNotifier.new);
 
-/// Whether the current site is an app (not web).
+/// Whether the current site is a mobile app (not web).
 final currentSiteIsMobileProvider = Provider<bool>((ref) {
   final siteType = ref.watch(currentSiteTypeProvider);
   return siteType != 'web';

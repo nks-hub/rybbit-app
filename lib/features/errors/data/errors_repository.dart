@@ -15,7 +15,7 @@ class ErrorsRepository {
     Map<String, String> params,
   ) async {
     final response = await _dio.get(
-      '/api/sites/$siteId/error-names',
+      '/api/sites/$siteId/errors/names',
       queryParameters: params,
     );
 
@@ -44,7 +44,7 @@ class ErrorsRepository {
     };
 
     final response = await _dio.get(
-      '/api/sites/$siteId/error-events',
+      '/api/sites/$siteId/errors/events',
       queryParameters: queryParams,
     );
 

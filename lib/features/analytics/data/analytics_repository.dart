@@ -36,7 +36,7 @@ class AnalyticsRepository {
     CancelToken? cancelToken,
   }) async {
     final response = await _dio.get(
-      '/api/sites/$siteId/overview-bucketed',
+      '/api/sites/$siteId/overview/time-series',
       queryParameters: params,
       cancelToken: cancelToken,
     );
@@ -111,7 +111,7 @@ class AnalyticsRepository {
     CancelToken? cancelToken,
   }) async {
     final response = await _dio.get(
-      '/api/sites/$siteId/session-locations',
+      '/api/sites/$siteId/sessions/locations',
       queryParameters: params,
       cancelToken: cancelToken,
     );

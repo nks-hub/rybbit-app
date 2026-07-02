@@ -101,7 +101,7 @@ class EventsRepository {
     Map<String, String> params,
   ) async {
     final response = await _dio.get(
-      '/api/sites/$siteId/events/bucketed',
+      '/api/sites/$siteId/events/time-series',
       queryParameters: params,
     );
 
