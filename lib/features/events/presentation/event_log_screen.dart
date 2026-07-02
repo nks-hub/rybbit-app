@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -430,23 +432,8 @@ class _RawEventCard extends StatelessWidget {
               if (event.type == 'custom_event' &&
                   event.properties != null &&
                   event.properties!.isNotEmpty) ...[
-                const SizedBox(height: 4),
-                Row(
-                  children: [
-                    Icon(Icons.data_object,
-                        size: 12, color: theme.textTheme.bodySmall?.color),
-                    const SizedBox(width: 4),
-                    Expanded(
-                      child: Text(
-                        event.properties!,
-                        style: theme.textTheme.bodySmall
-                            ?.copyWith(fontSize: 11),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                      ),
-                    ),
-                  ],
-                ),
+                const SizedBox(height: 6),
+                _EventProperties(raw: event.properties!),
               ],
             ],
           ),
@@ -515,6 +502,86 @@ class _DetailChip extends StatelessWidget {
           style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
         ),
       ],
+    );
+  }
+}
+
+/// Renders custom event properties as key/value chips. Falls back to the raw
+/// string when the payload is not a JSON object.
+class _EventProperties extends StatelessWidget {
+  final String raw;
+
+  const _EventProperties({required this.raw});
+
+  Map<String, dynamic>? _tryParse() {
+    try {
+      final decoded = jsonDecode(raw);
+      if (decoded is Map<String, dynamic> && decoded.isNotEmpty) {
+        return decoded;
+      }
+    } catch (_) {
+      // Not valid JSON - fall back to raw display.
+    }
+    return null;
+  }
+
+  String _stringify(dynamic value) {
+    if (value is String) return value;
+    if (value is Map || value is List) return jsonEncode(value);
+    return value.toString();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final props = _tryParse();
+
+    if (props == null) {
+      return Row(
+        children: [
+          Icon(Icons.data_object,
+              size: 12, color: theme.textTheme.bodySmall?.color),
+          const SizedBox(width: 4),
+          Expanded(
+            child: Text(
+              raw,
+              style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
+          ),
+        ],
+      );
+    }
+
+    final keyColor = theme.textTheme.bodySmall?.color?.withValues(alpha: 0.6);
+    return Wrap(
+      spacing: 6,
+      runSpacing: 6,
+      children: props.entries.map((entry) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: RichText(
+            text: TextSpan(
+              style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
+              children: [
+                TextSpan(
+                  text: '${entry.key}: ',
+                  style: TextStyle(color: keyColor),
+                ),
+                TextSpan(
+                  text: _stringify(entry.value),
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 }
