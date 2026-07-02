@@ -28,7 +28,10 @@ final dioProvider = Provider<Dio>((ref) {
     BaseOptions(
       baseUrl: config.baseUrl,
       connectTimeout: const Duration(seconds: 15),
-      receiveTimeout: const Duration(seconds: 15),
+      // Heavy analytics queries (funnel analysis, journeys, retention,
+      // sessions) on high-traffic sites can take well over 15s to compute
+      // server-side. Allow ample time so large sites don't time out.
+      receiveTimeout: const Duration(seconds: 60),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

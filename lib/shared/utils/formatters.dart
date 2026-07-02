@@ -74,5 +74,15 @@ String formatError(Object error) {
   if (msg.contains('500') || msg.contains('internal server')) {
     return 'Server error. Please try again later.';
   }
+  // Gateway errors (502/503/504) are common when the server is overloaded by a
+  // heavy query — surface a clearer, actionable message than the generic one.
+  if (msg.contains('502') ||
+      msg.contains('503') ||
+      msg.contains('504') ||
+      msg.contains('bad gateway') ||
+      msg.contains('gateway timeout') ||
+      msg.contains('service unavailable')) {
+    return 'Server is busy. This query may be too heavy — try a shorter date range or retry.';
+  }
   return 'Failed to load data. Please try again.';
 }

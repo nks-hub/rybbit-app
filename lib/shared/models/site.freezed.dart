@@ -15,7 +15,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Site {
 
- String get id;@JsonKey(name: 'site_id') int get siteId; String get name; String get domain;@JsonKey(name: 'created_at') String get createdAt;@JsonKey(name: 'organization_id') String? get organizationId;@JsonKey(name: 'public') bool get public;@JsonKey(name: 'session_replay') bool get sessionReplay;@JsonKey(name: 'web_vitals') bool get webVitals;@JsonKey(name: 'track_errors') bool get trackErrors;@JsonKey(name: 'track_outbound') bool get trackOutbound;@JsonKey(name: 'is_owner') bool get isOwner;@JsonKey(name: 'sessions_last_24_hours') int? get sessionsLast24Hours; String get type; List<String>? get tags;
+ String get id;// Rybbit v2.6 returns camelCase keys on /api/sites/:siteId. Accept both the
+// camelCase form (site config endpoint) and the snake_case fallback so the
+// model works regardless of which endpoint produced the JSON.
+@JsonKey(name: 'siteId', readValue: _readSiteId) int get siteId; String get name; String get domain;@JsonKey(name: 'createdAt', readValue: _readCreatedAt) String get createdAt;@JsonKey(name: 'organizationId', readValue: _readOrganizationId) String? get organizationId;@JsonKey(name: 'public') bool get public;@JsonKey(name: 'sessionReplay', readValue: _readSessionReplay) bool get sessionReplay;@JsonKey(name: 'webVitals', readValue: _readWebVitals) bool get webVitals;@JsonKey(name: 'trackErrors', readValue: _readTrackErrors) bool get trackErrors;@JsonKey(name: 'trackOutbound', readValue: _readTrackOutbound) bool get trackOutbound;@JsonKey(name: 'isOwner', readValue: _readIsOwner) bool get isOwner;@JsonKey(name: 'sessionsLast24Hours', readValue: _readSessionsLast24Hours) int? get sessionsLast24Hours; String get type; List<String>? get tags;
 /// Create a copy of Site
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +51,7 @@ abstract mixin class $SiteCopyWith<$Res>  {
   factory $SiteCopyWith(Site value, $Res Function(Site) _then) = _$SiteCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(name: 'site_id') int siteId, String name, String domain,@JsonKey(name: 'created_at') String createdAt,@JsonKey(name: 'organization_id') String? organizationId,@JsonKey(name: 'public') bool public,@JsonKey(name: 'session_replay') bool sessionReplay,@JsonKey(name: 'web_vitals') bool webVitals,@JsonKey(name: 'track_errors') bool trackErrors,@JsonKey(name: 'track_outbound') bool trackOutbound,@JsonKey(name: 'is_owner') bool isOwner,@JsonKey(name: 'sessions_last_24_hours') int? sessionsLast24Hours, String type, List<String>? tags
+ String id,@JsonKey(name: 'siteId', readValue: _readSiteId) int siteId, String name, String domain,@JsonKey(name: 'createdAt', readValue: _readCreatedAt) String createdAt,@JsonKey(name: 'organizationId', readValue: _readOrganizationId) String? organizationId,@JsonKey(name: 'public') bool public,@JsonKey(name: 'sessionReplay', readValue: _readSessionReplay) bool sessionReplay,@JsonKey(name: 'webVitals', readValue: _readWebVitals) bool webVitals,@JsonKey(name: 'trackErrors', readValue: _readTrackErrors) bool trackErrors,@JsonKey(name: 'trackOutbound', readValue: _readTrackOutbound) bool trackOutbound,@JsonKey(name: 'isOwner', readValue: _readIsOwner) bool isOwner,@JsonKey(name: 'sessionsLast24Hours', readValue: _readSessionsLast24Hours) int? sessionsLast24Hours, String type, List<String>? tags
 });
 
 
@@ -167,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'site_id')  int siteId,  String name,  String domain, @JsonKey(name: 'created_at')  String createdAt, @JsonKey(name: 'organization_id')  String? organizationId, @JsonKey(name: 'public')  bool public, @JsonKey(name: 'session_replay')  bool sessionReplay, @JsonKey(name: 'web_vitals')  bool webVitals, @JsonKey(name: 'track_errors')  bool trackErrors, @JsonKey(name: 'track_outbound')  bool trackOutbound, @JsonKey(name: 'is_owner')  bool isOwner, @JsonKey(name: 'sessions_last_24_hours')  int? sessionsLast24Hours,  String type,  List<String>? tags)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'siteId', readValue: _readSiteId)  int siteId,  String name,  String domain, @JsonKey(name: 'createdAt', readValue: _readCreatedAt)  String createdAt, @JsonKey(name: 'organizationId', readValue: _readOrganizationId)  String? organizationId, @JsonKey(name: 'public')  bool public, @JsonKey(name: 'sessionReplay', readValue: _readSessionReplay)  bool sessionReplay, @JsonKey(name: 'webVitals', readValue: _readWebVitals)  bool webVitals, @JsonKey(name: 'trackErrors', readValue: _readTrackErrors)  bool trackErrors, @JsonKey(name: 'trackOutbound', readValue: _readTrackOutbound)  bool trackOutbound, @JsonKey(name: 'isOwner', readValue: _readIsOwner)  bool isOwner, @JsonKey(name: 'sessionsLast24Hours', readValue: _readSessionsLast24Hours)  int? sessionsLast24Hours,  String type,  List<String>? tags)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Site() when $default != null:
 return $default(_that.id,_that.siteId,_that.name,_that.domain,_that.createdAt,_that.organizationId,_that.public,_that.sessionReplay,_that.webVitals,_that.trackErrors,_that.trackOutbound,_that.isOwner,_that.sessionsLast24Hours,_that.type,_that.tags);case _:
@@ -188,7 +191,7 @@ return $default(_that.id,_that.siteId,_that.name,_that.domain,_that.createdAt,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'site_id')  int siteId,  String name,  String domain, @JsonKey(name: 'created_at')  String createdAt, @JsonKey(name: 'organization_id')  String? organizationId, @JsonKey(name: 'public')  bool public, @JsonKey(name: 'session_replay')  bool sessionReplay, @JsonKey(name: 'web_vitals')  bool webVitals, @JsonKey(name: 'track_errors')  bool trackErrors, @JsonKey(name: 'track_outbound')  bool trackOutbound, @JsonKey(name: 'is_owner')  bool isOwner, @JsonKey(name: 'sessions_last_24_hours')  int? sessionsLast24Hours,  String type,  List<String>? tags)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'siteId', readValue: _readSiteId)  int siteId,  String name,  String domain, @JsonKey(name: 'createdAt', readValue: _readCreatedAt)  String createdAt, @JsonKey(name: 'organizationId', readValue: _readOrganizationId)  String? organizationId, @JsonKey(name: 'public')  bool public, @JsonKey(name: 'sessionReplay', readValue: _readSessionReplay)  bool sessionReplay, @JsonKey(name: 'webVitals', readValue: _readWebVitals)  bool webVitals, @JsonKey(name: 'trackErrors', readValue: _readTrackErrors)  bool trackErrors, @JsonKey(name: 'trackOutbound', readValue: _readTrackOutbound)  bool trackOutbound, @JsonKey(name: 'isOwner', readValue: _readIsOwner)  bool isOwner, @JsonKey(name: 'sessionsLast24Hours', readValue: _readSessionsLast24Hours)  int? sessionsLast24Hours,  String type,  List<String>? tags)  $default,) {final _that = this;
 switch (_that) {
 case _Site():
 return $default(_that.id,_that.siteId,_that.name,_that.domain,_that.createdAt,_that.organizationId,_that.public,_that.sessionReplay,_that.webVitals,_that.trackErrors,_that.trackOutbound,_that.isOwner,_that.sessionsLast24Hours,_that.type,_that.tags);case _:
@@ -208,7 +211,7 @@ return $default(_that.id,_that.siteId,_that.name,_that.domain,_that.createdAt,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'site_id')  int siteId,  String name,  String domain, @JsonKey(name: 'created_at')  String createdAt, @JsonKey(name: 'organization_id')  String? organizationId, @JsonKey(name: 'public')  bool public, @JsonKey(name: 'session_replay')  bool sessionReplay, @JsonKey(name: 'web_vitals')  bool webVitals, @JsonKey(name: 'track_errors')  bool trackErrors, @JsonKey(name: 'track_outbound')  bool trackOutbound, @JsonKey(name: 'is_owner')  bool isOwner, @JsonKey(name: 'sessions_last_24_hours')  int? sessionsLast24Hours,  String type,  List<String>? tags)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'siteId', readValue: _readSiteId)  int siteId,  String name,  String domain, @JsonKey(name: 'createdAt', readValue: _readCreatedAt)  String createdAt, @JsonKey(name: 'organizationId', readValue: _readOrganizationId)  String? organizationId, @JsonKey(name: 'public')  bool public, @JsonKey(name: 'sessionReplay', readValue: _readSessionReplay)  bool sessionReplay, @JsonKey(name: 'webVitals', readValue: _readWebVitals)  bool webVitals, @JsonKey(name: 'trackErrors', readValue: _readTrackErrors)  bool trackErrors, @JsonKey(name: 'trackOutbound', readValue: _readTrackOutbound)  bool trackOutbound, @JsonKey(name: 'isOwner', readValue: _readIsOwner)  bool isOwner, @JsonKey(name: 'sessionsLast24Hours', readValue: _readSessionsLast24Hours)  int? sessionsLast24Hours,  String type,  List<String>? tags)?  $default,) {final _that = this;
 switch (_that) {
 case _Site() when $default != null:
 return $default(_that.id,_that.siteId,_that.name,_that.domain,_that.createdAt,_that.organizationId,_that.public,_that.sessionReplay,_that.webVitals,_that.trackErrors,_that.trackOutbound,_that.isOwner,_that.sessionsLast24Hours,_that.type,_that.tags);case _:
@@ -223,22 +226,25 @@ return $default(_that.id,_that.siteId,_that.name,_that.domain,_that.createdAt,_t
 @JsonSerializable()
 
 class _Site implements Site {
-  const _Site({required this.id, @JsonKey(name: 'site_id') required this.siteId, required this.name, required this.domain, @JsonKey(name: 'created_at') required this.createdAt, @JsonKey(name: 'organization_id') this.organizationId, @JsonKey(name: 'public') this.public = false, @JsonKey(name: 'session_replay') this.sessionReplay = false, @JsonKey(name: 'web_vitals') this.webVitals = false, @JsonKey(name: 'track_errors') this.trackErrors = false, @JsonKey(name: 'track_outbound') this.trackOutbound = false, @JsonKey(name: 'is_owner') this.isOwner = false, @JsonKey(name: 'sessions_last_24_hours') this.sessionsLast24Hours, this.type = 'web', final  List<String>? tags}): _tags = tags;
+  const _Site({required this.id, @JsonKey(name: 'siteId', readValue: _readSiteId) required this.siteId, required this.name, required this.domain, @JsonKey(name: 'createdAt', readValue: _readCreatedAt) required this.createdAt, @JsonKey(name: 'organizationId', readValue: _readOrganizationId) this.organizationId, @JsonKey(name: 'public') this.public = false, @JsonKey(name: 'sessionReplay', readValue: _readSessionReplay) this.sessionReplay = false, @JsonKey(name: 'webVitals', readValue: _readWebVitals) this.webVitals = false, @JsonKey(name: 'trackErrors', readValue: _readTrackErrors) this.trackErrors = false, @JsonKey(name: 'trackOutbound', readValue: _readTrackOutbound) this.trackOutbound = false, @JsonKey(name: 'isOwner', readValue: _readIsOwner) this.isOwner = false, @JsonKey(name: 'sessionsLast24Hours', readValue: _readSessionsLast24Hours) this.sessionsLast24Hours, this.type = 'web', final  List<String>? tags}): _tags = tags;
   factory _Site.fromJson(Map<String, dynamic> json) => _$SiteFromJson(json);
 
 @override final  String id;
-@override@JsonKey(name: 'site_id') final  int siteId;
+// Rybbit v2.6 returns camelCase keys on /api/sites/:siteId. Accept both the
+// camelCase form (site config endpoint) and the snake_case fallback so the
+// model works regardless of which endpoint produced the JSON.
+@override@JsonKey(name: 'siteId', readValue: _readSiteId) final  int siteId;
 @override final  String name;
 @override final  String domain;
-@override@JsonKey(name: 'created_at') final  String createdAt;
-@override@JsonKey(name: 'organization_id') final  String? organizationId;
+@override@JsonKey(name: 'createdAt', readValue: _readCreatedAt) final  String createdAt;
+@override@JsonKey(name: 'organizationId', readValue: _readOrganizationId) final  String? organizationId;
 @override@JsonKey(name: 'public') final  bool public;
-@override@JsonKey(name: 'session_replay') final  bool sessionReplay;
-@override@JsonKey(name: 'web_vitals') final  bool webVitals;
-@override@JsonKey(name: 'track_errors') final  bool trackErrors;
-@override@JsonKey(name: 'track_outbound') final  bool trackOutbound;
-@override@JsonKey(name: 'is_owner') final  bool isOwner;
-@override@JsonKey(name: 'sessions_last_24_hours') final  int? sessionsLast24Hours;
+@override@JsonKey(name: 'sessionReplay', readValue: _readSessionReplay) final  bool sessionReplay;
+@override@JsonKey(name: 'webVitals', readValue: _readWebVitals) final  bool webVitals;
+@override@JsonKey(name: 'trackErrors', readValue: _readTrackErrors) final  bool trackErrors;
+@override@JsonKey(name: 'trackOutbound', readValue: _readTrackOutbound) final  bool trackOutbound;
+@override@JsonKey(name: 'isOwner', readValue: _readIsOwner) final  bool isOwner;
+@override@JsonKey(name: 'sessionsLast24Hours', readValue: _readSessionsLast24Hours) final  int? sessionsLast24Hours;
 @override@JsonKey() final  String type;
  final  List<String>? _tags;
 @override List<String>? get tags {
@@ -283,7 +289,7 @@ abstract mixin class _$SiteCopyWith<$Res> implements $SiteCopyWith<$Res> {
   factory _$SiteCopyWith(_Site value, $Res Function(_Site) _then) = __$SiteCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(name: 'site_id') int siteId, String name, String domain,@JsonKey(name: 'created_at') String createdAt,@JsonKey(name: 'organization_id') String? organizationId,@JsonKey(name: 'public') bool public,@JsonKey(name: 'session_replay') bool sessionReplay,@JsonKey(name: 'web_vitals') bool webVitals,@JsonKey(name: 'track_errors') bool trackErrors,@JsonKey(name: 'track_outbound') bool trackOutbound,@JsonKey(name: 'is_owner') bool isOwner,@JsonKey(name: 'sessions_last_24_hours') int? sessionsLast24Hours, String type, List<String>? tags
+ String id,@JsonKey(name: 'siteId', readValue: _readSiteId) int siteId, String name, String domain,@JsonKey(name: 'createdAt', readValue: _readCreatedAt) String createdAt,@JsonKey(name: 'organizationId', readValue: _readOrganizationId) String? organizationId,@JsonKey(name: 'public') bool public,@JsonKey(name: 'sessionReplay', readValue: _readSessionReplay) bool sessionReplay,@JsonKey(name: 'webVitals', readValue: _readWebVitals) bool webVitals,@JsonKey(name: 'trackErrors', readValue: _readTrackErrors) bool trackErrors,@JsonKey(name: 'trackOutbound', readValue: _readTrackOutbound) bool trackOutbound,@JsonKey(name: 'isOwner', readValue: _readIsOwner) bool isOwner,@JsonKey(name: 'sessionsLast24Hours', readValue: _readSessionsLast24Hours) int? sessionsLast24Hours, String type, List<String>? tags
 });
 
 

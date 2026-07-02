@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/state/time_range_controller.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/models/funnel.dart';
@@ -224,8 +225,15 @@ class _FunnelCardState extends ConsumerState<_FunnelCard> {
         }
 
         final repo = ref.read(funnelsRepositoryProvider);
-        final analysis =
-            await repo.analyzeFunnel(widget.siteId, steps, null);
+        // Scope the analysis to the currently selected time range, matching the
+        // rest of the dashboard. Without a range the backend scans the entire
+        // history, which is prohibitively slow on high-traffic sites.
+        final timeRange = ref.read(timeRangeControllerProvider);
+        final analysis = await repo.analyzeFunnel(
+          widget.siteId,
+          steps,
+          timeRange.toQueryParams(),
+        );
         if (!mounted) return;
         setState(() {
           _analysis = analysis;
