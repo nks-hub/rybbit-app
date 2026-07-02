@@ -4,17 +4,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/models/time_range.dart';
 
-/// Returns a UTC offset string (e.g. "UTC+01:00") derived from the device's
-/// current offset. This avoids the ambiguity of abbreviated names like "CET"
-/// or "EST" returned by [DateTime.timeZoneName], while requiring no extra
-/// package dependency. The Rybbit API accepts UTC offset strings as a valid
-/// timezone identifier.
+/// Returns an IANA timezone identifier derived from the device's current UTC
+/// offset. The Rybbit API validates the timezone via `Intl.DateTimeFormat`, so
+/// bare offset strings like "UTC+01:00" are rejected. Whole-hour offsets map to
+/// the POSIX-style `Etc/GMT±N` zones (note the inverted sign: `Etc/GMT-1` is
+/// UTC+1). Sub-hour offsets have no `Etc/GMT` equivalent, so they fall back to
+/// "UTC" — analytics still load, only bucket boundaries align to UTC.
 String _systemTimeZone() {
   final offset = DateTime.now().timeZoneOffset;
-  final sign = offset.isNegative ? '-' : '+';
-  final hours = offset.inHours.abs().toString().padLeft(2, '0');
-  final minutes = (offset.inMinutes.abs() % 60).toString().padLeft(2, '0');
-  return 'UTC$sign$hours:$minutes';
+  if (offset.inMinutes % 60 != 0) return 'UTC';
+  final hours = offset.inHours;
+  if (hours == 0) return 'UTC';
+  // Etc/GMT inverts the sign relative to UTC offset.
+  final sign = hours > 0 ? '-' : '+';
+  return 'Etc/GMT$sign${hours.abs()}';
 }
 
 TimeRange _todayRange() {

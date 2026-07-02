@@ -145,24 +145,26 @@ void main() {
       container.dispose();
     });
 
-    test('initial state timeZone matches UTC offset format', () {
+    // _systemTimeZone() returns an IANA identifier the Rybbit API accepts:
+    // "UTC" or "Etc/GMT±N" (never a bare "UTC+HH:MM" offset).
+    final ianaTz = matches(RegExp(r'^(UTC|Etc/GMT[+-]\d{1,2})$'));
+
+    test('initial state timeZone is a valid IANA identifier', () {
       final state = container.read(timeRangeControllerProvider);
-      // _systemTimeZone() returns e.g. "UTC+01:00" or "UTC-05:00" or "UTC+00:00"
-      expect(state.timeZone,
-          matches(RegExp(r'^UTC[+-]\d{2}:\d{2}$')));
+      expect(state.timeZone, ianaTz);
     });
 
-    test('setToday timeZone matches UTC offset format', () {
+    test('setToday timeZone is a valid IANA identifier', () {
       final notifier = container.read(timeRangeControllerProvider.notifier);
       notifier.setToday();
       final state = container.read(timeRangeControllerProvider);
-      expect(state.timeZone, matches(RegExp(r'^UTC[+-]\d{2}:\d{2}$')));
+      expect(state.timeZone, ianaTz);
     });
 
-    test('toQueryParams includes timeZone in UTC offset format', () {
+    test('toQueryParams includes a valid IANA timeZone', () {
       final state = container.read(timeRangeControllerProvider);
       final params = state.toQueryParams();
-      expect(params['time_zone'], matches(RegExp(r'^UTC[+-]\d{2}:\d{2}$')));
+      expect(params['time_zone'], ianaTz);
     });
   });
 

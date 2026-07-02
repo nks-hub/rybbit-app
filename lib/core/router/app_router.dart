@@ -37,13 +37,18 @@ final _analyticsNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'analytics'
 final _sessionsNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'sessions');
 final _settingsNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'settings');
 
-GoRoute _siteRoute(String path, Widget Function(String siteId) builder) {
+GoRoute _siteRoute(
+  String path,
+  Widget Function(String siteId) builder, {
+  List<RouteBase> routes = const [],
+}) {
   return GoRoute(
     path: path,
     builder: (context, state) {
       final siteId = state.pathParameters['siteId']!;
       return builder(siteId);
     },
+    routes: routes,
   );
 }
 
@@ -106,8 +111,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   );
                 },
                 routes: [
-                  _siteRoute(':siteId', (siteId) => AnalyticsScreen(siteId: siteId))
-                    ..routes.addAll([
+                  _siteRoute(':siteId', (siteId) => AnalyticsScreen(siteId: siteId),
+                    routes: [
                       GoRoute(
                         path: 'metrics/:type',
                         builder: (context, state) {
@@ -187,8 +192,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   );
                 },
                 routes: [
-                  _siteRoute(':siteId', (siteId) => SessionsListScreen(siteId: siteId))
-                    ..routes.addAll([
+                  _siteRoute(':siteId', (siteId) => SessionsListScreen(siteId: siteId),
+                    routes: [
                       GoRoute(
                         path: ':sessionId',
                         builder: (context, state) {
