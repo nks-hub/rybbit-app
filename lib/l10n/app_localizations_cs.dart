@@ -66,6 +66,19 @@ class AppLocalizationsCs extends AppLocalizations {
   String get serverUrlHint => 'https://vase-rybbit-instance.com';
 
   @override
+  String get connectionCloud => 'Rybbit Cloud';
+
+  @override
+  String get connectionSelfHosted => 'Vlastní server';
+
+  @override
+  String get cloudApiKeyInfo =>
+      'Rybbit Cloud vyžaduje API klíč z plánu Standard nebo Pro. Vytvoř ho v Nastavení → Účet → API klíče a vlož ho níže.';
+
+  @override
+  String get cloudCreateApiKey => 'Vytvořit API klíč v Rybbit Cloud';
+
+  @override
   String get email => 'E-mail';
 
   @override

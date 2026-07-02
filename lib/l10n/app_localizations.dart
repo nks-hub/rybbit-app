@@ -230,6 +230,30 @@ abstract class AppLocalizations {
   /// **'https://your-rybbit-instance.com'**
   String get serverUrlHint;
 
+  /// No description provided for @connectionCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Rybbit Cloud'**
+  String get connectionCloud;
+
+  /// No description provided for @connectionSelfHosted.
+  ///
+  /// In en, this message translates to:
+  /// **'Self-hosted'**
+  String get connectionSelfHosted;
+
+  /// No description provided for @cloudApiKeyInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Rybbit Cloud requires an API key from a Standard or Pro plan. Create one under Settings → Account → API Keys, then paste it below.'**
+  String get cloudApiKeyInfo;
+
+  /// No description provided for @cloudCreateApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an API key in Rybbit Cloud'**
+  String get cloudCreateApiKey;
+
   /// No description provided for @email.
   ///
   /// In en, this message translates to:

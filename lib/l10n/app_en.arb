@@ -22,6 +22,10 @@
 
   "serverUrl": "Server URL",
   "serverUrlHint": "https://your-rybbit-instance.com",
+  "connectionCloud": "Rybbit Cloud",
+  "connectionSelfHosted": "Self-hosted",
+  "cloudApiKeyInfo": "Rybbit Cloud requires an API key from a Standard or Pro plan. Create one under Settings → Account → API Keys, then paste it below.",
+  "cloudCreateApiKey": "Create an API key in Rybbit Cloud",
   "email": "Email",
   "apiKey": "API Key",
   "password": "Password",

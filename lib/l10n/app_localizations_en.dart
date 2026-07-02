@@ -66,6 +66,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get serverUrlHint => 'https://your-rybbit-instance.com';
 
   @override
+  String get connectionCloud => 'Rybbit Cloud';
+
+  @override
+  String get connectionSelfHosted => 'Self-hosted';
+
+  @override
+  String get cloudApiKeyInfo =>
+      'Rybbit Cloud requires an API key from a Standard or Pro plan. Create one under Settings → Account → API Keys, then paste it below.';
+
+  @override
+  String get cloudCreateApiKey => 'Create an API key in Rybbit Cloud';
+
+  @override
   String get email => 'Email';
 
   @override
