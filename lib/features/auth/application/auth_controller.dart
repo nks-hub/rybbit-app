@@ -2,9 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/config/app_config.dart';
+import '../../../core/network/dio_provider.dart';
 import '../../../core/storage/storage_service.dart';
 import '../data/auth_repository.dart';
-import '../../../core/network/dio_provider.dart';
 import '../../../shared/models/user.dart';
 
 enum AuthStatus { unknown, authenticated, unauthenticated }
