@@ -602,6 +602,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get auto => 'Automatisch';
 
   @override
+  String get privacy => 'Datenschutz';
+
+  @override
+  String get usageAnalytics => 'Nutzungsstatistiken';
+
+  @override
+  String get usageAnalyticsDescription =>
+      'Anonyme Nutzungsstatistiken senden, um diesen Client zu verbessern. Enthält niemals Ihre Serveradresse, Ihr Konto oder Ihre Website-Daten.';
+
+  @override
   String get about => 'Über';
 
   @override

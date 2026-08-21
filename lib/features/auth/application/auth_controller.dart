@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/analytics/analytics.dart';
 import '../../../core/config/app_config.dart';
 import '../../../core/network/dio_provider.dart';
 import '../../../core/storage/storage_service.dart';
@@ -99,7 +100,12 @@ class AuthController extends Notifier<AuthState> {
         status: AuthStatus.authenticated,
         user: User.fromJson(userMap),
       );
+      AppAnalytics.loginSucceeded(
+        connection: _connectionKind(serverUrl),
+        method: 'password',
+      );
     } on DioException catch (e) {
+      AppAnalytics.loginFailed('server_rejected');
       _failedAttempts++;
       if (_failedAttempts >= 3) {
         _lockoutUntil = DateTime.now()
@@ -161,7 +167,12 @@ class AuthController extends Notifier<AuthState> {
         status: AuthStatus.authenticated,
         user: User.fromJson(userMap),
       );
+      AppAnalytics.loginSucceeded(
+        connection: _connectionKind(serverUrl),
+        method: 'api_key',
+      );
     } on DioException catch (e) {
+      AppAnalytics.loginFailed('server_rejected');
       final message = e.response?.data?['message']?.toString() ??
           connectionFailedApiKeyError;
       state = state.copyWith(
@@ -248,7 +259,15 @@ class AuthController extends Notifier<AuthState> {
 
     await _clearAuth();
     state = const AuthState(status: AuthStatus.unauthenticated);
+    AppAnalytics.logout();
   }
+
+  /// Whether the user connects to Rybbit Cloud or runs their own server. Only
+  /// the flavour is reported — never the address itself.
+  static String _connectionKind(String serverUrl) =>
+      Uri.tryParse(serverUrl)?.host.endsWith('rybbit.io') ?? false
+          ? 'cloud'
+          : 'self_hosted';
 
   Future<void> _clearAuth() async {
     final storage = ref.read(storageServiceProvider);

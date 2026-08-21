@@ -587,6 +587,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get auto => '自动';
 
   @override
+  String get privacy => '隐私';
+
+  @override
+  String get usageAnalytics => '使用情况统计';
+
+  @override
+  String get usageAnalyticsDescription =>
+      '发送匿名使用情况统计，以帮助改进此客户端。绝不包含您的服务器地址、账户或站点数据。';
+
+  @override
   String get about => '关于';
 
   @override

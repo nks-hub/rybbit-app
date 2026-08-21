@@ -598,6 +598,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get auto => 'Automatyczny';
 
   @override
+  String get privacy => 'Prywatność';
+
+  @override
+  String get usageAnalytics => 'Statystyki użytkowania';
+
+  @override
+  String get usageAnalyticsDescription =>
+      'Wysyłaj anonimowe statystyki użytkowania, aby ulepszać tego klienta. Nigdy nie zawierają adresu Twojego serwera, konta ani danych Twoich witryn.';
+
+  @override
   String get about => 'Informacje';
 
   @override

@@ -6,6 +6,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app.dart';
+import '../../../core/analytics/analytics.dart';
 import '../../../core/config/app_config.dart';
 import '../../../core/storage/storage_service.dart';
 import '../../../l10n/app_localizations.dart';
@@ -160,6 +161,25 @@ class SettingsScreen extends ConsumerWidget {
                   onTap: () => _showLanguagePicker(context, ref),
                 ),
               ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
+
+          // Privacy section
+          _SectionHeader(title: l10n.privacy),
+          Card(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: SwitchListTile(
+              secondary: const Icon(Icons.insights_outlined),
+              title: Text(l10n.usageAnalytics),
+              subtitle: Text(
+                l10n.usageAnalyticsDescription,
+                style: theme.textTheme.bodySmall,
+              ),
+              value: ref.watch(analyticsEnabledProvider),
+              onChanged: (value) =>
+                  ref.read(analyticsEnabledProvider.notifier).set(value),
             ),
           ),
 

@@ -1184,6 +1184,24 @@ abstract class AppLocalizations {
   /// **'Auto'**
   String get auto;
 
+  /// No description provided for @privacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get privacy;
+
+  /// No description provided for @usageAnalytics.
+  ///
+  /// In en, this message translates to:
+  /// **'Usage analytics'**
+  String get usageAnalytics;
+
+  /// No description provided for @usageAnalyticsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Send anonymous usage statistics to help improve this client. Never includes your server address, account or site data.'**
+  String get usageAnalyticsDescription;
+
   /// No description provided for @about.
   ///
   /// In en, this message translates to:

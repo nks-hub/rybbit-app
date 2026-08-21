@@ -587,6 +587,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get auto => '자동';
 
   @override
+  String get privacy => '개인정보';
+
+  @override
+  String get usageAnalytics => '사용 통계';
+
+  @override
+  String get usageAnalyticsDescription =>
+      '이 클라이언트를 개선하는 데 도움이 되도록 익명 사용 통계를 전송합니다. 서버 주소, 계정, 사이트 데이터는 절대 포함되지 않습니다.';
+
+  @override
   String get about => '정보';
 
   @override

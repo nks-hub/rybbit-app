@@ -587,6 +587,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get auto => '自動';
 
   @override
+  String get privacy => 'プライバシー';
+
+  @override
+  String get usageAnalytics => '利用状況の統計';
+
+  @override
+  String get usageAnalyticsDescription =>
+      'このクライアントの改善に役立てるため、匿名の利用状況統計を送信します。サーバーのアドレス、アカウント、サイトのデータが含まれることはありません。';
+
+  @override
   String get about => '情報';
 
   @override

@@ -604,6 +604,16 @@ class AppLocalizationsCs extends AppLocalizations {
   String get auto => 'Auto';
 
   @override
+  String get privacy => 'Soukromí';
+
+  @override
+  String get usageAnalytics => 'Statistiky používání';
+
+  @override
+  String get usageAnalyticsDescription =>
+      'Odesílat anonymní statistiky používání, které pomáhají vylepšovat tohoto klienta. Nikdy neobsahují adresu vašeho serveru, účet ani data vašich webů.';
+
+  @override
   String get about => 'O aplikaci';
 
   @override

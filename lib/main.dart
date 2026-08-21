@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'app.dart';
+import 'core/analytics/analytics.dart';
 import 'core/network/dio_provider.dart';
 import 'core/sentry/sentry_config.dart';
 import 'core/storage/storage_service.dart';
@@ -31,6 +32,12 @@ void main() async {
       cookieJarProvider.overrideWithValue(persistCookieJar),
     ],
   );
+
+  // Not awaited: it reaches the network and startup must not wait on it.
+  // Callers are safe either way — every event is dropped until init lands.
+  if (container.read(analyticsEnabledProvider)) {
+    unawaited(initAnalytics());
+  }
 
   await SentryConfig.init(() {
     runApp(

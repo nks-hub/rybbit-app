@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../analytics/route_tracker.dart';
 import '../../features/analytics/presentation/analytics_screen.dart';
 import '../../features/auth/application/auth_controller.dart';
 import '../../features/auth/presentation/login_screen.dart';
@@ -55,7 +56,7 @@ GoRoute _siteRoute(
 final appRouterProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authControllerProvider);
 
-  return GoRouter(
+  final router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: '/login',
     redirect: (context, state) {
@@ -226,4 +227,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       ),
     ],
   );
+
+  trackRouteChanges(router);
+  return router;
 });
