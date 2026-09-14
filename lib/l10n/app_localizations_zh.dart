@@ -615,6 +615,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get originalProject => '原始项目';
 
   @override
+  String get projectWebsite => 'Rybbit 官网';
+
+  @override
   String get viewOnGitHub => '在 GitHub 上查看';
 
   @override

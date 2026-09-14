@@ -630,6 +630,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get originalProject => 'Originalprojekt';
 
   @override
+  String get projectWebsite => 'Rybbit-Website';
+
+  @override
   String get viewOnGitHub => 'Auf GitHub ansehen';
 
   @override

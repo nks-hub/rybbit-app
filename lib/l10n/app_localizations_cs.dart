@@ -632,6 +632,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get originalProject => 'Původní projekt';
 
   @override
+  String get projectWebsite => 'Web Rybbitu';
+
+  @override
   String get viewOnGitHub => 'Zobrazit na GitHubu';
 
   @override

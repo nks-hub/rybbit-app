@@ -1238,6 +1238,12 @@ abstract class AppLocalizations {
   /// **'Original Project'**
   String get originalProject;
 
+  /// No description provided for @projectWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Rybbit Website'**
+  String get projectWebsite;
+
   /// No description provided for @viewOnGitHub.
   ///
   /// In en, this message translates to:

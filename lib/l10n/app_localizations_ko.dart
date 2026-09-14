@@ -615,6 +615,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get originalProject => '원본 프로젝트';
 
   @override
+  String get projectWebsite => 'Rybbit 웹사이트';
+
+  @override
   String get viewOnGitHub => 'GitHub에서 보기';
 
   @override

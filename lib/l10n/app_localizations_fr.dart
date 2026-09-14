@@ -628,6 +628,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get originalProject => 'Projet original';
 
   @override
+  String get projectWebsite => 'Site web de Rybbit';
+
+  @override
   String get viewOnGitHub => 'Voir sur GitHub';
 
   @override
