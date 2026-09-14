@@ -69,14 +69,14 @@ class AppLocalizationsZh extends AppLocalizations {
   String get connectionCloud => 'Rybbit Cloud';
 
   @override
-  String get connectionSelfHosted => 'Self-hosted';
+  String get connectionSelfHosted => '自托管';
 
   @override
   String get cloudApiKeyInfo =>
-      'Rybbit Cloud requires an API key from a Standard or Pro plan. Create one under Settings → Account → API Keys, then paste it below.';
+      'Rybbit Cloud 需要 Standard 或 Pro 套餐的 API 密钥。请在设置 → 账户 → API 密钥中创建，然后粘贴到下方。';
 
   @override
-  String get cloudCreateApiKey => 'Create an API key in Rybbit Cloud';
+  String get cloudCreateApiKey => '在 Rybbit Cloud 中创建 API 密钥';
 
   @override
   String get email => '邮箱';

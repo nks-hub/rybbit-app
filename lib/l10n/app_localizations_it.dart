@@ -73,10 +73,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get cloudApiKeyInfo =>
-      'Rybbit Cloud requires an API key from a Standard or Pro plan. Create one under Settings → Account → API Keys, then paste it below.';
+      'Rybbit Cloud richiede una API Key di un piano Standard o Pro. Creala in Impostazioni → Account → API Keys e incollala qui sotto.';
 
   @override
-  String get cloudCreateApiKey => 'Create an API key in Rybbit Cloud';
+  String get cloudCreateApiKey => 'Crea una API Key in Rybbit Cloud';
 
   @override
   String get email => 'Email';

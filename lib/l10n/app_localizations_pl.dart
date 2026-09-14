@@ -69,14 +69,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get connectionCloud => 'Rybbit Cloud';
 
   @override
-  String get connectionSelfHosted => 'Self-hosted';
+  String get connectionSelfHosted => 'Własny serwer';
 
   @override
   String get cloudApiKeyInfo =>
-      'Rybbit Cloud requires an API key from a Standard or Pro plan. Create one under Settings → Account → API Keys, then paste it below.';
+      'Rybbit Cloud wymaga klucza API z planu Standard lub Pro. Utwórz go w Ustawienia → Konto → Klucze API i wklej poniżej.';
 
   @override
-  String get cloudCreateApiKey => 'Create an API key in Rybbit Cloud';
+  String get cloudCreateApiKey => 'Utwórz klucz API w Rybbit Cloud';
 
   @override
   String get email => 'E-mail';

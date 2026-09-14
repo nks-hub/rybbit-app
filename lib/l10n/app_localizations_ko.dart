@@ -69,14 +69,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get connectionCloud => 'Rybbit Cloud';
 
   @override
-  String get connectionSelfHosted => 'Self-hosted';
+  String get connectionSelfHosted => '자체 호스팅';
 
   @override
   String get cloudApiKeyInfo =>
-      'Rybbit Cloud requires an API key from a Standard or Pro plan. Create one under Settings → Account → API Keys, then paste it below.';
+      'Rybbit Cloud는 Standard 또는 Pro 요금제의 API 키가 필요합니다. 설정 → 계정 → API 키에서 만든 다음 아래에 붙여넣으세요.';
 
   @override
-  String get cloudCreateApiKey => 'Create an API key in Rybbit Cloud';
+  String get cloudCreateApiKey => 'Rybbit Cloud에서 API 키 만들기';
 
   @override
   String get email => '이메일';
