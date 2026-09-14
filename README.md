@@ -23,6 +23,10 @@
   <img src="https://img.shields.io/badge/languages-11-ff6b6b" alt="Languages">
 </p>
 
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=com.nkshub.rybbit_unofficial"><img src="https://img.shields.io/badge/Google%20Play-com.nkshub.rybbit__unofficial-414141?logo=googleplay&logoColor=white" alt="Google Play"></a>
+</p>
+
 ---
 
 ## Screenshots
@@ -47,6 +51,16 @@
   <img src="screenshots/session_expanded_en.png" width="200" alt="Session Detail">
 </p>
 </details>
+
+---
+
+## Install
+
+**Google Play** — [com.nkshub.rybbit_unofficial](https://play.google.com/store/apps/details?id=com.nkshub.rybbit_unofficial). The public listing goes live with the production release; until then the build is distributed through closed testing.
+
+**From source** — see [Getting Started](#getting-started). Android 5.0+ and iOS 12+ are supported; iOS has no store build, so it has to be built and signed locally.
+
+The app is a client only. It talks to your own Rybbit instance (or Rybbit Cloud) and stores nothing of its own beyond the server URL and session.
 
 ---
 
