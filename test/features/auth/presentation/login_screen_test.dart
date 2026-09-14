@@ -230,6 +230,26 @@ void main() {
 
       expect(find.byType(TextFormField), findsNWidgets(3));
     });
+
+    testWidgets(
+        'API key validation error does not carry over to the email field',
+        (tester) async {
+      await _pump(tester, _buildWidget());
+
+      await tester.tap(find.text('API Key'));
+      await tester.pumpAndSettle();
+
+      // Submit with an empty API key so its field holds a validation error
+      await tester.tap(find.text('Connect'));
+      await tester.pumpAndSettle();
+      expect(find.text('API Key'), findsNWidgets(3)); // segment, label, error
+
+      await tester.tap(find.text('Email').first);
+      await tester.pumpAndSettle();
+
+      // Only the segment button keeps the API Key text — no stale error
+      expect(find.text('API Key'), findsOneWidget);
+    });
   });
 
   group('LoginScreen – error display', () {

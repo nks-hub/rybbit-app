@@ -253,6 +253,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     ],
                     if (_loginMode == LoginMode.email) ...[
                       TextFormField(
+                        key: const ValueKey('login-email'),
                         controller: _emailController,
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
@@ -273,6 +274,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                       const SizedBox(height: 16),
                       TextFormField(
+                        key: const ValueKey('login-password'),
                         controller: _passwordController,
                         obscureText: _obscurePassword,
                         textInputAction: TextInputAction.done,
@@ -306,6 +308,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ] else ...[
                       TextFormField(
+                        key: const ValueKey('login-api-key'),
                         controller: _apiKeyController,
                         textInputAction: TextInputAction.done,
                         autofillHints: const [AutofillHints.password],
