@@ -56,7 +56,7 @@
 
 ## Install
 
-**Google Play** — [com.nkshub.rybbit_unofficial](https://play.google.com/store/apps/details?id=com.nkshub.rybbit_unofficial). The public listing goes live with the production release; until then the build is distributed through closed testing.
+**Google Play** — [com.nkshub.rybbit_unofficial](https://play.google.com/store/apps/details?id=com.nkshub.rybbit_unofficial), released to production in 177 countries. A release goes live once Google finishes reviewing it, so a freshly submitted version can take a day or two to show up on the listing.
 
 **From source** — see [Getting Started](#getting-started). Android 5.0+ and iOS 12+ are supported; iOS has no store build, so it has to be built and signed locally.
 
