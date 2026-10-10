@@ -7,7 +7,7 @@
 [![Languages](https://img.shields.io/badge/languages-11-ff6b6b)](#supported-languages)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
-> Unofficial Flutter mobile client for [Rybbit](https://github.com/rybbit-io/rybbit) — open-source, privacy-friendly web analytics.
+> Unofficial Flutter mobile client for [Rybbit](https://github.com/rybbit-io/rybbit), an open-source web analytics platform.
 
 <p align="center">
   <img src="screenshots/dashboard_en.png" width="200" alt="Dashboard">
@@ -32,7 +32,7 @@
 
 ## Features
 
-- 📊 **Dashboard & analytics** - multi-site dashboard with real-time visitor counts and organization filtering, time-series charts with period comparison (current vs previous), selectable metrics (users, sessions, pageviews, pages/session, bounce rate, duration), flexible time range picker (today, yesterday, 7/30 days, week, month, year, custom), and advanced filtering by country, browser, OS, device, referrer, pathname and more
+- 📊 **Dashboard & analytics** - multi-site dashboard with real-time visitor counts and organization filtering, time-series charts with period comparison (current vs previous), selectable metrics (users, sessions, pageviews, pages/session, bounce rate, duration), time range picker (today, yesterday, 7/30 days, week, month, year, custom), and filters by country, browser, OS, device, referrer, pathname and more
 - 📈 **Detailed metrics** - top pages with visitor and session counts, referrer breakdown, countries with flag indicators, and browser / OS / device type / screen resolution stats
 - ⚡ **Performance (Core Web Vitals)** - LCP, CLS, FCP, TTFB and INP monitoring with Good / Needs Improvement / Poor ratings, trends over time, and breakdown by pages, countries, devices, browsers and OS
 - 🎯 **Events & custom tracking** - custom event names with occurrence counts, event properties breakdown, events over time chart, and outbound links tracking
@@ -50,9 +50,9 @@
 
 ## Installation
 
-**Google Play** — [com.nkshub.rybbit_unofficial](https://play.google.com/store/apps/details?id=com.nkshub.rybbit_unofficial), released to production in 177 countries. A release goes live once Google finishes reviewing it, so a freshly submitted version can take a day or two to show up on the listing.
+**Google Play:** [com.nkshub.rybbit_unofficial](https://play.google.com/store/apps/details?id=com.nkshub.rybbit_unofficial), released to production in 177 countries. A release goes live once Google finishes reviewing it, so a freshly submitted version can take a day or two to show up on the listing.
 
-**From source** — Android 5.0+ and iOS are supported; iOS has no store build, so it has to be built and signed locally.
+**From source:** Android 5.0+ and iOS 13+. iOS has no store build, so it has to be built and signed locally.
 
 ```bash
 git clone https://github.com/nks-hub/rybbit-app.git
@@ -101,14 +101,12 @@ Currently supported variables:
 
 ### Authentication
 
-Two auth methods supported:
-
-1. **Email + Password** — Standard login with session cookies
-2. **API Key** — Direct API key authentication
+1. Email and password, kept as session cookies
+2. Rybbit API key
 
 Enter your Rybbit server URL (e.g. `https://analytics.example.com`) and credentials on the login screen.
 
-## Supported Languages
+## Supported languages
 
 | Language | Code | Language | Code |
 |----------|------|----------|------|
@@ -119,7 +117,7 @@ Enter your Rybbit server URL (e.g. `https://analytics.example.com`) and credenti
 | French | `fr` | Chinese | `zh` |
 | Italian | `it` | | |
 
-## Tech Stack
+## Tech stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -135,7 +133,7 @@ Enter your Rybbit server URL (e.g. `https://analytics.example.com`) and credenti
 
 ## Architecture
 
-Feature-first modular architecture:
+Code is grouped by feature:
 
 ```
 lib/
@@ -203,7 +201,7 @@ flutter analyze
 flutter test
 ```
 
-### Adding a New Language
+### Adding a language
 
 1. Create `lib/l10n/app_<code>.arb` based on `app_en.arb`
 2. Translate all keys
