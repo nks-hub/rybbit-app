@@ -139,6 +139,22 @@ void main() {
       expect(state.error, 'Bad request');
     });
 
+    test('non-JSON error body → connectionFailedError, no crash', () async {
+      container = _makeContainer(mockRepo, mockStorage);
+
+      when(() => mockRepo.login(any(), any())).thenThrow(
+        _dioException(statusCode: 404, responseData: 'Not Found'),
+      );
+
+      await container
+          .read(authControllerProvider.notifier)
+          .login('https://example.com', 'a@b.com', 'pw');
+
+      final state = container.read(authControllerProvider);
+      expect(state.status, AuthStatus.unauthenticated);
+      expect(state.error, AuthController.connectionFailedError);
+    });
+
     test('success → authenticated with user and storage writes called',
         () async {
       container = _makeContainer(mockRepo, mockStorage);
@@ -226,6 +242,24 @@ void main() {
 
       final state = container.read(authControllerProvider);
       expect(state.error, 'Forbidden');
+    });
+
+    test('non-JSON error body → connectionFailedApiKeyError, no crash',
+        () async {
+      container = _makeContainer(mockRepo, mockStorage);
+
+      when(() => mockRepo.verifyApiKey()).thenThrow(
+        _dioException(statusCode: 502, responseData: '<html>Bad Gateway</html>'),
+      );
+
+      await container
+          .read(authControllerProvider.notifier)
+          .loginWithApiKey('https://example.com', 'key');
+
+      final state = container.read(authControllerProvider);
+      expect(state.status, AuthStatus.unauthenticated);
+      expect(state.isLoading, false);
+      expect(state.error, AuthController.connectionFailedApiKeyError);
     });
 
     test('valid key → authenticated with user and storage writes called',

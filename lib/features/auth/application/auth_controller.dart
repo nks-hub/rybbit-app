@@ -48,6 +48,14 @@ class AuthController extends Notifier<AuthState> {
   int _failedAttempts = 0;
   DateTime? _lockoutUntil;
 
+  /// Error text from a JSON error body. A proxy or a wrong server URL often
+  /// answers with an HTML or plain-text body, which carries no usable message.
+  static String? _serverMessage(DioException e) {
+    final data = e.response?.data;
+    if (data is! Map) return null;
+    return (data['message'] ?? data['error'])?.toString();
+  }
+
   @override
   AuthState build() {
     return const AuthState();
@@ -111,9 +119,7 @@ class AuthController extends Notifier<AuthState> {
         _lockoutUntil = DateTime.now()
             .add(Duration(seconds: 30 * (_failedAttempts - 2)));
       }
-      final message = e.response?.data?['message']?.toString() ??
-          e.response?.data?['error']?.toString() ??
-          connectionFailedError;
+      final message = _serverMessage(e) ?? connectionFailedError;
       state = state.copyWith(
         status: AuthStatus.unauthenticated,
         isLoading: false,
@@ -173,8 +179,7 @@ class AuthController extends Notifier<AuthState> {
       );
     } on DioException catch (e) {
       AppAnalytics.loginFailed('server_rejected');
-      final message = e.response?.data?['message']?.toString() ??
-          connectionFailedApiKeyError;
+      final message = _serverMessage(e) ?? connectionFailedApiKeyError;
       state = state.copyWith(
         status: AuthStatus.unauthenticated,
         isLoading: false,
