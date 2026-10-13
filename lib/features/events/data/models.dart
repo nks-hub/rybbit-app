@@ -35,12 +35,11 @@ class EventProperty {
 
   factory EventProperty.fromJson(Map<String, dynamic> json) {
     return EventProperty(
-      propertyKey: json['propertyKey'] as String? ??
-          json['property_key'] as String? ??
-          '',
-      propertyValue: json['propertyValue'] as String? ??
-          json['property_value'] as String? ??
-          '',
+      propertyKey:
+          (json['propertyKey'] ?? json['property_key'])?.toString() ?? '',
+      // Custom event properties keep their JSON type: numbers and booleans too.
+      propertyValue:
+          (json['propertyValue'] ?? json['property_value'])?.toString() ?? '',
       count: (json['count'] as num?)?.toInt() ?? 0,
     );
   }
